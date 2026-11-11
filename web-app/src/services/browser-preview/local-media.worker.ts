@@ -11,6 +11,8 @@ worker.onmessage = async event => {
     const started = performance.now()
     const adapter = await navigator.gpu?.requestAdapter()
     if (!adapter?.features.has('shader-f16')) throw new Error('Ce moteur image nécessite WebGPU et shader-f16 sur cet appareil.')
+    if (!upscaleOnly && [0, 242, 12530].includes(event.data.kernelFlags))
+      Object.assign(worker, { noveraImageKernelFlags: event.data.kernelFlags })
     const createRuntime = (await import(/* @vite-ignore */ runtimeUrl)).default
     const runtime = await createRuntime({
       print: () => {},

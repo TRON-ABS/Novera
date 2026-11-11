@@ -1,3 +1,4 @@
+import { useAndroidVisualViewport } from '@/hooks/useAndroidVisualViewport'
 import { createRootRoute, Outlet } from '@tanstack/react-router'
 // import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
 
@@ -42,6 +43,7 @@ export const Route = createRootRoute({
 })
 
 const AppLayout = () => {
+  const workspace = useAndroidVisualViewport()
   const { productAnalyticPrompt, analyticsAvailable } = useAnalytic()
   // The setup screen is the only onboarding surface: everything below that would
   // otherwise stack on top of it is deferred until it is done.
@@ -54,7 +56,7 @@ const AppLayout = () => {
   } = useLeftPanel()
 
   return (
-    <div className="novera-workspace bg-neutral-50 dark:bg-background relative h-dvh w-full overflow-hidden">
+    <div ref={workspace} data-android-workspace={IS_ANDROID ? true : undefined} className="novera-workspace bg-neutral-50 dark:bg-background relative h-dvh w-full overflow-hidden">
       <SidebarProvider
         className="h-full min-h-0"
         open={isLeftPanelOpen}

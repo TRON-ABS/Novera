@@ -30,11 +30,14 @@ export function useDashboardPanelPosition(enabled: boolean): CSSProperties {
       const viewportLeft = viewport?.offsetLeft ?? 0
       const viewportWidth = viewport?.width ?? window.innerWidth
       const width = Math.min(rect.width, viewportWidth - 16)
+      const availableAboveComposer = Math.max(0, rect.top - viewportTop - 16)
+      const useViewport = IS_ANDROID && availableAboveComposer < 160
       apply({
         left: Math.max(viewportLeft + 8, Math.min(rect.left, viewportLeft + viewportWidth - width - 8)),
         width,
-        bottom: window.innerHeight - rect.top + 8,
-        maxHeight: Math.max(0, rect.top - viewportTop - 16),
+        ...(useViewport
+          ? { top: viewportTop + 8, maxHeight: Math.max(0, (viewport?.height ?? window.innerHeight) - 16) }
+          : { bottom: window.innerHeight - rect.top + 8, maxHeight: availableAboveComposer }),
       })
     }
     const observer = new ResizeObserver(update)

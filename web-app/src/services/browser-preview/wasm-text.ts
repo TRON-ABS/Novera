@@ -1,6 +1,23 @@
+import { browserModel, type BrowserModelSpec } from './config'
+import { browserTextBatchSizes } from '../creation/auto-tune-plan'
 import type { Model, SdkResult, Turn } from './runtime'
 
 const runtimePath: string = import.meta.env.VITE_NOVERA_BROWSER_TEXT_PATH ?? ''
+export const defaultBrowserTextModel = 'LFM3-Omni-2B-Q4_K_M'
+export const browserSamplingKey = 'novera-web-sampling:' + runtimePath
+
+export function browserTextProfileKey(spec: BrowserModelSpec) {
+  return spec.id === defaultBrowserTextModel ? browserSamplingKey : JSON.stringify([browserSamplingKey, spec.id, spec.revision, spec.file])
+}
+
+export type BrowserTextProfile = { sampling: 'cpu' | 'gpu'; commandBatchSize: number }
+function preferredTextProfile(spec: BrowserModelSpec): BrowserTextProfile {
+  try {
+    const stored = JSON.parse(localStorage.getItem(browserTextProfileKey(spec)) ?? 'null')
+    return { sampling: stored?.sampling === 'cpu' ? 'cpu' : 'gpu',
+      commandBatchSize: browserTextBatchSizes.includes(stored?.commandBatchSize) ? stored.commandBatchSize : 64 }
+  } catch { return { sampling: 'gpu', commandBatchSize: 64 } }
+}
 
 export function wasmTextSupported() {
   const wasm = WebAssembly as typeof WebAssembly & { Suspending?: unknown; promising?: unknown }
@@ -14,6 +31,7 @@ type Reply = {
   error?: string
   progress?: number
   text?: string
+  ids?: number[]
   contextTokens?: number
   finishReason?: string
   promptTokens?: number
@@ -21,8 +39,11 @@ type Reply = {
   tokensPerSecond?: number
 }
 
-export async function loadWasmTextModel(signal: AbortSignal, onProgress: (fraction: number) => void): Promise<Model> {
+export async function loadWasmTextModel(signal: AbortSignal, onProgress: (fraction: number) => void, profile?: BrowserTextProfile, spec = browserModel(defaultBrowserTextModel)): Promise<Model> {
   signal.throwIfAborted()
+  profile ??= preferredTextProfile(spec)
+  const asset = spec.assets.find(entry => entry.file === spec.file)
+  if (!asset) throw new Error('Fichier du modèle absent du catalogue.')
   const base = new URL(import.meta.env.BASE_URL, window.location.href)
   const worker = new Worker(new URL(runtimePath + '/worker.mjs', base), { type: 'module' })
 
@@ -56,7 +77,7 @@ export async function loadWasmTextModel(signal: AbortSignal, onProgress: (fracti
   let progress = 0
   let contextLength: number | undefined
   try {
-    const loaded = await request({ type: 'load', catalogModel: true }, 'ready', event => {
+    const loaded = await request({ type: 'load', catalogModel: true, model: { repo: spec.repo, revision: spec.revision, ...asset }, commandBatchSize: profile.commandBatchSize }, 'ready', event => {
       if (event.type === 'loading' && typeof event.progress === 'number' && event.progress > progress) {
         progress = event.progress
         onProgress(progress)
@@ -84,7 +105,7 @@ export async function loadWasmTextModel(signal: AbortSignal, onProgress: (fracti
           const cancel = () => worker.postMessage({ type: 'cancel' })
           const result: Promise<SdkResult> = request({
             type: 'generate', messages,
-            maxTokens: options.max_new_tokens, gpuSampling: true,
+            maxTokens: options.max_new_tokens, gpuSampling: options.gpuSampling ?? (profile.sampling === 'gpu'),
           }, 'result', event => {
             if (event.type === 'text-bytes' && event.bytes) push(decoder.decode(event.bytes, { stream: true }))
           }).then(event => {
@@ -93,6 +114,7 @@ export async function loadWasmTextModel(signal: AbortSignal, onProgress: (fracti
             return {
               message: { role: 'assistant', content: event.text ?? '' },
               finish_reason: event.finishReason ?? 'stop',
+              tokenIds: event.ids,
               usage: { prompt_tokens: event.promptTokens, completion_tokens: event.completionTokens },
               timings: { tokens_per_second: event.tokensPerSecond },
             }

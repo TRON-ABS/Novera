@@ -37,6 +37,15 @@ type MockHookReturn = {
 }
 
 // Mock the dependencies
+const { progress } = vi.hoisted(() => ({
+  progress: { active: null as { task: string; model: string; provider: string } | null, remaining: null },
+}))
+vi.mock('@/services/creation/auto-tune', () => ({
+  getAutoTuneProgress: () => progress,
+  getInitialAutoTuneProgress: () => progress,
+  subscribeAutoTuneProgress: () => () => {},
+}))
+
 vi.mock('@/hooks/useModelProvider', () => ({
   useModelProvider: vi.fn(),
 }))
@@ -112,6 +121,21 @@ vi.mock('../ModelSupportStatus', () => ({
 }))
 
 describe('DropdownModelProvider - Display Name Integration', () => {
+  it('shows the tested model in the classic composer slot without selecting it', () => {
+    progress.active = { task: 'text', model: 'LFM3-Omni-2B-Q4_K_M.gguf', provider: 'llamacpp' }
+    try {
+      const view = render(<DropdownModelProvider variant="composer" mediaScope="test-slot" />)
+      expect(screen.getByTestId('model-selector-trigger')).toHaveTextContent('LFM3-Omni-2B-Q4_K_M.gguf')
+      expect(screen.getByTestId('model-selector-trigger')).toHaveClass('composer-model')
+      expect(useModelProvider().selectModelProvider).not.toHaveBeenCalled()
+      progress.active = null
+      view.rerender(<DropdownModelProvider variant="composer" mediaScope="test-slot" disabled />)
+      expect(screen.getByTestId('model-selector-trigger')).toHaveTextContent('Custom Model 1')
+    } finally {
+      progress.active = null
+    }
+  })
+
   it('shows the configured image engine without an explicit saved selection, then follows Auto drafts and submitted work', async () => {
     useCreation.setState({ settings: { ...creationDefaults, imageEngine: 'sdcpp', ggufImageModel: 'D:/models/flux-2-klein-4b-Q6_K.gguf' }, videoSettings: { ...creationDefaults, videoModel: 'D:/models/Wan2.1.gguf' }, selections: {}, modes: { 'label-fix': 'image' }, resolvedModes: {} })
     const view = (draftPrompt = '', disabled = false) => <DropdownModelProvider variant="composer" mediaScope="label-fix" draftPrompt={draftPrompt} disabled={disabled} />

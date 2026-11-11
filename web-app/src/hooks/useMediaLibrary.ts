@@ -144,6 +144,7 @@ export const useMediaLibrary = create<{
     }
   )
 )
+
 export function selectMediaProfile(profile: MediaProfile, scope?: string) {
   const state = useCreation.getState()
   const configure = profile.task === 'video' ? state.setVideoSettings : state.setSettings

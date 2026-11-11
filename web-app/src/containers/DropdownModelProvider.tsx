@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useEffect, useState, useRef, useMemo, useCallback, memo } from 'react'
+import { useEffect, useState, useRef, useMemo, useCallback, useSyncExternalStore, memo } from 'react'
+import { getAutoTuneProgress, getInitialAutoTuneProgress, subscribeAutoTuneProgress } from '@/services/creation/auto-tune'
 import {
   Popover,
   PopoverContent,
@@ -103,6 +104,7 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
   useLastUsedModel = false,
   onModelChange,
 }: DropdownModelProviderProps) {
+  const { active: autoTuneTest } = useSyncExternalStore(subscribeAutoTuneProgress, getAutoTuneProgress, getInitialAutoTuneProgress)
   const {
     providers,
     getProviderByName,
@@ -679,7 +681,12 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
     ? allProviders.find((item) => item.provider === selectedMedia.provider)
     : undefined
   const provider = mediaProvider ?? (activeMediaMode ? undefined : getProviderByName(selectedProvider))
-  const displayedName = selectedMedia
+  const tested = variant === 'composer' && !open ? autoTuneTest : null
+  const testedProvider = tested ? allProviders.find(item => item.provider === tested.provider) : undefined
+  const testedModel = testedProvider?.models.find(item => item.id === tested?.model)
+  const shownProvider = tested ? testedProvider : provider
+  const testedName = testedModel ? getModelDisplayName(testedModel) : tested?.model.split(/[\\/]/).at(-1)
+  const displayedName = testedName ?? (selectedMedia
     ? getModelDisplayName(
         mediaProvider?.models.find((item) => item.id === selectedMedia.id) ?? {
           id: selectedMedia.id,
@@ -687,7 +694,7 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
       )
     : mode === 'music' && mediaAllowed
       ? music.profiles.find(profile => profile.id === music.selections[scope])?.name || music.settings.generator || t('common:selectAModel')
-      : activeMediaMode ? t('common:selectAModel') : displayModel
+      : activeMediaMode ? t('common:selectAModel') : displayModel)
 
   return (
     <Popover open={open} onOpenChange={onOpenChange}>
@@ -702,9 +709,9 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
             disabled={disabled}
             className="font-medium cursor-pointer flex items-center gap-1.5 relative z-20 min-w-0"
           >
-            {provider && (
+            {shownProvider && (
               <div className="shrink-0">
-                <ProvidersAvatar provider={provider} />
+                <ProvidersAvatar provider={shownProvider} />
               </div>
             )}
             <Tooltip>
@@ -712,18 +719,18 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
                 <span
                   className={cn(
                     'text-foreground truncate leading-normal',
-                    !selectedModel?.id && 'text-muted-foreground'
+                    !tested && !selectedModel?.id && 'text-muted-foreground'
                   )}
                 >
                   {displayedName}
                 </span>
               </TooltipTrigger>
-              <TooltipContent>{displayedName}</TooltipContent>
+              <TooltipContent>{tested ? t('ui:autoTuneInProgress') + ' · ' : ''}{displayedName}</TooltipContent>
             </Tooltip>
             <ChevronsUpDown className="size-4 shrink-0 text-muted-foreground" />
           </button>
           </PopoverTrigger>
-          {!activeMediaMode && currentModel &&
+          {!tested && !activeMediaMode && currentModel &&
             provider &&
             LOCAL_MODEL_PROVIDERS.has(provider.provider) && (
               <div onClick={(e) => e.stopPropagation()}>
@@ -733,11 +740,11 @@ const DropdownModelProvider = memo(function DropdownModelProvider({
                 />
               </div>
             )}
-          {selectedMedia && <MediaSettingsButton onClick={() => {
+          {!tested && selectedMedia && <MediaSettingsButton onClick={() => {
             setOpen(false)
             window.dispatchEvent(new CustomEvent('novera-creation-settings', { detail: { scope, task: mode } }))
           }} />}
-          {!activeMediaMode && (
+          {!tested && !activeMediaMode && (
             <ModelSupportStatus
               modelId={selectedModel?.id}
               provider={selectedProvider}

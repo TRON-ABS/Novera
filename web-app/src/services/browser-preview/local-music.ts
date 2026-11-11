@@ -1,4 +1,5 @@
 import type { UIMessageChunk } from 'ai'
+import { browserMusicProfiles } from '../creation/auto-tune-plan'
 import { useCreation } from '@/hooks/useCreation'
 import { useMusicCreation } from '@/hooks/useMusicCreation'
 import { imageSeedPlan } from '@/modules/engines/image-seed'
@@ -6,8 +7,10 @@ import { musicDurationFromPrompt, type MusicSettings } from '@/modules/engines/m
 import { parseMusicPrompt } from '@/modules/engines/music-prompt'
 import { creationReference } from '@/modules/engines/creation'
 import { browserRuntime } from './runtime'
+import { browserMediaProfile, browserMediaProfileKey, browserMediaWorkerTrial, type BrowserMediaProbe } from './auto-tune'
 import { saveBrowserLocalMedia } from './media'
 import { browserMusicTiming } from './music-performance'
+import { registerBrowserAutoTuneSource } from './auto-tune-registry'
 
 export const BROWSER_MUSIC_PROVIDER = 'novera-browser-music'
 export const BROWSER_MUSIC_MODEL = 'acestep-v15-turbo-Q4_K_M'
@@ -23,11 +26,39 @@ export function browserMusicQuality(quality: MusicSettings['quality']) {
 export const musicComponentNames = ['acestep-5Hz-lm-1.7B-Q8_0.gguf', 'acestep-v15-turbo-Q4_K_M.gguf', 'Qwen3-Embedding-0.6B-Q8_0.gguf', 'vae-BF16.gguf'] as const
 export function browserLocalMusicEnabled() { return import.meta.env.VITE_NOVERA_WEB_LOCAL_MUSIC === 'true' }
 let modelFiles: File[] | undefined
+export function browserMusicFiles() { return modelFiles?.slice() ?? [] }
 let active = false
 export function setBrowserMusicFiles(files: File[]) {
   if (active) throw new Error('Attendez la fin de la création avant de changer de modèle.')
   if (files.length !== 4 || files.some((file, index) => file.name !== musicComponentNames[index] || !file.size)) throw new Error('Sélectionnez les quatre composants ACE-Step indiqués.')
   modelFiles = files.slice()
+  const imported = modelFiles.slice()
+  registerBrowserAutoTuneSource('music:' + browserMediaProfileKey(musicRuntime, imported), () => browserMusicAutoTuneProbe(imported))
+}
+
+const musicRuntime = import.meta.env.VITE_NOVERA_BROWSER_MUSIC_PATH ?? ''
+
+export function browserMusicAutoTuneProbe(imported = modelFiles): BrowserMediaProbe | undefined {
+  if (!browserLocalMusicEnabled() || !musicRuntime || !imported) return
+  const files = imported.slice()
+  const runtimeUrl = new URL(`${import.meta.env.BASE_URL}${musicRuntime}/novera-music.mjs`, document.baseURI)
+  return { task: 'music', model: BROWSER_MUSIC_MODEL, provider: BROWSER_MUSIC_PROVIDER,
+    components: [{ model: files[0].name, role: 'planner' }, { model: files[2].name, role: 'encoder' }, { model: files[3].name, role: 'vae' }],
+    key: browserMediaProfileKey(musicRuntime, files), candidates: browserMusicProfiles,
+    defaults: { ditWindows: true, encoderWindows: true, plannerWindows: true },
+    async run(candidate, signal, confirmation) {
+      if (active || Object.values(useCreation.getState().progress).some(Boolean)) throw new Error('CALIBRATION_BUSY')
+      const receipt = await fetch(new URL('BUILD-VERIFICATION.json', runtimeUrl), { signal }).then(res => res.json())
+      if (!['workerfs-composite-window-loader', 'workerfs-text-encoder-window-selection', 'workerfs-planner-window-selection']
+        .every(name => receipt.sources?.patches?.some(({ patch }: { patch: string }) => patch === 'patches/' + name + '.patch')))
+        throw new Error('No alternate music loading profile')
+      return browserMediaWorkerTrial(new Worker(new URL('./local-music.worker.ts', import.meta.url), { type: 'module' }), {
+        runtimeUrl: runtimeUrl.href, files, prompt: confirmation ? 'Gentle jazz trio with piano and brushed drums' : 'Acoustic instrumental with a gentle rhythm',
+        lyrics: '[Instrumental]', language: 'unknown', seconds: 10, seed: confirmation ? 71 : 42, bitrate: 0,
+        ...candidate,
+      }, 'audio', signal)
+    },
+  }
 }
 
 export function browserLocalMusicStream(prompt: string, scope: string, settings: MusicSettings, signal: AbortSignal | undefined, onFinish: () => void): ReadableStream<UIMessageChunk> {
@@ -47,7 +78,7 @@ export function browserLocalMusicStream(prompt: string, scope: string, settings:
     async start(output) {
       try {
         controller.signal.throwIfAborted()
-        if (!browserLocalMusicEnabled() || !modelFiles) throw new Error('Choisissez les quatre fichiers ACE-Step dans les réglages de création pour cette session.')
+        if (!browserLocalMusicEnabled() || !modelFiles) throw new Error('Choisissez les quatre fichiers ACE-Step dans les réglages de création.')
         const song = parseMusicPrompt(prompt)
         const caption = song ? song.caption : prompt.replace(/^\/(?:music|musique)\s*/i, '')
         const lyrics = settings.instrumental ? '[Instrumental]' : song?.lyrics ?? settings.lyrics
@@ -70,6 +101,7 @@ export function browserLocalMusicStream(prompt: string, scope: string, settings:
         const plan = imageSeedPlan(settings.seed, settings.seedMode, settings.seedMode === 'random' ? crypto.getRandomValues(new Uint32Array(1))[0] : 0)
         useMusicCreation.getState().setSettings({ seed: plan.nextSeed, lastSeed: plan.seed }, scope)
         worker = new Worker(new URL('./local-music.worker.ts', import.meta.url), { type: 'module' })
+        const profile = seconds === 10 ? browserMediaProfile(browserMediaProfileKey(musicRuntime, files)) : undefined
         const timings: Record<string, number> = {}
         const result = await new Promise<{ audio: Blob; seconds: number }>((resolve, reject) => {
           let settled = false
@@ -91,7 +123,7 @@ export function browserLocalMusicStream(prompt: string, scope: string, settings:
             else if (data.type === 'error') complete(new Error(String(data.message).slice(0, 1000)))
             else if (['planning', 'synthesizing', 'decoding'].includes(data.phase)) useCreation.getState().setProgress(scope, { stage: 'generating', progress: data.phase === 'decoding' ? 85 : 20 })
           }
-          worker!.postMessage({ runtimeUrl: new URL(`${import.meta.env.BASE_URL}${directory}/novera-music.mjs`, document.baseURI).href, files, prompt: caption, lyrics, language, seconds, seed: plan.seed, bitrate })
+          worker!.postMessage({ runtimeUrl: new URL(`${import.meta.env.BASE_URL}${directory}/novera-music.mjs`, document.baseURI).href, files, prompt: caption, lyrics, language, seconds, seed: plan.seed, bitrate, ditWindows: profile?.ditWindows, encoderWindows: profile?.encoderWindows, plannerWindows: profile?.plannerWindows })
         })
         controller.signal.throwIfAborted()
         useCreation.getState().setProgress(scope, { stage: 'saving', progress: 98 })

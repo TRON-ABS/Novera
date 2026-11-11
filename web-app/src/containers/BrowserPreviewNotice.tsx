@@ -1,4 +1,5 @@
-import { useSyncExternalStore } from 'react'
+import { restoreBrowserModelImports } from '@/services/browser-preview/model-imports'
+import { useEffect, useSyncExternalStore } from 'react'
 import { browserRuntime, BROWSER_CONTEXT_TOKENS } from '@/services/browser-preview/runtime'
 import { browserCatalog } from '@/services/browser-preview/config'
 import { useModelProvider } from '@/hooks/useModelProvider'
@@ -6,6 +7,7 @@ import { BrowserUpdateNotice } from './BrowserUpdateNotice'
 import { BrowserSearchNotice } from './BrowserSearchNotice'
 
 export function BrowserPreviewNotice() {
+  useEffect(() => { void restoreBrowserModelImports() }, [])
   const state = useSyncExternalStore(browserRuntime.subscribe, browserRuntime.snapshot)
   const selected = useModelProvider(store => store.selectedModel)
   const select = useModelProvider(store => store.selectModelProvider)
@@ -13,7 +15,7 @@ export function BrowserPreviewNotice() {
   const busy = state.phase === 'loading' || state.phase === 'generating'
   return <aside aria-label="Novera Web expérimentale" className="border-b border-border px-4 py-2 text-xs bg-muted/50 text-foreground shrink-0">
     <div className="flex flex-wrap items-center gap-2">
-      <strong>Novera Web 1.0.1 · expérimentale</strong>
+      <strong>Novera Web {VERSION} · expérimentale</strong>
       <span>Texte sur cet appareil · sans clé API</span>
       <span>{spec.name} · {(spec.bytes / 1e9).toFixed(2)} Go au premier chargement</span>
       <span>Contexte · {BROWSER_CONTEXT_TOKENS.toLocaleString('fr-FR')} tokens</span>

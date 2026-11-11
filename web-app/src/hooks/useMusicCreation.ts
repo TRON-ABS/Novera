@@ -113,6 +113,7 @@ export const useMusicCreation = create<{
   )
 )
 
+
 export function musicSettingsFor(scope: string): MusicSettings {
   const state = useMusicCreation.getState()
   return normalizeMusicSettings(

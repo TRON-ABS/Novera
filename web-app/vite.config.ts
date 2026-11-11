@@ -10,6 +10,7 @@ import { prepareSymbols, uploadSymbols } from '../scripts/monitoring/symbols.mjs
 import { resolvePublicTelemetry } from '../scripts/monitoring/telemetry.mjs'
 import publicTelemetry from '../scripts/monitoring/novera-telemetry.public.json'
 const host = process.env.TAURI_DEV_HOST
+const __dirname = import.meta.dirname
 
 // https://vite.dev/config/
 export default defineConfig(({ mode, command }) => {

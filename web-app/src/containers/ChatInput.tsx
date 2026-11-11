@@ -6,6 +6,7 @@ import DropdownModelProvider from './DropdownModelProvider'
 import { DownloadManagement } from './DownloadManegement'
 import { ComposerNavigation } from './ComposerNavigation'
 import { MemoryModeControl } from './MemoryModeControl'
+import { AutoTuneControl, useDesktopAutoTuneEnabled } from './AutoTuneControl'
 import { useCreation } from '@/hooks/useCreation'
 import { resolveOutputMode } from '@/modules/engines/creation'
 import { cn, formatBytes } from '@/lib/utils'
@@ -287,6 +288,7 @@ const ChatInput = memo(function ChatInput({
 }: ChatInputProps) {
 
   const isStreaming = chatStatus === 'submitted' || chatStatus === 'streaming'
+  const autoTuneLocksComposer = useDesktopAutoTuneEnabled() === true
   const turnBusy = isStreaming || !!toolsRunning
   const textareaRef = useRef<HTMLTextAreaElement>(null)
   const [composerFolded, setComposerFolded] = useComposerDisclosure()
@@ -657,6 +659,7 @@ const ChatInput = memo(function ChatInput({
   const MCPToolComponent = mcpExtension?.getToolComponent?.()
 
   const handleSendMessage = async (prompt: string) => {
+    if (autoTuneLocksComposer) return
     const creationScope = currentThreadId ?? 'new'
     const creationState = useCreation.getState()
     const outputMode = effectiveAgentMode || scopeKey ? 'text' : resolveOutputMode(creationState.modes[creationScope] ?? 'auto', prompt)
@@ -2083,8 +2086,9 @@ const ChatInput = memo(function ChatInput({
   }
 
   return (
-    <div className="relative mx-auto w-full max-w-[1280px]" data-dashboard-composer>
-      <div className="relative">
+    <div className="relative mx-auto flex min-h-0 w-full max-w-[1280px] flex-col" data-dashboard-composer>
+      {!effectiveAgentMode && !scopeKey && <div className="min-h-0 overflow-y-auto" data-auto-tune-panel />}
+      <div className="relative shrink-0">
         <div
           className={cn(
             'relative overflow-hidden p-0.5 rounded-3xl'
@@ -2282,6 +2286,8 @@ const ChatInput = memo(function ChatInput({
               maxRows={10}
               value={prompt}
               data-testid={'chat-input'}
+              disabled={autoTuneLocksComposer}
+              title={autoTuneLocksComposer ? t('ui:autoTuneComposerLocked') : undefined}
               onScroll={(event) => {
                 if (highlightRef.current) {
                   highlightRef.current.scrollTop = event.currentTarget.scrollTop
@@ -2364,7 +2370,7 @@ const ChatInput = memo(function ChatInput({
                 }
               }}
               onPaste={handlePaste}
-              placeholder={t('common:placeholder.chatInput')}
+              placeholder={t(autoTuneLocksComposer ? 'ui:autoTuneComposerLocked' : 'common:placeholder.chatInput')}
               spellCheck={spellCheckChatInput}
               data-gramm={spellCheckChatInput}
               data-gramm_editor={spellCheckChatInput}
@@ -2380,7 +2386,7 @@ const ChatInput = memo(function ChatInput({
               scope={scopeKey ?? currentThreadId ?? 'new'}
               isNew={!currentThreadId || currentThreadId === TEMPORARY_CHAT_ID}
               eligible={!effectiveAgentMode && !scopeKey}
-              busy={turnBusy}
+              busy={turnBusy || autoTuneLocksComposer}
               failed={chatStatus === 'error'}
               canStart={Boolean(selectedModel) && !ingestingAny && !prompt.trim() && attachments.length === 0}
               canContinue={Boolean(selectedModel) && !ingestingAny && attachments.length === 0}
@@ -2435,7 +2441,7 @@ const ChatInput = memo(function ChatInput({
                       <Button
                         variant="default"
                         size="icon-sm"
-                        disabled={(!prompt.trim() && !hasSendableMedia) || ingestingAny}
+                        disabled={autoTuneLocksComposer || (!prompt.trim() && !hasSendableMedia) || ingestingAny}
                         data-test-id="send-message-button"
                         data-testid="send-message-button"
                         data-state="idle"
@@ -2472,7 +2478,7 @@ const ChatInput = memo(function ChatInput({
             )}
 
             <div id={composerContentId} hidden={composerFolded}>
-        {!effectiveAgentMode && !scopeKey && <CreationControls scope={currentThreadId ?? 'new'} disabled={turnBusy} prompt={prompt} showSettingsButton={false} />}
+        {!effectiveAgentMode && !scopeKey && <CreationControls scope={currentThreadId ?? 'new'} disabled={turnBusy} prompt={prompt} showSettingsButton={false} autoTuneEnabled={autoTuneLocksComposer} />}
         <div className="composer-footer relative z-20 w-full p-2">
           <div
             ref={controlRowRef}
@@ -3105,6 +3111,7 @@ const ChatInput = memo(function ChatInput({
                       model={model} useLastUsedModel={initialMessage} disabled={turnBusy} />
                   </div>
                   <MemoryModeControl scope={currentThreadId ?? 'new'} />
+                  <AutoTuneControl />
                   <CreationSettingsControl scope={currentThreadId ?? 'new'} disabled={turnBusy} />
                   <DownloadManagement composer />
                 </div>

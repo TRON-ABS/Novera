@@ -1,5 +1,5 @@
 import { browserModel, type BrowserModelSpec } from './config'
-import { loadWasmTextModel, wasmTextSupported } from './wasm-text'
+import { loadWasmTextModel, wasmTextSupported, type BrowserTextProfile } from './wasm-text'
 
 export type BrowserToolCall = { id: string; type: 'function'; function: { name: string; arguments: Record<string, unknown> }; errors?: string[] }
 export type BrowserTool = { type: 'function'; function: { name: string; description?: string; parameters?: Record<string, unknown> } }
@@ -7,7 +7,7 @@ export type BrowserMessage = { role: string; content: string; tool_calls?: Brows
 type SdkEvent = { type: string; text?: string }
 type SpeechEvent = SdkEvent & { audio?: Float32Array }
 export type SpeechMessage = { role: string; content: string | { type: 'audio'; audio: Float32Array }[] }
-export type SdkResult = { message: BrowserMessage; finish_reason: string; usage?: { prompt_tokens?: number; completion_tokens?: number; cached_tokens?: number }; timings?: { tokens_per_second?: number } }
+export type SdkResult = { message: BrowserMessage; tokenIds?: number[]; finish_reason: string; usage?: { prompt_tokens?: number; completion_tokens?: number; cached_tokens?: number }; timings?: { tokens_per_second?: number } }
 export type Turn = AsyncIterable<SdkEvent> & { result: Promise<SdkResult>; cancel(): void }
 type Session = { generate(messages: (BrowserMessage | SpeechMessage)[], options: Record<string, unknown>): Turn; reset(): void; dispose(): Promise<void> }
 export type Model = { contextLength?: number; create_session(): Session; dispose(): Promise<void> }
@@ -48,6 +48,7 @@ export class BrowserRuntime {
   private engine?: 'wasm' | 'sdk'
   private loadingEngine?: 'wasm' | 'sdk'
   private previousHistory?: BrowserMessage[]
+  private calibrating = false
 
   constructor(private sdkLoader = loadPinnedSdk, private gpuAvailable = async () => {
     const gpu = (navigator as Navigator & { gpu?: { requestAdapter(): Promise<unknown> } }).gpu
@@ -61,14 +62,19 @@ export class BrowserRuntime {
   cancelLoad() { this.loadController?.abort() }
 
   async load(id: string, preferSdk = false): Promise<void> {
+    if (this.calibrating) throw new Error('CALIBRATION_BUSY')
+    return this.loadModel(id, preferSdk)
+  }
+
+  private async loadModel(id: string, preferSdk = false): Promise<void> {
     const spec = browserModel(id)
-    const engine = !preferSdk && spec.id === 'LFM3-Omni-2B-Q4_K_M' && wasmTextSupported() ? 'wasm' : 'sdk'
+    const engine = !preferSdk && wasmTextSupported() ? 'wasm' : 'sdk'
     if (this.model && this.activeId === id && this.engine === engine) return
     if (this.loadJob) {
       if (this.status.modelId === id && this.loadingEngine === engine) return this.loadJob
       this.cancelLoad()
       await this.loadJob.catch(() => {})
-      return this.load(id, preferSdk)
+      return this.loadModel(id, preferSdk)
     }
     if (this.turn) throw new Error('Arrêtez la réponse en cours avant de changer de modèle.')
     const controller = new AbortController()
@@ -98,7 +104,7 @@ export class BrowserRuntime {
           },
         })
       }
-      const model = await (engine === 'wasm' ? loadWasmTextModel(controller.signal, progress) : loadSdk())
+      const model = await (engine === 'wasm' ? loadWasmTextModel(controller.signal, progress, undefined, spec) : loadSdk())
       if (controller.signal.aborted) { await model.dispose(); controller.signal.throwIfAborted() }
       if (typeof model.contextLength === 'number' && model.contextLength < BROWSER_CONTEXT_TOKENS) {
         await model.dispose()
@@ -125,12 +131,13 @@ export class BrowserRuntime {
   }
 
   async *generate(id: string, messages: BrowserMessage[], signal?: AbortSignal, maxTokens = 512, tools?: BrowserTool[]): AsyncGenerator<{ text?: string; result?: SdkResult }> {
+    if (this.calibrating) throw new Error("CALIBRATION_BUSY")
     const requiresSdk = messages.at(-1)?.role === 'assistant' ||
       messages.some(message => message.role === 'tool' || message.tool_calls?.length)
     signal?.throwIfAborted()
     await this.load(id, requiresSdk)
     signal?.throwIfAborted()
-    if (this.turn || !this.session) throw new Error('Le moteur est occupé. Attendez la fin de la réponse.')
+    if (this.calibrating || this.turn || !this.session) throw new Error('Le moteur est occupé. Attendez la fin de la réponse.')
     // Both pinned SDKs reconcile token prefixes internally. Reuse their cache
     // only when the complete previous exchange is an exact prefix of this one.
     // Edited, independent, regenerated or cancelled conversations reset it.
@@ -179,7 +186,7 @@ export class BrowserRuntime {
     signal.throwIfAborted()
     await this.load(id, true)
     signal.throwIfAborted()
-    if (this.turn || !this.model) throw new Error('unavailable')
+    if (this.calibrating || this.turn || !this.model) throw new Error('unavailable')
     const session = this.model.create_session()
     let turn: Turn | undefined
     const cancel = () => turn?.cancel()
@@ -209,7 +216,50 @@ export class BrowserRuntime {
     }
   }
 
+  async compareWasmSampling<T>(
+    signal: AbortSignal,
+    compare: (sample: (profile: BrowserTextProfile, confirmation: boolean) => Promise<SdkResult>) => Promise<T>,
+    spec: BrowserModelSpec,
+  ): Promise<T> {
+    if (this.calibrating || this.turn || this.loadJob) throw new Error('CALIBRATION_BUSY')
+    const unloading = this.unload()
+    this.calibrating = true
+    try {
+      await unloading
+      return await compare(async (profile, confirmation) => {
+        signal.throwIfAborted()
+        const model = await loadWasmTextModel(signal, () => {}, profile, spec)
+        let session: Session
+        try { session = model.create_session() }
+        catch (error) { await model.dispose(); throw error }
+        const generate = async (content: string, maxTokens: number) => {
+          signal.throwIfAborted()
+          const turn = session.generate([{ role: 'user', content }], {
+            generation_mode: 'text', max_new_tokens: maxTokens, do_sample: false,
+          })
+          const cancel = () => turn.cancel()
+          signal.addEventListener('abort', cancel, { once: true })
+          try {
+            const result = await turn.result
+            signal.throwIfAborted()
+            return result
+          } finally { signal.removeEventListener('abort', cancel) }
+        }
+        try {
+          await generate('Name the first two prime numbers.', 8)
+          return await generate(confirmation
+            ? 'Explain how a solar eclipse occurs. Use at least six numbered paragraphs with concrete examples.'
+            : 'Name the first eight prime numbers in order.', confirmation ? 512 : 32)
+        } finally {
+          await session.dispose()
+          await model.dispose()
+        }
+      })
+    } finally { this.calibrating = false }
+  }
+
   async unload() {
+    if (this.calibrating) throw new Error("CALIBRATION_BUSY")
     this.cancelLoad()
     const pending = this.loadJob
     if (pending) await pending.catch(() => {})

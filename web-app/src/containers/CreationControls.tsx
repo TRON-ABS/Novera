@@ -1,6 +1,9 @@
+import { BrowserModelsFolderSetup } from './BrowserModelsFolderSetup'
+import { BrowserLocalVideoSetup } from './BrowserLocalVideoSetup'
 import { ManagedComponents } from './ManagedComponents'
 import { managedDefault } from '@/services/components'
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
+import { getAutoTuneProgress, getInitialAutoTuneProgress, subscribeAutoTuneProgress } from '@/services/creation/auto-tune'
 import { IconPhoto, IconVideo, IconCheck, IconChevronDown } from '@tabler/icons-react'
 import { useMediaLibrary, selectMediaProfile } from '@/hooks/useMediaLibrary'
 import { useCreation, videoSettingsFor } from '@/hooks/useCreation'
@@ -19,6 +22,7 @@ import {
 import { isPlatformTauri } from '@/lib/platform/utils'
 import { browserPreviewEnabled } from '@/services/browser-preview/config'
 import { BrowserLocalMediaSetup } from './BrowserLocalMediaSetup'
+import { browserWanAutoTuneAvailable } from '@/services/browser-preview/local-video-calibration'
 import { BROWSER_IMAGE_MODEL, BROWSER_IMAGE_PROVIDER, browserLocalImagesEnabled, browserImageUpscaleReady } from '@/services/browser-preview/local-media'
 import { NATIVE_IMAGE_MODEL, NATIVE_IMAGE_PROVIDER, useNativeImageBridge } from '@/services/browser-preview/native-image-bridge'
 import { BROWSER_MUSIC_PROVIDER, browserLocalMusicEnabled } from '@/services/browser-preview/local-music'
@@ -52,12 +56,14 @@ export function CreationControls({
   panelTask,
   prompt = '',
   showSettingsButton = true,
+  autoTuneEnabled = false,
 }: {
   scope: string
   disabled: boolean
   panelTask?: 'image' | 'video'
   prompt?: string
   showSettingsButton?: boolean
+  autoTuneEnabled?: boolean
 }) {
 
   const { t } = useTranslation()
@@ -120,6 +126,7 @@ export function CreationControls({
   const isCloud = (!panelTask&&mode==='music')?false:selection && selection.provider !== 'diffusers' && !browserImage
   const progress = state.progress[scope]
   const desktop = isPlatformTauri()
+  const { active: autoTuneTest } = useSyncExternalStore(subscribeAutoTuneProgress, getAutoTuneProgress, getInitialAutoTuneProgress)
   const numericSettings =
     task === 'video'
       ? (['width', 'height', 'steps', 'frames', 'fps', 'seed'] as const)
@@ -671,47 +678,60 @@ export function CreationControls({
           role="group"
           aria-label={t('chat:creation.output')}
         >
-          {(['auto', 'text', 'image', 'music', 'video'] as OutputMode[]).map((item) => (
-            <Button
-              key={item}
-              size="sm"
-              variant="ghost"
-              className={cn(
-                'composer-mode border border-transparent',
-                (mode === item || (item === 'auto' && selectedMode === 'auto')) && 'composer-tool-active'
-              )}
-              disabled={
-                disabled || (!desktop && !webPreview && (item === 'image' || item === 'music' || item === 'video'))
-              }
-              aria-pressed={mode === item || (item === 'auto' && selectedMode === 'auto')}
-              onClick={() => {
-                state.setMode(scope, item)
-                setSettingsTask(item === 'video' ? 'video' : 'image')
-                if (item === 'text' || item === 'video' || item === 'music') state.setSource(scope)
-                if (
-                  (item === 'image' &&
-                    !imagePath &&
-                    !state.selections[scope]?.image) ||
-                  (item === 'music' && !musicSettingsFor(scope).generator && !state.selections[scope]?.music) ||
-                  (item === 'video' &&
-                    !videoSettingsFor(baseState).videoModel &&
-                    !state.selections[scope]?.video)
-                )
-                  setOpen(true)
-              }}
-            >
-              <span className="composer-mode-main">
-              {item === 'image' ? (
-                <IconPhoto size={14} />
-              ) : item === 'music' ? <Music2 size={14}/> : item === 'video' ? (
-                <IconVideo size={14} />
-              ) : item === 'auto' ? <Sparkles size={16} aria-hidden="true" /> : <FileText size={16} aria-hidden="true" />}
-              <span className="composer-mode-label">{t(`chat:creation.${item}`)}</span>
-              {mode === item || (item === 'auto' && selectedMode === 'auto') ? <IconCheck size={12} aria-hidden="true" /> : <ComposerStatusSwitch active={false} />}
-              </span>
-              <span className="composer-mode-status" aria-hidden="true">{mode === item || (item === 'auto' && selectedMode === 'auto') ? t('common:activeSuffix').replace(/[()]/g, '').trim().toUpperCase() : t('ui:off')}</span>
-            </Button>
-          ))}
+          {(['auto', 'text', 'image', 'music', 'video'] as OutputMode[]).map((item) => {
+            const testing = autoTuneTest?.task === item
+            const tuning = item === 'auto' && autoTuneEnabled
+            const selected = mode === item || (item === 'auto' && selectedMode === 'auto')
+            const active = autoTuneEnabled ? testing || tuning : selected
+            return (
+              <Button
+                key={item}
+                size="sm"
+                variant="ghost"
+                className={cn(
+                  'composer-mode border border-transparent',
+                  active && 'composer-tool-active',
+                  (testing || tuning) && 'composer-mode-calibrating'
+                )}
+                disabled={
+                  disabled || (!desktop && !webPreview && (item === 'image' || item === 'music' || item === 'video'))
+                }
+                aria-pressed={active}
+                title={testing ? t('ui:autoTuneInProgress') : tuning ? 'Auto Tune' : undefined}
+                onClick={() => {
+                  state.setMode(scope, item)
+                  setSettingsTask(item === 'video' ? 'video' : 'image')
+                  if (item === 'text' || item === 'video' || item === 'music') state.setSource(scope)
+                  if (
+                    (item === 'image' &&
+                      !imagePath &&
+                      !state.selections[scope]?.image) ||
+                    (item === 'music' && !musicSettingsFor(scope).generator && !state.selections[scope]?.music) ||
+                    (item === 'video' &&
+                      !videoSettingsFor(baseState).videoModel &&
+                      !state.selections[scope]?.video)
+                  )
+                    setOpen(true)
+                }}
+              >
+                <span className="composer-mode-main">
+                {item === 'image' ? (
+                  <IconPhoto size={14} />
+                ) : item === 'music' ? <Music2 size={14}/> : item === 'video' ? (
+                  <IconVideo size={14} />
+                ) : item === 'auto' ? <Sparkles size={16} aria-hidden="true" /> : <FileText size={16} aria-hidden="true" />}
+                <span className="composer-mode-label">{t(`chat:creation.${item}`)}</span>
+                {active ? <IconCheck size={12} aria-hidden="true" /> : <ComposerStatusSwitch active={false} />}
+                </span>
+                <span className="composer-mode-status" aria-hidden="true">{
+                  testing ? t('ui:autoTuneInProgress') : tuning ? 'Auto Tune' :
+                    active
+                      ? t('common:activeSuffix').replace(/[()]/g, '').trim().toUpperCase()
+                      : t('ui:off')
+                }</span>
+              </Button>
+            )
+          })}
         </div>
         {showSettingsButton && <CreationSettingsControl scope={scope} disabled={disabled} onOpen={() => setOpen(true)} />}
       </div>
@@ -875,6 +895,7 @@ export function CreationControls({
             <DialogTitle className="flex items-center gap-2"><ShieldCheck className="size-5 text-cyan-400" />Novera · {t('common:settings')}</DialogTitle>
             <DialogDescription>{webPreview ? 'Pour les images, vous pouvez connecter le moteur natif de cet ordinateur ou essayer WebGPU. Les moteurs musique et vidéo restent expérimentaux. La connexion fal est une option cloud utilisant votre clé et ses tarifs.' : t('hub:catalog.advisorNote')}</DialogDescription>
           </DialogHeader>
+          {webPreview && <BrowserModelsFolderSetup disabled={disabled} />}
           {webPreview ? <><BrowserLocalMediaSetup scope={scope} disabled={disabled} /><p className="text-sm text-muted-foreground">La clé reste en mémoire pour cette session. <a className="underline" href="#/settings/providers/fal">Configurer fal</a> · Les créations terminées sont conservées dans ce navigateur et peuvent être téléchargées.</p></> : <>
           <ManagedComponents disabled={disabled} />
           <aside className="space-y-3 rounded-xl border border-cyan-400/30 bg-cyan-400/5 p-4">
@@ -892,6 +913,9 @@ export function CreationControls({
           </>}
           {(['image', 'music', 'video'] as const).map((kind) => <section key={kind} className="rounded-xl border p-4 space-y-4" aria-label={t(`chat:creation.${kind}`)}>
             <h2 className="font-medium">{t(`chat:creation.${kind}`)}</h2>
+            {kind === 'video' && webPreview && browserWanAutoTuneAvailable() && (
+              <BrowserLocalVideoSetup disabled={disabled} />
+            )}
             {!automatic.local[kind] && !(webPreview && ((kind === 'image' && browserLocalImagesEnabled()) || (kind === 'music' && browserLocalMusicEnabled()))) && <p className="text-sm text-muted-foreground">{!webPreview && <>{t('chat:creation.local')} · {t('common:editModel.notAvailable')} · {t('hub:catalog.tipLimited')} </>}{t('chat:creation.cloudNote')}</p>}
             {kind==='music'?<MusicSetupPanel scope={scope} disabled={disabled}/>:<>
               {!webPreview && <p className="text-sm text-muted-foreground">{t(`chat:creation.${kind==='image'?'setupImageNote':'setupVideoNote'}`)}</p>}

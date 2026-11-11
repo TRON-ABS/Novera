@@ -1,3 +1,9 @@
+## Novera Web 1.0.2
+
+The public Web release adds folder discovery, download links and persistent browser imports for FLUX.2 Klein, ACE-Step and Wan 2.1. In creation settings, select the Novera models folder and open Auto Tune to see compatible packs. Model files are downloaded from their sources. Pages ships the browser engines and the application.
+
+The local Web build passed TypeScript and focused import, persistence and discovery tests. The Pages deployment and public checks are tracked by the release workflow.
+
 ## Direct Qwen GGUF for Desktop NVFP4
 
 The NVFP4 image worker previously expanded Qwen3-4B GGUF to BF16 before encoding the prompt. Run the pinned stable-diffusion.cpp conditioner in a short-lived process with the same selected GGUF and keep the existing CPU, CUDA and Auto options. Packaging checks the encoder source fingerprint. Creation settings describe direct GGUF loading in all 104 catalogs.

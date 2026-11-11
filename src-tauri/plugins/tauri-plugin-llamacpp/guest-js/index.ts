@@ -166,6 +166,14 @@ export async function engineSlotsIdle(modelId?: string): Promise<boolean> {
   return await invoke('plugin:llamacpp|engine_slots_idle', { modelId })
 }
 
+export async function calibrateEngineModel(
+  presetPath: string,
+  modelId: string,
+  envs: Record<string, string>
+): Promise<{ threads: 2 | null; load_mode: 'none' | null } | null> {
+  return invoke('plugin:llamacpp|calibrate_engine_model', { presetPath, modelId, envs })
+}
+
 /**
  * Drops saved KV cache: a thread's (under every model it was used with), or a
  * whole model's. Returns how many were dropped.
