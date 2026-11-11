@@ -1,3 +1,9 @@
+## Automatic Web model discovery
+
+Remember the browser-authorized models directory. Scan it on startup, when the tab regains focus and every 30 seconds while visible. Recognize local text GGUF files and enqueue their Auto Tune tests. The engine streams the browser File through WORKERFS and reports incompatible models during calibration. Existing media packs use the same directory scan.
+
+The 66 focused tests pass. Edge loaded the local Qwen3.5-4B Q4_K_M file at 32,768 tokens of context and CPU/GPU sampling produced the same 32 tokens. The 6.18 GB Nemotron GGUF overflows wasm32 tensor size accounting and is reported during scan. The limit for local text GGUFs is 4 GiB.
+
 ## Novera Web 1.0.2
 
 The public Web release adds folder discovery, download links and persistent browser imports for FLUX.2 Klein, ACE-Step and Wan 2.1. In creation settings, select the Novera models folder and open Auto Tune to see compatible packs. Model files are downloaded from their sources. Pages ships the browser engines and the application.

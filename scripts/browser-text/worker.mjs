@@ -140,12 +140,27 @@ self.onmessage=async event=>{
         engine=await factory({wasmBinary:wasm,print:line=>postMessage({type:'log',line}),printErr:line=>postMessage({type:'log',line})});
         initializedCpuThreads = selected; initializedModuleSha = metadata.sha256;
       }
-      postMessage({type:'phase',phase:'reading-verified-model'});
-      const bytes = event.data.catalogModel === true ? await loadCatalogModel(event.data.model) : new Uint8Array(await verified('/models/'+modelName,modelSha));
-      engine.FS.writeFile('/model.gguf',bytes,{canOwn:true});
+      const localFile = event.data.localFile;
+      let modelPath = '/model.gguf';
+      if (localFile !== undefined) {
+        if (!(localFile instanceof Blob) || localFile.size <= 24) throw new Error('Invalid local GGUF file');
+        if (!engine.WORKERFS) throw new Error('The runtime does not support local GGUF files');
+        engine.FS.mkdirTree('/local-model');
+        engine.FS.mount(engine.WORKERFS, {blobs: [{name: 'model.gguf', data: localFile}]}, '/local-model');
+        modelPath = '/local-model/model.gguf';
+      } else {
+        postMessage({type:'phase',phase:'reading-verified-model'});
+        const bytes = event.data.catalogModel === true ? await loadCatalogModel(event.data.model) : new Uint8Array(await verified('/models/'+modelName,modelSha));
+        engine.FS.writeFile(modelPath,bytes,{canOwn:true});
+      }
       const started=performance.now();
-      const code=await engine.ccall('novera_load','number',['string','number'],['/model.gguf',32768],{async:true});
-      engine.FS.unlink('/model.gguf');
+      let code;
+      try {
+        code=await engine.ccall('novera_load','number',['string','number'],[modelPath,32768],{async:true});
+      } finally {
+        if (localFile !== undefined) engine.FS.unmount('/local-model');
+        else engine.FS.unlink(modelPath);
+      }
       if(code!==0)throw new Error(result().error??'Native loading failed');
       postMessage({type:'ready',...result(),cpuTopology,reuseQ8Requested:self.noveraReuseQ8,matvecRowsRequested:self.noveraMatvecRows,matvecThreadsRequested:self.noveraMatvecThreads,batchedHostInputsRequested:self.noveraBatchHostInputs,loadMs:performance.now()-started,heapBytes:engine.HEAPU8.buffer.byteLength,receipt});
     }else if(event.data.type==='generate'){

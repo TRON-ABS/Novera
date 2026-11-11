@@ -1,6 +1,7 @@
 import { browserCatalog, browserModel, browserPreviewEnabled } from './config'
+import { browserLocalTextModels } from './local-text-imports'
 import { browserRuntime, type SdkResult } from './runtime'
-import { browserTextProfileKey, defaultBrowserTextModel, wasmTextSupported, type BrowserTextProfile } from './wasm-text'
+import { browserTextProfileKey, defaultBrowserTextModel, wasmTextSupported, type BrowserTextProfile, type BrowserTextSource } from './wasm-text'
 import { browserTextBatchSizes, browserTextCalibrationRevision, browserTextProfiles, type AutoTuneComponent } from '../creation/auto-tune-plan'
 
 export const browserAutoTuneModel = defaultBrowserTextModel
@@ -56,13 +57,13 @@ export function setBrowserAutoTune(enabledValue: boolean) {
   return enabled
 }
 
-function browserTextGains(model: typeof browserCatalog[number]): Gain[] {
+function browserTextGains(model: BrowserTextSource): Gain[] {
   try {
     const result: unknown = JSON.parse(localStorage.getItem(browserTextProfileKey(model)) ?? 'null')
     if (typeof result !== 'object' || !result || !('percent' in result) || !('recordedAt' in result) ||
         typeof result.percent !== 'number' || !Number.isFinite(result.percent) || result.percent < 3.3 ||
         typeof result.recordedAt !== 'number' || !Number.isFinite(result.recordedAt)) return []
-    return [{ task: 'text', model: model.id, metric: 'rate', percent: result.percent, recordedAt: result.recordedAt, profile: { ...('sampling' in result ? { sampling: result.sampling } : {}), ...('commandBatchSize' in result ? { commandBatchSize: result.commandBatchSize } : {}) } }]
+    return [{ task: 'text', model: 'repo' in model ? model.id : model.file.name, metric: 'rate', percent: result.percent, recordedAt: result.recordedAt, profile: { ...('sampling' in result ? { sampling: result.sampling } : {}), ...('commandBatchSize' in result ? { commandBatchSize: result.commandBatchSize } : {}) } }]
   } catch { return [] }
 }
 
@@ -72,7 +73,7 @@ function mediaGains(): Record<string, Gain> {
 }
 
 export function browserAutoTuneGains(): Gain[] {
-  return [...browserCatalog.flatMap(browserTextGains), ...Object.values(mediaGains())].sort((a, b) => b.recordedAt - a.recordedAt)
+  return [...[...browserCatalog, ...browserLocalTextModels()].flatMap(browserTextGains), ...Object.values(mediaGains())].sort((a, b) => b.recordedAt - a.recordedAt)
 }
 
 export function browserMediaProfile(key: string) {
@@ -91,8 +92,8 @@ export function browserAutoTuneTextModels() {
   return browserAutoTuneTextAvailable() ? browserCatalog : []
 }
 
-export function browserAutoTuneTested(id = browserAutoTuneModel) {
-  try { return JSON.parse(localStorage.getItem(browserTextProfileKey(browserModel(id))) ?? 'null')?.revision === browserCalibrationRevision }
+export function browserAutoTuneTested(source: string | BrowserTextSource = browserAutoTuneModel) {
+  try { return JSON.parse(localStorage.getItem(browserTextProfileKey(typeof source === 'string' ? browserModel(source) : source)) ?? 'null')?.revision === browserCalibrationRevision }
   catch { return false }
 }
 
@@ -114,10 +115,10 @@ export function confirmedBrowserGain(pairs: ReadonlyArray<readonly [Sample, Samp
 
 export async function calibrateBrowserSampling(
   update: (sample: BrowserTrial) => void,
-  id = browserAutoTuneModel,
+  source: string | BrowserTextSource = browserAutoTuneModel,
 ) {
-  if (browserAutoTuneTested(id)) return
-  const model = browserModel(id)
+  if (browserAutoTuneTested(source)) return
+  const model = typeof source === 'string' ? browserModel(source) : source
   const resultKey = browserTextProfileKey(model)
   await runBrowserCalibration(async signal => {
     let previous: Record<string, unknown> = {}
