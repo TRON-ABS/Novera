@@ -19,6 +19,37 @@ Data ve gizlilik: [yerel çıkarım, isteğe bağlı telemetri, hata raporları 
 
 ---
 
+<!-- novera-current-downloads:start -->
+
+## Kullanılabilirlik — Novera 1.0.2
+
+| Platform | Kullanılabilirlik |
+| --- | --- |
+| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2) |
+| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-arm64) |
+| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-linux-x64) |
+| Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-cli-novera) |
+| Windows x64 taşınabilir | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-portable) |
+| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos-arm64) |
+| Android ARM64 | [APK · 1000023](https://github.com/TRON-ABS/Novera/releases/download/v1.0.2-android-1000023/Novera_1.0.2_android-arm64.apk) · Android 7+ |
+| Web | [Novera Web 1.0.2](https://tron-abs.github.io/Novera/web/) |
+| iOS | Dahili simülatör yapısı; iPhone kurulumundan önce Apple imzalama/temel hazırlığı gereklidir. [Takip](docs/REPRISE_MACOS_IOS.md). |
+
+<!-- novera-current-downloads:end -->
+Mac'te DMG dosyasını açın ve Novera dosyasını Uygulamalar'a kopyalayın. İlk başlatma engellenirse Novera'nin içeri girmesine izin verin **Sistem Ayarları → Gizlilik ve Güvenlik → Yine de Aç**. [Apple talimatları](https://support.apple.com/guide/mac-help/mh40616/mac).
+
+[Kanıtlar ve sınırlamalar](docs/LAUNCH_STATUS.md)
+
+Android tarihinde, yerel modeller için yeterli belleğe sahip modern bir telefon önerilir; Daha az güçlü cihazlarda bir API sağlayıcısı kullanın. Web araması için en azından bir bağlam **16K jeton (16,384)** sürümler arasında tutarlı bir şekilde önerilir.
+
+**Windows x64 taşınabilir 1.0.2 mevcuttur.** Tartışmalar, ayarlar ve indirilen modeller, altındaki taşınabilir klasörde kalır. `Data`. Arşivin tamamını çıkarın ve başlayın `Novera.exe`. Klasörü taşımadan veya USB depolama alanını çıkarmadan önce Novera'yi kapatın. [Taşınabilir kılavuz ve sınırlamalar](docs/WINDOWS_PORTABLE.md).
+
+<a id="one-dashboard-for-every-creation"></a>
+
+
+<details>
+<summary>Novera 1.0.1 · 2026-11-07</summary>
+
 <!-- novera-release-1.0.1:start -->
 <a id="version-1-0-1"></a>
 ## Novera 1.0.1
@@ -47,31 +78,11 @@ Novera 1.0.1, aşağıda listelenen platformlar için mevcuttur. Sisteminize uyg
 
 <!-- novera-release-1.0.1:end -->
 
-## Kullanılabilirlik — 2026-11-07
+1.0.1 için, zorunlu `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` ile birlikte LFM3-Omni-2B Q4_K_M, masaüstü ve mobil cihazlarda varsayılan öneridir; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M salt metinden oluşan bir alternatif olmaya devam ediyor. Başlangıç ​​bağlamı masaüstünde 32,768 jeton ve mobilde 2,048 jetondur. Daha uzun bağlamlar daha fazla bellek kullanır. Mevcut model seçimleri ve ayarları açıkça değiştirilene kadar korunur.
 
-**Novera 1.0.1, Windows, Linux, macOS ve Android için kullanılabilir.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Masaüstü paketleri, hem CLI arşivleri, imzalar hem de güncelleme bildirimleri herkese açıktır ve doğrulanmıştır.
+1.0.1 için bakım ve gizlilik iyileştirmeleri hazırlandı. İsteğe bağlı istatistikler ve hata raporlama, bağımsız, açık onay ve filtrelenmiş teknik teşhisleri kullanır. Gerekli sürüm kontrolleri ve kalan güvenlik bulguları ayrı olarak belgelenir. [bakım runbook'u](docs/MAINTENANCE.md)
 
-| Platform | Kullanılabilirlik |
-| --- | --- |
-| Windows x64 | Genel NSIS yükleyici, imzalı güncelleyici; yerel kurulum ve değiştirme doğrulandı. |
-| Linux x64 | Herkese açık AppImage, imzalı güncelleyici; yerel kurulum ve değiştirme doğrulandı. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, özel imzalı güncelleme kanalıyla. |
-| Windows ARM64 | [Genel NSIS yükleyici](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), yerel CPU metin motoru; kurulum, değiştirme ve genel kanal kontrolleri doğrulandı. |
-| Android ARM64 | Android 1.0.1, imzalı bir ARM64 APK olarak mevcuttur, 1000013 derleyin. Mevcut Novera sertifikasını kullanır ve paket incelemesinden geçer. Kişisel konuşmalar, modeller veya API anahtarları içermez. Telefona kurulum ve güncelleme henüz test edilmeyi bekliyor. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
-| macOS Intel / Apple Silicon | [Resmi 1.0.1 DMG sürümü](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera imzalı güncellemeler. Apple noter tasdikli değil; otomatik kontroller her iki mimaride de ayrı ayrı gerçekleştirilir, görsel kontroller ertelenir. [Kurulum ve kanıt](docs/RELEASE_1.0.1_2026-11-07.md). |
-| iOS | Dahili simülatör yapısı; iPhone kurulumundan önce Apple imzalama/temel hazırlığı gereklidir. [Takip](docs/REPRISE_MACOS_IOS.md). |
-| Windows x64 taşınabilir | [İmzalı ZIP arşivi](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); veriler Data içinde kalıyor, imzalı Program değiştirme doğrulandı. |
-| Web, MSI, Debian | Barındırılan Web istemcisi ve diğer formatlar dahili olarak kalır; Pages sunum sitesi mevcut. |
-
-Mac'te DMG dosyasını açın ve Novera dosyasını Uygulamalar'a kopyalayın. İlk başlatma engellenirse Novera'nin içeri girmesine izin verin **Sistem Ayarları → Gizlilik ve Güvenlik → Yine de Aç**. [Apple talimatları](https://support.apple.com/guide/mac-help/mh40616/mac).
-
-Güncelleyici imzaları Windows Authenticode ve Apple noter tasdikinden ayrıdır. Paket karmaları, yerel kontroller ve güncelleme testleri ayrı olarak belgelenir. Genel 1.0.0'dan 1.0.1'ya tam bir yükseltme, yalnızca sürüm raporunda kaydedilen senaryolar için onaylandı. [Kanıtlar ve sınırlamalar](docs/LAUNCH_STATUS.md)
-
-Android tarihinde, yerel modeller için yeterli belleğe sahip modern bir telefon önerilir; Daha az güçlü cihazlarda bir API sağlayıcısı kullanın. Web araması için en azından bir bağlam **16K jeton (16,384)** sürümler arasında tutarlı bir şekilde önerilir.
-
-**Windows x64 taşınabilir 1.0.0 mevcuttur.** Tartışmalar, ayarlar ve indirilen modeller, altındaki taşınabilir klasörde kalır. `Data`. Arşivin tamamını çıkarın ve başlayın `Novera.exe`. Klasörü taşımadan veya USB depolama alanını çıkarmadan önce Novera'yi kapatın. [Taşınabilir kılavuz ve sınırlamalar](docs/WINDOWS_PORTABLE.md).
-
-<a id="one-dashboard-for-every-creation"></a>
+</details>
 
 ## Her yaratım için bir kontrol paneli
 
@@ -84,7 +95,6 @@ Novera sizinle birlikte büyüyor. Örnekleriniz ve ayarlarınız diğer kullan�
 Mikrofon durumu: kullanılabilir olduğunda yeşil, meşgul olduğunda kırmızı, kullanılamadığında gri. Tanıma, dinlemeyi yeniden başlatma, odak yönetimi ve görünür dikte düzeltildi. Yerel ses modeli konuşma şu anda Windows üzerinde uygulanmaktadır; diğer platformların hâlâ yerel doğrulamaya ve uygun ses desteğine ihtiyacı var.
 
 [![Novera oluşturulan görsel ve miktar, tohum, yükseltme ve otomatik hafıza içeren birleştirilmiş kontrol paneli](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
-
 
 Bir panel, beş mod: **Otomatik / Metin / Resim / Müzik / Video**. Kontroller seçilen modu takip eder: oran, çözünürlük, süre, kadans, kalite, enstrümantal, şarkı sözleri, tohum ve miktar. Panel genişliği ve düğmeler pencereye ve çevrilmiş etiketlere uyum sağlar.
 
@@ -111,11 +121,7 @@ Otomasyon, entegre motorları ve iş akışlarını kapsar; her Hub modelini ça
 
 [Kullanım kılavuzu](docs/USER_GUIDE.md) · [Motorlar ve doğrulama](docs/SUIVI_MOTEURS.md) · [Geliştirme](docs/DEVELOPMENT.md)
 
-1.0.1 için, zorunlu `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` ile birlikte LFM3-Omni-2B Q4_K_M, masaüstü ve mobil cihazlarda varsayılan öneridir; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M salt metinden oluşan bir alternatif olmaya devam ediyor. Başlangıç ​​bağlamı masaüstünde 32,768 jeton ve mobilde 2,048 jetondur. Daha uzun bağlamlar daha fazla bellek kullanır. Mevcut model seçimleri ve ayarları açıkça değiştirilene kadar korunur.
-
 ## Kaynaktaki yetenekler
-
-1.0.1 için bakım ve gizlilik iyileştirmeleri hazırlandı. İsteğe bağlı istatistikler ve hata raporlama, bağımsız, açık onay ve filtrelenmiş teknik teşhisleri kullanır. Gerekli sürüm kontrolleri ve kalan güvenlik bulguları ayrı olarak belgelenir. [bakım runbook'u](docs/MAINTENANCE.md)
 
 | Alan | Özellikler |
 | --- | --- |
@@ -306,7 +312,7 @@ Bunlar katkı ve gelişime yönelik talimatlardır, sektöre özel her uygulaman
 
 ## Proje durumu
 
-**Novera 1.0.1, Windows, Linux, macOS ve Android için kullanılabilir.** Ekran görüntüsü, bakımcı tarafından yerel olarak derlenen bir Windows uygulamasını göstermektedir. Kaynak değişiklikleri, hedeflenen testler ve donanım doğrulaması ayrı olarak belgelenir; bu her modeli, platformu veya bulut hesabını doğrulamaz.
+Ekran görüntüsü, bakımcı tarafından yerel olarak derlenen bir Windows uygulamasını göstermektedir. Kaynak değişiklikleri, hedeflenen testler ve donanım doğrulaması ayrı olarak belgelenir; bu her modeli, platformu veya bulut hesabını doğrulamaz.
 
 On bir dağıtım değişkeninin tümü için manuel GitHub Actions derlemeler etkinleştirildi. Takip et [derleme sonuçları ve doğrulanmış aday indirmeler](docs/CI_DISTRIBUTIONS.md); kullanılabilirlik her platform için ayrı ayrı kaydedilir. Adaylar imzalı üretim sürümlerinden farklıdır. Dağıtım gereklilikleri şu şekilde açıklanmıştır: [resmi yayın politikası](OFFICIAL_RELEASES.md) ve [sürüm sayfası](https://github.com/TRON-ABS/Novera/releases). Güncelleyici tarafından devre dışı bırakılan mevcut adaylar dahili olarak kalır. Genel sürümler, yapılandırılmış ve doğrulanmış bir güncelleme mekanizması gerektirir; [masaüstü imza kontrolleri ve kalan başlatma gereksinimleri belgelenmiştir](docs/LAUNCH_STATUS.md).
 

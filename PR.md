@@ -1,3 +1,7 @@
+## Current downloads in every README
+
+All 120 README download tables now link to the public 1.0.2 distributions. Dated 1.0.1 notes remain available in a collapsed section. The release guide requires a full repository-page review on each update.
+
 ## README language count and release checks
 
 All 120 README headers match the interface inventory. The historical 1.0.1 release blocks retain their original count. The distribution guide now records the repository-wide checks for each update, including public links after publication.

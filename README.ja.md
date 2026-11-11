@@ -17,6 +17,37 @@
 
 ---
 
+<!-- novera-current-downloads:start -->
+
+## 提供状況 — Novera 1.0.2
+
+| プラットフォーム | 提供状況 |
+| --- | --- |
+| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2) |
+| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-arm64) |
+| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-linux-x64) |
+| Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-cli-novera) |
+| Windows x64 ポータブル | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-portable) |
+| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos-arm64) |
+| Android ARM64 | [APK · 1000023](https://github.com/TRON-ABS/Novera/releases/download/v1.0.2-android-1000023/Novera_1.0.2_android-arm64.apk) · Android 7+ |
+| Web | [Novera Web 1.0.2](https://tron-abs.github.io/Novera/web/) |
+| iOS | 内部シミュレータのビルド。 iPhone をインストールする前に Apple の署名/プロビジョニングが必要です。 [フォローアップ](docs/REPRISE_MACOS_IOS.md). |
+
+<!-- novera-current-downloads:end -->
+Mac では、DMG を開き、Novera をアプリケーションにコピーします。最初の起動がブロックされている場合は、Novera を許可します。 **システム設定 → プライバシーとセキュリティ → とにかく開く**. [Apple の説明書](https://support.apple.com/guide/mac-help/mh40616/mac).
+
+[証拠と限界](docs/LAUNCH_STATUS.md)
+
+Android でローカルモデルを使う場合は、十分なメモリを備えた新しいスマートフォンを推奨します。性能の低い端末では API プロバイダーを利用してください。ウェブ検索では、すべてのバージョンで最低 **16K トークン（16,384）** のコンテキストを推奨します。
+
+**Windows x64 ポータブル 1.0.2 が利用可能です。** ディスカッション、設定、ダウンロードしたモデルは、次のポータブル フォルダー内に残ります。 `Data`。完全なアーカイブを解凍して開始します `Novera.exe`。フォルダーを移動するか、USB ストレージを取り出す前に、Novera を閉じてください。 [ポータブルガイドと制限事項](docs/WINDOWS_PORTABLE.md).
+
+<a id="one-dashboard-for-every-creation"></a>
+
+
+<details>
+<summary>Novera 1.0.1 · 2026-11-07</summary>
+
 <!-- novera-release-1.0.1:start -->
 <a id="version-1-0-1"></a>
 ## Novera 1.0.1
@@ -45,31 +76,11 @@ Novera 1.0.1 は、以下にリストされているプラ​​ットフォー�
 
 <!-- novera-release-1.0.1:end -->
 
-## 提供状況 — 2026-11-07
+1.0.1 の場合、LFM3-Omni-2B Q4_K_M とその必須の `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` がデスクトップとモバイルでのデフォルトの推奨事項です。 NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M は引き続きテキストのみの代替手段です。初期コンテキストはデスクトップでは 32,768 トークン、モバイルでは 2,048 です。コンテキストが長いほど、より多くのメモリが使用されます。既存のモデルの選択と設定は、明示的に変更されるまで保持されます。
 
-**Novera 1.0.1 は、Windows、Linux、macOS、Android で使用できます。** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64)。デスクトップ パッケージ、CLI アーカイブ、署名、および更新マニフェストは公開されており、検証されています。
+1.0.1 のメンテナンスとプライバシーの改善が準備されています。オプションの統計とエラー レポートでは、独立した明示的な同意とフィルタリングされた技術診断が使用されます。必要なリリース チェックと残りのセキュリティ発見事項は、個別に文書化されます。 [メンテナンスランブック](docs/MAINTENANCE.md)
 
-| プラットフォーム | 提供状況 |
-| --- | --- |
-| Windows x64 | 公開 NSIS インストーラー、署名付きアップデーター。ネイティブのインストールと交換が確認されました。 |
-| Linux x64 | パブリック AppImage、署名済みアップデータ。ネイティブのインストールと交換が確認されました。 |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`、専用の署名付き更新チャネルを使用します。 |
-| Windows ARM64 | [パブリック NSIS インストーラー](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64)、ネイティブ CPU テキスト エンジン。取り付け、交換、およびパブリック チャネルのチェックが確認されました。 |
-| Android ARM64 | Android 1.0.1 は、署名付き ARM64 APK、ビルド 1000013 として利用できます。既存の Novera 証明書を使用し、パッケージ検査に合格しています。個人的な会話、モデル、API キーは含まれません。電話機へのインストールとアップデートはまだテストされていません。 Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
-| macOS Intel / Apple Silicon | [1.0.1 DMG の公式リリース](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos)、macOS 13+ インテル / 14+ Apple Silicon; Novera 署名付きアップデート。 Apple が公証を行っていない。自動チェックは両方のアーキテクチャで個別にパスされ、視覚的なチェックは延期されました。 [設置と証拠](docs/RELEASE_1.0.1_2026-11-07.md). |
-| iOS | 内部シミュレータのビルド。 iPhone をインストールする前に Apple の署名/プロビジョニングが必要です。 [フォローアップ](docs/REPRISE_MACOS_IOS.md). |
-| Windows x64 ポータブル | [署名済み ZIP アーカイブ](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable);データは Data に残り、署名された Program の置換が確認されました。 |
-| ウェブ、MSI、Debian | ホストされた Web クライアントとその他の形式は内部のままです。 Pages プレゼンテーション サイトが利用可能です。 |
-
-Mac では、DMG を開き、Novera をアプリケーションにコピーします。最初の起動がブロックされている場合は、Novera を許可します。 **システム設定 → プライバシーとセキュリティ → とにかく開く**. [Apple の説明書](https://support.apple.com/guide/mac-help/mh40616/mac).
-
-アップデーターの署名は、Windows Authenticode および Apple 公証とは別のものです。パッケージのハッシュ、ネイティブ チェック、および更新テストについては、個別に文書化されています。 1.0.0 から 1.0.1 への完全な公開アップグレードは、リリース レポートに記録されているシナリオについてのみ確認されています。 [証拠と限界](docs/LAUNCH_STATUS.md)
-
-Android でローカルモデルを使う場合は、十分なメモリを備えた新しいスマートフォンを推奨します。性能の低い端末では API プロバイダーを利用してください。ウェブ検索では、すべてのバージョンで最低 **16K トークン（16,384）** のコンテキストを推奨します。
-
-**Windows x64 ポータブル 1.0.0 が利用可能です。** ディスカッション、設定、ダウンロードしたモデルは、次のポータブル フォルダー内に残ります。 `Data`。完全なアーカイブを解凍して開始します `Novera.exe`。フォルダーを移動するか、USB ストレージを取り出す前に、Novera を閉じてください。 [ポータブルガイドと制限事項](docs/WINDOWS_PORTABLE.md).
-
-<a id="one-dashboard-for-every-creation"></a>
+</details>
 
 ## すべての作品に 1 つのダッシュボード
 
@@ -82,7 +93,6 @@ Novera はあなたとともに成長します。あなたの例と設定は、�
 マイクのステータス: 使用可能な場合は緑色、通話中は赤色、使用できない場合は灰色。認識、リスニングの再開、フォーカス処理、および表示されるディクテーションが修正されました。ネイティブ オーディオ モデルの音声は現在、Windows に実装されています。他のプラットフォームでは依然としてネイティブ検証と適切な音声サポートが必要です。
 
 [![Novera で生成されたイメージと、数量、シード、アップスケーリング、自動メモリを備えた統合ダッシュボード](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
-
 
 1 つのパネル、5 つのモード: **オート / テキスト / 画像 / 音楽 / ビデオ**。コントロールは、選択したモード (比率、解像度、デュレーション、リズム、品質、インストゥルメンタル、歌詞、シード、量) に従います。パネルの幅とボタンは、ウィンドウと翻訳されたラベルに適応します。
 
@@ -109,11 +119,7 @@ Novera はあなたとともに成長します。あなたの例と設定は、�
 
 [ユーザーガイド](docs/USER_GUIDE.md) · [エンジンと検証](docs/SUIVI_MOTEURS.md) · [開発](docs/DEVELOPMENT.md)
 
-1.0.1 の場合、LFM3-Omni-2B Q4_K_M とその必須の `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` がデスクトップとモバイルでのデフォルトの推奨事項です。 NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M は引き続きテキストのみの代替手段です。初期コンテキストはデスクトップでは 32,768 トークン、モバイルでは 2,048 です。コンテキストが長いほど、より多くのメモリが使用されます。既存のモデルの選択と設定は、明示的に変更されるまで保持されます。
-
 ## ソースの機能
-
-1.0.1 のメンテナンスとプライバシーの改善が準備されています。オプションの統計とエラー レポートでは、独立した明示的な同意とフィルタリングされた技術診断が使用されます。必要なリリース チェックと残りのセキュリティ発見事項は、個別に文書化されます。 [メンテナンスランブック](docs/MAINTENANCE.md)
 
 | エリア | 特徴 |
 | --- | --- |
@@ -302,7 +308,7 @@ AWQ 4-bit、GPTQ 4-bit、NF4、および INT8 はそれぞれ、オフライン�
 
 ## プロジェクトのステータス
 
-**Novera 1.0.1 は、Windows、Linux、macOS、Android で使用できます。** スクリーンショットは、メンテナによってローカルでコンパイルされた Windows アプリケーションを示しています。ソースの変更、ターゲットを絞ったテスト、およびハードウェアの検証は個別に文書化されます。これは、すべてのモデル、プラットフォーム、またはクラウド アカウントを検証するわけではありません。
+スクリーンショットは、メンテナによってローカルでコンパイルされた Windows アプリケーションを示しています。ソースの変更、ターゲットを絞ったテスト、およびハードウェアの検証は個別に文書化されます。これは、すべてのモデル、プラットフォーム、またはクラウド アカウントを検証するわけではありません。
 
 手動 GitHub Actions ビルドは、11 種類のディストリビューション バリアントすべてに対して有効です。フォローしてください [ビルド結果と検証された候補のダウンロード](docs/CI_DISTRIBUTIONS.md);可用性はプラットフォームごとに個別に記録されます。候補は、署名された製品リリースとは異なります。配布要件については、 [公式リリースポリシー](OFFICIAL_RELEASES.md) と [リリースページ](https://github.com/TRON-ABS/Novera/releases)。アップデーターが無効になっている既存の候補者は社内に残ります。パブリック リリースには、構成および検証された更新メカニズムが必要です。 [デスクトップの署名チェックと残りの起動要件が文書化されています](docs/LAUNCH_STATUS.md).
 

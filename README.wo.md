@@ -17,6 +17,37 @@
 
 ---
 
+<!-- novera-current-downloads:start -->
+
+## Disponibilite — Novera 1.0.2
+
+| Platform | Disponibilite |
+| --- | --- |
+| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2) |
+| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-arm64) |
+| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-linux-x64) |
+| Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-cli-novera) |
+| Windows x64 portable | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-portable) |
+| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos-arm64) |
+| Android ARM64 | [APK · 1000023](https://github.com/TRON-ABS/Novera/releases/download/v1.0.2-android-1000023/Novera_1.0.2_android-arm64.apk) · Android 7+ |
+| Web | [Novera Web 1.0.2](https://tron-abs.github.io/Novera/web/) |
+| iOS | Tabax simulatëru biir; Siñe/joxe Apple dafay laaj laata ngay samp iPhone. [Topp](docs/REPRISE_MACOS_IOS.md). |
+
+<!-- novera-current-downloads:end -->
+Ci Mac, ubbil DMG bi nga kopie Novera ci Aplikaasioŋ yi. Sudee dañu tëj ubbite bu njëkk bi, may Novera mu dugg **Jekkal sistem → Njaboot ak kaaraange → Ubbi numu mëna deme**. [Tegtal Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
+
+[Firnde ak ay gàttal](docs/LAUNCH_STATUS.md)
+
+Ci Android, telefon bu bees bu am memory bu doy lañuy digal model yu dëkk bi; jëfandikoo ab fournisseur API ci aparey yu gëna néew doole. Ngir seetug web, muy lu mu néew **16K token (16,384)** mooy liñu lay digal, mu méngoo ci version yépp.
+
+**Windows x64 portabal 1.0.2 mingi jàppandi.** Waxtaan yi, jekkal yi ak model yiñ yebbi dañuy des ci biir dosiye portabal bi ci suufu `Data`. Dindil archive bi yépp nga tàmbali `Novera.exe`. Tëjal Novera balaa ngay toxal dosiye bi wala nga dindi dencukaay USB bi. [Njàngale portatif ak ay gàttal](docs/WINDOWS_PORTABLE.md).
+
+<a id="one-dashboard-for-every-creation"></a>
+
+
+<details>
+<summary>Novera 1.0.1 · 2026-11-07</summary>
+
 <!-- novera-release-1.0.1:start -->
 <a id="version-1-0-1"></a>
 ## Novera 1.0.1
@@ -45,31 +76,11 @@ Novera 1.0.1 am na ci platform yiñ lim ci suuf. Yebbi kofre bi ngir sa sistem w
 
 <!-- novera-release-1.0.1:end -->
 
-## Disponibilite — 2026-11-07
+Ngir 1.0.1, LFM3-Omni-2B Q4_K_M ak `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` bi war mooy liñ jagleel ci ordinatëru biro wala mobile; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M dafay des ci mbind kese. Kontekst bu njëkk bi mooy 32,768 ci ordinatër bi ak 2,048 ci mobile bi. Context yu gëna gudd dañuy jëfandikoo memory bu gëna bari. Tanneef ak jekkal model yi fi nekk dañu leen di denc ba keroog ñu leen di soppi ci anam wu leer.
 
-**Novera 1.0.1 mingi jàppandi ngir Windows, Linux, macOS ak Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Kofre ordinatër yi, archive CLI yi, siife yi ak manifestu yeesal yi ñépp bokk nañu te dañu leen xool bu baax.
+1.0.1 lañu waajal toppatoo bi ak sutura bi. Limu tànneef yi ak rapoor njuumte yi dañuy jëfandikoo ndigalu moom seen bopp, leer ak saytu xarala yuñ segg. Saytu yiñ laaj ngir génne ak yeneen mbir yuñ gis ci wàllu kaaraange, dañu leen di tàqale ci këyit. [téere toppatoo bi](docs/MAINTENANCE.md)
 
-| Platform | Disponibilite |
-| --- | --- |
-| Windows x64 | Instalatëru NSIS bu ñépp bokk, yeesalkat buñ siñe; instalaasioŋ natiif ak wuutu xool nañu ko. |
-| Linux x64 | AppImage bu ñépp bokk, yeesalkat buñ siñe; instalaasioŋ natiif ak wuutu xool nañu ko. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, ak chaine de yeesal biñ siñe. |
-| Windows ARM64 | [Instalatëru NSIS bu ñépp bokk](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), motëru bind CPU; instalaasioŋ, wuutu ak saytu chaine publik xool nañu ko. |
-| Android ARM64 | Android 1.0.1 am na ci ARM64 APK buñ siñe, defar 1000013. Dafay jëfandikoo sertifikaa bi fi nekk Novera ba noppi jàll ci saytu koli bi. Amul benn waxtaan, model wala caabi API. Instalaasioŋ ak yeesal ci telefon dese nañu ko saytu. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
-| macOS Intel / Apple Silicon | [1.0.1 DMG bu ofisel](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Coppite yiñ siñe ci Novera. Du Apple buñu notarie; xëcc otomatik ñu ngi jaar ci architecture yépp, xëcc yi ñuy xool dañu leen yeexal. [Instalaasioŋ ak firnde](docs/RELEASE_1.0.1_2026-11-07.md). |
-| iOS | Tabax simulatëru biir; Siñe/joxe Apple dafay laaj laata ngay samp iPhone. [Topp](docs/REPRISE_MACOS_IOS.md). |
-| Windows x64 portable | [Archive ZIP buñ siñe](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); xibaar yi dañuy des ci Data; ñu seet ba xam ne wuutal Program bu am siñaatiir bi baax na. |
-| Web, MSI, Debian | Kiliyaan Web biñ dalal ak yeneen formaa dañuy des ci biir; Situ fësal Pages jàppandi na. |
-
-Ci Mac, ubbil DMG bi nga kopie Novera ci Aplikaasioŋ yi. Sudee dañu tëj ubbite bu njëkk bi, may Novera mu dugg **Jekkal sistem → Njaboot ak kaaraange → Ubbi numu mëna deme**. [Tegtal Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
-
-Siñaale yeesalkat yi wuute nañu ak kodu gëmloo Windows ak notarisasioŋ Apple. Hash package yi, saytu native yi ak test yeesal yi dañu leen di bind ñu wuute. Yeesal bu mat sëkk 1.0.0 ba 1.0.1 amul lenn luñu koy firndeel ci senaario yiñ bind ci rapooru génne gi. [Firnde ak ay gàttal](docs/LAUNCH_STATUS.md)
-
-Ci Android, telefon bu bees bu am memory bu doy lañuy digal model yu dëkk bi; jëfandikoo ab fournisseur API ci aparey yu gëna néew doole. Ngir seetug web, muy lu mu néew **16K token (16,384)** mooy liñu lay digal, mu méngoo ci version yépp.
-
-**Windows x64 portabal 1.0.0 mingi jàppandi.** Waxtaan yi, jekkal yi ak model yiñ yebbi dañuy des ci biir dosiye portabal bi ci suufu `Data`. Dindil archive bi yépp nga tàmbali `Novera.exe`. Tëjal Novera balaa ngay toxal dosiye bi wala nga dindi dencukaay USB bi. [Njàngale portatif ak ay gàttal](docs/WINDOWS_PORTABLE.md).
-
-<a id="one-dashboard-for-every-creation"></a>
+</details>
 
 ## Benn tablo ngir bépp sos
 
@@ -82,7 +93,6 @@ Novera dafay màgg ak yaw. Sa misaal ak say jekkal mën nañu jàppale yeneen j�
 Tolluwaayu mikro bi: wert su amee, xonk su amee liggéey, dóomu-taal su ameewul. Xamme, déglu tàmbaliwaat, jëfandikoo focus ak dikte buñ mëna gis, saafara nañu ko. Fimna nii ñu ngi jëfandikoo Windows; yeneen platform yi ba leegi dañu soxla validation native ak ndimbalu baat bu méngoo.
 
 [![Novera dafa defar nataal ak tablo dashboard buñ boole muy bari, jiwwu, yokk escalier ak mémoire otomatik](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
-
 
 Benn panel, juróomi anam: **Otomatik / Bind / Nataal / Woy / Wideo**. Kontrol yi dañu topp anam wiñ tànn: ratio bi, dayo bi, guddaay bi, kadans bi, kalite bi, jumtukaay bi, kàddu yi, jiwwu yi ak bariwaay bi. Yaatug paaneel bi ak butoŋu yi dañu méngoo ak palanteer bi ak etiket yiñ tekki.
 
@@ -109,11 +119,7 @@ Otomatisation dafay muur motëri liggéey yuñ boole; du tax model Hub bu nekk m
 
 [Gitu jëfandikukat](docs/USER_GUIDE.md) · [Motëri ak gëmloo](docs/SUIVI_MOTEURS.md) · [Yokkateg](docs/DEVELOPMENT.md)
 
-Ngir 1.0.1, LFM3-Omni-2B Q4_K_M ak `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` bi war mooy liñ jagleel ci ordinatëru biro wala mobile; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M dafay des ci mbind kese. Kontekst bu njëkk bi mooy 32,768 ci ordinatër bi ak 2,048 ci mobile bi. Context yu gëna gudd dañuy jëfandikoo memory bu gëna bari. Tanneef ak jekkal model yi fi nekk dañu leen di denc ba keroog ñu leen di soppi ci anam wu leer.
-
 ## Mën-mën yi ci balluwaay bi
-
-1.0.1 lañu waajal toppatoo bi ak sutura bi. Limu tànneef yi ak rapoor njuumte yi dañuy jëfandikoo ndigalu moom seen bopp, leer ak saytu xarala yuñ segg. Saytu yiñ laaj ngir génne ak yeneen mbir yuñ gis ci wàllu kaaraange, dañu leen di tàqale ci këyit. [téere toppatoo bi](docs/MAINTENANCE.md)
 
 | Barab | Man-man yi |
 | --- | --- |
@@ -302,7 +308,7 @@ Lii ay tegtal lañu ngir jàppale ak yokkute, du wax ni bépp aplikaasioŋ buñ 
 
 ## Tolluwaayu projet bi
 
-**Novera 1.0.1 mingi jàppandi ngir Windows, Linux, macOS ak Android.** Nataalu ekraŋ bi dafay wane ab aplikaasioŋ Windows bu maintenant bi defar ci gox bi. Coppite yi am ci balluwaay bi, test yiñ tëral ak validasioŋ hardware bi dañu leen di tàqale; lii du baax ci bépp model, platform wala kontu cloud.
+Nataalu ekraŋ bi dafay wane ab aplikaasioŋ Windows bu maintenant bi defar ci gox bi. Coppite yi am ci balluwaay bi, test yiñ tëral ak validasioŋ hardware bi dañu leen di tàqale; lii du baax ci bépp model, platform wala kontu cloud.
 
 Tabax GitHub Actions ak loxo mën nañu ko def ci fukk ak benn xeeti séddale yépp. Toppal [defar ay resultaa ak yebbi kàndidaa yuñ xool](docs/CI_DISTRIBUTIONS.md); disponibilite bi ñu ngi koy bind ci platform bu nekk. Kandidaa yi wuute nañu ak génne yiñ siñe. Li ñuy laaj ci séddale leeral nañu ko ci [politiku génne ofisel](OFFICIAL_RELEASES.md) ak [génne xët](https://github.com/TRON-ABS/Novera/releases). Kandidaa yi fi nekk te yeesal nañu leen ñu des ci biir. Li ñuy génne ci mbooloo mi dafay laaj jumtukaayu yeesal buñ konfiguree ba noppi xool bu baax; [xool anamu siife ordinatër bi ak dessitu mbir yiñ laaj ngir génne, dañu leen bind](docs/LAUNCH_STATUS.md).
 

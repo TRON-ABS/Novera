@@ -19,6 +19,37 @@
 
 ---
 
+<!-- novera-current-downloads:start -->
+
+## التوفر — Novera 1.0.2
+
+| المنصة | التوفر |
+| --- | --- |
+| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2) |
+| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-arm64) |
+| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-linux-x64) |
+| Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-cli-novera) |
+| Windows x64 متنقل | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-portable) |
+| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos-arm64) |
+| Android ARM64 | [APK · 1000023](https://github.com/TRON-ABS/Novera/releases/download/v1.0.2-android-1000023/Novera_1.0.2_android-arm64.apk) · Android 7+ |
+| Web | [Novera Web 1.0.2](https://tron-abs.github.io/Novera/web/) |
+| iOS | بناء محاكي داخلي؛ خاص توقيع/توفير آبل قبل تثبيت الآيفون. [متابعة](docs/REPRISE_MACOS_IOS.md). |
+
+<!-- novera-current-downloads:end -->
+فـ Mac، افتح DMG ونسخ Novera لداخل Applications. إلا تمنع أول تشغيل، سمح لـ Novera فـ **إعدادات النظام ← الخصوصية والأمان ← فتح على أي حال**. [تعليمات آبل](https://support.apple.com/guide/mac-help/mh40616/mac).
+
+[الأدلة والقيود](docs/LAUNCH_STATUS.md)
+
+ف Android، كنوصيو بتليفون مودرن فيه ذاكرة كافية للموديلات المحلية؛ استعمل مزود API ف الأجهزة الأقل قوة. للبحث ف الويب، سياق على الأقل **رموز 16K (16,384)** كنوصيو بيه، بشكل متناسق ف جميع الإصدارات.
+
+**Windows x64 محمول 1.0.2 متوفر.** النقاشات، الإعدادات والموديلات اللي تْحملو كيبقاو لداخل المجلد المحمول تحت `Data`. استخرج الأرشيف الكامل وبدا `Novera.exe`. سد Novera قبل ما تحرك المجلد ولا تخرج تخزين USB. [دليل محمول والقيود](docs/WINDOWS_PORTABLE.md).
+
+<a id="one-dashboard-for-every-creation"></a>
+
+
+<details>
+<summary>Novera 1.0.1 · 2026-11-07</summary>
+
 <!-- novera-release-1.0.1:start -->
 <a id="version-1-0-1"></a>
 ## Novera 1.0.1
@@ -49,31 +80,11 @@ Novera 1.0.1 متاح للأنظمة الأساسية المذكورة أدنا�
 
 <!-- novera-release-1.0.1:end -->
 
-## التوفر — 2026-11-07
+بالنسبة إلى 1.0.1، فإن LFM3-Omni-2B Q4_K_M مع `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` المطلوب هو التوصية الافتراضية على سطح المكتب والجوال؛ يظل NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M بديلاً للنص فقط. السياق الأولي هو 32,768 من الرموز المميزة على سطح المكتب و2,048 على الهاتف المحمول. تستخدم السياقات الأطول المزيد من الذاكرة. يتم الاحتفاظ باختيارات وإعدادات النموذج الحالي حتى يتم تغييرها بشكل صريح.
 
-**Novera 1.0.1 متوفر لـ Windows، Linux، macOS و Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). حزم سطح المكتب، سواء أرشيفات CLI، التوقيعات وملفات تحديث هي عامة وموثقة.
+تم إعداد تحسينات الصيانة والخصوصية لـ 1.0.1. تستخدم الإحصائيات الاختيارية والإبلاغ عن الأخطاء موافقة مستقلة وصريحة وتشخيصات فنية تمت تصفيتها. يتم توثيق عمليات التحقق من الإصدار المطلوبة والنتائج الأمنية المتبقية بشكل منفصل. [دليل الصيانة](docs/MAINTENANCE.md)
 
-| المنصة | التوفر |
-| --- | --- |
-| Windows x64 | مُثبّت NSIS عام، مُحدّث موقّع؛ التثبيت والاستبدال الأصلي موثق. |
-| Linux x64 | AppImage عام، مُحدّث مُوقّع؛ التثبيت والاستبدال الأصلي مُصادق عليه. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`، مع قناة تحديث مُوقّعة مخصصة. |
-| Windows ARM64 | [مُثبّت NSIS عام](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64)، محرك نصي CPU أصلي؛ التثبيت والاستبدال وفحوصات القناة العامة مُصادق عليها. |
-| Android ARM64 | يتوفر Android 1.0.1 كنسخة ARM64 APK موقعة، الإصدار 1000013. ويستخدم شهادة Novera الحالية ويجتاز فحص الحزمة. لا يحتوي على محادثات شخصية أو نماذج أو مفاتيح API. لا يزال التثبيت والتحديث على الهاتف قيد الاختبار. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
-| macOS Intel / Apple Silicon | [إصدار 1.0.1 DMG الرسمي](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos)، macOS 13+ Intel / 14+ Apple Silicon؛ تحديثات مُوقّعة Novera. ماشي مُصادق عليه من طرف آبل؛ الفحوصات الآلية دازت بوحدها فجوج المعماريات، الفحوصات البصرية مؤجلة. [التثبيت والأدلة](docs/RELEASE_1.0.1_2026-11-07.md). |
-| iOS | بناء محاكي داخلي؛ خاص توقيع/توفير آبل قبل تثبيت الآيفون. [متابعة](docs/REPRISE_MACOS_IOS.md). |
-| Windows x64 متنقل | [أرشيف ZIP مُوقّع](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); البيانات كتبقى فـ Data، استبدال Program مُوقّع مُصادق عليه. |
-| ويب، MSI، دبيان | العميل الويب المُستضاف والأشكال الأخرى كتبقاو داخليين؛ موقع عرض Pages متوفر. |
-
-فـ Mac، افتح DMG ونسخ Novera لداخل Applications. إلا تمنع أول تشغيل، سمح لـ Novera فـ **إعدادات النظام ← الخصوصية والأمان ← فتح على أي حال**. [تعليمات آبل](https://support.apple.com/guide/mac-help/mh40616/mac).
-
-توقيعات المحدث منفصلة عن رمز مصادقة Windows وتوثيق Apple. يتم توثيق تجزئات الحزمة والفحوصات الأصلية واختبارات التحديث بشكل منفصل. تم تأكيد ترقية 1.0.0 العامة الكاملة إلى 1.0.1 فقط للسيناريوهات المسجلة في تقرير الإصدار. [الأدلة والقيود](docs/LAUNCH_STATUS.md)
-
-ف Android، كنوصيو بتليفون مودرن فيه ذاكرة كافية للموديلات المحلية؛ استعمل مزود API ف الأجهزة الأقل قوة. للبحث ف الويب، سياق على الأقل **رموز 16K (16,384)** كنوصيو بيه، بشكل متناسق ف جميع الإصدارات.
-
-**Windows x64 محمول 1.0.0 متوفر.** النقاشات، الإعدادات والموديلات اللي تْحملو كيبقاو لداخل المجلد المحمول تحت `Data`. استخرج الأرشيف الكامل وبدا `Novera.exe`. سد Novera قبل ما تحرك المجلد ولا تخرج تخزين USB. [دليل محمول والقيود](docs/WINDOWS_PORTABLE.md).
-
-<a id="one-dashboard-for-every-creation"></a>
+</details>
 
 ## لوحة تحكم وحدة لكل إنشاء
 
@@ -86,7 +97,6 @@ Novera كيكبر معاك. الأمثلة والإعدادات ديالك يق�
 حالة الميكروفون: أخضر عندما يكون متاحًا، وأحمر عندما يكون مشغولاً، ورماديًا عندما لا يكون متاحًا. تم تصحيح التعرف وإعادة الاستماع والتعامل مع التركيز والإملاء المرئي. يتم تنفيذ خطاب النموذج الصوتي الأصلي حاليًا على Windows؛ لا تزال الأنظمة الأساسية الأخرى بحاجة إلى التحقق الأصلي والدعم الصوتي المناسب.
 
 [![صورة مولدة بـ Novera ولوحة تحكم موحدة مع الكمية، البذرة، التكبير التلقائي والذاكرة الأوتوماتيكية](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
-
 
 لوحة وحدة، خمسة أوضاع: **تلقائي / نص / الصورة / موسيقى / فيديو**الضوابط كيتبعو الوضع المختار: النسبة، الدقة، المدة، الإيقاع، الجودة، الآلات، الكلمات، البذرة والكمية.
 
@@ -113,11 +123,7 @@ Novera كيكبر معاك. الأمثلة والإعدادات ديالك يق�
 
 [دليل المستخدم](docs/USER_GUIDE.md) · [المحركات والتحقق](docs/SUIVI_MOTEURS.md) · [التطوير](docs/DEVELOPMENT.md)
 
-بالنسبة إلى 1.0.1، فإن LFM3-Omni-2B Q4_K_M مع `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` المطلوب هو التوصية الافتراضية على سطح المكتب والجوال؛ يظل NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M بديلاً للنص فقط. السياق الأولي هو 32,768 من الرموز المميزة على سطح المكتب و2,048 على الهاتف المحمول. تستخدم السياقات الأطول المزيد من الذاكرة. يتم الاحتفاظ باختيارات وإعدادات النموذج الحالي حتى يتم تغييرها بشكل صريح.
-
 ## القدرات فالمصدر
-
-تم إعداد تحسينات الصيانة والخصوصية لـ 1.0.1. تستخدم الإحصائيات الاختيارية والإبلاغ عن الأخطاء موافقة مستقلة وصريحة وتشخيصات فنية تمت تصفيتها. يتم توثيق عمليات التحقق من الإصدار المطلوبة والنتائج الأمنية المتبقية بشكل منفصل. [دليل الصيانة](docs/MAINTENANCE.md)
 
 | المنطقة | الميزات |
 | --- | --- |
@@ -306,7 +312,7 @@ AWQ 4-bit، GPTQ 4-bit، NF4 و INT8 كل واحد كيولد نص على RTX 50
 
 ## حالة المشروع
 
-**Novera 1.0.1 متوفر لـ Windows، Linux، macOS و Android.** لقطة الشاشة كتعرض تطبيق Windows مْجمّع محلياً من طرف المُحافظ. تغييرات المصدر، الاختبارات المستهدفة والتحقق من الأجهزة موثقة بشكل منفصل؛ هادشي ما كيصادقش على كل موديل، منصة أو حساب سحابة.
+لقطة الشاشة كتعرض تطبيق Windows مْجمّع محلياً من طرف المُحافظ. تغييرات المصدر، الاختبارات المستهدفة والتحقق من الأجهزة موثقة بشكل منفصل؛ هادشي ما كيصادقش على كل موديل، منصة أو حساب سحابة.
 
 التجميعات اليدوية لـ GitHub Actions مُمكّنة لجميع أحد عشر نوع توزيع. تبع [نتائج التجميع وتنزيلات المرشحين الموثقين](docs/CI_DISTRIBUTIONS.md); التوفر مسجل بشكل منفصل لكل منصة. المرشحين مختلفين عن الإصدارات الإنتاجية الموقعة. متطلبات التوزيع موصوفة في [سياسة الإصدار الرسمية](OFFICIAL_RELEASES.md) و [صفحة الإصدارات](https://github.com/TRON-ABS/Novera/releases). المرشحين الحاليين اللي معطلين التحديث كيبقاو داخليين. الإصدارات العامة كتحتاج آلية تحديث مُهيأة وموثقة; [فحوصات التوقيع على سطح المكتب ومتطلبات التشغيل المتبقية موثقة](docs/LAUNCH_STATUS.md).
 

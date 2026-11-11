@@ -21,6 +21,35 @@ Data mpi kinsweki: [Kulonguka mambu na nzila ya telefone, bansangu ya mbi mpi ba
 
 ---
 
+<!-- novera-current-downloads:start -->
+
+## Bima yina kele — Novera 1.0.2
+
+| Kisika ya kusala | Mutindu ya Kusadila Yo |
+| --- | --- |
+| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2) |
+| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-arm64) |
+| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-linux-x64) |
+| Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-cli-novera) |
+| Windows x64 bima ya kubeba | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-portable) |
+| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos-arm64) |
+| Android ARM64 | [APK · 1000023](https://github.com/TRON-ABS/Novera/releases/download/v1.0.2-android-1000023/Novera_1.0.2_android-arm64.apk) · Android 7+ |
+| Web | [Novera Web 1.0.2](https://tron-abs.github.io/Novera/web/) |
+| iOS | Na kati ya masini ya simulation; bo ke lombaka nde Apple kusala signing/provisioning na ntwala ya kutula iPhone. [Kukonda kusukinina](docs/REPRISE_MACOS_IOS.md). |
+
+<!-- novera-current-downloads:end -->
+Na Mac, kangula DMG mpi kusonika Novera Kana bo me kanga lukanu ya ntete, bika nde bo pesa nzila na kusala yo. Novera na **Bangidika ya Kisalu → Kinsweki mpi Kinsweki → Kukatuka Ata na Nki Mutindu**. [Bansiku ya Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
+
+[Evidence and limitations](docs/LAUNCH_STATUS.md)
+
+Na zulu Android, telefone mosi ya mpa yina kele ti mabanza ya mbote kele mfunu sambu na bamodele ya bwala; sadila API Sambu na kusala bansosa na nzila ya Internet, beto fwete sadila bansangu ya mutindu yai sambu na kusadisa bantu yina kele ve ti makuki ya kusala bansosa. **16K ba-token (16,384)** Yo ke lomba nde bo sala yo mbala na mbala na bandinga yonso.
+
+**Windows x64 bima ya kubeba 1.0.2 yo kele.** Bangogo, ba paramètre mpi ba modele ya bo me katula kele na kati ya dossier ya bo lenda sadila na nsi ya lutiti `Data`. Baka mikanda yonso mpi yantika `Novera.exe`Beno kwenda pene-pene. Novera na ntwala ya kunata yo to kubasisa yo USB bo ke bumbaka yo. [Lutiti mpi bandilu na yo](docs/WINDOWS_PORTABLE.md).
+
+
+<details>
+<summary>Novera 1.0.1 · 2026-11-07</summary>
+
 <!-- novera-release-1.0.1:start -->
 <a id="version-1-0-1"></a>
 ## Novera 1.0.1
@@ -47,29 +76,11 @@ Novera 1.0.1 kele na bisika yina kele awa na nsi. Baka paki sambu na sistem na n
 
 <!-- novera-release-1.0.1:end -->
 
-## Bima yina kele — 2026-11-07
+Sambu na 1.0.1, LFM3-Mambu yonso...2B Q4_K_M ti bima yina bo ke lombaka `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` kele ndongisila ya default sambu na ordinatere ya ordinatere mpi ya telefone; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M Kansi, yo kele kaka na verse mosi. 32,768 ba tokeni na ordinateur mpi 2,048 Bo ke taninaka bangidika yina kele na kati tii ntangu bo ta soba yo pwelele.
 
-**Novera 1.0.1 kele sambu na Windows, Linux, macOS mpi Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64)Bimvuka zole ya ordinatere CLI Ba archives, signatures mpi updates manifestes ke vandaka ya bantu yonso mpi bo ke tadilaka yo.
+Bo me yidika yo sambu na kutanina mpi kutomisa luzingu ya bantu 1.0.1.Bansangu ya kukonda mfunu mpi bansangu ya bifu ke sadilaka bansosa ya tekiniki yina kele ya kukonda mfunu, ya bo me pesa na luzolo yonso mpi ya bo me fwanisa. [mukanda ya kisalu ya kutanina](docs/MAINTENANCE.md)
 
-| Kisika ya kusala | Mutindu ya Kusadila Yo |
-| --- | --- |
-| Windows x64 | Public NSIS installer, signed updater; native installation and replacement verified. |
-| Linux x64 | Bantu yonso AppImage, updater yina bo me sonika; kutula yo mpi kuvutula yo na kisika na yo. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, ti nzila mosi ya bo me sonika sambu na kupesa bansangu. |
-| Windows ARM64 | [Bantu yonso NSIS muntu ya ke tulaka yo](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), muntu ya insi CPU Text engine; installation, replacement and public-channel checks verified. |
-| Android ARM64 | Android 1.0.1 kele na mutindu mosi ya me simbama ARM64 APK, kutunga 1000013 Yo ke sadilaka bima yina kele na Novera Yo kele ve ti masolo ya muntu mosi, ba modele to mambu yina yandi ke tuba. API Bansangu ya kutula mpi ya kusoba na telefone kele kaka sambu na kumeka yo. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
-| macOS Intel / Apple Silicon | [Kisalu ya nene 1.0.1 DMG kubasisa](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; NoveraBantu yina ke salaka bansosa ya bo me tulaka sinyatre, bo me bakaka ve mikanda ya leta ya Apple; bo me sala bansosa ya bo me salaka na mutindu mosi buna na banzo yonso zole, mpi bo me katulaka bansosa ya ke monana na meso. [Kisika ya kutula mpi banzikisa](docs/RELEASE_1.0.1_2026-11-07.md). |
-| iOS | Na kati ya masini ya simulation; bo ke lombaka nde Apple kusala signing/provisioning na ntwala ya kutula iPhone. [Kukonda kusukinina](docs/REPRISE_MACOS_IOS.md). |
-| Windows x64 bima ya kubeba | [Bo me sonika yo ZIP Archive](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); bansangu kezingaka na kati Data, ya bo me tula kidimbu Program Bo me zaba nde bo me soba yo. |
-| Site Internet, MSI, Debian | [Novera Web 1.0.2](https://tron-abs.github.io/Novera/web/). Bapake MSI mpi Debian kele sambu na kisalu ya kati. |
-
-Na Mac, kangula DMG mpi kusonika Novera Kana bo me kanga lukanu ya ntete, bika nde bo pesa nzila na kusala yo. Novera na **Bangidika ya Kisalu → Kinsweki mpi Kinsweki → Kukatuka Ata na Nki Mutindu**. [Bansiku ya Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
-
-Updater signatures are separate from Windows Authenticode and Apple notarization. Package hashes, native checks and update tests are documented separately. A complete public 1.0.0 to 1.0.1 upgrade is confirmed only for the scenarios recorded in the release report. [Evidence and limitations](docs/LAUNCH_STATUS.md)
-
-Na zulu Android, telefone mosi ya mpa yina kele ti mabanza ya mbote kele mfunu sambu na bamodele ya bwala; sadila API Sambu na kusala bansosa na nzila ya Internet, beto fwete sadila bansangu ya mutindu yai sambu na kusadisa bantu yina kele ve ti makuki ya kusala bansosa. **16K ba-token (16,384)** Yo ke lomba nde bo sala yo mbala na mbala na bandinga yonso.
-
-**Windows x64 bima ya kubeba 1.0.0 yo kele.** Bangogo, ba paramètre mpi ba modele ya bo me katula kele na kati ya dossier ya bo lenda sadila na nsi ya lutiti `Data`. Baka mikanda yonso mpi yantika `Novera.exe`Beno kwenda pene-pene. Novera na ntwala ya kunata yo to kubasisa yo USB bo ke bumbaka yo. [Lutiti mpi bandilu na yo](docs/WINDOWS_PORTABLE.md).
+</details>
 
 <a id="one-dashboard-for-every-creation"></a>
 ## Konso kigangwa kele ti dashboard mosi
@@ -83,7 +94,6 @@ Novera Nge lenda sadila bambandu mpi ba paramètre na nge sambu na kusadisa bant
 **Tablo ya kusala mambu: Kisika ya kisalu ya kuluta nene.** Katula mambu yina bo me tulaka sambu na kupesa bima na nge kisika ya mbote. PNG.
 
 [![Novera: bo me yidika dashboard sambu na kuzwa kisika ya kisalu ya kuluta nene, mpi bo lenda kota na yo ti mikro](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
-
 
 Disongidila, pantere mosi, mitindu tanu: **Auto / Text / Foto / Miziki / Video**.Bansongi ke landaka mutindu yina bo me pona yo: kiteso, luswasukusu, ntangu, mpima, mbote, instrumental, bangogo, nkeni mpi ntalu.
 
@@ -109,11 +119,7 @@ Automation ke tadila ba moteur mpi ba workflows ya bo me vukisaka; yo ke salaka 
 
 [Lutwadisu ya Muntu ya Ke Sadila](docs/USER_GUIDE.md) · [Ba motere mpi kusala bansosa](docs/SUIVI_MOTEURS.md) · [Kulonguka](docs/DEVELOPMENT.md)
 
-Sambu na 1.0.1, LFM3-Mambu yonso...2B Q4_K_M ti bima yina bo ke lombaka `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` kele ndongisila ya default sambu na ordinatere ya ordinatere mpi ya telefone; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M Kansi, yo kele kaka na verse mosi. 32,768 ba tokeni na ordinateur mpi 2,048 Bo ke taninaka bangidika yina kele na kati tii ntangu bo ta soba yo pwelele.
-
 ## Makuki yina kele na nsi-ntoto
-
-Bo me yidika yo sambu na kutanina mpi kutomisa luzingu ya bantu 1.0.1.Bansangu ya kukonda mfunu mpi bansangu ya bifu ke sadilaka bansosa ya tekiniki yina kele ya kukonda mfunu, ya bo me pesa na luzolo yonso mpi ya bo me fwanisa. [mukanda ya kisalu ya kutanina](docs/MAINTENANCE.md)
 
 | Kisika | Bikalulu |
 | --- | --- |
@@ -299,7 +305,7 @@ Beto ke zola lutwadisu ya pete sambu na kusadila yo na luzingu ya konso kilumbu,
 
 ## Mutindu ya kisalu
 
-**Novera 1.0.1 kele sambu na Windows, Linux, macOS mpi Android.** Foto yai ke monisa nde: Windows Kisalu yina bo ke salaka na kisika mosi ti muntu yina ke taninaka yo. Bo ke tangaka yo na mutindu mosi ya kuswaswana; yo ke tadilaka ve konso modele, platforme to konti ya cloud.
+Foto yai ke monisa nde: Windows Kisalu yina bo ke salaka na kisika mosi ti muntu yina ke taninaka yo. Bo ke tangaka yo na mutindu mosi ya kuswaswana; yo ke tadilaka ve konso modele, platforme to konti ya cloud.
 
 Manual GitHub Actions builds are enabled for all eleven distribution variants. Follow the [build results and verified candidate downloads](docs/CI_DISTRIBUTIONS.md); availability is recorded separately for each platform. Candidates are distinct from signed production releases. Distribution requirements are described in the [official release policy](OFFICIAL_RELEASES.md) and [releases page](https://github.com/TRON-ABS/Novera/releases). Existing updater-disabled candidates remain internal. Public releases require a configured and verified update mechanism; [desktop signature checks and remaining launch requirements are documented](docs/LAUNCH_STATUS.md).
 

@@ -17,6 +17,37 @@
 
 ---
 
+<!-- novera-current-downloads:start -->
+
+## Sẵn có — Novera 1.0.2
+
+| Nền tảng | Sẵn có |
+| --- | --- |
+| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2) |
+| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-arm64) |
+| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-linux-x64) |
+| Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-cli-novera) |
+| Windows x64 di động | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-portable) |
+| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos-arm64) |
+| Android ARM64 | [APK · 1000023](https://github.com/TRON-ABS/Novera/releases/download/v1.0.2-android-1000023/Novera_1.0.2_android-arm64.apk) · Android 7+ |
+| Web | [Novera Web 1.0.2](https://tron-abs.github.io/Novera/web/) |
+| iOS | Bản dựng mô phỏng nội bộ; Cần phải có chữ ký/cung cấp của Apple trước khi cài đặt iPhone. [Theo dõi](docs/REPRISE_MACOS_IOS.md). |
+
+<!-- novera-current-downloads:end -->
+Trên máy Mac, mở DMG và sao chép Novera vào Ứng dụng. Nếu lần khởi chạy đầu tiên bị chặn, hãy cho phép Novera vào **Cài đặt hệ thống → Quyền riêng tư và bảo mật → Vẫn mở**. [Hướng dẫn của Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
+
+[Bằng chứng và hạn chế](docs/LAUNCH_STATUS.md)
+
+Trên Android, điện thoại hiện đại có đủ bộ nhớ được khuyến nghị cho các kiểu máy địa phương; sử dụng nhà cung cấp API trên các thiết bị kém mạnh mẽ hơn. Đối với tìm kiếm trên web, ngữ cảnh ít nhất **Mã thông báo 16K (16,384)** được khuyến nghị, nhất quán trên các phiên bản.
+
+**Windows x64 1.0.2 di động có sẵn.** Các cuộc thảo luận, cài đặt và mô hình đã tải xuống vẫn nằm trong thư mục di động bên dưới `Data`. Trích xuất kho lưu trữ hoàn chỉnh và bắt đầu `Novera.exe`. Đóng Novera trước khi di chuyển thư mục hoặc tháo bộ lưu trữ USB. [Hướng dẫn di động và những hạn chế](docs/WINDOWS_PORTABLE.md).
+
+<a id="one-dashboard-for-every-creation"></a>
+
+
+<details>
+<summary>Novera 1.0.1 · 2026-11-07</summary>
+
 <!-- novera-release-1.0.1:start -->
 <a id="version-1-0-1"></a>
 ## Novera 1.0.1
@@ -51,31 +82,11 @@ Xác thực
 
 <!-- novera-release-1.0.1:end -->
 
-## Sẵn có — 2026-11-07
+Đối với 1.0.1, LFM3-Omni-2B Q4_K_M với `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` bắt buộc là đề xuất mặc định trên máy tính để bàn và thiết bị di động; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M vẫn là lựa chọn thay thế chỉ có văn bản. Bối cảnh ban đầu là 32,768 mã thông báo trên máy tính để bàn và 2,048 trên thiết bị di động. Bối cảnh dài hơn sử dụng nhiều bộ nhớ hơn. Các lựa chọn và cài đặt mô hình hiện tại được giữ nguyên cho đến khi có thay đổi rõ ràng.
 
-**Novera 1.0.1 có sẵn cho Windows, Linux, macOS và Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Các gói máy tính để bàn, cả kho lưu trữ, chữ ký và bảng kê khai cập nhật CLI đều được công khai và xác minh.
+Các cải tiến về bảo trì và quyền riêng tư đã được chuẩn bị cho 1.0.1. Số liệu thống kê tùy chọn và báo cáo lỗi sử dụng chẩn đoán kỹ thuật được lọc, có sự đồng ý rõ ràng và độc lập. Kiểm tra phát hành bắt buộc và các phát hiện bảo mật còn lại được ghi lại riêng biệt. [sổ tay bảo trì](docs/MAINTENANCE.md)
 
-| Nền tảng | Sẵn có |
-| --- | --- |
-| Windows x64 | Trình cài đặt NSIS công khai, trình cập nhật đã ký; cài đặt gốc và thay thế đã được xác minh. |
-| Linux x64 | AppImage công khai, trình cập nhật đã ký; cài đặt gốc và thay thế đã được xác minh. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, với kênh cập nhật có chữ ký riêng. |
-| Windows ARM64 | [Trình cài đặt NSIS công khai](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), công cụ văn bản CPU gốc; cài đặt, thay thế và kiểm tra kênh công cộng đã được xác minh. |
-| Android ARM64 | Android 1.0.1 có sẵn dưới dạng APK ARM64 đã ký, bản dựng 1000013. Nó sử dụng chứng chỉ Novera hiện có và vượt qua quá trình kiểm tra gói. Nó không chứa các cuộc trò chuyện cá nhân, mô hình hoặc khóa API. Việc cài đặt và cập nhật trên điện thoại vẫn đang được thử nghiệm. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
-| macOS Intel / Apple Silicon | [Bản phát hành 1.0.1 DMG chính thức](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Cập nhật có chữ ký Novera. Không được Apple công chứng; kiểm tra tự động được chuyển riêng trên cả hai kiến ​​trúc, kiểm tra trực quan bị trì hoãn. [Cài đặt và bằng chứng](docs/RELEASE_1.0.1_2026-11-07.md). |
-| iOS | Bản dựng mô phỏng nội bộ; Cần phải có chữ ký/cung cấp của Apple trước khi cài đặt iPhone. [Theo dõi](docs/REPRISE_MACOS_IOS.md). |
-| Windows x64 di động | [Đã ký kho lưu trữ ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); dữ liệu vẫn ở trong Data, đã xác minh thay thế Program đã ký. |
-| Web, MSI, Debian | Máy khách Web được lưu trữ và các định dạng khác vẫn giữ nguyên ở nội bộ; Trang web trình bày Pages có sẵn. |
-
-Trên máy Mac, mở DMG và sao chép Novera vào Ứng dụng. Nếu lần khởi chạy đầu tiên bị chặn, hãy cho phép Novera vào **Cài đặt hệ thống → Quyền riêng tư và bảo mật → Vẫn mở**. [Hướng dẫn của Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
-
-Chữ ký của người cập nhật tách biệt với Windows Authenticode và công chứng của Apple. Băm gói, kiểm tra gốc và kiểm tra cập nhật được ghi lại riêng biệt. Bản nâng cấp công khai hoàn chỉnh từ 1.0.0 lên 1.0.1 chỉ được xác nhận cho các trường hợp được ghi trong báo cáo phát hành. [Bằng chứng và hạn chế](docs/LAUNCH_STATUS.md)
-
-Trên Android, điện thoại hiện đại có đủ bộ nhớ được khuyến nghị cho các kiểu máy địa phương; sử dụng nhà cung cấp API trên các thiết bị kém mạnh mẽ hơn. Đối với tìm kiếm trên web, ngữ cảnh ít nhất **Mã thông báo 16K (16,384)** được khuyến nghị, nhất quán trên các phiên bản.
-
-**Windows x64 1.0.0 di động có sẵn.** Các cuộc thảo luận, cài đặt và mô hình đã tải xuống vẫn nằm trong thư mục di động bên dưới `Data`. Trích xuất kho lưu trữ hoàn chỉnh và bắt đầu `Novera.exe`. Đóng Novera trước khi di chuyển thư mục hoặc tháo bộ lưu trữ USB. [Hướng dẫn di động và những hạn chế](docs/WINDOWS_PORTABLE.md).
-
-<a id="one-dashboard-for-every-creation"></a>
+</details>
 
 ## Một trang tổng quan cho mọi sáng tạo
 
@@ -88,7 +99,6 @@ Novera phát triển cùng bạn. Các ví dụ và cài đặt của bạn có 
 Trạng thái micrô: màu xanh lá cây khi khả dụng, màu đỏ khi bận, màu xám khi không khả dụng. Nhận dạng, khởi động lại nghe, xử lý tiêu điểm và đọc chính tả rõ ràng đã được sửa chữa. Giọng nói mô hình âm thanh gốc hiện được triển khai trên Windows; các nền tảng khác vẫn cần xác thực gốc và hỗ trợ giọng nói phù hợp.
 
 [![Novera đã tạo hình ảnh và bảng điều khiển thống nhất với số lượng, hạt giống, nâng cấp và bộ nhớ tự động](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
-
 
 Một bảng điều khiển, năm chế độ: **Tự động / Văn bản / Hình ảnh / Nhạc / Video**. Các điều khiển tuân theo chế độ đã chọn: tỷ lệ, độ phân giải, thời lượng, nhịp điệu, chất lượng, nhạc cụ, lời bài hát, hạt giống và số lượng. Độ rộng của bảng điều khiển và các nút thích ứng với cửa sổ và nhãn đã dịch.
 
@@ -115,11 +125,7 @@ Tự động hóa bao gồm các công cụ và quy trình công việc tích h�
 
 [Hướng dẫn sử dụng](docs/USER_GUIDE.md) · [Động cơ và xác nhận](docs/SUIVI_MOTEURS.md) · [Phát triển](docs/DEVELOPMENT.md)
 
-Đối với 1.0.1, LFM3-Omni-2B Q4_K_M với `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` bắt buộc là đề xuất mặc định trên máy tính để bàn và thiết bị di động; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M vẫn là lựa chọn thay thế chỉ có văn bản. Bối cảnh ban đầu là 32,768 mã thông báo trên máy tính để bàn và 2,048 trên thiết bị di động. Bối cảnh dài hơn sử dụng nhiều bộ nhớ hơn. Các lựa chọn và cài đặt mô hình hiện tại được giữ nguyên cho đến khi có thay đổi rõ ràng.
-
 ## Khả năng trong nguồn
-
-Các cải tiến về bảo trì và quyền riêng tư đã được chuẩn bị cho 1.0.1. Số liệu thống kê tùy chọn và báo cáo lỗi sử dụng chẩn đoán kỹ thuật được lọc, có sự đồng ý rõ ràng và độc lập. Kiểm tra phát hành bắt buộc và các phát hiện bảo mật còn lại được ghi lại riêng biệt. [sổ tay bảo trì](docs/MAINTENANCE.md)
 
 | Khu vực | Tính năng |
 | --- | --- |
@@ -308,7 +314,7 @@ Ngoài trường học và giáo dục, tham vọng của chúng tôi là giúp 
 
 ## Tình trạng dự án
 
-**Novera 1.0.1 có sẵn cho Windows, Linux, macOS và Android.** Ảnh chụp màn hình hiển thị ứng dụng Windows được nhà bảo trì biên dịch cục bộ. Các thay đổi về nguồn, kiểm tra mục tiêu và xác thực phần cứng được ghi lại riêng biệt; điều này không xác thực mọi mô hình, nền tảng hoặc tài khoản đám mây.
+Ảnh chụp màn hình hiển thị ứng dụng Windows được nhà bảo trì biên dịch cục bộ. Các thay đổi về nguồn, kiểm tra mục tiêu và xác thực phần cứng được ghi lại riêng biệt; điều này không xác thực mọi mô hình, nền tảng hoặc tài khoản đám mây.
 
 Bản dựng GitHub Actions thủ công được bật cho tất cả 11 biến thể phân phối. Theo dõi [xây dựng kết quả và tải xuống ứng viên đã được xác minh](docs/CI_DISTRIBUTIONS.md); tính khả dụng được ghi lại riêng cho từng nền tảng. Các ứng cử viên khác biệt với các bản phát hành sản xuất đã ký. Yêu cầu phân phối được mô tả trong [chính sách phát hành chính thức](OFFICIAL_RELEASES.md) và [trang phát hành](https://github.com/TRON-ABS/Novera/releases). Các ứng cử viên hiện tại bị vô hiệu hóa trình cập nhật vẫn là nội bộ. Các bản phát hành công khai yêu cầu cơ chế cập nhật được định cấu hình và xác minh; [Kiểm tra chữ ký trên máy tính để bàn và các yêu cầu khởi chạy còn lại đều được ghi lại](docs/LAUNCH_STATUS.md).
 

@@ -17,6 +17,37 @@
 
 ---
 
+<!-- novera-current-downloads:start -->
+
+## Availability — Novera 1.0.2
+
+| Plataporma | Availability |
+| --- | --- |
+| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2) |
+| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-arm64) |
+| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-linux-x64) |
+| Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-cli-novera) |
+| Windows x64 portable | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-portable) |
+| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos-arm64) |
+| Android ARM64 | [APK · 1000023](https://github.com/TRON-ABS/Novera/releases/download/v1.0.2-android-1000023/Novera_1.0.2_android-arm64.apk) · Android 7+ |
+| Web | [Novera Web 1.0.2](https://tron-abs.github.io/Novera/web/) |
+| iOS | Paggawa ng panloob na simulator; Kinakailangan ang pag-sign/provisioning sa Apple bago ang pag-install ng iPhone. [Pagsubaybay](docs/REPRISE_MACOS_IOS.md). |
+
+<!-- novera-current-downloads:end -->
+Sa Mac, buksan ang DMG at kopyahin ang Novera sa Applications. Kung na-block ang unang paglunsad, payagan ang Novera na pumasok **Mga Setting ng System → Privacy at Seguridad → Open Anyway**. [Mga tagubilin sa Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
+
+[Katibayan at limitasyon](docs/LAUNCH_STATUS.md)
+
+Sa Android, inirerekomenda ang modernong teleponong may sapat na memorya para sa mga lokal na modelo; gumamit ng API provider sa hindi gaanong makapangyarihang mga device. Para sa paghahanap sa web, isang konteksto ng hindi bababa sa **16K token (16,384)** ay inirerekomenda, pare-pareho sa mga bersyon.
+
+**Windows x64 portable 1.0.2.** Ang mga talakayan, setting at na-download na modelo ay mananatili sa loob ng portable folder sa ilalim ng `Data`. I-extract ang kumpletong archive at magsimula `Novera.exe`. Isara ang Novera bago ilipat ang folder o i-eject ang storage ng USB. [Portable na gabay at mga limitasyon](docs/WINDOWS_PORTABLE.md).
+
+<a id="one-dashboard-for-every-creation"></a>
+
+
+<details>
+<summary>Novera 1.0.1 · 2026-11-07</summary>
+
 <!-- novera-release-1.0.1:start -->
 <a id="version-1-0-1"></a>
 ## Novera 1.0.1
@@ -45,31 +76,11 @@ Novera 1.0.1 ay available para sa mga platform na nakalista sa ibaba. I-download
 
 <!-- novera-release-1.0.1:end -->
 
-## Availability — 2026-11-07
+Para sa 1.0.1, ang LFM3-Omni-2B Q4_K_M kasama ang kinakailangang `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` ay ang default na rekomendasyon sa desktop at mobile; Ang NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M ay nananatiling text-only na alternatibo. Ang paunang konteksto ay 32,768 token sa desktop at 2,048 sa mobile. Ang mas mahabang konteksto ay gumagamit ng mas maraming memorya. Ang mga kasalukuyang pagpipilian at setting ng modelo ay pinapanatili hanggang sa tahasang baguhin.
 
-**Novera 1.0.1 ay available para sa Windows, Linux, macOS at Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Ang mga desktop package, parehong CLI archive, signatures at update manifests ay pampubliko at na-verify.
+Ang pagpapanatili at mga pagpapahusay sa privacy ay inihanda para sa 1.0.1. Ang mga opsyonal na istatistika at pag-uulat ng error ay gumagamit ng independiyente, tahasang pahintulot at na-filter na mga teknikal na diagnostic. Ang mga kinakailangang pagsusuri sa pagpapalabas at natitirang mga natuklasan sa seguridad ay nakadokumento nang hiwalay. [runbook ng pagpapanatili](docs/MAINTENANCE.md)
 
-| Plataporma | Availability |
-| --- | --- |
-| Windows x64 | Pampublikong NSIS installer, nilagdaang updater; na-verify ang katutubong pag-install at pagpapalit. |
-| Linux x64 | Pampublikong AppImage, nilagdaang updater; na-verify ang katutubong pag-install at pagpapalit. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, na may nakalaang nilagdaang update na channel. |
-| Windows ARM64 | [Pampublikong NSIS installer](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), native na CPU text engine; na-verify ang pag-install, pagpapalit at mga pagsusuri sa pampublikong channel. |
-| Android ARM64 | Available ang Android 1.0.1 bilang isang nilagdaang ARM64 APK, build 1000013. Ginagamit nito ang umiiral nang certificate ng Novera at pumasa sa inspeksyon ng package. Wala itong mga personal na pag-uusap, modelo o API key. Ang pag-install at pag-update sa isang telepono ay mananatiling pagsubok. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
-| macOS Intel / Apple Silicon | [Opisyal na paglabas ng 1.0.1 DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera-sign na mga update. Hindi Apple notarized; hiwalay na ipinasa ang mga awtomatikong pagsusuri sa parehong mga arkitektura, ipinagpaliban ang mga visual na pagsusuri. [Pag-install at ebidensya](docs/RELEASE_1.0.1_2026-11-07.md). |
-| iOS | Paggawa ng panloob na simulator; Kinakailangan ang pag-sign/provisioning sa Apple bago ang pag-install ng iPhone. [Pagsubaybay](docs/REPRISE_MACOS_IOS.md). |
-| Windows x64 portable | [Nilagdaan ZIP archive](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); ang data ay nananatili sa Data, pinirmahang Program na kapalit na na-verify. |
-| Web, MSI, Debian | Ang naka-host na Web client at iba pang mga format ay nananatiling panloob; Available ang site ng pagtatanghal ng Pages. |
-
-Sa Mac, buksan ang DMG at kopyahin ang Novera sa Applications. Kung na-block ang unang paglunsad, payagan ang Novera na pumasok **Mga Setting ng System → Privacy at Seguridad → Open Anyway**. [Mga tagubilin sa Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
-
-Ang mga lagda ng Updater ay hiwalay sa Windows Authenticode at Apple notarization. Ang mga package hash, native na mga pagsusuri at mga pagsusuri sa pag-update ay nakadokumento nang hiwalay. Ang kumpletong pampublikong 1.0.0 hanggang 1.0.1 na pag-upgrade ay nakumpirma lamang para sa mga senaryo na naitala sa ulat ng paglabas. [Katibayan at limitasyon](docs/LAUNCH_STATUS.md)
-
-Sa Android, inirerekomenda ang modernong teleponong may sapat na memorya para sa mga lokal na modelo; gumamit ng API provider sa hindi gaanong makapangyarihang mga device. Para sa paghahanap sa web, isang konteksto ng hindi bababa sa **16K token (16,384)** ay inirerekomenda, pare-pareho sa mga bersyon.
-
-**Windows x64 portable 1.0.0.** Ang mga talakayan, setting at na-download na modelo ay mananatili sa loob ng portable folder sa ilalim ng `Data`. I-extract ang kumpletong archive at magsimula `Novera.exe`. Isara ang Novera bago ilipat ang folder o i-eject ang storage ng USB. [Portable na gabay at mga limitasyon](docs/WINDOWS_PORTABLE.md).
-
-<a id="one-dashboard-for-every-creation"></a>
+</details>
 
 ## Isang dashboard para sa bawat paggawa
 
@@ -82,7 +93,6 @@ Lumalaki ang Novera kasama mo. Ang iyong mga halimbawa at setting ay makakatulon
 Status ng mikropono: berde kapag available, pula habang abala, kulay abo kapag hindi available. Ang pagkilala, pag-restart ng pakikinig, paghawak ng focus at nakikitang pagdidikta ay naitama. Kasalukuyang ipinapatupad ang katutubong audio-model speech sa Windows; ang ibang mga platform ay nangangailangan pa rin ng katutubong pagpapatunay at angkop na suporta sa boses.
 
 [![Novera nabuong imahe at pinag-isang dashboard na may dami, buto, upscaling at awtomatikong memory](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
-
 
 Isang panel, limang mode: **Auto / Teksto / Larawan / Musika / Video**. Sinusunod ng mga kontrol ang napiling mode: ratio, resolution, tagal, cadence, kalidad, instrumental, lyrics, binhi at dami. Ang lapad ng panel at mga pindutan ay umaangkop sa window at mga isinaling label.
 
@@ -109,11 +119,7 @@ Sinasaklaw ng automation ang mga pinagsama-samang makina at daloy ng trabaho; hi
 
 [Gabay sa gumagamit](docs/USER_GUIDE.md) · [Mga makina at pagpapatunay](docs/SUIVI_MOTEURS.md) · [Pag-unlad](docs/DEVELOPMENT.md)
 
-Para sa 1.0.1, ang LFM3-Omni-2B Q4_K_M kasama ang kinakailangang `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` ay ang default na rekomendasyon sa desktop at mobile; Ang NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M ay nananatiling text-only na alternatibo. Ang paunang konteksto ay 32,768 token sa desktop at 2,048 sa mobile. Ang mas mahabang konteksto ay gumagamit ng mas maraming memorya. Ang mga kasalukuyang pagpipilian at setting ng modelo ay pinapanatili hanggang sa tahasang baguhin.
-
 ## Mga kakayahan sa pinagmulan
-
-Ang pagpapanatili at mga pagpapahusay sa privacy ay inihanda para sa 1.0.1. Ang mga opsyonal na istatistika at pag-uulat ng error ay gumagamit ng independiyente, tahasang pahintulot at na-filter na mga teknikal na diagnostic. Ang mga kinakailangang pagsusuri sa pagpapalabas at natitirang mga natuklasan sa seguridad ay nakadokumento nang hiwalay. [runbook ng pagpapanatili](docs/MAINTENANCE.md)
 
 | Lugar | Mga Tampok |
 | --- | --- |
@@ -302,7 +308,7 @@ Ito ay mga direksyon para sa kontribusyon at pag-unlad, hindi isang pag-aangkin 
 
 ## Katayuan ng proyekto
 
-**Novera 1.0.1 ay available para sa Windows, Linux, macOS at Android.** Ang screenshot ay nagpapakita ng Windows application na lokal na pinagsama ng maintainer. Ang mga pagbabago sa pinagmulan, naka-target na mga pagsubok at pagpapatunay ng hardware ay nakadokumento nang hiwalay; hindi nito pinapatunayan ang bawat modelo, platform o cloud account.
+Ang screenshot ay nagpapakita ng Windows application na lokal na pinagsama ng maintainer. Ang mga pagbabago sa pinagmulan, naka-target na mga pagsubok at pagpapatunay ng hardware ay nakadokumento nang hiwalay; hindi nito pinapatunayan ang bawat modelo, platform o cloud account.
 
 Ang mga manual na GitHub Actions build ay pinagana para sa lahat ng labing-isang variant ng pamamahagi. Sundin ang [bumuo ng mga resulta at na-verify na mga pag-download ng kandidato](docs/CI_DISTRIBUTIONS.md); ang availability ay itinatala nang hiwalay para sa bawat platform. Ang mga kandidato ay naiiba sa mga pinirmahang release ng produksyon. Ang mga kinakailangan sa pamamahagi ay inilarawan sa [opisyal na patakaran sa pagpapalabas](OFFICIAL_RELEASES.md) at [ay naglalabas ng pahina](https://github.com/TRON-ABS/Novera/releases). Ang mga kasalukuyang kandidatong may kapansanan sa updater ay nananatiling panloob. Ang mga pampublikong release ay nangangailangan ng naka-configure at na-verify na mekanismo ng pag-update; [desktop signature check at natitirang mga kinakailangan sa paglunsad](docs/LAUNCH_STATUS.md).
 

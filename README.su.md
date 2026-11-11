@@ -17,6 +17,37 @@
 
 ---
 
+<!-- novera-current-downloads:start -->
+
+## kasadiaan — Novera 1.0.2
+
+| Platform | kasadiaan |
+| --- | --- |
+| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2) |
+| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-arm64) |
+| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-linux-x64) |
+| Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-cli-novera) |
+| Windows x64 portabel | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-portable) |
+| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos-arm64) |
+| Android ARM64 | [APK · 1000023](https://github.com/TRON-ABS/Novera/releases/download/v1.0.2-android-1000023/Novera_1.0.2_android-arm64.apk) · Android 7+ |
+| Web | [Novera Web 1.0.2](https://tron-abs.github.io/Novera/web/) |
+| iOS | simulator internal ngawangun; Signing / provisioning Apple diperlukeun saméméh instalasi iPhone. [Tuturkeun](docs/REPRISE_MACOS_IOS.md). |
+
+<!-- novera-current-downloads:end -->
+Dina Mac, buka DMG sareng salin Novera kana Aplikasi. Lamun peluncuran kahiji diblokir, ngidinan Novera di **Setélan Sistem → Privasi & Kaamanan → Buka Atoh**. [parentah Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
+
+[Bukti sareng watesan](docs/LAUNCH_STATUS.md)
+
+Dina Android, telepon modern kalawan memori cukup dianjurkeun pikeun model lokal; anggo panyadia API dina alat anu kirang kuat. Pikeun milarian wéb, kontéks sahenteuna **16K token (16,384)** disarankeun, konsistén dina versi.
+
+**Windows x64 portabel 1.0.2 sayogi.** Diskusi, setelan sareng model anu diunduh tetep aya di jero polder portabel di handapeun `Data`. Ekstrak arsip lengkep sareng mimitian `Novera.exe`. Tutup Novera sateuacan mindahkeun polder atanapi ngaluarkeun USB panyimpenan. [Pituduh portabel sareng watesan](docs/WINDOWS_PORTABLE.md).
+
+<a id="one-dashboard-for-every-creation"></a>
+
+
+<details>
+<summary>Novera 1.0.1 · 2026-11-07</summary>
+
 <!-- novera-release-1.0.1:start -->
 <a id="version-1-0-1"></a>
 ## Novera 1.0.1
@@ -45,31 +76,11 @@ Novera 1.0.1 sayogi pikeun platform anu didaptarkeun di handap. Unduh pakét pik
 
 <!-- novera-release-1.0.1:end -->
 
-## kasadiaan — 2026-11-07
+Kanggo 1.0.1, LFM3-Omni-2B Q4_K_M sareng `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` anu diperyogikeun mangrupikeun rekomendasi standar dina desktop sareng mobile; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M tetep alternatif téks wungkul. Kontéks awal nyaéta 32,768 token dina desktop sareng 2,048 dina sélulér. Konteks anu langkung panjang ngagunakeun langkung seueur memori. Pilihan sareng setelan model anu tos aya disimpen dugi ka robah sacara eksplisit.
 
-**Novera 1.0.1 kersa pikeun Windows, Linux, macOS, jeung Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Bungkusan desktop, duanana CLI arsip, tanda tangan sareng update manifests umum sareng diverifikasi.
+Pangropéa sareng perbaikan privasi disiapkeun pikeun 1.0.1. Statistik pilihan sareng ngalaporkeun kasalahan ngagunakeun idin anu mandiri, eksplisit sareng diagnostik téknis anu disaring. Cék sékrési anu diperyogikeun sareng panemuan kaamanan sésana didokumentasikeun sacara misah. [runbook pangropéa](docs/MAINTENANCE.md)
 
-| Platform | kasadiaan |
-| --- | --- |
-| Windows x64 | Public NSIS installer, ditandatanganan updater; instalasi asli tur ngagantian diverifikasi. |
-| Linux x64 | Publik AppImage, ditandatanganan updater; instalasi asli tur ngagantian diverifikasi. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, kalayan saluran apdet anu ditandatanganan khusus. |
-| Windows ARM64 | [Public NSIS installer](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), mesin téks asli CPU; pamasangan, ngagantian jeung cék saluran publik diverifikasi. |
-| Android ARM64 | Android 1.0.1 sayogi salaku APK ARM64 anu ditandatanganan, ngawangun 1000013. Nganggo sertipikat Novera anu tos aya sareng lulus pamariksaan pakét. Éta henteu ngandung paguneman pribadi, modél atanapi konci API. Pamasangan sareng ngapdet dina telepon tetep kedah diuji. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
-| macOS Intel / Apple Silicon | [Resmi 1.0.1 DMG release](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera-ditandatanganan apdet. Teu Apple notarized; cék otomatis diliwatan misah dina duanana arsitéktur, cék visual nunggak. [Instalasi jeung bukti](docs/RELEASE_1.0.1_2026-11-07.md). |
-| iOS | simulator internal ngawangun; Signing / provisioning Apple diperlukeun saméméh instalasi iPhone. [Tuturkeun](docs/REPRISE_MACOS_IOS.md). |
-| Windows x64 portabel | [ditandatanganan ZIP arsip](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); data tetep dina Data, ditandatanganan Program ngagantian diverifikasi. |
-| Wéb, MSI, Debian | Hosted klien Wéb jeung format séjén tetep internal; Pages situs presentasi sayogi. |
-
-Dina Mac, buka DMG sareng salin Novera kana Aplikasi. Lamun peluncuran kahiji diblokir, ngidinan Novera di **Setélan Sistem → Privasi & Kaamanan → Buka Atoh**. [parentah Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
-
-Tanda tangan Updater dipisahkeun tina Windows Authenticode sareng Apple notarization. Hashes pakét, cék asli sareng tés update didokumentasikeun sacara misah. Pamutahiran 1.0.0 umum lengkep ka 1.0.1 dikonfirmasi ngan pikeun skenario anu kacatet dina laporan pelepasan. [Bukti sareng watesan](docs/LAUNCH_STATUS.md)
-
-Dina Android, telepon modern kalawan memori cukup dianjurkeun pikeun model lokal; anggo panyadia API dina alat anu kirang kuat. Pikeun milarian wéb, kontéks sahenteuna **16K token (16,384)** disarankeun, konsistén dina versi.
-
-**Windows x64 portabel 1.0.0 sayogi.** Diskusi, setelan sareng model anu diunduh tetep aya di jero polder portabel di handapeun `Data`. Ekstrak arsip lengkep sareng mimitian `Novera.exe`. Tutup Novera sateuacan mindahkeun polder atanapi ngaluarkeun USB panyimpenan. [Pituduh portabel sareng watesan](docs/WINDOWS_PORTABLE.md).
-
-<a id="one-dashboard-for-every-creation"></a>
+</details>
 
 ## Hiji dasbor pikeun unggal ciptaan
 
@@ -82,7 +93,6 @@ Novera tumuwuh sareng anjeun. Conto sareng setelan anjeun tiasa ngabantosan pang
 Status mikropon: héjo lamun sadia, beureum bari sibuk, kulawu lamun teu sadia. Pangenal, dengekeun balikan deui, penanganan fokus sareng dikte anu katingali parantos dilereskeun. Biantara modél audio asli ayeuna dilaksanakeun dina Windows; platform séjénna masih perlu validasi asli jeung rojongan sora cocog.
 
 [![Novera ngahasilkeun gambar sareng dasbor ngahiji sareng kuantitas, siki, upscaling sareng mémori otomatis](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
-
 
 Hiji panel, lima mode: **Otomatis / Téks / Gambar / Musik / Pidéo**. Kontrol nuturkeun mode anu dipilih: rasio, résolusi, durasi, irama, kualitas, instrumental, lirik, siki sareng kuantitas. Lebar panel sareng tombol adaptasi kana jandela sareng labél anu ditarjamahkeun.
 
@@ -109,11 +119,7 @@ Automation nyertakeun mesin terpadu jeung workflows; éta henteu ngajantenkeun u
 
 [Pituduh pamaké](docs/USER_GUIDE.md) · [Mesin sareng validasi](docs/SUIVI_MOTEURS.md) · [Kamekaran](docs/DEVELOPMENT.md)
 
-Kanggo 1.0.1, LFM3-Omni-2B Q4_K_M sareng `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` anu diperyogikeun mangrupikeun rekomendasi standar dina desktop sareng mobile; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M tetep alternatif téks wungkul. Kontéks awal nyaéta 32,768 token dina desktop sareng 2,048 dina sélulér. Konteks anu langkung panjang ngagunakeun langkung seueur memori. Pilihan sareng setelan model anu tos aya disimpen dugi ka robah sacara eksplisit.
-
 ## Kamampuhan dina sumberna
-
-Pangropéa sareng perbaikan privasi disiapkeun pikeun 1.0.1. Statistik pilihan sareng ngalaporkeun kasalahan ngagunakeun idin anu mandiri, eksplisit sareng diagnostik téknis anu disaring. Cék sékrési anu diperyogikeun sareng panemuan kaamanan sésana didokumentasikeun sacara misah. [runbook pangropéa](docs/MAINTENANCE.md)
 
 | Wewengkon | Fitur |
 | --- | --- |
@@ -302,7 +308,7 @@ Ieu mangrupikeun petunjuk pikeun kontribusi sareng pamekaran, sanés klaim yén 
 
 ## Status proyék
 
-**Novera 1.0.1 kersa pikeun Windows, Linux, macOS, jeung Android.** Potret layar nunjukkeun aplikasi Windows anu disusun sacara lokal ku pangurus. Parobahan sumber, tes sasaran sareng validasi hardware didokumentasikeun sacara misah; ieu henteu nga-validasi unggal modél, platform atanapi akun awan.
+Potret layar nunjukkeun aplikasi Windows anu disusun sacara lokal ku pangurus. Parobahan sumber, tes sasaran sareng validasi hardware didokumentasikeun sacara misah; ieu henteu nga-validasi unggal modél, platform atanapi akun awan.
 
 Manual GitHub Actions ngawangun diaktipkeun pikeun sadaya sabelas varian distribusi. Nuturkeun [hasil ngawangun sareng undeuran calon anu diverifikasi](docs/CI_DISTRIBUTIONS.md); kasadiaan dirékam misah pikeun tiap platform. Calon béda ti sékrési produksi anu ditandatanganan. Syarat distribusi dijelaskeun dina [kawijakan release resmi](OFFICIAL_RELEASES.md) jeung [kaluaran kaca](https://github.com/TRON-ABS/Novera/releases). Calon cacad-updater anu aya tetep internal. Kaluaran publik merlukeun mékanisme update ngonpigurasi tur diverifikasi; [cek tanda tangan desktop sareng syarat peluncuran sésana didokumentasikeun](docs/LAUNCH_STATUS.md).
 

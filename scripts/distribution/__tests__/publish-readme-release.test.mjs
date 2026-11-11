@@ -7,22 +7,14 @@ import { fileURLToPath } from 'node:url'
 import { preparePublication, preparePublishedReadme } from '../publish-readme-release.mjs'
 
 const root = fileURLToPath(new URL('../../../', import.meta.url))
-test('publication preview covers all locales without changing source or overstating Android testing', () => {
+test('historical publication preview preserves current downloads and dated notes', () => {
   const plan = preparePublication(root, true)
   assert.equal(plan.length, 104)
-  for (const file of plan) {
-    assert.equal(fs.readFileSync(path.join(root, file.name), 'utf8'), file.before)
-    assert.match(file.after, /## Novera 1\.0\.1/)
-    assert.match(file.after, /v1\.0\.1-android-1000013/)
-    assert.doesNotMatch(file.after, /android-1000012|\{\{\w+\}\}/)
-    assert.match(file.after, /docs\/RELEASE_1\.0\.1_2026-11-07\.md/)
+  for (const { before, after } of plan) {
+    assert.equal(after, before)
+    assert.match(after, /<summary>Novera 1\.0\.1 · 2026-11-07<\/summary>/)
+    assert.match(after, /<!-- novera-current-downloads:start -->[\s\S]+v1\.0\.2-android-1000023/)
   }
-  const english = plan.find(file => file.name === 'README.md').after
-  assert.doesNotMatch(english, /Before release:|Preparing version 1\.0\.1/)
-  assert.match(english, /Installation and updating on a phone remain to be tested/)
-  assert.match(english, /public 1\.0\.0 to 1\.0\.1 upgrade/)
-  assert.match(english, /releases\/tag\/v1\.0\.0-windows-portable/)
-  assert.doesNotMatch(english, /releases\/tag\/v1\.0\.1-windows-portable/)
 })
 test('unpublished state refuses source publication before reading or writing READMEs', t => {
   const fixture = fs.mkdtempSync(path.join(os.tmpdir(), 'novera-publish-guard-'))
@@ -39,6 +31,7 @@ test('published transformation preserves the prior version and is idempotent', (
   const first = preparePublishedReadme(source, 'fr', facts, copy)
   assert.match(first, /<p><strong>[^\n]+120 langues[^\n]+Apache 2\.0/)
   assert.match(first, /104, avec 2 435 clés/)
+  assert.equal(first, source)
   assert.equal(preparePublishedReadme(first, 'fr', facts, copy), first)
   assert.throws(() => preparePublishedReadme(source, 'fr', { ...facts, stable: '1.0.0' }, copy), /published release facts/)
 })

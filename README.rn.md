@@ -19,6 +19,37 @@ Data n'ubuzima bwite: [inference y'aho hantu, telemetry idasanzwe, raporo z'amak
 
 ---
 
+<!-- novera-current-downloads:start -->
+
+## Kuboneka — Novera 1.0.2
+
+| Urubuga | Kuboneka |
+| --- | --- |
+| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2) |
+| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-arm64) |
+| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-linux-x64) |
+| Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-cli-novera) |
+| Windows x64 ushobora gutwara | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-portable) |
+| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos-arm64) |
+| Android ARM64 | [APK · 1000023](https://github.com/TRON-ABS/Novera/releases/download/v1.0.2-android-1000023/Novera_1.0.2_android-arm64.apk) · Android 7+ |
+| Web | [Novera Web 1.0.2](https://tron-abs.github.io/Novera/web/) |
+| iOS | Ivyuma vy’imbere mu gihugu vyubatswe; Gusinya/gutanga Apple birakenewe imbere yo gushiramwo iPhone. [Gukurikirana](docs/REPRISE_MACOS_IOS.md). |
+
+<!-- novera-current-downloads:end -->
+Kuri Mac, fungura DMG hanyuma ukope Novera mu Bikoresho. Niba ugutangura kwa mbere kwabujijwe, wemere Novera muri **Amategeko ya Sisitemu → Ubuzima bwite n'Umutekano → Gufungura uko biri kwose**. [Amabwirizwa ya Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
+
+[Ivyemezo n'aho bigarukira](docs/LAUNCH_STATUS.md)
+
+Kuri Android, telefone y’ubuhinga bwa none ifise ubwonko buhagije irakenewe ku bikoresho vyo mu karere; koresha API ku bikoresho bifise ubushobozi buke. Ku bushakashatsi ku rubuga, nibura **16K (16,384)** ni ngirakamaro, bihoraho mu mirongo yose.
+
+**Windows x64 ishobora gutwara 1.0.2 iraboneka.** Ibiganiro, imiterere n'ibigereranyo vyakuweho biguma muri dosiye y'iminwe munsi ya `Data`. Kura ububiko bwose maze utangure `Novera.exe`. Funga Novera imbere yo kwimurira ububiko canke gukuraho ububiko bwa USB. [Ubuyobozi bwo gutwara n'aho bugarukira](docs/WINDOWS_PORTABLE.md).
+
+<a id="one-dashboard-for-every-creation"></a>
+
+
+<details>
+<summary>Novera 1.0.1 · 2026-11-07</summary>
+
 <!-- novera-release-1.0.1:start -->
 <a id="version-1-0-1"></a>
 ## Novera 1.0.1
@@ -47,31 +78,11 @@ Novera 1.0.1 iraboneka ku mbuga ziri aha hepfo. Gukuraho iyo porogaramu kuri sis
 
 <!-- novera-release-1.0.1:end -->
 
-## Kuboneka — 2026-11-07
+Ku 1.0.1, LFM3-Omni-2B Q4_K_M n'ivyo bisabwa `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` ni impanuro mburabuzi ku biro no kuri telefone ngendanwa; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M iguma ari ubundi buryo bwo gukoresha umwandiko gusa. Ivya mbere ni 32,768 ibimenyetso ku biro na 2,048 kuri telefone ngendanwa. Ivyiyumviro birebire bikoresha ubwonko bwinshi. Amahitamwo y’akarorero ariho n’imiterere y’ibintu birazigama gushika bihinduwe mu buryo butomoye.
 
-**Novera 1.0.1 iraboneka kuri Windows, Linux, macOS na Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Amapaki y'ibiro, vyose CLI ububiko, imikono n'ibimenyetso vy'ivugurura ni rusangi kandi biragenzurwa.
+Ivy'ugucungera no gutegura ubuzima bwite vyateguwe kuri 1.0.1. Imibare y'amahitamwo n'ugutanga raporo y'amakosa bikoresha ukwemera kwigenga, gutomoye n'isuzuma ry'ubuhinga ryayunguruwe. Ivyiyumviro vy’ugusohoka bisabwa n’ibindi bimenyetso vy’umutekano bisigaye vyanditswe ukwavyo. [igitabo co gusanasana](docs/MAINTENANCE.md)
 
-| Urubuga | Kuboneka |
-| --- | --- |
-| Windows x64 | Umushingantahe wa bose NSIS, uwushizeho umukono; gushiramwo n’ugusubirira ivy’imvukira vyagenzuwe. |
-| Linux x64 | Ivya bose AppImage, umuvuguruzi yasinywe; gushiramwo n’ugusubirira ivy’imvukira vyagenzuwe. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, n’umurongo w’ivugurura wihariye washizweko umukono. |
-| Windows ARM64 | [Uwushiraho NSIS](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), moteri y’inyandiko ya CPU kavukire; gushiramwo, gusubirira n’ugusuzuma imihora ya bose vyagenzuwe. |
-| Android ARM64 | Android 1.0.1 iraboneka nk'umukono wa ARM64 APK, yubatse 1000013. Ikoresha icemeza Novera kiriho kandi irenga igenzura ry'amapaki. Nta biganiro vy’umuntu ku giti ciwe, ivyitegererezo canke imfunguruzo za API birimwo. Gushiramwo no guhindura kuri telefone biracari ivy’ukugeragezwa. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
-| macOS Intel / Apple Silicon | [Isohoka ryemewe 1.0.1 DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera-ivyashizweko umukono. Si Apple yemejwe n’umunyamabanga; ivyigwa vy’ubuhinga bwa none vyaciye bitandukanye ku nyubakwa zompi, ivyigwa vy’amaso vyarasubitswe. [Gushiraho n'ibimenyamenya](docs/RELEASE_1.0.1_2026-11-07.md). |
-| iOS | Ivyuma vy’imbere mu gihugu vyubatswe; Gusinya/gutanga Apple birakenewe imbere yo gushiramwo iPhone. [Gukurikirana](docs/REPRISE_MACOS_IOS.md). |
-| Windows x64 ushobora gutwara | [Ububiko bwa ZIP bwasinywe](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); amakuru aguma muri Data, yashizweko umukono Program gusubirizwa vyagenzuwe. |
-| Urubuga, MSI, Debiyani | Umukiriya w’urubuga rwakiriwe n’ibindi bikoresho biguma biri imbere; Pages urubuga rw'iyerekanwa ruraboneka. |
-
-Kuri Mac, fungura DMG hanyuma ukope Novera mu Bikoresho. Niba ugutangura kwa mbere kwabujijwe, wemere Novera muri **Amategeko ya Sisitemu → Ubuzima bwite n'Umutekano → Gufungura uko biri kwose**. [Amabwirizwa ya Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
-
-Imikono y’abavugurura itandukanye n’ivyemezo vya Windows be n’ivyemezo vya Apple. Hashes z'amapaki, ivyigwa vy'imvukira n'ibipimo vy'ivugurura vyanditswe bitandukanye. Ivugurura ry'ibintu vyose 1.0.0 gushika kuri 1.0.1 ryemezwa gusa ku bintu vyanditswe muri raporo y'isohoka. [Ivyemezo n'aho bigarukira](docs/LAUNCH_STATUS.md)
-
-Kuri Android, telefone y’ubuhinga bwa none ifise ubwonko buhagije irakenewe ku bikoresho vyo mu karere; koresha API ku bikoresho bifise ubushobozi buke. Ku bushakashatsi ku rubuga, nibura **16K (16,384)** ni ngirakamaro, bihoraho mu mirongo yose.
-
-**Windows x64 ishobora gutwara 1.0.0 iraboneka.** Ibiganiro, imiterere n'ibigereranyo vyakuweho biguma muri dosiye y'iminwe munsi ya `Data`. Kura ububiko bwose maze utangure `Novera.exe`. Funga Novera imbere yo kwimurira ububiko canke gukuraho ububiko bwa USB. [Ubuyobozi bwo gutwara n'aho bugarukira](docs/WINDOWS_PORTABLE.md).
-
-<a id="one-dashboard-for-every-creation"></a>
+</details>
 
 ## Igipande kimwe ku kiremwa cose
 
@@ -84,7 +95,6 @@ Novera ikurana nawe. Ingero zawe n’imiterere yawe birashobora gufasha abandi b
 Uko Mikoro imeze: icatsi kibisi iyo iriho, umutuku iyo iriho, imvi iyo itabonetse. Kwemera, gusubira kwumviriza, gufata ingingo n’ugusoma bigaragara vyarakosowe. Imvugo y'amajwi y'akavukire ubu iriko irashirwa mu ngiro kuri Windows; izindi nzira ziracari zikeneye kwemezwa n’ijwi ryiza.
 
 [![Novera yashizeho ishusho n'urutonde rw'ibikoresho rumwe rufise ubwinshi, imbuto, gutera imbere n'ukwibuka kwikora](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
-
 
 Igipande kimwe, uburyo butanu: **Ivyikoresho / Umwandiko / Ishusho / Umuziki / Amasanamu**. Igenzura rikurikira uburyo bwatowe: igipimo, umuti, igihe, urugero, uburyo, ibikoresho, amajambo, imbuto n’ingero. Ubwaguke bw'urubaho n'amabuto bihuye n'idirisha n'ibimenyetso vyahinduwe.
 
@@ -111,11 +121,7 @@ Ukwikoresha bipfutse moteri zihurikiye hamwe n’imigenderanire y’ibikorwa; nt
 
 [Inyobora y'ukoresha](docs/USER_GUIDE.md) · [Moteri n'ukwemeza](docs/SUIVI_MOTEURS.md) · [Iterambere](docs/DEVELOPMENT.md)
 
-Ku 1.0.1, LFM3-Omni-2B Q4_K_M n'ivyo bisabwa `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` ni impanuro mburabuzi ku biro no kuri telefone ngendanwa; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M iguma ari ubundi buryo bwo gukoresha umwandiko gusa. Ivya mbere ni 32,768 ibimenyetso ku biro na 2,048 kuri telefone ngendanwa. Ivyiyumviro birebire bikoresha ubwonko bwinshi. Amahitamwo y’akarorero ariho n’imiterere y’ibintu birazigama gushika bihinduwe mu buryo butomoye.
-
 ## Ubushobozi buri mu isoko
-
-Ivy'ugucungera no gutegura ubuzima bwite vyateguwe kuri 1.0.1. Imibare y'amahitamwo n'ugutanga raporo y'amakosa bikoresha ukwemera kwigenga, gutomoye n'isuzuma ry'ubuhinga ryayunguruwe. Ivyiyumviro vy’ugusohoka bisabwa n’ibindi bimenyetso vy’umutekano bisigaye vyanditswe ukwavyo. [igitabo co gusanasana](docs/MAINTENANCE.md)
 
 | Uburebure | Ibirango |
 | --- | --- |
@@ -306,7 +312,7 @@ Aya ni amabwirizwa y’ugutanga umusanzu n’iterambere, si ukuvuga ko ubusabe b
 
 ## Umugambi uko uri
 
-**Novera 1.0.1 iraboneka kuri Windows, Linux, macOS na Android.** Igishushanyo c'ibarabara kigaragaza Windows porogaramu yakoranijwe mu karere n'umucungerezi. Impinduka z’inkomoko, ibipimo vy’intumbero n’ukwemeza ibikoresho vyanditswe bitandukanye; ivyo ntivyemeza uburyo bwose, urubuga canke konti y'igicu.
+Igishushanyo c'ibarabara kigaragaza Windows porogaramu yakoranijwe mu karere n'umucungerezi. Impinduka z’inkomoko, ibipimo vy’intumbero n’ukwemeza ibikoresho vyanditswe bitandukanye; ivyo ntivyemeza uburyo bwose, urubuga canke konti y'igicu.
 
 Igitabo GitHub Actions vyubatswe birashobozwa ku mice cumi n'umwe yose y'ugukwirakwiza. Kurikiza [kwubaka ibisubizo no kugenzura abashaka gutora](docs/CI_DISTRIBUTIONS.md); ukuboneka kwandikwa ukwavyo ku rubuga rumwe rumwe. Abahiganwa baratandukanye n’ibisohoka vy’ibikorwa vyashizweko umukono. Ibisabwa mu gutanga biradondaguwe mu . [politike yo gusohora](OFFICIAL_RELEASES.md) na [isohora urupapuro](https://github.com/TRON-ABS/Novera/releases). Abahiganwa bariho bafise ubumuga bwo guhindura baguma imbere. Ivyo gusohoka ku mugaragaro bisaba uburyo bwo guhindura butunganijwe kandi bugenzuwe; [gusuzuma umukono ku biro n'ibindi bisabwa vyo gutangura biranditswe](docs/LAUNCH_STATUS.md).
 

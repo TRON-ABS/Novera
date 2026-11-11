@@ -17,6 +17,37 @@
 
 ---
 
+<!-- novera-current-downloads:start -->
+
+## Ubukho — Novera 1.0.2
+
+| Iqonga | Ubukho |
+| --- | --- |
+| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2) |
+| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-arm64) |
+| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-linux-x64) |
+| Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-cli-novera) |
+| Windows x64 ephathekayo | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-portable) |
+| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos-arm64) |
+| Android ARM64 | [APK · 1000023](https://github.com/TRON-ABS/Novera/releases/download/v1.0.2-android-1000023/Novera_1.0.2_android-arm64.apk) · Android 7+ |
+| Web | [Novera Web 1.0.2](https://tron-abs.github.io/Novera/web/) |
+| iOS | Ulwakhiwo lwangaphakathi lokulinganisa; Ukusayinwa kwe-Apple/ubonelelo kuyafuneka ngaphambi kofakelo lwe-iPhone. [Ukulandelela](docs/REPRISE_MACOS_IOS.md). |
+
+<!-- novera-current-downloads:end -->
+Kwi-Mac, vula i-DMG kwaye ukopishe i-Novera kwii-Applications. Ukuba uphehlelelo lokuqala luvaliwe, vumela i-Novera ingene **Iisetingi zeNkqubo → Bucala & noKhuseleko → Vula Nakunjani**. [imiyalelo Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
+
+[Ubungqina kunye nemida](docs/LAUNCH_STATUS.md)
+
+Kwi-Android, ifowuni yanamhlanje enememori eyaneleyo iyacetyiswa kwiimodeli zasekhaya; sebenzisa umboneleli we-API kwizixhobo ezingenamandla kangako. Kukhangelo lwewebhu, umxholo wobuncinci **16K iimpawu (16,384)** kuyacetyiswa, ngokuthe rhoqo kuzo zonke iinguqulelo.
+
+**Windows x64 1.0.2 ephathekayo iyafumaneka.** Iingxoxo, useto kunye nemifuziselo ekhutshelweyo ihlala ngaphakathi kwisiqulathi seefayili esiphathwayo phantsi `Data`. Khipha uvimba opheleleyo kwaye uqalise `Novera.exe`. Vala i-Novera ngaphambi kokuba uhambise ifolda okanye ukhuphe i-USB yokugcina. [Isikhokelo esiphathwayo kunye nezithintelo](docs/WINDOWS_PORTABLE.md).
+
+<a id="one-dashboard-for-every-creation"></a>
+
+
+<details>
+<summary>Novera 1.0.1 · 2026-11-07</summary>
+
 <!-- novera-release-1.0.1:start -->
 <a id="version-1-0-1"></a>
 ## Novera 1.0.1
@@ -45,31 +76,11 @@ Novera 1.0.1 iyafumaneka kumaqonga adweliswe ngezantsi. Khuphela iphakheji yesix
 
 <!-- novera-release-1.0.1:end -->
 
-## Ubukho — 2026-11-07
+Ye 1.0.1, LFM3-Omni-2B Q4_K_M efunwayo `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` sisincomo esihlala sihleli kwidesktop kunye neselfowuni; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M ihlala iyindlela yokubhala kuphela. Umxholo wokuqala uthi 32,768 iimpawu kwi-desktop kunye ne-2,048 kwiselfowuni. Imixholo emide isebenzisa inkumbulo eninzi. Iimodeli ezikhethiweyo ezikhoyo kunye nezicwangciso zigcinwa de zitshintshwe ngokucacileyo.
 
-**Novera 1.0.1 iyafumaneka kwi Windows, Linux, macOS kunye ne Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Iipakethe zeDesktop, zombini CLI oovimba, imisayino kunye nohlaziyo olubonakalayo lusesidlangalaleni kwaye luqinisekisiwe.
+Ugcino kunye nophuculo lwabucala lulungiselelwe 1.0.1. Izibalo ezikhethwayo kunye nengxelo yempazamo isebenzisa imvume ezimeleyo, ecacileyo kunye nokuxilongwa kobugcisa obuhluziweyo. Iitshekhi zokukhutshelwa ezifunekayo kunye neziphumo eziseleyo zokhuseleko zibhalwe ngokwahlukeneyo. [incwadi yokuqhuba ulondolozo](docs/MAINTENANCE.md)
 
-| Iqonga | Ubukho |
-| --- | --- |
-| Windows x64 | Isifakeli sikawonke-wonke se-NSIS, isihlaziyi esisayiniweyo; ufakelo lwemveli notshintsho luqinisekisiwe. |
-| Linux x64 | Public AppImage, uhlaziyo olusayiniweyo; ufakelo lwemveli notshintsho luqinisekisiwe. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, kunye netshaneli yohlaziyo ezinikeleyo esayiniweyo. |
-| Windows ARM64 | [Public NSIS isifakeli](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), injini yombhalo CPU; ukufakwa, ukutshintshwa kunye nokuhlolwa kwetshaneli kawonke-wonke kuqinisekisiwe. |
-| Android ARM64 | I-Android 1.0.1 iyafumaneka njenge-ARM64 APK esayiniweyo, yakha 1000013. Isebenzisa Novera isatifikethi kwaye iphumelele ukuhlolwa kwephakheji. Ayinancoko yobuqu, iimodeli okanye izitshixo ze-API. Ukufakela kunye nokuhlaziywa kwifowuni kuhlala kuvavanywa. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
-| macOS Intel / Apple Silicon | [Ukukhutshwa okusemthethweni kwe-1.0.1 DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera uhlaziyo olusayiniweyo. Ayibhalwanga iApple; iitshekhi ezizenzekelayo zigqithiswe ngokwahlukeneyo kuzo zombini ii-architectures, uhlolo olubonakalayo lurhoxisiwe. [Ufakelo kunye nobungqina](docs/RELEASE_1.0.1_2026-11-07.md). |
-| iOS | Ulwakhiwo lwangaphakathi lokulinganisa; Ukusayinwa kwe-Apple/ubonelelo kuyafuneka ngaphambi kofakelo lwe-iPhone. [Ukulandelela](docs/REPRISE_MACOS_IOS.md). |
-| Windows x64 ephathekayo | [Uvimba we-ZIP osayiniweyo](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); idatha ihlala kwi-Data, isayinwe i-Program yokutshintshwa iqinisekisiwe. |
-| Web, MSI, Debian | Umxhasi weWebhu ebanjwe kunye nezinye iifomati zihlala zingaphakathi; I-Pages indawo yokubonisa iyafumaneka. |
-
-Kwi-Mac, vula i-DMG kwaye ukopishe i-Novera kwii-Applications. Ukuba uphehlelelo lokuqala luvaliwe, vumela i-Novera ingene **Iisetingi zeNkqubo → Bucala & noKhuseleko → Vula Nakunjani**. [imiyalelo Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
-
-Utyikityo lohlaziyo lwahlukile kwi-Windows Authenticode kunye ne-Apple notarization. I-Package hashes, iitshekhi zomthonyama kunye neemvavanyo zohlaziyo zibhalwe ngokwahlukeneyo. Uluntu olupheleleyo 1.0.0 ukuya ku-1.0.1 uphuculo luqinisekiswa kuphela kwiimeko ezirekhodwe kwingxelo yokukhutshwa. [Ubungqina kunye nemida](docs/LAUNCH_STATUS.md)
-
-Kwi-Android, ifowuni yanamhlanje enememori eyaneleyo iyacetyiswa kwiimodeli zasekhaya; sebenzisa umboneleli we-API kwizixhobo ezingenamandla kangako. Kukhangelo lwewebhu, umxholo wobuncinci **16K iimpawu (16,384)** kuyacetyiswa, ngokuthe rhoqo kuzo zonke iinguqulelo.
-
-**Windows x64 1.0.0 ephathekayo iyafumaneka.** Iingxoxo, useto kunye nemifuziselo ekhutshelweyo ihlala ngaphakathi kwisiqulathi seefayili esiphathwayo phantsi `Data`. Khipha uvimba opheleleyo kwaye uqalise `Novera.exe`. Vala i-Novera ngaphambi kokuba uhambise ifolda okanye ukhuphe i-USB yokugcina. [Isikhokelo esiphathwayo kunye nezithintelo](docs/WINDOWS_PORTABLE.md).
-
-<a id="one-dashboard-for-every-creation"></a>
+</details>
 
 ## Ideshibhodi enye kuyo yonke indalo
 
@@ -82,7 +93,6 @@ Novera ikhula nawe. Imizekelo yakho kunye noseto lunokunceda abanye abasebenzisi
 Ubume bemakrofoni: eluhlaza xa ifumaneka, ibomvu ngelixa ixakekile, ingwevu xa ingafumaneki. Ukunakana, ukuqalisa kwakhona ukumamela, ukuphatha ingqwalasela kunye nokubiza okubonakalayo kuye kwalungiswa. Intetho yomfuziselo weaudio yemveli iphunyezwa ngoku kwi- Windows; amanye amaqonga asafuna ukuqinisekiswa kwemveli kunye nenkxaso yelizwi efanelekileyo.
 
 [![Novera uveliswe umfanekiso kunye nedeshibhodi edityanisiweyo enobuninzi, imbewu, ukunyusa kunye nememori ezenzekelayo](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
-
 
 Iphaneli enye, iindlela ezintlanu: **Auto / Umbhalo / Umfanekiso / Umculo / Ividiyo**. Ulawulo lulandela imo ekhethiweyo: umlinganiselo, isisombululo, ubude bexesha, i-cadence, umgangatho, izixhobo, amazwi, imbewu kunye nobuninzi. Ububanzi bephaneli kunye namaqhosha alungelelanisa ifestile kunye neelebhile eziguqulelweyo.
 
@@ -109,11 +119,7 @@ I-Automation igubungela iinjini ezidibeneyo kunye nokuhamba komsebenzi; ayenzi y
 
 [Isikhokelo somsebenzisi](docs/USER_GUIDE.md) · [Iinjini kunye nokuqinisekiswa](docs/SUIVI_MOTEURS.md) · [Uphuhliso](docs/DEVELOPMENT.md)
 
-Ye 1.0.1, LFM3-Omni-2B Q4_K_M efunwayo `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` sisincomo esihlala sihleli kwidesktop kunye neselfowuni; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M ihlala iyindlela yokubhala kuphela. Umxholo wokuqala uthi 32,768 iimpawu kwi-desktop kunye ne-2,048 kwiselfowuni. Imixholo emide isebenzisa inkumbulo eninzi. Iimodeli ezikhethiweyo ezikhoyo kunye nezicwangciso zigcinwa de zitshintshwe ngokucacileyo.
-
 ## Ubunakho kumthombo
-
-Ugcino kunye nophuculo lwabucala lulungiselelwe 1.0.1. Izibalo ezikhethwayo kunye nengxelo yempazamo isebenzisa imvume ezimeleyo, ecacileyo kunye nokuxilongwa kobugcisa obuhluziweyo. Iitshekhi zokukhutshelwa ezifunekayo kunye neziphumo eziseleyo zokhuseleko zibhalwe ngokwahlukeneyo. [incwadi yokuqhuba ulondolozo](docs/MAINTENANCE.md)
 
 | Indawo | Iimpawu |
 | --- | --- |
@@ -302,7 +308,7 @@ Le yimikhomba-ndlela yegalelo kunye nophuhliso, hayi ibango lokuba isicelo ngasi
 
 ## Ubume beprojekthi
 
-**Novera 1.0.1 iyafumaneka kwi Windows, Linux, macOS kunye ne Android.** Umfanekiso wekhusi ubonisa isicelo se-Windows esihlanganiswe kwindawo yakho ngumlondolozi. Utshintsho lwemithombo, iimvavanyo ekujoliswe kuzo kunye nokuqinisekiswa kwehardware zibhalwe ngokwahlukeneyo; oku akuqinisekisi yonke imodeli, iqonga okanye iakhawunti yelifu.
+Umfanekiso wekhusi ubonisa isicelo se-Windows esihlanganiswe kwindawo yakho ngumlondolozi. Utshintsho lwemithombo, iimvavanyo ekujoliswe kuzo kunye nokuqinisekiswa kwehardware zibhalwe ngokwahlukeneyo; oku akuqinisekisi yonke imodeli, iqonga okanye iakhawunti yelifu.
 
 Incwadi ye-GitHub Actions yokwakha yenziwe ukuba isebenze kuzo zonke iintlobo ezilishumi elinanye zokusasaza. Landela i [yakha iziphumo kunye nokukhutshelwa komviwa oqinisekisiweyo](docs/CI_DISTRIBUTIONS.md); ukufumaneka irekhodwa ngokwahlukeneyo iqonga ngalinye. Abagqatswa bahlukile kukhupho lwemveliso esayiniweyo. Iimfuno zokusasaza zichazwe kwi [umgaqo-nkqubo wokukhululwa ngokusemthethweni](OFFICIAL_RELEASES.md) kunye [iphepha elikhuphayo](https://github.com/TRON-ABS/Novera/releases). Abagqatswa abakhoyo abakhubazekileyo bahlala bengaphakathi. Ukukhutshwa koluntu kufuna indlela yohlaziyo emiselweyo neqinisekisiweyo; [iitshekhi zesiginitsha zedesktop kunye neemfuno eziseleyo zokuphehlelelwa zibhaliwe](docs/LAUNCH_STATUS.md).
 

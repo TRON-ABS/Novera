@@ -19,6 +19,37 @@ Data le lekunutu: [maikutlo a lehae, telemetry ea boikhethelo, litlaleho tsa lip
 
 ---
 
+<!-- novera-current-downloads:start -->
+
+## Ho fumaneha — Novera 1.0.2
+
+| Sethala | Ho fumaneha |
+| --- | --- |
+| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2) |
+| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-arm64) |
+| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-linux-x64) |
+| Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-cli-novera) |
+| Windows x64 ea nkeha | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-portable) |
+| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos-arm64) |
+| Android ARM64 | [APK · 1000023](https://github.com/TRON-ABS/Novera/releases/download/v1.0.2-android-1000023/Novera_1.0.2_android-arm64.apk) · Android 7+ |
+| Web | [Novera Web 1.0.2](https://tron-abs.github.io/Novera/web/) |
+| iOS | mohaho oa simulator ea ka hare; Ho saena / ho fana ka Apple hoa hlokahala pele ho kenya iPhone. [Tsoelo-pele](docs/REPRISE_MACOS_IOS.md). |
+
+<!-- novera-current-downloads:end -->
+Ho Mac, bula DMG 'me u kopitse Novera ho Lisebelisoa. Haeba lenaneo la pele le koetsoe, lumella Novera ho kena **Litlhophiso tsa Sistimi → Lekunutu le Tšireletso → Bula Leha ho le joalo**. [Litaelo tsa Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
+
+[Bopaki le meeli](docs/LAUNCH_STATUS.md)
+
+Ho Android, ho khothaletsoa mohala oa sejoale-joale o nang le mohopolo o lekaneng bakeng sa mefuta ea lehae; sebelisa mofani oa API ho lisebelisoa tse seng matla haholo. Bakeng sa patlo ea tepo, moelelo oa bonyane **16K matšoao (16,384)** e khothaletsoa, ​​ka linako tsohle liphetolelong tsohle.
+
+**Windows x64 portable 1.0.2 ea fumaneha.** Lipuisano, litlhophiso le mefuta e jarollotsoeng li lula ka har'a foldara e nkehang tlas'a `Data`. Tlosa polokelo e felletseng mme u qale `Novera.exe`. Koala Novera pele o tsamaisa sephutheli kapa o ntša sebaka sa polokelo ea USB. [Tataiso e nkehang habonolo le meeli](docs/WINDOWS_PORTABLE.md).
+
+<a id="one-dashboard-for-every-creation"></a>
+
+
+<details>
+<summary>Novera 1.0.1 · 2026-11-07</summary>
+
 <!-- novera-release-1.0.1:start -->
 <a id="version-1-0-1"></a>
 ## Novera 1.0.1
@@ -47,31 +78,11 @@ Novera 1.0.1 ea fumaneha bakeng sa lifolamo tse thathamisitsoeng ka tlase. Khoas
 
 <!-- novera-release-1.0.1:end -->
 
-## Ho fumaneha — 2026-11-07
+Bakeng sa 1.0.1, LFM3-Omni-2B Q4_K_M e hlokehang `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` ke likhothaletso tsa kamehla ho komporo ea khomphutha le mobile; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M e ntse e le khetho ea mongolo feela. Taba ea mantlha ke 32,768 matšoao a komporong le 2,048 ho mobile. Maemo a malelele a sebelisa mohopolo o mongata. Likhetho tse teng le litlhophiso tsa mehlala li bolokiloe ho fihlela li fetoloa ka ho hlaka.
 
-**Novera 1.0.1 e teng bakeng sa Windows, Linux, macOS le Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Liphutheloana tsa Desktop, li-archive tsa CLI ka bobeli, li-signature le lipontšo tsa ntlafatso li fumaneha phatlalatsa ebile li netefalitsoe.
+Lintlafatso tsa tlhokomelo le lekunutu li lokiselitsoe 1.0.1. Lipalopalo tsa boikhethelo le tlaleho ea liphoso li sebelisa tumello e ikemetseng, e hlakileng le tlhahlobo ea botekgeniki e tlhotliloeng. Litlhahlobo tse hlokahalang tsa tokollo le liphetho tse setseng tsa ts'ireletso li ngotsoe ka thoko. [buka ea tlhokomelo](docs/MAINTENANCE.md)
 
-| Sethala | Ho fumaneha |
-| --- | --- |
-| Windows x64 | Sehokelo sa Sechaba NSIS, sentlafatsa se saenneng; ho kenngoa le ho nkela sebaka sa matsoalloa ho netefalitsoe. |
-| Linux x64 | Sechaba AppImage, sentlafatsi se saenneng; ho kenngoa le ho nkela sebaka sa matsoalloa ho netefalitsoe. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, e nang le mocha oa ntlafatso o saenneng. |
-| Windows ARM64 | [Sehokelo sa Sechaba NSIS](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), enjene ea mongolo ea CPU; ho kenngoa, ho nchafatsa le ho hlahloba mocha oa sechaba ho netefalitsoe. |
-| Android ARM64 | Android 1.0.1 ea fumaneha e le APK ea ARM64 e saennoeng, haha ​​1000013. E sebelisa setifikeiti sa hona joale sa Novera 'me e feta tlhahlobo ea thepa. Ha e na lipuisano tsa botho, mehlala kapa linotlolo tsa API. Ho kenya le ho ntlafatsa fonong ho sa ntse ho lokela ho lekoa. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
-| macOS Intel / Apple Silicon | [1.0.1 DMG e lokollotsoeng](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Lintlafatso tse saenneng ka Novera. Eseng Apple notarized; licheke tsa othomathiki li fetisitsoe ka thoko ho meaho ka bobeli, licheke tsa pono li chechisitsoe morao. [Ho kenya le bopaki](docs/RELEASE_1.0.1_2026-11-07.md). |
-| iOS | mohaho oa simulator ea ka hare; Ho saena / ho fana ka Apple hoa hlokahala pele ho kenya iPhone. [Tsoelo-pele](docs/REPRISE_MACOS_IOS.md). |
-| Windows x64 ea nkeha | [E saennoe ZIP polokelo ea litaba](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); Lintlha li lula ho Data, 'me tsa saena Program li netefalitsoe. |
-| Web, MSI, Debian | Sebatli sa Websaete le lifomate tse ling li lula li le kahare; Pages sebaka sa tlhahiso se teng. |
-
-Ho Mac, bula DMG 'me u kopitse Novera ho Lisebelisoa. Haeba lenaneo la pele le koetsoe, lumella Novera ho kena **Litlhophiso tsa Sistimi → Lekunutu le Tšireletso → Bula Leha ho le joalo**. [Litaelo tsa Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
-
-Li-signature tsa ntlafatso li arohane le Windows Authenticode le Apple notarization. Li-hashes tsa liphutheloana, licheke tsa tlhaho le liteko tsa ntlafatso li ngotsoe ka thoko. Katoloso e felletseng ea sechaba 1.0.0 ho isa ho 1.0.1 e netefatsoa feela bakeng sa maemo a tlalehiloeng tlalehong ea tokollo. [Bopaki le meeli](docs/LAUNCH_STATUS.md)
-
-Ho Android, ho khothaletsoa mohala oa sejoale-joale o nang le mohopolo o lekaneng bakeng sa mefuta ea lehae; sebelisa mofani oa API ho lisebelisoa tse seng matla haholo. Bakeng sa patlo ea tepo, moelelo oa bonyane **16K matšoao (16,384)** e khothaletsoa, ​​ka linako tsohle liphetolelong tsohle.
-
-**Windows x64 portable 1.0.0 ea fumaneha.** Lipuisano, litlhophiso le mefuta e jarollotsoeng li lula ka har'a foldara e nkehang tlas'a `Data`. Tlosa polokelo e felletseng mme u qale `Novera.exe`. Koala Novera pele o tsamaisa sephutheli kapa o ntša sebaka sa polokelo ea USB. [Tataiso e nkehang habonolo le meeli](docs/WINDOWS_PORTABLE.md).
-
-<a id="one-dashboard-for-every-creation"></a>
+</details>
 
 ## Dashboard e le 'ngoe bakeng sa pōpo e' ngoe le e 'ngoe
 
@@ -84,7 +95,6 @@ Novera e hola le uena. Mehlala le litlhophiso tsa hau li ka thusa basebelisi ba 
 Boemo ba maekerofounu: botala ha bo le teng, bo bofubelu ha bo ntse bo phathahane, bo bohlooho ha bo sa fumanehe. Kemohelo, ho qala bocha ho mamela, ho sebetsana le tsepamiso le taelo e bonahalang li lokisitsoe. Puo ea mofuta oa molumo oa lentsoe hajoale e sebelisoa ho Windows; li-platform tse ling li ntse li hloka netefatso ea matsoalloa le tšehetso e nepahetseng ea lentsoe.
 
 [![Novera setšoantšo se hlahisitsoeng le dashboard e kopaneng e nang le bongata, peo, upscaling le mohopolo o ikemetseng](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
-
 
 Phanele e le 'ngoe, mekhoa e mehlano: **auto / mongolo / setšoantšo / mmino / video**. Litaolo li latela mokhoa o khethiloeng: karo-karolelano, qeto, nako, molumo, boleng, lisebelisoa, mantsoe, peo le bongata. Bophara ba phanele le likonopo li ikamahanya le fensetere le lileibole tse fetoletsoeng.
 
@@ -111,11 +121,7 @@ Automation e akaretsa lienjineri tse kopaneng le phallo ea mosebetsi; ha e etse 
 
 [Tataiso ea mosebelisi](docs/USER_GUIDE.md) · [Enjine le netefatso](docs/SUIVI_MOTEURS.md) · [Tsoelo-pele](docs/DEVELOPMENT.md)
 
-Bakeng sa 1.0.1, LFM3-Omni-2B Q4_K_M e hlokehang `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` ke likhothaletso tsa kamehla ho komporo ea khomphutha le mobile; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M e ntse e le khetho ea mongolo feela. Taba ea mantlha ke 32,768 matšoao a komporong le 2,048 ho mobile. Maemo a malelele a sebelisa mohopolo o mongata. Likhetho tse teng le litlhophiso tsa mehlala li bolokiloe ho fihlela li fetoloa ka ho hlaka.
-
 ## Bokhoni bo teng mohloling
-
-Lintlafatso tsa tlhokomelo le lekunutu li lokiselitsoe 1.0.1. Lipalopalo tsa boikhethelo le tlaleho ea liphoso li sebelisa tumello e ikemetseng, e hlakileng le tlhahlobo ea botekgeniki e tlhotliloeng. Litlhahlobo tse hlokahalang tsa tokollo le liphetho tse setseng tsa ts'ireletso li ngotsoe ka thoko. [buka ea tlhokomelo](docs/MAINTENANCE.md)
 
 | Sebaka | Likarolo |
 | --- | --- |
@@ -306,7 +312,7 @@ Tsena ke litaelo tsa tlatsetso le ntlafatso, eseng tseko ea hore kopo e 'ngoe le
 
 ## Boemo ba morero
 
-**Novera 1.0.1 e teng bakeng sa Windows, Linux, macOS le Android.** Senepe se bontša Windows sesebelisoa se hlophisitsoeng sebakeng sa heno ke mohlokomeli. Liphetoho tsa mohloli, liteko tse lebisitsoeng le netefatso ea hardware li ngotsoe ka thoko; sena ha se netefatse mohlala o mong le o mong, sethala kapa akhaonto ea leru.
+Senepe se bontša Windows sesebelisoa se hlophisitsoeng sebakeng sa heno ke mohlokomeli. Liphetoho tsa mohloli, liteko tse lebisitsoeng le netefatso ea hardware li ngotsoe ka thoko; sena ha se netefatse mohlala o mong le o mong, sethala kapa akhaonto ea leru.
 
 Mehaho ea GitHub Actions ea Manual e lumelletsoe bakeng sa mefuta e leshome le motso o mong ea kabo. Latela [theha sephetho le ho khoasolla batho ba netefalitsoeng](docs/CI_DISTRIBUTIONS.md); ho fumaneha ho tlalehiloe ka thoko bakeng sa sethala ka seng. Bakhethoa ba fapane le litokollo tse saennoeng tsa tlhahiso. Litlhoko tsa kabo li hlalositsoe ho [leano la semmuso la tokollo](OFFICIAL_RELEASES.md) le [leqephe la ho lokolloa](https://github.com/TRON-ABS/Novera/releases). Bonkgetheng ba ntseng ba le teng ba nang le bokowa ba dulang ba le teng. Litokollo tsa sechaba li hloka mokhoa o hlophisitsoeng le o netefalitsoeng oa ntlafatso; [licheke tsa ho saena tsa komporo le litlhoko tse setseng tsa ho qala li ngotsoe](docs/LAUNCH_STATUS.md).
 

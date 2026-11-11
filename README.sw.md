@@ -17,6 +17,37 @@
 
 ---
 
+<!-- novera-current-downloads:start -->
+
+## Upatikanaji — Novera 1.0.2
+
+| Jukwaa | Upatikanaji |
+| --- | --- |
+| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2) |
+| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-arm64) |
+| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-linux-x64) |
+| Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-cli-novera) |
+| Windows x64 inabebeka | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-portable) |
+| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos-arm64) |
+| Android ARM64 | [APK · 1000023](https://github.com/TRON-ABS/Novera/releases/download/v1.0.2-android-1000023/Novera_1.0.2_android-arm64.apk) · Android 7+ |
+| Web | [Novera Web 1.0.2](https://tron-abs.github.io/Novera/web/) |
+| iOS | muundo wa kiigaji cha ndani; Uwekaji sahihi wa Apple au utoaji unahitajika kabla ya kusakinisha iPhone. [Ufuatiliaji](docs/REPRISE_MACOS_IOS.md). |
+
+<!-- novera-current-downloads:end -->
+Kwenye Mac, fungua DMG na unakili Novera kwenye Programu. Ikiwa uzinduzi wa kwanza umezuiwa, ruhusu Novera iingie **Mipangilio ya Mfumo → Faragha na Usalama → Fungua Hata Hivyo**. [Maagizo ya Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
+
+[Ushahidi na mapungufu](docs/LAUNCH_STATUS.md)
+
+Kwenye Android, simu ya kisasa yenye kumbukumbu ya kutosha inapendekezwa kwa miundo ya ndani; tumia mtoa huduma wa API kwenye vifaa visivyo na nguvu. Kwa utafutaji wa wavuti, muktadha wa angalau **tokeni za 16K (16,384)** inapendekezwa, mara kwa mara katika matoleo yote.
+
+**Windows x64 1.0.2 inayobebeka inapatikana.** Majadiliano, mipangilio na miundo iliyopakuliwa hukaa ndani ya folda inayobebeka chini yake `Data`. Toa kumbukumbu kamili na uanze `Novera.exe`. Funga Novera kabla ya kuhamisha folda au kutoa hifadhi ya USB. [Mwongozo na vikwazo vinavyobebeka](docs/WINDOWS_PORTABLE.md).
+
+<a id="one-dashboard-for-every-creation"></a>
+
+
+<details>
+<summary>Novera 1.0.1 · 2026-11-07</summary>
+
 <!-- novera-release-1.0.1:start -->
 <a id="version-1-0-1"></a>
 ## Novera 1.0.1
@@ -45,31 +76,11 @@ Novera 1.0.1 inapatikana kwa mifumo iliyoorodheshwa hapa chini. Pakua kifurushi 
 
 <!-- novera-release-1.0.1:end -->
 
-## Upatikanaji — 2026-11-07
+Kwa 1.0.1, LFM3-Omni-2B Q4_K_M inayohitajika `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` ndilo pendekezo chaguomsingi kwenye kompyuta ya mezani na simu ya mkononi; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M inasalia kuwa mbadala wa maandishi pekee. Muktadha wa awali ni tokeni za 32,768 kwenye eneo-kazi na 2,048 kwenye simu ya mkononi. Miktadha mirefu hutumia kumbukumbu zaidi. Chaguo za miundo na mipangilio iliyopo huhifadhiwa hadi ibadilishwe waziwazi.
 
-**Novera 1.0.1 inapatikana kwa Windows, Linux, macOS na Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Vifurushi vya eneo-kazi, kumbukumbu za CLI, saini na maonyesho ya sasisho ni ya umma na kuthibitishwa.
+Maboresho ya utunzaji na faragha yanatayarishwa kwa ajili ya 1.0.1. Takwimu za hiari na kuripoti makosa hutumia idhini huru, wazi na uchunguzi wa kiufundi uliochujwa. Ukaguzi unaohitajika wa kutolewa na matokeo yaliyosalia ya usalama yameandikwa kando. [kitabu cha matengenezo](docs/MAINTENANCE.md)
 
-| Jukwaa | Upatikanaji |
-| --- | --- |
-| Windows x64 | Kisakinishi cha Umma cha NSIS, kisakinishi kilichotiwa saini; usakinishaji asili na uingizwaji umethibitishwa. |
-| Linux x64 | AppImage ya Umma, kisasisho kilichotiwa saini; usakinishaji asili na uingizwaji umethibitishwa. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, iliyo na kituo maalum cha kusasisha kilichotiwa saini. |
-| Windows ARM64 | [Kisakinishi cha Umma cha NSIS](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), injini ya maandishi ya CPU asili; usakinishaji, uingizwaji na ukaguzi wa kituo cha umma umethibitishwa. |
-| Android ARM64 | Android 1.0.1 inapatikana kama APK ya ARM64 iliyotiwa saini, tengeneza 1000013. Inatumia cheti kilichopo cha Novera na kupita ukaguzi wa kifurushi. Haina mazungumzo ya kibinafsi, miundo au vitufe vya API. Usakinishaji na usasishaji kwenye simu unasalia kujaribiwa. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
-| macOS Intel / Apple Silicon | [Toleo rasmi la 1.0.1 DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Masasisho yaliyosainiwa na Novera. Si Apple notarized; ukaguzi wa kiotomatiki ulipitishwa kando kwenye usanifu wote wawili, ukaguzi wa kuona umeahirishwa. [Usakinishaji na ushahidi](docs/RELEASE_1.0.1_2026-11-07.md). |
-| iOS | muundo wa kiigaji cha ndani; Uwekaji sahihi wa Apple au utoaji unahitajika kabla ya kusakinisha iPhone. [Ufuatiliaji](docs/REPRISE_MACOS_IOS.md). |
-| Windows x64 inabebeka | [Hifadhi ya kumbukumbu ya ZIP iliyotiwa saini](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); data inasalia katika Data, uingizwaji uliotiwa saini wa Program umethibitishwa. |
-| Wavuti, MSI, Debian | Kiteja cha Wavuti kilichopangishwa na miundo mingine itasalia ndani; Tovuti ya uwasilishaji ya Pages inapatikana. |
-
-Kwenye Mac, fungua DMG na unakili Novera kwenye Programu. Ikiwa uzinduzi wa kwanza umezuiwa, ruhusu Novera iingie **Mipangilio ya Mfumo → Faragha na Usalama → Fungua Hata Hivyo**. [Maagizo ya Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
-
-Sahihi za kusasisha ni tofauti na Msimbo wa Uthibitishaji wa Windows na uthibitishaji wa Apple. Heshi za kifurushi, hundi asilia na majaribio ya kusasisha hurekodiwa kando. Usasishaji kamili wa umma wa 1.0.0 hadi 1.0.1 unathibitishwa kwa matukio yaliyorekodiwa katika ripoti ya toleo pekee. [Ushahidi na mapungufu](docs/LAUNCH_STATUS.md)
-
-Kwenye Android, simu ya kisasa yenye kumbukumbu ya kutosha inapendekezwa kwa miundo ya ndani; tumia mtoa huduma wa API kwenye vifaa visivyo na nguvu. Kwa utafutaji wa wavuti, muktadha wa angalau **tokeni za 16K (16,384)** inapendekezwa, mara kwa mara katika matoleo yote.
-
-**Windows x64 1.0.0 inayobebeka inapatikana.** Majadiliano, mipangilio na miundo iliyopakuliwa hukaa ndani ya folda inayobebeka chini yake `Data`. Toa kumbukumbu kamili na uanze `Novera.exe`. Funga Novera kabla ya kuhamisha folda au kutoa hifadhi ya USB. [Mwongozo na vikwazo vinavyobebeka](docs/WINDOWS_PORTABLE.md).
-
-<a id="one-dashboard-for-every-creation"></a>
+</details>
 
 ## Dashibodi moja kwa kila kazi
 
@@ -82,7 +93,6 @@ Novera inakua pamoja nawe. Mifano na mipangilio yako inaweza kusaidia watumiaji 
 Hali ya maikrofoni: kijani inapopatikana, nyekundu ikiwa ina shughuli nyingi, kijivu wakati haipatikani. Utambuzi, uanzishaji upya wa usikilizaji, ushughulikiaji wa kuzingatia na imla inayoonekana imesahihishwa. Hotuba asili ya muundo wa sauti inatekelezwa kwa sasa tarehe Windows; mifumo mingine bado inahitaji uthibitishaji asilia na usaidizi wa sauti unaofaa.
 
 [![Novera imetengeneza picha na dashibodi iliyounganishwa yenye wingi, mbegu, upandaji wa juu na kumbukumbu otomatiki](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
-
 
 Paneli moja, hali tano: **Otomatiki / Maandishi / Picha / Muziki / Video**. Vidhibiti hufuata hali iliyochaguliwa: uwiano, azimio, muda, sauti, ubora, ala, nyimbo, mbegu na wingi. Upana wa paneli na vifungo vinaendana na dirisha na lebo zilizotafsiriwa.
 
@@ -109,11 +119,7 @@ Kiotomatiki kinashughulikia injini zilizojumuishwa na utiririshaji wa kazi; haif
 
 [Mwongozo wa mtumiaji](docs/USER_GUIDE.md) · [Injini na uthibitishaji](docs/SUIVI_MOTEURS.md) · [Maendeleo](docs/DEVELOPMENT.md)
 
-Kwa 1.0.1, LFM3-Omni-2B Q4_K_M inayohitajika `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` ndilo pendekezo chaguomsingi kwenye kompyuta ya mezani na simu ya mkononi; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M inasalia kuwa mbadala wa maandishi pekee. Muktadha wa awali ni tokeni za 32,768 kwenye eneo-kazi na 2,048 kwenye simu ya mkononi. Miktadha mirefu hutumia kumbukumbu zaidi. Chaguo za miundo na mipangilio iliyopo huhifadhiwa hadi ibadilishwe waziwazi.
-
 ## Uwezo katika chanzo
-
-Maboresho ya utunzaji na faragha yanatayarishwa kwa ajili ya 1.0.1. Takwimu za hiari na kuripoti makosa hutumia idhini huru, wazi na uchunguzi wa kiufundi uliochujwa. Ukaguzi unaohitajika wa kutolewa na matokeo yaliyosalia ya usalama yameandikwa kando. [kitabu cha matengenezo](docs/MAINTENANCE.md)
 
 | Eneo | Vipengele |
 | --- | --- |
@@ -302,7 +308,7 @@ Haya ni maelekezo ya mchango na maendeleo, si madai kwamba kila ombi mahususi la
 
 ## Hali ya mradi
 
-**Novera 1.0.1 inapatikana kwa Windows, Linux, macOS na Android.** Picha ya skrini inaonyesha programu ya Windows iliyokusanywa ndani na mtunzaji. Mabadiliko ya chanzo, majaribio yaliyolengwa na uthibitishaji wa maunzi yameandikwa kando; hii haidhibitishi kila modeli, jukwaa au akaunti ya wingu.
+Picha ya skrini inaonyesha programu ya Windows iliyokusanywa ndani na mtunzaji. Mabadiliko ya chanzo, majaribio yaliyolengwa na uthibitishaji wa maunzi yameandikwa kando; hii haidhibitishi kila modeli, jukwaa au akaunti ya wingu.
 
 Miundo ya Mwongozo ya GitHub Actions imewashwa kwa anuwai zote kumi na moja za usambazaji. Fuata [tengeneza matokeo na vipakuliwa vilivyothibitishwa](docs/CI_DISTRIBUTIONS.md); upatikanaji ni kumbukumbu tofauti kwa kila jukwaa. Wagombea ni tofauti na matoleo ya umma yaliyotiwa saini. Mahitaji ya usambazaji yanaelezwa katika [sera ya uchapishaji rasmi](OFFICIAL_RELEASES.md) na [ukurasa wa matoleo](https://github.com/TRON-ABS/Novera/releases). Wagombea waliopo waliolemazwa na usasishaji husalia ndani. Matoleo ya umma yanahitaji utaratibu wa kusasisha uliosanidiwa na kuthibitishwa; [ukaguzi wa sahihi wa eneo-kazi na mahitaji yaliyosalia ya uzinduzi yameandikwa](docs/LAUNCH_STATUS.md).
 

@@ -21,6 +21,35 @@ Data la gũusgã: [Model sẽn tʋmd masĩnã pʋgẽ, statistik, error report l
 
 ---
 
+<!-- novera-current-downloads:start -->
+
+## Rɩk-y-yã-yã — Novera 1.0.2
+
+| Tʋʋm-kãsengã | D sẽn tõe n maan bũmb ninsã |
+| --- | --- |
+| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2) |
+| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-arm64) |
+| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-linux-x64) |
+| Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-cli-novera) |
+| Windows x64 b sẽn tõe n tall-a | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-portable) |
+| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos-arm64) |
+| Android ARM64 | [APK · 1000023](https://github.com/TRON-ABS/Novera/releases/download/v1.0.2-android-1000023/Novera_1.0.2_android-arm64.apk) · Android 7+ |
+| Web | [Novera Web 1.0.2](https://tron-abs.github.io/Novera/web/) |
+| iOS | Bãng-y tɩ b tõe n kɩtame t'a Zeova maan a raabã, la a sõng-y tɩ y bãng y sẽn segd n maan bũmb ninsã. [B sẽn maan to-to wã](docs/REPRISE_MACOS_IOS.md). |
+
+<!-- novera-current-downloads:end -->
+A Mac zugu, pak-y DMG la b tik-a Novera D sã n pa le tõe n maan bũmb ning d sẽn datã, bɩ d bas tɩ d maan bũmb ning d sẽn tõe n maan to-to. Novera a pʋgẽ **Dũniyã gill zugu**. [Apel wilg-m-menga](https://support.apple.com/guide/mac-help/mh40616/mac).
+
+[Evidence and limitations](docs/LAUNCH_STATUS.md)
+
+On Android, a modern phone with enough memory is recommended for local models; use an API provider on less powerful devices. For web search, a context of at least **16K tokens (16,384)** is recommended, consistently across versions.
+
+**Windows x64 portable 1.0.2 is available.** Discussions, settings and downloaded models stay inside the portable folder under `Data`. Extract the complete archive and start `Novera.exe`. Close Novera before moving the folder or ejecting USB storage. [Portable guide and limitations](docs/WINDOWS_PORTABLE.md).
+
+
+<details>
+<summary>Novera 1.0.1 · 2026-11-07</summary>
+
 <!-- novera-release-1.0.1:start -->
 <a id="version-1-0-1"></a>
 ## Novera 1.0.1
@@ -47,29 +76,11 @@ Novera 1.0.1 b sẽn tõe n paam-y-yã. b sẽn na n paam-y-yã.
 
 <!-- novera-release-1.0.1:end -->
 
-## Rɩk-y-yã-yã 2026-11-07
+For 1.0.1, LFM3-Omni-2B Q4_K_M with its required `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` is the default recommendation on desktop and mobile; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M remains a text-only alternative. Initial context is 32,768 tokens on desktop and 2,048 on mobile. Longer contexts use more memory. Existing model choices and settings are preserved until explicitly changed.
 
-**Novera 1.0.1 yaa sẽn na yɩl n Windows, Linux, macOS la Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64)Dɛktop pakẽ wã, b yiibã fãa CLI arziivã, semnãsã la update manifestã sãn yaa publikã la b sak n deegame.
+Sẽn na yɩl n tõog n sõng-b tɩ b tall b mens sõma, b modgdame tɩ b maneg b mens sõma. 1.0.1D sã n dat n bãnge, d tõe n bãngame t'a Zeova Kaset rãmbã tara sor n na n sõng-d lame tɩ d bãnge. [maintenance runbook](docs/MAINTENANCE.md)
 
-| Tʋʋm-kãsengã | D sẽn tõe n maan bũmb ninsã |
-| --- | --- |
-| Windows x64 | Sõng-n-taase NSIS sã n yaa tɩlɛ tɩ b maan b sẽn yetã, bɩ b maan b sẽn yetã. |
-| Linux x64 | Sõng-n-taase AppImage, sẽn sigl updateer; naan sigl la b sẽn tik n tik n tik a soaba. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, ne b sẽn sigl-a n dat n wilg-b bũmb ning b sẽn maandã. |
-| Windows ARM64 | [Sõng-n-taase NSIS gãdga](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), tẽngr neda CPU b sẽn na n yɩ to-to wã, b na n yɩɩg-a lame. |
-| Android ARM64 | Android 1.0.1 is available as a signed ARM64 APK, build 1000013. It uses the existing Novera certificate and passes package inspection. It contains no personal conversations, models or API keys. Installation and updating on a phone remain to be tested. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
-| macOS Intel / Apple Silicon | [Tʋʋmdã taoor soaba 1.0.1 DMG b sẽn yiisd bũmb ningã](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; NoveraA Apple pa sak n deeg tɩ b sõsd ne ned ye, la b ra sak n deegame tɩ b sõsd ne ned a ye. [Tʋʋmd ning b sẽn lugl ne kasetã](docs/RELEASE_1.0.1_2026-11-07.md). |
-| iOS | Bãng-y tɩ b tõe n kɩtame t'a Zeova maan a raabã, la a sõng-y tɩ y bãng y sẽn segd n maan bũmb ninsã. [B sẽn maan to-to wã](docs/REPRISE_MACOS_IOS.md). |
-| Windows x64 b sẽn tõe n tall-a | [B sẽn gʋlsã ZIP arkivã](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); data wã ket n beẽ Data, b sẽn gʋlsã Program sã n wa paam tɩ b lebs-a lame, b sakame. |
-| Web wã, MSI, Debian | [Novera Web 1.0.2](https://tron-abs.github.io/Novera/web/). MSI la Debian paake-rãmbã yaa tʋʋm yaa nẽerẽ bala. |
-
-A Mac zugu, pak-y DMG la b tik-a Novera D sã n pa le tõe n maan bũmb ning d sẽn datã, bɩ d bas tɩ d maan bũmb ning d sẽn tõe n maan to-to. Novera a pʋgẽ **Dũniyã gill zugu**. [Apel wilg-m-menga](https://support.apple.com/guide/mac-help/mh40616/mac).
-
-Updater signatures are separate from Windows Authenticode and Apple notarization. Package hashes, native checks and update tests are documented separately. A complete public 1.0.0 to 1.0.1 upgrade is confirmed only for the scenarios recorded in the release report. [Evidence and limitations](docs/LAUNCH_STATUS.md)
-
-On Android, a modern phone with enough memory is recommended for local models; use an API provider on less powerful devices. For web search, a context of at least **16K tokens (16,384)** is recommended, consistently across versions.
-
-**Windows x64 portable 1.0.0 is available.** Discussions, settings and downloaded models stay inside the portable folder under `Data`. Extract the complete archive and start `Novera.exe`. Close Novera before moving the folder or ejecting USB storage. [Portable guide and limitations](docs/WINDOWS_PORTABLE.md).
+</details>
 
 <a id="one-dashboard-for-every-creation"></a>
 ## Bõn-naands kam fãa yĩnga
@@ -83,7 +94,6 @@ Novera y sã n dat n bãng bũmb ning y sẽn segd n maane, bɩ y paasd y yam. Y
 **Collapsible dashboard: maximum workspace.** Fold away the settings to give your creations more room. Input, microphone and primary controls stay accessible. Click the screenshot to open the original full-resolution PNG.
 
 [![Novera: sẽn tõe n sõng tɩ b tõog n tʋm tʋʋm-no-kãsemse, tɩ b tõe n paam n tʋm ne b mobillã la b mobillã](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
-
 
 Bãng-y bũmb a yembr, la a nu: **Sõngo / Text / Image / Music / Video**. D sẽn yãkd sorã, d tõe n dɩka sorã: koe-moondã, sor-moondã, wakatã, karẽngã, sõmblemã, instrumentalã, gom-biisã, bõn-buudã la b sõorã.
 
@@ -109,11 +119,7 @@ D sã n dat n bãng tɩ d tõe n maan bõe, d tõe n bãngame tɩ d sã n dat n 
 
 [Sõngd-y-yã](docs/USER_GUIDE.md) · [Dɩtbã la kasetã](docs/SUIVI_MOTEURS.md) · [Tẽegre](docs/DEVELOPMENT.md)
 
-For 1.0.1, LFM3-Omni-2B Q4_K_M with its required `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` is the default recommendation on desktop and mobile; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M remains a text-only alternative. Initial context is 32,768 tokens on desktop and 2,048 on mobile. Longer contexts use more memory. Existing model choices and settings are preserved until explicitly changed.
-
 ## Sẽn tõe n sõng-b tɩ b bãng b sẽn maand to-to
-
-Sẽn na yɩl n tõog n sõng-b tɩ b tall b mens sõma, b modgdame tɩ b maneg b mens sõma. 1.0.1D sã n dat n bãnge, d tõe n bãngame t'a Zeova Kaset rãmbã tara sor n na n sõng-d lame tɩ d bãnge. [maintenance runbook](docs/MAINTENANCE.md)
 
 | Zĩ-kãnga | Sõsg ning b sẽn kõ-dã |
 | --- | --- |
@@ -299,7 +305,7 @@ These are directions for contribution and development, not a claim that every se
 
 ## Tʋʋmdã status
 
-**Novera 1.0.1 is available for Windows, Linux, macOS and Android.** The screenshot shows a Windows application compiled locally by the maintainer. Source changes, targeted tests and hardware validation are documented separately; this does not validate every model, platform or cloud account.
+The screenshot shows a Windows application compiled locally by the maintainer. Source changes, targeted tests and hardware validation are documented separately; this does not validate every model, platform or cloud account.
 
 Manual GitHub Actions builds are enabled for all eleven distribution variants. Follow the [build results and verified candidate downloads](docs/CI_DISTRIBUTIONS.md); availability is recorded separately for each platform. Candidates are distinct from signed production releases. Distribution requirements are described in the [official release policy](OFFICIAL_RELEASES.md) and [releases page](https://github.com/TRON-ABS/Novera/releases). Existing updater-disabled candidates remain internal. Public releases require a configured and verified update mechanism; [desktop signature checks and remaining launch requirements are documented](docs/LAUNCH_STATUS.md).
 

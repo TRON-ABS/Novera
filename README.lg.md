@@ -21,6 +21,35 @@ Data n'obukuumi: [Enkola ey'okuteebereza, okuteebereza ebintu eby'enjawulo, okut
 
 ---
 
+<!-- novera-current-downloads:start -->
+
+## Availability — Novera 1.0.2
+
+| Ekitebe | Okubeerawo |
+| --- | --- |
+| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2) |
+| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-arm64) |
+| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-linux-x64) |
+| Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-cli-novera) |
+| Windows x64 ebituukiddwako | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-portable) |
+| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos-arm64) |
+| Android ARM64 | [APK · 1000023](https://github.com/TRON-ABS/Novera/releases/download/v1.0.2-android-1000023/Novera_1.0.2_android-arm64.apk) · Android 7+ |
+| Web | [Novera Web 1.0.2](https://tron-abs.github.io/Novera/web/) |
+| iOS | Enkola y'okuteeka mu nkola ey'omunda; okuteeka omukono ku Apple/okuteeka mu nkola kyetaagisa nga tonnaba kuteeka iPhone. [Enkola ey'okukomekkereza](docs/REPRISE_MACOS_IOS.md). |
+
+<!-- novera-current-downloads:end -->
+Ku Mac, ggula DMG n'okukoppolola Novera Bwe kiba nti okusuubula okw'olubereberye kukuzibwamu, Novera mu **Ebisaanyizo by'Enkola → Obukuumi n'Eby'okwerinda → Bwekka**. [Obulagirizi bwa Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
+
+[Obujulizi n'obugaana](docs/LAUNCH_STATUS.md)
+
+Ku Android, essimu ey'omu kiseera kino eyalina obwongo obumala, yeesigamiziddwa ku malwaliro ag'omu kitundu; API Enkola y'okunoonyereza ku Intaneeti, enkola y'okunoonyereza ku Intaneeti **16K obubonero (16,384)** ekiragibwa, nga kikwatagana mu biwandiiko byonna.
+
+**Windows x64 ebituukiddwako 1.0.2 eriwo.** Enkuŋŋaana, ebisaanyizo n'emizingo egiri mu download zikyagenda mu folda ey'obuyambi wansi w'omutwe `Data`. Funa ebiwandiiko byonna n'otandika `Novera.exe`Okutuusa kati . Novera nga tebannasaanya katabo oba nga tebannagisuula USB eby'okusula. [Ekitabo ekirimu obulagirizi n'ebizibu](docs/WINDOWS_PORTABLE.md).
+
+
+<details>
+<summary>Novera 1.0.1 · 2026-11-07</summary>
+
 <!-- novera-release-1.0.1:start -->
 <a id="version-1-0-1"></a>
 ## Novera 1.0.1
@@ -47,29 +76,11 @@ Novera 1.0.1 ekisangibwa ku mikutu egiragiddwa wammanga. Londa akapapula kano ku
 
 <!-- novera-release-1.0.1:end -->
 
-## Availability — 2026-11-07
+For 1.0.1, LFM3-Omni-2B Q4_K_M with its required `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` is the default recommendation on desktop and mobile; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M remains a text-only alternative. Initial context is 32,768 tokens on desktop and 2,048 on mobile. Longer contexts use more memory. Existing model choices and settings are preserved until explicitly changed.
 
-**Novera 1.0.1 eriwo ku Windows, Linux, macOS era Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64).Ebirungo by'oku kompyuta, byombi CLI ebiwandiiko, emikono n'ebiwandiiko ebituukirizibwa bibeera bya bonna era bikakasibwa.
+Okukuuma n'okukuuma eby'obukuumi bitegekeddwa 1.0.1. Ebisaanyizo eby'okwesalirawo n'okutegeeza ensobi bikozesebwa mu kutegeera okw'enjawulo, okukkirizibwa okutegeerekeka n'obutegeera obwa tekinologiya. [ekitabo eky'okuddaabiriza](docs/MAINTENANCE.md)
 
-| Ekitebe | Okubeerawo |
-| --- | --- |
-| Windows x64 | Abantu bonna NSIS installer, signed updater; installation native and replacement verified. |
-| Linux x64 | Abantu bonna AppImage, updater eyateekebwa omukono; okuteekebwawo n'okuddaabirizibwa okukakasibwa. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, ng'alina enkola ey'okukyusakyusa eyateekebwa omukono. |
-| Windows ARM64 | [Abantu bonna NSIS okuteekawo](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), omuzadde CPU enkola ey'okuwandiika; okuteekawo, okuddaabiriza n'okukebera ku kkubo ly'abantu bonna. |
-| Android ARM64 | Android 1.0.1 ekisangibwa nga kyateekebwa omukono ARM64 APK, okuzimba 1000013.Kikozesa ebintu ebikyaliwo Novera Ekitabo kino tekirina bye kyogera ku bantu kinnoomu, byokulabirako, oba ebitabo ebikwataganyizibwa n'abantu abalala. API Okuteeka ku ssimu n'okukyusakyusa bikyalina okugezesebwa. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
-| macOS Intel / Apple Silicon | [Official 1.0.1 DMG release](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera-signed updates. Not Apple notarized; automated checks passed separately on both architectures, visual checks deferred. [Installation and evidence](docs/RELEASE_1.0.1_2026-11-07.md). |
-| iOS | Enkola y'okuteeka mu nkola ey'omunda; okuteeka omukono ku Apple/okuteeka mu nkola kyetaagisa nga tonnaba kuteeka iPhone. [Enkola ey'okukomekkereza](docs/REPRISE_MACOS_IOS.md). |
-| Windows x64 ebituukiddwako | [Yateekebwa omukono ZIP ebiwandiiko](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); obubaka bubeera mu Data, eyateekebwa omukono Program okuddaabirizibwa okukakasibwa. |
-| Web, MSI, Debian | [Novera Web 1.0.2](https://tron-abs.github.io/Novera/web/). Pakeegi za MSI ne Debian zikozesebwa munda mu pulojekiti. |
-
-Ku Mac, ggula DMG n'okukoppolola Novera Bwe kiba nti okusuubula okw'olubereberye kukuzibwamu, Novera mu **Ebisaanyizo by'Enkola → Obukuumi n'Eby'okwerinda → Bwekka**. [Obulagirizi bwa Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
-
-Ensonda z'oku kijjukiza zaawukana ku Windows Authenticode n'okuwandiisibwa kwa notarization ya Apple. Ebiwandiiko bya packet hashes, okukebera n'ebikebera by'okukyusakyusa biwandiisibwa mu butanwa. 1.0.0 oku 1.0.1 Enkola ey'okukyusakyusa ekakasibwa ku mbeera eziri mu alipoota ey'okufulumya. [Obujulizi n'obugaana](docs/LAUNCH_STATUS.md)
-
-Ku Android, essimu ey'omu kiseera kino eyalina obwongo obumala, yeesigamiziddwa ku malwaliro ag'omu kitundu; API Enkola y'okunoonyereza ku Intaneeti, enkola y'okunoonyereza ku Intaneeti **16K obubonero (16,384)** ekiragibwa, nga kikwatagana mu biwandiiko byonna.
-
-**Windows x64 ebituukiddwako 1.0.0 eriwo.** Enkuŋŋaana, ebisaanyizo n'emizingo egiri mu download zikyagenda mu folda ey'obuyambi wansi w'omutwe `Data`. Funa ebiwandiiko byonna n'otandika `Novera.exe`Okutuusa kati . Novera nga tebannasaanya katabo oba nga tebannagisuula USB eby'okusula. [Ekitabo ekirimu obulagirizi n'ebizibu](docs/WINDOWS_PORTABLE.md).
+</details>
 
 <a id="one-dashboard-for-every-creation"></a>
 ## Ekipande kimu ku buli kitonde
@@ -83,7 +94,6 @@ Novera Ebyokulabirako byo n'ebintu by'otaddewo bisobola okuyamba abakozesa abala
 **Ekitebe ky'obukodyo eky'okuteekawo: Ekifo ekisingayo obunene eky'okukola.** Ssaawo ebisaanyizo by'okukozesa okusobola okuwa ebitonde byo ekifo ekisingawo. Ebiragiro eby'okuyingira, eby'okukozesa eby'okukozesa eby'okukozesa mikono n'eby'okukozesa eby'okukozesa ebisookerwako bikyaliwo PNG.
 
 [![Novera: ekitebe ky'okujjanjaba ekirimu ekifo ekisingayo obulungi eky'okukola, ng'omukka oguyingira n'omwogezi bisobola okukolebwa](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
-
 
 Ekibinja kimu, ebitundu bitaano: **Auto / Text / Image / Music / Video**.Ebiragiro bigoberera enkola ey'okulonda: ratio, resolution, duration, cadence, quality, instrumental, lyrics, seed and quantity.
 
@@ -109,11 +119,7 @@ Obukodyo obw'okukozesa obwesigika buzingiramu entambula z'emirimu n'enkola ez'em
 
 [Akatabo k'Okozesa](docs/USER_GUIDE.md) · [Emmotoka n'okukakasa](docs/SUIVI_MOTEURS.md) · [Enkulaakulana](docs/DEVELOPMENT.md)
 
-For 1.0.1, LFM3-Omni-2B Q4_K_M with its required `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` is the default recommendation on desktop and mobile; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M remains a text-only alternative. Initial context is 32,768 tokens on desktop and 2,048 on mobile. Longer contexts use more memory. Existing model choices and settings are preserved until explicitly changed.
-
 ## Obusobozi mu nsibuko
-
-Okukuuma n'okukuuma eby'obukuumi bitegekeddwa 1.0.1. Ebisaanyizo eby'okwesalirawo n'okutegeeza ensobi bikozesebwa mu kutegeera okw'enjawulo, okukkirizibwa okutegeerekeka n'obutegeera obwa tekinologiya. [ekitabo eky'okuddaabiriza](docs/MAINTENANCE.md)
 
 | Ekifo | Ebitundu |
 | --- | --- |
@@ -299,7 +305,7 @@ Bino bye biragiro eby'okwenyigira n'okukulaakulanya, so si okugamba nti buli nko
 
 ## Embeera y'enteekateeka
 
-**Novera 1.0.1 eriwo ku Windows, Linux, macOS era Android.** Ekikopo kiraga Windows Enkyukakyuka ezikoleddwa ku nsi, okugezesebwa okulindiridde n'okukakasibwa kw'ebikozesebwa biwandiisibwa mu ngeri ey'enjawulo; kino tekitegeeza nti buli kyokulabirako, enteekateeka oba akawunti y'omu bbanga kiganyulwa.
+Ekikopo kiraga Windows Enkyukakyuka ezikoleddwa ku nsi, okugezesebwa okulindiridde n'okukakasibwa kw'ebikozesebwa biwandiisibwa mu ngeri ey'enjawulo; kino tekitegeeza nti buli kyokulabirako, enteekateeka oba akawunti y'omu bbanga kiganyulwa.
 
 Manual GitHub Actions builds are enabled for all eleven distribution variants. Follow the [build results and verified candidate downloads](docs/CI_DISTRIBUTIONS.md); availability is recorded separately for each platform. Candidates are distinct from signed production releases. Distribution requirements are described in the [official release policy](OFFICIAL_RELEASES.md) and [releases page](https://github.com/TRON-ABS/Novera/releases). Existing updater-disabled candidates remain internal. Public releases require a configured and verified update mechanism; [desktop signature checks and remaining launch requirements are documented](docs/LAUNCH_STATUS.md).
 

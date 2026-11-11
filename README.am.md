@@ -17,6 +17,37 @@
 
 ---
 
+<!-- novera-current-downloads:start -->
+
+## ተገኝነት — Novera 1.0.2
+
+| መድረክ | ተገኝነት |
+| --- | --- |
+| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2) |
+| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-arm64) |
+| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-linux-x64) |
+| Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-cli-novera) |
+| Windows x64 ተንቀሳቃሽ | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-portable) |
+| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos-arm64) |
+| Android ARM64 | [APK · 1000023](https://github.com/TRON-ABS/Novera/releases/download/v1.0.2-android-1000023/Novera_1.0.2_android-arm64.apk) · Android 7+ |
+| Web | [Novera Web 1.0.2](https://tron-abs.github.io/Novera/web/) |
+| iOS | የውስጥ ማስመሰያ ግንባታ; አይፎን ከመጫኑ በፊት አፕል መፈረም/አቅርቦት ያስፈልጋል። [ክትትል](docs/REPRISE_MACOS_IOS.md). |
+
+<!-- novera-current-downloads:end -->
+Mac ላይ DMG ይክፈቱ እና Novera ወደ አፕሊኬሽኖች ይቅዱ። የመጀመሪያው ማስጀመሪያ ከታገደ Novera እንዲገባ ይፍቀዱለት **የስርዓት ቅንጅቶች → ግላዊነት እና ደህንነት → ለማንኛውም ክፍት**. [የአፕል መመሪያዎች](https://support.apple.com/guide/mac-help/mh40616/mac).
+
+[ማስረጃዎች እና ገደቦች](docs/LAUNCH_STATUS.md)
+
+በ Android ላይ በቂ ማህደረ ትውስታ ያለው ዘመናዊ ስልክ ለሀገር ውስጥ ሞዴሎች ይመከራል። ባነሰ ኃይለኛ መሳሪያዎች ላይ የ API አቅራቢን ይጠቀሙ። ለድር ፍለጋ፣ ቢያንስ አውድ **16K ቶከኖች (16,384)** የሚመከር ነው፣ በሁሉም ስሪቶች ላይ በቋሚነት።
+
+**Windows x64 ተንቀሳቃሽ 1.0.2 ይገኛል።** ውይይቶች፣ ቅንጅቶች እና የወረዱ ሞዴሎች ከስር ባለው ተንቀሳቃሽ አቃፊ ውስጥ ይቆያሉ። `Data`. ሙሉውን ማህደር ያውጡ እና ይጀምሩ `Novera.exe`. ማህደሩን ከማንቀሳቀስዎ ወይም የUSB ማከማቻ ከማስወጣትዎ በፊት Noveraን ይዝጉ። [ተንቀሳቃሽ መመሪያ እና ገደቦች](docs/WINDOWS_PORTABLE.md).
+
+<a id="one-dashboard-for-every-creation"></a>
+
+
+<details>
+<summary>Novera 1.0.1 · 2026-11-07</summary>
+
 <!-- novera-release-1.0.1:start -->
 <a id="version-1-0-1"></a>
 ## Novera 1.0.1
@@ -45,31 +76,11 @@ Novera 1.0.1 ከታች ለተዘረዘሩት የመሣሪያ ስርዓቶች ይ
 
 <!-- novera-release-1.0.1:end -->
 
-## ተገኝነት — 2026-11-07
+ለ1.0.1፣ LFM3-Omni-2B Q4_K_M ከሚፈለገው `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` ጋር በዴስክቶፕ እና ሞባይል ላይ ነባሪ ምክር ነው። NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M የጽሑፍ-ብቻ አማራጭ ሆኖ ይቀራል። የመጀመሪያው አውድ 32,768 በዴስክቶፕ ላይ እና በሞባይል ላይ 2,048 ናቸው። ረዣዥም አውዶች የበለጠ ማህደረ ትውስታን ይጠቀማሉ። ነባር የሞዴል ምርጫዎች እና ቅንብሮች በግልጽ እስኪቀየሩ ድረስ ተጠብቀዋል።
 
-**Novera 1.0.1 ለWindows፣ Linux፣ macOS እና Android ይገኛል።** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). የዴስክቶፕ ፓኬጆች፣ ሁለቱም የCLI ማህደሮች፣ ፊርማዎች እና የዝማኔ መግለጫዎች ይፋዊ እና የተረጋገጡ ናቸው።
+የጥገና እና የግላዊነት ማሻሻያዎች ለ1.0.1 ተዘጋጅተዋል። የአማራጭ ስታቲስቲክስ እና የስህተት ሪፖርት ማድረግ ነጻ፣ ግልጽ ፍቃድ እና የተጣራ ቴክኒካል ምርመራዎችን ይጠቀማሉ። የሚፈለጉ የመልቀቂያ ፍተሻዎች እና የቀሩት የደህንነት ግኝቶች ለየብቻ ተመዝግበዋል። [የጥገና runbook](docs/MAINTENANCE.md)
 
-| መድረክ | ተገኝነት |
-| --- | --- |
-| Windows x64 | የህዝብ NSIS ጫኚ፣ የተፈረመ ማዘመኛ; ቤተኛ መጫን እና መተካት ተረጋግጧል. |
-| Linux x64 | የህዝብ AppImage፣ የተፈረመ ማዘመኛ; ቤተኛ መጫን እና መተካት ተረጋግጧል. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`፣ ከተወሰነ የተፈረመ የዝማኔ ቻናል ጋር። |
-| Windows ARM64 | [የህዝብ NSIS ጫኚ](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), ቤተኛ CPU የጽሑፍ ሞተር; የመጫን፣ የመተካት እና የወል ቻናል ፍተሻዎች ተረጋግጠዋል። |
-| Android ARM64 | አንድሮይድ 1.0.1 እንደ የተፈረመ ARM64 ኤፒኬ፣ ግንባታ 1000013 ይገኛል። ያለውን የNovera ሰርተፍኬት ይጠቀማል እና የጥቅል ፍተሻን ያልፋል። ምንም የግል ንግግሮች፣ ሞዴሎች ወይም የኤፒአይ ቁልፎች አልያዘም። በስልክ ላይ መጫን እና ማዘመን ለመፈተሽ ይቀራል። Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
-| macOS Intel / Apple Silicon | [ይፋዊ 1.0.1 DMG ልቀት](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos)፣ macOS 13+ Intel / 14+ Apple Silicon; Novera የተፈረመ ዝማኔዎች። አፕል ኖተራይዝድ አይደለም; አውቶማቲክ ፍተሻዎች በሁለቱም አርክቴክቸር ላይ ተለይተው ተላልፈዋል፣ የእይታ ፍተሻዎች ዘግይተዋል። [ተከላ እና ማስረጃ](docs/RELEASE_1.0.1_2026-11-07.md). |
-| iOS | የውስጥ ማስመሰያ ግንባታ; አይፎን ከመጫኑ በፊት አፕል መፈረም/አቅርቦት ያስፈልጋል። [ክትትል](docs/REPRISE_MACOS_IOS.md). |
-| Windows x64 ተንቀሳቃሽ | [የተፈረመ ZIP ማህደር](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); ውሂብ በData ይቆያል፣ የተፈረመ Program ምትክ ተረጋግጧል። |
-| ድር፣ MSI፣ ዴቢያን። | የተስተናገደው የድር ደንበኛ እና ሌሎች ቅርጸቶች ውስጣዊ ሆነው ይቆያሉ፤ Pages ማቅረቢያ ጣቢያ ይገኛል። |
-
-Mac ላይ DMG ይክፈቱ እና Novera ወደ አፕሊኬሽኖች ይቅዱ። የመጀመሪያው ማስጀመሪያ ከታገደ Novera እንዲገባ ይፍቀዱለት **የስርዓት ቅንጅቶች → ግላዊነት እና ደህንነት → ለማንኛውም ክፍት**. [የአፕል መመሪያዎች](https://support.apple.com/guide/mac-help/mh40616/mac).
-
-የዝማኔ ፊርማዎች ከWindows Authenticode እና Apple notarization የተለዩ ናቸው። የጥቅል ሃሽ፣ ቤተኛ ቼኮች እና የዝማኔ ሙከራዎች ለየብቻ ተመዝግበዋል። የተሟላ የ1.0.0 ወደ 1.0.1 ማሻሻያ የተረጋገጠው በመልቀቂያ ሪፖርቱ ውስጥ ለተመዘገቡት ሁኔታዎች ብቻ ነው። [ማስረጃዎች እና ገደቦች](docs/LAUNCH_STATUS.md)
-
-በ Android ላይ በቂ ማህደረ ትውስታ ያለው ዘመናዊ ስልክ ለሀገር ውስጥ ሞዴሎች ይመከራል። ባነሰ ኃይለኛ መሳሪያዎች ላይ የ API አቅራቢን ይጠቀሙ። ለድር ፍለጋ፣ ቢያንስ አውድ **16K ቶከኖች (16,384)** የሚመከር ነው፣ በሁሉም ስሪቶች ላይ በቋሚነት።
-
-**Windows x64 ተንቀሳቃሽ 1.0.0 ይገኛል።** ውይይቶች፣ ቅንጅቶች እና የወረዱ ሞዴሎች ከስር ባለው ተንቀሳቃሽ አቃፊ ውስጥ ይቆያሉ። `Data`. ሙሉውን ማህደር ያውጡ እና ይጀምሩ `Novera.exe`. ማህደሩን ከማንቀሳቀስዎ ወይም የUSB ማከማቻ ከማስወጣትዎ በፊት Noveraን ይዝጉ። [ተንቀሳቃሽ መመሪያ እና ገደቦች](docs/WINDOWS_PORTABLE.md).
-
-<a id="one-dashboard-for-every-creation"></a>
+</details>
 
 ## አንድ ዳሽቦርድ ለእያንዳንዱ ፍጥረት
 
@@ -82,7 +93,6 @@ Novera ከእርስዎ ጋር ይበቅላል። የእርስዎ ምሳሌዎች
 የማይክሮፎን ሁኔታ፡ ሲገኝ አረንጓዴ፣ ስራ ሲበዛበት ቀይ፣ በማይገኝበት ጊዜ ግራጫ። እውቅና፣ ማዳመጥ እንደገና መጀመር፣ የትኩረት አያያዝ እና የሚታየው የቃላት አነጋገር ተስተካክለዋል። ቤተኛ ኦዲዮ-ሞዴል ንግግር በአሁኑ ጊዜ በWindows ላይ ተተግብሯል፤ ሌሎች መድረኮች አሁንም ቤተኛ ማረጋገጫ እና ተስማሚ የድምጽ ድጋፍ ያስፈልጋቸዋል።
 
 [![Novera የመነጨ ምስል እና የተዋሃደ ዳሽቦርድ በብዛት፣ በዘር፣ በማሳደግ እና በራስ ሰር ማህደረ ትውስታ](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
-
 
 አንድ ፓነል፣ አምስት ሁነታዎች፡- **ራስ-ሰር / ጽሑፍ / ምስል / ሙዚቃ / ቪዲዮ**. መቆጣጠሪያዎች የተመረጠውን ሁነታ ይከተላሉ፡ ሬሾ፣ ጥራት፣ የቆይታ ጊዜ፣ የጥራት ደረጃ፣ ጥራት፣ መሳሪያ፣ ግጥም፣ ዘር እና ብዛት። የፓነል ስፋት እና አዝራሮች ከመስኮቱ እና ከተተረጎሙ መለያዎች ጋር ይጣጣማሉ።
 
@@ -109,11 +119,7 @@ Novera ከእርስዎ ጋር ይበቅላል። የእርስዎ ምሳሌዎች
 
 [የተጠቃሚ መመሪያ](docs/USER_GUIDE.md) · [ሞተሮች እና ማረጋገጫ](docs/SUIVI_MOTEURS.md) · [ልማት](docs/DEVELOPMENT.md)
 
-ለ1.0.1፣ LFM3-Omni-2B Q4_K_M ከሚፈለገው `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` ጋር በዴስክቶፕ እና ሞባይል ላይ ነባሪ ምክር ነው። NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M የጽሑፍ-ብቻ አማራጭ ሆኖ ይቀራል። የመጀመሪያው አውድ 32,768 በዴስክቶፕ ላይ እና በሞባይል ላይ 2,048 ናቸው። ረዣዥም አውዶች የበለጠ ማህደረ ትውስታን ይጠቀማሉ። ነባር የሞዴል ምርጫዎች እና ቅንብሮች በግልጽ እስኪቀየሩ ድረስ ተጠብቀዋል።
-
 ## በምንጩ ውስጥ ያሉ ችሎታዎች
-
-የጥገና እና የግላዊነት ማሻሻያዎች ለ1.0.1 ተዘጋጅተዋል። የአማራጭ ስታቲስቲክስ እና የስህተት ሪፖርት ማድረግ ነጻ፣ ግልጽ ፍቃድ እና የተጣራ ቴክኒካል ምርመራዎችን ይጠቀማሉ። የሚፈለጉ የመልቀቂያ ፍተሻዎች እና የቀሩት የደህንነት ግኝቶች ለየብቻ ተመዝግበዋል። [የጥገና runbook](docs/MAINTENANCE.md)
 
 | አካባቢ | ባህሪያት |
 | --- | --- |
@@ -302,7 +308,7 @@ AWQ 4-bit፣ GPTQ 4-bit፣ NF4 እና INT8 እያንዳንዱ ከመስመር �
 
 ## የፕሮጀክት ሁኔታ
 
-**Novera 1.0.1 ለWindows፣ Linux፣ macOS እና Android ይገኛል።** ቅጽበታዊ ገጽ እይታው የሚያሳየው የWindows አፕሊኬሽን በአስተዳዳሪው የተጠናቀረ ነው። የምንጭ ለውጦች፣ የታለሙ ሙከራዎች እና የሃርድዌር ማረጋገጫ ለየብቻ ተመዝግቧል። ይህ እያንዳንዱን ሞዴል፣ መድረክ ወይም የደመና መለያ አያረጋግጥም።
+ቅጽበታዊ ገጽ እይታው የሚያሳየው የWindows አፕሊኬሽን በአስተዳዳሪው የተጠናቀረ ነው። የምንጭ ለውጦች፣ የታለሙ ሙከራዎች እና የሃርድዌር ማረጋገጫ ለየብቻ ተመዝግቧል። ይህ እያንዳንዱን ሞዴል፣ መድረክ ወይም የደመና መለያ አያረጋግጥም።
 
 በእጅ GitHub Actions ግንባታዎች ለሁሉም አስራ አንድ የስርጭት ልዩነቶች ነቅተዋል። ተከተል [ውጤቶችን ይገንቡ እና የተረጋገጡ እጩ ውርዶች](docs/CI_DISTRIBUTIONS.md); ተገኝነት ለእያንዳንዱ መድረክ በተናጠል ይመዘገባል. እጩዎች ከተፈረሙ የምርት ልቀቶች የተለዩ ናቸው። የስርጭት መስፈርቶች በ ውስጥ ተገልጸዋል [ይፋዊ የመልቀቅ ፖሊሲ](OFFICIAL_RELEASES.md) እና [የሚለቀቅ ገጽ](https://github.com/TRON-ABS/Novera/releases). ነባር የዝማኔ-አካል ጉዳተኞች እጩዎች ውስጣዊ እንደሆኑ ይቆያሉ። ይፋዊ ልቀቶች የተዋቀረ እና የተረጋገጠ የማሻሻያ ዘዴ ያስፈልጋቸዋል; [የዴስክቶፕ ፊርማ ቼኮች እና የተቀሩት የማስጀመሪያ መስፈርቶች በሰነድ ተይዘዋል።](docs/LAUNCH_STATUS.md).
 
