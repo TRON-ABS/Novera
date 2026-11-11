@@ -31,7 +31,10 @@ def expected_message(status, feed, version):
     if not re.fullmatch(r'\d+\.\d+\.\d+', remote) or not re.fullmatch(r'\d+\.\d+\.\d+', version):
         raise RuntimeError('Canonical release versions required')
     entry = feed.get('platforms', {}).get('linux-x86_64', {})
-    if not entry.get('url', '').startswith('https://github.com/TRON-ABS/Novera/releases/download/v'+remote+'/') or not entry.get('signature'):
+    release_base = 'https://github.com/TRON-ABS/Novera/releases/download'
+    appimage = f'Novera_{remote}_amd64.AppImage'
+    expected_urls = {f'{release_base}/{tag}/{appimage}' for tag in (f'v{remote}', f'v{remote}-linux-x64')}
+    if entry.get('url') not in expected_urls or not entry.get('signature'):
         raise RuntimeError('Missing official signed Linux feed entry')
     if tuple(map(int, remote.split('.'))) > tuple(map(int, version.split('.'))):
         raise RuntimeError('Offered updates require a separate installation scenario')
