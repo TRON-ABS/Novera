@@ -41,6 +41,9 @@ def validate_descriptor(value):
                 'darwin-x86_64': f'Novera_{version}_x64.app.tar.gz'}.get(platform)
         required = {core, str(core)+'.sig'} if core else set()
         allowed = set(required)
+        if platform == 'windows-x86_64':
+            msi = f'Novera_{version}_x64_en-US.msi'
+            allowed.update((msi, msi+'.sig'))
         if platform in ['darwin-aarch64', 'darwin-x86_64']:
             allowed.add(f"Novera_{version}_{'aarch64' if platform.endswith('aarch64') else 'x64'}.dmg")
     elif kind == 'cli' and platform in ['windows-x86_64', 'linux-x86_64', 'darwin-aarch64']:
@@ -62,6 +65,8 @@ def validate_descriptor(value):
         names.add(name)
     if not required.issubset(names):
         raise ValueError('Every reviewed update payload needs its signature')
+    if kind == 'desktop' and platform == 'windows-x86_64' and (msi in names) != (msi+'.sig' in names):
+        raise ValueError('The optional MSI must include its signature')
     return value
 
 
@@ -172,13 +177,16 @@ def main(descriptor_name, release_id):
             if receipt['platform'] != descriptor['platform']:
                 raise RuntimeError('Desktop updater platform changed')
             subprocess.run(['node', 'scripts/distribution/ci-check-updater.mjs', '--publication-check', str(output)], cwd=ROOT, check=True)
-        else:
+        signed_extras = [a['name'] for a in descriptor['assets'] if a['name'].endswith('.msi')]
+        if descriptor['kind'] != 'desktop':
+            signed_extras = [a['name'] for a in descriptor['assets'] if not a['name'].endswith('.sig')]
+        if signed_extras:
             key = 'tauri.portable.conf.json' if descriptor['kind'] == 'portable' else 'tauri.updater.conf.json'
             code = '''import fs from 'node:fs'; import path from 'node:path'; import {verifyUpdateBundle} from './scripts/distribution/ci-check-updater.mjs';
 const [directory,keyFile,names]=process.argv.slice(1);const key=JSON.parse(fs.readFileSync(keyFile)).plugins.updater.pubkey;
-for(const name of JSON.parse(names).filter(n=>!n.endsWith('.sig'))){await verifyUpdateBundle(path.join(directory,name),fs.readFileSync(path.join(directory,name+'.sig'),'utf8'),key)}
+for(const name of JSON.parse(names)){await verifyUpdateBundle(path.join(directory,name),fs.readFileSync(path.join(directory,name+'.sig'),'utf8'),key)}
 console.log('Final payload signatures verified against the pinned Novera key');'''
-            subprocess.run(['node', '--input-type=module', '-e', code, str(output/prefix), str(ROOT/'src-tauri'/key), json.dumps([a['name'] for a in descriptor['assets']])], cwd=ROOT, check=True)
+            subprocess.run(['node', '--input-type=module', '-e', code, str(output/prefix), str(ROOT/'src-tauri'/key), json.dumps(signed_extras)], cwd=ROOT, check=True)
         done = []
         for expected in descriptor['assets']:
             release = api('/releases/'+release_id)
