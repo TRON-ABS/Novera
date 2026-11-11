@@ -64,6 +64,7 @@ it('scans the authorized folder at startup and adds newly downloaded GGUFs on th
     expect(browserLocalTextModels().map(model => model.file.name)).toEqual(downloads.slice(0, 2).map(file => file.name))
     expect(refresh).toHaveBeenCalledTimes(2)
     expect(storage.load).toHaveBeenCalledTimes(1)
+    expect(storage.save).not.toHaveBeenCalled()
   } finally { stop?.() }
 })
 

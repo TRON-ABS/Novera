@@ -1,3 +1,7 @@
+## Remembered Web models stay in their directory
+
+A remembered directory supplies the files on each scan. Novera stores the authorized directory handle without duplicating its model weights in IndexedDB. The manual folder input retains its existing persistence behavior. The scanner test verifies startup, new downloads and zero duplicate writes.
+
 ## Large Web GGUFs and dashboard windows
 
 The Web build keeps the wasm32 engine for existing models and uses a separately verified wasm64 Worker for local GGUFs at least 4 GiB on compatible browsers. WORKERFS limits individual reads to 32 MiB so large tensors can be read from the selected file. Edge loaded the 6.18 GB Nemotron file at 32,768 context tokens and CPU/GPU sampling produced identical 32-token output on RTX 5070 Laptop.
