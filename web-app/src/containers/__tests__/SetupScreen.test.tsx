@@ -201,7 +201,10 @@ const currentPage = () =>
 
 const realNow = Date.now.bind(Date)
 let cacheClockOffset = 0
-afterEach(() => vi.restoreAllMocks())
+afterEach(() => {
+  vi.restoreAllMocks()
+  vi.unstubAllGlobals()
+})
 
 describe('SetupScreen', () => {
   beforeEach(() => {
@@ -243,6 +246,34 @@ describe('SetupScreen', () => {
     })
     localStorage.clear()
   })
+
+  it('shows embedding progress and resumes the Android model step with an immediate download', async () => {
+    vi.stubGlobal('IS_ANDROID', true)
+    hoisted.janModel = { ...sampleModel, quants: [sampleModel.quants[0]] }
+    hoisted.verifyEmbeddingModelMock.mockResolvedValue({ status: 'ok', pending: true })
+    hoisted.downloadStore.downloads['Qwen3-Embedding-0.6B-Q8_0'] = {
+      progress: 0.42, current: 42, total: 100,
+    }
+
+    const firstVisit = await renderStarted()
+    expect(screen.getByTestId('setup-embedding-progress')).toHaveTextContent('42%')
+    await continueSetup()
+    expect(currentPage()).toBe('model')
+    firstVisit.unmount()
+
+    await renderSetup()
+    expect(currentPage()).toBe('model')
+    fireEvent.click(screen.getByRole('button', { name: 'common:back' }))
+    expect(currentPage()).toBe('setup')
+    expect(screen.getByTestId('setup-embedding-progress')).toHaveTextContent('42%')
+    await continueSetup()
+    fireEvent.click(screen.getByRole('button', { name: 'setup:download' }))
+    expect(hoisted.isModelSupportedMock).not.toHaveBeenCalled()
+    expect(hoisted.pullModelWithMetadataMock).toHaveBeenCalledWith(
+      'jan-q4_k_m', '/models/q4', '/mmproj', 'hf-token', true,
+    )
+  })
+
 
   it('renders the header page component', async () => {
     await renderStarted()

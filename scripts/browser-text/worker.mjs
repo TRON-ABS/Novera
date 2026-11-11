@@ -9,12 +9,12 @@ async function verified(url, sha) {
   const response=await fetch(url);if(!response.ok)throw new Error('Asset unavailable: '+url);
   const data=await response.arrayBuffer();if(await digest(data)!==sha)throw new Error('Asset checksum mismatch');return data;
 }
-const modelUrl = 'https://huggingface.co/LiquidAI/LFM3-Omni-2B-GGUF/resolve/d508b88f08a5b4286f2d2805a6a8d69a0ff44c72/' + modelName;
-const modelSize = 1099630080;
+const defaultModel = { repo: 'LiquidAI/LFM3-Omni-2B-GGUF', revision: 'd508b88f08a5b4286f2d2805a6a8d69a0ff44c72',
+  file: modelName, bytes: 1099630080, sha256: modelSha };
 
-async function readModel(body) {
+async function readModel(body, model) {
   if (!body) throw new Error('Téléchargement du modèle impossible.');
-  const bytes = new Uint8Array(modelSize);
+  const bytes = new Uint8Array(model.bytes);
   const reader = body.getReader();
   let offset = 0;
   let lastPercent = -1;
@@ -25,7 +25,7 @@ async function readModel(body) {
       if (offset + value.byteLength > bytes.byteLength) throw new Error('Taille du modèle invalide.');
       bytes.set(value, offset);
       offset += value.byteLength;
-      const percent = Math.floor(90 * offset / modelSize);
+      const percent = Math.floor(90 * offset / model.bytes);
       if (percent > lastPercent) {
         lastPercent = percent;
         postMessage({type:'loading', progress:percent / 100});
@@ -35,21 +35,25 @@ async function readModel(body) {
     await reader.cancel().catch(() => {});
     reader.releaseLock();
   }
-  if (offset !== modelSize || await digest(bytes) !== modelSha) throw new Error('Le modèle ne correspond pas à la révision vérifiée.');
+  if (offset !== model.bytes || await digest(bytes) !== model.sha256) throw new Error('Le modèle ne correspond pas à la révision vérifiée.');
   return bytes;
 }
 
-async function loadCatalogModel() {
+async function loadCatalogModel(model = defaultModel) {
+  if (!/^[\w.-]+\/[\w.-]+$/.test(model.repo) || !/^[a-f0-9]{40}$/.test(model.revision) ||
+      !/^[\w.-]+\.gguf$/.test(model.file) || !/^[a-f0-9]{64}$/.test(model.sha256) ||
+      !Number.isSafeInteger(model.bytes) || model.bytes <= 0) throw new Error('Invalid catalog model');
+  const url = 'https://huggingface.co/' + model.repo + '/resolve/' + model.revision + '/' + model.file;
   const root = await navigator.storage?.getDirectory?.().catch(() => undefined);
-  const filename = `novera-text-${modelSha}.gguf`;
+  const filename = `novera-text-${model.sha256}.gguf`;
   const cached = await root?.getFileHandle(filename).then(handle => handle.getFile()).catch(() => undefined);
-  if (cached?.size === modelSize) {
-    try { return await readModel(cached.stream()); }
+  if (cached?.size === model.bytes) {
+    try { return await readModel(cached.stream(), model); }
     catch (error) { postMessage({type:'log',line:`Vérification du cache texte : ${error}`}); }
   }
-  const response = await fetch(modelUrl, {credentials:'omit', referrerPolicy:'no-referrer'});
+  const response = await fetch(url, {credentials:'omit', referrerPolicy:'no-referrer'});
   if (!response.ok) throw new Error('Téléchargement du modèle impossible.');
-  const bytes = await readModel(response.body);
+  const bytes = await readModel(response.body, model);
   if (root) await cacheModel(root, filename, bytes);
   return bytes;
 }
@@ -137,7 +141,7 @@ self.onmessage=async event=>{
         initializedCpuThreads = selected; initializedModuleSha = metadata.sha256;
       }
       postMessage({type:'phase',phase:'reading-verified-model'});
-      const bytes = event.data.catalogModel === true ? await loadCatalogModel() : new Uint8Array(await verified('/models/'+modelName,modelSha));
+      const bytes = event.data.catalogModel === true ? await loadCatalogModel(event.data.model) : new Uint8Array(await verified('/models/'+modelName,modelSha));
       engine.FS.writeFile('/model.gguf',bytes,{canOwn:true});
       const started=performance.now();
       const code=await engine.ccall('novera_load','number',['string','number'],['/model.gguf',32768],{async:true});

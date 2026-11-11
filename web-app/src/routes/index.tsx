@@ -2,6 +2,8 @@
 import { createFileRoute, Navigate, useSearch } from '@tanstack/react-router'
 import { isTauri } from '@tauri-apps/api/core'
 import ChatInput from '@/containers/ChatInput'
+import { useDesktopAutoTuneEnabled } from '@/containers/AutoTuneControl'
+import { getAutoTuneProgress, getInitialAutoTuneProgress, subscribeAutoTuneProgress } from '@/services/creation/auto-tune'
 import HeaderPage from '@/containers/HeaderPage'
 import { useTranslation } from '@/i18n/react-i18next-compat'
 import { useTools } from '@/hooks/useTools'
@@ -21,7 +23,7 @@ type ThreadModel = {
 type SearchParams = {
   threadModel?: ThreadModel
 }
-import { useEffect } from 'react'
+import { useEffect, useSyncExternalStore } from 'react'
 import { useThreads } from '@/hooks/useThreads'
 
 export const Route = createFileRoute("/")({
@@ -43,7 +45,24 @@ function Index() {
   const { setCurrentThreadId } = useThreads()
   useTools()
 
+  const autoTuneEnabled = useDesktopAutoTuneEnabled()
+  const { active, remaining, total, browserComplete, standby } = useSyncExternalStore(subscribeAutoTuneProgress, getAutoTuneProgress, getInitialAutoTuneProgress)
   const hasValidProviders = hasUsableProvider(providers)
+
+  let heading = t('chat:description')
+  if (autoTuneEnabled) {
+    if (active) {
+      heading = t('ui:autoTuneHomeTesting', {
+        model: active.model.split(/[\\/]/).at(-1) || active.model,
+        category: t(`chat:creation.${active.task}`),
+      })
+    } else {
+      const status = standby ? 'ui:autoTuneWaiting' : browserComplete ? 'ui:autoTuneBrowserComplete' : remaining === 0
+        ? (total > 0 ? 'ui:autoTuneBetweenPasses' : 'ui:autoTuneNoSelection')
+        : 'ui:autoTuneWaiting'
+      heading = `Auto Tune · ${t(status)}`
+    }
+  }
 
   useEffect(() => {
     setCurrentThreadId(undefined)
@@ -69,16 +88,17 @@ function Index() {
             'mx-auto flex min-h-0 flex-1 w-full flex-col',
           )}
         >
-          <div className={cn('min-h-0 overflow-y-auto flex flex-1 items-center justify-center text-center py-10')}>
-            <h1
+          <div className={cn('flex min-w-0 items-center justify-center text-center', autoTuneEnabled ? 'shrink-0 py-2' : 'min-h-0 flex-1 overflow-y-auto py-10')}>
+            <h1 aria-live="polite"
               className={cn(
-                'text-2xl mt-2 font-studio font-medium',
+                'min-w-0 font-studio font-medium',
+                autoTuneEnabled ? 'text-base sm:text-lg leading-snug [overflow-wrap:anywhere]' : 'mt-2 text-2xl',
               )}
             >
-              {t('chat:description')}
+              {heading}
             </h1>
           </div>
-          <div className="shrink-0 py-4" data-chat-composer-dock>
+          <div className="mt-auto flex min-h-0 max-h-full shrink flex-col overflow-y-auto py-4" data-chat-composer-dock>
             <ChatInput
               showSpeedToken={false}
               model={threadModel}

@@ -10,6 +10,8 @@ const h = vi.hoisted(() => ({
   setCurrentThreadId: vi.fn(),
   useTools: vi.fn(),
   isTauri: true,
+  autoTuneEnabled: false,
+  autoTuneProgress: { active: null as { task: string; model: string } | null, remaining: null, total: 0 },
   providerHasRemoteApiKeys: vi.fn(() => false),
   predefinedProviders: [
     { provider: 'openai' },
@@ -25,9 +27,16 @@ vi.mock('@tanstack/react-router', () => ({
 }))
 
 vi.mock('@tauri-apps/api/core', () => ({ isTauri: () => h.isTauri }))
+vi.mock('@/containers/AutoTuneControl', () => ({ useDesktopAutoTuneEnabled: () => h.autoTuneEnabled }))
+vi.mock('@/services/creation/auto-tune', () => ({
+  getAutoTuneProgress: () => h.autoTuneProgress,
+  getInitialAutoTuneProgress: () => h.autoTuneProgress,
+  subscribeAutoTuneProgress: () => () => {},
+}))
 
 vi.mock('@/i18n/react-i18next-compat', () => ({
-  useTranslation: () => ({ t: (key: string) => key }),
+  useTranslation: () => ({ t: (key: string, options?: { model: string; category: string }) =>
+    options ? [key, options.model, options.category].join(' ') : key }),
 }))
 
 vi.mock('@/hooks/useModelProvider', () => ({
@@ -92,6 +101,8 @@ describe('Index route', () => {
     vi.clearAllMocks()
     h.providers = []
     h.isTauri = true
+    h.autoTuneEnabled = false
+    h.autoTuneProgress.active = null
     h.search = { threadModel: undefined }
     h.providerHasRemoteApiKeys.mockReturnValue(false)
   })
@@ -146,6 +157,20 @@ describe('Index route', () => {
     expect(screen.getByTestId('header-page')).toBeInTheDocument()
     expect(screen.queryByTestId('dropdown')).not.toBeInTheDocument()
     expect(screen.getByText('chat:description')).toBeInTheDocument()
+  })
+
+  it('replaces the home greeting with the active model and restores it after Auto Tune is turned off', () => {
+    h.providers = [{ provider: 'llamacpp', models: [{ id: 'x' }] }]
+    h.autoTuneEnabled = true
+    const { rerender } = renderComponent()
+    const Component = Route.component as React.ComponentType
+    expect(screen.getByRole('heading')).toHaveTextContent('Auto Tune · ui:autoTuneWaiting')
+    h.autoTuneProgress.active = { task: 'video', model: 'C:/models/Wan.gguf' }
+    rerender(<Component />)
+    expect(screen.getByRole('heading')).toHaveTextContent('ui:autoTuneHomeTesting Wan.gguf chat:creation.video')
+    h.autoTuneEnabled = false
+    rerender(<Component />)
+    expect(screen.getByRole('heading')).toHaveTextContent('chat:description')
   })
 
   it('renders chat UI when llamacpp provider has models', () => {

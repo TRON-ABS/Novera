@@ -36,6 +36,11 @@ import { ErrorTrackingConsent } from './analytics/ErrorTrackingConsent'
 import { useErrorTracking } from '@/hooks/useErrorTracking'
 import { DependencyAdvice } from './dialogs/DependencyAdvice'
 import HeaderPage from './HeaderPage'
+import embeddingManifest from '@/constants/embedding-manifest.json'
+
+const androidSetupCheckpoint = 'novera-android-setup-step'
+const setupEmbedder = embeddingManifest[0]
+const setupEmbedderId = setupEmbedder.name.replace(/\.gguf$/, '')
 
 /**
  * One page of the setup flow. The model page is derived from download state
@@ -121,10 +126,16 @@ function ModelCard({
           </span>
         ) : isDownloading ? (
           <div className="flex w-20 items-center gap-2">
-            <Progress className="border" value={progress * 100} />
-            <span className="text-xs text-muted-foreground">
-              {Math.round(progress * 100)}%
-            </span>
+            {progress > 0 ? (
+              <>
+                <Progress className="border" value={progress * 100} />
+                <span className="text-xs text-muted-foreground">
+                  {Math.round(progress * 100)}%
+                </span>
+              </>
+            ) : (
+              <IconLoader2 size={16} className="animate-spin" aria-label={t('setup:checkModelDownloading', { model: name })} />
+            )}
           </div>
         ) : (
           <Button variant="outline" size="sm" onClick={onDownload}>
@@ -223,12 +234,18 @@ function SetupScreen() {
   const huggingfaceToken = useGeneralSetting((state) => state.huggingfaceToken)
   // Nothing is probed until the user starts: the first page is an invitation,
   // not a progress report.
-  const [hasStarted, setHasStarted] = useState(false)
+  const [setupStep, setSetupStep] = useState(() =>
+    IS_ANDROID ? localStorage.getItem(androidSetupCheckpoint) : null
+  )
+  const hasStarted = setupStep !== null
+  const rememberSetupStep = useCallback((step: 'setup' | 'model') => {
+    setSetupStep(step)
+    if (IS_ANDROID) localStorage.setItem(androidSetupCheckpoint, step)
+  }, [])
   const beginSetup = useCallback(() => {
-    setHasStarted(true)
-    // Not awaited: the readiness checks are what report its progress.
+    rememberSetupStep('setup')
     void serviceHub.models().startEngineSetup()
-  }, [serviceHub])
+  }, [rememberSetupStep, serviceHub])
   const { stages, warnings, gpu, isRunning, rerun } = useSetupChecklist({
     enabled: hasStarted,
   })
@@ -254,7 +271,7 @@ function SetupScreen() {
   // Check model support for variants when janNewModel is available
   useEffect(() => {
     const checkModelSupport = async () => {
-      if (!janNewModel) return
+      if (!janNewModel || (IS_ANDROID && janNewModel.quants?.length === 1)) return
 
       if (
         supportCheckInProgress.current ||
@@ -381,7 +398,16 @@ function SetupScreen() {
 
   // The quant depends on the per-variant fit check, so a click before it lands
   // has to be queued rather than acted on.
-  const isSelectionReady = Boolean(selected && isSupportCheckComplete)
+  const isSelectionReady = Boolean(selected && (
+    isSupportCheckComplete || (IS_ANDROID && janNewModel?.quants?.length === 1)
+  ))
+
+  const embeddingDownload = downloads[setupEmbedderId]
+  const embeddingProgress = embeddingDownload && !embeddingDownload.paused
+    ? Math.min(100, Math.max(0, Math.round(
+        100 * (embeddingDownload.current / (embeddingDownload.total || setupEmbedder.size))
+      )))
+    : undefined
 
   const downloadProcesses = useMemo(
     () =>
@@ -425,15 +451,17 @@ function SetupScreen() {
     (option: SetupModelOption) => {
       downloadedHere.current = true
       addLocalDownloadingModel(option.modelId)
-      serviceHub
-        .models()
-        .pullModelWithMetadata(
+      void Promise.resolve(serviceHub.models().pullModelWithMetadata(
           option.modelId,
           option.path,
           option.mmprojPath,
           huggingfaceToken,
           true
-        )
+        )).catch(() => {
+          // The model service reports the error and clears the download state.
+          downloadedHere.current = false
+          setQuickStartInitiated(false)
+        })
     },
     [addLocalDownloadingModel, serviceHub, huggingfaceToken]
   )
@@ -450,8 +478,6 @@ function SetupScreen() {
 
   // Use ref to track if we've already navigated
   const hasNavigatedRef = useRef(false)
-  /** Pages the user has passed despite a warning; they must not reappear. */
-  const [acknowledged, setAcknowledged] = useState<string[]>([])
 
   const completeSetup = useCallback(async () => {
     if (!selected || hasNavigatedRef.current) return
@@ -474,6 +500,7 @@ function SetupScreen() {
     const modelId = found ? found.id : catalogId
 
     toast.dismiss(`model-validation-started-${catalogId}`)
+    if (IS_ANDROID) localStorage.removeItem(androidSetupCheckpoint)
     localStorage.setItem(localStorageKey.setupCompleted, 'true')
     localStorage.setItem(
       localStorageKey.lastUsedModel,
@@ -578,7 +605,7 @@ function SetupScreen() {
   // Advanced only on the user's say-so. Auto-advancing skipped this page
   // entirely whenever the engine was already installed, which hid the GPU badge
   // -- the one thing on it the user cannot see anywhere else.
-  const isSetupSettled = acknowledged.includes('setup')
+  const isSetupSettled = setupStep === 'model'
   const isSetupComplete = ['engine', 'search', 'system'].every(
     (id) => stages.find((stage) => stage.id === id)?.status === 'ok'
   )
@@ -639,10 +666,6 @@ function SetupScreen() {
   useEffect(() => {
     if (currentIndex === -1 && !hasNavigatedRef.current) void completeSetup()
   }, [currentIndex, completeSetup])
-
-  const acknowledge = useCallback((id: string) => {
-    setAcknowledged((prev) => (prev.includes(id) ? prev : [...prev, id]))
-  }, [])
 
   // Handle error when quick start is queued but metadata fetch fails
   useEffect(() => {
@@ -865,6 +888,15 @@ function SetupScreen() {
 
                 {isSetupPage && (
                   <>
+                    {embeddingProgress !== undefined && (
+                      <div className="mt-4 space-y-2" data-testid="setup-embedding-progress">
+                        <div className="flex items-center justify-between gap-2 text-xs text-muted-foreground">
+                          <span>{setupEmbedderId}</span>
+                          <span>{embeddingProgress}%</span>
+                        </div>
+                        <Progress aria-label={t('setup:checkSearchPreparing')} value={embeddingProgress} />
+                      </div>
+                    )}
                     {/* The engine's asset name: a caption, never the sentence. */}
                     {engineBackendName && (
                       <p className="mt-3 truncate font-mono text-[11px] text-muted-foreground/60">
@@ -878,7 +910,7 @@ function SetupScreen() {
                           option. */}
                       <Button
                         className="flex-1"
-                        onClick={() => acknowledge('setup')}
+                        onClick={() => rememberSetupStep('model')}
                       >
                         {isSetupComplete
                           ? t('setup:continueStep')
@@ -911,6 +943,12 @@ function SetupScreen() {
 
                 {currentPage.id === 'model' && (
                   <div className="mt-5">
+                    {IS_ANDROID && (
+                      <Button variant="ghost" size="sm" className="mb-2"
+                        onClick={() => rememberSetupStep('setup')}>
+                        {t('common:back')}
+                      </Button>
+                    )}
                     <ModelCard
                       option={selected}
                       fallbackName={

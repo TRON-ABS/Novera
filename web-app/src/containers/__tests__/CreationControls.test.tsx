@@ -7,6 +7,14 @@ import { useMusicCreation } from '@/hooks/useMusicCreation'
 import { musicDefaults } from '@/modules/engines/music'
 import { useModelProvider } from '@/hooks/useModelProvider'
 import { useHardware } from '@/hooks/useHardware'
+const { progress } = vi.hoisted(() => ({
+  progress: { active: null as { task: string; model: string; provider: string } | null, remaining: null },
+}))
+vi.mock('@/services/creation/auto-tune', () => ({
+  getAutoTuneProgress: () => progress,
+  getInitialAutoTuneProgress: () => progress,
+  subscribeAutoTuneProgress: () => () => {},
+}))
 vi.mock('../TextSetupPanel', () => ({ TextSetupPanel: () => <div>Text setup</div> }))
 vi.mock('../EmbeddingSetupPanel', () => ({ EmbeddingSetupPanel: () => <div>Embedding setup</div> }))
 const mocks = vi.hoisted(() => ({ open: vi.fn() }))
@@ -26,6 +34,28 @@ vi.mock('@/lib/backendStorage', () => ({
   },
 }))
 describe('creation choices in the composer', () => {
+  it('marks only Auto and the test category during calibration without changing the selected mode', () => {
+    useCreation.setState({ modes: { 'calibration-slot': 'text' } })
+    progress.active = { task: 'video', model: 'Wan', provider: 'diffusers' }
+    try {
+      const { rerender } = render(<CreationControls scope="calibration-slot" disabled={false} autoTuneEnabled />)
+      const modes = within(screen.getByRole('group', { name: 'chat:creation.output' }))
+      expect(modes.getByText('chat:creation.video').closest('button')).toHaveClass('composer-mode-calibrating')
+      expect(modes.getByText('chat:creation.auto').closest('button')).toHaveClass('composer-mode-calibrating')
+      expect(modes.getByText('chat:creation.image').closest('button')).not.toHaveClass('composer-mode-calibrating')
+      expect(modes.getByText('chat:creation.auto').closest('button')).toHaveAttribute('aria-pressed', 'true')
+      const textButton = modes.getByText('chat:creation.text').closest('button')
+      expect(textButton).toHaveAttribute('aria-pressed', 'false')
+      expect(textButton).not.toHaveClass('composer-tool-active')
+      expect(useCreation.getState().modes['calibration-slot']).toBe('text')
+      progress.active = null
+      rerender(<CreationControls scope="calibration-slot" disabled={false} />)
+      expect(textButton).toHaveAttribute('aria-pressed', 'true')
+    } finally {
+      progress.active = null
+    }
+  })
+
   it('uses the same 2048 panorama controls in Web and applies an explicit GPU budget', () => {
     vi.stubEnv('VITE_NOVERA_WEB_PREVIEW', 'true')
     vi.stubEnv('VITE_NOVERA_WEB_LOCAL_MEDIA', 'true')

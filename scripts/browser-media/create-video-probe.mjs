@@ -23,6 +23,7 @@ await mkdir(target, { recursive: true })
 await mkdir(path.join(dist, runtime.directory), { recursive: true })
 for (const asset of runtime.assets) await writeFile(path.join(dist, runtime.directory, asset.name), asset.source)
 await copyFile(fileURLToPath(new URL('./video-probe.worker.js', import.meta.url)), path.join(target, 'worker.js'))
+await writeFile(path.join(target, 'runtime.json'), JSON.stringify({ directory: runtime.directory }))
 await writeFile(path.join(target, 'index.html'), `<!doctype html><html lang="fr"><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Novera · vidéo Wan locale</title>
 <body style="background:#0b1220;color:#eee;font:16px system-ui;padding:24px"><h1>Vidéo Wan locale</h1>
 ${publicPage ? '<p><a href="../" style="color:#9ac8ff">Retour à Novera Web</a></p>' : ''}
@@ -81,6 +82,8 @@ function showResult(data, records) {
   oldUrls.forEach(url => URL.revokeObjectURL(url));
 }
 
+let userSelectedKernels = false;
+el('kernels')?.addEventListener('change', () => { userSelectedKernels = true; });
 el('generate').onclick = () => {
   if (worker) return;
   const format = el('format').value;
@@ -97,6 +100,21 @@ el('generate').onclick = () => {
     expandWeights: el('expand').checked, prompt: el('prompt').value.trim(),
     kernelFlags: kernels ? Number(kernels.value) : undefined,
   };
+  const files = Array.from(el('models').files);
+  if (!userSelectedKernels && format === 'desktop-default' && request.gpuBudgetGiB === 4 &&
+      request.flashAttention && !request.batchedCfg && !request.traceCpu && !request.expandWeights &&
+      request.kernelFlags === 12742898) {
+    const names = ['Wan2.1-T2V-1.3B-Q4_K_M.gguf', 'umt5-xxl-encoder-Q4_K_M.gguf', 'wan_2.1_vae.safetensors'];
+    const components = names.map(name => files.find(file => file.name === name));
+    if (components.every(Boolean)) {
+      const key = JSON.stringify([runtimeDirectory + ':wan', ...components.map(file => [file.name, file.size, file.lastModified])]);
+      try {
+        const report = JSON.parse(localStorage.getItem('novera-web-auto-tune-media-gains') ?? '{}')?.[key];
+        if (report?.task === 'video' && report.percent >= 3.3 && [143602, 159986, 4354290].includes(report.profile?.wanKernelFlags))
+          request.kernelFlags = report.profile.wanKernelFlags;
+      } catch { /* Keep the verified default if no calibration can be read. */ }
+    }
+  }
   const records = [];
   let decoding = false;
   let decodeTiles;
@@ -148,7 +166,7 @@ el('generate').onclick = () => {
     current.postMessage({
       ...request,
       runtimeUrl: new URL('../' + runtimeDirectory + '/novera-diffusion.mjs', location.href).href,
-      files: Array.from(el('models').files),
+      files,
     });
   } catch (error) {
     stop('Échec · ' + error.message);

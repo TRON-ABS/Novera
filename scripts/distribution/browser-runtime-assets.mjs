@@ -23,10 +23,11 @@ export function prepareBrowserRuntime(folder, kind = 'image') {
         receipt.backendPatch?.batchedHostInputs !== true || receipt.contextTokens !== 32768) {
       throw new Error('The text runtime must use the verified single-thread WebGPU configuration.')
     }
-    const worker = fs.readFileSync(new URL('../browser-text/worker.mjs', import.meta.url))
-    if (createHash('sha256').update(worker).digest('hex') !== receipt.wrapperSha256?.['worker.mjs']) {
-      throw new Error('Browser text worker differs from its build receipt.')
-    }
+    const checkedOutWorker = fs.readFileSync(new URL('../browser-text/worker.mjs', import.meta.url))
+    const expectedWorkerHash = receipt.wrapperSha256?.['worker.mjs']
+    const worker = [checkedOutWorker, Buffer.from(checkedOutWorker.toString('utf8').replaceAll('\r\n', '\n'))]
+      .find(candidate => createHash('sha256').update(candidate).digest('hex') === expectedWorkerHash)
+    if (!worker) throw new Error('Browser text worker differs from its build receipt.')
     assets.push({ name: 'worker.mjs', source: worker })
     assets.push({ name: 'LICENSE-llama.cpp.txt', source: fs.readFileSync(path.resolve(root, '../source/LICENSE')) })
   } else {

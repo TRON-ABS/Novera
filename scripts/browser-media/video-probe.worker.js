@@ -9,12 +9,13 @@ self.onmessage = async ({data}) => {
         const started = performance.now();
         const {
             width, height, frames, fps, steps, seed, gpuBudgetGiB, flashAttention, prompt, runtimeUrl,
-            batchedCfg = true, traceCpu = false, expandWeights = false, kernelFlags,
+            batchedCfg = true, traceCpu = false, expandWeights = false, kernelFlags, calibration = false,
         } = data;
         const short = width === 832 && height === 480 && frames === 5 && fps === 8;
         const longer = width === 768 && height === 432 && frames === 33 && fps === 16;
         const desktop = width === 512 && height === 224 && frames === 81 && fps === 16;
-        if ((!short && !longer && !desktop) || steps !== 20 ||
+        const preview = calibration === true && width === 512 && height === 224 && frames === 25 && fps === 8;
+        if ((preview ? steps !== 2 : (!short && !longer && !desktop) || steps !== 20) ||
             !Number.isInteger(seed) || seed < 0 || seed > 0xffffffff || ![2, 4, 6].includes(gpuBudgetGiB) ||
             typeof flashAttention !== 'boolean' || typeof prompt !== 'string' || !prompt.trim() || prompt.length > 4096) {
             throw new Error('Paramètres du banc Wan invalides.');
@@ -72,7 +73,7 @@ self.onmessage = async ({data}) => {
         const generatedFrames = runtime._novera_frame_count();
         if (generatedFrames !== frames) throw new Error('Nombre d’images inattendu : ' + generatedFrames);
         // Wan generates 4k+1 frames. Desktop keeps exactly five seconds.
-        const count = desktop ? fps * 5 : generatedFrames;
+        const count = preview ? fps * 3 : desktop ? fps * 5 : generatedFrames;
 
         const encoding = performance.now();
         self.postMessage({phase: 'encoding', generationMs, count});
@@ -112,6 +113,7 @@ self.onmessage = async ({data}) => {
                 // Fingerprint each generated frame before canvas rendering and lossy encoding.
                 frameDigests.push(crypto.subtle.digest('SHA-256', rgba).then(digest =>
                     Array.from(new Uint8Array(digest), byte => byte.toString(16).padStart(2, '0')).join('')));
+                if (calibration) continue;
                 context.putImageData(new ImageData(rgba, w, h), 0, 0);
                 if (index === 0) firstImage = await canvas.convertToBlob({type: 'image/png'});
                 const timestamp = Math.round(index * 1e6 / fps);
@@ -129,8 +131,8 @@ self.onmessage = async ({data}) => {
         }
         if (encoderError) throw encoderError;
         chunks.sort((a, b) => a.timestamp - b.timestamp);
-        if (chunks.length !== count) throw new Error('Encodage incomplet.');
-        const video = mux(chunks, width, height, fps);
+        if (!calibration && chunks.length !== count) throw new Error('Encodage incomplet.');
+        const video = calibration ? undefined : mux(chunks, width, height, fps);
         const frameRgbaSha256 = await Promise.all(frameDigests);
         const encodingMs = performance.now() - encoding;
         await runtime.ccall('novera_release', null, [], [], {async: true});

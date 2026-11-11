@@ -1,3 +1,4 @@
+import { browserPreviewEnabled } from '@/services/browser-preview/config'
 import { ExtensionManager } from '@/lib/extension'
 import { APIs } from '@/lib/service'
 import { EventEmitter } from '@/services/events/EventEmitter'
@@ -54,6 +55,13 @@ export function ExtensionProvider({ children }: PropsWithChildren) {
       console.error('Extension setup failed:', e)
     } finally {
       setFinishedSetup(true)
+    }
+    if (browserPreviewEnabled() || (typeof IS_TAURI !== 'undefined' && IS_TAURI &&
+        !(typeof IS_IOS !== 'undefined' && IS_IOS) &&
+        !(typeof IS_ANDROID !== 'undefined' && IS_ANDROID))) {
+      void import('@/services/creation/auto-tune')
+        .then(({ startAutoTune }) => startAutoTune())
+        .catch(error => console.warn('Auto Tune:', error))
     }
   }, [])
 

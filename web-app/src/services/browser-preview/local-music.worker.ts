@@ -19,6 +19,11 @@ worker.onmessage = async event => {
     const { runtimeUrl, files, prompt, lyrics, language, seconds, seed, bitrate } = event.data
     const adapter = await navigator.gpu?.requestAdapter()
     if (!adapter?.features.has('shader-f16')) throw new Error('Ce moteur musical nécessite WebGPU et shader-f16.')
+    Object.assign(worker, {
+      noveraMusicDiTWindows: event.data.ditWindows !== false,
+      noveraMusicEncoderWindows: event.data.encoderWindows !== false,
+      noveraMusicPlannerWindows: event.data.plannerWindows !== false,
+    })
     const create = (await import(/* @vite-ignore */ runtimeUrl)).default
     runtime = await create({ print: () => {}, printErr: () => {}, onAbort: () => worker.postMessage({ type: 'error', message: 'Le moteur musical a été interrompu.' }) })
     runtime.FS.mkdir('/models'); runtime.FS.mount(runtime.WORKERFS, { files }, '/models')
