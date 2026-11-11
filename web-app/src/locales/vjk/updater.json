@@ -1,0 +1,10 @@
+{
+  "newVersion": "नया संस्करण {{version}}",
+  "updateAvailable": "अपडेट उपलब्ध अछि",
+  "nightlyBuild": "रात्रि बिल्ड",
+  "showReleaseNotes": "रिलीज नोट्स देखाउ",
+  "hideReleaseNotes": "रिलीज नोट नुकाउ",
+  "remindMeLater": "बाद मे याद दिलाओ",
+  "downloading": "डाउनलोड क रहल छी...",
+  "updateNow": "अखन अपडेट करू"
+}

@@ -116,6 +116,22 @@ export const NATIVE_LANGUAGES = [
   { value: 'dyu', label: "Julakan" },
   { value: 'tr', label: "Türkçe" },
   { value: 'sv', label: "Svenska" },
+  { value: 'dcc', label: 'دکنی' },
+  { value: 'vjk', label: 'बज्जिका' },
+  { value: 'lg', label: 'Luganda' },
+  { value: 'ayn', label: 'عربي صنعاني' },
+  { value: 'aeb', label: 'تونسي' },
+  { value: 'ktu', label: 'Kituba' },
+  { value: 'acw', label: 'عربي حجازي' },
+  { value: 'acq', label: 'عربي تعزّي–عدني' },
+  { value: 'hu', label: 'Magyar' },
+  { value: 'sck', label: 'सादरी' },
+  { value: 'hae', label: 'Afaan Oromoo (Bahaa)' },
+  { value: 'wes', label: 'Kamtok' },
+  { value: 'ayp', label: 'عربي شمال بلاد الرافدين' },
+  { value: 'mos', label: 'Mòoré' },
+  { value: 'mnp', label: '閩北語' },
+  { value: 'syl', label: 'সিলেটি' },
 ] satisfies { value: Language; label: string }[]
 
 export default function LanguageSwitcher() {

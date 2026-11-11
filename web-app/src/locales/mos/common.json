@@ -1,0 +1,840 @@
+{
+  "htmlArtifact": {
+    "code": "Koodã",
+    "preview": "Sõng-y n ges-y-yã",
+    "previewStreaming": "D sã n wa paam n paam n yiisd-a, d tõe n paama-a lame",
+    "unresolvedAssets_one": "1 b pa tõe n tall tagsgo ye. URL tɩ b tõog n zab ne-a.",
+    "unresolvedAssets_other": "{{count}} B pa tõe n tall tagsgo n wilg tɩ b tara tagsgo ye. URL tɩ b tõog n zab ne-a."
+  },
+  "assistants": "Sõngdbã",
+  "hardware": "Koom-koglgã",
+  "mcp-servers": "MCP Serversã",
+  "local_api_server": "Tẽnga pʋgẽ API Servɛɛrã",
+  "remote_access": "D sẽn tõe n maan to-to",
+  "integrations": "Tẽeb sẽn yaa sõma",
+  "experimental": "B sẽn maan mak-sõngo",
+  "claude_code": "Claude Code",
+  "https_proxy": "HTTPS Sõng-n-soaba",
+  "web_search": "Dũniyã gill zugu",
+  "shell": "Ko-kãnga",
+  "browse": "Ges-y-yã",
+  "moreControls": "Siglg ning sẽn paase",
+  "starting": "Sẽn sɩng ne...",
+  "activeSuffix": " (Tʋʋmd)",
+  "extensions": "Yãk-y n tool-y neda Yãk-y n tool-y neda",
+  "attachments": "Bõn-bɩɩs nins sẽn be a pʋgẽ wã",
+  "general": "Bãngr-gomdã",
+  "settings": "Siglgã",
+  "modelProviders": "Sẽn kõt-b mak-sõngo",
+  "localProviders": "Tẽnga pʋgẽ",
+  "remoteProviders": "Kẽng-kẽng",
+  "manageProviders": "Bãng-y bũmb nins b sẽn maandã",
+  "hiddenProviders": "{{count}} ned sẽn tar pãn-komsmã",
+  "hideProvider": "Sẽn kõt-b koglgã",
+  "showProvider": "Wilg-y ned ning sẽn kõt-yã",
+  "interface": "Sõng-n-taase",
+  "appearance": "B sẽn yã wã",
+  "privacy": "D sã n dat n bãng bũmb ning",
+  "keyboardShortcuts": "Sõng-n-tɩrsã",
+  "home": "D zakẽ",
+  "cowork": "Cowork",
+  "newSession": "Sesio paalga",
+  "artifacts": "Bõn-naandsã",
+  "customize": "Yãk-y-yã-yã",
+  "local": "Tẽnga pʋgẽ",
+  "selectFolder": "Sõng- y folderã",
+  "selectModel": "Yãk-y modɛl a yembr sɩngrẽ",
+  "commands": "Tʋʋm-kãsems",
+  "cmdHelp": "Sõng-y-yã sor-wilgr sẽn be sorã",
+  "cmdClear": "Wilg-y sõs-kãngã",
+  "cmdModels": "Yãk modɛl sẽn tʋmdã",
+  "cmdModelsHint": "Tʋʋmã buud /models Rẽ poore, yãk-y mak-sõng sẽn be lisgã pʋgẽ",
+  "cmdModelSwitched": "B toeema ne {{name}}",
+  "cmdUnknown": "D pa mi sor-wilgrã ye: {{name}}Bao-y n gese . /help",
+  "cmdBusy": "D pa tõe n maan woto tɩ tʋm-tʋmdã ket n zoet ye.",
+  "cmdCompact": "Kẽees-y sesioã kontekstã gʋls-bilf pʋgẽ",
+  "cmdCompacted": "B sẽn tall-a wã {{before}} -> {{after}} sõssã",
+  "cmdNothingToCompact": "Bũmb ka be n na n pak ye.",
+  "cmdCompactFailed": "Kompaasã pa tõog ye: {{error}}",
+  "cmdPlan": "Pak-y wall gãe plan modeã (karem bala: agentã kẽnga ne sagls n pa gʋls ye)",
+  "cmdPlanOn": "Plan modeã pakame: agentã karma la a kõta sagls, a pa gʋlsd ye",
+  "cmdPlanOff": "Plan modeã gãame: tʋʋmã lebga a toor",
+  "cmdTodo": "Wilg-y sull ning b sẽn boond tɩ \" Progress \" wã",
+  "cmdTasks": "Wilg-y tʋʋm-gũudã",
+  "cmdInit": "Zãmsg-y tʋʋm-kãnga, gʋls-y y minimã la y tẽegrã",
+  "cmdInitRunning": "B sẽn na n kẽes b toog tʋʋmdã pʋgẽ wã",
+  "skills": "Koe-moonegã wɛɛngẽ",
+  "skillsInContext": "Sõng-n-soabã tõe n paama minim nins a sẽn tarã",
+  "skillsTitle": "Yãk-y y minimã",
+  "skillsScopeProject": "Koe-moonegã wɛɛngẽ {{folder}}",
+  "skillsScopeGlobal": "Tẽnsã fãa sẽn tõe n paam minim ning b sẽn tarã",
+  "skillsScopeMerged": "Koe-moonegã wɛɛngẽ {{folder}}, n paas bãngr nins sẽn be dũniyã gill zugu, tigis-kãense fãa sẽn pʋlemdã",
+  "skillOriginFolder": "karẽn-biisã",
+  "skillOriginGlobal": "dũniyã gill zugu",
+  "skillsEmpty": "B pa tar minim ye",
+  "skillsPickOrNew": "Yãk-y bãngr ning y sẽn na n toeemdã, bɩ y naan a ye.",
+  "skillNew": "Koe-no-paal a ye",
+  "skillDelete": "Yãk-y n tool-y neda",
+  "skillSave": "Ges-y-yã",
+  "skillSaved": "Koe-moondb sẽn tallã",
+  "skillNameRequired": "Yaa tɩlae tɩ b wilg b minimã",
+  "skillNamePlaceholder": "naam sẽn tar minimã",
+  "skillContentPlaceholder": "Wilg-y bũmb ning sẽn tõe n sõng-y tɩ y tõog n lebg n tũ-a Markdown…",
+  "skillHubImport": "B sẽn yiisd-b tẽn-kãnga",
+  "skillHubTitle": "Anthropic b sẽn tõe n maan bũmb ninsã",
+  "skillHubEmpty": "B ra pa yãend minim nins b sẽn tarã ye.",
+  "skillImport": "Tẽnga importã",
+  "skillReimport": "B sẽn lebs n tall-a wã",
+  "skillImported": "B sẽn tall-a wã {{name}}",
+  "sessions": "Sõs-kãsems",
+  "deleteSession": "Yãk-y n tool-y neda",
+  "deleteSessionTitle": "Y tõe n basa sõs-kãnga?",
+  "deleteSessionBody": "\"{{title}}\" la b na n basa a sõssã wakat fãa.",
+  "newChat": "Sõs-n-taag paalga",
+  "newAgentChat": "Bõn-vɩɩs a ye",
+  "chats": "Sõsd-y-yã",
+  "favorites": "Neb nins sẽn nong-b n yɩɩda",
+  "recents": "Sẽn pa kaoos",
+  "hub": "Ko-kãnga",
+  "helpSupport": "Sõng la sõngr",
+  "helpUsImproveJan": "Sõng-y-d tɩ d maneg d mens sõma Novera",
+  "analyticsConsentDetail": "D tigimda ned sẽn pa mi a soabã sẽn na yɩl n bãng a sẽn tũnugd ne bũmb ningã. D pa tõe n ges y sõssã la y mengã sõssã ye.",
+  "analyticsConsentQuestion": "Yãmb rat n sõng tõnd n maan Novera t’a yɩ sõma?",
+  "unstarAll": "Bõn-saambã fãa",
+  "unstar": "Zĩig sẽn ka be",
+  "deleteAll": "Yãk-y ne bũmb fãa",
+  "star": "ãdsã",
+  "rename": "B pʋd-a lame t'a yʋʋr",
+  "delete": "Yãk-y",
+  "copied": "B tik-a lame!",
+  "dataFolder": "Dɩta karẽn-biisi",
+  "others": "Sãnda",
+  "language": "Sõngr buud-gomdã",
+  "login": "Sõng-y n kẽ",
+  "loginWith": "Sõng-y n kẽ {{provider}}",
+  "loginFailed": "B pa tõog n kẽ ye",
+  "logout": "Yãk-y n yiis-yã",
+  "loggingOut": "D sẽn na n yi wã...",
+  "loggedOut": "B sẽn tõog n yi wã",
+  "logoutFailed": "B pa tõog n yi ye",
+  "profile": "Sõsg ning b sẽn kõtã",
+  "reset": "D rɩk-y-yã",
+  "search": "Bao-y",
+  "searchThreads": "Bao-y sõsgã pʋgẽ…",
+  "toNavigate": "b sẽn na n kẽed-b koomã",
+  "toSelect": "sã n yãk",
+  "toClose": "n na n kaoose",
+  "clearRecent": "Bãng-y-yã",
+  "name": "Tẽn-vẽenega",
+  "cancel": "Bas-y",
+  "dismiss": "Yãk-y n yiis-yã",
+  "create": "Maan-y",
+  "save": "Gũus-y",
+  "edit": "Yãk-y n tool-yã",
+  "copy": "Sõng-y-yã",
+  "back": "Lebg-y",
+  "close": "Pẽg-y",
+  "done": "D maaname",
+  "next": "Sẽn pʋgdã",
+  "finish": "Kẽng-y n maan woto.",
+  "skip": "Yãk-y-yãk-yã",
+  "allow": "Bɩ y sak tɩ",
+  "deny": "B tõdgame",
+  "start": "Sɩngd-yã",
+  "stop": "Kẽng-y n da wa ye.",
+  "preview": {
+    "loading": "A pakda…",
+    "unsupported": "Novera Fo pa tõe n wilg faayl-kãngã ye. Wilg-y-a n ges-a app a to pʋgẽ.",
+    "outside": "Fichier-kãnga pa be sesioã tʋʋm zĩigẽ ye.",
+    "tooLarge": "Fichierã yaa bedre n yɩɩda wilgre. Pak-y a ne aplikasio a to.",
+    "reload": "Rɩk-y a yel wãn",
+    "allowNetwork": "Kõ-y réseauã sor",
+    "unsandboxed": "Tʋm-y ne-a sandboxã zãngẽ: data sẽn gũusã la fichier sẽn be masĩnã pʋgẽ tõe n tʋma",
+    "unresolvedRefs_one": "1 Yãk-y n tool-y neda Yãk-y n tool-y neda Yãk-y n tool-y neda",
+    "unresolvedRefs_other": "{{count}} d pa tõe n tall d sõss nins sẽn be seb-kãngã pʋgẽ wã n ges-b ye.",
+    "externalRefs_one": "1 d sã n dat n bãng d sẽn tõe n maan to-to, bɩ d ges d sẽn tõe n maan to-to wã to-to.",
+    "externalRefs_other": "{{count}} D sã n dat n bãng d sẽn tõe n maan to-to, d segd n bao n bãng d sẽn tõe n maan to-to.",
+    "scriptErrors_one": "Sebrã wilgame tɩ b paama yel-wẽn-kãngã: {{message}}",
+    "scriptErrors_other": "Pag ning b sẽn togsã {{count}} Pipi, d segd n bao n bãnga bũmb ning sẽn kɩt tɩ d maand woto wã. {{message}}"
+  },
+  "changes": {
+    "title": "Sẽn tʋmd-a wã toeemame",
+    "empty": "B na n yãa sɛb nins tʋm-tʋmdã sẽn gʋlsã wall a sẽn maandã.",
+    "a11y": "Bãngdbã sẽn toeemã: {{files}} koe-moondbã, {{additions}} sã n paas woto, {{deletions}} sẽn yiis-a wã"
+  },
+  "modelPanel": {
+    "title": "Modɛlã siglgo",
+    "a11y": "Modɛl yel-bũndã siglgã",
+    "contextTooltip": "Konteksã: token {{value}} / {{max}}"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "Yãk-y n tool-y neda{{name}}\" pa be ye",
+    "kind": {
+      "skill": "Koe-moonegã wɛɛngẽ",
+      "command": "Tʋʋm-kãsengã",
+      "model": "Modèle:"
+    }
+  },
+  "compactWidth": "Tʋʋm-kãsengã sẽn yaa to-to",
+  "fullWidth": "Tẽn-vẽenega",
+  "dark": "Yaa lik",
+  "light": "vẽenemã",
+  "system": "Tʋʋmdã",
+  "auto": "A menga",
+  "english": "Sɩngrẽ wã",
+  "medium": "Bõn-naandsã",
+  "newThread": "Sõs-n-taag paalga",
+  "noResultsFound": "B pa yã b sõsg ye",
+  "noThreadsYet": "Sõsg ka be ye",
+  "noThreadsYetDesc": "Wa n sɩng sõsgã n na n ges y yel-kãnga sẽn yɩ to-to wã.",
+  "downloads": "Yãk-y-yã",
+  "downloading": "Yãk-y-yã",
+  "uploadingAttachments": "D sẽn na n talld bũmb nins b sẽn pʋgdã...",
+  "cancelDownload": "Yãk-y n sigl-y-yã",
+  "downloadCancelled": "Yãk-y-yã-yã",
+  "downloadComplete": "Downloadã saame",
+  "thinking": "M tagsdame...",
+  "thought": "D tagsame",
+  "callingTool": "Sõng tʋʋmde",
+  "completed": "D sẽn maan bũmb ning fãa",
+  "image": "Bõn-naandsã",
+  "vision": "B sẽn yã bũmb ningã",
+  "multimodal": "Tʋʋmd sẽn yaa sõma",
+  "embeddings": "Bõn-vɩɩs nins b sẽn dɩkdã",
+  "tools": "Tʋʋm-teed",
+  "webSearch": "Dũniyã gill zugu",
+  "reasoning": "D sẽn tõe n tags to-to",
+  "proactive": "B sẽn maand b sẽn datã",
+  "selectAModel": "Yãk-y modɛl",
+  "noToolsAvailable": "Ra pa tar teed ye",
+  "noModelsFoundFor": "\" B pa yã modɛl ye \"{{searchValue}}\"",
+  "failedToLoadModels": "B pa tõog n loog modɛlbã ye",
+  "noModels": "B pa yã makr ye",
+  "noAssistant": "Ned ka be n na n sõng-b ye",
+  "customAvatar": "Advãrtã personalizã",
+  "editAssistant": "Sõng-n-soaba",
+  "jan": "Novera",
+  "metadata": "Metadãta",
+  "regenerate": "Yãk-y-yã-yã",
+  "threadImage": "Yãk-y n tool-y neda",
+  "editMessage": "Modifẽ-y sõsgã",
+  "deleteMessage": "Yãk-y koe-moonegã",
+  "deleteThread": "Yãk-y n yiis bũmb ning",
+  "renameThread": "Tʋʋs-y-yã-yã",
+  "threadTitle": "Tẽn-kãnga",
+  "deleteAllThreads": "Yãk-y bũmb nins fãa sẽn be zugẽ wã",
+  "allThreadsUnfavorited": "Bũmb nins fãa sẽn pa noom nebã",
+  "deleteAllThreadsConfirm": "Yãmb kɩsa sɩd tɩ y rat n yẽes koe-moonegã fãa bɩ?",
+  "addProvider": "Add Provider",
+  "addOpenAIProvider": "Add a Comment OpenAI Koɛɛg soaba",
+  "enterNameForProvider": "Add a naam for your provider",
+  "providerAlreadyExists": "Sõng-kẽndr ning sẽn be \"{{name}}Sõng-y tɩ y yãk yʋʋr a to.",
+  "adjustFontSize": "Yãk-y n tool-y neda",
+  "changeLanguage": "Y tõe n toeem-y y goama",
+  "editTheme": "Modifẽ-y yel-bũndã",
+  "editCodeBlockStyle": "Yãk-y n tool-y neda Yãk-y n tool-yã",
+  "editServerHost": "Modifẽ- y Servẽr soaba",
+  "pickColorWindowBackground": "Yãk-y fɩntɛɛrã ne fɩntɛɛrã ne fɩntɛɛrã",
+  "pickColorAppMainView": "Sõng-y tɩ y yãk rang app ning y sẽn yã wã",
+  "pickColorAppPrimary": "Sõng-y-yã-yã-yã-yã",
+  "pickColorAppAccent": "Sõng-y tɩ y yãk fɩls sẽn yaa sõma",
+  "pickColorAppDestructive": "Yãk-y n tool-y neda Yãk-y n tool-y neda",
+  "apiKeyRequired": "API B baoodame tɩ d paam sorã",
+  "enterTrustedHosts": "Kẽng-y neb nins y sẽn tõe n kɩs sɩd ne wã pʋgẽ",
+  "placeholder": {
+    "chatInput": "Y sã n sok maam bũmb ning fãa..."
+  },
+  "confirm": "Bãng-y-yã",
+  "continue": "Kẽng-y n kẽng taoor",
+  "loading": "B tʋkame...",
+  "settingUpJan": "Novera sɩngda…",
+  "registeringExtensions": "Sẽn na yɩl n tõog n paam n paam n paam n kõ-a loogrã...",
+  "loadingExtensions": "Yãk-y n tool-y neda{{done}}/{{total}})",
+  "error": "Yel-wẽn-kãsenga",
+  "success": "B tõogame",
+  "warning": "Gũusg-n-taar",
+  "conversationNotAvailable": "Sõsg pa be ye",
+  "conversationNotAvailableDescription": "Sõsg ning yãmb sẽn baood n na n kẽ wã pa le be ye, wall b sẽn yiis-a wã.",
+  "temporaryChat": "Sõs-y wakat bilf pʋgẽ",
+  "temporaryChatTooltip": "B pa na n wilg tɩ y pa na n le sõs wakat bilf ye.",
+  "noResultsFoundDesc": "D pa tõog n yã sõss nins yãmb sẽn bao wã ye.",
+  "searchModels": "Baoosg mak-sõamyã...",
+  "searchStyles": "B sẽn baood bũmb ninsã...",
+  "createAssistant": "Yãk sõngo",
+  "enterApiKey": "Kẽng-y n kẽ API Gʋls-kãsengã",
+  "scrollToBottom": "Yãk-y n tool-y neda",
+  "generateAiResponse": "Yãk-y n tool-yã AI D sẽn na n maan bũmb ningã",
+  "continueAiResponse": "Kẽng-y n kẽng taoor ne AI D sẽn na n maan bũmb ningã",
+  "addModel": {
+    "title": "Add Model",
+    "modelId": "Modèle: ID",
+    "enterModelId": "Modɛl sẽn kẽed ne ID",
+    "addModel": "Add Model",
+    "description": "Add a new model to the provider",
+    "exploreModels": "Ges-y sẽn kõ-b mak-sõngo"
+  },
+  "mcpServers": {
+    "editServer": "Modifẽ Serverã",
+    "addServer": "Add Server",
+    "serverName": "Server yʋʋr",
+    "enterServerName": "Add server naam",
+    "command": "Tʋʋm-kãsengã",
+    "enterCommand": "Tẽeg-y sorã",
+    "arguments": "Sõs-kãsemse",
+    "argument": "A Zeova Kaset rãmbã {{index}}",
+    "envVars": "Yel-gɛt ning sẽn be tẽngã zugã",
+    "key": "Gʋls-kãsengã",
+    "value": "Tʋʋmdã yõodo",
+    "save": "Ges-y-yã"
+  },
+  "deleteServer": {
+    "title": "Yãk- y Serverã",
+    "delete": "Bãng-y-yã"
+  },
+  "editJson": {
+    "errorParse": "B pa tõog n vaees ye JSON",
+    "errorPaste": "B pa tõog n gãd ye JSON",
+    "errorFormat": "B sẽn pa maand woto wã JSON formã",
+    "titleAll": "Yãk-y Serverã fãa siglgã",
+    "placeholder": "Kẽng-y n kẽ JSON b sẽn maand to-to wã...",
+    "save": "Ges-y-yã"
+  },
+  "editModel": {
+    "title": "Modifẽ-yã Modɛl: {{modelId}}",
+    "description": "Sigl-y modɛlã sẽn tõe n maanã ne yãkr ning sẽn be tengẽ wã.",
+    "capabilities": "Tẽeb sẽn yaa sõma",
+    "tools": "Tʋʋm-teed",
+    "vision": "B sẽn yã bũmb ningã",
+    "embeddings": "Bõn-vɩɩs nins b sẽn dɩkdã",
+    "notAvailable": "Ka be ye"
+  },
+  "outOfContextError": {
+    "truncateInput": "Yãk-y n tool-y neda Yãk-y n tool-y neda",
+    "title": "Yel-wẽn sẽn be zĩ-kãnga pʋgẽ",
+    "description": "Zĩ-kãnga tara pãng n dabda AID tõe n kɩtame tɩ d pa tõe n yĩm bũmb nins d sẽn gʋlsdã ye. D tõe n kɩtame tɩ d pa tõe n yĩm bũmb nins d sẽn gʋlsdã ye. D tõe n kɩtame tɩ d pa tõe n yĩm bũmb nins d sẽn gʋlsdã ye.",
+    "increaseContextSizeDescription": "Yãmb dat n paasame?",
+    "increaseContextSize": "Yãk-y n tool-y neda"
+  },
+  "toolApproval": {
+    "title": "Sõng-n-taarã sor-wilgr kosgo",
+    "description": "Sõngd-n-soabã dat n tũnugda ne <strong>{{toolName}}</strong>",
+    "securityNotice": "Yaa tʋʋm-teed nins yãmb sẽn teeg-b bal la y tõe n paam n kẽ y siglgã la y sõssã pʋgẽ.",
+    "deny": "B tõdgame",
+    "allowOnce": "Bas-y tɩ b maan bũmb a ye",
+    "alwaysAllow": "Bɩ y sak wakat fãa"
+  },
+  "deleteModel": {
+    "title": "Yãk-y n tool-y neda: {{modelId}}",
+    "description": "Yãmb kɩsa sɩd tɩ y rat n yiis modɛl kãngã bɩ?",
+    "success": "Modèle: {{modelId}} b sẽn yiis-a wakat fãa.",
+    "cancel": "Yãk-y-yã",
+    "delete": "Bãng-y-yã"
+  },
+  "deleteProvider": {
+    "title": "Yãk-y ned ning sẽn kõ-y-yã",
+    "description": "Yãk-y ned ning sẽn kõt-yã wã ne a modɛlbã fãa.",
+    "success": "Koɛɛg soaba {{provider}} b sẽn yiis-a wakat fãa.",
+    "confirmTitle": "Yãk-y n tool-y neda Yãk-y n tool-y neda {{provider}}",
+    "confirmDescription": "Yãmb kɩsa sɩd tɩ y rat n yẽesd-a lame?",
+    "cancel": "Yãk-y-yã",
+    "delete": "Bãng-y-yã"
+  },
+  "modelSettings": {
+    "label": "Modɛlã siglgo",
+    "title": "Modɛl siglg - {{modelId}}",
+    "description": "Sigl-y modɛlã n yɩl t’a tʋm sõma la a maan yãmb sẽn datã.",
+    "nglDisabledByFit": "D sã n yãkd d sẽn tõe n maan to-to GPU Yãk-y-yã-yã-yã-yã-yã-yã-yã-yã-yã.",
+    "samplingDefaults": {
+      "title": "B sẽn yãk b sẽn na n yãk b sẽn na n yãk b sẽn na n yãk b sẽn na n yãk b sẽn na n yãk",
+      "description": "D rɩkd-a lame, sã n pa zems ne sõor ning b sẽn kõ-dã, wall b sẽn kõ-a wã."
+    },
+    "specDraft": {
+      "section": "Bõn-naandb sẽn maand bũmbu",
+      "enable": "Yãk-y n tool-y neda",
+      "enableDescription": "Yãk-y n tool-y neda Yãk-y n tool-y neda Yãk-y n tool-y neda MTP sã n dat n bãng b sẽn tõe n maan to-to wã, bɩ b sẽn na n wilg b sẽn tõe n maan to-to wã (MTP, Eagle3, DFlash yaa DSpark).",
+      "nMax": "Bõn-dãmb sẽn pa tar yõod wʋsg",
+      "nMaxDescription": "B sẽn na n maan bũmb ning fãa wã, b na n maana bũmb ning fãa sẽn tõe n sõng-b tɩ b tõog n tʋm b tʋʋmdã. 16.",
+      "nMin": "Bõn-vɩɩs nins b sẽn yãk tɩ b maan b tʋʋmdã pʋgẽ wã",
+      "nMinDescription": "Bãngr-gomdã sẽn yaa to-to wã sõor sẽn pa to wã 0.",
+      "pMin": "Sẽn pa zemse",
+      "pMinDescription": "Sẽn na yɩl n tõog n tõog n maan bũmb ning sẽn yaa sõma wã, d segd n bao n bao n bãng bũmb ning sẽn yaa sõma wã.0–1) B sẽn pa rat n togsã 0.75."
+    },
+    "templateKwargs": {
+      "section": "Sõs-y n tool-y neda",
+      "description": "Yãk-y n tool-y neda Yãk-y n tool-y neda Yãk-y n tool-y neda Yãk-y n tool-y neda chat_template_kwargs b sã n dat tɩ b yãk bũmb ning b sẽn datã, bɩ b bas tɩ bũmb ning b sẽn datã pa le be a pʋgẽ, tɩ b bas tɩ kɩbayã yãk a soab.",
+      "addCustom": "Add Custom Option",
+      "keyPlaceholder": "naam",
+      "valuePlaceholder": "yõodo",
+      "add": "Add a Comment",
+      "cancel": "Yãk-y-yã",
+      "remove": "Yãk-y n yiis-a"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "D pa tõe n le toeemd modɛl siglbã ye"
+  },
+  "dialogs": {
+    "changeDataFolder": {
+      "title": "Yãk- y sõssã zĩiga",
+      "description": "Yãmb kɩsa sɩd tɩ y rat n toeem data folder zĩiga? Rẽ na n kɩtame tɩ y tall y data fãa n kẽng zĩiga, la y lebs n sɩng appã.",
+      "currentLocation": "Sẽn be-b masã wã:",
+      "newLocation": "Tẽeb paalga:",
+      "cancel": "Yãk-y-yã",
+      "changeLocation": "Yãk-y n toeem y zĩiga"
+    },
+    "deleteAllThreads": {
+      "title": "Yãk-y bũmb nins fãa sẽn be zugẽ wã",
+      "description": "B na n basa sõssã fãa. B pa tõe n lebs n maan-a ye."
+    },
+    "deleteAllThreadsInProject": {
+      "title": "Yãk-y sõssã fãa",
+      "description": "{{count}} sõss nins sẽn be \"{{projectName}}\" b na n basa tʋʋm-kãnga."
+    },
+    "deleteThread": {
+      "description": "Yãmb rat n yãk sõs-kãnga? Yãmb pa tõe n lebg n tall-a ye."
+    },
+    "editMessage": {
+      "title": "Modifẽ-y sõsgã"
+    },
+    "messageMetadata": {
+      "title": "Koe-no-kãsems Metadata"
+    },
+    "deleteMessage": {
+      "description": "Yãmb rat n yãk koe-mooneg-kãnga? Yãmb pa tõe n lebg n tall-a ye."
+    }
+  },
+  "errorDialog": {
+    "titleFallback": "Bũmb n da pa sõma ye.",
+    "details": "Kibs nins sẽn be Biiblã pʋgẽ wã"
+  },
+  "missingDependenciesDialog": {
+    "title": "Bãngr-gomdã lekollã sẽn paoogda",
+    "description": "Yaa {{backend}} b sẽn da pak-a wã, la b pa tõog n yã bũmb nins b sẽn da baood tɩ b maan b tʋʋmdã pʋgẽ wã ye. CPU sã n pa yɩ sõma.",
+    "installLabel": "Sẽn na yɩl n maneg rẽ, bɩ y pak bũmb ning sẽn pʋgdã:",
+    "download": "Tʋʋs-y-yã",
+    "additionalLibraries": "Kiblis-rãmb a taab sẽn pa be:",
+    "missingLibraries": "Kiblis-rãmbã sẽn pa be:",
+    "showRawLibraries": "Wilg-y-yã {{count}} b sẽn pa yãt b sɛbã yʋy"
+  },
+  "projects": {
+    "title": "Tẽebã",
+    "new": "Tʋʋm-paals a taaba",
+    "addProject": "Add Project",
+    "addToProject": "Add to project",
+    "removeFromProject": "Yãk-y n yiis-y tʋʋm-kãngã pʋgẽ",
+    "createNewProject": "Tẽeg tʋʋm-paal a ye",
+    "editProject": "Modifẽ-y tʋʋmde",
+    "deleteProject": "Yãk-y n yiis tʋʋm-kãngã",
+    "projectName": "Tʋʋmdã yʋʋr",
+    "enterProjectName": "Wilg-y projekt yʋʋr...",
+    "noProjectsAvailable": "B pa tõe n maan tʋʋm-teed ye",
+    "noProjectsYet": "B pa ket n na n maan bũmb ye",
+    "noProjectsYetDesc": "Sɩng-y projet paalga n zemse Add Project bʋtõ wã.",
+    "projectNotFound": "B pa yã projekã ye",
+    "projectNotFoundDesc": "Raab ning yãmb sẽn baoodã ka be ye, wall b sẽn yiis-a wã.",
+    "selectAssistant": "Sõng-n-soaba",
+    "noAssistantAssigned": "B pa yãk ned n na n sõng-a tʋʋmdã pʋgẽ ye",
+    "files": "Dĩp-rãmbã",
+    "filesDescription": "Add a Comment PDFb sẽn tõe n sõng-b tɩ b bãng b sẽn tõe n maan bũmb ninsã to-to.",
+    "uploadingFiles": "D sã n maand sɛb-kãsemse...",
+    "processButton": "Add a Comment",
+    "deleteProjectDialog": {
+      "title": "Yãk-y n yiis tʋʋm-kãngã",
+      "permanentDelete": "Woto na n kɩtame tɩ bũmb nins fãa b sẽn da gʋlsã yɩ vẽenega.",
+      "permanentDeleteWarning": "Tʋʋm-kãngã na n sãama wakat fãa ALL Bãng-y bũmb nins sẽn be tʋʋm-kãngã pʋgẽ wã.",
+      "deleteEmptyProject": "Tʋʋm-kãngã na n kɩtame tɩ b yiis tʋʋm-kãnga \"{{projectName}}\".",
+      "saveThreadsAdvice": "Sẽn na yɩl n tall koe-moondã, bɩ y tall-b n kẽng y koe-moondã sõorẽ, wall tʋʋm-noy a to pʋgẽ, n yaool n yiis-b.",
+      "starredWarning": "Yãmb ket n tara bõn-kãsems wʋsg tʋʋm-kãnga pʋgẽ.",
+      "deleteButton": "Bãng-y-yã",
+      "successWithName": "Tʋʋmdã \"{{projectName}}\" b sẽn yiis-a ne sũ-noogo",
+      "successWithoutName": "Tʋʋmd ning b sẽn yiis n tõog n maane",
+      "error": "B pa tõog n yiis tʋʋm-kãnga ye. Bas-y tɩ y leoke.",
+      "ariaLabel": "Bãng-y-yã {{projectName}}"
+    },
+    "addProjectDialog": {
+      "createTitle": "Tẽeg tʋʋm-paal a ye",
+      "editTitle": "Modifẽ-y tʋʋmde",
+      "nameLabel": "Tʋʋmdã yʋʋr",
+      "namePlaceholder": "Wilg-y projekt yʋʋr...",
+      "assistant": "Sõngd-n-soaba",
+      "selectAssistant": "Sõng-y n yãk sõngo (yãmb sẽn datã)",
+      "noAssistant": "Ned ka be n na n sõng-b ye",
+      "addAssistant": "Add Aide",
+      "createButton": "Yãk-y-yã",
+      "updateButton": "Yãk-y-yã-yã",
+      "alreadyExists": "Tʋʋmdã \"{{projectName}}\" zoe n beame",
+      "createSuccess": "Tʋʋmdã \"{{projectName}}\" b sẽn naan ne sũ-noogo",
+      "updateSuccess": "Tʋʋmdã \"{{projectName}}\" b sẽn tõog n leoke",
+      "saveError": "M pa tõog n tall projektã ye. Bas-y n leoke."
+    },
+    "noConversationsIn": "Sõs-kãsems pa be {{projectName}}",
+    "startNewConversation": "Sɩngd sõsgã ne {{projectName}} sẽn be kaorengã pʋgẽ",
+    "conversationsIn": "Sõs-kãsems nins sẽn be {{projectName}}",
+    "conversationsDescription": "Yãk-y sõsg ning fãa sẽn na yɩl n ket n sõsda, bɩ y sɩng sõsg a to sẽn be ka wã.",
+    "conversation": "Sõsgo",
+    "instructions": "Koɛɛg-dãmb",
+    "setup": "Bãng-y-yã",
+    "instructionsDescription": "Toeemi yãmb sẽn dat leoorã koɛɛg la a buud",
+    "manageInstructions": "Sõng-y tɩ y wilg-y bũmb ning y sẽn segd n maane",
+    "thread": "mos_Latn sã n wa yɩ sõma",
+    "threads": "sãn-tãnã",
+    "updated": "Sẽn paam-b sẽk:",
+    "collapseProject": "Bãngr-gomdã",
+    "expandProject": "Tʋʋmdã paasgo",
+    "update": "Yãk-y-yã-yã",
+    "searchProjects": "Baoosg tʋʋm...",
+    "noProjectsFound": "B pa yã projek ye",
+    "tryDifferentSearch": "Mak-y n bao gom-biig a to"
+  },
+  "attachmentsIngestion": {
+    "title": "Yãk- y n yãk y sẽn na n maan to-to wã",
+    "description": "Y tõe n yãka y sẽn dat n kẽes y faayl-kãensã sõssã pʋgẽ, wall y na n wilg-b-la tɩ b yaa b sẽn kẽed ne-yã.",
+    "inline": "Yãk- y ne sõssã",
+    "embeddings": "Sõng-y ne bũmb nins b sẽn gʋlsã"
+  },
+  "attachmentInjectedIndicator": "Yãk- y n tool-y neda",
+  "attachmentEmbeddedIndicator": "B sẽn kẽed ne RAG",
+  "viewInjectedContent": "Ges- y bũmb ning b sẽn pakdã",
+  "injectedContentTitle": "Sõng-yã-yã-yã-yã",
+  "toast": {
+    "allThreadsUnfavorited": {
+      "title": "Bũmb nins fãa sẽn pa noom nebã",
+      "description": "Y sẽn nong-b to-to wã, b yiis-yã-b lame."
+    },
+    "deleteAllThreads": {
+      "title": "Yãk-y bũmb nins fãa sẽn be zugẽ wã",
+      "description": "B kɩtame tɩ b yiis kʋɩlen-kãnga fãa."
+    },
+    "renameThread": {
+      "title": "Tʋʋs-y-yã-yã",
+      "description": "B toeemame tɩ b lebg \"{{title}}'"
+    },
+    "deleteThread": {
+      "title": "Yãk-y n yiis bũmb ning",
+      "description": "Sõng-kãnga b sẽn yiis-a wakat fãa wã."
+    },
+    "errorCopied": {
+      "title": "Kẽngr sẽn tõog n yɩ sõma",
+      "description": "B kopa yel-wẽn-kãsengã goam presse-papiersã pʋgẽ"
+    },
+    "errorCopyFailed": {
+      "title": "B pa tõog n tik-a ye",
+      "description": "D pa tõog n tall yel-wẽn-kãnga n tall n tall-b tɩ b tall-b tɩ b tall-b ye"
+    },
+    "editMessage": {
+      "title": "Modifẽ-y sõsgã",
+      "description": "Koe-no-kãng paama tõogre. Bas-y tɩ modɛlã leok-y lame."
+    },
+    "appUpdateDownloaded": {
+      "title": "D sẽn download app update wã",
+      "description": "Appã updateã paama loogr ne sũ-noogo."
+    },
+    "appUpdateDownloadFailed": {
+      "title": "App Update Download pa tõog ye",
+      "description": "D pa tõog n download app update ye. Bas-y n leoke."
+    },
+    "downloadComplete": {
+      "title": "Sõng-y-yã-yã",
+      "description": "{{item}} b sẽn download-a"
+    },
+    "downloadCancelled": {
+      "title": "Yãk-y-yã-yã",
+      "description": "B basa sor ning b sẽn da downloadã"
+    },
+    "downloadFailed": {
+      "title": "Yãk-y n da tõog ye",
+      "description": "{{item}} downloadã pa tõog ye",
+      "descriptionWithReason": "{{item}} sẽn pa tõog n download: {{reason}}",
+      "reason": {
+        "dns": "b pa tõog n welg server yʋʋr ye",
+        "refused": "b zãgsame tɩ b ra sak n kõ-a ye",
+        "timeout": "b sẽn dat tɩ bũmb ning fãa zĩnd a zugẽ",
+        "tls": "b pa tõog n kɩt tɩ bũmb ning b sẽn yet tɩ b pa tõe n maan to-to wã paam pãnga ye",
+        "proxy": "b pa tõog n paam t'a tʋm-tʋmdã",
+        "unreachable": "b pa tõog n paam serverã ye"
+      }
+    },
+    "openSettings": "Yãk-y n tool-y neda",
+    "openLogs": "Bõn-vʋʋsdbã",
+    "downloadTokenRequired": {
+      "title": "Hugging Face b sẽn na n maan bũmb ningã",
+      "description": "Modɛl kãngã baoodame tɩ d bãng Hugging Face Add your token to Settings and try again. Add your token to Settings and try again. Add your token to Settings and try again. Add your token to Settings and try again."
+    },
+    "downloadLicenseRequired": {
+      "title": "Yãk-y n deeg-y mak-sõngo Hugging Face",
+      "description": "Y segd n sak n deegame tɩ modɛl-kãngã sẽn da tar lisensã Hugging Face Sõng-y-yã-yã n ges-y sɛb nins sẽn be seb-kãngã pʋgẽ wã."
+    },
+    "downloadRateLimited": {
+      "title": "Rate limited by Hugging Face",
+      "description": "Fo paama koe-moond sẽn pa tõe n paam ligd wʋsg ye. Y sã n paas koe-moond sẽn pa tõe n paam ligd wʋsgo, bɩ y leoke."
+    },
+    "modelValidationStarted": {
+      "title": "Modɛl ning sẽn wilgd tɩ b sɩd yaa sõma",
+      "description": "Modɛl ning b sẽn downloadã \"{{modelId}}\" ne sũ-noogo."
+    },
+    "modelValidationFailed": {
+      "title": "B pa tõog n wilg b sẽn maand bũmb ningã ye",
+      "description": "Modɛl ning b sẽn downloadã \"{{modelId}}\" b pa tõog n ges b sã n sɩd yaa sɩda, la b yiis-a lame."
+    },
+    "downloadAndVerificationComplete": {
+      "title": "Sõng-y-yã-yã",
+      "description": "Modɛl \"{{item}}\" b sẽn download la b sẽn mak-a wã yɩɩ sõma"
+    },
+    "projectCreated": {
+      "title": "Tʋʋmd ning b sẽn naanã",
+      "description": "Tʋʋmdã \"{{projectName}}\" b sẽn naan ne sũ-noogo"
+    },
+    "projectRenamed": {
+      "title": "Tʋʋmdã yʋʋr toeemame",
+      "description": "Tʋʋmdã yʋʋr toeemame n lebg \"{{oldName}}\" tɩ \"{{newName}}\""
+    },
+    "projectDeleted": {
+      "title": "B sẽn yiis tʋʋm-kãngã",
+      "description": "Tʋʋmdã \"{{projectName}}\" b sẽn yiis-a ne sũ-noogo"
+    },
+    "projectAlreadyExists": {
+      "title": "Tʋʋmdã zoe n beame",
+      "description": "Tʋʋmdã \"{{projectName}}\" zoe n beame"
+    },
+    "projectDeleteFailed": {
+      "title": "Yɩl-y tɩ b pa tõog ye",
+      "description": "B pa tõog n yiis tʋʋm-kãnga ye. Bas-y tɩ y leoke."
+    },
+    "threadAssignedToProject": {
+      "title": "B sẽn yãk tɩbgã",
+      "description": "Tʋʋmd ning b sẽn yãk tɩ \"{{projectName}}\" ne sũ-noogo"
+    },
+    "threadRemovedFromProject": {
+      "title": "Yãk-y n yiis-yã",
+      "description": "B sẽn yiis \"{{projectName}}\" ne sũ-noogo"
+    },
+    "fileUploaded": {
+      "title": "D sẽn maand faayã",
+      "description": "D paama koe-moondã la d sõsd-a-la sõma"
+    },
+    "uploadFailed": {
+      "title": "B pa tõog n tʋm-b ye",
+      "description": "B pa tõog n tʋm faayã ye",
+      "subjectThisFile": "Ad seb-kãnga",
+      "pdfMalformedXref": "{{subject}} sã n tar yĩn-kãnga PDF b ra pa tõe n vaees-a ye PDF n na n ges-a la b lebs n tall-a (File → Print → Save as PDF), la b lebs n upload-a.",
+      "pdfScanned": "{{subject}} b sẽn get tɩ yaa b sẽn gesd bũmbã bɩ b sẽn get b sẽn get bũmbã PDF. OCR pa deegd-a ye  ⁇  kos-y tɩ y upload text based text PDF.",
+      "pdfEncrypted": "{{subject}} Sõng-y n leoke, la y leoke.",
+      "pdfUnsupportedFeature": "{{subject}} a sã n dɩk a PDF yel-kãsemse Novera sã n pa tõe n vaees n bãng bũmb ning sẽn be Biiblã pʋgẽ wã (e.g. PostScript Sõng-y n lebs n tall-a (File → Print → Save as PDF) sẽn na yɩl n maneg-a, la b lebs n tall-a.",
+      "pdfGeneric": "{{subject}} ra pa tõe n bãng a PDF. B tõe n sãamame, wall b tũnugda ne bũmb sẽn pa tar pãng ye. PDF b sẽn maand to-to wã.",
+      "fileTooLarge": "{{subject}} yaa wʋsgo. {{message}}.",
+      "unsupportedType": "Faayl buud \"{{type}}\" ra pa sõngd ye.",
+      "ioError": "D pa tõe n karem ye {{subject}}: {{message}}",
+      "parseGeneric": "{{subject}} b pa tõog n vaees ye: {{message}}",
+      "fallback": "B pa tõog n tʋm-a ye {{subject}}."
+    },
+    "fileDeleted": {
+      "title": "B sẽn yiis faayã",
+      "description": "B yiis-a lame"
+    },
+    "deleteFailed": {
+      "title": "Yɩl-y tɩ b pa tõog ye",
+      "description": "Pa tõog n yiis faayã ye"
+    },
+    "fileAlreadyExists": {
+      "title": "Faayã zoe n beame",
+      "description": "Failã zoe n be tʋʋm-kãngã pʋgẽ"
+    },
+    "unsupportedFileType": {
+      "title": "D sẽn pa deegd faayã buud",
+      "description": "Dʋ-gʋlsdã paasgo \".{{extension}}\" sẽn pa sõngd tɩ b tõe n sõsd ne tʋʋm-kãnga."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "D pa tõe n tall bũmb nins b sẽn loe ne-dã ye",
+      "description": "Fichier sẽn pʋgdã gãame Siglgã pʋgẽ"
+    }
+  },
+  "errors": {
+    "fileTooLarge": "Dʋlsã sõor yaa wʋsgo",
+    "fileTooLargeDescription": "{{fileName}} sã n yɩɩd {{maxFileSizeMB}}MB bĩngã"
+  },
+  "files": {
+    "chunksCount": "{{count}} gãndã",
+    "title": "Dĩp-rãmbã",
+    "empty": "Y sẽn na n gãd-b to-to wã la a sẽn na n naan-b to-to wã na n pukame.",
+    "a11y": "Dĩng-rãmbã: {{count}}",
+    "attachments": "Bõn-bɩɩs nins sẽn be a pʋgẽ wã",
+    "notImported": "pa tʋʋm zĩisẽ ye"
+  },
+  "llamacppBusyOnExit": {
+    "title": "llama.cpp a ket n tar tʋʋm wʋsgo",
+    "description": "Modɛl a yembr bɩ a taab pa looge wakat sẽn zems ye. llama.cpp la tõe n kɩtame tɩ b pa le maand b sẽn datã ye.",
+    "forceQuit": "Tʋʋm-kãsems sẽn na n yɩ to-to wã",
+    "forcing": "Sẽn na yɩl n tõog n bas b tʋʋmdã...",
+    "shuttingDown": "B sẽn na n sul-a..."
+  },
+  "duration": {
+    "seconds": "{{count}} segond",
+    "minutes": "{{count}} minit",
+    "hours": "{{count}} lɛɛr"
+  },
+  "collapse": "Yãk-y n tool-y neda",
+  "expand": "Yãk-y n paas-y",
+  "todoPanelTitle": "Yʋsg ning b sẽn maan",
+  "todoPanelEmpty": "B pa ket n tar bũmb nins fãa b sẽn dat n maan ye.",
+  "backgroundTasks": "Rɩk-rɩk tʋʋm",
+  "subagentsRunning_one": "{{count}} sãnãrã sãnãrã",
+  "subagentsRunning_other": "{{count}} b sẽn maand to-to wã",
+  "monitorsRunning_one": "{{count}} yel-gɛt sẽn tʋmdã",
+  "monitorsRunning_other": "{{count}} yel-gɛt sẽn tʋmd",
+  "backgroundRunning_one": "{{count}} b sẽn maand bũmb ning b sẽn dat n maane",
+  "backgroundRunning_other": "{{count}} tʋʋm nins sẽn be poorẽ wã sẽn maandã",
+  "monitors": "Bõn-vẽemsã",
+  "monitorPolling": "Sõs-kẽndre",
+  "monitorMatched": "B sẽn zemsã",
+  "monitorTimedOut": "B sẽn yãk wakat ningã",
+  "monitorStopped": "B gɩdgame",
+  "monitorEnded": "Bãngr-gomdã baasame",
+  "coworkWatching_one": "B sẽn getã {{count}} gãdg-yã-yã...",
+  "coworkWatching_other": "B sẽn getã {{count}} b sẽn get bũmb ningã...",
+  "coworkWaitingBackground": "Mam gũuda tʋʋm sẽn na yɩl n tõog n maan bũmb ninsã.",
+  "noBackgroundTasks": "Sẽn ket n be wã ka be ye.",
+  "running": "D zoeesame",
+  "queued": "B sẽn be sorã pʋgẽ",
+  "waiting": "D gũuda",
+  "finished": "Bãng-y-yã",
+  "subagentPhase": "be a phase {{phase}}",
+  "subagentWaiting": "n gũudẽ",
+  "viewTranscript": "Ges-y sõsg ning b sẽn gʋlsã",
+  "taskWorking": "D tʋmdame...",
+  "taskNoOutput": "B ra pa tõe n yã bũmb ning b sẽn da maandã ye.",
+  "subagentToolUses_one": "{{count}} tool use",
+  "subagentToolUses_other": "{{count}} tool use",
+  "artifactGroupCode": "Koodã",
+  "artifactGroupImage": "Bõn-naandsã",
+  "artifactGroupDocument": "Sõsg ning b sẽn kõ wã",
+  "artifactGroupVideo": "Video wã",
+  "artifactGroupAudio": "Sõng sẽn yaa sõma",
+  "artifactOpenPreview": "Wilg-y n tool-y neda",
+  "artifactOpenExternal": "Wilg-y-yã",
+  "artifactMoreActions": "Bũmb wʋsg sẽn na n maane",
+  "artifactShowInFolder": "Wilg-y-yã-yã-yã",
+  "skillsUsedLabel": "Koe-moondb nins b sẽn tũnug ne",
+  "skillsUsed": "Koe-moondb nins b sẽn tũnug ne: {{skills}}",
+  "artifactsAll": "B fãa",
+  "artifactsEmpty": "B pa yiis bũmb ye. Cowork A zoees n wa be be.",
+  "artifactsNoMatch": "Bũmb nins b sẽn yã wã pa zems ye.",
+  "artifactsSearch": "B sẽn bao bõn-naandsã",
+  "artifactsShowMore": "Wilg-y-yã {{count}} sã n paase",
+  "workspace": {
+    "readsFrom": "A tʋmda ne",
+    "writable": "kareng la gʋlsre",
+    "footnote": "Sõngd-n-taagã karemdame la a maandame, n get bũmb nins sẽn toeemã.",
+    "footnoteEmpty": "Yãk-y sɛb-kãnga tɩ tʋm-tʋmdã tõe n karemdame, la a tõe n modgdame.",
+    "attach": "Add a folder",
+    "change": "Yãk- y n toeem y folderã",
+    "detach": "Dɩk-y n tool-y neda",
+    "open": "Wilg-y-yã",
+    "reveal": "Wilg-y-yã",
+    "unavailable": "D pa tõe n maan tʋʋm-no-kãnga ye",
+    "missing": "Tʋʋmd zĩiga folderã {{folder}} sã n pa le be ye, bɩ y yãk a to.",
+    "openFailed": "B pa tõog n tʋlg tʋʋm zĩiga ye",
+    "revealFailed": "B pa tõog n wilg tʋʋm zĩiga ye",
+    "a11yWithFolder": "Tẽn-kẽndr yel-bũndã {{folder}}Yãk-y-yã-yã-yã-yã-yã-yã-yã-yã-yã-yã-yã-yã-yã.",
+    "a11yNoFolder": "B pa sak n na n yãk tʋʋm-teed ye."
+  },
+  "coworkEmpty": {
+    "title": "Bõe yell la d tʋmdẽ?",
+    "subtitleSandbox": "Kõ-y-yã Novera A karemdame la a gʋlsda sɛb, a tʋmdame, la a tʋmdame a meng.",
+    "subtitleFolder": "Kõ-y-yã Novera tʋʋm-kãnga. {{folder}}, b karemdame la b modgdame.",
+    "try": "Mak-y n gese.",
+    "sandbox": {
+      "first": "gʋls-y a Python script ning sẽn boond faayã yʋy tɩ zems daar ning b sẽn dɩk-b wã",
+      "second": "Yãk-y karẽn-bi-pugl a ye n dɩk karẽn-bi-pugl a CSV Mam na n pakaame.",
+      "third": "A raab a README tʋʋm ning mam sẽn wilg yãmbã yĩnga"
+    },
+    "folder": {
+      "first": "Wilg-y bũmb ning sẽn kɩt tɩ b maan woto wã {{folder}} sã n naag taab",
+      "second": "Bao-y ned kam fãa TODO a pʋgẽ {{folder}} la b naag-b ne zĩiga",
+      "third": "Sõng-y tɩ y gʋls koe-moonegã pʋga. {{folder}} Mam na n wilg-y-la"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "B ka tar tigis-kãnga ye",
+    "a11y": "B basa sor-wilgrã.",
+    "title": "D pa le tõe n tʋm tʋʋm-teed nins b sẽn kõ-dã ye",
+    "body": "Novera b pa tõe n maan bũmb ye. b pa tõe n maan bũmb ye. b pa tõe n maan bũmb ye.",
+    "fixLinux": "Linux sẽn tũnugd ne bubblewrapYãk-y-yã-a, la y lebs n sɩng-a. Novera.",
+    "fixMac": "yaaOS b tũnugda ne bug-zõoneg zĩiga /usr/bin/sandbox-execB leb n sɩngame. Novera b sã n wa paam-a.",
+    "fixWindows": "Windows b sẽn tũnugd ne AppContainerB leb n sɩngame. Novera D na n baoo n leoke.",
+    "recheck": "Bao-y n leb n gese."
+  },
+  "planMode": {
+    "label": "Bãngr-goamã",
+    "tooltipOff": "Sẽn na n yɩlẽ tɩ b bãng bũmb ning b sẽn na n maanã, b segd n baoo n bãng b sẽn na n maan to-to.",
+    "tooltipOn": "Yãk-y n bas-y t'a tʋm-tʋmdã gʋls sɛbã.",
+    "onAnnounce": "Pĩndgã mode",
+    "placeholder": "Kẽng-y n bao n bãng bũmb ning b sẽn na n maane."
+  },
+  "budget": {
+    "stoppedSteps": "Yãk-y n tool-y neda {{max}} A tʋm-tʋmdã ka sa ye.",
+    "keepGoing": "Kẽng-y n kẽng-y taoore.",
+    "stoppedTokens": "A sẽn wa n wa n na n maan woto wã, a paama ligd wʋsgo.",
+    "compact": "Dɩt sẽn yaa sõma",
+    "newSession": "Sesã-paal a ye"
+  },
+  "run": {
+    "stopped": "Yãk-y n da wa ye.",
+    "failed": "B ra zoeeda tao-tao.",
+    "tryAgain": "Bao-y n leoke."
+  },
+  "modelNoTools": "{{model}} b pa tõe n bool tʋʋm-teed ye, tɩ kɩt tɩ b pa tõe n tʋm wa tʋʋm-teed ye.",
+  "askContinue": "Kẽng-y n kẽng taoor",
+  "askNext": "Sokr sẽn pʋgdã",
+  "askPrev": "Sokr a ye:",
+  "askRecommended": "D rat n yeelame tɩ",
+  "askSelectedCount": "{{count}} b yãk-a lame",
+  "askSomethingElse": "Bũmb a to",
+  "askSomethingElsePlaceholder": "Sõng-y y meng n leok-yã",
+  "submit": "Yãk-y n kõ-yã",
+  "composer": {
+    "advanced": "Sõsg ning b sẽn kõ-dã",
+    "modelDefaults": "Dũniyã gill zugu",
+    "assistantOverrides": "Sõng-n-soaba sẽn pa tõe n maan bũmb ninsã",
+    "printPdf": "Tãnd / Tall- y wa PDF",
+    "exportHint": "Yɛl sẽn tõe n karem: sull sẽn tʋmd ye. JSON: message wã buud fãa. b pa tigimd raar sɛb ye."
+  },
+  "telemetry": {
+    "summary": "Yãmb sã n sak-a, {{host}} deegda Novera versionã la operating systemã bala. Sõssã la identifiant sẽn pa toeemda pa kẽed ye.",
+    "unavailable": "Statistikã pa sigl ye. Data pa tʋme ye."
+  },
+  "errorTracking": {
+    "title": "Bõn-wẽns baoob wɛɛngẽ",
+    "summary": "Yãmb tõe n tʋm koe-moonegã n kõ {{host}}: yel-wẽn-kãseng buud, code zĩiga, version la operating system. Sõss, yel-wẽn-kãsens goam a menga la kʋɩla pa kẽed ye. Tõog-y n gãe-a wakat fãa.",
+    "unavailable": "Yel-wẽn-kãsensã gesg pa sigl ye. Koe-mooneg pa tʋme ye."
+  },
+  "access": {
+    "read": "Karem bala",
+    "ask": "Sok-y sãn na n toeem wall n yãke",
+    "allow": "Kõ-y sor n toeem la n yãke",
+    "folderNote": "Yãk-y Novera sẽn tõe n kẽ to-to dossier-kãnga pʋgẽ."
+  },
+  "components": {
+    "title": "Tẽns nins sẽn be tẽn-kãnga",
+    "note": "Sigl-y tʋʋm-teed ning yãmb sẽn datã bala. Novera tẽkda Python environnements n bas taaba. Cloud service pa baood siglg y masĩnã pʋgẽ ye.",
+    "estimates": "Bãngr-goamã sẽn yet tɩ b na n sigla: {{download}} · Dĩis zĩiga sẽn yaa tɩlae: {{space}} · Diski zĩiga sẽn be: {{free}}",
+    "confirm": "D sã n dat n tool-y neda, d tõe n bao n bãnga bũmb ning sẽn be Biiblã pʋgẽ wã.",
+    "removeConfirm": "Y na n tall-a lame, la y na n tall-a lame.",
+    "verify": "Vɛɛs-y-yã",
+    "repair": "B sẽn maneg-a wã",
+    "uninstall": "Yãk- y n yiisd- a",
+    "missing": "B pa lugl-a ye",
+    "managed": "A sẽn maand woto wã Novera",
+    "external": "Yãmb tõe n kõ Python sor a to. A lebgda profil ning b sẽn gesdã. Yãk-y sorã n tʋm ne Novera environnementã.",
+    "failed": "Bãng networkã, disk zĩiga la logtoɛɛmbã, la y le bao n le maneg-b lame.",
+    "required": "Yãk-y n tool-y neda Yãk-y n tool-y neda Novera • Bãngr-goamã.",
+    "updateAvailable": "D tõe n leoke",
+    "update": "Yãk-y-yã-yã",
+    "rollback": "D lebs n paam d sẽn da nong-a wã",
+    "busy": "Yãk-y n tool-y neda Yãk-y n gũ neb sẽn wat n na n maan bũmb ning fãa n yaool n toeem-y-yã."
+  },
+  "voiceConversation": "Sõsg ne koɛɛga",
+  "voiceUnavailable": "Sõsg ne koɛɛg ka be ye",
+  "voiceMale": "Rɩk sẽn yaa rao",
+  "voiceFemale": "Saam-bi-poak koɛɛg",
+  "voiceReadReplies": "Karm-y leoorã ne koɛɛga"
+}

@@ -1,0 +1,101 @@
+{
+  "editServer": "Szerkesztés MCP Kiszolgáló",
+  "addServer": "Hozzáadás MCP Kiszolgáló",
+  "browserExtension": {
+    "connecting": {
+      "checking": "Bővítmény állapotának ellenőrzése..."
+    },
+    "notInstalled": {
+      "title": "Novera Feladatok elvégzése a böngészőben",
+      "description": "Telepítse a bővítményt, hogy adjon Novera A böngésző hozzáférése",
+      "getExtension": "Get Extension letöltése"
+    }
+  },
+  "serverName": "A szerver neve",
+  "enterServerName": "Szervernév megadása",
+  "command": "Parancs",
+  "enterCommand": "Parancs beírása (uvx vagy npx)",
+  "arguments": "Érvelések",
+  "argument": "Argumentum {{index}}",
+  "envVars": "A környezeti változók",
+  "key": "Kulcs",
+  "value": "Érték",
+  "save": "Mentés",
+  "status": "Állapot",
+  "connected": "Csatlakoztatva",
+  "disconnected": "Leválasztva",
+  "deleteServer": {
+    "title": "Törlés MCP Kiszolgáló",
+    "description": "Biztosan törölni szeretnéd ezt a bejegyzést? MCP szerver {{serverName}}? Ez a művelet nem vonható vissza.",
+    "delete": "Törlés",
+    "success": "MCP szerver {{serverName}} Az oldal sikeresen törölve!"
+  },
+  "editJson": {
+    "title": "Szerkesztés JSON a MCP Szerver: {{serverName}}",
+    "titleAll": "Az összes szerkesztése MCP Szerverek JSON",
+    "placeholder": "Belépni JSON konfiguráció",
+    "errorParse": "Nem sikerült elemezni a kezdeti adatokat",
+    "errorPaste": "Érvénytelen JSON Formátum a beillesztett tartalomban",
+    "errorFormat": "Érvénytelen JSON formátum",
+    "errorServerName": "A szerver neve kötelező és nem lehet üres",
+    "errorMissingServerNameKey": "JSON A következőképpen kell felépíteni: {\"serverName\": {config}} - hiányzó szervernév kulcs",
+    "errorInvalidType": "Érvénytelen típus '{{type}}'for server'{{serverName}}A típusnak 'stdio', 'http' vagy 'sse' kell lennie.",
+    "save": "Mentés"
+  },
+  "checkParams": "Kérjük, ellenőrizze a paramétereket az útmutató szerint.",
+  "title": "MCP Szerverek",
+  "experimental": "Kísérleti",
+  "editAllJson": "Az összes szerver szerkesztése JSON",
+  "findMore": "Találjon többet » MCP Szerverek a következő helyen:",
+  "allowPermissions": "Az összes engedélyezése MCP Az eszköz engedélyei",
+  "allowPermissionsDesc": "Ha engedélyezve van, minden MCP Ez a beállítás globálisan érvényes az összes beszélgetésre, beleértve az új csevegéseket is.Ez a beállítás globálisan érvényes az összes beszélgetésre, beleértve az új csevegéseket is.",
+  "noServers": "Nincs elérhető MCP-szerver",
+  "args": "Angry.",
+  "env": "Boríték",
+  "serverStatusActive": "Kiszolgáló {{serverKey}} Az oldal sikeresen aktiválva!",
+  "serverStatusInactive": "Kiszolgáló {{serverKey}} Az oldal sikeresen deaktiválva!",
+  "runtimeSettings": {
+    "title": "A futásidő beállításai",
+    "description": "Konfigurálja, hogyan Novera Kezeli és újrapróbálja MCP Szerverek.",
+    "toolCallTimeout": "Szerszámhívás időtúllépése (másodperc)",
+    "toolCallTimeoutDesc": "Maximális várakozási idő MCP A szerszám válasza az időtúllépéskor.",
+    "maxToolOutputChars": "Max szerszám kimeneti karakterek",
+    "maxToolOutputCharsDesc": "A beszélgetésben megőrzött leghosszabb eszközeredmény. Bármi, ami ezen túl van, le lesz vágva és csonkoltként lesz megjelölve, így egy nagy eredmény nem meríthet ki a modell kontextusából. 0 Az eredmények megőrzése érdekében.",
+    "smartToolRouting": "Okos. MCP Szerszám útvonal tervezés",
+    "smartToolRoutingDesc": "Ha engedélyezve van, Novera Kiválasztja a releváns MCP Letiltja, hogy mindig betöltse a teljes fájlt, mielőtt betöltené az eszközöket. MCP A szerszámok listája.",
+    "useLightweightRouterModel": "Dedikált modell használata útválasztáshoz",
+    "useLightweightRouterModelDesc": "Ha az intelligens útválasztás be van kapcsolva, az útválasztási lépést a csevegőmodell helyett egy különálló (gyakran kisebb) modellel kell futtatni, ha pedig ki van kapcsolva, akkor mindig az aktív csevegőmodellt kell használni az útválasztáshoz.",
+    "routerModel": "Útválasztási modell",
+    "routerModelDesc": "Válassza ki a szolgáltatót és a modellt egy helyen, csak a könnyű modellek vannak felsorolva, így az útvonal gyors és olcsó marad.",
+    "selectRouterModelPlaceholder": "Útválasztási modell kiválasztása…",
+    "routerModelSearchPlaceholder": "Modellek keresése…",
+    "routerModelEmptyList": "Nincs elérhető könnyűsúlyú modell. Adjon hozzá egy kisebb modellt, vagy konfigurálja API A Models alkalmazásban.",
+    "routerModelEmptySearch": "Nincs találat a következőre: „{{query}}”."
+  },
+  "auth": {
+    "label": "Hitelesítés:",
+    "state": {
+      "notApplicable": "Nem kötelező",
+      "staticHeader": "Engedélyezési fejléc",
+      "authenticated": "hitelesítve",
+      "expired": "lejárt",
+      "staleResource": "Egy másik személy részére kiállított URL",
+      "unauthenticated": "Nincs hitelesítve"
+    },
+    "expiresIn": "Lejár a következő időpontban: {{duration}}",
+    "authenticate": "Jelentkezz be!",
+    "reauthenticate": "Újrahitelesítés",
+    "clear": "Tiszta hitelesítés",
+    "waiting": "Várakozás a böngészőre...",
+    "openSignInPage": "A bejelentkezési oldal megnyitása",
+    "needsAuth": "{{serverName}} Az oldal hitelesítést igényel",
+    "needsAuthHint": "A csatlakozáshoz jelentkezzen be erre a szerverre.",
+    "authorized": "Bejelentkezve vagy? {{serverName}}",
+    "authorizeFailed": "Jelentkezzen be! {{serverName}} sikertelen",
+    "cleared": "A tárolt hitelesítő adatok törlése {{serverName}}",
+    "nothingToClear": "{{serverName}} Nincsenek tárolt hitelesítő adatok",
+    "clearFailed": "Nem sikerült törölni a hitelesítő adatokat {{serverName}}",
+    "renew": "A munkamenet megújítása",
+    "expiredAgo": "lejárt {{duration}} előző"
+  }
+}

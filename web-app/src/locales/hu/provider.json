@@ -1,0 +1,18 @@
+{
+  "addProvider": "Szolgáltató hozzáadása",
+  "addOpenAIProvider": "Egyéni szolgáltató hozzáadása",
+  "enterNameForProvider": "Szolgáltató neve (pl. my-llm-server)",
+  "apiTypeLabel": "API formátum",
+  "apiTypeOpenAI": "OpenAI-kompatibilis",
+  "apiTypeAnthropic": "Anthropic-kompatibilis",
+  "baseUrlLabel": "Alap URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API kulcs",
+  "apiKeyPlaceholder": "Illessze be a nevét API kulcs",
+  "invalidBaseUrl": "Alap URL Érvényes http(s)-nek kell lennie URL",
+  "globalSettings": "A globális beállítások",
+  "stripReasoning": "Az érvelés eltávolítása a kontextusból",
+  "stripReasoningDesc": "Eltávolítja a korábbi körök gondolkodási/érvelési tartalmát a történet újraküldése előtt, minden szolgáltatónál. KV-cache újrafelhasználás a helyi modellek, de egyes modellek (pl újabb Qwen Azt javasoljuk, hogy tartsuk meg a jobb többfordulós érvelés érdekében.",
+  "providerAlreadyExists": "Egy szolgáltató nevű {{name}} Az oldal már létezik."
+}

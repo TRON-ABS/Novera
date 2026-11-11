@@ -1,0 +1,840 @@
+{
+  "htmlArtifact": {
+    "code": "Koodi",
+    "preview": "Okusooka okulaba",
+    "previewStreaming": "Esangibwa nga omulembe guwedde",
+    "unresolvedAssets_one": "1 eky'obugagga ekijuliziddwa tekisobola kutikka mu kusooka. Amakubo ag'oluganda tegalina URL ya musingi okugonjoola.",
+    "unresolvedAssets_other": "{{count}} ebijuliziddwa eby'obugagga tebisobola kutikka mu kusooka. Amakubo ag'oluganda tegalina URL ya musingi okugonjoola."
+  },
+  "assistants": "Abayambi",
+  "hardware": "Ebikozesebwa mu kukola ebintu",
+  "mcp-servers": "Seva za MCP",
+  "local_api_server": "Seva ya API ey’omu kitundu",
+  "remote_access": "Okuyingira okuva ewala",
+  "integrations": "Okugatta",
+  "experimental": "Okugezesa",
+  "claude_code": "Claude Code",
+  "https_proxy": "Omubaka wa HTTPS",
+  "web_search": "Okunoonya ku mukutu",
+  "shell": "Ekisusunku",
+  "browse": "Okugenda mu maaso",
+  "moreControls": "Ebifuga ebirala",
+  "starting": "Okutandika...",
+  "activeSuffix": "(Okukola) .",
+  "extensions": "Okugaziya",
+  "attachments": "Ebigattibwako",
+  "general": "Omukulu",
+  "settings": "Enteekateeka",
+  "modelProviders": "Abagaba eby'okulabirako",
+  "localProviders": "Mu kitundu",
+  "remoteProviders": "Ewala",
+  "manageProviders": "Okuddukanya abagaba",
+  "hiddenProviders": "{{count}} eremeddwa",
+  "hideProvider": "Okukweka omuwa",
+  "showProvider": "Laga omuwa",
+  "interface": "Enkolagana",
+  "appearance": "Okulabika",
+  "privacy": "Eby'ekyama",
+  "keyboardShortcuts": "Amakubo amampi",
+  "home": "Awaka",
+  "cowork": "Cowork",
+  "newSession": "Olutuula olupya",
+  "artifacts": "Ebintu eby’edda",
+  "customize": "Okukola ku mutindo",
+  "local": "Mu kitundu",
+  "selectFolder": "Londa ekitabo",
+  "selectModel": "Sooka olonde model",
+  "commands": "Ebiragiro",
+  "cmdHelp": "Wandiika ebiragiro ebiriwo",
+  "cmdClear": "Goza olutuula luno",
+  "cmdModels": "Kyuusa model ekola",
+  "cmdModelsHint": "Wandiika /models olwo olonde model okuva ku lukalala",
+  "cmdModelSwitched": "Ekyusiddwa ne kidda ku {{name}}",
+  "cmdUnknown": "Ekiragiro ekitamanyiddwa: {{name}}. Gezaako /kuyamba",
+  "cmdBusy": "Ekyo tasobola kukikola nga agent adduka",
+  "cmdCompact": "Kozesa embeera y’olutuula mu bufunze",
+  "cmdCompacted": "Obubaka obukwatagana {{before}} -> {{after}}",
+  "cmdNothingToCompact": "Tewali kintu kyonna kya compact n'okutuusa kati",
+  "cmdCompactFailed": "Okunyigiriza kulemereddwa: {{error}}",
+  "cmdPlan": "Toggle plan mode (okusoma kwokka: agent ateesa nga tawandiise)",
+  "cmdPlanOn": "Plan mode ku: agent asoma era n'ateesa nga tawandiise",
+  "cmdPlanOff": "Enteekateeka mode off: okutuukiriza okwa bulijjo",
+  "cmdTodo": "Ggulawo ekipande ky’enkulaakulana",
+  "cmdTasks": "Ggulawo ekipande ky’emirimu egy’emabega",
+  "cmdInit": "Soma pulojekiti era owandiike obukugu n’okujjukira",
+  "cmdInitRunning": "Okuteeka pulojekiti eno ku mmeeri",
+  "skills": "Obukugu",
+  "skillsInContext": "Obukugu obuliwo eri agenti emisinde gino",
+  "skillsTitle": "Okuddukanya obukugu",
+  "skillsScopeProject": "Obukugu bwa {{folder}}",
+  "skillsScopeGlobal": "Obukugu mu nsi yonna, obufunibwa buli lusoma",
+  "skillsScopeMerged": "Obukugu bwa {{folder}}, nga kwogasse n'obukugu obw'ensi yonna buli lusoma lw'egabana",
+  "skillOriginFolder": "folda",
+  "skillOriginGlobal": "ensi yonna",
+  "skillsEmpty": "Tewali bukugu n'okutuusa kati",
+  "skillsPickOrNew": "Londa obukugu bw'oyagala okulongoosa, oba tonda obupya.",
+  "skillNew": "Obukugu obupya",
+  "skillDelete": "Obukugu mu kusazaamu",
+  "skillSave": "Teeka",
+  "skillSaved": "Obukugu buterekeddwa",
+  "skillNameRequired": "Erinnya ly'obukugu lyetaagisa",
+  "skillNamePlaceholder": "obukugu-erinnya",
+  "skillContentPlaceholder": "Nnyonnyola enkola eddaamu okukozesebwa mu Markdown...",
+  "skillHubImport": "Okuyingiza okuva mu hub",
+  "skillHubTitle": "Ekifo eky’obukugu mu by’abantu",
+  "skillHubEmpty": "Tewali bukugu busangibwa ku hub",
+  "skillImport": "Okuyingiza ebintu mu ggwanga",
+  "skillReimport": "Okuddamu okuyingiza ebintu mu ggwanga",
+  "skillImported": "Ebiyingizibwa mu ggwanga {{name}}",
+  "sessions": "Entuula",
+  "deleteSession": "Okusazaamu olutuula",
+  "deleteSessionTitle": "Okusazaamu olutuula?",
+  "deleteSessionBody": "\"{{title}}\" n'ebiwandiiko byayo bijja kusazibwamu enkalakkalira. Kino tekiyinza kuddibwamu.",
+  "newChat": "Emboozi empya",
+  "newAgentChat": "Omukutu gwa Agent Omupya",
+  "chats": "Enjogera",
+  "favorites": "Ebisinga okwagalibwa",
+  "recents": "Ebisembyeyo",
+  "hub": "Ekifo ekikulu",
+  "helpSupport": "Obuyambi & Obuwagizi",
+  "helpUsImproveJan": "Tuyambe Okulongoosa Novera",
+  "analyticsConsentDetail": "Tukung’aanya data etamanyiddwa mannya okutegeera enkozesa y’ebintu. Chats zo n’ebikwata ku muntu wo tebirondoolebwa. Kino osobola okukikyusa essaawa yonna mu Settings > Privacy.",
+  "analyticsConsentQuestion": "Wandyagadde okutuyamba okulongoosa Novera?",
+  "unstarAll": "Unstar Byonna",
+  "unstar": "Okuggya emmunyeenye",
+  "deleteAll": "Ssazaamu Byonna",
+  "star": "Emmunyeenye",
+  "rename": "Kyuusa erinnya",
+  "delete": "Gyawo",
+  "copied": "Yakoppololwa!",
+  "dataFolder": "Ekitabo kya Data",
+  "others": "Ebirala",
+  "language": "Olulimi",
+  "login": "Okuyingira",
+  "loginWith": "Yingira ne {{provider}}",
+  "loginFailed": "Eremereddwa Okuyingira",
+  "logout": "Okufuluma",
+  "loggingOut": "Okufuluma...",
+  "loggedOut": "Yafuluma bulungi",
+  "logoutFailed": "Eremereddwa Okufuluma",
+  "profile": "Ebifa ku muntu",
+  "reset": "Okuzzaawo",
+  "search": "Okunoonya",
+  "searchThreads": "Noonya mu mboozi…",
+  "toNavigate": "okutambulira",
+  "toSelect": "okulonda",
+  "toClose": "okuggalawo",
+  "clearRecent": "Okutangaaza",
+  "name": "Erinnya",
+  "cancel": "Sazaamu",
+  "dismiss": "Okugoba",
+  "create": "Okukola",
+  "save": "Tereka",
+  "edit": "Okulongoosa",
+  "copy": "Okukoppa",
+  "back": "Okudda emabega",
+  "close": "Ggalawo",
+  "done": "Kikoleddwa",
+  "next": "Ekiddako",
+  "finish": "Okumaliriza",
+  "skip": "Buuka",
+  "allow": "Kiriza",
+  "deny": "Okwegaana",
+  "start": "Tandika",
+  "stop": "Yimirirako",
+  "preview": {
+    "loading": "Eggulawo…",
+    "unsupported": "Novera tesobola kulaga fayiro ya kika kino. Giggule mu pulogulaamu endala okugiraba.",
+    "outside": "Fayiro eno tekyali mu kifo eky’okukoleramu eky’olutuula luno.",
+    "tooLarge": "Fayiro nnene nnyo okulagibwa wano. Giggule mu pulogulaamu endala.",
+    "reload": "Ddamu okutikka",
+    "allowNetwork": "Kkiriza omukutu",
+    "unsandboxed": "Ddukanya nga tewali sandbox: data eterekeddwa ne fayiro eziri ku kyuma bikola",
+    "unresolvedRefs_one": "1 fayiro omuko guno gwe guyungako tesobola kutikka mu kusooka. Kiggule olabe mu browser.",
+    "unresolvedRefs_other": "{{count}} fayiro omuko guno gwe guyungako teziyinza kutikka mu kusooka. Kiggule olabe mu browser.",
+    "externalRefs_one": "1 eky'obugagga omuko guno gwe gutikka okuva ku mukutu kizibiddwa. Ggyako \"Allow network\" okugitikka.",
+    "externalRefs_other": "{{count}} eby'obugagga omuko guno gwe gutikka okuva ku mukutu bizibiddwa. Ggyako \"Allow network\" okuzitikka.",
+    "scriptErrors_one": "Omuko gwaloopa ensobi: {{message}}",
+    "scriptErrors_other": "Omuko gwaloopa {{count}} ensobi. Ekisooka: {{message}}"
+  },
+  "changes": {
+    "title": "Enkyukakyuka mu agenti",
+    "empty": "Fayiro agenti z’awandiika oba z’alongoosa zijja kulabika wano.",
+    "a11y": "Enkyukakyuka za agenti: {{files}} fayiro, {{additions}} zongerwako, {{deletions}} ziggiddwawo"
+  },
+  "modelPanel": {
+    "title": "Enteekateeka za model",
+    "a11y": "Ggulawo enteekateeka za model",
+    "contextTooltip": "Obunene bw’emboozi: token {{value}} ku {{max}}"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "Obukugu '{{name}}' tebuliiwo",
+    "kind": {
+      "skill": "Obukugu",
+      "command": "Ekiragiro",
+      "model": "Omuze gw’okukola"
+    }
+  },
+  "compactWidth": "Obugazi obutono",
+  "fullWidth": "Obugazi obujjuvu",
+  "dark": "Kizikiza",
+  "light": "Ekitangaala",
+  "system": "Enkola",
+  "auto": "Mu ngeri ey’okwekola",
+  "english": "Luganda",
+  "medium": "Eky’omu makkati",
+  "newThread": "Omukutu Omupya",
+  "noResultsFound": "Tewali kivudde mu kunoonya",
+  "noThreadsYet": "Tewali mboozi n’emu",
+  "noThreadsYetDesc": "Tandika emboozi empya. Emboozi zo ez’emabega zijja kulabika wano.",
+  "downloads": "Fayiro eziwanuddwa",
+  "downloading": "Ewanula…",
+  "uploadingAttachments": "Okuteeka ebigattibwako...",
+  "cancelDownload": "Sazaamu okuwanula",
+  "downloadCancelled": "Okuwanula Kusaziddwamu",
+  "downloadComplete": "Okuwanula kuwedde",
+  "thinking": "Okulowooza...",
+  "thought": "Ekirowoozo",
+  "callingTool": "Ekintu ekikubira essimu",
+  "completed": "Emaliriziddwa",
+  "image": "Ekifaananyi",
+  "vision": "Okwolesebwa",
+  "multimodal": "Enkola ez’enjawulo",
+  "embeddings": "Ebiyingizibwa mu nkola",
+  "tools": "Ebikozesebwa",
+  "webSearch": "Okunoonya ku mukutu",
+  "reasoning": "Okukubaganya ebirowoozo",
+  "proactive": "Okusooka okukola",
+  "selectAModel": "Londa model",
+  "noToolsAvailable": "Tewali bikozesebwa",
+  "noModelsFoundFor": "Tewali bikozesebwa bizuuliddwa ku \"{{searchValue}}\".",
+  "failedToLoadModels": "Eremereddwa okutikka ebika",
+  "noModels": "Tewali bikozesebwa bizuuliddwa",
+  "noAssistant": "Tewali muyambi",
+  "customAvatar": "Avatar eya bulijjo",
+  "editAssistant": "Omuyambi w'okulongoosa",
+  "jan": "Novera",
+  "metadata": "Ebiwandiiko ebikwata ku nsonga",
+  "regenerate": "Ddamu okukola",
+  "threadImage": "Ekifaananyi ky'obuwuzi",
+  "editMessage": "Okulongoosa Obubaka",
+  "deleteMessage": "Gyawo obubaka",
+  "deleteThread": "Okusazaamu Oluwuzi",
+  "renameThread": "Kyuusa erinnya lya Thread",
+  "threadTitle": "Omutwe gw'Oluwuzi",
+  "deleteAllThreads": "Ssazaamu Emikutu Gyonna",
+  "allThreadsUnfavorited": "Emikutu gyonna Tegiyagalibwa",
+  "deleteAllThreadsConfirm": "Okakasa nti oyagala kusazaamu thread zonna? Ekikolwa kino tekiyinza kuddibwamu.",
+  "addProvider": "Okwongerako Omuwa",
+  "addOpenAIProvider": "Yongera ku OpenAI Provider",
+  "enterNameForProvider": "Yingiza erinnya ly'omugabi wo",
+  "providerAlreadyExists": "Omugabi alina erinnya \"{{name}}\" yaliwo dda. Nsaba olonde erinnya ery'enjawulo.",
+  "adjustFontSize": "Okutereeza Sayizi y'Empandiika",
+  "changeLanguage": "Kyuusa Olulimi",
+  "editTheme": "Okulongoosa Omulamwa",
+  "editCodeBlockStyle": "Edita Omusono gwa Block ya Koodi",
+  "editServerHost": "Okulongoosa Omutegesi wa Seva",
+  "pickColorWindowBackground": "Londa Langi Eddirisa Ennyuma",
+  "pickColorAppMainView": "Londa Langi App Okulaba Okukulu",
+  "pickColorAppPrimary": "Londa Langi App Primary",
+  "pickColorAppAccent": "Londa Langi App Accent",
+  "pickColorAppDestructive": "Londa Langi App Ezikiriza",
+  "apiKeyRequired": "Ekisumuluzo kya API kyetaagisa",
+  "enterTrustedHosts": "Yingiza host ezesigika",
+  "placeholder": {
+    "chatInput": "Mbuuze ekintu kyonna..."
+  },
+  "confirm": "Kakasa",
+  "continue": "Genda mu maaso",
+  "loading": "Okutikka...",
+  "settingUpJan": "Okutandika okutandika Novera...",
+  "registeringExtensions": "Okuwandiisa eby'okwongezaayo...",
+  "loadingExtensions": "Okutikka ebigaziyiziddwa... ({{done}}/{{total}})",
+  "error": "Ensobi",
+  "success": "Obuwanguzi",
+  "warning": "Okulabula",
+  "conversationNotAvailable": "Emboozi teriiwo",
+  "conversationNotAvailableDescription": "Emboozi gy'ogezaako okuyingira teriiwo oba esaziddwamu.",
+  "temporaryChat": "Okunyumya okw'ekiseera",
+  "temporaryChatTooltip": "Okwogera okw'ekiseera tekujja kulabika mu byafaayo byo",
+  "noResultsFoundDesc": "Tetusobodde kuzuula mboozi yonna ekwatagana n'okunoonya kwo. Gezaako ekigambo ekikulu eky’enjawulo.",
+  "searchModels": "Noonya ebikozesebwa...",
+  "searchStyles": "Emisono gy'okunoonya...",
+  "createAssistant": "Tonda Omuyambi",
+  "enterApiKey": "Yingiza Ekisumuluzo kya API",
+  "scrollToBottom": "Ssenda wansi",
+  "generateAiResponse": "Okukola AI Response",
+  "continueAiResponse": "Genda mu maaso n'okuddamu kwa AI",
+  "addModel": {
+    "title": "Okwongerako Model",
+    "modelId": "ID y’ekyokulabirako",
+    "enterModelId": "Yingiza Model ID",
+    "addModel": "Okwongerako Model",
+    "description": "Okwongerako model empya ku mugabi",
+    "exploreModels": "Laba olukalala lw'ebikozesebwa okuva mu muwa"
+  },
+  "mcpServers": {
+    "editServer": "Okulongoosa Seva",
+    "addServer": "Okwongerako Seva",
+    "serverName": "Erinnya lya Seva",
+    "enterServerName": "Yingiza erinnya lya seva",
+    "command": "Ekiragiro",
+    "enterCommand": "Yingiza ekiragiro",
+    "arguments": "Enkaayana",
+    "argument": "Ensonga {{index}}",
+    "envVars": "Enkyukakyuka mu butonde",
+    "key": "Ekisumuluzo",
+    "value": "Omuwendo",
+    "save": "Teeka"
+  },
+  "deleteServer": {
+    "title": "Okusazaamu Seva",
+    "delete": "Okusazaamu"
+  },
+  "editJson": {
+    "errorParse": "Eremereddwa okusengejja JSON",
+    "errorPaste": "Eremereddwa okuteeka JSON",
+    "errorFormat": "Enkola ya JSON etali ntuufu",
+    "titleAll": "Okulongoosa Ensengeka ya Seva Zonna",
+    "placeholder": "Yingiza ensengeka ya JSON...",
+    "save": "Teeka"
+  },
+  "editModel": {
+    "title": "Okulongoosa Omuze: {{modelId}}",
+    "description": "Tegeka obusobozi bwa model nga okyusakyusa ebyokulonda wansi.",
+    "capabilities": "Obusobozi",
+    "tools": "Ebikozesebwa",
+    "vision": "Okwolesebwa",
+    "embeddings": "Ebiyingizibwa mu nkola",
+    "notAvailable": "Tekinnabaawo"
+  },
+  "outOfContextError": {
+    "truncateInput": "Okusalako Ebiyingizibwa",
+    "title": "Ensobi okuva mu mbeera",
+    "description": "Chat eno etuuka ku memory ya AI, nga whiteboard ejjula. Tusobola okugaziya eddirisa ly’ekijjukizo (eriyitibwa sayizi y’ensonga) ne lijjukira ebisingawo, naye liyinza okukozesa ekijjukizo kya kompyuta yo ekisingawo. Tusobola n’okusalako ekiyingizibwa, ekitegeeza nti kijja kwerabira ebimu ku byafaayo by’emboozi okusobola okufuna ekifo ky’obubaka obupya.",
+    "increaseContextSizeDescription": "Oyagala okwongera ku sayizi y'ensonga?",
+    "increaseContextSize": "Okwongera ku sayizi y’ensonga"
+  },
+  "toolApproval": {
+    "title": "Okusaba Olukusa lw'Ekikozesebwa",
+    "description": "Omuyambi ayagala okukozesa <strong>{{toolName}}</strong>",
+    "securityNotice": "Kiriza ebikozesebwa byokka bye weesiga. Ebikozesebwa bisobola okuyingira mu nkola yo ne data.",
+    "deny": "Okwegaana",
+    "allowOnce": "Kiriza Omulundi gumu",
+    "alwaysAllow": "Bulijjo Kiriza"
+  },
+  "deleteModel": {
+    "title": "Okusazaamu Omuze: {{modelId}}",
+    "description": "Okakasa nti oyagala kusazaamu model eno? Ekikolwa kino tekiyinza kuddibwamu.",
+    "success": "Model {{modelId}} esaziddwamu enkalakkalira.",
+    "cancel": "Okusazaamu",
+    "delete": "Okusazaamu"
+  },
+  "deleteProvider": {
+    "title": "Okusazaamu Omuwa",
+    "description": "Ssaako omugabi ono ne model zaayo zonna. Ekikolwa kino tekiyinza kuddibwamu.",
+    "success": "Omugabi {{provider}} asaziddwamu enkalakkalira.",
+    "confirmTitle": "Okusazaamu Omuwa: {{provider}}",
+    "confirmDescription": "Okakasa nti oyagala kusazaamu provider ono? Ekikolwa kino tekiyinza kuddibwamu.",
+    "cancel": "Okusazaamu",
+    "delete": "Okusazaamu"
+  },
+  "modelSettings": {
+    "label": "Enteekateeka za model",
+    "title": "Ensengeka z'ekyokulabirako - {{modelId}}",
+    "description": "Tegeka ensengeka z’ekyokulabirako okulongoosa omulimu n’enneeyisa.",
+    "nglDisabledByFit": "Auto-fit kwe kulonda layers za GPU. Ggyako Auto-fit okuteeka kino mu ngalo.",
+    "samplingDefaults": {
+      "title": "Ebipimo by’okutwala sampuli ebisookerwako",
+      "description": "Ensengeka za sampler ezisookerwako ku model eno. Ekozesebwa okuggyako nga evudde ku miwendo gya buli muyambi oba buli kusaba."
+    },
+    "specDraft": {
+      "section": "Okuggya enkoodi mu ngeri ey’okuteebereza",
+      "enable": "Ssobozesa okuggya kkoodi mu ngeri ey’okuteebereza",
+      "enableDescription": "Okuwandiika obubonero obuwerako buli mutendera era okakasizza mu kuyita kumu, ekyanguya omulembe. Ekozesa emitwe gya MTP egyazimbibwamu model, oba model model ewanuliddwa nayo (MTP, Eagle3, DFlash oba DSpark).",
+      "nMax": "Max ebbago ly'obubonero",
+      "nMaxDescription": "Omuwendo ogusinga obunene ogwa tokens okuwandiika buli mutendera. Ekisookerwako 16.",
+      "nMin": "Min ebbago ly'obubonero",
+      "nMinDescription": "Omuwendo omutono ogwa tokens okuwandiika buli mutendera. Ekisookerwako 0.",
+      "pMin": "Obuyinza obutono mu bbago",
+      "pMinDescription": "Obuyinza obutono obw’okuwandiika ebbago ery’omululu (0–1). Ekisookerwako 0.75."
+    },
+    "templateKwargs": {
+      "section": "Enkola z'okulonda mu nkola y'okukubaganya ebirowoozo",
+      "description": "Ebintu ebirala eby'okulondako ekifaananyi ky'okukubaganya ebirowoozo eky'omulembe guno ky'ekkiriza. Yasindikibwa nga chat_template_kwargs ku buli kusaba; leka omuwendo ku default yaago okuleka template okusalawo.",
+      "addCustom": "Yongera ku nkola ya custom",
+      "keyPlaceholder": "erinnya",
+      "valuePlaceholder": "omuwendo",
+      "add": "Okwongerako",
+      "cancel": "Okusazaamu",
+      "remove": "Ggyawo"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "Teyasobodde kulongoosa nteekateeka za model"
+  },
+  "dialogs": {
+    "changeDataFolder": {
+      "title": "Kyusa Ekifo kya Data Folder",
+      "description": "Okakasa nti oyagala okukyusa ekifo kya data folder? Kino kijja kutambuza data yo yonna mu kifo ekipya era kiddemu okutandika enkola.",
+      "currentLocation": "Ekifo ekiriwo kati:",
+      "newLocation": "Ekifo Ekipya:",
+      "cancel": "Okusazaamu",
+      "changeLocation": "Kyuusa Ekifo"
+    },
+    "deleteAllThreads": {
+      "title": "Ssazaamu Emikutu Gyonna",
+      "description": "Emikutu gyonna gijja kusazibwamu. Ekikolwa kino tekiyinza kuddibwamu."
+    },
+    "deleteAllThreadsInProject": {
+      "title": "Ssaako Emboozi Zonna",
+      "description": "{{count}} emboozi mu \"{{projectName}}\" zijja kusazibwamu. Ekikolwa kino tekiyinza kuddibwamu."
+    },
+    "deleteThread": {
+      "description": "Okakasa nti oyagala okuggyawo emboozi eno? Tosobola kugizzaawo."
+    },
+    "editMessage": {
+      "title": "Okulongoosa Obubaka"
+    },
+    "messageMetadata": {
+      "title": "Metadata y'obubaka"
+    },
+    "deleteMessage": {
+      "description": "Okakasa nti oyagala okuggyawo obubaka buno? Tosobola kubuzzaawo."
+    }
+  },
+  "errorDialog": {
+    "titleFallback": "Waliwo ekyatambula obubi",
+    "details": "Ebisingawo"
+  },
+  "missingDependenciesDialog": {
+    "title": "Amaterekero g’ebitabo ag’enkola agabula",
+    "description": "{{backend}} yateekebwawo naye amaterekero g'enkola agamu ageetaagisa tegasobodde kuzuulibwa. Kiyinza okugwa okudda ku CPU oba obutatambula bulungi.",
+    "installLabel": "Okutereeza kino, teeka bino wammanga:",
+    "download": "Okuwanula",
+    "additionalLibraries": "Amaterekero amalala agabula:",
+    "missingLibraries": "Amaterekero g'ebitabo agabula:",
+    "showRawLibraries": "Laga {{count}} amannya g'etterekero ly'ebitabo agabula"
+  },
+  "projects": {
+    "title": "Pulojekiti",
+    "new": "Pulojekiti Empya",
+    "addProject": "Okwongerako Pulojekiti",
+    "addToProject": "Okwongera ku pulojekiti",
+    "removeFromProject": "Ggyawo mu pulojekiti",
+    "createNewProject": "Tonda Pulojekiti Empya",
+    "editProject": "Pulojekiti y'okulongoosa",
+    "deleteProject": "Okusazaamu Pulojekiti",
+    "projectName": "Erinnya lya Pulojekiti",
+    "enterProjectName": "Yingiza erinnya lya pulojekiti...",
+    "noProjectsAvailable": "Tewali pulojekiti eziriwo",
+    "noProjectsYet": "Tewali Pulojekiti N'okutuusa kati",
+    "noProjectsYetDesc": "Tandika pulojekiti empya ng’onyiga ku bbaatuuni ya Add Project.",
+    "projectNotFound": "Pulojekiti Tezuuliddwa",
+    "projectNotFoundDesc": "Pulojekiti gy'onoonya teriiwo oba esaziddwamu.",
+    "selectAssistant": "Londa omuyambi",
+    "noAssistantAssigned": "Tewali muyambi aweereddwa pulojekiti eno",
+    "files": "Fayiro",
+    "filesDescription": "Okwongerako PDF, ebiwandiiko, oba ebiwandiiko ebirala by’oyinza okukozesa mu pulojekiti eno.",
+    "uploadingFiles": "Okukola ku fayiro...",
+    "processButton": "Okwongerako",
+    "deleteProjectDialog": {
+      "title": "Okusazaamu Pulojekiti",
+      "permanentDelete": "Kino kijja kusazaamu enkalakkalira emiguwa gyonna.",
+      "permanentDeleteWarning": "Ekikolwa kino kijja kusazaamu enkalakkalira emiguwa ZONNA munda mu pulojekiti!",
+      "deleteEmptyProject": "Ekikolwa kino kijja kusazaamu pulojekiti \"{{projectName}}\".",
+      "saveThreadsAdvice": "Okutereka threads, zitwale ku thread list yo oba pulojekiti endala nga tonnasazaamu.",
+      "starredWarning": "Okyalina emiguwa egy'emmunyeenye munda mu pulojekiti.",
+      "deleteButton": "Okusazaamu",
+      "successWithName": "Pulojekiti \"{{projectName}}\" esaziddwamu bulungi",
+      "successWithoutName": "Pulojekiti esaziddwamu bulungi",
+      "error": "Eremereddwa okusazaamu pulojekiti. Nsaba oddemu ogezeeko.",
+      "ariaLabel": "Okusazaamu {{projectName}}"
+    },
+    "addProjectDialog": {
+      "createTitle": "Tonda Pulojekiti Empya",
+      "editTitle": "Pulojekiti y'okulongoosa",
+      "nameLabel": "Erinnya lya Pulojekiti",
+      "namePlaceholder": "Yingiza erinnya lya pulojekiti...",
+      "assistant": "Omuyambi",
+      "selectAssistant": "Londa omuyambi (okwesalirawo) .",
+      "noAssistant": "Tewali muyambi",
+      "addAssistant": "Okwongerako Omuyambi",
+      "createButton": "Okukola",
+      "updateButton": "Ebipya",
+      "alreadyExists": "Pulojekiti \"{{projectName}}\" yaliwo dda",
+      "createSuccess": "Pulojekiti \"{{projectName}}\" yatondebwa bulungi",
+      "updateSuccess": "Pulojekiti \"{{projectName}}\" yalongoosebwa bulungi",
+      "saveError": "Teyasobodde kutereka pulojekiti. Nsaba oddemu ogezeeko."
+    },
+    "noConversationsIn": "Tewali mboozi mu {{projectName}}",
+    "startNewConversation": "Tandika emboozi empya ne {{projectName}} wansi",
+    "conversationsIn": "Emboozi mu {{projectName}}",
+    "conversationsDescription": "Nywa ku mboozi yonna okugenda mu maaso n'okunyumya, oba tandika empya wansi.",
+    "conversation": "Emboozi",
+    "instructions": "Ebiragiro",
+    "setup": "Okuteekawo",
+    "instructionsDescription": "Okulongoosa eddoboozi n'engeri y'okuddamu",
+    "manageInstructions": "Okuddukanya Ebiragiro",
+    "thread": "obuwuzi",
+    "threads": "obuwuzi",
+    "updated": "Ebipya:",
+    "collapseProject": "Pulojekiti y'okugwa",
+    "expandProject": "Okugaziya pulojekiti",
+    "update": "Ebipya",
+    "searchProjects": "Okunoonya pulojekiti...",
+    "noProjectsFound": "Tewali pulojekiti zizuuliddwa",
+    "tryDifferentSearch": "Gezaako ekigambo eky'okunoonya eky'enjawulo"
+  },
+  "attachmentsIngestion": {
+    "title": "Londa engeri y'okuyingizaamu ebiyungibwako",
+    "description": "Londa oba ossa fayiro zino butereevu mu mboozi oba oziteeka mu index nga embeddings mu kifo ky’ekyo.",
+    "inline": "Fuyira mu mboozi",
+    "embeddings": "Kozesa ebiyingizibwa"
+  },
+  "attachmentInjectedIndicator": "Efuyiddwa mu mboozi",
+  "attachmentEmbeddedIndicator": "Eteekeddwamu ku RAG",
+  "viewInjectedContent": "Laba ebirimu ebifuyiddwa",
+  "injectedContentTitle": "Ebirimu mu fayiro ebifuyiddwa",
+  "toast": {
+    "allThreadsUnfavorited": {
+      "title": "Emikutu gyonna Tegiyagalibwa",
+      "description": "Thread zonna ziggyiddwa ku by'oyagala."
+    },
+    "deleteAllThreads": {
+      "title": "Ssazaamu Emikutu Gyonna",
+      "description": "Thread zonna zisaziddwamu enkalakkalira."
+    },
+    "renameThread": {
+      "title": "Kyuusa erinnya lya Thread",
+      "description": "Omutwe gw'oluwuzi gukyusiddwa erinnya ne gufuulibwa '{{title}}'."
+    },
+    "deleteThread": {
+      "title": "Okusazaamu Oluwuzi",
+      "description": "Thread eno esaziddwamu enkalakkalira."
+    },
+    "errorCopied": {
+      "title": "Okukoppa kuwangudde",
+      "description": "Ebikwata ku nsobi bikoppoloddwa ku clipboard"
+    },
+    "errorCopyFailed": {
+      "title": "Eremereddwa okukoppa",
+      "description": "Eremereddwa okukoppa amawulire g'ensobi ku clipboard"
+    },
+    "editMessage": {
+      "title": "Okulongoosa Obubaka",
+      "description": "Obubaka bulongooseddwa bulungi. Nsaba mulinde model addemu."
+    },
+    "appUpdateDownloaded": {
+      "title": "Okulongoosa App Kuwanuliddwa",
+      "description": "App update ewanuliddwa bulungi."
+    },
+    "appUpdateDownloadFailed": {
+      "title": "Okuwanula App Update Kulemereddwa",
+      "description": "Eremereddwa okuwanula app update. Nsaba oddemu ogezeeko."
+    },
+    "downloadComplete": {
+      "title": "Okuwanula Kuwedde",
+      "description": "{{item}} ebadde ewanuliddwa"
+    },
+    "downloadCancelled": {
+      "title": "Okuwanula Kusaziddwamu",
+      "description": "Enkola y'okuwanula yasazibwamu"
+    },
+    "downloadFailed": {
+      "title": "Okuwanula Kulemereddwa",
+      "description": "{{item}} okuwanula kulemereddwa",
+      "descriptionWithReason": "{{item}} okuwanula kulemereddwa: {{reason}}",
+      "reason": {
+        "dns": "erinnya lya seva teryasobola kugonjoolwa",
+        "refused": "okuyungibwa kwagaaniddwa",
+        "timeout": "omukutu gwaggwaako",
+        "tls": "omukutu ogw'obukuumi tegwasobodde kuteekebwawo",
+        "proxy": "omubaka teyasobodde kutuukirirwa",
+        "unreachable": "seva teyasobodde kutuukirirwa"
+      }
+    },
+    "openSettings": "Ggulawo Enteekateeka",
+    "openLogs": "Ggulawo ebiwandiiko",
+    "downloadTokenRequired": {
+      "title": "Token ya Hugging Face yeetaagibwa",
+      "description": "Omuze guno gwetaaga akabonero k’okuyingira mu Hugging Face. Yongera akabonero ko mu Settings era oddemu okugezaako."
+    },
+    "downloadLicenseRequired": {
+      "title": "Kkiriza layisinsi ya model ku Hugging Face",
+      "description": "Olina okukkiriza layisinsi ya model eno ku mukutu gwayo ogwa Hugging Face nga tonnagiwanula."
+    },
+    "downloadRateLimited": {
+      "title": "Omuwendo gukoma ku Hugging Face",
+      "description": "Obadde wa rate-limited. Okwongerako akabonero kiyinza okwongera ku kkomo ku miwendo. Nsaba oddemu ogezeeko oluvannyuma."
+    },
+    "modelValidationStarted": {
+      "title": "Omuze gw'okukakasa",
+      "description": "Omuze gwa \"{{modelId}}\" ogwawanuliddwa bulungi. Okukakasa obulungi..."
+    },
+    "modelValidationFailed": {
+      "title": "Okukakasa Omuze Kulemereddwa",
+      "description": "Omuze ogwawanulibwa \"{{modelId}}\" gwalemererwa okukakasa obulungi era gwaggyibwawo. Fayiro eyinza okwonooneka oba okukyusibwakyusibwa."
+    },
+    "downloadAndVerificationComplete": {
+      "title": "Okuwanula Kuwedde",
+      "description": "Omuze \"{{item}}\" gwawanulibwa era ne gukakasibwa bulungi"
+    },
+    "projectCreated": {
+      "title": "Pulojekiti Etondeddwawo",
+      "description": "Pulojekiti \"{{projectName}}\" yatondebwa bulungi"
+    },
+    "projectRenamed": {
+      "title": "Pulojekiti Ekyusiddwa Erinnya",
+      "description": "Pulojekiti yakyusibwa erinnya okuva ku \"{{oldName}}\" okudda ku \"{{newName}}\"."
+    },
+    "projectDeleted": {
+      "title": "Pulojekiti Esaziddwamu",
+      "description": "Pulojekiti \"{{projectName}}\" esaziddwamu bulungi"
+    },
+    "projectAlreadyExists": {
+      "title": "Pulojekiti Ebaddewo Dda",
+      "description": "Pulojekiti \"{{projectName}}\" yaliwo dda"
+    },
+    "projectDeleteFailed": {
+      "title": "Okusazaamu Kulemereddwa",
+      "description": "Eremereddwa okusazaamu pulojekiti. Nsaba oddemu ogezeeko."
+    },
+    "threadAssignedToProject": {
+      "title": "Omuguwa Guweereddwa",
+      "description": "Thread ewereddwa ku \"{{projectName}}\" bulungi"
+    },
+    "threadRemovedFromProject": {
+      "title": "Obuwuzi Buggyiddwawo",
+      "description": "Omuguwa guggiddwa mu \"{{projectName}}\" bulungi"
+    },
+    "fileUploaded": {
+      "title": "Fayiro Ekoleddwa",
+      "description": "Fayiro ekoleddwa era n'ewandiikibwa bulungi"
+    },
+    "uploadFailed": {
+      "title": "Okukola kulemereddwa",
+      "description": "Eremereddwa okukola ku fayiro",
+      "subjectThisFile": "Fayiro eno",
+      "pdfMalformedXref": "{{subject}} erina emmeeza y'okusalako eya PDF etali nnywevu era teyasobodde kusengekebwa. Gezaako okugiggulawo mu PDF viewer n’oddamu okugitereka (File → Print → Save as PDF), olwo oddemu ogiteeke.",
+      "pdfScanned": "{{subject}} kirabika nga PDF eya sikaani oba eyesigamiziddwa ku bifaananyi. OCR tennawagirwa — nsaba oteeke PDF eyesigamiziddwa ku biwandiiko.",
+      "pdfEncrypted": "{{subject}} ekuumibwa n'ekigambo ky'okuyingira. Ggyawo password oddemu ogezeeko.",
+      "pdfUnsupportedFeature": "{{subject}} ekozesa ekintu kya PDF Novera ky'etesobola kusengejja (e.g. Emirimu gya langi/okusiiga ebisiikirize bya PostScript). Gezaako okuddamu okugitereka (File → Print → Save as PDF) okugifuula flatten, olwo oddemu okugiteeka.",
+      "pdfGeneric": "{{subject}} teyasobodde kusengekebwa nga PDF. Fayiro eyinza okuba nga eyonoonese oba ekozesa ekintu kya PDF ekitawagirwa.",
+      "fileTooLarge": "{{subject}} kinene nnyo. {{message}}.",
+      "unsupportedType": "Ekika kya fayiro \"{{type}}\" tekiwagirwa.",
+      "ioError": "Teyasobodde kusoma {{subject}}: {{message}}",
+      "parseGeneric": "{{subject}} teyasobodde kusengekebwa: {{message}}",
+      "fallback": "Eremereddwa okukola ku {{subject}}."
+    },
+    "fileDeleted": {
+      "title": "Fayiro Esaziddwamu",
+      "description": "Fayiro eggiddwa mu pulojekiti"
+    },
+    "deleteFailed": {
+      "title": "Okusazaamu Kulemereddwa",
+      "description": "Eremereddwa okusazaamu fayiro"
+    },
+    "fileAlreadyExists": {
+      "title": "Fayiro Ebaddewo Dda",
+      "description": "Fayiro yagattibwa dda ku pulojekiti eno"
+    },
+    "unsupportedFileType": {
+      "title": "Ekika kya Fayiro ekitawagirwa",
+      "description": "Ekyongerwako kya fayiro \".{{extension}}\" tekiwagirwa ku kujuliza Pulojekiti."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "Ebigattibwako biremeddwa",
+      "description": "Ebigattibwako biremeddwa mu Nsengeka"
+    }
+  },
+  "errors": {
+    "fileTooLarge": "Fayiro nnene nnyo",
+    "fileTooLargeDescription": "{{fileName}} esukka ekkomo lya {{maxFileSizeMB}}MB"
+  },
+  "files": {
+    "chunksCount": "{{count}} ebitundutundu",
+    "title": "Fayiro",
+    "empty": "Fayiro z’ogattako ne fayiro agenti z’akola zijja kulabika wano.",
+    "a11y": "Fayiro: {{count}}",
+    "attachments": "Ebigattibwako",
+    "notImported": "si mu kifo we bakolera"
+  },
+  "llamacppBusyOnExit": {
+    "title": "llama.cpp ekyali bbize",
+    "description": "Model emu oba eziwera tezatikkula mu budde. Force-quitting ejja kukomya llama.cpp era eyinza okutaataaganya okuddamu okukola.",
+    "forceQuit": "Amaanyi gavuddemu",
+    "forcing": "Okukaka okulekawo...",
+    "shuttingDown": "Okuggala..."
+  },
+  "duration": {
+    "seconds": "{{count}} sikonda",
+    "minutes": "{{count}} ddakiika",
+    "hours": "{{count}} ssaawa"
+  },
+  "collapse": "Okugwa",
+  "expand": "Gaziya",
+  "todoPanelTitle": "Enkulaakulana",
+  "todoPanelEmpty": "Tewali lukalala lwa todo n'okutuusa kati.",
+  "backgroundTasks": "Emirimu egy’emabega",
+  "subagentsRunning_one": "{{count}} subagent ekola",
+  "subagentsRunning_other": "{{count}} ebitongole ebitono ebikola",
+  "monitorsRunning_one": "{{count}} omulondozi nga ekola",
+  "monitorsRunning_other": "{{count}} abalondoola nga bakola",
+  "backgroundRunning_one": "{{count}} omulimu ogw'emabega nga gutambula",
+  "backgroundRunning_other": "{{count}} emirimu egy'emabega nga gitambula",
+  "monitors": "Abalondoola",
+  "monitorPolling": "Okulonda",
+  "monitorMatched": "Ekwatagana",
+  "monitorTimedOut": "Ekiseera kiwedde",
+  "monitorStopped": "Yayimiridde",
+  "monitorEnded": "Kiwedde",
+  "coworkWatching_one": "Okulaba {{count}} okulondoola...",
+  "coworkWatching_other": "Okulaba {{count}} abalondoola...",
+  "coworkWaitingBackground": "Okulinda ku mirimu egy'emabega...",
+  "noBackgroundTasks": "Tewali mirimu gya mugongo n'okutuusa kati.",
+  "running": "Okudduka",
+  "queued": "Basimbye ennyiriri",
+  "waiting": "Okulinda",
+  "finished": "Kiwedde",
+  "subagentPhase": "omutendera {{phase}}",
+  "subagentWaiting": "okulinda",
+  "viewTranscript": "Laba ebiwandiiko ebiwandiikiddwa",
+  "taskWorking": "Okukola...",
+  "taskNoOutput": "Subagent teyafulumya kifulumizibwa kirabika.",
+  "subagentToolUses_one": "{{count}} enkozesa y'ebikozesebwa",
+  "subagentToolUses_other": "{{count}} ekintu ekikozesa",
+  "artifactGroupCode": "Koodi",
+  "artifactGroupImage": "Ekifaananyi",
+  "artifactGroupDocument": "Ekiwandiiko",
+  "artifactGroupVideo": "Akatambi",
+  "artifactGroupAudio": "Amaloboozi",
+  "artifactOpenPreview": "Ggulawo okusooka",
+  "artifactOpenExternal": "Okuggulawo",
+  "artifactMoreActions": "Ebikolwa ebirala",
+  "artifactShowInFolder": "Laga mu Folda",
+  "skillsUsedLabel": "Obukugu obukozesebwa",
+  "skillsUsed": "Obukugu obukozesebwa: {{skills}}",
+  "artifactsAll": "Byonna",
+  "artifactsEmpty": "Tewali kikoleddwa n'okutuusa kati. Ebintu eby’edda okuva mu misinde gya Cowork biraga wano.",
+  "artifactsNoMatch": "Tewali bintu bikwatagana.",
+  "artifactsSearch": "Noonya ebintu eby’edda",
+  "artifactsShowMore": "Laga {{count}} ebisingawo",
+  "workspace": {
+    "readsFrom": "Akola mu",
+    "writable": "okusoma & okuwandiika",
+    "footnote": "Agent asoma era n’alongoosa folda eno butereevu. Weekenneenye ebyakyuka mu diff panel.",
+    "footnoteEmpty": "Teekamu folda okuleka agent okukola ku pulojekiti yo. Kisobola okusoma n’okulongoosa fayiro eziri munda mu kyo.",
+    "attach": "Teeka ku folda",
+    "change": "Kyusa ekifo",
+    "detach": "Ggyako ekitabo",
+    "open": "Okuggulawo",
+    "reveal": "Okubikkula",
+    "unavailable": "Ekifo ky'okukoleramu tekisoboka",
+    "missing": "Ekitabo ky'ekifo ky'okukoleramu {{folder}} tekikyaliwo. Londa folda ey’enjawulo.",
+    "openFailed": "Teyasobodde kuggulawo kifo kya kukoleramu",
+    "revealFailed": "Teyasobodde kulaga kifo we bakolera",
+    "a11yWithFolder": "Ekitabo kya pulojekiti {{folder}}, ekiyungiddwaako n'okuyingira okusoma n'okuwandiika. Kikyuse oba kigyekutule.",
+    "a11yNoFolder": "Tewali folda ya pulojekiti eyungiddwaako. Teekako ekimu."
+  },
+  "coworkEmpty": {
+    "title": "Tukola ki?",
+    "subtitleSandbox": "Okuwa Novera omulimu. Esoma n’okuwandiika fayiro, ekola ebiragiro, era ekola okuyita mu mitendera ku bwayo.",
+    "subtitleFolder": "Okuwa Novera omulimu. Kikola butereevu mu {{folder}}, okusoma n'okulongoosa fayiro ku bwayo.",
+    "try": "Gezaako",
+    "sandbox": {
+      "first": "Wandiika script ya Python ekyusa amannya ga fayiro okusinziira ku lunaku lwe zaatwalibwa",
+      "second": "Zimba dashboard ey'olupapula lumu okuva ku CSV gye nja okuteekamu",
+      "third": "Wandiika README ku pulojekiti gye nkunnyonnyola"
+    },
+    "folder": {
+      "first": "Nnyonnyola engeri {{folder}} gy’eteekebwa wamu",
+      "second": "Funa buli TODO mu {{folder}} era oziteeke mu bibinja okusinziira ku kitundu",
+      "third": "Wandiika ebigezo by'ekitundu kya {{folder}} kye nkusongako"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "Tewali terminal",
+    "a11y": "Ebiragiro ebidduka bizikiddwa. Ebisingawo.",
+    "title": "Ebiragiro ebidduka bizikiddwa",
+    "body": "Novera ereka agent okuddukanya ebiragiro bya shell nga enkola yo esobola okubisiba. Tewali sandbox eriwo wano, kale agent asobola okusoma, okuwandiika n'okulongoosa fayiro mu sandbox ye — naye nga taddukanya kintu kyonna.",
+    "fixLinux": "Linux ekozesa bubblewrap. Kiteeke, olwo oddemu okutandika Novera.",
+    "fixMac": "macOS ekozesa sandbox ezimbiddwa mu /usr/bin/sandbox-exec. Ddamu okutandika Novera nga emaze okubeerawo.",
+    "fixWindows": "Windows ekozesa AppContainer. Ddamu okutandika Novera okuddamu okugezaako.",
+    "recheck": "Ddamu okebere"
+  },
+  "planMode": {
+    "label": "Enteekateeka",
+    "tooltipOff": "Sooka otegeke — agent asoma era n’ateesa, nga tawandiise.",
+    "tooltipOn": "Okuteekateeka. Kino kiggyeko okuleka agent okuwandiika fayiro.",
+    "onAnnounce": "Enteekateeka mode ku",
+    "placeholder": "Saba enteekateeka. Agent tajja kukyusa fayiro yonna."
+  },
+  "budget": {
+    "stoppedSteps": "Yayimirira ku mitendera {{max}}. Agent tannamaliriza.",
+    "keepGoing": "Sigala ng'ogenda mu maaso",
+    "stoppedTokens": "Yayimiridde — olutuula luno lwakuba embalirira yaalwo ey'akabonero.",
+    "compact": "Ekikwatagana",
+    "newSession": "Olukungana olupya"
+  },
+  "run": {
+    "stopped": "Yayimiridde.",
+    "failed": "Emisinde gyayimiridde nga bukyali.",
+    "tryAgain": "Gezaako nate"
+  },
+  "modelNoTools": "{{model}} tesobola kuyita bikozesebwa, kale tesobola kukola nga agent. Londa enkola y’okuyita ebikozesebwa.",
+  "askContinue": "Genda mu maaso",
+  "askNext": "Ekibuuzo ekiddako",
+  "askPrev": "Ekibuuzo ekyayita",
+  "askRecommended": "Kirungi",
+  "askSelectedCount": "{{count}} esunsuddwa",
+  "askSomethingElse": "Ekintu ekirala",
+  "askSomethingElsePlaceholder": "Wandiika eky'okuddamu kyo",
+  "submit": "Waayo",
+  "composer": {
+    "advanced": "Ebipimo eby’omulembe",
+    "modelDefaults": "Model ezisookerwako",
+    "assistantOverrides": "Omuyambi akyusa",
+    "printPdf": "Kuba / Teeka nga PDF",
+    "exportHint": "Enkola ezisomebwa: ettabi erikola. JSON: enkyusa zonna ez'obubaka. Fayiro ez’ebweru tezikuŋŋaanyiziddwa."
+  },
+  "telemetry": {
+    "summary": "Bw’okkiriza, {{host}} efuna enkyusa ya Novera n’enkola eddukanya ekyuma kyo byokka. Tefuna mboozi zo wadde ekiraga omukozesa ekitakyuka.",
+    "unavailable": "Ebibalo tebitegekeddwa. Tewali data esindikibwa."
+  },
+  "errorTracking": {
+    "title": "Okulondoola ensobi",
+    "summary": "Bw’oyagala, lipoota ziweerezebwa eri {{host}} nga zirimu ekika ky’ensobi, ekifo kyayo mu koodi, enkyusa ya Novera n’enkola eddukanya ekyuma. Tewali mboozi, bubaka bwa nsobi obutalongoose, oba bisumuluzo. Osobola okukiggyaako ekiseera kyonna.",
+    "unavailable": "Okulondoola ensobi tekutegekeddwa. Tewali lipoota ziweerezeddwa."
+  },
+  "access": {
+    "read": "Okusoma kwokka",
+    "ask": "Buuza nga tonnakyusa oba okuggyawo",
+    "allow": "Kkiriza okukyusa n’okuggyawo",
+    "folderNote": "Londa engeri Novera gy'eyinza okuyingira mu folda eno."
+  },
+  "components": {
+    "title": "Ebitundu by’omu kitundu",
+    "note": "Teeka ebitundu byokka bye weetaaga. Novera ekuuma embeera za Python nga zaawukana. Empeereza z'ekire tezeetaaga kuteekebwako mu kitundu.",
+    "estimates": "Okubalirira okuwanula: {{download}} · Ekifo ekyetaagisa ku disiki: {{space}} · Ekifo kya disiki ekiriwo: {{free}}",
+    "confirm": "Teeka embeera eno ey'obwannannyini? Ebitundu ebirondeddwa byokka bye bijja okuwanulibwa. Layisinsi zaabwe ez’ababuulizi ze zikola.",
+    "removeConfirm": "Ggyawo embeera eno eddukanyizibwa? Ebikozesebwa byo, ebitonde byo n’emboozi zo bijja kukuumibwa.",
+    "verify": "Kakasa",
+    "repair": "Okuddaabiriza",
+    "uninstall": "Ggyawo",
+    "missing": "Tekiteekeddwamu",
+    "managed": "Eddukanyizibwa kkampuni ya Novera",
+    "external": "Ekkubo lya Python ery'ebweru ery'okwesalirawo likyusa pulofayilo eddukanyizibwa. Kirongoose okukozesa embeera ya Novera.",
+    "failed": "Omulimu gw'ekitundu gulemereddwa. Kebera omukutu, ekifo ku disiki n'eddembe ly'okuyingira, olwo oddemu okugezaako oba okuddaabiriza.",
+    "required": "Okuteekateeka n’okukakasa ebitundu ebyetaagisa eby’omu kitundu mu Novera · Configurations.",
+    "updateAvailable": "Ebipya bibaawo",
+    "update": "Ebipya",
+    "rollback": "Okuzzaawo embeera eyasooka",
+    "busy": "Sumulula models za wano era olinde emirembe okumaliriza nga tonnakyusa bitundu."
+  },
+  "voiceConversation": "Emboozi ey’eddoboozi",
+  "voiceUnavailable": "Emboozi ey’eddoboozi tesobola kukozesebwa kati",
+  "voiceMale": "Eddoboozi ly’omusajja",
+  "voiceFemale": "Eddoboozi ly’omukazi",
+  "voiceReadReplies": "Soma eby’okuddamu mu ddoboozi"
+}

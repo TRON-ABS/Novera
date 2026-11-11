@@ -1,0 +1,840 @@
+{
+  "htmlArtifact": {
+    "code": "Kode",
+    "preview": "Kutala na ntwala",
+    "previewStreaming": "Kuvanda ntangu ndonga ya bantu ke manisa .",
+    "unresolvedAssets_one": "1 lenda kota ve na ntwala ya kutala. Banzila ya kinduku kele ve ti fondasio URL ya kuyidika mambu.",
+    "unresolvedAssets_other": "{{count}} ba referansi ya bima lenda charger ve na previsualisation. Banzila ya kinduku kele ve ti fondasio . URL sambu na kubaka lukanu ya kubuya."
+  },
+  "assistants": "Bansadisi",
+  "hardware": "Bima ya ngolo",
+  "mcp-servers": "Ba serveur ya MCP",
+  "local_api_server": "Serveur ya API ya bwala",
+  "remote_access": "Kukota na ntama",
+  "integrations": "Kuvukisa",
+  "experimental": "Kumekama",
+  "claude_code": "Claude Code",
+  "https_proxy": "Mumonisi ya HTTPS",
+  "web_search": "Sosa na Internet",
+  "shell": "Mbongo",
+  "browse": "Kusosa",
+  "moreControls": "Kulandila mingi",
+  "starting": "Kuyantika...",
+  "activeSuffix": "(Ya ke sala)",
+  "extensions": "Kulanda",
+  "attachments": "Bima ya bo me yika",
+  "general": "Ya mvimba",
+  "settings": "Bangidika",
+  "modelProviders": "Bantu ya ke pesaka mbandu",
+  "localProviders": "Kisika",
+  "remoteProviders": "Ntama",
+  "manageProviders": "Kulandila ba fournisseurs .",
+  "hiddenProviders": "{{count}} me kangama",
+  "hideProvider": "Bumba muntu ya ke pesaka",
+  "showProvider": "Monisa muntu ya ke pesaka",
+  "interface": "Kisika ya kukutana",
+  "appearance": "Kumonana",
+  "privacy": "Kinsweki",
+  "keyboardShortcuts": "Banzila ya nkufi",
+  "home": "Nzo",
+  "cowork": "Cowork",
+  "newSession": "Kintangu ya mpa",
+  "artifacts": "Bima ya ntama",
+  "customize": "Kuyidika",
+  "local": "Kisika",
+  "selectFolder": "Pona dossier",
+  "selectModel": "Pona ntete modele",
+  "commands": "Bansiku",
+  "cmdHelp": "Liste ya bantuma yina kele .",
+  "cmdClear": "Katula kitini yai",
+  "cmdModels": "Soba mbandu ya ke sala",
+  "cmdModelsHint": "Mutindu /models na nima pona mbandu mosi na liste",
+  "cmdModelSwitched": "Bo me balula yo na {{name}}",
+  "cmdUnknown": "Nsiku ya kuzabana ve: {{name}}. Kumeka /help",
+  "cmdBusy": "Lenda sala yau ve ntangu nsadi ke na kutambula .",
+  "cmdCompact": "Kuvukisa mambu ya kitini yina na bunkufi .",
+  "cmdCompacted": "Kukangama {{before}} -> {{after}} bansangu",
+  "cmdNothingToCompact": "Kima ya kukangama ntete ve .",
+  "cmdCompactFailed": "Kukangama me nunga ve: {{error}}",
+  "cmdPlan": "Kubalula mutindu ya kusala (kutanga kaka: nsadi ke pesa ngindu kukonda kusonika)",
+  "cmdPlanOn": "Mutindu ya kuyidika mambu na: nsadi ke tanga mpi ke pesa bangindu kukonda kusonika .",
+  "cmdPlanOff": "Kukanga mutindu ya kusala pula: kusala mambu mbote",
+  "cmdTodo": "Kangula kisika ya kukwenda na ntwala",
+  "cmdTasks": "Kangula kisika ya bisalu ya nima .",
+  "cmdInit": "Longuka kisalu mpe sonika mayele na ntu .",
+  "cmdInitRunning": "Kukota na kisalu yai .",
+  "skills": "Makuki",
+  "skillsInContext": "Mayele ya kele na nsadi ya ntinu yai .",
+  "skillsTitle": "Kusadila mayele .",
+  "skillsScopeProject": "Mayele sambu na {{folder}}",
+  "skillsScopeGlobal": "Mayele ya ntoto ya mvimba, kele na konso kitini .",
+  "skillsScopeMerged": "Mayele sambu na {{folder}}, yika mayele ya ntoto ya mvimba yina konso kitini ke kabula",
+  "skillOriginFolder": "dossier",
+  "skillOriginGlobal": "ya ntoto ya mvimba",
+  "skillsEmpty": "Mayele kele ntete ve",
+  "skillsPickOrNew": "Pona mayele ya kuyidika, to kusala ya mpa.",
+  "skillNew": "Mayele ya mpa",
+  "skillDelete": "Kufwa mayele",
+  "skillSave": "Kubumba",
+  "skillSaved": "Mayele me guluka",
+  "skillNameRequired": "Zina ya mayele kele mfunu",
+  "skillNamePlaceholder": "zina ya mayele",
+  "skillContentPlaceholder": "Tendula mutindu ya kusadila diaka na Markdown...",
+  "skillHubImport": "Kukotisa na kisika ya nene",
+  "skillHubTitle": "Anthropic kisika ya mayele",
+  "skillHubEmpty": "Ata mayele mosi ve me monana na hub .",
+  "skillImport": "Kukotisa na bwala",
+  "skillReimport": "Kuvutula bima na insi",
+  "skillImported": "Bo me kotisa yo {{name}}",
+  "sessions": "Balukutakanu",
+  "deleteSession": "Kufwa kitini",
+  "deleteSessionTitle": "Kufwa kilumbu?",
+  "deleteSessionBody": "\"{{title}}\" mpe masonama na yau ta katuka kimakulu. Dyambu yai lenda vutuka ve.",
+  "newChat": "Disolo ya mpa",
+  "newAgentChat": "Kusolula ya Nsadi ya Mpa",
+  "chats": "Masolo",
+  "favorites": "Mambu ya mono ke zolaka",
+  "recents": "Ya ntama mingi ve",
+  "hub": "Ntu",
+  "helpSupport": "Lusadisu & Lusadisu",
+  "helpUsImproveJan": "Sadisa Beto na Kutomisa Novera",
+  "analyticsConsentDetail": "Beto ke vukisaka bansangu ya bantu me zaba ve sambu na kubakisa mutindu ya kusadila bima. Bo ke landaka ve ata fioti ba chat mpi bansangu na nge. Nge lenda soba yo konso ntangu na Parametre > Mambu ya Kinsweki.",
+  "analyticsConsentQuestion": "Nge zola kusadisa beto na kutomisa Novera?",
+  "unstarAll": "Katula Bambwetete Yonso",
+  "unstar": "Katula mbwetete",
+  "deleteAll": "Kufwa mambu yonso",
+  "star": "Mbwetete",
+  "rename": "Soba zina",
+  "delete": "Lungula",
+  "copied": "Bo me sala yo!",
+  "dataFolder": "Dossier ya bansangu",
+  "others": "Yankaka",
+  "language": "Ndinga",
+  "login": "Kota na",
+  "loginWith": "Kota na {{provider}}",
+  "loginFailed": "Kukonda Kukota",
+  "logout": "Kubasika",
+  "loggingOut": "Kubasika...",
+  "loggedOut": "Kubasika mbote",
+  "logoutFailed": "Kukonda Kubasika",
+  "profile": "Muntu",
+  "reset": "Kuvutula",
+  "search": "Kusosa",
+  "searchThreads": "Sosa na masolo…",
+  "toNavigate": "sambu na kutambula",
+  "toSelect": "sambu na kupona",
+  "toClose": "ya kukanga .",
+  "clearRecent": "Bunkete",
+  "name": "Zina",
+  "cancel": "Katula",
+  "dismiss": "Kukatuka",
+  "create": "Kuganga",
+  "save": "Bumba",
+  "edit": "Kuyidika",
+  "copy": "Kopi",
+  "back": "Na nima",
+  "close": "Kanga",
+  "done": "Me salama",
+  "next": "Na nima",
+  "finish": "Kumanisa",
+  "skip": "Kupumbuka",
+  "allow": "Kupesa nzila",
+  "deny": "Kubuyisa",
+  "start": "Kuyantika",
+  "stop": "Telama",
+  "preview": {
+    "loading": "Ke kangula…",
+    "unsupported": "Novera lenda songa ve fishe ya mutindu yai. Kangula yo na programe ya nkaka sambu na kumona yo.",
+    "outside": "Fishe yai kele diaka ve na kisika ya kisalu ya kintangu yai.",
+    "tooLarge": "Fishe kele nene mingi sambu na kumona yo awa. Kangula yo na programe ya nkaka.",
+    "reload": "Kangula diaka",
+    "allowNetwork": "Pesa nswa na reseau",
+    "unsandboxed": "Tambusa kukonda sandbox: bansangu ya kubumba mpi bafishe ya apareyi ke sala",
+    "unresolvedRefs_one": "1 kisika mukanda yai lenda kota ve na ntwala ya kutala. Kangula yo sambu na kumona yo na navigateur.",
+    "unresolvedRefs_other": "{{count}} bafishe ya lutiti yayi lenda kwenda ve na ntwala ya kutala. Kangula yo sambu na kumona yo na navigateur.",
+    "externalRefs_one": "1 kima ya lutiti yayi ke katuka na web me kangama. Kangula \"Kupesa nzila na réseau\" sambu na kutula yo.",
+    "externalRefs_other": "{{count}} bima yina mukanda yai ke basisa na nzila ya internet me kangama. Kangula \"Kupesa nzila na réseau\" sambu na kutula bo.",
+    "scriptErrors_one": "Mukanda me zabisa kifu: {{message}}",
+    "scriptErrors_other": "Mukanda me zabisa bifu ya {{count}}. Ya ntete: {{message}}"
+  },
+  "changes": {
+    "title": "Kusoba ya nsadi",
+    "empty": "Ba fichiers yina nsadi ke sonika to ke yidika ta monana awa.",
+    "a11y": "Bansoba ya nsadi: {{files}}, {{additions}} me yikama, {{deletions}} me katuka"
+  },
+  "modelPanel": {
+    "title": "Bangidika ya modele",
+    "a11y": "Kangula bangidika ya modele",
+    "contextTooltip": "Kiteso ya kontekste: {{value}} na ba token {{max}}"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "Mayele '{{name}}' kele ve",
+    "kind": {
+      "skill": "Makuki",
+      "command": "Nsiku",
+      "model": "Mbandu"
+    }
+  },
+  "compactWidth": "Largeur ya fioti",
+  "fullWidth": "Largeur ya mvimba",
+  "dark": "Ndombe",
+  "light": "Nsemo",
+  "system": "Ngidika",
+  "auto": "Na mutindu ya yo mosi",
+  "english": "Kikongo",
+  "medium": "Na kati-kati",
+  "newThread": "Nsinga ya mpa",
+  "noResultsFound": "Kima mosi ve me monana",
+  "noThreadsYet": "Disolo mosi ve ntete",
+  "noThreadsYetDesc": "Yantika disolo ya mpa. Nda ya masolo na nge ta monana awa.",
+  "downloads": "Bafishe ya kukulumusa",
+  "downloading": "Ke kulumusa…",
+  "uploadingAttachments": "Kutula bima ya bo me yika...",
+  "cancelDownload": "Katula kukulumusa",
+  "downloadCancelled": "Bo me katula yo",
+  "downloadComplete": "Kukulumusa me mana",
+  "thinking": "Kuyindula...",
+  "thought": "Ngindu",
+  "callingTool": "Bisadilu ya kubinga",
+  "completed": "Me manisa",
+  "image": "Kifwanisu",
+  "vision": "Mbona-meso",
+  "multimodal": "Mitindu mingi",
+  "embeddings": "Kukotisa mambu na kati",
+  "tools": "Bisadilu",
+  "webSearch": "Sosa na Internet",
+  "reasoning": "Kuyindula",
+  "proactive": "Kusala mambu na ntwala",
+  "selectAModel": "Pona mbandu mosi .",
+  "noToolsAvailable": "Bisadilu kele ve .",
+  "noModelsFoundFor": "Ata mbandu mosi ve me monana sambu na \"{{searchValue}}\"",
+  "failedToLoadModels": "Kukonda kutula bambandu",
+  "noModels": "Ata mbandu mosi ve me monana",
+  "noAssistant": "Nsadisi mosi ve .",
+  "customAvatar": "Kifwanisu ya muntu yandi mosi",
+  "editAssistant": "Nsadisi ya kuyidika",
+  "jan": "Novera",
+  "metadata": "Bansangu ya nene",
+  "regenerate": "Bimisa diaka",
+  "threadImage": "Kifwanisu ya nsinga",
+  "editMessage": "Soba Nsangu",
+  "deleteMessage": "Lungula nsangu",
+  "deleteThread": "Kufwa Nsinga",
+  "renameThread": "Soba zina ya nsinga",
+  "threadTitle": "Ntu-dyambu ya Nsinga",
+  "deleteAllThreads": "Kufwa Bansinga Yonso",
+  "allThreadsUnfavorited": "Ba nsinga yonso ya bo ke zolaka ve",
+  "deleteAllThreadsConfirm": "Nge ke na kivuvu nde nge ke zola kufwa ba nsinga yonso? Kisalu yai lenda vutuka ve na nima.",
+  "addProvider": "Yika Muntu ya Ke Pesaka",
+  "addOpenAIProvider": "Yika OpenAI Muntu ya ke pesaka bima",
+  "enterNameForProvider": "Sonika zina ya muntu yina ke pesaka nge bima .",
+  "providerAlreadyExists": "Mupesi yina kele na zina \"{{name}}\" kele dezia. Pardo pona zina ya nkaka.",
+  "adjustFontSize": "Kuyidika nene ya bisono",
+  "changeLanguage": "Soba Ndinga .",
+  "editTheme": "Soba Ntu-Diambu",
+  "editCodeBlockStyle": "Soba mutindu ya kukanga kode",
+  "editServerHost": "Soba muntu ya ke yambaka serveur",
+  "pickColorWindowBackground": "Pona Mukubu ya Fenetre ya Nsi",
+  "pickColorAppMainView": "Pona Mukubu ya App ya Kumona ya Ntete",
+  "pickColorAppPrimary": "Pona App ya Mukubu ya Ntete",
+  "pickColorAppAccent": "Pona Mukubu ya App",
+  "pickColorAppDestructive": "Kupona App ya Kufwa",
+  "apiKeyRequired": "API Nsabi kele mfunu",
+  "enterTrustedHosts": "Kota na banzenza ya nge ke tudilaka ntima",
+  "placeholder": {
+    "chatInput": "Yula mono konso kima..."
+  },
+  "confirm": "Kundimisa",
+  "continue": "Landa",
+  "loading": "Kutula...",
+  "settingUpJan": "Kuyantika Novera...",
+  "registeringExtensions": "Kusonikisa ba nsangu ya nkaka...",
+  "loadingExtensions": "Kutula bima ya nkaka... ({{done}}/{{total}})",
+  "error": "Kifu",
+  "success": "Kununga",
+  "warning": "Lukebisu",
+  "conversationNotAvailable": "Masolo kele ve",
+  "conversationNotAvailableDescription": "Disolo ya nge ke sosa kukota kele ve to bo me katula yo.",
+  "temporaryChat": "Masolo ya ntangu fioti",
+  "temporaryChatTooltip": "Masolo ya ntangu fioti ta monana ve na disolo na nge",
+  "noResultsFoundDesc": "Beto me mona ve ata masolo mosi ya ke wakana ti mambu ya nge ke sosa. Meka ngogo ya mfunu ya nkaka.",
+  "searchModels": "Bambandu ya kusosa...",
+  "searchStyles": "Mitindu ya kusosa...",
+  "createAssistant": "Kusala Nsadisi .",
+  "enterApiKey": "Kotisa API Nsabi",
+  "scrollToBottom": "Kukwenda na nsi",
+  "generateAiResponse": "Kubasisa mvutu ya AI",
+  "continueAiResponse": "Landa na AI Mvutu",
+  "addModel": {
+    "title": "Yika mbandu",
+    "modelId": "Mbandu ID",
+    "enterModelId": "Kota na mbandu ID",
+    "addModel": "Yika mbandu",
+    "description": "Yika mbandu ya mpa na muntu yina ke pesaka .",
+    "exploreModels": "Tala liste ya mbandu ya muntu yina ke pesaka"
+  },
+  "mcpServers": {
+    "editServer": "Soba serveur",
+    "addServer": "Yika serveur",
+    "serverName": "Zina ya serveur",
+    "enterServerName": "Sonika zina ya serveur",
+    "command": "Nsiku",
+    "enterCommand": "Kotisa ntuma",
+    "arguments": "Bantendula",
+    "argument": "Dibanza {{index}}",
+    "envVars": "Bima ya ke sobaka na nziunga",
+    "key": "Nsapi",
+    "value": "Ntalu",
+    "save": "Kubumba"
+  },
+  "deleteServer": {
+    "title": "Kufwa serveur",
+    "delete": "Kuvwansa"
+  },
+  "editJson": {
+    "errorParse": "Kukonda kukatula JSON",
+    "errorPaste": "Kukangama me kuka ve JSON",
+    "errorFormat": "Mutindu ya JSON kele mbote ve",
+    "titleAll": "Soba mutindu ya kusadila baserveur yonso",
+    "placeholder": "Kota na ndonga ya JSON...",
+    "save": "Kubumba"
+  },
+  "editModel": {
+    "title": "Soba mbandu: {{modelId}}",
+    "description": "Kuyidika makuki ya mbandu na kubalulaka mambu yina kele na nsi.",
+    "capabilities": "Makoki",
+    "tools": "Bisadilu",
+    "vision": "Mbona-meso",
+    "embeddings": "Kukotisa mambu na kati",
+    "notAvailable": "Yau kele ntete ve ."
+  },
+  "outOfContextError": {
+    "truncateInput": "Kuzenga Kukota",
+    "title": "Kifu ya nganda ya kisika",
+    "description": "Disolo yai ke kuma na ndilu ya mabanza ya AI, bonso tablo ya mpembe ke fuluka. Beto lenda sala fenetre ya memoire (yina bo ke bingaka nene ya contexte) sambu yo yibuka mambu mingi, kansi yo lenda sadila memoire mingi ya ordinatere na nge. Beto lenda zenga mpi mambu yina bo me kotisa, disongidila yo ta vila mambu ya nkaka ya disolo ya chat sambu na kubikisa kisika sambu na bansangu ya mpa.",
+    "increaseContextSizeDescription": "Keti nge ke zola kuyedisa nene ya mambu yina kele na kati?",
+    "increaseContextSize": "Kudisa Bunene ya Mambu"
+  },
+  "toolApproval": {
+    "title": "Kulomba nswa ya bisadilu",
+    "description": "Nsadisi ke zola kusadila <strong>{{toolName}}</strong>",
+    "securityNotice": "Pesa kaka bisadilu yina nge ke tudilaka ntima. Bisadilu lenda kota na systeme mpi na bansangu na nge.",
+    "deny": "Kubuyisa",
+    "allowOnce": "Pesa Nswa Mbala Mosi",
+    "alwaysAllow": "Ntangu yonso Pesa Nswa"
+  },
+  "deleteModel": {
+    "title": "Kufwa mbandu: {{modelId}}",
+    "description": "Nge ke na kivuvu nde nge ke zola kufwa mbandu yai? Kisalu yai lenda vutuka ve na nima.",
+    "success": "Mutindu {{modelId}} me katuka kimakulu.",
+    "cancel": "Kuyambula",
+    "delete": "Kuvwansa"
+  },
+  "deleteProvider": {
+    "title": "Kufwa Muntu ya Ke Pesaka",
+    "description": "Kufwa nsiku yai ti bambandu na yo yonso. Kisalu yai lenda vutuka ve na nima.",
+    "success": "Muntu ya ke pesaka {{provider}} me katuka kimakulu.",
+    "confirmTitle": "Kufwa Fournisseur: {{provider}}",
+    "confirmDescription": "Nge ke na kivuvu nde nge ke zola kufwa fournisseur yai? Kisalu yai lenda vutuka ve na nima.",
+    "cancel": "Kuyambula",
+    "delete": "Kuvwansa"
+  },
+  "modelSettings": {
+    "label": "Bangidika ya modele",
+    "title": "Baparametre ya mbandu - {{modelId}}",
+    "description": "Kuyidika ba parametre ya mbandu sambu na kutomisa bisalu mpi bikalulu.",
+    "nglDisabledByFit": "Kufwanana ya kimuntu kele kupona GPU ba couche. Katula Auto-fit sambu na kutula yo na maboko.",
+    "samplingDefaults": {
+      "title": "Baparametre ya mbandu ya luyantiku",
+      "description": "Ba parametre ya mbandu ya ntete sambu na mbandu yai. Bo ke sadilaka yo katula kaka kana bo me katula yo na valere ya nsadisi mosi-mosi to ya kulomba mosi-mosi."
+    },
+    "specDraft": {
+      "section": "Kuzaba mambu na mutindu ya kuyindula",
+      "enable": "Kupesa nzila na kuzaba mambu ya luvunu",
+      "enableDescription": "Kusala ba jetons mingi na kitambi mosi mpi kuzikisa yo na mbala mosi, yina ke salaka nde kubuta kusalama nswalu. Yandi ke sadilaka modele yina bo me tungaka . MTP ba-ntu, to modele ya projet yina bo me baka ti yo (MTP, Eagle3, DFlash to DSpark).",
+      "nMax": "Ba mbongo mingi",
+      "nMaxDescription": "Ntalu ya mingi ya ba nsangu ya kusala na konso kitambi. Na luyantiku 16.",
+      "nMin": "Ba jetons ya fioti",
+      "nMinDescription": "Ntalu ya fioti ya bima ya bo fwete sonika na konso kitambi. Na luyantiku 0.",
+      "pMin": "Kivuvu ya fioti ya projet",
+      "pMinDescription": "Kivuvu ya fioti sambu na kusala kisalu ya lukasi (0–1). Mpila yo ke vandaka 0.75."
+    },
+    "templateKwargs": {
+      "section": "Banzila ya mbandu ya masolo",
+      "description": "Banzila ya nkaka ya mbandu yai ke ndimaka. Tindamaka bonso chat_template_kwargs na konso kulomba; bika ntalu mosi na kisika na yo sambu na kubika nde mbandu kubaka lukanu.",
+      "addCustom": "Yika nzila ya nge mosi",
+      "keyPlaceholder": "zina",
+      "valuePlaceholder": "mbalu",
+      "add": "Kuyika",
+      "cancel": "Kuyambula",
+      "remove": "Katula"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "Lendaka ve kutula na kilumbu baparametre ya mbandu"
+  },
+  "dialogs": {
+    "changeDataFolder": {
+      "title": "Soba kisika ya dossier ya bansangu",
+      "description": "Keti nge ke na kivuvu nde nge ke zola kusoba kisika ya dossier ya ba nsangu? Yo ta nata bansangu na nge yonso na kisika yina ya mpa mpi ta yantika diaka application.",
+      "currentLocation": "Kisika ya ntangu yai:",
+      "newLocation": "Kisika ya Mpa:",
+      "cancel": "Kuyambula",
+      "changeLocation": "Soba Kisika"
+    },
+    "deleteAllThreads": {
+      "title": "Kufwa Bansinga Yonso",
+      "description": "Ba nsinga yonso ta katuka. Kisalu yai lenda vutuka ve na nima."
+    },
+    "deleteAllThreadsInProject": {
+      "title": "Kufwa Masolo Yonso",
+      "description": "{{count}} masolo na \"{{projectName}}\" ta katuka. Kisalu yai lenda vutuka ve na nima."
+    },
+    "deleteThread": {
+      "description": "Nge ke zola mpenza kulungula disolo yai? Nge lenda vutula yo ve."
+    },
+    "editMessage": {
+      "title": "Soba Nsangu"
+    },
+    "messageMetadata": {
+      "title": "Bansangu ya Nsangu"
+    },
+    "deleteMessage": {
+      "description": "Nge ke zola mpenza kulungula nsangu yai? Nge lenda vutula yo ve."
+    }
+  },
+  "errorDialog": {
+    "titleFallback": "Kima mosi me kwenda mbote ve .",
+    "details": "Mambu ya fioti-fioti"
+  },
+  "missingDependenciesDialog": {
+    "title": "Babiblioteke ya Sisteme ya Kukonda",
+    "description": "{{backend}} me tulama kansi ba biblioteke ya nkaka ya ngidika ya mfunu me monana ve. Yo lenda vutuka na nima na CPU to kusala mbote ve.",
+    "installLabel": "Samu na kuyidika mambu yayi, tula bima yayi:",
+    "download": "Kubaka",
+    "additionalLibraries": "Babiblioteke ya nkaka ya me konda:",
+    "missingLibraries": "Babiblioteke ya kukonda:",
+    "showRawLibraries": "Songa {{count}} bazina ya biblioteke ya me konda"
+  },
+  "projects": {
+    "title": "Bisalu",
+    "new": "Bisalu ya mpa",
+    "addProject": "Yika kisalu",
+    "addToProject": "Yika na kisalu",
+    "removeFromProject": "Katula na kisalu .",
+    "createNewProject": "Kusala kisalu ya mpa",
+    "editProject": "Kuyidika kisalu",
+    "deleteProject": "Kufwa kisalu",
+    "projectName": "Zina ya kisalu",
+    "enterProjectName": "Sonika zina ya kisalu...",
+    "noProjectsAvailable": "Bisalu kele ve .",
+    "noProjectsYet": "Ata Bisalu mosi ve",
+    "noProjectsYetDesc": "Banda kisalu ya mpa na kubula na buto Yika kisalu.",
+    "projectNotFound": "Kisalu me monana ve",
+    "projectNotFoundDesc": "Projet ya nge ke sosa kele ve to bo me katula yo.",
+    "selectAssistant": "Kupona nsadisi",
+    "noAssistantAssigned": "Ata nsadisi mosi ve me pesamaka na kisalu yayi .",
+    "files": "Badosie",
+    "filesDescription": "Yika ba PDF, mikanda, to masonama ya nkaka sambu na kusadila na kisalu yai.",
+    "uploadingFiles": "Kusadila bafishe...",
+    "processButton": "Kuyika",
+    "deleteProjectDialog": {
+      "title": "Kufwa kisalu",
+      "permanentDelete": "Yau ta katula ba nsinga yonso kimakulu.",
+      "permanentDeleteWarning": "Kisalu yai ta katula kimakulu ba nsinga YONSO na kati ya kisalu!",
+      "deleteEmptyProject": "Kisalu yai ta katula kisalu \"{{projectName}}\".",
+      "saveThreadsAdvice": "Samu na ku bumba ba nsangu, nata yau na liste ya ba nsangu na nge to na projet ya nkaka na ntwala ya ku katula yau.",
+      "starredWarning": "Nge kele kaka na ba nsinga ya bambwetete na kati ya kisalu.",
+      "deleteButton": "Kuvwansa",
+      "successWithName": "Kisalu \"{{projectName}}\" me katuka mbote",
+      "successWithoutName": "Bo me katula kisalu mbote",
+      "error": "Kukonda kufwa kisalu. Mulemvo meka diaka.",
+      "ariaLabel": "Kufwa {{projectName}}"
+    },
+    "addProjectDialog": {
+      "createTitle": "Kusala kisalu ya mpa",
+      "editTitle": "Kuyidika kisalu",
+      "nameLabel": "Zina ya kisalu",
+      "namePlaceholder": "Sonika zina ya kisalu...",
+      "assistant": "Nsadisi",
+      "selectAssistant": "Pona nsadisi (ya kupona) .",
+      "noAssistant": "Nsadisi mosi ve .",
+      "addAssistant": "Yika Nsadisi",
+      "createButton": "Kuganga",
+      "updateButton": "Nsangu ya mpa",
+      "alreadyExists": "Kisalu \"{{projectName}}\" kele deja",
+      "createSuccess": "Kisalu \"{{projectName}}\" me salama mbote",
+      "updateSuccess": "Kisalu \"{{projectName}}\" me bongisama mbote",
+      "saveError": "Kukonda kubumba kisalu. Mulemvo meka diaka."
+    },
+    "noConversationsIn": "Masolo kele ve na {{projectName}}",
+    "startNewConversation": "Banda disolo ya mpa na {{projectName}} na nsi",
+    "conversationsIn": "Masolo na {{projectName}}",
+    "conversationsDescription": "Fina na konso disolo sambu na kulanda kusolula, to yantika disolo ya mpa na nsi.",
+    "conversation": "Masolo",
+    "instructions": "Malongi",
+    "setup": "Kuyidika",
+    "instructionsDescription": "Kuyidika ndinga mpi mutindu ya kupesa mvutu",
+    "manageInstructions": "Landa Malongi",
+    "thread": "nsinga",
+    "threads": "bansinga",
+    "updated": "Bo me yidika yo:",
+    "collapseProject": "Kufwa ya kisalu",
+    "expandProject": "Kuyedisa kisalu",
+    "update": "Nsangu ya mpa",
+    "searchProjects": "Kusosa bisalu...",
+    "noProjectsFound": "Ba kisalu me monana ve .",
+    "tryDifferentSearch": "Meka ngogo ya nkaka ya kusosa"
+  },
+  "attachmentsIngestion": {
+    "title": "Pona mutindu ya kudia bima ya ke kangamaka .",
+    "description": "Pona kana nge fwete kotisa bafishe yai mbala mosi na masolo to kutula yo na index bonso bima ya bo me kotisa na kisika na yo.",
+    "inline": "Kota na masolo",
+    "embeddings": "Sadila bima ya kukotisa"
+  },
+  "attachmentInjectedIndicator": "Kukota na masolo",
+  "attachmentEmbeddedIndicator": "Bo me kotisa yo sambu na RAG",
+  "viewInjectedContent": "Tala mambu ya bo me kotisa",
+  "injectedContentTitle": "Bo me kotisa mambu na kati ya fichier",
+  "toast": {
+    "allThreadsUnfavorited": {
+      "title": "Ba nsinga yonso ya bo ke zolaka ve",
+      "description": "Ba nsinga yonso me katuka na ba nsangu ya nge ke zolaka."
+    },
+    "deleteAllThreads": {
+      "title": "Kufwa Bansinga Yonso",
+      "description": "Ba nsinga yonso me katuka kimakulu."
+    },
+    "renameThread": {
+      "title": "Soba zina ya nsinga",
+      "description": "Bo me soba zina ya ntu-diambu na '{{title}}'."
+    },
+    "deleteThread": {
+      "title": "Kufwa Nsinga",
+      "description": "Nsinga yayi me katuka kimakulu."
+    },
+    "errorCopied": {
+      "title": "Kopi me nunga",
+      "description": "Bansangu ya kifu ya bo me kotisa na tablo"
+    },
+    "errorCopyFailed": {
+      "title": "Kukonda kusala kopi .",
+      "description": "Kukonda kukotisa bansangu ya kifu na tablo ya kukangama"
+    },
+    "editMessage": {
+      "title": "Soba Nsangu",
+      "description": "Nsangu me yidika mbote. Pardon vingila modele na kupesa mvutu."
+    },
+    "appUpdateDownloaded": {
+      "title": "Bo me baka App ya mpa",
+      "description": "Bo me baka appli ya mpa mbote."
+    },
+    "appUpdateDownloadFailed": {
+      "title": "Kubaka na zulu ya application me nunga ve",
+      "description": "Kukonda kubaka nsangu ya mpa ya appli. Mulemvo meka diaka."
+    },
+    "downloadComplete": {
+      "title": "Kubaka Mvimba",
+      "description": "{{item}} me katuka"
+    },
+    "downloadCancelled": {
+      "title": "Bo me katula yo",
+      "description": "Bo me katula kisalu ya kubaka bansangu ."
+    },
+    "downloadFailed": {
+      "title": "Kubaka yo me nunga ve",
+      "description": "{{item}} télécharger me nunga ve",
+      "descriptionWithReason": "{{item}} me simba ve: {{reason}}",
+      "reason": {
+        "dns": "zina ya serveur lendaka kuyidika ve",
+        "refused": "bo buyaka kukangama .",
+        "timeout": "ntangu ya kukangama me mana",
+        "tls": "nzila ya lutaninu lendaka kusalama ve .",
+        "proxy": "bo lendaka kukutana ve ti muntu yina bo pesaka kiyeka",
+        "unreachable": "serveur lendaka kukuma ve"
+      }
+    },
+    "openSettings": "Kangula Baparametre",
+    "openLogs": "Kukangula banti",
+    "downloadTokenRequired": {
+      "title": "Hugging Face yo ke lombaka kidimbu",
+      "description": "Mbandu yayi ke lomba Hugging Face kidimbu ya kukota. Yika kidimbu na nge na Parametre mpi meka diaka."
+    },
+    "downloadLicenseRequired": {
+      "title": "Ndima nswa ya mbandu na Hugging Face",
+      "description": "Nge fwete ndima nswa ya modele na lutiti na yo ya Hugging Face na ntwala ya kubaka yo."
+    },
+    "downloadRateLimited": {
+      "title": "Ntalu ya bo me tula ndilu na Hugging Face",
+      "description": "Nge me kuma na ntalu ya fioti. Kuyika kidimbu lenda matisa bandilu ya ntalu. Mulemvo meka diaka na manima."
+    },
+    "modelValidationStarted": {
+      "title": "Kundimisa Mbandu",
+      "description": "Bo me baka mbandu ya \"{{modelId}}\" mbote. Kuzikisa kukwikama..."
+    },
+    "modelValidationFailed": {
+      "title": "Kundimisa ya mbandu me nunga ve",
+      "description": "Mutindu ya bo me baka \"{{modelId}}\" me nunga ve na kuzikisa bumosi mpi bo me katula yo. Dosie lenda beba to bo lenda soba yo."
+    },
+    "downloadAndVerificationComplete": {
+      "title": "Kubaka Mvimba",
+      "description": "Mbandu \"{{item}}\" bo me baka yo mpi bo me zikisa yo mbote"
+    },
+    "projectCreated": {
+      "title": "Bo me sala kisalu",
+      "description": "Kisalu \"{{projectName}}\" me salama mbote"
+    },
+    "projectRenamed": {
+      "title": "Bo me soba zina ya kisalu",
+      "description": "Projet me soba zina katuka na \"{{oldName}}\" na \"{{newName}}\""
+    },
+    "projectDeleted": {
+      "title": "Bo me katula kisalu",
+      "description": "Kisalu \"{{projectName}}\" me katuka mbote"
+    },
+    "projectAlreadyExists": {
+      "title": "Kisalu kele dezia",
+      "description": "Kisalu \"{{projectName}}\" kele deja"
+    },
+    "projectDeleteFailed": {
+      "title": "Kufwa me nunga ve",
+      "description": "Kukonda kufwa kisalu. Mulemvo meka diaka."
+    },
+    "threadAssignedToProject": {
+      "title": "Nsinga ya bo me pesa",
+      "description": "Nsinga ya bo me pesa na \"{{projectName}}\" me nunga"
+    },
+    "threadRemovedFromProject": {
+      "title": "Nsinga me katuka",
+      "description": "Nsinga me katuka na \"{{projectName}}\" mbote"
+    },
+    "fileUploaded": {
+      "title": "Bo me yidika fichier",
+      "description": "Bo me yidika mbote-mbote fichier mpi bo me tula yo na ndonga ."
+    },
+    "uploadFailed": {
+      "title": "Kusadila me nunga ve",
+      "description": "Kukonda kusadila fichier",
+      "subjectThisFile": "Dosie yai",
+      "pdfMalformedXref": "{{subject}} kele ti kifu PDF mesa ya referansi mpi bo lendaka ve kutadila yo. Meka kukangula yo na . PDF tala mpi kubumba yo diaka (Fichier → Imprimer → Enregistrer comme . PDF), na nima tula yo diaka.",
+      "pdfScanned": "{{subject}} yo ke monana nde bo me sala scanner to me simbama na bifwanisu . PDF. OCR ke ndimama ntete ve — pardo tula kima mosi ya me simbama na masonama . PDF.",
+      "pdfEncrypted": "{{subject}} kele ya kutanina na nzila ya mot de passe. Katula mot de passe mpi meka diaka.",
+      "pdfUnsupportedFeature": "{{subject}} ke sadila PDF kima mosi Novera lenda ve kuzenga (mu mbandu PostScript bisalu ya mukubu/kivudi). Meka kubumba yo diaka (Fichier → Imprimer → Sauvegarder comme PDF) sambu na kuzenga yo, na nima tula yo diaka.",
+      "pdfGeneric": "{{subject}} lendaka kukangula ve bonso PDF. Mukanda lenda beba to kesadila kima mosi PDF ya ke sadisamaka ve.",
+      "fileTooLarge": "{{subject}} kele nene mingi. {{message}}.",
+      "unsupportedType": "Mutindu ya fioti \"{{type}}\" ke ndimama ve.",
+      "ioError": "Lendaka ve kutanga {{subject}}: {{message}}",
+      "parseGeneric": "{{subject}} lendaka kukangula ve: {{message}}",
+      "fallback": "Kukonda kusala kisalu ya {{subject}}."
+    },
+    "fileDeleted": {
+      "title": "Bo me katula fichier",
+      "description": "Bo me katula dosie na kisalu ."
+    },
+    "deleteFailed": {
+      "title": "Kufwa me nunga ve",
+      "description": "Kukonda kufwa fichier"
+    },
+    "fileAlreadyExists": {
+      "title": "Dosie kele dezia",
+      "description": "Dosie me kangama deja na kisalu yayi ."
+    },
+    "unsupportedFileType": {
+      "title": "Mutindu ya fichier ke ndimama ve",
+      "description": "Kulanda ya fichier \".{{extension}}\" ke sadisama ve samu na kulandana ya Projet."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "Kukangama me kangama",
+      "description": "Bo me kangaka bima ya nkaka na Parametre ."
+    }
+  },
+  "errors": {
+    "fileTooLarge": "Dosie kele nene mingi",
+    "fileTooLargeDescription": "{{fileName}} kuluta . {{maxFileSizeMB}}MB ndilu"
+  },
+  "files": {
+    "chunksCount": "{{count}} bitini",
+    "title": "Badosie",
+    "empty": "Ba fichiers ya nge ke kanga na ba fichiers yina nsadi ke sala ke monana awa.",
+    "a11y": "Bafishe: {{count}}",
+    "attachments": "Bima ya bo me yika",
+    "notImported": "ve na kisika ya kisalu"
+  },
+  "llamacppBusyOnExit": {
+    "title": "llama.cpp kele kaka na kisalu",
+    "description": "Mutindu mosi to mingi ke katukaka ve na ntangu. Kukatula na ngolo ta manisa llama.cpp mpi lenda zenga bamvutu ya ke sala.",
+    "forceQuit": "Kukatula na ngolo",
+    "forcing": "Kukatuka na ngolo...",
+    "shuttingDown": "Kukanga..."
+  },
+  "duration": {
+    "seconds": "{{count}} sekonde",
+    "minutes": "{{count}} minuta",
+    "hours": "{{count}} ntangu"
+  },
+  "collapse": "Kubwa",
+  "expand": "Kukumisa nene",
+  "todoPanelTitle": "Kukwenda na ntwala",
+  "todoPanelEmpty": "Liste ya bisalu kele ntete ve.",
+  "backgroundTasks": "Bisalu ya nsuka .",
+  "subagentsRunning_one": "{{count}} nsadi ya fioti ke tambula",
+  "subagentsRunning_other": "{{count}} ba agents ya fioti ke tambula",
+  "monitorsRunning_one": "{{count}} monitere ke tambula",
+  "monitorsRunning_other": "{{count}} bamonitere ke sala",
+  "backgroundRunning_one": "{{count}} kisalu ya nima ke salama",
+  "backgroundRunning_other": "{{count}} bisalu ya nima ke na kusalama",
+  "monitors": "Bamonitere",
+  "monitorPolling": "Kupona",
+  "monitorMatched": "Kufwanana",
+  "monitorTimedOut": "Ntangu me mana",
+  "monitorStopped": "Me kangama",
+  "monitorEnded": "Me mana",
+  "coworkWatching_one": "Kutala {{count}} tv…",
+  "coworkWatching_other": "Kutala bamonitere ya {{count}}...",
+  "coworkWaitingBackground": "Kuvingila na bisalu ya nsuka...",
+  "noBackgroundTasks": "Bisalu ya nsuka kele ntete ve.",
+  "running": "Kutambula",
+  "queued": "Ndonga",
+  "waiting": "Kuvingila",
+  "finished": "Me manisa",
+  "subagentPhase": "{{phase}}",
+  "subagentWaiting": "ke vingila",
+  "viewTranscript": "Tala mambu yina bo me sonikaka",
+  "taskWorking": "Kusala...",
+  "taskNoOutput": "Kisalu ya fioti me basisa ve kima mosi ya ke monana.",
+  "subagentToolUses_one": "{{count}} kusadila bisadilu",
+  "subagentToolUses_other": "{{count}} bisadilu ya kusadila",
+  "artifactGroupCode": "Kode",
+  "artifactGroupImage": "Kifwanisu",
+  "artifactGroupDocument": "Mukanda",
+  "artifactGroupVideo": "Video",
+  "artifactGroupAudio": "Kuwa",
+  "artifactOpenPreview": "Kangula nsangu ya ntwala",
+  "artifactOpenExternal": "Kangula",
+  "artifactMoreActions": "Bisalu mingi",
+  "artifactShowInFolder": "Monisa na Dossier",
+  "skillsUsedLabel": "Mayele ya kusadila .",
+  "skillsUsed": "Mayele ya kusadila: {{skills}}",
+  "artifactsAll": "Yonso",
+  "artifactsEmpty": "Kima mosi ve me basika ntete. Bima ya ntama ya Cowork ke monana awa.",
+  "artifactsNoMatch": "Ata kima mosi ve ke wakana.",
+  "artifactsSearch": "Kusosa bima ya ntama .",
+  "artifactsShowMore": "Monisa {{count}} mingi",
+  "workspace": {
+    "readsFrom": "Ke salaka na",
+    "writable": "tanga & sonika",
+    "footnote": "Nsadi ke tanga mpe ke yidika dossier yayi mbala mosi. Tadila mambu yina me sobaka na panneau ya kuswaswana.",
+    "footnoteEmpty": "Kanga dossier samu na kubika nsadi kusala kisalu na nge. Yo lenda tanga mpi kuyidika bafishe yina kele na kati na yo.",
+    "attach": "Kukangama na dossier mosi",
+    "change": "Soba dossier",
+    "detach": "Katula dossier",
+    "open": "Kangula",
+    "reveal": "Kumonisa",
+    "unavailable": "Kisika ya kisalu kele ve",
+    "missing": "Kisika ya kisalu {{folder}} kele diaka ve. Pona dossier ya nkaka.",
+    "openFailed": "Kukonda kukangula kisika ya kisalu",
+    "revealFailed": "Lendaka ve kumonisa kisika ya kisalu",
+    "a11yWithFolder": "Dossier ya kisalu {{folder}}, me kangama na nzila ya kutanga mpe kusonika. Soba to katula yo.",
+    "a11yNoFolder": "Ata dosie mosi ve ya kisalu me kangama. Kanga mosi."
+  },
+  "coworkEmpty": {
+    "title": "Inki mambu beto ke sala?",
+    "subtitleSandbox": "Pesa Novera kisalu mosi. Yo ke tangaka mpi ke sonikaka bafishe, ke pesaka bantuma mpi ke salaka bitambi yina yo mosi.",
+    "subtitleFolder": "Kupesa Novera kisalu mosi. Yo ke salaka mbala mosi na . {{folder}}, kutanga mpi kuyidika bafishe yo mosi.",
+    "try": "Kumeka",
+    "sandbox": {
+      "first": "Sonika script ya Python yina ke sobaka bazina ya bafishe na kulanda kilumbu yina bo bakaka yo .",
+      "second": "Kutunga tablo ya lutiti mosi katuka na CSV ya mono ta tula na .",
+      "third": "Kusala README sambu na kisalu mosi ya mono ke tendudila nge"
+    },
+    "folder": {
+      "first": "Tendula mutindu bo ke tulaka {{folder}} kisika mosi .",
+      "second": "Sosa konso TODO na {{folder}} mpi tula yo na kimvuka na kulanda kisika",
+      "third": "Sonika baekzame sambu na kitini ya {{folder}} Mono ke songa nge na ."
+    }
+  },
+  "sandbox": {
+    "noTerminal": "Kisika ya kumanisa ve",
+    "a11y": "Kusala bantuma ya kukangama. Mambu ya fioti-fioti.",
+    "title": "Kusala bantuma me kangama .",
+    "body": "Novera ke bika nsadi kusala bantuma ya shell kaka kana ngidika na nge lenda kanga yo. Ata sable mosi ve kele awa, yau yina nsadi lenda tanga, kusonika mpe kuyidika ba fichiers na kati ya sable na yandi — kansi ve kusala ata kima mosi.",
+    "fixLinux": "Linux ke sadilaka bubblewrap. Tula yo, na nima yantika diaka Novera.",
+    "fixMac": "macOS ke sadilaka kisika ya bo me tungaka na kati na /usr/bin/sandbox-exec. Banda diaka Novera kana yo me kuma.",
+    "fixWindows": "Windows ke sadilaka AppContainer. Yantika Novera diaka sambu na kumeka diaka.",
+    "recheck": "Tala diaka"
+  },
+  "planMode": {
+    "label": "Pula",
+    "tooltipOff": "Kusala ntete pula — nsadi ke tanga mpe ke pesa ngindu, kukonda kusonika.",
+    "tooltipOn": "Kusala pula. Katula yo sambu na kupesa nsadi nzila ya kusonika bafishe.",
+    "onAnnounce": "Mutindu ya kusala pula na .",
+    "placeholder": "Lomba pula mosi. Nsadi ke soba ve ata fichier mosi."
+  },
+  "budget": {
+    "stoppedSteps": "Kutelama na bitambi ya {{max}}. Nsadi me manisa ve.",
+    "keepGoing": "Landa kaka .",
+    "stoppedTokens": "Kukangama — kitini yayi me bula budget na yandi ya kidimbu.",
+    "compact": "Kukangama",
+    "newSession": "Kitini ya mpa ."
+  },
+  "run": {
+    "stopped": "Kukangama.",
+    "failed": "Kubaka ntinu me telama na ntwala.",
+    "tryAgain": "Meka diaka"
+  },
+  "modelNoTools": "{{model}} lenda binga ve bisadilu, yau yina yau lenda sala ve bonso nsadi. Pona mbandu ya kubinga bisadilu.",
+  "askContinue": "Landa",
+  "askNext": "Ngiufula ya ke landa",
+  "askPrev": "Ngiufula ya me luta",
+  "askRecommended": "Bo ke siamisaka yo",
+  "askSelectedCount": "{{count}} me ponama",
+  "askSomethingElse": "Kima ya nkaka .",
+  "askSomethingElsePlaceholder": "Sonika mvutu na nge mosi .",
+  "submit": "Kutinda",
+  "composer": {
+    "advanced": "Baparametre ya ntwala",
+    "modelDefaults": "Mbandu ya kukonda mfunu",
+    "assistantOverrides": "Nsadisi ke lutisa",
+    "printPdf": "Niema / Bumba bonso PDF",
+    "exportHint": "Bafoto ya kutanga: filiale ya ke salaka. JSON: mitindu yonso ya nsangu. Bafishe ya nganda ke vandaka ve na kimvuka."
+  },
+  "telemetry": {
+    "summary": "Kana nge me ndima, {{host}} ke baka kaka version ya Novera mpi sisteme ya apareyi. Yo ke baka ve masolo to kidimbu ya kuzaba nge yina ke bikala.",
+    "unavailable": "Ba ntalu me salama ve. Bo ke tindaka ve bansangu."
+  },
+  "errorTracking": {
+    "title": "Kulanda kifu",
+    "summary": "Kana nge me ndima, ba rapore na {{host}} ke pesa mutindu ya kifu, kisika na kode, version ya Novera mpi sisteme ya apareyi. Yo ke tinda ve masolo, bansangu ya kifu ya bo me soba ve, to bansabi. Nge lenda kanga yo konso ntangu.",
+    "unavailable": "Kulanda bifu me salama ve. Bo ke tindaka ve ata rapore mosi."
+  },
+  "access": {
+    "read": "Kutánga kaka",
+    "ask": "Yula na ntwala ya kusoba to kulungula",
+    "allow": "Pesa nswa ya kusoba mpi kulungula",
+    "folderNote": "Pona mutindu Novera lenda kota na lufulu yayi."
+  },
+  "components": {
+    "title": "Bima ya bwala",
+    "note": "Tula kaka bima yina nge kele na yo mfunu. Novera ke taninaka bisika ya Python ya kukabwana. Bisalu ya matuti kele ve na mfunu ya kutula yo na bwala.",
+    "estimates": "Bau ke yindula nde bo ta baka yo: {{download}} · Kisika ya disque dur ya mfunu: {{space}} · Kisika ya disque dur kele: {{free}}",
+    "confirm": "Kutula kisika yai ya kinsweki? Bo ta baka kaka bima yina bo me pona. Ba licence ya bansamuni na bo ke sadilaka.",
+    "removeConfirm": "Kukatula kisika yai ya bo ke twadisaka? Ba modele, ba bima ya nge me sala na masolo na nge ta bumbana.",
+    "verify": "Kutadila",
+    "repair": "Kuyidika",
+    "uninstall": "Katula",
+    "missing": "Bo me tula yo ve",
+    "managed": "Ya ke twadisamaka na Novera",
+    "external": "Nzila ya Python ya nganda ya kupona ke katulaka kifwanisu ya bo ke twadisaka. Katula yo sambu na kusadila kisika ya Novera.",
+    "failed": "Kusala ya kitini me nunga ve. Tala réseau, kisika na disque mpi banswa ya kukota, na nima meka diaka to yidika yo.",
+    "required": "Kubongisa mpe kuzikisa bima ya kisika yina kelombamaka na Novera · Ba ntuadisi.",
+    "updateAvailable": "Kuyidika kele",
+    "update": "Nsangu ya mpa",
+    "rollback": "Vutula kisika ya ntama .",
+    "busy": "Kukatula ba mbandu ya bwala mpe kuvingila ba ndonga ya bantu kumanisa na ntwala ya kusoba bima."
+  },
+  "voiceConversation": "Disolo na ndinga",
+  "voiceUnavailable": "Disolo na ndinga kele ve ntangu yai",
+  "voiceMale": "Ndinga ya bakala",
+  "voiceFemale": "Ndinga ya nkento",
+  "voiceReadReplies": "Tanga bamvutu na ndinga"
+}

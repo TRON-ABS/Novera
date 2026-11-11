@@ -1,0 +1,101 @@
+{
+  "editServer": "Soba MCP Serveur",
+  "addServer": "Yika MCP Serveur",
+  "browserExtension": {
+    "connecting": {
+      "checking": "Kutala mutindu ya kupesa..."
+    },
+    "notInstalled": {
+      "title": "Novera me manisa bisalu na navigateur na nge",
+      "description": "Tula nsangu ya nkaka sambu na kupesa Novera nzila ya kukota na navigateur .",
+      "getExtension": "Baka Kulanda"
+    }
+  },
+  "serverName": "Zina ya serveur",
+  "enterServerName": "Sonika zina ya serveur",
+  "command": "Nsiku",
+  "enterCommand": "Kotisa ntuma (uvx to npx)",
+  "arguments": "Bantendula",
+  "argument": "Dibanza {{index}}",
+  "envVars": "Bima ya ke sobaka na nziunga",
+  "key": "Nsapi",
+  "value": "Ntalu",
+  "save": "Kubumba",
+  "status": "Statut",
+  "connected": "Kukangama",
+  "disconnected": "Kukatuka",
+  "deleteServer": {
+    "title": "Kufwa serveur ya MCP",
+    "description": "Nge ke na kivuvu nde nge ke zola kufwa serveur ya MCP {{serverName}}? Kisalu yai lenda vutuka ve na nima.",
+    "delete": "Kuvwansa",
+    "success": "Serveur MCP {{serverName}} me katuka mbote"
+  },
+  "editJson": {
+    "title": "Soba JSON sambu na MCP Serveur: {{serverName}}",
+    "titleAll": "Soba Baserveur Yonso ya MCP JSON .",
+    "placeholder": "Kota na ndonga ya JSON",
+    "errorParse": "Kukonda kukatula bansangu ya luyantiku",
+    "errorPaste": "Mutindu ya JSON ya mbote ve na mambu ya bo me kanga",
+    "errorFormat": "Mutindu ya JSON kele mbote ve",
+    "errorServerName": "Zina ya serveur kele mfunu mpi yo lenda vanda ve mpamba .",
+    "errorMissingServerNameKey": "JSON fwete vanda ya kuyidika mutindu yai {\"zina ya serveur\": {kuyidika}} - nsapi ya zina ya serveur kele ve",
+    "errorInvalidType": "Mutindu ya mbi '{{type}}' sambu na serveur '{{serverName}}'. Mutindu fwete vanda ‘stdio’, ‘http’, to ‘sse’.",
+    "save": "Kubumba"
+  },
+  "checkParams": "Beno tala ba parametre na kulanda malongi.",
+  "title": "Ba serveur ya MCP",
+  "experimental": "Kumekama",
+  "editAllJson": "Soba ba serveur yonso JSON",
+  "findMore": "Sosa ba serveur mingi ya MCP na .",
+  "allowPermissions": "Pesa Nswa na Bisadilu Yonso ya MCP",
+  "allowPermissionsDesc": "Kana nge me pesa nzila, ba nsangu yonso ya bisadilu ya MCP ta ndimama na mbala mosi kukonda kumonisa ba dialogue ya nswa. Parametre yai ke tadila masolo yonso na ntoto ya mvimba, ata masolo ya mpa.",
+  "noServers": "Ba serveur ya MCP me monana ve",
+  "args": "Bangogo",
+  "env": "Nzyunga",
+  "serverStatusActive": "Serveur {{serverKey}} me sala mbote",
+  "serverStatusInactive": "Serveur {{serverKey}} me kangama mbote",
+  "runtimeSettings": {
+    "title": "Baparametre ya Ntangu ya Kusala",
+    "description": "Kuyidika mutindu Novera ke twadisaka mpi ke mekaka diaka ba serveur ya MCP.",
+    "toolCallTimeout": "Ntangu ya kubinga bisadilu (basegonde)",
+    "toolCallTimeoutDesc": "Ntangu ya kuluta mingi ya kuvingila mvutu ya kisadilu ya MCP na ntwala ya kumanisa ntangu.",
+    "maxToolOutputChars": "Bisono ya kubasisa bisadilu ya kuluta mingi",
+    "maxToolOutputCharsDesc": "Mvutu ya bisadilu ya kuluta nda me bumbana na disolo. Kima nyonso me luta yayi ke zengana mpe ke tula kidimbu mutindu ya kuzenga, yau yina mbutu mosi ya nene lenda manisa ve mambu ya modele. Tula 0 sambu na kutanina bamvutu ya mvimba.",
+    "smartToolRouting": "Nzila ya bisadilu ya MCP ya mayele",
+    "smartToolRoutingDesc": "Kana yau me pesa nzila, Novera ke ponaka ba serveur ya MCP ya me fwana na ntwala ya kutula bisadilu. Kukanga sambu na kutula ntangu yonso liste ya bisadilu ya MCP ya mvimba.",
+    "useLightweightRouterModel": "Sadila mbandu mosi ya bo me pesaka sambu na nzila .",
+    "useLightweightRouterModelDesc": "Kana nzila ya mayele kele na zulu, sala nzila ya nzila na mbandu ya nkaka (mbala mingi ya fioti) na kifulu ya mbandu ya masolo. Katula sambu na kusadila ntangu yonso mbandu ya masolo ya ke sala sambu na nzila.",
+    "routerModel": "Mutindu ya nzila",
+    "routerModelDesc": "Pona muntu ya ke pesaka na mbandu na kisika mosi. Kaka ba modele ya petepete kele na liste na mpila nde routage kubikala nswalu mpi ntalu fioti.",
+    "selectRouterModelPlaceholder": "Pona mbandu ya nzila...",
+    "routerModelSearchPlaceholder": "Bambandu ya kusosa...",
+    "routerModelEmptyList": "Ba mbandu ya petepete kele ve. Yika mbandu ya fioti to tula bafungula ya API na Bambandu.",
+    "routerModelEmptySearch": "Kukonda kuwakana sambu na “{{query}}”."
+  },
+  "auth": {
+    "label": "Kindilu:",
+    "state": {
+      "notApplicable": "yo ke lomba ve",
+      "staticHeader": "Ntu-dyambu ya nswa",
+      "authenticated": "me ndimama",
+      "expired": "me mana",
+      "staleResource": "me basisama sambu na URL ya nkaka",
+      "unauthenticated": "me ndimama ve"
+    },
+    "expiresIn": "ke mana na {{duration}}",
+    "authenticate": "Kota na",
+    "reauthenticate": "Kundimisa diaka kieleka",
+    "clear": "Kuzaba mambu ya kieleka",
+    "waiting": "Kuvingila navigateur...",
+    "openSignInPage": "Kangula lutiti ya kukota",
+    "needsAuth": "{{serverName}} kele na mfunu ya kundimama",
+    "needsAuthHint": "Kota na serveur yayi sambu na kukangama.",
+    "authorized": "Kukota na {{serverName}}",
+    "authorizeFailed": "Kukota sambu na {{serverName}} me nunga ve",
+    "cleared": "Kukatula bansangu ya bo me bumbaka sambu na {{serverName}}",
+    "nothingToClear": "{{serverName}} vandaka ve ti bansangu ya kuzitisa yina bo bumbaka",
+    "clearFailed": "Lendaka ve kukatula bansangu ya {{serverName}}",
+    "renew": "Kuvutula kitini ya mpa",
+    "expiredAgo": "me mana {{duration}} me luta"
+  }
+}

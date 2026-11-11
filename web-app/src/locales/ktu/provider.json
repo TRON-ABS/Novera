@@ -1,0 +1,18 @@
+{
+  "addProvider": "Yika Muntu ya Ke Pesaka",
+  "addOpenAIProvider": "Yika muntu ya ke pesaka bima",
+  "enterNameForProvider": "Zina ya muntu ya ke pesaka (mu mbandu, serveur na mono ya llm)",
+  "apiTypeLabel": "Mutindu ya API",
+  "apiTypeOpenAI": "Ke wakana ti OpenAI",
+  "apiTypeAnthropic": "Kuwakana ti mambu ya bantu",
+  "baseUrlLabel": "Ntu URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API nsabi",
+  "apiKeyPlaceholder": "Tula nsapi ya API na nge",
+  "invalidBaseUrl": "URL ya luyantiku fwete vanda URL ya http ya mbote",
+  "globalSettings": "Baparametre ya ntoto ya mvimba",
+  "stripReasoning": "Katula bangindu na mambu yina kele na kati",
+  "stripReasoningDesc": "Katula mambu ya kuyindula/kuyindula ya ba tour ya ntete na ntwala ya kutinda diaka disolo, na kati ya ba fournisseurs nyonso. Kutomisa kusadila diaka KV-cache sambu na ba mbandu ya bwala, kansi ba mbandu ya nkaka (mu mbandu, kubasika ya mpa ya Qwen) ke siamisa kubumba yo sambu na kuyindula mbote na ba nzila mingi.",
+  "providerAlreadyExists": "Muntu mosi ya ke pesaka bima na zina ya {{name}} kele dezia."
+}

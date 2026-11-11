@@ -1,0 +1,18 @@
+{
+  "addProvider": "إضافة مزود",
+  "addOpenAIProvider": "إضافة مزود مخصص",
+  "enterNameForProvider": "اسم المزود (مثل my-llm-server)",
+  "apiTypeLabel": "API صيغة",
+  "apiTypeOpenAI": "OpenAI- متوافق",
+  "apiTypeAnthropic": "Anthropic- متوافق",
+  "baseUrlLabel": "قاعدة URL",
+  "baseUrlPlaceholder": "https://your-endpoint/v1",
+  "baseUrlPlaceholderAnthropic": "https://api.anthropic.com/v1",
+  "apiKeyLabel": "API مفتاح",
+  "apiKeyPlaceholder": "ضغطي لك API مفتاح",
+  "invalidBaseUrl": "قاعدة URL يجب ان يكون http(s صالح) URL",
+  "globalSettings": "الإعدادات العالمية",
+  "stripReasoning": "خلع التفكير من السياق",
+  "stripReasoningDesc": "إزالة محتويات التفكير/الاعتبار في التحولات السابقة قبل إعادة إرسال التاريخ، عبر جميع المقدمين. KV- الاستخدام الاحتياطي لإعادة استخدام النماذج المحلية، لكن بعض النماذج (على سبيل المثال أحدث Qwen الإفصاحات) يوصي بالاحتفاظ بها للاستفادة من التفكير المتعدد.",
+  "providerAlreadyExists": "مزود اسمه {{name}} موجود بالفعل."
+}

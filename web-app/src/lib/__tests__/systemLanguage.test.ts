@@ -12,6 +12,13 @@ describe('system language matching', () => {
   it.each([
     ["gan-Hant", "gan"], ["pbt-Arab", "pbt"], ["ars-Arab", "ars"], ["acm-Arab", "acm"], ["tts-Thai", "tts"], ["azb-Arab", "azb"], ["ctg-Beng", "ctg"], ["pbt-Latn", "en"], ["ars-Latn", "en"], ["acm-Latn", "en"], ["tts-Latn", "en"], ["azb-Latn", "en"], ["ctg-Latn", "en"], ["gan-Hans", "en"], ["ar-IQ", "acm"], ["az-Arab-IR", "azb"],
     ['gan', 'gan'], ['pbt', 'pbt'], ['mag', 'mag'], ['ars', 'ars'], ['acm', 'acm'], ['fuv', 'fuv'], ['hne', 'hne'], ['tts', 'tts'], ['ny', 'ny'], ['bm', 'bm'], ['sn', 'sn'], ['azb', 'azb'], ['tn', 'tn'], ['nso', 'nso'], ['bar', 'bar'], ['ht', 'ht'], ['ug', 'ug'], ['st', 'st'], ['el', 'el'], ['ctg', 'ctg'], ['rn', 'rn'], ['dyu', 'dyu'], ['tr', 'tr'], ['sv', 'sv'],
+    ['dcc-Arab-IN', 'dcc'], ['vjk-Deva-IN', 'vjk'], ['lg-UG', 'lg'],
+    ['ayn-Arab-YE', 'ayn'], ['aeb-Arab-TN', 'aeb'], ['ar-TN', 'aeb'], ['ktu-CD', 'ktu'],
+    ['dcc-Latn', 'en'], ['vjk-Latn', 'en'], ['ayn-Latn', 'en'], ['ar-Latn-TN', 'en'],
+    ['acw-Arab-SA', 'acw'], ['acq-Arab-YE', 'acq'], ['hu-HU', 'hu'],
+    ['sck-Deva-IN', 'sck'], ['hae-Latn-ET', 'hae'], ['wes-CM', 'wes'],
+    ['ayp-Arab-IQ', 'ayp'], ['mos-BF', 'mos'], ['mnp-Hant-CN', 'mnp'], ['syl-Beng-BD', 'syl'],
+    ['acq-Latn', 'en'], ['sck-Latn', 'en'], ['mnp-Hans', 'en'], ['syl-Sylo', 'en'],
     ['ceb', 'ceb'], ['kk', 'kk'], ['si', 'si'], ['xh', 'xh'], ['km', 'km'],
     ['af', 'af'], ['mai', 'mai'], ['wo', 'wo'], ['kmr', 'kmr'], ['rw', 'rw'],
     ['ug-Arab-CN', 'ug'], ['ug-Latn', 'en'], ['tr-TR', 'tr'],

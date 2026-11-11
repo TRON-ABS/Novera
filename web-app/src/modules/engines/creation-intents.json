@@ -2307,5 +2307,149 @@
         "Video"
       ]
     }
+  },
+  "dcc": {
+    "verbs": ["بناؤ", "بناؤ نا"],
+    "terms": {
+      "text": ["متن"],
+      "image": ["تصویر"],
+      "music": ["موسیقی"],
+      "video": ["ویڈیو"]
+    }
+  },
+  "vjk": {
+    "verbs": ["बनाउ", "बनाबू"],
+    "terms": {
+      "text": ["पाठ"],
+      "image": ["छवि", "तस्वीर"],
+      "music": ["संगीत"],
+      "video": ["वीडियो"]
+    }
+  },
+  "lg": {
+    "verbs": ["Kola", "Tonda", "Yiiya"],
+    "terms": {
+      "text": ["Ebiwandiiko", "Ekiwandiiko"],
+      "image": ["Ekifaananyi"],
+      "music": ["Omuziki", "Oluyimba"],
+      "video": ["Akatambi", "Vidiyo"]
+    }
+  },
+  "ayn": {
+    "verbs": ["سوّي", "اعمل"],
+    "terms": {
+      "text": ["نص"],
+      "image": ["صورة"],
+      "music": ["موسيقى"],
+      "video": ["فيديو"]
+    }
+  },
+  "aeb": {
+    "verbs": ["اعمل", "حضّر"],
+    "terms": {
+      "text": ["نص"],
+      "image": ["تصويرة", "صورة"],
+      "music": ["موسيقى", "موزيكا"],
+      "video": ["فيديو"]
+    }
+  },
+  "ktu": {
+    "verbs": ["Sala", "Yidika"],
+    "terms": {
+      "text": ["Masonama"],
+      "image": ["Kifwanisu"],
+      "music": ["Miziki", "Nkunga"],
+      "video": ["Video"]
+    }
+  },
+  "acw": {
+    "verbs": ["سوّي", "اعمل"],
+    "terms": {
+      "text": ["نص"],
+      "image": ["صورة"],
+      "music": ["موسيقى"],
+      "video": ["فيديو"]
+    }
+  },
+  "acq": {
+    "verbs": ["سوّي", "اعمل"],
+    "terms": {
+      "text": ["نص"],
+      "image": ["صورة"],
+      "music": ["موسيقى"],
+      "video": ["فيديو"]
+    }
+  },
+  "hu": {
+    "verbs": ["Készíts", "Generálj", "Komponálj"],
+    "terms": {
+      "text": ["Szöveg", "szöveget"],
+      "image": ["Kép", "képet"],
+      "music": ["Zene", "zenét"],
+      "video": ["Videó", "videót"]
+    }
+  },
+  "sck": {
+    "verbs": ["बनावु", "बनाव"],
+    "terms": {
+      "text": ["पाठ"],
+      "image": ["तस्वीर"],
+      "music": ["संगीत"],
+      "video": ["वीडियो"]
+    }
+  },
+  "hae": {
+    "verbs": ["Uumi", "Qopheessi"],
+    "terms": {
+      "text": ["Barreeffama"],
+      "image": ["Fakkii"],
+      "music": ["Muuziqaa", "sirba"],
+      "video": ["Viidiyoo"]
+    }
+  },
+  "wes": {
+    "verbs": ["Make", "Create"],
+    "terms": {
+      "text": ["Text"],
+      "image": ["Picture"],
+      "music": ["Music"],
+      "video": ["Video"]
+    }
+  },
+  "ayp": {
+    "verbs": ["سوّي", "اعمل"],
+    "terms": {
+      "text": ["نص"],
+      "image": ["صورة"],
+      "music": ["موسيقى"],
+      "video": ["فيديو"]
+    }
+  },
+  "mos": {
+    "verbs": ["Maan-y", "Maan"],
+    "terms": {
+      "text": ["Gʋlsgo"],
+      "image": ["Foto"],
+      "music": ["Yɩɩla", "yɩɩlle"],
+      "video": ["Wideyo"]
+    }
+  },
+  "mnp": {
+    "verbs": ["製作", "做出"],
+    "terms": {
+      "text": ["文字"],
+      "image": ["圖像"],
+      "music": ["音樂"],
+      "video": ["影片"]
+    }
+  },
+  "syl": {
+    "verbs": ["বানাউক", "বানাও"],
+    "terms": {
+      "text": ["লেখা"],
+      "image": ["ছবি"],
+      "music": ["গান"],
+      "video": ["ভিডিও"]
+    }
   }
 }

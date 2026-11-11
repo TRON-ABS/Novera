@@ -4,6 +4,7 @@ import { useGeneralSetting } from "@/hooks/useGeneralSetting"
 import { TranslationContext } from "./context"
 import { DirectionProvider } from "@radix-ui/react-direction"
 import { syncTrayLabels } from '@/adapters/platform/tray-labels'
+import { languageDirection } from '@/modules/interface/languages'
 
 // Translation provider component
 export const TranslationProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
@@ -48,7 +49,7 @@ export const TranslationProvider: React.FC<{ children: ReactNode }> = ({ childre
 				t: translate,
 				i18n: i18next,
 			}}>
-			<DirectionProvider dir={["pbt", "ars", "acm", "azb", "ug", "ar", "aec", "pbu", "skr", "apc", "apd", "arq", "ary", "sd", "prs", "ur", "arz", "pnb", "fa", "fa-IR"].includes(appliedLanguage) ? "rtl" : "ltr"}>
+			<DirectionProvider dir={languageDirection(appliedLanguage)}>
 				{children}
 			</DirectionProvider>
 		</TranslationContext.Provider>

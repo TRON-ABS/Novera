@@ -1,0 +1,10 @@
+{
+  "newVersion": "New Version {{version}}",
+  "updateAvailable": "Update Dey Available",
+  "nightlyBuild": "Nightly Build",
+  "showReleaseNotes": "Show notes about release",
+  "hideReleaseNotes": "Hide notes about release",
+  "remindMeLater": "Remind me another time",
+  "downloading": "E dey download...",
+  "updateNow": "Update Now"
+}

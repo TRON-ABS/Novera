@@ -8,7 +8,25 @@ export const supportedLanguages = [
   'de-DE', 'cs', 'pt-BR', 'ko', 'ja', 'ru', 'ca',
   'ceb', 'kk', 'si', 'xh', 'km', 'af', 'mai', 'wo', 'kmr', 'rw',
   'gan', 'pbt', 'mag', 'ars', 'acm', 'fuv', 'hne', 'tts', 'ny', 'bm', 'sn', 'azb', 'tn', 'nso', 'bar', 'ht', 'ug', 'st', 'el', 'ctg', 'rn', 'dyu', 'tr', 'sv',
+  'dcc', 'vjk', 'lg', 'ayn', 'aeb', 'ktu',
+  'acw', 'acq', 'hu', 'sck', 'hae', 'wes', 'ayp', 'mos', 'mnp', 'syl',
 ] as const satisfies readonly Language[]
+
+const rightToLeftLanguages = new Set([
+  'dcc', 'ayn', 'aeb', 'pbt', 'ars', 'acm', 'azb', 'ug', 'ar', 'aec', 'pbu',
+  'skr', 'apc', 'apd', 'arq', 'ary', 'sd', 'prs', 'ur', 'arz', 'pnb', 'fa', 'fa-IR',
+  'acw', 'acq', 'ayp',
+])
+
+export const languageDirection = (language: string): 'rtl' | 'ltr' =>
+  rightToLeftLanguages.has(language) ? 'rtl' : 'ltr'
+
+const regionalScripts: Readonly<Partial<Record<string, string>>> = {
+  gan: 'Hant', pbt: 'Arab', ars: 'Arab', acm: 'Arab', tts: 'Thai', azb: 'Arab',
+  ctg: 'Beng', dcc: 'Arab', vjk: 'Deva', lg: 'Latn', ayn: 'Arab', aeb: 'Arab',
+  ktu: 'Latn', acw: 'Arab', acq: 'Arab', sck: 'Deva', hae: 'Latn', wes: 'Latn',
+  ayp: 'Arab', mos: 'Latn', mnp: 'Hant', syl: 'Beng',
+}
 
 export const isSupportedLanguage = (value: unknown): value is Language =>
   typeof value === 'string' && supportedLanguages.some((language) => language === value)
@@ -19,9 +37,8 @@ export function matchSystemLanguage(preferences: readonly string[]): Language {
       // Accept Windows/BCP-47 tags and POSIX locales such as fr_FR.UTF-8.
       const normalized = preference.trim().replaceAll('_', '-').split(/[.@]/)[0]
       const tag = new Intl.Locale(normalized)
-      // Intl canonicalizes dialect identifiers; keep Southern Pashto distinct.
+      // Preserve explicit dialect identifiers even when Intl canonicalizes them.
       const requestedLanguage = normalized.split('-')[0].toLowerCase()
-      const regionalScripts: Record<string, string> = {"gan": "Hant", "pbt": "Arab", "ars": "Arab", "acm": "Arab", "tts": "Thai", "azb": "Arab", "ctg": "Beng"}
       if (requestedLanguage in regionalScripts) {
         if (tag.script && tag.script !== regionalScripts[requestedLanguage]) continue
         if (isSupportedLanguage(requestedLanguage)) return requestedLanguage
@@ -61,6 +78,10 @@ export function matchSystemLanguage(preferences: readonly string[]): Language {
       if (language === 'ar' && tag.region === 'SD') return 'apd'
       if (language === 'ar' && tag.region === 'DZ') return 'arq'
       if (language === 'ar' && tag.region === 'MA') return 'ary'
+      if (language === 'ar' && tag.region === 'TN') {
+        if (tag.script && tag.script !== 'Arab') continue
+        return 'aeb'
+      }
       if (language === 'pa' && (tag.script === 'Arab' || (!tag.script && tag.region === 'PK'))) return 'pnb'
       // The Sindhi catalog uses Arabic script, not the Devanagari variant.
       if (language === 'sd' && tag.script === 'Deva') continue

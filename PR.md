@@ -1,3 +1,11 @@
+## Web 1.0.2 with 120 interface locales
+
+The public Web bundle has 104 interface catalogs. This change adds the 16 reviewed catalogs to the 1.0.2 Web sources on main and carries over its 49 additional Auto Tune keys. Locale switching, saved and system preferences, RTL direction, and explicit Auto creation commands use the same application paths.
+
+To reproduce, open the public Web language selector and look for Magyar or Luganda. The pre-deployment bundle contains neither. The local 1.0.2 production frontend bundles all 120 locales and the catalog checker reports 2,484 reference keys per locale. The eight focused suites pass all 1,308 tests.
+
+The local frontend build uses the Pages base path. The GitHub Pages workflow builds the platform runtimes and publishes the final distribution. The regional adaptations and assisted drafts remain pending native review.
+
 ## Web Auto Tune contribution endpoint
 
 Read the optional public relay URL from a repository Actions variable when building Web Pages. The existing consent and submission flow uses the same relay contract as Desktop. The relay retains the dedicated GitHub bot credential. The local relay and consent tests passed using simulated GitHub requests.

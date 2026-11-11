@@ -1,0 +1,840 @@
+{
+  "htmlArtifact": {
+    "code": "الرمز",
+    "preview": "عرض مسبق",
+    "previewStreaming": "متاح عند انتهاء التوليد",
+    "unresolvedAssets_one": "1 إشارة الأصول لا يمكن تحميل في المشاهدة السابقة. المسارات النسبية لا تملك قاعدة URL لتحل ضد.",
+    "unresolvedAssets_other": "{{count}} إشارات الأصول لا يمكن تحميلها في المشاهدة الاولى. المسارات النسبية لا تملك قاعدة URL لتحل ضد."
+  },
+  "assistants": "المساعدين",
+  "hardware": "أجهزة",
+  "mcp-servers": "MCP خادمات",
+  "local_api_server": "محلي API خادم",
+  "remote_access": "الوصول عن بعد",
+  "integrations": "التكاملات",
+  "experimental": "تجربي",
+  "claude_code": "Claude Code",
+  "https_proxy": "HTTPS الوكيل",
+  "web_search": "البحث على الويب",
+  "shell": "قشرة",
+  "browse": "متصفح",
+  "moreControls": "خيارات زيادة",
+  "starting": "ابدأ...",
+  "activeSuffix": " (فعال)",
+  "extensions": "تمديدات",
+  "attachments": "المرفقات",
+  "general": "جنرال",
+  "settings": "الإعدادات",
+  "modelProviders": "مقدمي النموذج",
+  "localProviders": "محلي",
+  "remoteProviders": "ريموت",
+  "manageProviders": "إدارة مقدمي الخدمات",
+  "hiddenProviders": "{{count}} معاقين",
+  "hideProvider": "مزود إخفاء",
+  "showProvider": "عرض مزود",
+  "interface": "واجهة",
+  "appearance": "المظهر",
+  "privacy": "الخصوصية",
+  "keyboardShortcuts": "اختصارات",
+  "home": "البيت",
+  "cowork": "Cowork",
+  "newSession": "جلسة جديدة",
+  "artifacts": "القطع الأثرية",
+  "customize": "تخصيص",
+  "local": "محلي",
+  "selectFolder": "اختر المجلد",
+  "selectModel": "اختار نموذج أول",
+  "commands": "الأوامر",
+  "cmdHelp": "قائمة الأوامر المتاحة",
+  "cmdClear": "اخرج هذه الجلسة",
+  "cmdModels": "قم بتبديل النموذج النشط",
+  "cmdModelsHint": "نوع /models ثم اختر نموذج من القائمة",
+  "cmdModelSwitched": "اتحول ل {{name}}",
+  "cmdUnknown": "أمر غير معروف: {{name}}حاولي /help",
+  "cmdBusy": "لا يمكن ان نفعل ذلك بينما العميل راح",
+  "cmdCompact": "ضغط سياق الجلسة في ملخص",
+  "cmdCompacted": "مُضَمَّن {{before}} -> {{after}} رسائل",
+  "cmdNothingToCompact": "لا شيء ليتم ضغطه بعد",
+  "cmdCompactFailed": "فشلت التوصيل: {{error}}",
+  "cmdPlan": "وضع خطة التبديل (القراءة فقط: الوكيل يقترح دون كتابة)",
+  "cmdPlanOn": "وضع خطط على: الوكيل يقرأ ويقترح دون كتابة",
+  "cmdPlanOff": "وضع خطط مغلق: تنفيذ طبيعي",
+  "cmdTodo": "افتح لوحة التقدم",
+  "cmdTasks": "افتح لوحة مهام الخلفية",
+  "cmdInit": "دراسة المشروع وكتابة مهارات وذاكرة",
+  "cmdInitRunning": "إشراك في هذا المشروع",
+  "skills": "مهارات",
+  "skillsInContext": "المهارات المتاحة للعميل في هذه الجولة",
+  "skillsTitle": "إدارة المهارات",
+  "skillsScopeProject": "مهارات ل {{folder}}",
+  "skillsScopeGlobal": "مهارات عالمية، متاحة لكل جلسة",
+  "skillsScopeMerged": "مهارات ل {{folder}}، بالإضافة إلى المهارات العالمية كل جلسة تشارك",
+  "skillOriginFolder": "المجلد",
+  "skillOriginGlobal": "عالمية",
+  "skillsEmpty": "لا مهارات بعد",
+  "skillsPickOrNew": "اختر مهارة لتحريرها، او اختر واحدة جديدة.",
+  "skillNew": "مهارة جديدة",
+  "skillDelete": "حذف مهارة",
+  "skillSave": "حفظ",
+  "skillSaved": "مهارة محفوظة",
+  "skillNameRequired": "مطلوب اسم مهارة",
+  "skillNamePlaceholder": "اسم المهارة",
+  "skillContentPlaceholder": "وصف الإجراء القابل لإعادة الاستخدام في Markdown…",
+  "skillHubImport": "استيراد من المركز",
+  "skillHubTitle": "Anthropic مركز المهارات",
+  "skillHubEmpty": "ما توجد مهارات في المركز",
+  "skillImport": "الواردات",
+  "skillReimport": "إعادة الواردة",
+  "skillImported": "الواردات {{name}}",
+  "sessions": "الاجتماعات",
+  "deleteSession": "حذف جلسة",
+  "deleteSessionTitle": "تحذف جلسة؟",
+  "deleteSessionBody": "\"{{title}}وسيتم حذف نسخته بشكل دائم.",
+  "newChat": "محادثة جديدة",
+  "newAgentChat": "شات عميل جديد",
+  "chats": "دردشات",
+  "favorites": "المفضلة",
+  "recents": "الأخيرات",
+  "hub": "مركز",
+  "helpSupport": "مساعدة ودعم",
+  "helpUsImproveJan": "ساعدنا نتحسن Novera",
+  "analyticsConsentDetail": "نجمع بيانات مجهولة لفهم استخدام الميزة. دردشاتك ومعلوماتك الشخصية لا تتتبع ابدا. يمكنك تغيير هذا في اي وقت في الإعدادات > الخصوصية.",
+  "analyticsConsentQuestion": "تريد تساعدنا نحسّن Novera؟",
+  "unstarAll": "كل النجوم",
+  "unstar": "نجمة",
+  "deleteAll": "حذف كل شيء",
+  "star": "نجمة",
+  "rename": "تغيير الاسم",
+  "delete": "امسح",
+  "copied": "نسخة!",
+  "dataFolder": "مجلد البيانات",
+  "others": "اخرى",
+  "language": "اللغة",
+  "login": "تسجيل دخول",
+  "loginWith": "تسجيل دخول مع {{provider}}",
+  "loginFailed": "فشلت في الدخول",
+  "logout": "تسجيل الخروج",
+  "loggingOut": "تسجيل الخروج...",
+  "loggedOut": "خرجوا بنجاح",
+  "logoutFailed": "فشلت في الخروج",
+  "profile": "الملف الشخصي",
+  "reset": "إعادة تعيين",
+  "search": "دوّر",
+  "searchThreads": "دوّر في المحادثات…",
+  "toNavigate": "للتنقل",
+  "toSelect": "للاختيار",
+  "toClose": "لإغلاق",
+  "clearRecent": "واضحة",
+  "name": "الاسم",
+  "cancel": "ألغِ",
+  "dismiss": "ترحيل",
+  "create": "سوّي",
+  "save": "احفظ",
+  "edit": "تحرير",
+  "copy": "نسخة",
+  "back": "ارجع",
+  "close": "سكّر",
+  "done": "جاهز",
+  "next": "التالي",
+  "finish": "انتهي",
+  "skip": "تخطي",
+  "allow": "اسمحوا",
+  "deny": "الرفض",
+  "start": "ابدأ",
+  "stop": "توقفي",
+  "preview": {
+    "loading": "جاري الفتح…",
+    "unsupported": "Novera لا اقدر اشوف هذا النوع من الملفات افتحها لتراه في تطبيق اخر",
+    "outside": "هذا الملف ما عاد هو في مساحة عمل الجلسة.",
+    "tooLarge": "الملف كبير على المعاينة. افتحه في تطبيق ثاني عشان تشوفه.",
+    "reload": "حمّل من جديد",
+    "allowNetwork": "اسمح باتصال الشبكة",
+    "unsandboxed": "شغّل من دون عزل: البيانات المحفوظة والملفات المحلية تشتغل",
+    "unresolvedRefs_one": "1 الملف الارتباطات لهذه الصفحة لا يمكن تحميلها في المشاهدة الاولى. افتحها لتراه في متصفح.",
+    "unresolvedRefs_other": "{{count}} الملفات المرتبطة بهذه الصفحة لا يمكن تحميلها في المشاهدة الاولى. افتحها لتراه في متصفح.",
+    "externalRefs_one": "1 مصدر هذه الصفحة تحميل من الويب محاصر. تشغل \"تسمح الشبكة\" لتحميلها.",
+    "externalRefs_other": "{{count}} مصادر هذه الصفحة تحميلات من الويب محظورة. تشغل \"تسمح الشبكة\" لتحميلها.",
+    "scriptErrors_one": "الصفحة ذكرت خطأ: {{message}}",
+    "scriptErrors_other": "الصفحة المذكورة {{count}} أخطاء. اولا: {{message}}"
+  },
+  "changes": {
+    "title": "تغييرات الوكيل",
+    "empty": "الملفات التي يكتبها العميل او يحددها ستظهر هنا.",
+    "a11y": "تغييرات الوكيل: {{files}} ملفات، {{additions}} إضافة، {{deletions}} إزالة"
+  },
+  "modelPanel": {
+    "title": "إعدادات النموذج",
+    "a11y": "إعدادات نموذج مفتوح",
+    "contextTooltip": "نافذة السياق: {{value}} من {{max}} توكن"
+  },
+  "coworkSlash": {
+    "skillUnavailable": "مهارة{{name}}\" مش متاح",
+    "kind": {
+      "skill": "مهارات",
+      "command": "القيادة",
+      "model": "نموذج"
+    }
+  },
+  "compactWidth": "عرض الكمباك",
+  "fullWidth": "عرض كامل",
+  "dark": "مظلم",
+  "light": "ضوء",
+  "system": "النظام",
+  "auto": "تلقائي",
+  "english": "الإنجليزية",
+  "medium": "متوسط",
+  "newThread": "محادثة جديدة",
+  "noResultsFound": "ما توجد نتائج",
+  "noThreadsYet": "ما فيش محادثات لسه",
+  "noThreadsYetDesc": "ابدأ محادثة جديدة لترى تاريخ العلامات هنا.",
+  "downloads": "تحميلات",
+  "downloading": "تنزيل",
+  "uploadingAttachments": "تحميل المرفقات...",
+  "cancelDownload": "إلغاء التنزيل",
+  "downloadCancelled": "تنزيل إلغاء",
+  "downloadComplete": "التنزيل خلص",
+  "thinking": "تفكر...",
+  "thought": "فكرت",
+  "callingTool": "أداة الاتصال",
+  "completed": "أكمل",
+  "image": "صورة",
+  "vision": "الرؤية",
+  "multimodal": "متعددة الحركات",
+  "embeddings": "مدخلات",
+  "tools": "أدوات",
+  "webSearch": "البحث على الويب",
+  "reasoning": "التفكير",
+  "proactive": "مبادرة",
+  "selectAModel": "اختار نموذج",
+  "noToolsAvailable": "لا توجد أدوات متاحة",
+  "noModelsFoundFor": "ما توجد نماذج ل \"{{searchValue}}\"",
+  "failedToLoadModels": "فشلت في تحميل النماذج",
+  "noModels": "ما توجد نماذج",
+  "noAssistant": "لا معاون",
+  "customAvatar": "اوتار مخصص",
+  "editAssistant": "مساعد تحرير",
+  "jan": "Novera",
+  "metadata": "البيانات المترتبة",
+  "regenerate": "إعادة التأهيل",
+  "threadImage": "صورة الخيط",
+  "editMessage": "تعديل الرسالة",
+  "deleteMessage": "امسح الرسالة",
+  "deleteThread": "حذف الخيط",
+  "renameThread": "تغيير اسم الخيط",
+  "threadTitle": "عنوان الخيط",
+  "deleteAllThreads": "امسح كل الخيوط",
+  "allThreadsUnfavorited": "كل الخيوط غير مفضلة",
+  "deleteAllThreadsConfirm": "هل انت متأكد انك تريد حذف كل الخيوط؟ هذا الإجراء لا يمكن تغييره",
+  "addProvider": "إضافة مزود",
+  "addOpenAIProvider": "إضافة OpenAI مزود",
+  "enterNameForProvider": "ادخل اسم مقدمك",
+  "providerAlreadyExists": "مزود باسم \"{{name}}\"هناك بالفعل، رجاءا اختر اسم مختلف.",
+  "adjustFontSize": "تعديل حجم الخط",
+  "changeLanguage": "تغيير اللغة",
+  "editTheme": "تحرير موضوع",
+  "editCodeBlockStyle": "تحرير نمط كود بلوك",
+  "editServerHost": "تحرير خادم مضيف",
+  "pickColorWindowBackground": "اختر خلفية نافذة لون",
+  "pickColorAppMainView": "اختر لون تطبيق الرؤية الرئيسية",
+  "pickColorAppPrimary": "اختر تطبيق لون أساسي",
+  "pickColorAppAccent": "اختر تطبيق لون أكسنت",
+  "pickColorAppDestructive": "اختر تطبيق لون مدمر",
+  "apiKeyRequired": "API مطلوب مفتاح",
+  "enterTrustedHosts": "ادخلوا مضيفين موثوقين",
+  "placeholder": {
+    "chatInput": "اسألني اي شي..."
+  },
+  "confirm": "تأكيد",
+  "continue": "استمر",
+  "loading": "شحن...",
+  "settingUpJan": "جاري تشغيل Novera…",
+  "registeringExtensions": "تسجيل تمديدات...",
+  "loadingExtensions": "تمديدات التحميل... ({{done}}/{{total}})",
+  "error": "الخطأ",
+  "success": "النجاح",
+  "warning": "تحذير",
+  "conversationNotAvailable": "محادثة غير متوفرة",
+  "conversationNotAvailableDescription": "المحادثة التي تحاول الوصول إليها غير متوفرة أو تم حذفها.",
+  "temporaryChat": "دردشة مؤقتة",
+  "temporaryChatTooltip": "دردشة مؤقتة لن تظهر في تاريخك",
+  "noResultsFoundDesc": "لم نستطع العثور على أي دردشات تطابق بحثك حاول كلمة مفتاح مختلفة",
+  "searchModels": "نماذج البحث...",
+  "searchStyles": "أساليب البحث...",
+  "createAssistant": "خلق مساعد",
+  "enterApiKey": "ادخل API مفتاح",
+  "scrollToBottom": "طيّر للأسفل",
+  "generateAiResponse": "توليد AI الرد",
+  "continueAiResponse": "استمر بـ AI الرد",
+  "addModel": {
+    "title": "إضافة النموذج",
+    "modelId": "نموذج ID",
+    "enterModelId": "أدخل النموذج ID",
+    "addModel": "إضافة النموذج",
+    "description": "إضافة نموذج جديد للمزود",
+    "exploreModels": "شوف قائمة النماذج من المزود"
+  },
+  "mcpServers": {
+    "editServer": "تعديل خادم",
+    "addServer": "إضافة خادم",
+    "serverName": "اسم الخادم",
+    "enterServerName": "أدخل اسم الخادم",
+    "command": "القيادة",
+    "enterCommand": "ادخل القيادة",
+    "arguments": "الحجج",
+    "argument": "الحجة {{index}}",
+    "envVars": "متغيرات البيئة",
+    "key": "مفتاح",
+    "value": "القيمة",
+    "save": "حفظ"
+  },
+  "deleteServer": {
+    "title": "حذف الخادم",
+    "delete": "حذف"
+  },
+  "editJson": {
+    "errorParse": "فشلت في التحليل JSON",
+    "errorPaste": "فشلت في التثبيت JSON",
+    "errorFormat": "غير صالح JSON صيغة",
+    "titleAll": "تعديل كل تكوين الخادم",
+    "placeholder": "ادخل JSON تشكيل...",
+    "save": "حفظ"
+  },
+  "editModel": {
+    "title": "تعديل النموذج: {{modelId}}",
+    "description": "حدد قدرات النموذج عن طريق تغيير الخيارات أدناه.",
+    "capabilities": "القدرات",
+    "tools": "أدوات",
+    "vision": "الرؤية",
+    "embeddings": "مدخلات",
+    "notAvailable": "مش متاح بعد"
+  },
+  "outOfContextError": {
+    "truncateInput": "مدخلات تخفيض",
+    "title": "خطأ خارج السياق",
+    "description": "هذه المحادثة تصل الى AIحد الذاكرة، مثل لوحة بيضاء تملأ. يمكننا توسيع نافذة الذاكرة (المسمى حجم السياق) بحيث تتذكر أكثر، ولكن قد تستخدم المزيد من ذاكرة الكمبيوتر الخاص بك. يمكننا أيضا تقليص المدخلات، مما يعني انه ينسى جزء من تاريخ الدردشة ليحصل على مساحة للرسائل الجديدة.",
+    "increaseContextSizeDescription": "اتريد زيادة حجم السياق؟",
+    "increaseContextSize": "زيادة حجم السياق"
+  },
+  "toolApproval": {
+    "title": "طلب تصريحات الأدوات",
+    "description": "المساعد يريد يستخدم <strong>{{toolName}}</strong>",
+    "securityNotice": "تسمح فقط بالأدوات التي تثق بها. الأدوات يمكنها الوصول لنظامك وبياناتك.",
+    "deny": "الرفض",
+    "allowOnce": "اسمحوا مرة واحدة",
+    "alwaysAllow": "دلوقتي تسمح"
+  },
+  "deleteModel": {
+    "title": "حذف النموذج: {{modelId}}",
+    "description": "هل انت متأكد انك تريد حذف هذا النموذج؟",
+    "success": "نموذج {{modelId}} تم حذفها بشكل دائم.",
+    "cancel": "إلغاء",
+    "delete": "حذف"
+  },
+  "deleteProvider": {
+    "title": "حذف المزود",
+    "description": "حذف هذا المزود وجميع نماذجها.",
+    "success": "مزود {{provider}} تم حذفها بشكل دائم.",
+    "confirmTitle": "حذف مزود: {{provider}}",
+    "confirmDescription": "هل انت متأكد انك تريد حذف هذا المزود؟",
+    "cancel": "إلغاء",
+    "delete": "حذف"
+  },
+  "modelSettings": {
+    "label": "إعدادات النموذج",
+    "title": "إعدادات النموذج - {{modelId}}",
+    "description": "حدد إعدادات النموذج لتحسين الأداء والسلوك.",
+    "nglDisabledByFit": "التكيف التلقائي هو اختيار GPU طبقات، أطفئ التشغيل التلقائي لتحديد هذا يدويا",
+    "samplingDefaults": {
+      "title": "معايير العينات الافتراضية",
+      "description": "إعدادات العينات الافتراضية لهذه النموذج. تستخدم ما لم يتم تجاوزها من قبل قيم لكل مساعد أو لكل طلب."
+    },
+    "specDraft": {
+      "section": "تشفير المضاربة",
+      "enable": "تمكين التشفير المضارب",
+      "enableDescription": "مسودة عدة رموز لكل خطوة وتحقق منها في مرور واحد، والذي يسرع التوليد. يستخدم النموذج المدمج MTP الرؤوس، أو مشروع النموذج الذي تم تنزيله معه (MTP, Eagle3, DFlash او DSpark).",
+      "nMax": "رموز مشروع ماكس",
+      "nMaxDescription": "الحد الأقصى من الرموز للتسجيل لكل خطوة. 16.",
+      "nMin": "توكينات مسرحية",
+      "nMinDescription": "الحد الأدنى من الرموز التي يمكن رسمها لكل خطوة. 0.",
+      "pMin": "احتمال مسودة أقل",
+      "pMinDescription": "الحد الأدنى من الاحتمالات للصياغة الفاسدة (0–1) افتراضي 0.75."
+    },
+    "templateKwargs": {
+      "section": "خيارات نموذج الدردشة",
+      "description": "خيارات إضافية يقبل نموذج الدردشة هذا النموذج. chat_template_kwargs على كل طلب؛ اترك قيمة في غيابها ليتسنى للنموذج تقرير.",
+      "addCustom": "إضافة خيار مخصص",
+      "keyPlaceholder": "الاسم",
+      "valuePlaceholder": "القيمة",
+      "add": "إضافة",
+      "cancel": "إلغاء",
+      "remove": "إزالة"
+    }
+  },
+  "modelControls": {
+    "updateFailed": "ما استطعت تحديث إعدادات النموذج"
+  },
+  "dialogs": {
+    "changeDataFolder": {
+      "title": "تغيير موقع مجلد البيانات",
+      "description": "هل انت متأكد انك تريد تغيير موقع مجلد البيانات؟ هذا سيقوم بتحريك كل البيانات الخاصة بك الى موقع جديد ويعيد تشغيل التطبيق.",
+      "currentLocation": "الموقع الحالي:",
+      "newLocation": "موقع جديد:",
+      "cancel": "إلغاء",
+      "changeLocation": "تغيير الموقع"
+    },
+    "deleteAllThreads": {
+      "title": "امسح كل الخيوط",
+      "description": "سيتم حذف كل الخيوط. هذا الإجراء لا يمكن تغييره."
+    },
+    "deleteAllThreadsInProject": {
+      "title": "ابعد كل المحادثات",
+      "description": "{{count}} محادثات في \"{{projectName}}سيتم حذف هذا الإجراء لا يمكن إلغاءه."
+    },
+    "deleteThread": {
+      "description": "متأكد إنك تريد تمسح هذه المحادثة؟ ما تقدر ترجعها بعد المسح."
+    },
+    "editMessage": {
+      "title": "تعديل الرسالة"
+    },
+    "messageMetadata": {
+      "title": "البيانات المترجمة"
+    },
+    "deleteMessage": {
+      "description": "متأكد إنك تريد تمسح هذه الرسالة؟ ما تقدر ترجعها بعد المسح."
+    }
+  },
+  "errorDialog": {
+    "titleFallback": "شيء خاطئ",
+    "details": "تفاصيل"
+  },
+  "missingDependenciesDialog": {
+    "title": "مكتبات النظام المفقودة",
+    "description": "الـ {{backend}} تم تثبيت ولكن بعض مكتبات النظام المطلوبة لم تتمكن من العثور عليها. CPU او لا تعمل بشكل صحيح.",
+    "installLabel": "لإصلاح هذا، قم بتثبيت ما يلي:",
+    "download": "تنزيل",
+    "additionalLibraries": "مكتبات إضافية مفقودة:",
+    "missingLibraries": "المكتبات المفقودة:",
+    "showRawLibraries": "عرض {{count}} أسماء المكتبات المفقودة"
+  },
+  "projects": {
+    "title": "مشاريع",
+    "new": "مشاريع جديدة",
+    "addProject": "إضافة مشروع",
+    "addToProject": "إضافة إلى المشروع",
+    "removeFromProject": "إزالة من المشروع",
+    "createNewProject": "إقامة مشروع جديد",
+    "editProject": "تحرير مشروع",
+    "deleteProject": "حذف المشروع",
+    "projectName": "اسم المشروع",
+    "enterProjectName": "ادخل اسم المشروع...",
+    "noProjectsAvailable": "لا توجد مشاريع متاحة",
+    "noProjectsYet": "لا مشاريع بعد",
+    "noProjectsYetDesc": "ابدأ مشروع جديد عن طريق النقر على زر إضافة المشروع.",
+    "projectNotFound": "مش ملي مشروع",
+    "projectNotFoundDesc": "المشاريع اللي تبحث عنها مش موجودة او تم حذفها",
+    "selectAssistant": "خيار مساعد",
+    "noAssistantAssigned": "ما كان هناك مساعد مخصص لهذه المشاريع",
+    "files": "ملفات",
+    "filesDescription": "إضافة PDFالوثائق او النص الاخر للاستشارات في هذا المشروع.",
+    "uploadingFiles": "معالجة الملفات...",
+    "processButton": "إضافة",
+    "deleteProjectDialog": {
+      "title": "حذف المشروع",
+      "permanentDelete": "هذا سيقوم بحذف جميع الخيوط بشكل دائم.",
+      "permanentDeleteWarning": "هذا الإجراء سيحذف بشكل دائم ALL خيوط داخل المشروع!",
+      "deleteEmptyProject": "هذا الإجراء سيحذف المشروع \"{{projectName}}\".",
+      "saveThreadsAdvice": "لإنقاذ الخيوط، نقلها إلى قائمة الخيوط الخاصة بك أو مشروع آخر قبل الحذف.",
+      "starredWarning": "ما زلت لديك خيوط نجمة داخل المشروع.",
+      "deleteButton": "حذف",
+      "successWithName": "مشروع \"{{projectName}}\" تم حذفها بنجاح",
+      "successWithoutName": "تم حذف المشروع بنجاح",
+      "error": "فشلت في حذف المشروع، رجاءا حاول مرة اخرى.",
+      "ariaLabel": "حذف {{projectName}}"
+    },
+    "addProjectDialog": {
+      "createTitle": "إقامة مشروع جديد",
+      "editTitle": "تحرير مشروع",
+      "nameLabel": "اسم المشروع",
+      "namePlaceholder": "ادخل اسم المشروع...",
+      "assistant": "مساعد",
+      "selectAssistant": "اختر مساعد (اختياري)",
+      "noAssistant": "لا معاون",
+      "addAssistant": "إضافة المساعد",
+      "createButton": "خلق",
+      "updateButton": "تحديث",
+      "alreadyExists": "مشروع \"{{projectName}}\" موجود بالفعل",
+      "createSuccess": "مشروع \"{{projectName}}\" خلقت بنجاح",
+      "updateSuccess": "مشروع \"{{projectName}}\" تم تحديثه بنجاح",
+      "saveError": "لم استطع حفظ المشروع، رجاءا حاول مرة اخرى."
+    },
+    "noConversationsIn": "لا محادثات في {{projectName}}",
+    "startNewConversation": "ابدأ حديث جديد مع {{projectName}} أسفل",
+    "conversationsIn": "محادثات في {{projectName}}",
+    "conversationsDescription": "اضغط على اي محادثة لتستمر في المحادثة، أو ابدأ حديث جديد أدناه.",
+    "conversation": "محادثة",
+    "instructions": "تعليمات",
+    "setup": "تشكيل",
+    "instructionsDescription": "تخصيص النغمة ونمط الاستجابة",
+    "manageInstructions": "إدارة التعليمات",
+    "thread": "خيط",
+    "threads": "خيوط",
+    "updated": "تم تحديثه:",
+    "collapseProject": "مشروع الانهيار",
+    "expandProject": "توسيع المشروع",
+    "update": "تحديث",
+    "searchProjects": "مشاريع البحث...",
+    "noProjectsFound": "ما توجد مشروعات",
+    "tryDifferentSearch": "جرب مصطلح بحث مختلف"
+  },
+  "attachmentsIngestion": {
+    "title": "اختر كيف تتناول المرفقات",
+    "description": "اختر اذا كنت تريد تضمين هذه الملفات مباشرة في الدردشة او تحويلها كتمثيلات بدلاً من ذلك.",
+    "inline": "أدخن في الدردشة",
+    "embeddings": "استخدم المضمونات"
+  },
+  "attachmentInjectedIndicator": "تم حقن في الدردشة",
+  "attachmentEmbeddedIndicator": "مدمج ل: RAG",
+  "viewInjectedContent": "شوف المحتوى المحقق",
+  "injectedContentTitle": "محتويات الملفات المحققة",
+  "toast": {
+    "allThreadsUnfavorited": {
+      "title": "كل الخيوط غير مفضلة",
+      "description": "كل الخيوط تم حذفها من المفضلة لديك."
+    },
+    "deleteAllThreads": {
+      "title": "امسح كل الخيوط",
+      "description": "كل الخيوط تم حذفها بشكل دائم."
+    },
+    "renameThread": {
+      "title": "تغيير اسم الخيط",
+      "description": "تم تغيير اسم عنوان الخيط لـ \"{{title}}'"
+    },
+    "deleteThread": {
+      "title": "حذف الخيط",
+      "description": "تم حذف هذا الخيط بشكل دائم."
+    },
+    "errorCopied": {
+      "title": "نسخة ناجحة",
+      "description": "معلومات الخطأ نسخة على لوحة المقطوعات"
+    },
+    "errorCopyFailed": {
+      "title": "فشلت في النسخ",
+      "description": "فشلت نسخ معلومات الخطأ على لوحة المقطوعات"
+    },
+    "editMessage": {
+      "title": "تعديل الرسالة",
+      "description": "الرسالة تحررت بنجاح، رجاءً انتظر النموذج يستجيب."
+    },
+    "appUpdateDownloaded": {
+      "title": "تم تنزيل تحديث التطبيق",
+      "description": "تم تحميل تحديث التطبيق بنجاح."
+    },
+    "appUpdateDownloadFailed": {
+      "title": "تنزيل تحديث التطبيق فشل",
+      "description": "فشلت تحميل تحديث التطبيق، رجاءا حاول مرة اخرى."
+    },
+    "downloadComplete": {
+      "title": "تنزيل كامل",
+      "description": "{{item}} تم تنزيل"
+    },
+    "downloadCancelled": {
+      "title": "تنزيل إلغاء",
+      "description": "تم إلغاء عملية التنزيل"
+    },
+    "downloadFailed": {
+      "title": "تنزيل فشل",
+      "description": "{{item}} فشل تنزيل",
+      "descriptionWithReason": "{{item}} فشل التحميل: {{reason}}",
+      "reason": {
+        "dns": "اسم الخادم لم يستطع حل",
+        "refused": "تم رفض الاتصال",
+        "timeout": "التوصيل المحدد",
+        "tls": "لا يمكن إقامة اتصال آمن",
+        "proxy": "لم يتم الوصول الى الوكيل",
+        "unreachable": "لا يمكن الوصول إلى الخادم"
+      }
+    },
+    "openSettings": "إعدادات مفتوحة",
+    "openLogs": "سجلات مفتوحة",
+    "downloadTokenRequired": {
+      "title": "Hugging Face رمز مطلوب",
+      "description": "هذا النموذج يتطلب Hugging Face رمز الوصول. أضف رمزك في الإعدادات و حاول مرة اخرى."
+    },
+    "downloadLicenseRequired": {
+      "title": "تقبل رخصة النموذج على Hugging Face",
+      "description": "لازم تقبل رخصة النموذج على Hugging Face الصفحة قبل التنزيل."
+    },
+    "downloadRateLimited": {
+      "title": "سعر محدد من Hugging Face",
+      "description": "تم تحديد السعر، إضافة رمز يمكن زيادة حدود السعر، رجاءً حاول مرة أخرى في وقت لاحق."
+    },
+    "modelValidationStarted": {
+      "title": "نموذج التحقق من الصلاحية",
+      "description": "النموذج المنزول \"{{modelId}}\"بنجاح. تثبيت النزاهة..."
+    },
+    "modelValidationFailed": {
+      "title": "التحقق من النموذج فشل",
+      "description": "النموذج المنزول \"{{modelId}}فشلت التحقق من النزاهة وتم إزالة الملف قد يكون فاسد او مخادع"
+    },
+    "downloadAndVerificationComplete": {
+      "title": "تنزيل كامل",
+      "description": "نموذج \"{{item}}\" تحميل وتحقق بنجاح"
+    },
+    "projectCreated": {
+      "title": "تم إنشاء المشروع",
+      "description": "مشروع \"{{projectName}}\" خلقت بنجاح"
+    },
+    "projectRenamed": {
+      "title": "المشروع تم تغيير اسمه",
+      "description": "المشروع تم تغيير اسمه من \"{{oldName}}\" لـ \"{{newName}}\""
+    },
+    "projectDeleted": {
+      "title": "المشروع مُحذف",
+      "description": "مشروع \"{{projectName}}\" تم حذفها بنجاح"
+    },
+    "projectAlreadyExists": {
+      "title": "المشروع موجود بالفعل",
+      "description": "مشروع \"{{projectName}}\" موجود بالفعل"
+    },
+    "projectDeleteFailed": {
+      "title": "حذف فشل",
+      "description": "فشلت في حذف المشروع، رجاءا حاول مرة اخرى."
+    },
+    "threadAssignedToProject": {
+      "title": "خيوط مخصصة",
+      "description": "خيط مخصص ل \"{{projectName}}بنجاح"
+    },
+    "threadRemovedFromProject": {
+      "title": "سحب الخيط",
+      "description": "خيط تم إزالة من \"{{projectName}}بنجاح"
+    },
+    "fileUploaded": {
+      "title": "تم معالجة الملفات",
+      "description": "تم معالجة الملف وتصنيفه بنجاح"
+    },
+    "uploadFailed": {
+      "title": "فشل المعالجة",
+      "description": "فشل في معالجة الملف",
+      "subjectThisFile": "هذا الملف",
+      "pdfMalformedXref": "{{subject}} ليه خلل PDF طاولة مرجع متقاطع ولم تتمكن من تحليلها حاول فتحها في PDF المشاهد وإعادة حفظه (ملف → طباعة → حفظه ك PDF) ثم قم بتحميل مرة اخرى.",
+      "pdfScanned": "{{subject}} يظهر كونه مسح أو على أساس الصورة PDF. OCR ما يدعم بعد  ⁇  رجاءا تحميل نصية PDF.",
+      "pdfEncrypted": "{{subject}} محمية بكلمة مرور. خلع الكلمة السرية ومحاولة ثانية.",
+      "pdfUnsupportedFeature": "{{subject}} يستخدم a PDF ميزة Novera لا يمكن التحليل بعد (مثل PostScript وظائف اللون/التظليل). حاول حفظها مرة اخرى (ملف → طباعة → حفظ ك PDF) لتسطحها، ثم تحميل مرة اخرى.",
+      "pdfGeneric": "{{subject}} لا يمكن تحليلها ك PDFالملف ممكن يكون فاسد او يستخدم ملف غير مدعوم PDF ميزة.",
+      "fileTooLarge": "{{subject}} هو كبير جدا. {{message}}.",
+      "unsupportedType": "نوع الملف \"{{type}}\"ليس مدعوم.",
+      "ioError": "ما كان يقدر يقرأ {{subject}}: {{message}}",
+      "parseGeneric": "{{subject}} لا يمكن تحليلها: {{message}}",
+      "fallback": "فشل في المعالجة {{subject}}."
+    },
+    "fileDeleted": {
+      "title": "ملف مُحذف",
+      "description": "تم إزالة الملف من المشروع"
+    },
+    "deleteFailed": {
+      "title": "حذف فشل",
+      "description": "فشلت في حذف الملف"
+    },
+    "fileAlreadyExists": {
+      "title": "الملف موجود بالفعل",
+      "description": "الملف مرفق بالفعل بهذا المشروع"
+    },
+    "unsupportedFileType": {
+      "title": "نوع الملف غير المدعوم",
+      "description": "تمديد الملفات \".{{extension}}\" ما يدعم لمراجعة المشروع."
+    },
+    "attachmentsDisabledInfo": {
+      "title": "المرفقات معطلة",
+      "description": "المرفقات غير فعالة في الإعدادات"
+    }
+  },
+  "errors": {
+    "fileTooLarge": "الملف كبير جدا",
+    "fileTooLargeDescription": "{{fileName}} يتجاوز {{maxFileSizeMB}}MB الحد"
+  },
+  "files": {
+    "chunksCount": "{{count}} شرائح",
+    "title": "ملفات",
+    "empty": "الملفات التي تربطها والملفات التي يخلقها العميل ستظهر هنا.",
+    "a11y": "ملفات: {{count}}",
+    "attachments": "المرفقات",
+    "notImported": "مش في مساحة العمل"
+  },
+  "llamacppBusyOnExit": {
+    "title": "llama.cpp مازال مشغول",
+    "description": "نموذج واحد أو أكثر لم تنزلق في الوقت المناسب. llama.cpp ويمكن ان يقطع الاستجابات النشطة.",
+    "forceQuit": "القوة تستسلم",
+    "forcing": "استقالة القوة...",
+    "shuttingDown": "اغلاق..."
+  },
+  "duration": {
+    "seconds": "{{count}} ث",
+    "minutes": "{{count}} د",
+    "hours": "{{count}} س"
+  },
+  "collapse": "انهيار",
+  "expand": "اتوسع",
+  "todoPanelTitle": "التقدم",
+  "todoPanelEmpty": "لا قائمة لحد الآن.",
+  "backgroundTasks": "مهام خلفية",
+  "subagentsRunning_one": "{{count}} سوباجينت تشغيل",
+  "subagentsRunning_other": "{{count}} سوباجنتات تعمل",
+  "monitorsRunning_one": "{{count}} شاشة تعمل",
+  "monitorsRunning_other": "{{count}} شاشات تعمل",
+  "backgroundRunning_one": "{{count}} تنفيذ مهمة خلفية",
+  "backgroundRunning_other": "{{count}} مهام خلفية قيد التشغيل",
+  "monitors": "أجهزة مراقبة",
+  "monitorPolling": "الاستطلاعات",
+  "monitorMatched": "متطابق",
+  "monitorTimedOut": "توقيت الموعد",
+  "monitorStopped": "توقف",
+  "monitorEnded": "انتهى",
+  "coworkWatching_one": "مشاهدة {{count}} شاشة...",
+  "coworkWatching_other": "مشاهدة {{count}} شاشات...",
+  "coworkWaitingBackground": "انتظر على مهام خلفية...",
+  "noBackgroundTasks": "لا مهمات خلفية بعد.",
+  "running": "ركض",
+  "queued": "صفوف",
+  "waiting": "انتظر",
+  "finished": "إنتهى",
+  "subagentPhase": "مرحلة {{phase}}",
+  "subagentWaiting": "تنتظر",
+  "viewTranscript": "شوف النسخة",
+  "taskWorking": "أعمل...",
+  "taskNoOutput": "السباجنت لم تنتج أي إنتاج مرئي.",
+  "subagentToolUses_one": "{{count}} استخدام الأدوات",
+  "subagentToolUses_other": "{{count}} استخدامات الأدوات",
+  "artifactGroupCode": "الرمز",
+  "artifactGroupImage": "صورة",
+  "artifactGroupDocument": "وثيقة",
+  "artifactGroupVideo": "فيديو",
+  "artifactGroupAudio": "صوتي",
+  "artifactOpenPreview": "عرض مسبق مفتوح",
+  "artifactOpenExternal": "مفتوح",
+  "artifactMoreActions": "مزيد من الإجراءات",
+  "artifactShowInFolder": "عرض في المجلد",
+  "skillsUsedLabel": "المهارات المستخدمة",
+  "skillsUsed": "المهارات المستخدمة: {{skills}}",
+  "artifactsAll": "كلهم",
+  "artifactsEmpty": "لا شيء مصنوع بعد. Cowork السباق يظهر هنا",
+  "artifactsNoMatch": "لا تتطابق الأثرية.",
+  "artifactsSearch": "القطع الأثرية البحثية",
+  "artifactsShowMore": "عرض {{count}} اكثر",
+  "workspace": {
+    "readsFrom": "يعمل في",
+    "writable": "قراءة & كتابة",
+    "footnote": "الوكيل يقرأ ويقوم بتحرير هذا المجلد مباشرة. يراجع ما تغير في لوحة الاختلاف.",
+    "footnoteEmpty": "ربط مجلد للسماح للعميل بالعمل على مشروعك. يمكنه قراءة وتحرير الملفات بداخله.",
+    "attach": "ربط مجلد",
+    "change": "تغيير المجلد",
+    "detach": "مجلد التفرد",
+    "open": "مفتوح",
+    "reveal": "الكشف عن",
+    "unavailable": "مساحة عمل غير متوفرة",
+    "missing": "مجلد مساحة العمل {{folder}} لم يعد متاح. اختر مجلد مختلف.",
+    "openFailed": "لم استطع فتح مساحة عمل",
+    "revealFailed": "ما استطعت الكشف عن مساحة العمل",
+    "a11yWithFolder": "مجلد المشاريع {{folder}}، مرفق مع الوصول القراءة والكتابة.",
+    "a11yNoFolder": "لا يوجد مجلد مشروع مرفق."
+  },
+  "coworkEmpty": {
+    "title": "ما نحن نعمل عليه؟",
+    "subtitleSandbox": "إعطاء Novera هي تقرأ وتكتب الملفات وتعمل الأوامر وتعمل من خلال الخطوات بمفردها.",
+    "subtitleFolder": "إعطاء Novera مهمة. انها تعمل مباشرة في {{folder}}، قراءة وتحرير الملفات بمفردها.",
+    "try": "جرب",
+    "sandbox": {
+      "first": "اكتب Python نص يغير اسماء الملفات بحلول التاريخ الذي تم اخذها",
+      "second": "بناء لوحة واحدة من لوحة CSV انا سألصق فيه",
+      "third": "مسودة a README لمشروع اوصف لك"
+    },
+    "folder": {
+      "first": "اشرح كيف {{folder}} تم تجميعه",
+      "second": "اعثر على كل واحد TODO في {{folder}} ونجمعهم حسب مساحة",
+      "third": "اكتب اختبارات لجزء من {{folder}} انا اشيرك الى"
+    }
+  },
+  "sandbox": {
+    "noTerminal": "لا محطة",
+    "a11y": "أوامر التشغيل معطلة تفاصيل",
+    "title": "أوامر التشغيل معطلة",
+    "body": "Novera يسمح للعميل بتشغيل أوامر shell فقط عندما يمكن لنظامك تحديدها. لا يوجد صندوق رمل متاح هنا، لذلك يمكن للعميل قراءة وكتابة وتحرير الملفات في صندوق رمله  ⁇  ولكن لا يعمل أي شيء.",
+    "fixLinux": "استخدامات لينكس bubblewrapضعه، ثم اعيد تشغيله Novera.",
+    "fixMac": "ماكOS يستخدم الصندوق الرملي المدمج في /usr/bin/sandbox-exec. إعادة البدء Novera بمجرد ان تكون متاحة.",
+    "fixWindows": "Windows استخدامات AppContainer. إعادة البدء Novera ليحاول مرة اخرى.",
+    "recheck": "تفقد مرة اخرى"
+  },
+  "planMode": {
+    "label": "خطة",
+    "tooltipOff": "الخطة أولاً  ⁇  الوكيل يقرأ ويقترح، دون كتابة.",
+    "tooltipOn": "تخطيط، أطفئ هذا للسماح للعميل يكتب الملفات.",
+    "onAnnounce": "وضع خطة على",
+    "placeholder": "اطلب خطة، الوكيل لن يغير أي ملفات"
+  },
+  "budget": {
+    "stoppedSteps": "توقفت عند {{max}} خطوات العميل لم ينتهي",
+    "keepGoing": "استمر",
+    "stoppedTokens": "توقفت  ⁇  هذه الجلسة وصلت الى ميزانية رمزية.",
+    "compact": "كومبكت",
+    "newSession": "جلسة جديدة"
+  },
+  "run": {
+    "stopped": "توقفت.",
+    "failed": "توقف الركض مبكرا.",
+    "tryAgain": "جرب مرة اخرى"
+  },
+  "modelNoTools": "{{model}} لا يمكنه الاتصال بالأدوات، لذا لا يمكنه العمل كوكب. اختر نموذج يدعو الأدوات.",
+  "askContinue": "استمر",
+  "askNext": "سؤال بعيد",
+  "askPrev": "سؤال سابق",
+  "askRecommended": "توصيه",
+  "askSelectedCount": "{{count}} مختارة",
+  "askSomethingElse": "شي اخر",
+  "askSomethingElsePlaceholder": "اكتب جوابك بنفسك",
+  "submit": "تقديم",
+  "composer": {
+    "advanced": "المعايير المتقدمة",
+    "modelDefaults": "مخطوطات النموذج",
+    "assistantOverrides": "المساعدات المفروضة",
+    "printPdf": "طباعة / حفظ ك PDF",
+    "exportHint": "صيغ قابلة للقراءة: فرع نشط. JSON: جميع إصدارات الرسائل. الملفات الخارجية غير متجمعة."
+  },
+  "telemetry": {
+    "summary": "لو وافقت، {{host}} يستقبل نسخة Novera ونظام التشغيل بس. ما يستقبل محادثاتك أو معرّف دائم.",
+    "unavailable": "الإحصائيات مش مهيّأة. ما تنرسل بيانات."
+  },
+  "errorTracking": {
+    "title": "تعقب الخطأ",
+    "summary": "تقارير اختيارية إلى {{host}} فيها نوع الخطأ ومكانه في الكود والإصدار ونظام التشغيل. ما فيها محادثات أو رسائل الخطأ الخام أو مفاتيح. تقدر توقّفها في أي وقت.",
+    "unavailable": "تتبّع الأخطاء مش مهيّأ. ما تنرسل تقارير."
+  },
+  "access": {
+    "read": "للقراءة بس",
+    "ask": "اسأل قبل ما تعدّل أو تمسح",
+    "allow": "اسمح بالتعديل والمسح",
+    "folderNote": "اختار كيف تخلّي Novera يوصل لهذا المجلد."
+  },
+  "components": {
+    "title": "المكونات المحلية",
+    "note": "ثبّت المكوّنات اللي تحتاجها بس. Novera يفصل بيئات Python. خدمات السحابة ما تحتاج تثبيت على جهازك.",
+    "estimates": "التنزيل المقدر: {{download}} · مساحة القرص المطلوبة: {{space}} · مساحة القرص المتاحة: {{free}}",
+    "confirm": "تنسخ هذا البيئة الخاصة؟ سيتم تنزيل المكونات المختارة فقط. ترخيصات ناشرياتهم تطبق.",
+    "removeConfirm": "إزالة هذا البيئة المدارة؟",
+    "verify": "تحقق",
+    "repair": "إصلاح",
+    "uninstall": "إزالة التثبيت",
+    "missing": "مش مثبت",
+    "managed": "مديريت بواسطة Novera",
+    "external": "مسار Python الخارجي اختياري وله الأولوية على الملف المُدار. امسحه عشان تستخدم بيئة Novera.",
+    "failed": "عملية المكونات فشلت، تحقق من الشبكة، مساحة القرص وحقوق الوصول، ثم حاول مرة اخرى أو إصلاح.",
+    "required": "إعداد وتحقق من المكونات المحلية المطلوبة في Novera · تشكيلات.",
+    "updateAvailable": "تحديث متاح",
+    "update": "تحديث",
+    "rollback": "استعادة البيئة السابقة",
+    "busy": "خلي النماذج المحلية وانتظر الأجيال تنتهي قبل تغيير المكونات."
+  },
+  "voiceConversation": "محادثة بالصوت",
+  "voiceUnavailable": "المحادثة بالصوت مش متاحة",
+  "voiceMale": "صوت ذكر",
+  "voiceFemale": "صوت امرأة",
+  "voiceReadReplies": "اقرأ الردود بصوت"
+}

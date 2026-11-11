@@ -1,6 +1,6 @@
 import { useTranslation } from '@/i18n/react-i18next-compat'
 
-/** Explicit diagnostic field labels, already translated in all 104 catalogs. */
+/** Explicit diagnostic field labels translated in the locale catalogs. */
 export function ErrorTrackingDetails() {
   const { t } = useTranslation()
   return <p className="mt-2 text-xs text-muted-foreground">
