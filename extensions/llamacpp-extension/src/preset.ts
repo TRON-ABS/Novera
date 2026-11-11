@@ -18,6 +18,7 @@ import { invoke } from '@tauri-apps/api/core'
 import type { LlamacppConfig, ModelConfig } from '@janhq/tauri-plugin-llamacpp-api'
 import { engineDevices, getEngineVersion } from '@janhq/tauri-plugin-llamacpp-api'
 import { measuredBatchProfile } from './performance-profile'
+import { applyCalibratedPreset, CALIBRATION_RECEIPT, calibrationBasis, calibratedPresetLines, desktopCalibration, type CalibrationReceipt } from './calibration'
 
 // ModelConfig is intentionally widened — model.yml may carry extra fields like
 // `chat_template` that aren't yet in the strict typing.
@@ -25,6 +26,8 @@ type ModelYaml = ModelConfig & {
   chat_template?: string
   grammar?: string
   ctx_size?: number
+  threads?: number
+  load_mode?: 'auto' | 'none'
   n_gpu_layers?: number
   flash_attn?: string
   cache_type_k?: string
@@ -175,6 +178,7 @@ export async function generatePreset(
   // still supplies per-model values; absent engine values use safe defaults.
   config ??= {} as LlamacppConfig
   const modelsDir = await joinPath([providerPath, 'models'])
+  const localCalibration = (await desktopCalibration()) != null
 
   // Ensure the directory exists; an empty install is fine — we still emit a
   // valid (mostly empty) preset so the router can start.
@@ -526,6 +530,7 @@ export async function generatePreset(
   lines.push('')
 
   // ---------- per-model sections ----------
+  const sharedCalibrationPreset = lines.join('\n')
   let embeddingCount = 0
   for (const { modelId, configPath } of modelEntries) {
     let mc: ModelYaml
@@ -540,6 +545,7 @@ export async function generatePreset(
 
     const modelAbs = await joinPath([janDataFolderPath, mc.model_path])
 
+    const calibrationStart = lines.length
     lines.push(`[${modelId}]`)
     lines.push(`model = ${escapeIniValue(modelAbs)}`)
 
@@ -601,6 +607,12 @@ export async function generatePreset(
     ) {
       lines.push(`ctx-size = ${mc.ctx_size}`)
       ctxEmitted = true
+    }
+    if (typeof mc.threads === 'number' && Number.isSafeInteger(mc.threads) && mc.threads > 0) {
+      lines.push(`threads = ${mc.threads}`)
+    }
+    if (mc.load_mode === 'auto' || mc.load_mode === 'none') {
+      lines.push(`load-mode = ${mc.load_mode}`)
     }
     // Skipped when auto-fit is on: an explicit n-gpu-layers makes fit abort its
     // layer-offload computation. -1 is auto and -2 or below means all layers,
@@ -829,6 +841,19 @@ export async function generatePreset(
     }
 
     lines.push('load-on-startup = false')
+    if (localCalibration) {
+      try {
+        const receiptPath = await joinPath([modelsDir, modelId, CALIBRATION_RECEIPT])
+        if (await fs.existsSync(receiptPath)) {
+          const receipt = JSON.parse(await fs.readFileSync(receiptPath, 'utf8')) as CalibrationReceipt
+          const section = lines.slice(calibrationStart)
+          const basis = calibrationBasis(`${sharedCalibrationPreset}\n${section.join('\n')}`, modelId)
+          lines.splice(calibrationStart, section.length, ...applyCalibratedPreset(section, calibratedPresetLines(receipt, basis)))
+        }
+      } catch {
+        // A missing or malformed receipt keeps the registered model usable.
+      }
+    }
     lines.push('')
   }
 

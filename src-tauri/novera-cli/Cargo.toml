@@ -1,6 +1,6 @@
 [package]
 name = "novera-cli"
-version = "1.0.2"
+version = "1.0.3"
 description = "Novera CLI: local llama.cpp inference and an interactive agent console."
 authors = ["TRON-ABS", "Jan contributors"]
 license = "Apache-2.0"

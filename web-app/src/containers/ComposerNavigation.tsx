@@ -2,7 +2,7 @@ import { Blocks, FolderPlus, Search, Settings } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
 import { browserPreviewEnabled } from '@/services/browser-preview/config'
-import { dashboardPanelLimit, useDashboardPanel } from '@/hooks/useDashboardPanel'
+import { dashboardPanelLimit, singleDashboardPanel, useDashboardPanel } from '@/hooks/useDashboardPanel'
 import { useSearchDialog } from '@/hooks/useSearchDialog'
 import { useTranslation } from '@/i18n/react-i18next-compat'
 
@@ -29,7 +29,7 @@ export function ComposerNavigation({ side }: { side: 'left' | 'right' }) {
             <Button type="button" variant="ghost" size="icon-sm"
               className="composer-navigation-button" data-testid={`composer-nav-${id}`}
               aria-label={label} aria-expanded={panels.includes(panel)}
-              disabled={panels.length >= dashboardPanelLimit && !panels.includes(panel)} onClick={event => {
+              disabled={!singleDashboardPanel && panels.length >= dashboardPanelLimit && !panels.includes(panel)} onClick={event => {
                 useDashboardPanel.setState({ anchor: event.currentTarget.closest<HTMLElement>('[data-dashboard-composer]') })
                 onClick()
               }}>

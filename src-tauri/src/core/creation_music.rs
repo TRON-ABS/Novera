@@ -173,8 +173,9 @@ pub(super) fn command(
         }
         _ => {}
     }
-    if stage == "synth" && request.device != "cpu" {
-        command.args(["--vae-chunk", "256", "--vae-overlap", "32"]);
+    if stage == "synth" && (request.device != "cpu" || request.calibrated > 0) {
+        let chunk = if request.calibrated > 0 { request.calibrated } else { 256 };
+        command.arg("--vae-chunk").arg(chunk.to_string()).args(["--vae-overlap", "32"]);
     }
     command.kill_on_drop(true);
     #[cfg(windows)]

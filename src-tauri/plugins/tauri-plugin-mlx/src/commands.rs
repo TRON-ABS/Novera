@@ -15,6 +15,7 @@ use crate::process::{
     get_random_available_port, is_process_running_by_pid,
 };
 use crate::state::{MlxBackendSession, MlxState, SessionInfo};
+use jan_utils::calibration::{self, ForegroundWork};
 
 #[cfg(unix)]
 use crate::process::graceful_terminate_process;
@@ -43,7 +44,7 @@ pub async fn load_mlx_model_impl(
     model_path: String,
     port: u16,
     config: MlxConfig,
-    envs: HashMap<String, String>,
+    mut envs: HashMap<String, String>,
     is_embedding: bool,
     timeout: u64,
 ) -> ServerResult<SessionInfo> {
@@ -99,7 +100,11 @@ pub async fn load_mlx_model_impl(
         args.push(api_key.clone());
     }
 
-    log::info!("MLX server arguments: {:?}", args);
+    if let Some(cache) = envs.remove("NOVERA_MLX_CALIBRATED").filter(|cache| {
+        calibration::available() && matches!(cache.as_str(), "64" | "128" | "256")
+    }) {
+        args.extend(["--calibration-cache-mib".into(), cache]);
+    }
 
     // Configure the command
     let mut command = Command::new(&bin_path);
@@ -107,6 +112,7 @@ pub async fn load_mlx_model_impl(
     command.envs(envs);
     command.stdout(Stdio::piped());
     command.stderr(Stdio::piped());
+    command.kill_on_drop(true);
 
     // Spawn the child process
     let mut child = command.spawn().map_err(ServerError::Io)?;
@@ -276,6 +282,7 @@ pub async fn load_mlx_model_impl(
         MlxBackendSession {
             child,
             info: session_info.clone(),
+            foreground: None,
         },
     );
 
@@ -295,6 +302,8 @@ pub async fn load_mlx_model<R: Runtime>(
     is_embedding: bool,
     timeout: u64,
 ) -> ServerResult<SessionInfo> {
+    let foreground = ForegroundWork::start();
+    let _ = tokio::time::timeout(Duration::from_secs(3), calibration::ACTIVE.lock()).await;
     let state: State<MlxState> = app_handle.state();
     let binary_path = app_handle
         .path()
@@ -307,7 +316,7 @@ pub async fn load_mlx_model<R: Runtime>(
             )
         })?
         .join("resources/bin/mlx-server");
-    load_mlx_model_impl(
+    let info = load_mlx_model_impl(
         state.mlx_server_process.clone(),
         &binary_path,
         model_id,
@@ -318,7 +327,11 @@ pub async fn load_mlx_model<R: Runtime>(
         is_embedding,
         timeout,
     )
-    .await
+    .await?;
+    if let Some(session) = state.mlx_server_process.lock().await.get_mut(&info.pid) {
+        session.foreground = Some(foreground);
+    }
+    Ok(info)
 }
 
 /// Unload an MLX model by terminating its process

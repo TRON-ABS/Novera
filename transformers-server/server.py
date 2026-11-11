@@ -205,7 +205,7 @@ def adapter_memory(base, adapter, context, device):
 
 
 class Inference:
-    def __init__(self, path, model_id, context_size=2048, device="auto", adapter_path=None):
+    def __init__(self, path, model_id, context_size=2048, device="auto", adapter_path=None, cpu_threads=None):
         # Set offline mode before importing Hugging Face libraries.
         os.environ["HF_HUB_OFFLINE"] = "1"
         os.environ["TRANSFORMERS_OFFLINE"] = "1"
@@ -305,7 +305,7 @@ class Inference:
         self.cancel = threading.Event()
         self.jobs = queue.Queue()
         self.active_request = None
-        torch.set_num_threads(max(1, min(4, os.cpu_count() or 1)))
+        torch.set_num_threads(cpu_threads or max(1, min(4, os.cpu_count() or 1)))
 
     def prepare(self, body):
         if body.get("model") != self.model_id:
@@ -576,6 +576,7 @@ def main():
     parser.add_argument("--ctx-size", type=int, default=2048)
     parser.add_argument("--parent-pid", type=int)
     parser.add_argument("--device", choices=("auto", "cpu", "cuda"), default="auto")
+    parser.add_argument("--cpu-threads", type=int, choices=(2, 4, 8))
     args = parser.parse_args()
     if args.inspect:
         os.environ["HF_HUB_OFFLINE"] = "1"
@@ -613,6 +614,9 @@ def main():
     for pid in {os.getppid(), args.parent_pid} - {None, 0, os.getpid()}:
         threading.Thread(target=watch_process, args=(pid,), daemon=True).start()
     with redirect_stdout(sys.stderr):
+        if args.cpu_threads:
+            import torch
+            torch.set_num_threads(args.cpu_threads)
         root = validate_directory(args.model)
         from float_quant import read_model_config
         method = quantization_method(read_model_config(root))
@@ -622,7 +626,7 @@ def main():
             from exllama_backend import ExLlamaInference
             engine = ExLlamaInference(root, args.model_id, args.ctx_size, args.device)
         else:
-            engine = Inference(root, args.model_id, args.ctx_size, args.device, args.adapter)
+            engine = Inference(root, args.model_id, args.ctx_size, args.device, args.adapter, args.cpu_threads)
     server = ThreadingHTTPServer(("127.0.0.1", args.port), make_handler(engine, api_key))
     server.daemon_threads = True
     print(json.dumps({"port": server.server_port, "model_id": args.model_id}), flush=True)

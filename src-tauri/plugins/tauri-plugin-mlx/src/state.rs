@@ -17,6 +17,7 @@ pub struct SessionInfo {
 pub struct MlxBackendSession {
     pub child: Child,
     pub info: SessionInfo,
+    pub(crate) foreground: Option<jan_utils::calibration::ForegroundWork>,
 }
 
 /// MLX plugin state

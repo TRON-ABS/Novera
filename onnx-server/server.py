@@ -1,5 +1,6 @@
 """Offline ONNX graphs: typed tensors or prepared text-only GenAI exports."""
 import argparse
+import hashlib
 import json
 import math
 import os
@@ -7,6 +8,8 @@ from pathlib import Path
 import queue
 import sys
 import threading
+import time
+from contextlib import redirect_stdout
 from http.server import ThreadingHTTPServer
 
 from transport import make_handler, watch_process
@@ -133,7 +136,7 @@ def tensor_inputs(session, body):
 
 
 class Inference:
-    def __init__(self, path, model_id, context, device):
+    def __init__(self, path, model_id, context, device, cpu_threads=None):
         import onnxruntime as ort
         self.root, self.mode, graph = validate_directory(path)
         self.model_id, self.context_size = model_id, context
@@ -146,7 +149,10 @@ class Inference:
         if provider not in ort.get_available_providers():
             raise ValueError(f"Unavailable ONNX provider: {provider}")
         if self.mode == "tensor":
-            self.session = ort.InferenceSession(str(graph), providers=[provider])
+            options = ort.SessionOptions() if cpu_threads else None
+            if options:
+                options.intra_op_num_threads = cpu_threads
+            self.session = ort.InferenceSession(str(graph), sess_options=options, providers=[provider])
             if self.session.get_providers()[0] != provider:
                 raise ValueError(f"ONNX could not initialize {provider}")
             self.session.disable_fallback()
@@ -160,6 +166,10 @@ class Inference:
                 raise ValueError("Invalid GenAI context length")
             self.context_size = min(context, model_context)
             config = og.Config(str(self.root))
+            if cpu_threads:
+                config.overlay(json.dumps({"model": {"decoder": {
+                    "session_options": {"intra_op_num_threads": cpu_threads},
+                }}}))
             config.clear_providers()
             if device == "cuda":
                 config.append_provider("cuda")
@@ -206,7 +216,7 @@ class Inference:
             result[item.name] = {"dtype": str(value.dtype), "shape": list(value.shape), "data": data}
         return {"outputs": result}
 
-    def generate(self, body, output):
+    def generate(self, body, output, token_ids=None):
         if body.get("model", self.model_id) != self.model_id:
             raise ValueError("Model ID does not match loaded export")
         messages = body.get("messages")
@@ -251,7 +261,10 @@ class Inference:
             while not generator.is_done() and not self.cancel.is_set():
                 generator.generate_next_token()
                 generated += 1
-                output.put(("text", stream.decode(generator.get_next_tokens()[0])))
+                token = generator.get_next_tokens()[0]
+                if token_ids is not None:
+                    token_ids.append(int(token))
+                output.put(("text", stream.decode(token)))
             output.put(("done", (generated, len(tokens), "length" if generated >= count else "stop")))
         finally:
             del generator
@@ -306,6 +319,48 @@ def handler(engine, key):
     return Handler
 
 
+def calibration_probe(args):
+    started = time.perf_counter()
+    engine = Inference(args.model, args.model_id, args.ctx_size, args.device, args.cpu_threads)
+    load = time.perf_counter() - started
+    case = args.calibration_probe
+    if engine.mode == "tensor":
+        inputs = {}
+        total = 0
+        for item in engine.session.get_inputs():
+            shape = [dim if isinstance(dim, int) else case + 1 for dim in item.shape]
+            count = math.prod(shape)
+            total += count
+            if total > 16384 or item.type not in DTYPES:
+                raise ValueError("Graph needs a representative calibration input")
+            dtype = DTYPES[item.type]
+            values = [(index + case) % 4 for index in range(count)]
+            if dtype == "bool":
+                values = [bool(value % 2) for value in values]
+            inputs[item.name] = {"shape": shape, "dtype": dtype, "data": values}
+        first = engine.predict({"inputs": inputs})
+        started = time.perf_counter()
+        count = 0
+        while count < 40 and (count < 3 or time.perf_counter() - started < 0.2):
+            if engine.predict({"inputs": inputs}) != first:
+                raise ValueError("Graph output is not deterministic")
+            count += 1
+        result = first
+    else:
+        prompt = ["Explain how to organise a library.", "Décris un jardin au printemps."][case]
+        tokens, output = [], queue.Queue()
+        started = time.perf_counter()
+        engine.generate({"messages": [{"role": "user", "content": prompt}],
+                         "max_tokens": 96, "temperature": 0}, output, tokens)
+        count = len(tokens)
+        if count == 0:
+            raise ValueError("GenAI probe returned no tokens")
+        result = [tokens, list(output.queue)]
+    rate = count / max(time.perf_counter() - started, 1e-9)
+    payload = json.dumps([engine.runtime, result], sort_keys=True, allow_nan=False).encode()
+    return {"load": load, "rate": rate, "output": hashlib.sha256(payload).hexdigest()}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--probe", action="store_true")
@@ -316,6 +371,8 @@ def main():
     parser.add_argument("--ctx-size", type=int, default=2048)
     parser.add_argument("--device", choices=("auto", "cpu", "cuda"), default="auto")
     parser.add_argument("--parent-pid", type=int)
+    parser.add_argument("--cpu-threads", type=int, choices=(2, 4, 8))
+    parser.add_argument("--calibration-probe", type=int, choices=(0, 1))
     args = parser.parse_args()
     if args.inspect:
         root, mode, _ = validate_directory(args.model)
@@ -336,11 +393,16 @@ def main():
                           "genai": genai, "providers": ort.get_available_providers(), "cudaAvailable": False}))
         return
     key = os.environ.get("NOVERA_ONNX_KEY")
-    if not key or not args.model or not args.model_id:
-        parser.error("Model, ID and NOVERA_ONNX_KEY are required")
+    if not args.model or not args.model_id or (args.calibration_probe is None and not key):
+        parser.error("Model and ID are required, with NOVERA_ONNX_KEY for serving")
     for pid in {os.getppid(), args.parent_pid} - {None, 0, os.getpid()}:
         threading.Thread(target=watch_process, args=(pid,), daemon=True).start()
-    engine = Inference(args.model, args.model_id, args.ctx_size, args.device)
+    if args.calibration_probe is not None:
+        with redirect_stdout(sys.stderr):
+            result = calibration_probe(args)
+        print(json.dumps(result), flush=True)
+        return
+    engine = Inference(args.model, args.model_id, args.ctx_size, args.device, args.cpu_threads)
     server = ThreadingHTTPServer(("127.0.0.1", args.port), handler(engine, key))
     server.daemon_threads = True
     threading.Thread(target=server.serve_forever, daemon=True).start()

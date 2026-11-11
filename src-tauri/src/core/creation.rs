@@ -7,6 +7,9 @@ use tauri::{AppHandle, Manager, Runtime};
 mod music;
 #[path = "creation_native.rs"]
 mod native;
+#[path = "creation_calibration.rs"]
+mod calibration;
+use tauri_plugin_llamacpp::engine::calibration::ForegroundWork;
 use tokio::{
     process::{Child, Command},
     sync::Mutex,
@@ -17,6 +20,7 @@ const NVFP4: &str = include_str!("../../../media-server/nvfp4_compat.py");
 const WORKER: &str = include_str!("../../../media-server/worker.py");
 const NATIVE_FP4: &str = include_str!("../../../media-server/nvfp4_cuda.py");
 struct Job {
+    foreground: Option<ForegroundWork>,
     components_lease: Option<tokio::sync::OwnedRwLockReadGuard<()>>,
     child: Child,
     directory: PathBuf,
@@ -79,6 +83,8 @@ pub struct Request {
     native_backend: Option<String>,
     #[serde(skip)]
     native_combined: bool,
+    #[serde(skip)]
+    calibrated: u32,
 }
 
 fn local_file(value: &str, extensions: &[&str]) -> Result<PathBuf, String> {
@@ -315,6 +321,9 @@ fn cpp_command(
         .arg(request.cpp_cfg.unwrap_or(1.0).to_string())
         .args(["--sampling-method", "euler"]);
     cli.args(native::image_flags(request.task == "image" && request.native_runtime.is_some()));
+    if request.calibrated > 0 {
+        cli.arg("--threads").arg(request.calibrated.to_string());
+    }
     if request.native_combined {
         cli.arg("--upscale-model").arg(request.upscale_model.as_deref().ok_or("CREATION_UPSCALE_MISSING")?)
             .args(["--upscale-repeats", "1", "--upscale-tile-size", "128"]);
@@ -498,6 +507,44 @@ pub async fn creation_start<R: Runtime>(
     app: AppHandle<R>,
     mut request: Request,
 ) -> Result<String, String> {
+    let foreground = ForegroundWork::start();
+    {
+        let mut jobs = JOBS.lock().await;
+        cancel_calibration_jobs(&mut jobs).await?;
+    }
+    let _ = tokio::time::timeout(
+        std::time::Duration::from_secs(3),
+        tauri_plugin_llamacpp::engine::calibration::ACTIVE.lock(),
+    ).await;
+    request.calibrated = calibration::selected(&app, &request);
+    start_job(app, request, None, Some(foreground)).await
+}
+
+async fn cancel_calibration_jobs(jobs: &mut HashMap<String, Job>) -> Result<(), String> {
+    for job in jobs.values_mut().filter(|job| job.foreground.is_none() && !job.delivered) {
+        if job.child.try_wait().map_err(|e| e.to_string())?.is_none() {
+            kill_owned_job(job).await?;
+        }
+        job.cancelled = true;
+        job.delivered = true;
+        job.components_lease.take();
+    }
+    Ok(())
+}
+
+#[tauri::command]
+pub async fn creation_calibrate<R: Runtime>(
+    app: AppHandle<R>, request: Request, quick: Option<bool>, preview_upscale_model: Option<String>,
+) -> Result<bool, String> {
+    calibration::run(app, request, quick.unwrap_or(false), preview_upscale_model).await
+}
+
+async fn start_job<R: Runtime>(
+    app: AppHandle<R>,
+    mut request: Request,
+    probe_root: Option<&std::path::Path>,
+    foreground: Option<ForegroundWork>,
+) -> Result<String, String> {
     let components_lease = super::components::lease().await?;
     let started = std::time::Instant::now();
     if let Some(factor) = request.upscale_factor {
@@ -572,19 +619,28 @@ pub async fn creation_start<R: Runtime>(
         }
     }
     let mut jobs = JOBS.lock().await;
+    if probe_root.is_some() && tauri_plugin_llamacpp::engine::calibration::foreground_busy() {
+        return Err("CALIBRATION_BUSY".into());
+    }
     // Release completed handles. Automatic requests are exclusive; Manual permits independent workers.
     jobs.retain(|_, job| !job.delivered || !matches!(job.child.try_wait(), Ok(Some(_))));
     for job in jobs.values_mut() {
-        if !super::creation_policy::may_start_media(request.memory_policy.as_deref(), job.child.try_wait().map_err(|e| e.to_string())?.is_none()) {
+        let running = job.child.try_wait().map_err(|e| e.to_string())?.is_none();
+        if !running && job.delivered { job.foreground.take(); }
+        if !super::creation_policy::may_start_media(request.memory_policy.as_deref(), running) {
             return Err("CREATION_BUSY".into());
         }
     }
     let id = uuid::Uuid::new_v4().to_string();
-    let directory = PathBuf::from(super::app::commands::get_jan_data_folder_path(app.clone()))
-        .join("creations")
-        .join(&id);
+    let directory = probe_root.map_or_else(
+        || PathBuf::from(super::app::commands::get_jan_data_folder_path(app.clone())).join("creations").join(&id),
+        |root| root.join(&id),
+    );
     std::fs::create_dir_all(&directory).map_err(|e| e.to_string())?;
-    let destination = output_directory(&request.task)?;
+    let destination = match probe_root {
+        Some(_) => directory.clone(),
+        None => output_directory(&request.task)?,
+    };
     std::fs::create_dir_all(&destination).map_err(|e| e.to_string())?;
     let extension = if request.task == "image" {
         "png"
@@ -739,6 +795,10 @@ pub async fn creation_start<R: Runtime>(
         .env("HF_HUB_OFFLINE", "1")
         .env("TRANSFORMERS_OFFLINE", "1")
         .env("HF_DEACTIVATE_ASYNC_LOAD", "1");
+    if request.calibrated > 0 && request.task != "music" {
+        let threads = request.calibrated.to_string();
+        command.env("OMP_NUM_THREADS", &threads).env("MKL_NUM_THREADS", &threads);
+    }
     #[cfg(windows)]
     command.creation_flags(0x08000000);
     #[cfg(unix)]
@@ -763,6 +823,7 @@ pub async fn creation_start<R: Runtime>(
     jobs.insert(
         id.clone(),
         Job {
+            foreground,
             components_lease: Some(components_lease),
             child,
             directory,
@@ -811,17 +872,17 @@ pub async fn creation_status(id: String) -> Result<Value, String> {
     if matches!(status, Some(status) if !status.success()) && music::recoverable(job) {
         match music::recover(job) {
             Ok(child) => {job.child=child;return Ok(json!({"stage":"loading","progress":-1,"device":"cpu","recovery":true}));},
-            Err(error) => {job.delivered=true;job.components_lease.take();return Ok(json!({"stage":"error","error":error}));}
+            Err(error) => {job.delivered=true;job.components_lease.take(); job.foreground.take();return Ok(json!({"stage":"error","error":error}));}
         }
     }
     if matches!(status, Some(status) if status.success()) && job.pending_music.is_some() {
         match music::transition(job) {
             Ok(child) => {job.child=child; return Ok(json!({"stage":"loading","progress":35}));},
-            Err(error) => {job.delivered=true;job.components_lease.take();return Ok(json!({"stage":"error","error":error}));}
+            Err(error) => {job.delivered=true;job.components_lease.take(); job.foreground.take();return Ok(json!({"stage":"error","error":error}));}
         }
     }
     if matches!(status, Some(status) if status.success()) && job.task == "music" && !job.output.exists() {
-        if let Err(error)=music::publish(job) {job.delivered=true;job.components_lease.take();let _=std::fs::remove_file(&job.staged);return Ok(json!({"stage":"error","error":error}));}
+        if let Err(error)=music::publish(job) {job.delivered=true;job.components_lease.take(); job.foreground.take();let _=std::fs::remove_file(&job.staged);return Ok(json!({"stage":"error","error":error}));}
     }
     if matches!(status, Some(status) if status.success()) && job.pending_cpp.is_some() {
         let transition = (|| -> Result<Child, String> {
@@ -907,7 +968,7 @@ pub async fn creation_status(id: String) -> Result<Value, String> {
             }
             Err(error) => {
                 job.delivered = true;
-            job.components_lease.take();
+            job.components_lease.take(); job.foreground.take();
                 Ok(json!({"stage":"error","error":error}))
             }
         };
@@ -958,7 +1019,7 @@ pub async fn creation_status(id: String) -> Result<Value, String> {
             Ok(child) => { job.child = child; Ok(json!({"stage":"upscaling","progress":-1})) },
             Err(error) => {
                 job.delivered = true;
-            job.components_lease.take();
+            job.components_lease.take(); job.foreground.take();
                 let _ = std::fs::remove_file(&job.staged);
                 Ok(json!({"stage":"error","error":format!("CREATION_UPSCALE: {error}")}))
             }
@@ -1027,7 +1088,7 @@ pub async fn creation_status(id: String) -> Result<Value, String> {
         })();
         if let Err(error) = publish {
             job.delivered = true;
-            job.components_lease.take();
+            job.components_lease.take(); job.foreground.take();
             let _ = std::fs::remove_file(&job.staged);
             if let Some(source) = &job.upscale_source { let _ = std::fs::remove_file(source); }
             let _ = std::fs::remove_file(job.directory.join("compat.partial.safetensors"));
@@ -1038,11 +1099,16 @@ pub async fn creation_status(id: String) -> Result<Value, String> {
         None if job.task == "music" => {
             Ok(music::progress(job))
         },
+        // Python can emit its last progress line before the process exits.
+        // Only the successful exit branch can return the published path.
+        None if progress.as_ref().is_some_and(|value| value["stage"] == "done") => {
+            Ok(json!({"stage":"finalizing","progress":99}))
+        },
         None => Ok(progress
             .unwrap_or(json!({"stage":if job.expected_upscale.is_some() && (!job.native_upscale_stage || native_upscaling) {"upscaling"} else if job.cpp {"generating"} else {"loading"},"progress":if job.cpp {-1} else {0}}))),
         Some(status) if status.success() && job.output.is_file() => {
             job.delivered = true;
-            job.components_lease.take();
+            job.components_lease.take(); job.foreground.take();
             let generation_seconds = if job.expected_upscale.is_some() {
                 std::fs::read_to_string(job.directory.join("generated.json")).ok()
                     .and_then(|s| serde_json::from_str::<Value>(&s).ok())
@@ -1054,7 +1120,7 @@ pub async fn creation_status(id: String) -> Result<Value, String> {
         }
         Some(status) => {
             job.delivered = true;
-            job.components_lease.take();
+            job.components_lease.take(); job.foreground.take();
             let _ = std::fs::remove_file(&job.staged);
             if let Some(source) = &job.upscale_source { let _ = std::fs::remove_file(source); }
             let _ = std::fs::remove_file(job.directory.join("compat.partial.safetensors"));
@@ -1073,6 +1139,7 @@ pub async fn creation_status(id: String) -> Result<Value, String> {
 #[tauri::command]
 pub async fn creation_release_idle() -> Result<Value, String> {
     let mut jobs=JOBS.lock().await;
+    cancel_calibration_jobs(&mut jobs).await?;
     for job in jobs.values_mut() {
         if !job.delivered || job.child.try_wait().map_err(|e|e.to_string())?.is_none() {return Ok(json!({"busy":true}));}
     }
@@ -1091,7 +1158,7 @@ pub async fn creation_cancel(id: String) -> Result<(), String> {
             }
             job.cancelled = true;
             job.delivered = true;
-            job.components_lease.take();
+            job.components_lease.take(); job.foreground.take();
             let _ = std::fs::remove_file(&job.staged);
             if let Some(source) = &job.upscale_source { let _ = std::fs::remove_file(source); }
             let _ = std::fs::remove_file(job.directory.join("compat.partial.safetensors"));

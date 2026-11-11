@@ -1,5 +1,6 @@
 import { validateShardManifest, validateShardMetadata } from './gguf-shards'
 import { noveraModelDefaults } from './novera-model-defaults'
+import { MediaTextRegistration } from './media-text-registration'
 import { DEFAULT_EMBEDDER_ID, DEFAULT_EMBEDDER_URL, DEFAULT_EMBEDDER_SIZE, DEFAULT_EMBEDDER_SHA256, embeddingSettings, embeddingInputs } from './embedding-profile'
 /**
  * @file This file exports a class that implements the InferenceExtension interface from the @janhq/core package.
@@ -56,6 +57,7 @@ import {
   threadCacheDir,
   DEFAULT_EMBEDDING_UBATCH,
 } from './preset'
+import { CALIBRATION_RECEIPT, CALIBRATION_REVISION, calibrationBasis, calibrationReceiptMatches, desktopCalibration, type CalibrationProfile, type CalibrationReceipt } from './calibration'
 import {
   evaluateEmbeddingVector,
   evaluateGpuOffload,
@@ -83,6 +85,7 @@ import {
   getEngineVersion as pluginGetEngineVersion,
   reloadEngineModels,
   engineDevices,
+  calibrateEngineModel,
   generateApiKey as pluginGenerateApiKey,
   findSessionByModel as pluginFindSessionByModel,
   ensureSessionReady as pluginEnsureSessionReady,
@@ -453,6 +456,9 @@ export default class llamacpp_extension extends AIEngine implements EmbeddingEng
   private engineApiKey?: string
   private engineVersion?: EngineVersion
   private presetPath?: string
+  private readonly calibrating = new Set<string>()
+  private calibrationClosed = false
+  private mediaTextRegistration?: MediaTextRegistration
   private engineStartLock: Promise<void> | null = null
   private userModelsMax: number = 1
   private engineEmbeddingBonus: number = 0
@@ -988,9 +994,11 @@ export default class llamacpp_extension extends AIEngine implements EmbeddingEng
    * remaining case that evicted a live chat model.
    */
   private async refreshEnginePreset(): Promise<void> {
+    // A model can be registered after a concurrent startup has generated its
+    // preset but before the worker is ready to accept the model reload.
+    await this.engineStartLock
     if (!(await this.getEngineInfo())) {
       await this.startEngine() // cold start
-      return
     }
 
     const providerPath = await this.getProviderPath()
@@ -1336,6 +1344,7 @@ export default class llamacpp_extension extends AIEngine implements EmbeddingEng
   }
 
   override async onUnload(): Promise<void> {
+    this.calibrationClosed = true
     // Terminate all active sessions
 
     // Clean up validation event listeners
@@ -2245,6 +2254,105 @@ export default class llamacpp_extension extends AIEngine implements EmbeddingEng
     } catch (e) {
       logger.warn(`Router refresh after import(${modelId}) failed:`, e)
     }
+  }
+
+  private calibrationAvailable(): boolean {
+    return !this.calibrationClosed && !this.llamacpp_env?.trim() &&
+      ((typeof IS_WINDOWS !== 'undefined' && IS_WINDOWS) ||
+        (typeof IS_LINUX !== 'undefined' && IS_LINUX) ||
+        (typeof IS_MAC !== 'undefined' && IS_MAC &&
+          !(typeof navigator !== 'undefined' && navigator.maxTouchPoints > 1)))
+  }
+
+  private async enqueueCalibration(modelId: string): Promise<void> {
+    if (!this.calibrationAvailable() || await desktopCalibration() === null ||
+        !this.presetPath || this.calibrating.has(modelId)) return
+    this.calibrating.add(modelId)
+    try {
+      const presetPath = this.presetPath
+      const basis = calibrationBasis(await fs.readFileSync(presetPath, 'utf8'), modelId)
+      if (!basis) return
+      const provider = await this.getProviderPath()
+      const receiptPath = await joinPath([provider, 'models', modelId, CALIBRATION_RECEIPT])
+      if (await desktopCalibration() !== true) return
+      const previousRaw = await fs.existsSync(receiptPath) ? await fs.readFileSync(receiptPath, 'utf8') : undefined
+      let previous: CalibrationReceipt | undefined
+      try {
+        const saved = previousRaw ? JSON.parse(previousRaw) as CalibrationReceipt : undefined
+        if (saved?.state === 'complete' && calibrationReceiptMatches(saved, basis)) previous = saved
+      } catch { /* A malformed receipt is recalibrated. */ }
+      if (previous?.revision === CALIBRATION_REVISION) return
+
+      let profile: CalibrationProfile | null
+      try {
+        profile = await calibrateEngineModel(presetPath, modelId, { LLAMA_ARG_TIMEOUT: String(this.timeout) })
+      } catch (error) {
+        if (!String(error).includes('CALIBRATION_BUSY')) logger.warn(`Calibration of ${modelId} failed`, error)
+        throw error
+      }
+
+      if (this.calibrationClosed || this.presetPath !== presetPath ||
+          calibrationBasis(await fs.readFileSync(presetPath, 'utf8'), modelId) !== basis ||
+          !(await fs.existsSync(await joinPath([provider, 'models', modelId, 'model.yml'])))) return
+      const current = await fs.existsSync(receiptPath) ? await fs.readFileSync(receiptPath, 'utf8') : undefined
+      if (current !== previousRaw) return
+      await fs.writeFileSync(receiptPath, JSON.stringify({
+        basis: previous?.basis ?? basis, state: 'complete', revision: CALIBRATION_REVISION, profile: profile ?? previous?.profile ?? null,
+      }))
+      if (profile) {
+        const data = await getJanDataFolderPath()
+        const generated = await generatePreset(provider, data, this.config)
+        // Keep the interactive worker alive if the model became busy during the handoff.
+        await reloadEngineModels(generated.path, this.resolveModelsMax(generated.embeddingCount), this.resolveThreadCacheBudget())
+      }
+    } finally {
+      this.calibrating.delete(modelId)
+    }
+  }
+
+  async calibrateRegisteredModel(modelId: string): Promise<void> {
+    if (modelId.split('/').some(part => !/^[\w.-]+$/.test(part) || part === '.' || part === '..')) return
+    const provider = await this.getProviderPath()
+    const folder = await joinPath([provider, 'models', modelId])
+    if (!(await fs.existsSync(await joinPath([folder, 'model.yml'])))) return
+    await this.enqueueCalibration(modelId)
+  }
+
+  async calibrationCandidates(mediaTextPaths: string[] = []): Promise<string[]> {
+    await this.engineStartLock?.catch(() => {})
+    if (!this.calibrationAvailable() || !this.presetPath) return []
+    if (mediaTextPaths.length) {
+      this.mediaTextRegistration ??= new MediaTextRegistration({
+        registered: async () => {
+          const provider = await this.getProviderPath()
+          const data = await getJanDataFolderPath()
+          return Promise.all((await this.list()).map(async model => {
+            const config = await invoke<ModelConfig>('read_yaml', {
+              path: await joinPath([provider, 'models', model.id, 'model.yml']),
+            })
+            return { id: model.id, path: await joinPath([data, config.model_path]) }
+          }))
+        },
+        deletedIds: async () => {
+          const raw = await getBackendSetting(MODEL_PROVIDER_STORE_KEY)
+          const deleted: unknown = raw ? JSON.parse(raw)?.state?.deletedModels : []
+          if (!Array.isArray(deleted)) return []
+          return deleted.flatMap(entry => typeof entry === 'string' ? [entry] :
+            entry?.provider === this.providerId && typeof entry.id === 'string' ? [entry.id] : [])
+        },
+        metadata: readGgufMetadata,
+        importModel: (id, path) => this.import(id, { modelPath: path }),
+        busy: () => !this.calibrationAvailable() || this.calibrating.size > 0,
+        warn: (path, error) => logger.warn(`Auto Tune text registration skipped ${path}:`, error),
+      })
+      try {
+        await this.mediaTextRegistration.sync(mediaTextPaths)
+      } catch (error) {
+        logger.warn('Auto Tune media text registration unavailable:', error)
+      }
+    }
+    const ini = await fs.readFileSync(this.presetPath, 'utf8')
+    return (await this.list()).map(model => model.id).filter(id => calibrationBasis(ini, id))
   }
 
   /**

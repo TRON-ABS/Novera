@@ -324,6 +324,12 @@ export default class mlx_extension extends AIEngine {
     const mlxConfig: MlxConfig = {
       ctx_size: cfg.ctx_size ?? 4096,
     }
+    if (!isEmbedding) {
+      const cache = await invoke<number>('mlx_calibration_profile', {
+        modelPath, context: mlxConfig.ctx_size,
+      }).catch(() => 0)
+      if ([64, 128, 256].includes(cache)) envs.NOVERA_MLX_CALIBRATED = String(cache)
+    }
 
     logger.info(
       'Loading MLX model:',
@@ -783,6 +789,22 @@ export default class mlx_extension extends AIEngine {
         capabilities: capabilities,
       })
     }
+  }
+
+  async calibrationCandidates(): Promise<string[]> {
+    return (await this.list()).filter(model => !model.embedding).map(model => model.id)
+  }
+
+  async calibrateRegisteredModel(modelId: string): Promise<void> {
+    if (!isValidModelId(modelId)) return
+    const path = await joinPath([await this.getProviderPath(), 'models', modelId, 'model.yml'])
+    if (!(await fs.existsSync(path))) return
+    const model = await invoke<ModelConfig>('read_yaml', { path })
+    if (model.embedding) return
+    const modelPath = isAbsoluteModelPath(model.model_path)
+      ? model.model_path
+      : await joinPath([await getJanDataFolderPath(), model.model_path])
+    await invoke('mlx_calibrate', { modelPath, context: this.config.ctx_size ?? 4096 })
   }
 
   private createDownloadTaskId(modelId: string) {

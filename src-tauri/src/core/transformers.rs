@@ -7,6 +7,7 @@ use std::{
     sync::LazyLock,
 };
 use tauri::{AppHandle, Runtime};
+use tauri_plugin_llamacpp::engine::calibration::{ACTIVE, ForegroundWork};
 use tokio::{
     process::{Child, Command},
     sync::Mutex,
@@ -15,11 +16,14 @@ use tokio::{
 const FLOAT_SCRIPT: &str = include_str!("../../../transformers-server/float_quant.py");
 const EXLLAMA_SCRIPT: &str = include_str!("../../../transformers-server/exllama_backend.py");
 const SCRIPT: &str = include_str!("../../../transformers-server/server.py");
+#[path = "transformers_calibration.rs"]
+mod calibration;
 static WORKER: LazyLock<Mutex<Option<Worker>>> = LazyLock::new(|| Mutex::new(None));
 static REGISTRY: LazyLock<Mutex<()>> = LazyLock::new(|| Mutex::new(()));
 
 struct Worker {
     _components_lease: tokio::sync::OwnedRwLockReadGuard<()>,
+    _foreground: Option<ForegroundWork>,
     child: Child,
     session: Session,
 }
@@ -300,6 +304,27 @@ pub async fn transformers_list<R: Runtime>(app: AppHandle<R>) -> Result<Vec<Mode
 }
 
 #[tauri::command]
+pub async fn transformers_calibrate_registered<R: Runtime>(
+    app: AppHandle<R>,
+    model_id: String,
+    python_path: String,
+    device: String,
+) -> Result<(), String> {
+    if !jan_utils::calibration::available() {
+        return Ok(());
+    }
+    if !jan_utils::calibration::enabled() {
+        return Err("CALIBRATION_BUSY".into());
+    }
+    let directory = directory(app.clone()).await?;
+    let Some(model) = read_models(&directory)?.into_iter().find(|model| model.id == model_id) else {
+        return Ok(());
+    };
+    let python = super::components::resolve(&app, &python_path, "transformers")?;
+    calibration::run(&app, &directory, &model, &python, &device).await
+}
+
+#[tauri::command]
 pub async fn transformers_import<R: Runtime>(
     app: AppHandle<R>,
     model_id: String,
@@ -322,7 +347,7 @@ pub async fn transformers_import<R: Runtime>(
             app.clone(),
             path.to_string_lossy().into_owned(),
             adapter.to_string_lossy().into_owned(),
-            python_path.unwrap_or_else(|| "python".into()),
+            python_path.clone().unwrap_or_else(|| "python".into()),
         )
         .await?;
         size_bytes = size_bytes
@@ -339,12 +364,12 @@ pub async fn transformers_import<R: Runtime>(
         None
     };
     let _guard = REGISTRY.lock().await;
-    let directory = directory(app).await?;
+    let directory = directory(app.clone()).await?;
     let mut models = read_models(&directory)?;
     if models.iter().any(|m| m.id == model_id) {
         return Err("A model with this name already exists".into());
     }
-    models.push(Model {
+    let model = Model {
         name: model_id.clone(),
         id: model_id,
         path,
@@ -354,8 +379,10 @@ pub async fn transformers_import<R: Runtime>(
         imported: true,
         adapter_path,
         memory,
-    });
-    write_models(&directory, &models)
+    };
+    models.push(model);
+    write_models(&directory, &models)?;
+    Ok(())
 }
 
 /// Offline validation and conservative CPU memory estimate at the default context.
@@ -456,7 +483,8 @@ pub async fn transformers_load<R: Runtime>(
     ctx_size: Option<u32>,
     device: Option<String>,
 ) -> Result<Session, String> {
-    let components_lease = super::components::lease().await?;
+    let foreground = ForegroundWork::start();
+    let _ = tokio::time::timeout(std::time::Duration::from_secs(3), ACTIVE.lock()).await;
     let python_path = super::components::resolve(&app, &python_path, "transformers")?;
     let device = device.unwrap_or_else(|| "auto".into());
     if !matches!(device.as_str(), "auto" | "cpu" | "cuda") {
@@ -480,6 +508,25 @@ pub async fn transformers_load<R: Runtime>(
         }
     }
     stop_worker(&mut worker).await?;
+    let context_size = ctx_size.unwrap_or(2048).clamp(16, 131072);
+    let cpu_threads = calibration::selected(&directory, &model, &python_path, &device, context_size);
+    let mut started = spawn_worker(&directory, &model, &python_path, &device, context_size, cpu_threads).await?;
+    started._foreground = Some(foreground);
+    let session = started.session.clone();
+    *worker = Some(started);
+    Ok(session)
+}
+
+async fn spawn_worker(
+    directory: &Path,
+    model: &Model,
+    python_path: &str,
+    device: &str,
+    context_size: u32,
+    cpu_threads: u32,
+) -> Result<Worker, String> {
+    let components_lease = super::components::lease().await?;
+    let model_id = &model.id;
     let script = directory.join("server.py");
     std::fs::write(&script, SCRIPT).map_err(|e| e.to_string())?;
     std::fs::write(directory.join("float_quant.py"), FLOAT_SCRIPT).map_err(|e| e.to_string())?;
@@ -496,20 +543,20 @@ pub async fn transformers_load<R: Runtime>(
     } else {
         python_path.trim()
     });
-    super::components::configure_python(&mut command, &python_path);
+    super::components::configure_python(&mut command, python_path);
     command
         .arg("-u")
         .arg(script)
         .arg("--model")
         .arg(&model.path)
         .arg("--model-id")
-        .arg(&model_id)
+        .arg(model_id)
         .arg("--port")
         .arg(port.to_string())
         .arg("--ctx-size")
-        .arg(ctx_size.unwrap_or(2048).clamp(16, 131072).to_string())
+        .arg(context_size.to_string())
         .arg("--device")
-        .arg(&device)
+        .arg(device)
         .arg("--parent-pid")
         .arg(std::process::id().to_string())
         .env("NOVERA_TRANSFORMERS_KEY", &api_key)
@@ -524,6 +571,9 @@ pub async fn transformers_load<R: Runtime>(
         .kill_on_drop(true);
     if let Some(adapter) = &model.adapter_path {
         command.arg("--adapter").arg(adapter);
+    }
+    if cpu_threads > 0 {
+        command.arg("--cpu-threads").arg(cpu_threads.to_string());
     }
     #[cfg(windows)]
     command.creation_flags(0x08000000); // CREATE_NO_WINDOW
@@ -574,7 +624,7 @@ pub async fn transformers_load<R: Runtime>(
     let session = Session {
         pid: child.id().unwrap_or(0),
         port,
-        model_id,
+        model_id: model_id.clone(),
         is_embedding: false,
         api_key,
         device: runtime["device"].as_str().unwrap_or("unknown").into(),
@@ -582,12 +632,12 @@ pub async fn transformers_load<R: Runtime>(
         context_size: runtime["context_size"].as_u64().unwrap_or(2048) as u32,
         memory: runtime.get("memory").cloned(),
     };
-    *worker = Some(Worker {
+    Ok(Worker {
         _components_lease: components_lease,
+        _foreground: None,
         child,
-        session: session.clone(),
-    });
-    Ok(session)
+        session,
+    })
 }
 
 /// Inspect the selected environment without downloading or loading model weights.

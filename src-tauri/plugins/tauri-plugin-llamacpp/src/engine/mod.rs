@@ -16,6 +16,8 @@ use std::fmt;
 
 #[cfg(not(feature = "headless"))]
 pub mod commands;
+#[cfg(all(not(feature = "headless"), not(any(target_os = "android", target_os = "ios"))))]
+pub mod calibration;
 #[cfg(not(feature = "headless"))]
 pub mod driver;
 pub mod events;

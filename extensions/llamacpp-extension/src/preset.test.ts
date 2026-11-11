@@ -104,6 +104,23 @@ function setupModel(id: string, yaml: Record<string, unknown>) {
   }
 }
 
+it('emits explicit thread and loading settings only in the configured model section', async () => {
+  setupModel('omni', { threads: 2, load_mode: 'none' })
+  setupModel('other', {})
+  setupModel('invalid', { threads: 1.5, load_mode: 'unknown' })
+  await generatePreset('/p', '/jan', { threads: 8, mlock: true } as any)
+
+  const ini = writtenFiles['/p/router.preset.ini']
+  const section = (id: string) => ini.split(`[${id}]`)[1].split('\n[')[0]
+  expect(section('*')).toContain('threads = 8')
+  expect(section('*')).toContain('load-mode = mmap+mlock')
+  expect(section('omni')).toContain('threads = 2')
+  expect(section('omni')).toContain('load-mode = none')
+  for (const id of ['other', 'invalid']) {
+    expect(section(id)).not.toMatch(/(?:threads|load-mode) =/)
+  }
+})
+
 describe('preset generation without saved engine settings', () => {
   it.each([undefined, null])('keeps an imported model usable with %s settings', async config => {
     setupModel('omni', { model_path: 'models/omni/model.gguf', mmproj_path: 'models/omni/mmproj.gguf' })

@@ -21,6 +21,7 @@ permissions = [
     "allow-engine-devices",
     "allow-force-stop-engine",
     "allow-engine-slots-idle",
+    "allow-calibrate-engine-model",
     "allow-erase-thread-slot-state",
 
     # GGUF

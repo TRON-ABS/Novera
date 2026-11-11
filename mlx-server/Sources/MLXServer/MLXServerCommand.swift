@@ -25,9 +25,14 @@ struct MLXServerCommand: AsyncParsableCommand {
     @Option(name: .long, help: "Model ID reported by the API (defaults to parent directory name)")
     var modelId: String = ""
 
+    @Option(name: .long, help: "Allocator cache limit in MiB for a calibrated local model")
+    var calibrationCacheMib: Int?
+
     func run() async throws {
-        // Set GPU memory limit to prevent OOM issues
-        Memory.cacheLimit = 20 * 1024 * 1024  // 20GB limit
+        if let calibrationCacheMib, ![64, 128, 256].contains(calibrationCacheMib) {
+            throw ValidationError("Unsupported allocator cache limit")
+        }
+        Memory.cacheLimit = (calibrationCacheMib ?? 20) * 1024 * 1024
 
         // Print startup info
         log("[mlx] MLX-Swift Server starting...")

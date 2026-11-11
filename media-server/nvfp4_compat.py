@@ -2,7 +2,7 @@
 
 Format: FP4 E2M1, block-16 FP8 scales in cuBLAS tiled order, scalar scale.
 Specification: https://github.com/Comfy-Org/comfy-quants/blob/main/docs/formats/nvfp4.md
-No ComfyUI import, model code execution, weight download or source overwrite.
+The converter reads local weights and writes a separate compatibility cache.
 """
 import hashlib
 import json

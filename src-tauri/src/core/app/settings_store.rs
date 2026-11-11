@@ -197,6 +197,28 @@ pub fn settings_get(key: String) -> Option<String> {
     lock(store).map.get(&key).cloned()
 }
 
+const DESKTOP_CALIBRATION_KEY: &str = "desktop.local-model-calibration";
+
+pub fn initialize_desktop_calibration() {
+    if jan_utils::calibration::available() {
+        jan_utils::calibration::set_enabled(
+            settings_get(DESKTOP_CALIBRATION_KEY.into()).as_deref() == Some("true"),
+        );
+    }
+}
+
+#[tauri::command]
+pub fn desktop_calibration(enabled: Option<bool>) -> Result<Option<bool>, String> {
+    if !jan_utils::calibration::available() {
+        return Ok(None);
+    }
+    if let Some(enabled) = enabled {
+        settings_set(DESKTOP_CALIBRATION_KEY.into(), enabled.to_string())?;
+        jan_utils::calibration::set_enabled(enabled);
+    }
+    Ok(Some(jan_utils::calibration::enabled()))
+}
+
 #[tauri::command]
 pub fn settings_set(key: String, value: String) -> Result<(), String> {
     let store = store();
