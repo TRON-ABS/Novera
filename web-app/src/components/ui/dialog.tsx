@@ -61,23 +61,24 @@ function DialogContent({
   positionEnabled?: boolean
 }) {
   const { t: uiT } = useUiLocale()
-  const dockedStyle = useDashboardPanelPosition(docked && positionEnabled)
+  const { style: dockedStyle, container } = useDashboardPanelPosition(docked && positionEnabled)
 
   return (
-    <DialogPortal data-slot="dialog-portal">
+    <DialogPortal data-slot="dialog-portal" container={container}>
       {!docked && <DialogOverlay />}
       <DialogPrimitive.Content
         data-slot="dialog-content"
         aria-describedby={undefined}
         className={cn(
           docked
-            ? 'novera-dashboard-window fixed z-50 grid gap-4 border p-4 outline-none overflow-y-auto'
+            ? cn('novera-dashboard-window z-50 grid min-h-0 gap-4 border p-4 outline-none overflow-y-auto',
+              container ? 'relative' : 'fixed')
             : "bg-background data-[state=open]:animate-in data-[state=closed]:animate-out data-[state=closed]:fade-out-0 data-[state=open]:fade-in-0 data-[state=closed]:zoom-out-95 data-[state=open]:zoom-in-95 fixed top-[50%] left-[50%] z-50 grid w-full max-w-[calc(100%-2rem)] translate-x-[-50%] translate-y-[-50%] gap-4 rounded-lg border p-6 shadow-lg duration-200 outline-none sm:max-w-lg lg:max-w-2xl xl:max-w-3xl max-h-[85vh] overflow-y-auto",
           className
         )}
-        style={{ ...(docked ? dockedStyle : {}), ...style }}
+        style={{ ...(docked && !container ? dockedStyle : {}), ...style }}
         onInteractOutside={docked ? event => {
-          if (event.target instanceof Element && event.target.closest('[data-dashboard-composer]')) event.preventDefault()
+          if (container || (event.target instanceof Element && event.target.closest('[data-dashboard-composer]'))) event.preventDefault()
         } : undefined}
         {...props}
       >

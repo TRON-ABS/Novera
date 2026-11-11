@@ -9,8 +9,8 @@ type SearchDialogState = {
 export const useSearchDialog = create<SearchDialogState>()((set) => ({
   open: false,
   setOpen: (value) => {
-    if (value) useDashboardPanel.getState().openPanel('search')
-    else useDashboardPanel.getState().closePanel('search')
-    set({ open: value })
+    const dashboard = useDashboardPanel.getState()
+    if (!value) dashboard.closePanel('search')
+    set({ open: value && dashboard.openPanel('search') })
   },
 }))

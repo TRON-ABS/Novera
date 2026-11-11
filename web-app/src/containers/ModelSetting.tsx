@@ -417,9 +417,9 @@ export function ModelSetting({ model, provider }: ModelSettingProps) {
 export function ModelSettingWindow() {
   const { t } = useTranslation()
   const info = useDashboardPanel(state => state.modelSettings)
-  const panel = useDashboardPanel(state => state.panel)
+  const open = useDashboardPanel(state => state.panels.includes('model-settings'))
   const latestProvider = useModelProvider(state => info ? state.getProviderByName(info.provider.provider) : undefined)
-  if (!info || panel !== 'model-settings') return null
+  if (!info || !open) return null
   const provider = latestProvider ?? info.provider
   const model = provider.models.find(value => value.id === info.model.id) ?? info.model
   return (

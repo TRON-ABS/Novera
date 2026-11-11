@@ -9,8 +9,8 @@ type ProjectDialogState = {
 export const useProjectDialog = create<ProjectDialogState>()((set) => ({
   open: false,
   setOpen: (value) => {
-    if (value) useDashboardPanel.getState().openPanel('thread-project')
-    else useDashboardPanel.getState().closePanel('thread-project')
-    set({ open: value })
+    const dashboard = useDashboardPanel.getState()
+    if (!value) dashboard.closePanel('thread-project')
+    set({ open: value && dashboard.openPanel('thread-project') })
   },
 }))

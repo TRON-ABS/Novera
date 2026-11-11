@@ -1,33 +1,35 @@
 import { Blocks, FolderPlus, Search, Settings } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip'
-import { useDashboardPanel } from '@/hooks/useDashboardPanel'
+import { browserPreviewEnabled } from '@/services/browser-preview/config'
+import { dashboardPanelLimit, useDashboardPanel } from '@/hooks/useDashboardPanel'
 import { useSearchDialog } from '@/hooks/useSearchDialog'
 import { useTranslation } from '@/i18n/react-i18next-compat'
 
 export function ComposerNavigation({ side }: { side: 'left' | 'right' }) {
   const { t } = useTranslation()
-  const panel = useDashboardPanel(state => state.panel)
+  const panels = useDashboardPanel(state => state.panels)
   const items = side === 'left' ? [
-    { id: 'search', label: t('common:search'), icon: Search,
+    { id: 'search', panel: 'search' as const, label: t('common:search'), icon: Search,
       onClick: () => useSearchDialog.getState().setOpen(true) },
-    { id: 'project', label: t('settings:shortcuts.newProject'), icon: FolderPlus,
+    { id: 'project', panel: browserPreviewEnabled() ? 'thread-project' as const : 'project' as const, label: t('settings:shortcuts.newProject'), icon: FolderPlus,
       onClick: () => { window.dispatchEvent(new Event('novera-new-workspace-project')) } },
   ] : [
-    { id: 'models', label: t('providers:models'), icon: Blocks,
+    { id: 'models', panel: 'models' as const, label: t('providers:models'), icon: Blocks,
       onClick: () => useDashboardPanel.getState().openPanel('models') },
-    { id: 'settings', label: t('common:settings'), icon: Settings,
+    { id: 'settings', panel: 'settings' as const, label: t('common:settings'), icon: Settings,
       onClick: () => useDashboardPanel.getState().openPanel('settings') },
   ]
 
   return (
     <div className={`composer-navigation-rail composer-navigation-${side}`}>
-      {items.map(({ id, label, icon: Icon, onClick }) => (
+      {items.map(({ id, panel, label, icon: Icon, onClick }) => (
         <Tooltip key={id}>
           <TooltipTrigger asChild>
             <Button type="button" variant="ghost" size="icon-sm"
               className="composer-navigation-button" data-testid={`composer-nav-${id}`}
-              aria-label={label} aria-expanded={panel === id} onClick={event => {
+              aria-label={label} aria-expanded={panels.includes(panel)}
+              disabled={panels.length >= dashboardPanelLimit && !panels.includes(panel)} onClick={event => {
                 useDashboardPanel.setState({ anchor: event.currentTarget.closest<HTMLElement>('[data-dashboard-composer]') })
                 onClick()
               }}>

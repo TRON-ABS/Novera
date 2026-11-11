@@ -1,6 +1,7 @@
 import { ResetWorkspacePermissions } from '@/containers/NativeAccessControl'
 import TextareaAutosize from 'react-textarea-autosize'
 import { MediaPlayer } from '@/components/MediaPlayer'
+import { DashboardPanelStack } from './DashboardPanelStack'
 import { CreationControls, CreationSettingsControl } from './CreationControls'
 import DropdownModelProvider from './DropdownModelProvider'
 import { DownloadManagement } from './DownloadManegement'
@@ -2087,8 +2088,8 @@ const ChatInput = memo(function ChatInput({
 
   return (
     <div className="relative mx-auto flex min-h-0 w-full max-w-[1280px] flex-col" data-dashboard-composer>
-      {!effectiveAgentMode && !scopeKey && <div className="min-h-0 overflow-y-auto" data-auto-tune-panel />}
-      <div className="relative shrink-0">
+      {!effectiveAgentMode && !scopeKey && <DashboardPanelStack />}
+      <div className="relative shrink-0" data-dashboard-input>
         <div
           className={cn(
             'relative overflow-hidden p-0.5 rounded-3xl'

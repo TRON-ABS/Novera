@@ -91,7 +91,7 @@ export function AutoTuneDashboard({ browser, unavailable, enabled, changing, gai
   const lastFailure = report?.error ?? trial?.error ?? lastError
 
   return (
-    <section aria-labelledby={id} className="mb-2 overflow-hidden rounded-2xl border border-border bg-background/95 shadow-sm">
+    <section data-auto-tune-dashboard aria-labelledby={id} className="mb-2 overflow-hidden rounded-2xl border border-border bg-background/95 shadow-sm">
       <div className="flex flex-wrap items-center gap-2 border-b border-border px-3 py-2">
         <button type="button" aria-expanded={!collapsed} onClick={() => setCollapsed(value => !value)}
           className="inline-flex min-w-0 items-center gap-2 rounded-md text-sm font-semibold focus-visible:outline-2 focus-visible:outline-ring">

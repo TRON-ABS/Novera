@@ -1,3 +1,9 @@
+## Large Web GGUFs and dashboard windows
+
+The Web build keeps the wasm32 engine for existing models and uses a separately verified wasm64 Worker for local GGUFs at least 4 GiB on compatible browsers. WORKERFS limits individual reads to 32 MiB so large tensors can be read from the selected file. Edge loaded the 6.18 GB Nemotron file at 32,768 context tokens and CPU/GPU sampling produced identical 32-token output on RTX 5070 Laptop.
+
+Up to four dashboard panels share the available height above the composer. Each window closes independently. Web New Project opens the existing browser project form. The Android layout follows the visual viewport when the keyboard resizes it.
+
 ## Automatic Web model discovery
 
 Remember the browser-authorized models directory. Scan it on startup, when the tab regains focus and every 30 seconds while visible. Recognize local text GGUF files and enqueue their Auto Tune tests. The engine streams the browser File through WORKERFS and reports incompatible models during calibration. Existing media packs use the same directory scan.

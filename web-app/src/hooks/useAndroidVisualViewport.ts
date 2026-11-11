@@ -9,7 +9,9 @@ export function useAndroidVisualViewport() {
 
     const resize = () => {
       if (viewport.scale !== 1 || viewport.height <= 0) return
-      root.style.height = Math.floor(viewport.height) + 'px'
+      const height = Math.floor(viewport.height) + 'px'
+      root.style.height = height
+      root.style.setProperty('--novera-visual-height', height)
     }
 
     resize()
@@ -17,6 +19,7 @@ export function useAndroidVisualViewport() {
     return () => {
       viewport.removeEventListener('resize', resize)
       root.style.removeProperty('height')
+      root.style.removeProperty('--novera-visual-height')
     }
   }, [])
   return workspace
