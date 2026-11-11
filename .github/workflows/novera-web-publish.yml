@@ -114,6 +114,7 @@ jobs:
         env:
           VITE_NOVERA_WEB_LOCAL_MEDIA: 'true'
           VITE_NOVERA_WEB_LOCAL_MUSIC: 'true'
+          VITE_NOVERA_AUTO_TUNE_CONTRIBUTION_URL: ${{ vars.NOVERA_AUTO_TUNE_CONTRIBUTION_URL }}
           VITE_NOVERA_WEB_LOCAL_WAN: 'true'
           VITE_NOVERA_WEB_BASE: /Novera/web/
           NOVERA_BROWSER_MEDIA_BUILD: .build/browser-media/build
