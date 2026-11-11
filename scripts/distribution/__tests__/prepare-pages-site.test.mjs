@@ -8,7 +8,7 @@ import { preparePagesSite } from '../prepare-pages-site.mjs'
 test('published showcase uses reviewed versions without carrying forward the old device-test claim', t => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'novera-pages-published-'))
   t.after(() => fs.rmSync(root, { recursive: true, force: true }))
-  const facts = { ...JSON.parse(fs.readFileSync(new URL('../../../docs/release-preparation.json', import.meta.url))), published: true, stable: '1.0.1', previous: '1.0.0', androidVersionCode: 1000013 }
+  const facts = { ...JSON.parse(fs.readFileSync(new URL('../../../docs/release-preparation.json', import.meta.url))), published: true, stable: '1.0.1', previous: '1.0.0', androidReleaseVersion: '1.0.1', androidVersionCode: 1000013, androidCurrentRelease: undefined }
   const result = preparePagesSite(path.join(root, 'site'), 'a'.repeat(40), facts, '1.0.2')
   const html = fs.readFileSync(path.join(root, 'site/index.html'), 'utf8')
   assert.equal(result.applicationPublished, true)
@@ -25,8 +25,8 @@ test('published showcase uses reviewed versions without carrying forward the old
   assert.match(html, /L’interface Web propose 120 langues et variantes/)
   assert.equal(result.webVersion, '1.0.2')
   assert.equal(result.webInterfaceLanguageCount, 120)
-  assert.equal(result.readmeLanguageCount, 104)
-  assert.doesNotMatch(html, /README\.hu\.md/)
+  assert.equal(result.readmeLanguageCount, 120)
+  assert.match(html, /README\.hu\.md/)
   assert.deepEqual(fs.readFileSync(path.join(root, 'site/assets/dashboard.png')), fs.readFileSync(new URL('../../../.github/assets/novera-dashboard-2026-11-07.png', import.meta.url)))
   assert.match(html, /href="assets\/dashboard\.png\?v=[a-f0-9]{12}" target="_blank" rel="noreferrer" aria-label="Voir la capture originale en pleine résolution"/)
   assert.deepEqual(fs.readFileSync(path.join(root, 'site/assets/dashboard-collapsed.png')), fs.readFileSync(new URL('../../../.github/assets/novera-dashboard-collapsed-2026-11-07.png', import.meta.url)))
@@ -38,14 +38,14 @@ test('published showcase uses reviewed versions without carrying forward the old
 test('Pages links the verified desktop and Android releases without hosting the Web application', t => {
   const root=fs.mkdtempSync(path.join(os.tmpdir(),'novera-pages-'))
   t.after(()=>fs.rmSync(root,{recursive:true,force:true}))
-  const facts = { ...JSON.parse(fs.readFileSync(new URL('../../../docs/release-preparation.json', import.meta.url))), published: false, release: '1.0.1', stable: '1.0.0', androidReleaseVersion: '1.0.0', androidVersionCode: 1000012 }
+  const facts = { ...JSON.parse(fs.readFileSync(new URL('../../../docs/release-preparation.json', import.meta.url))), published: false, androidCurrentRelease: undefined, release: '1.0.1', stable: '1.0.0', androidReleaseVersion: '1.0.0', androidVersionCode: 1000012 }
   const out=path.join(root,'site');const result=preparePagesSite(out,'a'.repeat(40),facts)
   assert.deepEqual(fs.readdirSync(out).sort(),['assets','index.html','pages-probe.json'])
   assert.deepEqual(fs.readdirSync(path.join(out,'assets')).sort(),['banner.png','dashboard-collapsed.png','dashboard.png'])
   assert.equal(result.applicationPublished,false);assert.equal(result.publicDownloadsEnabled,true);assert.equal(result.desktopReleaseVersion,'1.0.0')
   assert.equal(result.preparedSourceVersion,'1.0.1')
   assert.equal(result.preparedVersionPublished,false)
-  assert.equal(result.readmeLanguageCount,104)
+  assert.equal(result.readmeLanguageCount,120)
   assert.equal(result.preparedMediaPresets,58)
   const html=fs.readFileSync(path.join(out,'index.html'),'utf8')
   assert.match(html,/Préparation de la version 1\.0\.1/)
@@ -53,7 +53,7 @@ test('Pages links the verified desktop and Android releases without hosting the 
   assert.match(html,/58 préréglages média/)
   assert.doesNotMatch(html,/releases\/(?:tag|download)\/v1\.0\.1/)
   const languageLinks = [...html.matchAll(/class="button" dir="auto" href="[^"]+\/README(?:\.[^"/]+)?\.md"/g)]
-  assert.equal(languageLinks.length,104)
+  assert.equal(languageLinks.length,120)
   assert.match(html,/Windows x64, Windows ARM64, Linux x64, macOS et Android ARM64 sont disponibles/);assert.match(html,/releases\/tag\/v1\.0\.0/)
   assert.match(html,/TRON-ABS/);assert.match(html,/The art of Human with AI/)
   assert.match(html,/releases\/tag\/v1\.0\.0-windows-portable/);assert.match(html,/modèles téléchargés restent dans son dossier Data/);assert.match(html,/Mr Sachet Jean-Marc — Chercheur indépendant — France/);assert.match(html,/GPT-6\.1 Sol/)

@@ -1,3 +1,7 @@
+## Android 1.0.2 and release showcase
+
+The Android 1000023 APK was verified on a Huawei P20 for keyboard layout and the 120 interface locales. The public file matches the tested APK. Restore the corresponding keyboard changes in Git and point the showcase to the verified release. iOS remains pending.
+
 ## Web 1.0.2 showcase staging
 
 The Web build has 120 interface locales and the release documentation has 104 translated README files. The Pages generator counts each independently and uses the staged build's 1.0.2 version for the Web heading. The three showcase staging tests pass.

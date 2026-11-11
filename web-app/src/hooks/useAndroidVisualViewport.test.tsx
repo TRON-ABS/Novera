@@ -1,6 +1,6 @@
 import { render, screen } from '@testing-library/react'
 import { afterEach, expect, it, vi } from 'vitest'
-import { useAndroidVisualViewport } from './useAndroidVisualViewport'
+import { androidViewportEvent, useAndroidVisualViewport } from './useAndroidVisualViewport'
 
 afterEach(() => vi.unstubAllGlobals())
 
@@ -25,5 +25,15 @@ it('fits the Android workspace to the keyboard viewport without replacing the dr
 
   viewport.height = 760
   viewport.dispatchEvent(new Event('resize'))
+  expect(workspace.style.height).toBe('760px')
+
+  // The Huawei WebView can report its full height with the keyboard open.
+  vi.stubGlobal('__noveraAndroidVisibleHeight', 342)
+  window.dispatchEvent(new Event(androidViewportEvent))
+  expect(workspace.style.height).toBe('342px')
+  expect(draft.value).toBe('Mon brouillon')
+
+  vi.stubGlobal('__noveraAndroidVisibleHeight', 760)
+  window.dispatchEvent(new Event(androidViewportEvent))
   expect(workspace.style.height).toBe('760px')
 })

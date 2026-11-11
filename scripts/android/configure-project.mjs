@@ -124,15 +124,13 @@ write(app, compilerOptions(text, 'JVM_11'))
 // A direct Gradle rebuild can otherwise keep the preceding Tauri version.
 // These generated values always follow the canonical application/release files.
 const versionProperties = path.join(project, 'app/tauri.properties')
-if (fs.existsSync(versionProperties)) {
-  let generated = read(versionProperties)
-  for (const [key, value] of [['versionName', version], ['versionCode', versionCode]]) {
-    const pattern = new RegExp('^tauri\\.android\\.' + key + '=.*$', 'm')
-    const entry = 'tauri.android.' + key + '=' + value
-    generated = pattern.test(generated) ? generated.replace(pattern, entry) : generated.trimEnd() + '\n' + entry + '\n'
-  }
-  write(versionProperties, generated)
+let generated = fs.existsSync(versionProperties) ? read(versionProperties) : ''
+for (const [key, value] of [['versionName', version], ['versionCode', versionCode]]) {
+  const pattern = new RegExp('^tauri\\.android\\.' + key + '=.*$', 'm')
+  const entry = 'tauri.android.' + key + '=' + value
+  generated = pattern.test(generated) ? generated.replace(pattern, entry) : (generated.trimEnd() ? generated.trimEnd() + '\n' : '') + entry + '\n'
 }
+write(versionProperties, generated)
 
 const main = path.join(project, 'build.gradle.kts')
 write(main, read(main)
@@ -165,7 +163,14 @@ for (const [key, value] of [['allowBackup', 'false'], ['fullBackupContent', 'fal
   const expression = new RegExp('android:' + key + '="[^"]*"')
   xml = expression.test(xml) ? xml.replace(expression, 'android:' + key + '="' + value + '"') : xml.replace('<application', '<application\n        android:' + key + '="' + value + '"')
 }
+xml = xml.replace(/<activity\b[^>]*\bandroid:name="\.MainActivity"[^>]*>/, activity =>
+  /android:windowSoftInputMode="[^"]*"/.test(activity)
+    ? activity.replace(/android:windowSoftInputMode="[^"]*"/, 'android:windowSoftInputMode="adjustResize"')
+    : activity.replace('<activity', '<activity\n            android:windowSoftInputMode="adjustResize"')
+)
 write(manifest, xml)
+write(path.join(project, 'app/src/main/java/io/github/tronabs/novera/MainActivity.kt'),
+  read(path.join(here, 'templates/MainActivity.kt')))
 // Tauri init leaves its sample launcher in the generated project. Reapply the
 // existing Novera hand assets on every configuration, including round variants.
 fs.cpSync(path.join(repo, 'src-tauri/icons/android'), path.join(project, 'app/src/main/res'), { recursive: true })
