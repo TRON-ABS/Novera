@@ -2,6 +2,12 @@
 
 **Périmètre permanent du mainteneur (7 novembre 2026) : une mise à jour concerne toutes les versions de Novera**, y compris Desktop Windows/macOS/Linux, portable, CLI, Android, iOS et Web, ainsi que leurs canaux, documentations et vitrines. Suivre chaque distribution et ses validations, conserver les anciens paquets immuables et signaler les blocages réels ; ne pas réduire implicitement le périmètre à la plateforme actuellement testée. [Consigne et méthode de sortie](RETOUR_EXPERIENCE_RELEASES.md).
 
+## Contrôle complet à chaque mise à jour du dépôt
+
+Avant la publication, comparer les versions et compteurs affichés aux sources et aux paquets effectivement validés. Contrôler la section About, le README principal et toutes ses traductions, les sélecteurs de langue, les liens de téléchargement, la vitrine et les fichiers de suivi. Compter séparément les catalogues d’interface et les README publiés. Conserver les chiffres des notes de version datées.
+
+Après publication, vérifier depuis un accès public la description du dépôt, les liens de la vitrine et des README, les paquets par plateforme et les manifests des canaux de mise à jour. Consigner les contrôles réussis et les plateformes encore en attente dans le [suivi de disponibilité](LAUNCH_STATUS.md).
+
 Les trois CLI signées passent aussi le remplacement isolé et l’exécution sur leurs hôtes. Le générateur de manifeste recontrôle signatures, identités ZIP et reçus ; le feed reste uniquement préparé localement. Le [bilan des canaux](LAUNCH_STATUS.md) distingue ces preuves des endpoints publics et certifications encore absents.
 
 Les cinq scénarios desktop d’installation/remplacement natif réussissent. Le programme synthétique ne certifie pas un parcours UI entre deux applications publiées. CLI, mobiles, Web et formats exclus conservent leurs conditions propres. Voir [les preuves actuelles](INSTALL_UPDATE_VALIDATION.md). La publication reste bloquée.

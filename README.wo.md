@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Yaa ngi leeral sa mébet. Novera mooy waajal jumtukaay yi, def liggéey bi ba noppi nas njariñ yi.</strong></p>
   <p>Jàppalekatu AI bu moom boppam bu TRON-ABS defar, daale ko ci ubbite bu njëkk bi ba ci njariñ yi: bind, nataal, music ak wideo ci benn waxtaan.</p>
-  <p><strong>Amna ci Windows, Linux, macOS ak Android</strong> · 104 làkki interface · 42 fournisseurs cloud · 58 media yiñ tëral · Apache 2.0</p>
+  <p><strong>Amna ci Windows, Linux, macOS ak Android</strong> · 120 làkki interface · 42 fournisseurs cloud · 58 media yiñ tëral · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Otomatisation</a> · <a href="#one-dashboard-for-every-creation">Tablo</a> · <a href="#local-models-in-use">AI model yiy daw ci sa aparey</a> · <a href="#hub-and-compatible-models">Hub ak model yu méngoo</a> · <a href="#cloud-providers">Niir</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Jàppale</a></p>
   <p>Jokkoo ofisel: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Profil sosio ofisel Novera: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -150,7 +150,7 @@ Encodeur musical Qwen ak modelu recuperation Qwen ñooy **fichier yu wuute**, de
 
 ## Fournisseur cloud
 
-Catalog bi denc na 43 ay joxekaay yu joxekat yi: 42 ay cëri cloud ak TabbyAPI ngir serwóor bu dëkk bi. Modèlu jëfandikoo gi ak kàttan yi a ngi aju ci kontu bi, gox bi ak API bi ñuy jàppale. 104 bépp làkki interfaas ñoo bokk katalog bii.
+Catalog bi denc na 43 ay joxekaay yu joxekat yi: 42 ay cëri cloud ak TabbyAPI ngir serwóor bu dëkk bi. Modèlu jëfandikoo gi ak kàttan yi a ngi aju ci kontu bi, gox bi ak API bi ñuy jàppale. 120 bépp làkki interfaas ñoo bokk katalog bii.
 
 | | | |
 | --- | --- | --- |
@@ -273,9 +273,9 @@ Xeetu tànneef biñ jagleel hardware bi mooy gëna bëgg génne yu bees yi ci bi
 
 Sources yu bees yi yokk **komponent yiñ yor ci tànneef yi ngir Windows x64**: environmaa yi Python privé, profil CPU/CUDA yuñ tënk, xayma ak firnde laataa ñuy yebbi, xool, defar ak dindi. Yooni tekkikatu làkk yiñ personaalise dañuy des ci tànneef yu xóot yi. Motëri GGUF yi dañuy tëye seen cër yi fi nekk; mobile ak cloud duñu yebbi Python/PyTorch. Ñatti profil CPU/export yuñ jëfandikoo ak jumtukaayi synthetik dëgg; Toppatookat bi dafa wax ni jëfandikoo na bu baax ordinatër bi ci 1 nowàmbar 2026; Profil GPU ak instalaasioŋ bu sell-PC ba leegi dañu soxla tàqaloo, gëna leer. [Profil yi ak àppu test yi](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). dugal stack bi ci EXE defa yeex.
 
-## 104 làkki interface ak seeni variant
+## 120 làkki interface ak seeni variant
 
-**104 katalog yi dañuy tënk 2,435 caabi angale yi fi nekk** ci barabi tur 15, boole ci mënu yi, tabb yi, jekkal yi, ndimbal yi ak seytu media yi. Formu plural yi ak yoon wi interface bi di jaar dañu topp làkk wiñ tànn. Tontu ak làkku baat a ngi aju ci model bi.
+**120 katalog yi dañuy tënk 2,484 caabi angale yi fi nekk** ci barabi tur 15, boole ci mënu yi, tabb yi, jekkal yi, ndimbal yi ak seytu media yi. Formu plural yi ak yoon wi interface bi di jaar dañu topp làkk wiñ tànn. Tontu ak làkku baat a ngi aju ci model bi.
 
 Bii coverage technique seedewul kalite linguistic: **xoolaat ci dëkk bi ak méngale ci diwaan yi dañuy wéy di am njariñ**. Xoolal etiketu cosaan ak àpp yiñ xam ci [tegtal làkk](docs/LANGUAGES.md) ak [rapooru audit](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -311,7 +311,7 @@ Tabax GitHub Actions ak loxo mën nañu ko def ci fukk ak benn xeeti séddale y�
 - [Gitu jëfandikukat bu leer](docs/USER_GUIDE.md), [sàrti wurus yi ci wàllu produit ak jëfandikukat (Français)](docs/REGLES_D_OR.md), [model ak motëri](docs/SUIVI_MOTEURS.md).
 - [Yokkateg](docs/DEVELOPMENT.md), [tabax ak génne tegtal](docs/BUILD_AND_RELEASE.md), [xeetu ëlëg ak waajal yeesal](docs/FUTURES_VERSIONS.md).
 - [Tablo projet](TABLEAU_DE_BORD_NOVERA.md), [kàrtu yoon](ROADMAP.md), [coppite](docs/CHANGELOG.md).
-- [Di jàppale](CONTRIBUTING.md): kode, test, jàngat ci làkki 104 ak feedback ci liggéey bi dëgg.
+- [Di jàppale](CONTRIBUTING.md): kode, test, jàngat ci làkki 120 ak feedback ci liggéey bi dëgg.
 
 ## Ndaxte ak lisence
 

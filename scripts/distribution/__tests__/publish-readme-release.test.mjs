@@ -33,10 +33,12 @@ test('unpublished state refuses source publication before reading or writing REA
   assert.deepEqual(fs.readdirSync(fixture), ['docs'])
 })
 test('published transformation preserves the prior version and is idempotent', () => {
-  const facts = { ...JSON.parse(fs.readFileSync(path.join(root, 'docs/release-preparation.json'))), published: true, stable: '1.0.1', previous: '1.0.0', androidVersionCode: 1000013 }
+  const facts = { ...JSON.parse(fs.readFileSync(path.join(root, 'docs/release-preparation.json'))), published: true, stable: '1.0.1', previous: '1.0.0', androidVersionCode: 1000013, currentLanguages: 120 }
   const copy = JSON.parse(fs.readFileSync(path.join(root, 'scripts/readme-release-1.0.1-published.json'))).fr
   const source = fs.readFileSync(path.join(root, 'README.fr.md'), 'utf8')
   const first = preparePublishedReadme(source, 'fr', facts, copy)
+  assert.match(first, /<p><strong>[^\n]+120 langues[^\n]+Apache 2\.0/)
+  assert.match(first, /104, avec 2 435 clés/)
   assert.equal(preparePublishedReadme(first, 'fr', facts, copy), first)
   assert.throws(() => preparePublishedReadme(source, 'fr', { ...facts, stable: '1.0.0' }, copy), /published release facts/)
 })

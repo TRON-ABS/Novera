@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Descriu el teu objectiu. Novera prepara els recursos, executa la tasca i organitza els resultats.</strong></p>
   <p>Un assistent independent de AI de TRON-ABS, des del primer llançament fins als resultats: text, imatges, música i vídeo en una conversa.</p>
-  <p><strong>Disponible per a Windows, Linux, macOS i Android</strong> · 104 idiomes de la interfície · 42 proveïdors de núvol · 58 presets multimèdia · Apache 2.0</p>
+  <p><strong>Disponible per a Windows, Linux, macOS i Android</strong> · 120 idiomes de la interfície · 42 proveïdors de núvol · 58 presets multimèdia · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Automatització</a> · <a href="#one-dashboard-for-every-creation">Tauler de control</a> · <a href="#local-models-in-use">Models AI que s'executen localment al vostre dispositiu</a> · <a href="#hub-and-compatible-models">Formats i concentrador</a> · <a href="#cloud-providers">Núvol</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Contribueix</a></p>
   <p>Contacte oficial: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Perfils socials oficials de Novera: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -150,7 +150,7 @@ El codificador de música Qwen i el model de recuperació Qwen són **fitxers di
 
 ## Proveïdors de núvol
 
-El catàleg conté 43 perfils de proveïdors: 42 serveis al núvol i TabbyAPI per a un servidor local. L'accés al model i les capacitats depenen del compte, la regió i l'API admesa. Tots els 104 idiomes de la interfície comparteixen aquest catàleg.
+El catàleg conté 43 perfils de proveïdors: 42 serveis al núvol i TabbyAPI per a un servidor local. L'accés al model i les capacitats depenen del compte, la regió i l'API admesa. Tots els 120 idiomes de la interfície comparteixen aquest catàleg.
 
 | | | |
 | --- | --- | --- |
@@ -273,9 +273,9 @@ L'ordenació per defecte adaptada al maquinari afavoreix les versions més noves
 
 Les fonts actualitzades afegeixen **components gestionats opcionals a Configuracions per a Windows x64**: entorns privats de Python, perfils CPU/CUDA fixats, estimacions i confirmació abans de les descàrregues, verificació, reparació i eliminació. Els camins d'intèrpret personalitzats es mantenen sota opcions avançades. Els motors natius GGUF conserven els seus components existents; el mòbil i el núvol no descarreguen Python/PyTorch d'escriptori. Es van exercir tres perfils privats CPU/exportació amb dades de prova sintètiques; El responsable del manteniment informa d'un ús correcte de l'escriptori a 1 novembre 2026; Els perfils GPU i la instal·lació clean-PC encara necessiten una validació detallada i separada. [Perfils i límits de prova](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). La incorporació de la pila a la EXE s'ajorna.
 
-## Idiomes i variants de la interfície 104
+## Idiomes i variants de la interfície 120
 
-**Tots els catàlegs 104 cobreixen les claus angleses 2,435 actuals** als espais de noms 15, inclosos menús, configuracions, paràmetres, ajuda i controls multimèdia. Les formes plurals i la direcció de la interfície segueixen l'idioma seleccionat. Els idiomes de resposta i de veu depenen per separat del model.
+**Tots els catàlegs 120 cobreixen les claus angleses 2,484 actuals** als espais de noms 15, inclosos menús, configuracions, paràmetres, ajuda i controls multimèdia. Les formes plurals i la direcció de la interfície segueixen l'idioma seleccionat. Els idiomes de resposta i de veu depenen per separat del model.
 
 Aquesta cobertura tècnica no certifica la qualitat lingüística: **la revisió nativa i l'adaptació regional segueixen sent necessàries**. Vegeu les etiquetes natives i els límits coneguts al [guia d'idiomes](docs/LANGUAGES.md) i [informe d'auditoria](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -311,7 +311,7 @@ Les compilacions manuals GitHub Actions estan habilitades per a les onze variant
 - [Guia d'usuari detallada](docs/USER_GUIDE.md), [Regles d'or sobre productes i informació d'usuari (francès)](docs/REGLES_D_OR.md), [models i motors](docs/SUIVI_MOTEURS.md).
 - [Desenvolupament](docs/DEVELOPMENT.md), [guia de creació i llançament](docs/BUILD_AND_RELEASE.md), [versions futures i preparació d'actualitzacions](docs/FUTURES_VERSIONS.md).
 - [Tauler de control del projecte](TABLEAU_DE_BORD_NOVERA.md), [full de ruta](ROADMAP.md), [registre de canvis](docs/CHANGELOG.md).
-- [Contribuint](CONTRIBUTING.md): codi, proves, revisió nativa dels idiomes 104 i comentaris reals sobre el flux de treball.
+- [Contribuint](CONTRIBUTING.md): codi, proves, revisió nativa dels idiomes 120 i comentaris reals sobre el flux de treball.
 
 ## Identitat i llicència
 

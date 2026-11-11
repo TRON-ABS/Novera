@@ -8,7 +8,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Nge tendulaka yo. Novera ke yidikaka, ke twadisaka mpi ke yidikaka.</strong></p>
   <p>Novera kele nsadisi ya AI ya kimpwanza. Na disolo mosi, nge lenda sonika mpi kubimisa bifwanisu, miziki mpi video. Interface ya Web kele na bandinga 120 ti mitindu na yo.</p>
-  <p><strong>Yo kele sambu na Windows, Linux, macOS mpi Android</strong> · 42 bapesi ya kisalu ya cloud · 58 bangidika ya media · Apache 2.0</p>
+  <p><strong>Yo kele sambu na Windows, Linux, macOS mpi Android</strong> · Bandinga 120 ti mitindu na yo na interface · 42 bapesi ya kisalu ya cloud · 58 bangidika ya media · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Kisalu ya kuyidika</a> · <a href="#one-dashboard-for-every-creation">Tablo ya kusala mambu</a> · <a href="#local-models-in-use">Bambandu ya bwala</a> · <a href="#hub-and-compatible-models">Ba formate &amp; Hub</a> · <a href="#cloud-providers">Mvula ya Ngolo</a> · <a href="README.fr.md">Bantu ya France</a> · <a href="CONTRIBUTING.md">Sadisa</a></p>
   <p>Muntu ya ke solula ti bo: <a href="mailto:contact.novera.tronabs@gmail.com">contact.novera.tronabs@gmail.com</a></p>
   <p>Kisalu ya nene Novera bifwanisu ya bantu: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -148,7 +148,7 @@ Bantu yina Qwen ba-encoder ya miziki mpi Qwen mutindu ya kubaka bima kele **bafi
 <a id="cloud-providers"></a>
 ## Bansadi ya ke pesaka bima na kati ya mudidi
 
-Katalogue kele ti 43 Banzikisa ya bansamuni: 42 bisalu ya dituti mpi TabbyAPI sambu na servere mosi ya kisika mosi. Modele ya kukota mpi makuki na yo ketadila konti, nziunga mpi bima yina bo kepesaka maboko API. Bo yonso 104 Bandinga yina bo ke sadilaka na interface kele ti katalo yai.
+Katalogue kele ti 43 Banzikisa ya bansamuni: 42 bisalu ya dituti mpi TabbyAPI sambu na servere mosi ya kisika mosi. Modele ya kukota mpi makuki na yo ketadila konti, nziunga mpi bima yina bo kepesaka maboko API. Bo yonso 120 Bandinga yina bo ke sadilaka na interface kele ti katalo yai.
 
 | | | |
 | --- | --- | --- |
@@ -308,7 +308,7 @@ Manual GitHub Actions builds are enabled for all eleven distribution variants. F
 - [Lutwadisu ya mbote sambu na bansamuni](docs/USER_GUIDE.md), [Bansiku ya wolo sambu na bansangu ya ke tadila bima mpi bansangu ya ke tadila bansamuni (na Kifalansa)](docs/REGLES_D_OR.md), [bamotere mpi bamotere](docs/SUIVI_MOTEURS.md).
 - [Kulonguka](docs/DEVELOPMENT.md), [lutwadisu ya kutunga mpi kubasisa](docs/BUILD_AND_RELEASE.md), [Baverse ya bilumbu ke kwisa mpi kuyilama ya bansangu ya mpa](docs/FUTURES_VERSIONS.md).
 - [Tablo ya kusala kisalu](TABLEAU_DE_BORD_NOVERA.md), [karte ya nzila](ROADMAP.md), [mukanda ya kubalula mambu](docs/CHANGELOG.md).
-- [Kudipesa](CONTRIBUTING.md): code, bansosa, kutadila na ndinga ya mvimba 104 bandinga mpi kupesa bamvutu ya mbote na mambu yina bo ke salaka.
+- [Kudipesa](CONTRIBUTING.md): code, bansosa, kutadila na ndinga ya mvimba 120 bandinga mpi kupesa bamvutu ya mbote na mambu yina bo ke salaka.
 
 ## Kikalulu ya muntu mpi nswa
 

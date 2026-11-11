@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Kuna bayyana burin ku. Novera yana shirya albarkatun, aiwatar da aikin kuma yana tsara sakamakon.</strong></p>
   <p>Mataimakin AI mai zaman kansa ta TRON-ABS, daga farawa na farko zuwa sakamako: rubutu, hotuna, kiɗa da bidiyo a cikin tattaunawa ɗaya.</p>
-  <p><strong>Akwai don Windows, Linux, macOS da Android</strong> · 104 harsunan mu'amala · 42 masu samar da girgije · 58 saitattun kafofin watsa labarai · Apache 2.0</p>
+  <p><strong>Akwai don Windows, Linux, macOS da Android</strong> · 120 harsunan mu'amala · 42 masu samar da girgije · 58 saitattun kafofin watsa labarai · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Kayan aiki da kai</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">Samfuran AI suna gudana cikin gida akan na'urarka</a> · <a href="#hub-and-compatible-models">Tsarukan & Hub</a> · <a href="#cloud-providers">Gajimare</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Taimakawa</a></p>
   <p>Tuntuɓar hukuma: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Bayanan martaba na jama'a na Novera na hukuma: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -150,7 +150,7 @@ Mai rikodin kiɗan Qwen da ƙirar dawo da Qwen sune **fayiloli daban-daban**, an
 
 ## Masu samar da girgije
 
-Kas ɗin ya ƙunshi bayanan bayanan mai bada 43: 42 sabis na girgije da TabbyAPI don uwar garken gida. Samun samfurin da iyawar ya dogara da asusu, yanki da API mai goyan baya. Duk 104 harsunan mu'amala suna raba wannan kasida.
+Kas ɗin ya ƙunshi bayanan bayanan mai bada 43: 42 sabis na girgije da TabbyAPI don uwar garken gida. Samun samfurin da iyawar ya dogara da asusu, yanki da API mai goyan baya. Duk 120 harsunan mu'amala suna raba wannan kasida.
 
 | | | |
 | --- | --- | --- |
@@ -273,9 +273,9 @@ Tsohuwar nau'in daidaitawar kayan masarufi yana ba da fifiko ga sabbin abubuwan 
 
 Abubuwan da aka sabunta sun ƙara **abubuwan da aka sarrafa na zaɓi na zaɓi a cikin Saituna don Windows x64**: muhallin Python masu zaman kansu, bayanan bayanan CPU/CUDA da aka lika, kimantawa da tabbatarwa kafin saukewa, tabbatarwa, gyarawa da cirewa. Hanyoyi masu fassara na al'ada suna tsayawa ƙarƙashin zaɓuɓɓukan ci gaba. Injunan GGUF na asali suna kiyaye abubuwan da suka kasance; wayar hannu da gajimare ba sa sauke tebur Python/PyTorch. Uku masu zaman kansu CPU / bayanan fitarwa an yi amfani da su tare da bayanan gwaji na ƙirƙira; Mai kula yana ba da rahoton nasarar amfani da tebur akan 1 Nuwamba 2026; Bayanan martaba GPU da tsabta-PC shigarwa har yanzu suna buƙatar keɓance, ingantaccen ingantaccen bayani. [Bayanan martaba da iyakokin gwaji](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). An jinkirta haɗa tari a cikin EXE.
 
-## 104 mu'amala da harsuna da bambance-bambancen karatu
+## 120 mu'amala da harsuna da bambance-bambancen karatu
 
-**Duk catalogs na 104 sun rufe maɓallan Turanci na yanzu na 2,435** a fadin 15 sunaye, gami da menus, daidaitawa, saituna, taimako da sarrafa kafofin watsa labarai. Siffofin jam'i da jagorar mu'amala suna bin harshen da aka zaɓa. Amsa da harsunan murya sun dogara daban akan ƙirar.
+**Duk catalogs na 120 sun rufe maɓallan Turanci na yanzu na 2,484** a fadin 15 sunaye, gami da menus, daidaitawa, saituna, taimako da sarrafa kafofin watsa labarai. Siffofin jam'i da jagorar mu'amala suna bin harshen da aka zaɓa. Amsa da harsunan murya sun dogara daban akan ƙirar.
 
 Wannan ƙirar fasaha ba ta tabbatar da ingancin harshe ba: **bita na asali da daidaitawar yanki sun kasance wajibi**. Duba lakabin asali da sanannun iyakoki a cikin [jagorar harshe](docs/LANGUAGES.md) kuma [Rahoton bincike](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -311,7 +311,7 @@ An kunna ginin GitHub Actions na hannu don duk bambance-bambancen rarraba goma s
 - [Cikakken jagorar mai amfani](docs/USER_GUIDE.md), [samfur da bayanin mai amfani da dokokin zinare (Faransa)](docs/REGLES_D_OR.md), [samfuri da injuna](docs/SUIVI_MOTEURS.md).
 - [Ci gaba](docs/DEVELOPMENT.md), [jagorar gini da saki](docs/BUILD_AND_RELEASE.md), [sigogin gaba da sabunta shirye-shiryen](docs/FUTURES_VERSIONS.md).
 - [dashboard na aikin](TABLEAU_DE_BORD_NOVERA.md), [taswirar hanya](ROADMAP.md), [canji](docs/CHANGELOG.md).
-- [Gudunmawa](CONTRIBUTING.md): lamba, gwaje-gwaje, bita na asali a cikin yarukan 104 da ra'ayin kwararar aiki na gaske.
+- [Gudunmawa](CONTRIBUTING.md): lamba, gwaje-gwaje, bita na asali a cikin yarukan 120 da ra'ayin kwararar aiki na gaske.
 
 ## Identity da lasisi
 

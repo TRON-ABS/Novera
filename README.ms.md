@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Anda menerangkan matlamat anda. Novera menyediakan sumber, melaksanakan tugas dan menyusun keputusan.</strong></p>
   <p>Pembantu bebas AI oleh TRON-ABS, dari pelancaran pertama hingga hasil: teks, imej, muzik dan video dalam satu perbualan.</p>
-  <p><strong>Tersedia untuk Windows, Linux, macOS dan Android</strong> · 104 bahasa antara muka · 42 penyedia awan · 58 pratetap media · Apache 2.0</p>
+  <p><strong>Tersedia untuk Windows, Linux, macOS dan Android</strong> · 120 bahasa antara muka · 42 penyedia awan · 58 pratetap media · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Automasi</a> · <a href="#one-dashboard-for-every-creation">Papan pemuka</a> · <a href="#local-models-in-use">AI model yang dijalankan secara setempat pada peranti anda</a> · <a href="#hub-and-compatible-models">Hab dan model yang serasi</a> · <a href="#cloud-providers">Awan</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Sumbangkan</a></p>
   <p>Hubungan rasmi: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Rasmi Novera profil sosial: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -150,7 +150,7 @@ Pengekod muzik Qwen dan model pengambilan Qwen ialah **fail yang berbeza**, disi
 
 ## Pembekal awan
 
-Katalog mengandungi 43 profil pembekal: 42 perkhidmatan awan dan TabbyAPI untuk pelayan setempat. Akses dan keupayaan model bergantung pada akaun, rantau dan API yang disokong. Semua 104 bahasa antara muka berkongsi katalog ini.
+Katalog mengandungi 43 profil pembekal: 42 perkhidmatan awan dan TabbyAPI untuk pelayan setempat. Akses dan keupayaan model bergantung pada akaun, rantau dan API yang disokong. Semua 120 bahasa antara muka berkongsi katalog ini.
 
 | | | |
 | --- | --- | --- |
@@ -273,9 +273,9 @@ Isihan disesuaikan perkakasan lalai mengutamakan keluaran yang lebih baharu dala
 
 Sumber yang dikemas kini menambah **komponen terurus pilihan dalam Konfigurasi untuk Windows x64**: persekitaran Python peribadi, disematkan CPU/CUDA profil, anggaran dan pengesahan sebelum muat turun, pengesahan, pembaikan dan pengalihan keluar. Laluan penterjemah tersuai kekal di bawah pilihan lanjutan. Enjin asli GGUF mengekalkan komponen sedia ada; mudah alih dan awan tidak memuat turun desktop Python/PyTorch. Tiga profil peribadi CPU/eksport telah digunakan dengan data ujian sintetik; Penyelenggara melaporkan penggunaan desktop yang berjaya pada 1 November 2026; Profil GPU dan pemasangan bersih-PC masih memerlukan pengesahan terperinci yang berasingan. [Profil dan had ujian](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Membenamkan tindanan dalam EXE ditangguhkan.
 
-## 104 bahasa antara muka dan variasi
+## 120 bahasa antara muka dan variasi
 
-**Semua katalog 104 meliputi kekunci Inggeris semasa 2,435** merentas 15 ruang nama, termasuk menu, konfigurasi, tetapan, bantuan dan kawalan media. Bentuk jamak dan arah antara muka mengikut bahasa yang dipilih. Bahasa respons dan suara bergantung secara berasingan pada model.
+**Semua katalog 120 meliputi kekunci Inggeris semasa 2,484** merentas 15 ruang nama, termasuk menu, konfigurasi, tetapan, bantuan dan kawalan media. Bentuk jamak dan arah antara muka mengikut bahasa yang dipilih. Bahasa respons dan suara bergantung secara berasingan pada model.
 
 Liputan teknikal ini tidak memperakui kualiti linguistik: **semakan asli dan penyesuaian serantau tetap diperlukan**. Lihat label asli dan had yang diketahui dalam [panduan bahasa](docs/LANGUAGES.md) dan [laporan audit](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -311,7 +311,7 @@ Binaan manual GitHub Actions didayakan untuk kesemua sebelas varian pengedaran. 
 - [Panduan pengguna terperinci](docs/USER_GUIDE.md), [peraturan keemasan produk dan maklumat pengguna (Perancis)](docs/REGLES_D_OR.md), [model dan enjin](docs/SUIVI_MOTEURS.md).
 - [Pembangunan](docs/DEVELOPMENT.md), [panduan bina dan lepas](docs/BUILD_AND_RELEASE.md), [versi masa hadapan dan penyediaan kemas kini](docs/FUTURES_VERSIONS.md).
 - [Papan pemuka projek](TABLEAU_DE_BORD_NOVERA.md), [peta jalan](ROADMAP.md), [log perubahan](docs/CHANGELOG.md).
-- [Menyumbang](CONTRIBUTING.md): kod, ujian, semakan asli merentas 104 bahasa dan maklum balas aliran kerja sebenar.
+- [Menyumbang](CONTRIBUTING.md): kod, ujian, semakan asli merentas 120 bahasa dan maklum balas aliran kerja sebenar.
 
 ## Identiti dan lesen
 

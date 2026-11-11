@@ -8,7 +8,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Kaayyoo kee ibsita. Novera qabeenya qopheessa, hojii raawwachuu fi bu'aa ni qindeessa.</strong></p>
   <p>Novera gargaaraa AI walaba dha. Haasawa tokko keessatti barruu barreessi, fakkii, muuziqaa fi viidiyoo uumi. Fuulli Web afaanotaa fi loqodawwan 120 qaba.</p>
-  <p><strong>Windows, Linux, macOS fi Android irratti argama</strong> · 42 dhiyeessitoota duumessaa · 58 durtii miidiyaa · Apache 2.0</p>
+  <p><strong>Windows, Linux, macOS fi Android irratti argama</strong> · Afaanotaa fi loqodawwan 120 · 42 dhiyeessitoota duumessaa · 58 durtii miidiyaa · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Otoomaashiniin</a> · <a href="#one-dashboard-for-every-creation">Daashboordii</a> · <a href="#local-models-in-use">AI moodeelota meeshaa keessan irratti naannootti hojjetan</a> · <a href="#hub-and-compatible-models">Hub fi moodeelota walsimsiisan</a> · <a href="#cloud-providers">Duumeessa</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Gumaacha</a></p>
   <p>Quunnamtii ofiisaa: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Official Novera piroofaayilii hawaasummaa: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -152,7 +152,7 @@ Enkoodarri muuziqaa Qwen fi moodeelli deebisuu Qwen dha **faayiloota adda addaa*
 
 ## Dhiyeessitoota duumessaa
 
-Kaataloogin piroofaayilii dhiyeessaa 43 of keessaa qaba: 42 tajaajiloota duumessaa fi TabbyAPI sarvarii naannoodhaaf. Dhaqqabummaa fi dandeettiin moodeela herrega, naannoo fi API deeggarame irratti hundaa'a. Afaanonni walqunnamtii 104 hundi kataloogii kana qooddatu.
+Kaataloogin piroofaayilii dhiyeessaa 43 of keessaa qaba: 42 tajaajiloota duumessaa fi TabbyAPI sarvarii naannoodhaaf. Dhaqqabummaa fi dandeettiin moodeela herrega, naannoo fi API deeggarame irratti hundaa'a. Afaanonni walqunnamtii 120 hundi kataloogii kana qooddatu.
 
 | | | |
 | --- | --- | --- |
@@ -313,7 +313,7 @@ Maanu'alii GitHub Actions ijaarsi garaagarummaa raabsaa kudha tokko hundaaf dand
 - [Qajeelfama fayyadamaa bal’aa](docs/USER_GUIDE.md), [oomishaa fi odeeffannoo fayyadamaa seera warqee (Faransaayi) .](docs/REGLES_D_OR.md), [moodeelota fi motora](docs/SUIVI_MOTEURS.md).
 - [Misooma](docs/DEVELOPMENT.md), [qajeelfama ijaarsaa fi gadhiisuu](docs/BUILD_AND_RELEASE.md), [gara fuula duraa fi qophii haaromsaa](docs/FUTURES_VERSIONS.md).
 - [Daashboordii pirojektii](TABLEAU_DE_BORD_NOVERA.md), [kaartaa daandii](ROADMAP.md), [galmee jijjiiramaa](docs/CHANGELOG.md).
-- [Gumaacha gochuu](CONTRIBUTING.md): koodii, qormaata, gamaaggama dhalootaa afaanota 104 fi yaada adeemsa hojii dhugaa.
+- [Gumaacha gochuu](CONTRIBUTING.md): koodii, qormaata, gamaaggama dhalootaa afaanota 120 fi yaada adeemsa hojii dhugaa.
 
 ## Eenyummaa fi hayyama
 

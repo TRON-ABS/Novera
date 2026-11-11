@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>您描述您的目標。 Novera 準備資源、執行任務並組織結果。</strong></p>
   <p>TRON-ABS 的獨立 AI 助手，從第一次啟動到結果：文字、圖像、音樂和影片在一個對話中。</p>
-  <p><strong>適用於 Windows、Linux、macOS 和 Android</strong> · 104 介面語言 · 42 雲端提供者 · 58 媒體預設 · Apache 2.0</p>
+  <p><strong>適用於 Windows、Linux、macOS 和 Android</strong> · 120 介面語言 · 42 雲端提供者 · 58 媒體預設 · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">自動化</a> · <a href="#one-dashboard-for-every-creation">儀表板</a> · <a href="#local-models-in-use">在您的裝置上本地運行的 AI 模型</a> · <a href="#hub-and-compatible-models">格式和中心</a> · <a href="#cloud-providers">雲</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">貢獻</a></p>
   <p>官方聯絡方式： <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Novera 官方社群資料： <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -150,7 +150,7 @@ Qwen 音樂編碼器和 Qwen 檢索模型是 **不同的文件**，單獨存放�
 
 ## 雲端供應商
 
-目錄包含 43 提供者設定檔：42 雲端服務和本機伺服器的 TabbyAPI。模型存取和功能取決於帳戶、區域和支援的 API。所有 104 介面語言共用此目錄。
+目錄包含 43 提供者設定檔：42 雲端服務和本機伺服器的 TabbyAPI。模型存取和功能取決於帳戶、區域和支援的 API。所有 120 介面語言共用此目錄。
 
 | | | |
 | --- | --- | --- |
@@ -273,7 +273,7 @@ AWQ 4 位元、GPTQ 4 位元、NF4 和 INT8 皆使用離線建立的未經訓練
 
 更新的來源添加 **Windows x64 配置中的選用託管元件**：私有Python環境，固定CPU/CUDA設定文件，下載、驗證、修復和刪除之前的估計和確認。自訂解釋器路徑保留在進階選項下。原生 GGUF 引擎保留其現有元件；行動和雲端不下載桌面Python/PyTorch。已使用合成測試資料驗證三個專用 CPU/匯出設定檔；維護者報告 2026年11月1日 成功桌面使用；GPU 設定檔和乾淨的 PC 安裝仍須另行詳細驗證。 [設定檔和測試限制](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md)。將堆疊嵌入 EXE 被推遲。
 
-## 104 介面語言與變體
+## 120 介面語言與變體
 
 **所有80目錄涵蓋目前2,435英文按鍵** 跨 15 命名空間，包括選單、設定、設定、幫助和媒體控制。複數形式和介面方向遵循所選語言。響應和語音語言分別取決於型號。
 
@@ -311,7 +311,7 @@ AWQ 4 位元、GPTQ 4 位元、NF4 和 INT8 皆使用離線建立的未經訓練
 - [詳細的使用者指南](docs/USER_GUIDE.md), [產品與使用者資訊黃金法則（法文）](docs/REGLES_D_OR.md), [模型與發動機](docs/SUIVI_MOTEURS.md).
 - [發展](docs/DEVELOPMENT.md), [建置與發布指南](docs/BUILD_AND_RELEASE.md), [未來版本及更新準備](docs/FUTURES_VERSIONS.md).
 - [專案儀表板](TABLEAU_DE_BORD_NOVERA.md), [路線圖](ROADMAP.md), [變更日誌](docs/CHANGELOG.md).
-- [貢獻](CONTRIBUTING.md)：跨 104 語言的程式碼、測試、本機審查和真實的工作流程回饋。
+- [貢獻](CONTRIBUTING.md)：跨 120 語言的程式碼、測試、本機審查和真實的工作流程回饋。
 
 ## 身分和許可證
 

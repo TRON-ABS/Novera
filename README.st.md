@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Ua hlalosa. Novera e a lokisa, e tsamaisa le ho hlophisa.</strong></p>
   <p>Mothusi ea ikemetseng AI ka TRON-ABS, ho tloha qalong ho fihlela liphetho: mongolo, litšoantšo, 'mino le lifitio moqoqong o le mong.</p>
-  <p><strong>E fumaneha bakeng sa Windows, Linux, macOS le Android</strong> · 104 lipuo tse sebelisoang · 42 bafani ba cloud · 58 litlhophiso tsa mecha ea litaba · Apache 2.0</p>
+  <p><strong>E fumaneha bakeng sa Windows, Linux, macOS le Android</strong> · 120 lipuo tse sebelisoang · 42 bafani ba cloud · 58 litlhophiso tsa mecha ea litaba · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Boiketsetso</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">Mefuta ea lehae</a> · <a href="#hub-and-compatible-models">Mefuta le Sebaka</a> · <a href="#cloud-providers">Leru</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Kenya letsoho</a></p>
   <p>Khokahano ea semmuso: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Boemo ba Novera ba semmuso: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -152,7 +152,7 @@ Qwen sekhouto sa mmino le Qwen mofuta oa ho khutlisa li **lifaele tse fapaneng**
 
 ## Bafani ba maru
 
-Lethathamo le na le 43 liprofaele tsa bafani: 42 lits'ebeletso tsa cloud le TabbyAPI bakeng sa li-server tsa lehae. Phihlello ea mohlala le bokhoni li itšetlehile ka akhaonto, sebaka le API e tšehetsoeng. Lipuo tsohle tsa 104 li arolelana lethathamo lena.
+Lethathamo le na le 43 liprofaele tsa bafani: 42 lits'ebeletso tsa cloud le TabbyAPI bakeng sa li-server tsa lehae. Phihlello ea mohlala le bokhoni li itšetlehile ka akhaonto, sebaka le API e tšehetsoeng. Lipuo tsohle tsa 120 li arolelana lethathamo lena.
 
 | | | |
 | --- | --- | --- |
@@ -275,11 +275,11 @@ Mofuta o hlophisitsoeng oa hardware o ikamahanyang le maemo o rata lintlafatso t
 
 Mehloli e ntlafalitsoeng ea eketsa **likarolo tse laoloang ka boikhethelo ho Litlhophiso tsa Windows x64**: Litikoloho tsa poraefete tsa Python, tse kentsoeng liprofaele tsa CPU/CUDA, likhakanyo le netefatso pele u khoasolla, ho netefatsa, ho lokisoa le ho tlosoa. Litsela tsa mofetoleli tse ikhethileng li lula tlas'a likhetho tse tsoetseng pele. Lienjine tsa matsoalloa a GGUF li boloka likarolo tsa tsona tse teng; mobile le cloud ha li khoasolle komporo ea Python/PyTorch. Lintlha tse tharo tsa lekunutu CPU/export profiles li ile tsa lekoa ho sebelisoa data ea tlhahlobo ea maiketsetso; mohlokomeli o tlaleha tšebeliso e atlehileng ea komporo ka 1 Pulungoana 2026; GPU liprofaele le ho hloekisoa-PC li ntse li hloka netefatso e arohaneng, e felletseng. [Liprofaele le meeli ea liteko](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Ho kopanya likarolo tsena ho EXE ho chechisitsoe morao.
 
-## 104 lipuo le mefuta e fapaneng
+## 120 lipuo le mefuta e fapaneng
 
 Ntlafatso ea Mohloli, 6 Pulungoana 2026: 24 li-interface catalogs tse ling li tlisa kakaretso ho 104. Tsena ke lingoloa tse thusoang tsa phetolelo; tlhahlobo ea matsoalloa le ho ikamahanya le maemo ho ntse ho hlokahala. Sehlopha sena se lokisa li-catalogs le READMEs tse fetoletsoeng; ho aha bocha kopo hoa hlokahala ho li kenyelletsa ho li-binaries tse kentsoeng.
 
-**Likhatiso tsohle tsa 104 li fana ka linotlolo tsa hajoale tsa 2,435 tsa Senyesemane** libakeng tsohle tsa 15 tsa mabitso, ho kenyeletsoa manane, litlhophiso, litlhophiso, thuso le litaolo tsa media. Mefuta e mengata le tataiso ea sebopeho li latela puo e khethiloeng. Lipuo tsa karabelo le lentsoe li itšetlehile ka mokhoa o fapaneng.
+**Likhatiso tsohle tsa 120 li fana ka linotlolo tsa hajoale tsa 2,484 tsa Senyesemane** libakeng tsohle tsa 15 tsa mabitso, ho kenyeletsoa manane, litlhophiso, litlhophiso, thuso le litaolo tsa media. Mefuta e mengata le tataiso ea sebopeho li latela puo e khethiloeng. Lipuo tsa karabelo le lentsoe li itšetlehile ka mokhoa o fapaneng.
 
 Ts'ebetso ena ea tekheniki ha e netefatse boleng ba puo: **tlhahlobo ea matsoalloa le ho ikamahanya le maemo ho ntse ho hlokahala**. Sheba mangolo a tlhaho le meeli e tsebahalang ho [tataiso ea puo](docs/LANGUAGES.md) le [tlaleho ea tlhahlobo](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -315,7 +315,7 @@ Mehaho ea GitHub Actions ea Manual e lumelletsoe bakeng sa mefuta e leshome le m
 - [Tataiso e felletseng ea basebelisi](docs/USER_GUIDE.md), [melao ea khauta ea tlhahiso-leseling ea basebelisi (Sefora)](docs/REGLES_D_OR.md), [mefuta le lienjineri](docs/SUIVI_MOTEURS.md).
 - [Tsoelo-pele](docs/DEVELOPMENT.md), [tataiso ea ho haha le ho e lokolla](docs/BUILD_AND_RELEASE.md), [liphetolelo tse tlang le litokisetso tsa ntlafatso](docs/FUTURES_VERSIONS.md).
 - [Dashboard ea morero](TABLEAU_DE_BORD_NOVERA.md), ['mapa oa litsela](ROADMAP.md), [phetoho ea phetoho](docs/CHANGELOG.md).
-- [Ho kenya letsoho](CONTRIBUTING.md): khouto, liteko, maikutlo a tlhaho ka lipuo tse 104 le maikutlo a 'nete a mabapi le mosebetsi.
+- [Ho kenya letsoho](CONTRIBUTING.md): khouto, liteko, maikutlo a tlhaho ka lipuo tse 120 le maikutlo a 'nete a mabapi le mosebetsi.
 
 ## Boitsebiso le laesense
 

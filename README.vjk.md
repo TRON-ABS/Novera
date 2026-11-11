@@ -8,7 +8,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>अहाँ अपन लक्ष्यक वर्णन करू। Novera संसाधन तैयार करय छै, कार्य कें निष्पादित करय छै आ परिणाम कें व्यवस्थित करय छै.</strong></p>
   <p>Novera एगो स्वतंत्र AI सहायक छै। एके बातचित में लिखू, तस्वीर बनाउ, संगीत आ वीडियो तैयार करू। वेब इंटरफेस में 120 भाषा आ रूप छै।</p>
-  <p><strong>Windows, Linux, macOS आ Android के लेल उपलब्ध अछि</strong> · 42 क्लाउड प्रदाता · 58 मीडिया प्रीसेट · Apache 2.0</p>
+  <p><strong>Windows, Linux, macOS आ Android के लेल उपलब्ध अछि</strong> · 120 इंटरफेस भाषा आ रूप · 42 क्लाउड प्रदाता · 58 मीडिया प्रीसेट · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">स्वचालन</a> · <a href="#one-dashboard-for-every-creation">डैशबोर्ड</a> · <a href="#local-models-in-use">AI मॉडल जे स्थानीय रूप सं अहां कें डिवाइस पर चल रहल छै</a> · <a href="#hub-and-compatible-models">हब आ संगत मॉडल</a> · <a href="#cloud-providers">बादल</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">योगदान देब</a></p>
   <p>आधिकारिक संपर्क: 1। <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>आधिकारिक Novera सामाजिक प्रोफाइल: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -152,7 +152,7 @@ Qwen संगीत एनकोडर आ Qwen पुनर्प्राप�
 
 ## क्लाउड प्रदाता
 
-कैटलॉग मे 43 प्रदाता प्रोफाइल शामिल अछि: 42 क्लाउड सेवा आओर TabbyAPI एकटा स्थानीय सर्वर क लेल. मॉडल पहुंच आ क्षमता खाता, क्षेत्र आ समर्थित एपीआई पर निर्भर करएयत छै. सभ 104 इंटरफेस भाषा एहि कैटलॉग केँ साझा करैत अछि.
+कैटलॉग मे 43 प्रदाता प्रोफाइल शामिल अछि: 42 क्लाउड सेवा आओर TabbyAPI एकटा स्थानीय सर्वर क लेल. मॉडल पहुंच आ क्षमता खाता, क्षेत्र आ समर्थित एपीआई पर निर्भर करएयत छै. सभ 120 इंटरफेस भाषा एहि कैटलॉग केँ साझा करैत अछि.
 
 | | | |
 | --- | --- | --- |
@@ -313,7 +313,7 @@ AWQ 4-बिट, GPTQ 4-बिट, NF4 आरू INT8 प्रत्येक �
 - [विस्तृत उपयोगकर्ता गाइड](docs/USER_GUIDE.md), [उत्पाद आ उपयोगकर्ता-सूचना स्वर्णिम नियम (फ्रेंच)](docs/REGLES_D_OR.md), [मॉडल आ इंजन](docs/SUIVI_MOTEURS.md).
 - [विकास](docs/DEVELOPMENT.md), [निर्माण आ रिलीज गाइड](docs/BUILD_AND_RELEASE.md), [भविष्य कें संस्करण आ अपडेट तैयारी](docs/FUTURES_VERSIONS.md).
 - [परियोजना डैशबोर्ड](TABLEAU_DE_BORD_NOVERA.md), [रोडमैप](ROADMAP.md), [परिवर्तनलॉग](docs/CHANGELOG.md).
-- [योगदान देबय वाला](CONTRIBUTING.md): कोड, परीक्षण, 104 भाषा भर म॑ देशी समीक्षा आरू वास्तविक कार्यप्रवाह प्रतिक्रिया.
+- [योगदान देबय वाला](CONTRIBUTING.md): कोड, परीक्षण, 120 भाषा भर म॑ देशी समीक्षा आरू वास्तविक कार्यप्रवाह प्रतिक्रिया.
 
 ## पहचान आ लाइसेंस
 

@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Aw bɛ ɲɛfɔli kɛ. Novera bɛ labɛn, ka boli ani ka labɛn.</strong></p>
   <p>AI dɛmɛbaga yɛrɛmahɔrɔnyalen dɔ TRON-ABS fɛ, k’a ta daminɛ fɔlɔ la ka se a nɔfɛkow ma: sɛbɛnni, ja, dɔnkili ani wideyow baro kelen kɔnɔ.</p>
-  <p><strong>A bɛ sɔrɔ Windows, Linux, macOS ani Android fɛ.</strong> · 104 ɲɔgɔndan kanw · 42 sankaba dilanbagaw · 58 kunnafonidilanw labɛncogo fɔlɔ · Apache 2.0</p>
+  <p><strong>A bɛ sɔrɔ Windows, Linux, macOS ani Android fɛ.</strong> · 120 ɲɔgɔndan kanw · 42 sankaba dilanbagaw · 58 kunnafonidilanw labɛncogo fɔlɔ · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Otomatiki baara</a> · <a href="#one-dashboard-for-every-creation">Daɲɛgafe</a> · <a href="#local-models-in-use">Sigida modɛliw</a> · <a href="#hub-and-compatible-models">Fɔcogo & Hub</a> · <a href="#cloud-providers">Sankaba</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Aw ka dɛmɛ don</a></p>
   <p>Ladilikan ofisiyali: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Novera ka sosiyete ka kunnafoniw: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -152,7 +152,7 @@ Qwen dɔnkilidacogo ni Qwen sɔrɔli modɛli ye **filenw danfaralenw**, a marale
 
 ## Sankaba dilanbagaw
 
-Katalogu kɔnɔ, 43 dilanbagaw ka ɲɛfɔliw bɛ sɔrɔ: 42 sankaba baarakɛlaw ani TabbyAPI sigida baarakɛla dɔ kama. Modeli sɔrɔli ni seko bɛ bɔ jatebɔsɛbɛn, mara ani API dɛmɛlen de la. 104 ɲɔgɔndan kanw bɛɛ bɛ nin gafe in tila.
+Katalogu kɔnɔ, 43 dilanbagaw ka ɲɛfɔliw bɛ sɔrɔ: 42 sankaba baarakɛlaw ani TabbyAPI sigida baarakɛla dɔ kama. Modeli sɔrɔli ni seko bɛ bɔ jatebɔsɛbɛn, mara ani API dɛmɛlen de la. 120 ɲɔgɔndan kanw bɛɛ bɛ nin gafe in tila.
 
 | | | |
 | --- | --- | --- |
@@ -275,11 +275,11 @@ Sorte default hardware-adapted bɛ bɔko kura dɔw fɛ bɛnkan ni hakilijagabɔ-
 
 Soso kura minnu bɛ fara a kan **yɔrɔw ɲɛnabɔlenw sugandilenw kɔnɔ Labɛnw kɔnɔ Windows x64 kama .**: Python sigida kɛrɛnkɛrɛnnenw, pinɛ CPU/CUDA profiles, jateminɛw ani dantigɛli sanni ka telesarse, ka sɛgɛsɛgɛli, ka dilan ani ka bɔ. Ladamuni bamanankanfalen siraw bɛ to sugandili kɔrɔw kɔrɔ. Native GGUF motɛriw bɛ u ka yɔrɔw mara minnu bɛ yen; mobili ni sankaba tɛ tabali Python/PyTorch telesarse. CPU/export profile saba kɛrɛnkɛrɛnnenw sɛgɛsɛgɛra ni sɛgɛsɛgɛli kunnafoniw ye minnu dilannen don ni sintetiki ye; ladonbaga bɛ tabali baarakɛcogo ɲɛnabɔlen fɔ 1 Nowanburukalo 2026; GPU profilw ni saniya-PC sigili mago bɛ hali bi danfara la, tiɲɛni caman na. [Profilw ni sɛgɛsɛgɛli danw](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md)ye . O yɔrɔw faralen ɲɔgɔn kan EXE kɔnɔ, o bɛ bila kɔfɛ.
 
-## 104 ɲɔgɔndan kanw ni u ɲɔgɔnnaw
+## 120 ɲɔgɔndan kanw ni u ɲɔgɔnnaw
 
 Source update, 6 Nowanburukalo 2026: 24 interface katalogu wɛrɛw bɛ na ni bɛɛ lajɛlen ye 104. Olu ye bamanankan baara bolodalenw ye minnu bɛ dɛmɛ sɔrɔ; jamanadenw ka seginnkanni ni marabolow ka ladamuni bɛ to ka kɛ wajibi ye. Nin kulu in bɛ kataloguw ni README bamanankannalenw labɛn; baarakɛminɛnw jɔli kokura de wajibiyalen don walasa k’u don binari sigilenw kɔnɔ.
 
-**104 gafew bɛɛ bɛ tubabukan na 2,435 sisan** 15 tɔgɔdayɔrɔw bɛɛ kɔnɔ, i n’a fɔ menu, configuration, settings, help ani media controls. Jama-dacogo ni ɲɔgɔndan ɲɛminɛcogo bɛ tugu kan sugandilen kɔ. Jaabi ni kankanw bɛ bɔ u dan na modeli de la.
+**120 gafew bɛɛ bɛ tubabukan na 2,484 sisan** 15 tɔgɔdayɔrɔw bɛɛ kɔnɔ, i n’a fɔ menu, configuration, settings, help ani media controls. Jama-dacogo ni ɲɔgɔndan ɲɛminɛcogo bɛ tugu kan sugandilen kɔ. Jaabi ni kankanw bɛ bɔ u dan na modeli de la.
 
 Nin fɛɛrɛbɔ in tɛ kanko ɲumanya seereya : **jamanadenw ka seginnkanni ni marabolow ka ladamuni bɛ to ka kɛ wajibi ye** ye . Aw ye native labels ani dan dɔntaw lajɛ [kanko ɲɛjiralan](docs/LANGUAGES.md) ani [jatebɔ rapɔɔri](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -315,7 +315,7 @@ Bololabaara GitHub Actions jɔli bɛ se ka kɛ tilali suguya tan ni kelen bɛɛ 
 - [Baarakɛcogo ɲɛfɔli dafalen](docs/USER_GUIDE.md), [fɛn dilannen ni baarakɛlaw-kunnafoni sanu sariyaw (Fransekan) .](docs/REGLES_D_OR.md), [modɛliw ni motɛriw](docs/SUIVI_MOTEURS.md).
 - [Yiriwali](docs/DEVELOPMENT.md), [jɔli ni bɔli gafe](docs/BUILD_AND_RELEASE.md), [bɔko nataw ani kunnafoni kura labɛnni](docs/FUTURES_VERSIONS.md).
 - [Porozɛ ka dakun](TABLEAU_DE_BORD_NOVERA.md), [siratigɛ la](ROADMAP.md), [fɛn caman Changement log](docs/CHANGELOG.md).
-- [Ka dɛmɛ don](CONTRIBUTING.md): kode, sɛgɛsɛgɛliw, native review 104 kanw bɛɛ kɔnɔ ani baarakɛcogo jaabi lakikaw.
+- [Ka dɛmɛ don](CONTRIBUTING.md): kode, sɛgɛsɛgɛliw, native review 120 kanw bɛɛ kɔnɔ ani baarakɛcogo jaabi lakikaw.
 
 ## Danyɔrɔ ni lase
 

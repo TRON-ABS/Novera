@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Unotsanangura. Novera inogadzirira, inomhanya uye kuronga.</strong></p>
   <p>Anozvimiririra AI mubatsiri na TRON-ABS, kubva pakuvambwa kusvika kune zvawanikwa: mavara, mifananidzo, mimhanzi nevhidhiyo muhurukuro imwe chete.</p>
-  <p><strong>Inowanikwa kuWindows, Linux, macOS neAndroid</strong> · 104 interface mitauro · 42 vanopa makore · 58 magadzirirwo enhau · Apache 2.0</p>
+  <p><strong>Inowanikwa kuWindows, Linux, macOS neAndroid</strong> · 120 interface mitauro · 42 vanopa makore · 58 magadzirirwo enhau · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">otomatiki</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">Mhando dzemunharaunda</a> · <a href="#hub-and-compatible-models">Mafomati & Hub</a> · <a href="#cloud-providers">Cloud</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Batsira</a></p>
   <p>Zvepamutemo kuonana: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Zvepamutemo Novera nhoroondo dzemagariro: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -152,7 +152,7 @@ Iyo Qwen encoder yemumhanzi uye Qwen modhi yekudzosa **mafaira akasiyana**, yaka
 
 ## Cloud vanopa
 
-Katalog ine 43 maprofile evanopa: 42 cloud services uye TabbyAPI yeserver yemunharaunda. Kuwana modhi uye kugona zvinoenderana neakaundi, dunhu uye inotsigirwa API. Mitauro yese 104 inogovera bhuku iri.
+Katalog ine 43 maprofile evanopa: 42 cloud services uye TabbyAPI yeserver yemunharaunda. Kuwana modhi uye kugona zvinoenderana neakaundi, dunhu uye inotsigirwa API. Mitauro yese 120 inogovera bhuku iri.
 
 | | | |
 | --- | --- | --- |
@@ -275,11 +275,11 @@ Iyo yakasarudzika hardware-yakagadziriswa mhando inofarira kuburitswa kutsva muk
 
 Iwo akagadziridzwa masosi anowedzera **zvingasarudzwa zvinogadziriswa zvikamu muMagadzirirwo eWindows x64**: yakavanzika Python nharaunda, yakapiniwa CPU/CUDA profiles, fungidziro uye simbiso isati yadhawunirodha, simbisa, kugadzirisa uye kubvisa. Nzira dzemuturikiri dzetsika dzinogara pasi pemasarudzo epamusoro. Native GGUF injini dzinochengeta zvikamu zvadzo zviripo; nharembozha negore hazvidhaunirodhe desktop Python/PyTorch. Zvitatu zvepachivande CPU/export profiles zvakaedzwa pachishandiswa synthetic test data; muchengeti anoshuma kushandiswa kwakabudirira padesktop pa 1 Mbudzi 2026; GPU maprofile uye akachena-PC kuisirwa kuchiri kuda kupatsanurwa, kwakadzama kusimbiswa. [Profiles uye bvunzo muganho](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Kubatanidza zvikamu izvi mu EXE kunomiswa.
 
-## 104 mitauro uye zvakasiyana
+## 120 mitauro uye zvakasiyana
 
 Kwakabva kwagadziridzwa, 6 Mbudzi 2026: 24 mamwe mabhuku emakatalog anounza zvese ku104. Aya madhiramu ekushandura anobatsirwa; ongororo yekuzvarwa uye kugadzirisa kwedunhu kunoramba kuchidikanwa. Batch iri rinogadzira makata uye akaturikirwa READMEs; kuvakazve application kunodiwa kuti uzvisanganise mumabhinari akaiswa.
 
-**Ese 104 mabhuku anovhara makiyi echiRungu azvino 2,435** pa 15 nzvimbo dzemazita, kusanganisira mamenu, magadzirirwo, marongero, rubatsiro uye zvidzoreso zvemedia. Mafomu akawanda uye nzira yekutarisa zvinotevera mutauro wakasarudzwa. Mitauro yekupindura uye yezwi inotsamira zvakasiyana pane iyo modhi.
+**Ese 120 mabhuku anovhara makiyi echiRungu azvino 2,484** pa 15 nzvimbo dzemazita, kusanganisira mamenu, magadzirirwo, marongero, rubatsiro uye zvidzoreso zvemedia. Mafomu akawanda uye nzira yekutarisa zvinotevera mutauro wakasarudzwa. Mitauro yekupindura uye yezwi inotsamira zvakasiyana pane iyo modhi.
 
 Uku kufukidzwa kwehunyanzvi hakupi hunhu hwemitauro: **ongororo yekuzvarwa uye kugadzirisa kwedunhu kunoramba kuchidikanwa**. Ona mavara ekuzvarwa uye miganhu inozivikanwa mu [mutungamiri wemutauro](docs/LANGUAGES.md) uye [mushumo wekuongorora](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -315,7 +315,7 @@ Manual GitHub Actions zvivakwa zvinogoneswa kune ese gumi nerimwe akasiyana ekug
 - [Detailed mushandisi gwara](docs/USER_GUIDE.md), [chigadzirwa uye mushandisi-ruzivo rwegoridhe mitemo (French)](docs/REGLES_D_OR.md), [mhando uye injini](docs/SUIVI_MOTEURS.md).
 - [Budiriro](docs/DEVELOPMENT.md), [kuvaka uye kuburitsa gwara](docs/BUILD_AND_RELEASE.md), [vhezheni dzenguva yemberi uye gadziriro yekuvandudza](docs/FUTURES_VERSIONS.md).
 - [Project dashboard](TABLEAU_DE_BORD_NOVERA.md), [nzira](ROADMAP.md), [shanduko](docs/CHANGELOG.md).
-- [Kubatsira](CONTRIBUTING.md): kodhi, bvunzo, wongororo yemuno mumitauro 104 uye mhinduro chaidzo dzemafambisirwo ebasa.
+- [Kubatsira](CONTRIBUTING.md): kodhi, bvunzo, wongororo yemuno mumitauro 120 uye mhinduro chaidzo dzemafambisirwo ebasa.
 
 ## Chitupa uye rezinesi
 

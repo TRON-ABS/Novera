@@ -8,7 +8,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>You talk wetin you wan do. Novera go prepare wetin e need, do the work and arrange the results.</strong></p>
   <p>Novera na independent AI helper. Fo one chat yu fit write, make picture, music an video. Di Web interface get 120 language an language variety dem.</p>
-  <p><strong>Fit for Windows, Linux, macOS and Android</strong> · 42 cloud providers · 58 media presets · Apache 2.0</p>
+  <p><strong>Fit for Windows, Linux, macOS and Android</strong> · 120 language an language variety dem for di interface · 42 cloud providers · 58 media presets · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Automation</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">AI models wey dey run for your own device</a> · <a href="#hub-and-compatible-models">Hub and compatible models</a> · <a href="#cloud-providers">Cloud</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Help out</a></p>
   <p>Official contact: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Official Novera social profiles: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -152,7 +152,7 @@ The Qwen music encoder and the Qwen retrieval model na **different files**, stor
 
 ## Cloud providers
 
-Catalog get 43 provider profiles: 42 cloud services and TabbyAPI for local server. Model access and features depend on account, region and supported API. All 104 interface languages dey use this catalog.
+Catalog get 43 provider profiles: 42 cloud services and TabbyAPI for local server. Model access and features depend on account, region and supported API. All 120 interface languages dey use this catalog.
 
 | | | |
 | --- | --- | --- |
@@ -313,7 +313,7 @@ Manual GitHub Actions builds don enable for all eleven distribution variants. Fo
 - [Detailed user guide](docs/USER_GUIDE.md), [product and user-information golden rules (French)](docs/REGLES_D_OR.md), [models and engines](docs/SUIVI_MOTEURS.md).
 - [Development](docs/DEVELOPMENT.md), [guide for build and release](docs/BUILD_AND_RELEASE.md), [future versions and how to prepare for update](docs/FUTURES_VERSIONS.md).
 - [Project dashboard](TABLEAU_DE_BORD_NOVERA.md), [roadmap](ROADMAP.md), [changelog](docs/CHANGELOG.md).
-- [Contributing](CONTRIBUTING.md): code, tests, native review for 104 languages and real workflow feedback.
+- [Contributing](CONTRIBUTING.md): code, tests, native review for 120 languages and real workflow feedback.
 
 ## Identity and license
 

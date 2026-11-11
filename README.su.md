@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Anjeun ngajelaskeun tujuan anjeun. Novera nyiapkeun sumber daya, ngalaksanakeun tugas sareng ngatur hasilna.</strong></p>
   <p>bebas AI asisten ku TRON-ABS, ti mimiti peluncuran nepi ka hasil: téks, gambar, musik jeung video dina hiji paguneman.</p>
-  <p><strong>Sadia pikeun Windows, Linux, macOS jeung Android</strong> · 104 basa panganteur · 42 panyadia awan · 58 prasetél média · Apache 2.0</p>
+  <p><strong>Sadia pikeun Windows, Linux, macOS jeung Android</strong> · 120 basa panganteur · 42 panyadia awan · 58 prasetél média · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Otomatisasi</a> · <a href="#one-dashboard-for-every-creation">Dasbor</a> · <a href="#local-models-in-use">AI model jalan lokal dina alat anjeun</a> · <a href="#hub-and-compatible-models">Hub sareng modél anu cocog</a> · <a href="#cloud-providers">Awan</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Kontribusi</a></p>
   <p>Kontak resmi: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Resmi Novera profil sosial: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -150,7 +150,7 @@ Encoder musik Qwen sareng modél panéangan Qwen nyaéta **file béda**, disimpe
 
 ## Panyadia awan
 
-Katalog ngandung 43 propil panyadia: 42 jasa awan sareng TabbyAPI kanggo server lokal. Aksés modél sareng kamampuan gumantung kana akun, daérah sareng API anu dirojong. Sadaya basa panganteur 104 ngabagi katalog ieu.
+Katalog ngandung 43 propil panyadia: 42 jasa awan sareng TabbyAPI kanggo server lokal. Aksés modél sareng kamampuan gumantung kana akun, daérah sareng API anu dirojong. Sadaya basa panganteur 120 ngabagi katalog ieu.
 
 | | | |
 | --- | --- | --- |
@@ -273,9 +273,9 @@ Diurutkeun hardware-diadaptasi standar ni'mat Kaluaran anyar dina kasaluyuan sar
 
 Sumber anu diropéa nambihan **komponén junun opsional dina Konfigurasi pikeun Windows x64**: lingkungan Python swasta, pinned CPU/CUDA propil, estimasi jeung konfirmasi saméméh undeuran, verifikasi, perbaikan sarta ngaleupaskeun. Jalur juru khusus tetep dina pilihan canggih. Mesin asli GGUF ngajaga komponénna anu aya; mobile sareng awan henteu ngaunduh desktop Python/PyTorch. Tilu swasta CPU / propil ékspor ieu exercised kalawan data uji sintétik; The maintainer ngalaporkeun suksés pamakéan desktop on 1 November 2026; GPU profil sareng pamasangan bersih-PC masih peryogi papisah, validasi lengkep. [Propil sarta wates test](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Embedding tumpukan dina EXE ditunda.
 
-## 104 basa panganteur sareng varian
+## 120 basa panganteur sareng varian
 
-**Sadaya 104 katalog nutupan konci Inggris ayeuna 2,435** sakuliah 15 ngaranspasi, kaasup ménu, konfigurasi, setelan, pitulung sarta kadali media. Bentuk jamak sareng arah antarmuka nuturkeun basa anu dipilih. Basa réspon sareng sora gumantung sacara misah kana modél.
+**Sadaya 120 katalog nutupan konci Inggris ayeuna 2,484** sakuliah 15 ngaranspasi, kaasup ménu, konfigurasi, setelan, pitulung sarta kadali media. Bentuk jamak sareng arah antarmuka nuturkeun basa anu dipilih. Basa réspon sareng sora gumantung sacara misah kana modél.
 
 Cakupan téknis ieu henteu ngajamin kualitas linguistik: **ulasan asli sareng adaptasi régional tetep diperyogikeun**. Tempo labél asli jeung wates dipikawanoh dina [pituduh basa](docs/LANGUAGES.md) jeung [laporan audit](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -311,7 +311,7 @@ Manual GitHub Actions ngawangun diaktipkeun pikeun sadaya sabelas varian distrib
 - [Pituduh pamaké lengkep](docs/USER_GUIDE.md), [aturan emas produk sareng inpormasi pangguna (Perancis)](docs/REGLES_D_OR.md), [modél sareng mesin](docs/SUIVI_MOTEURS.md).
 - [Kamekaran](docs/DEVELOPMENT.md), [ngawangun sareng ngaleupaskeun pituduh](docs/BUILD_AND_RELEASE.md), [versi hareup jeung préparasi update](docs/FUTURES_VERSIONS.md).
 - [dasbor proyék](TABLEAU_DE_BORD_NOVERA.md), [peta jalan](ROADMAP.md), [changelog](docs/CHANGELOG.md).
-- [Kontribusi](CONTRIBUTING.md): kode, tés, ulasan asli dina 104 basa sareng eupan balik alur kerja nyata.
+- [Kontribusi](CONTRIBUTING.md): kode, tés, ulasan asli dina 120 basa sareng eupan balik alur kerja nyata.
 
 ## Idéntitas sareng lisénsi
 

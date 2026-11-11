@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Bạn mô tả mục tiêu của bạn. Novera chuẩn bị tài nguyên, thực hiện nhiệm vụ và sắp xếp kết quả.</strong></p>
   <p>Trợ lý AI độc lập của TRON-ABS, từ lần ra mắt đầu tiên đến kết quả: văn bản, hình ảnh, âm nhạc và video trong một cuộc trò chuyện.</p>
-  <p><strong>Có sẵn cho Windows, Linux, macOS và Android</strong> · 104 ngôn ngữ giao diện · 42 nhà cung cấp đám mây · 58 cài đặt trước phương tiện · Apache 2.0</p>
+  <p><strong>Có sẵn cho Windows, Linux, macOS và Android</strong> · 120 ngôn ngữ giao diện · 42 nhà cung cấp đám mây · 58 cài đặt trước phương tiện · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Tự động hóa</a> · <a href="#one-dashboard-for-every-creation">Trang tổng quan</a> · <a href="#local-models-in-use">Các mẫu AI chạy cục bộ trên thiết bị của bạn</a> · <a href="#hub-and-compatible-models">Định dạng & Trung tâm</a> · <a href="#cloud-providers">Đám mây</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Đóng góp</a></p>
   <p>Liên hệ chính thức: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Hồ sơ xã hội Novera chính thức: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -156,7 +156,7 @@ Bộ mã hóa âm nhạc Qwen và mô hình truy xuất Qwen là **các tệp kh
 
 ## Nhà cung cấp đám mây
 
-Danh mục này chứa hồ sơ nhà cung cấp 43: dịch vụ đám mây 42 và TabbyAPI cho máy chủ cục bộ. Quyền truy cập và khả năng của mô hình tùy thuộc vào tài khoản, khu vực và API được hỗ trợ. Tất cả ngôn ngữ giao diện 104 đều dùng chung danh mục này.
+Danh mục này chứa hồ sơ nhà cung cấp 43: dịch vụ đám mây 42 và TabbyAPI cho máy chủ cục bộ. Quyền truy cập và khả năng của mô hình tùy thuộc vào tài khoản, khu vực và API được hỗ trợ. Tất cả ngôn ngữ giao diện 120 đều dùng chung danh mục này.
 
 | | | |
 | --- | --- | --- |
@@ -279,9 +279,9 @@ Loại sắp xếp mặc định được điều chỉnh theo phần cứng s�
 
 Các nguồn cập nhật thêm **các thành phần được quản lý tùy chọn trong Cấu hình cho Windows x64**: môi trường Python riêng tư, hồ sơ CPU/CUDA được ghim, ước tính và xác nhận trước khi tải xuống, xác minh, sửa chữa và xóa. Đường dẫn thông dịch tùy chỉnh nằm trong các tùy chọn nâng cao. Động cơ GGUF gốc giữ lại các thành phần hiện có của chúng; thiết bị di động và đám mây không tải xuống Python/PyTorch trên máy tính để bàn. Ba hồ sơ xuất khẩu/CPU riêng tư đã được thực hiện với dữ liệu thử nghiệm tổng hợp; Người bảo trì báo cáo việc sử dụng máy tính để bàn thành công trên 1 tháng 11 2026; Cấu hình GPU và cài đặt PC sạch vẫn cần xác thực chi tiết, riêng biệt. [Hồ sơ và giới hạn kiểm tra](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Việc nhúng ngăn xếp vào EXE bị hoãn lại.
 
-## Ngôn ngữ và biến thể giao diện 104
+## Ngôn ngữ và biến thể giao diện 120
 
-**Tất cả các danh mục 104 đều bao gồm các phím tiếng Anh 2,435 hiện tại** trên các không gian tên 15, bao gồm menu, cấu hình, cài đặt, trợ giúp và điều khiển phương tiện. Dạng số nhiều và hướng giao diện tuân theo ngôn ngữ đã chọn. Ngôn ngữ phản hồi và giọng nói phụ thuộc riêng vào kiểu máy.
+**Tất cả các danh mục 120 đều bao gồm các phím tiếng Anh 2,484 hiện tại** trên các không gian tên 15, bao gồm menu, cấu hình, cài đặt, trợ giúp và điều khiển phương tiện. Dạng số nhiều và hướng giao diện tuân theo ngôn ngữ đã chọn. Ngôn ngữ phản hồi và giọng nói phụ thuộc riêng vào kiểu máy.
 
 Phạm vi kỹ thuật này không chứng nhận chất lượng ngôn ngữ: **Đánh giá bản địa và thích ứng với khu vực vẫn cần thiết**. Xem nhãn gốc và các giới hạn đã biết trong [hướng dẫn ngôn ngữ](docs/LANGUAGES.md) và [báo cáo kiểm toán](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -317,7 +317,7 @@ Bản dựng GitHub Actions thủ công được bật cho tất cả 11 biến 
 - [Hướng dẫn sử dụng chi tiết](docs/USER_GUIDE.md), [quy tắc vàng về sản phẩm và thông tin người dùng (tiếng Pháp)](docs/REGLES_D_OR.md), [mô hình và động cơ](docs/SUIVI_MOTEURS.md).
 - [Phát triển](docs/DEVELOPMENT.md), [hướng dẫn xây dựng và phát hành](docs/BUILD_AND_RELEASE.md), [phiên bản tương lai và chuẩn bị cập nhật](docs/FUTURES_VERSIONS.md).
 - [Trang tổng quan dự án](TABLEAU_DE_BORD_NOVERA.md), [lộ trình](ROADMAP.md), [nhật ký thay đổi](docs/CHANGELOG.md).
-- [Đóng góp](CONTRIBUTING.md): mã, kiểm tra, đánh giá gốc trên các ngôn ngữ 104 và phản hồi thực tế về quy trình làm việc.
+- [Đóng góp](CONTRIBUTING.md): mã, kiểm tra, đánh giá gốc trên các ngôn ngữ 120 và phản hồi thực tế về quy trình làm việc.
 
 ## Danh tính và giấy phép
 

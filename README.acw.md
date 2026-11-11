@@ -10,7 +10,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — المعرفة للجميع" width="100%" />
   <p><strong>أنت تصف ما تحتاجه، وNovera يتولى التحضير والتنفيذ والتنظيم.</strong></p>
   <p>Novera مساعد ذكاء اصطناعي مستقل. تقدر تكتب وتسوّي صور وموسيقى وفيديو في نفس المحادثة. واجهة الويب فيها 120 لغة ولهجة.</p>
-  <p><strong>متوفر لـ Windows وLinux وmacOS وAndroid</strong> · 42 موفرو السحابة · 58 إعدادات الوسائط المسبقة · Apache 2.0</p>
+  <p><strong>متوفر لـ Windows وLinux وmacOS وAndroid</strong> · 120 لغة ولهجة للواجهة · 42 موفرو السحابة · 58 إعدادات الوسائط المسبقة · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">الأتمتة</a> · <a href="#one-dashboard-for-every-creation">لوحة الإنشاء</a> · <a href="#local-models-in-use">النماذج المحلية</a> · <a href="#hub-and-compatible-models">التنسيقات وHub</a> · <a href="#cloud-providers">الخدمات السحابية</a> · <a href="CONTRIBUTING.md">المساهمة</a></p>
   <p>التواصل الرسمي: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>الملفات الشخصية الاجتماعية الرسمية لـ Novera: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -156,7 +156,7 @@ Novera ينمو معك. يمكن أن تساعد الأمثلة والإعداد
 
 ## مقدمي الخدمات السحابية
 
-يحتوي الكتالوج على ملفات تعريف موفر 43: 42 الخدمات السحابية وTabbyAPI للخادم المحلي. يعتمد الوصول إلى النموذج وإمكانياته على الحساب والمنطقة وواجهة برمجة التطبيقات المدعومة. تشترك جميع لغات الواجهة 104 في هذا الكتالوج.
+يحتوي الكتالوج على ملفات تعريف موفر 43: 42 الخدمات السحابية وTabbyAPI للخادم المحلي. يعتمد الوصول إلى النموذج وإمكانياته على الحساب والمنطقة وواجهة برمجة التطبيقات المدعومة. تشترك جميع لغات الواجهة 120 في هذا الكتالوج.
 
 | | | |
 | --- | --- | --- |
@@ -317,7 +317,7 @@ AWQ 4-bit، GPTQ 4-bit، NF4 وINT8 تم إنشاء نص على RTX 5070 Laptop 
 - [دليل المستخدم التفصيلي](docs/USER_GUIDE.md), [القواعد الذهبية لمعلومات المنتج والمستخدم (الفرنسية)](docs/REGLES_D_OR.md), [الموديلات والمحركات](docs/SUIVI_MOTEURS.md).
 - [التطوير](docs/DEVELOPMENT.md), [دليل البناء والإصدار](docs/BUILD_AND_RELEASE.md), [الإصدارات المستقبلية وإعداد التحديث](docs/FUTURES_VERSIONS.md).
 - [لوحة تحكم المشروع](TABLEAU_DE_BORD_NOVERA.md), [خريطة الطريق](ROADMAP.md), [سجل التغيير](docs/CHANGELOG.md).
-- [المساهمة](CONTRIBUTING.md): التعليمات البرمجية والاختبارات والمراجعة الأصلية عبر لغات 104 وملاحظات سير العمل الحقيقية.
+- [المساهمة](CONTRIBUTING.md): التعليمات البرمجية والاختبارات والمراجعة الأصلية عبر لغات 120 وملاحظات سير العمل الحقيقية.
 
 ## الهوية والترخيص
 

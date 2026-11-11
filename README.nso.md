@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>O hlalosa. Novera e lokišetša, e matha le go rulaganya.</strong></p>
   <p>Mothuši yo a ikemetšego AI ke TRON-ABS, go tloga go thakgolwa la mathomo go fihla dipoelong: sengwalwa, diswantšho, mmino le bidio poledišanong e tee.</p>
-  <p><strong>E hwetšagala bakeng sa Windows, Linux, macOS le Android</strong> · 104 maleme a segokanyimmediamentsi sa sebolokigolo · 42 baabi ba leru · 58 dipeakanyo tša pele ga methopo ya ditaba · Apache 2.0</p>
+  <p><strong>E hwetšagala bakeng sa Windows, Linux, macOS le Android</strong> · 120 maleme a segokanyimmediamentsi sa sebolokigolo · 42 baabi ba leru · 58 dipeakanyo tša pele ga methopo ya ditaba · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Go itirela</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">Mehlala ya selegae</a> · <a href="#hub-and-compatible-models">Difomete & Hub</a> · <a href="#cloud-providers">Leru</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Tsenya letsogo</a></p>
   <p>Ikgokaganye ya semmušo: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Diprofaele tša semmušo tša Novera tša leago: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -152,7 +152,7 @@ Sekhoutu sa mmino sa Qwen le mohlala wa go bušetša Qwen ke **difaele tse fapan
 
 ## Baabi ba leru
 
-Lenaneo le na le 43 diprofaele tša moabi: 42 ditirelo tša leru le TabbyAPI bakeng sa seva ya selegae. Phihlelelo ya mohlala le bokgoni di ithekgile ka akhaonto, selete le API ye e thekgwago. Maleme ka moka a segokanyimmediamentsi sa sebolokigolo 104 a abelana lelokelelo le.
+Lenaneo le na le 43 diprofaele tša moabi: 42 ditirelo tša leru le TabbyAPI bakeng sa seva ya selegae. Phihlelelo ya mohlala le bokgoni di ithekgile ka akhaonto, selete le API ye e thekgwago. Maleme ka moka a segokanyimmediamentsi sa sebolokigolo 120 a abelana lelokelelo le.
 
 | | | |
 | --- | --- | --- |
@@ -275,11 +275,11 @@ Mohuta wa go se fetoge wo o tlwaeditšwego ke didirišwa tša go šoma ka thata 
 
 Mehlodi e mpshafaditšwego e tlaleletša **dikarolo tša boikhethelo tše di laolwago ka go Dipeakanyo tša Windows x64**: poraefete Python ditikoloho, pinned CPU/CUDA diprofaele, dikakanyo le netefatso pele downloads, netefatso, tokiso le ho tloswa. Ditsela tša mofetoledi wa tlwaelo di dula ka fase ga dikgetho tše di tšwetšego pele. Dienjini tša setlogo tša GGUF di boloka dikarolo tša tšona tše di lego gona; selefouno le leru ga di taoneloute desktop Python/PyTorch. Diprofaele tše tharo tša poraebete tša CPU/romelwantle di ile tša lekwa ka go šomiša datha ya teko ya maitirelo; mohlokomedi o bega tšhomišo ya komporong ye e atlegilego ka 1 Ngwatobošego 2026; GPU diprofaele le hloekileng-PC tlhomamiso ntse hloka arohaneng, netefatso qaqileng. [Diprofaele le mellwane ya teko](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Go kopanya dikarolo tše ka go EXE go diegišitšwe.
 
-## 104 segokanyimmediamentsi sa sebolokigolo maleme le diphetogo
+## 120 segokanyimmediamentsi sa sebolokigolo maleme le diphetogo
 
 Mohlodi update lam, 6 November 2026: 24 dipuku tša tlaleletšo tša segokanyimmediamentsi sa sebolokigolo di tliša palomoka go 104. Tše ke dingwalwa tša phetolelo tše di thušwago; tshekatsheko ya setlogo le go tlwaetša ga selete di sa dutše di nyakega. Sehlopha se se lokišetša dipuku tša dipuku le di-README tše di fetoletšwego; go nyakega go aga lefsa tirišo go di akaretša ka gare ga di-binary tše di hlomilwego.
 
-**Dipuku ka moka tša 104 di akaretša dinotlelo tša bjale tša 2,435 tša Seisemane** go ralala le 15 dikgoba tša maina, go akaretšwa dimenu, dipeakanyo, dipeakanyo, thušo le ditaolo tša methopo ya ditaba. Dibopego tša bontši le tlhahlo ya segokanyimmediamentsi sa sebolokigolo di latela polelo ye e kgethilwego. Dipolelo tša karabelo le tša lentšu di ithekgile ka go arogana ka mohlala.
+**Dipuku ka moka tša 120 di akaretša dinotlelo tša bjale tša 2,484 tša Seisemane** go ralala le 15 dikgoba tša maina, go akaretšwa dimenu, dipeakanyo, dipeakanyo, thušo le ditaolo tša methopo ya ditaba. Dibopego tša bontši le tlhahlo ya segokanyimmediamentsi sa sebolokigolo di latela polelo ye e kgethilwego. Dipolelo tša karabelo le tša lentšu di ithekgile ka go arogana ka mohlala.
 
 Kgašo ye ya sethekniki ga e netefatše boleng bja polelo: **tshekatsheko ya setlogo le tlwaetšo ya selete di sa dutše di nyakega**. Bona dileibole tša setlogo le mellwane ye e tsebjago ka go [tlhahlo ya polelo](docs/LANGUAGES.md) le [pego ya boruni](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -315,7 +315,7 @@ Di-build tša ka seatla GitHub Actions di kgontšhitšwe bakeng sa diphetogo ka 
 - [Tlhahlo ya mosebedisi e feletseng](docs/USER_GUIDE.md), [melao ya gauta ya setšweletšwa le tshedimošo ya mosediriši (Sefora)](docs/REGLES_D_OR.md), [dikai le dienjini](docs/SUIVI_MOTEURS.md).
 - [Tlhabollo](docs/DEVELOPMENT.md), [go aga le go lokolla tlhahlo](docs/BUILD_AND_RELEASE.md), [diphetolelo tsa nakong e tlang le ho lokisetsa ntjhafatso](docs/FUTURES_VERSIONS.md).
 - [Dashboard ya porojeke](TABLEAU_DE_BORD_NOVERA.md), [mmapa wa tsela](ROADMAP.md), [lelokelelo la diphetogo](docs/CHANGELOG.md).
-- [Go tsenya letsogo](CONTRIBUTING.md): khoutu, diteko, tshekatsheko ya setlogo go ralala le maleme a 104 le ditshwayotshwayo tša nnete tša tshepedišo ya mošomo.
+- [Go tsenya letsogo](CONTRIBUTING.md): khoutu, diteko, tshekatsheko ya setlogo go ralala le maleme a 120 le ditshwayotshwayo tša nnete tša tshepedišo ya mošomo.
 
 ## Boitsebišo le laesense
 

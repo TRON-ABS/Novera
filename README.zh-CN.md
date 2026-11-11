@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — 人人可享的知识" width="100%" />
   <p><strong>您描述需求，Novera 负责准备、执行和整理。</strong></p>
   <p>TRON-ABS 开发的独立人工智能助手：从首次启动到获得结果，在同一段对话中处理文本、图像、音乐和视频。</p>
-  <p><strong>适用于 Windows、Linux、macOS 和 Android</strong> · 104 界面语言 · 42 云提供商 · 58 媒体预设 · Apache 2.0</p>
+  <p><strong>适用于 Windows、Linux、macOS 和 Android</strong> · 120 界面语言 · 42 云提供商 · 58 媒体预设 · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">自动化</a> · <a href="#one-dashboard-for-every-creation">创作面板</a> · <a href="#local-models-in-use">本地模型</a> · <a href="#hub-and-compatible-models">格式与 Hub</a> · <a href="#cloud-providers">云服务</a> · <a href="CONTRIBUTING.md">参与贡献</a></p>
   <p>官方联系方式: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Novera 官方社交资料： <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -150,7 +150,7 @@ Qwen 音乐编码器和 Qwen 检索模型是 **不同的文件**，单独存放�
 
 ## 云提供商
 
-该目录包含 43 提供商配置文件：42 云服务和本地服务器的 TabbyAPI。模型访问和功能取决于帐户、区域和支持的 API。所有 104 界面语言共享此目录。
+该目录包含 43 提供商配置文件：42 云服务和本地服务器的 TabbyAPI。模型访问和功能取决于帐户、区域和支持的 API。所有 120 界面语言共享此目录。
 
 | | | |
 | --- | --- | --- |
@@ -273,7 +273,7 @@ AWQ 4 位、GPTQ 4 位、NF4 和 INT8 均使用离线创建的未经训练的微
 
 更新的来源添加 **Windows x64 配置中的可选托管组件**：私有Python环境，固定CPU/CUDA配置文件，下载、验证、修复和删除之前的估计和确认。自定义解释器路径保留在高级选项下。原生 GGUF 引擎保留其现有组件；移动和云不下载桌面Python/PyTorch。已使用合成测试数据验证三个专用 CPU/导出配置；维护者报告 2026年11月1日 成功桌面使用； GPU 配置文件和干净的 PC 安装仍然需要单独、详细的验证。 [配置文件和测试限制](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md)。将堆栈嵌入 EXE 被推迟。
 
-## 104 界面语言和变体
+## 120 界面语言和变体
 
 **所有80目录涵盖当前2,435英文按键** 跨 15 命名空间，包括菜单、配置、设置、帮助和媒体控件。复数形式和界面方向遵循所选语言。响应和语音语言分别取决于型号。
 
@@ -311,7 +311,7 @@ AWQ 4 位、GPTQ 4 位、NF4 和 INT8 均使用离线创建的未经训练的微
 - [详细的用户指南](docs/USER_GUIDE.md), [产品和用户信息黄金法则（法语）](docs/REGLES_D_OR.md), [模型与推理引擎](docs/SUIVI_MOTEURS.md).
 - [发展](docs/DEVELOPMENT.md), [构建和发布指南](docs/BUILD_AND_RELEASE.md), [未来版本及更新准备](docs/FUTURES_VERSIONS.md).
 - [项目仪表板](TABLEAU_DE_BORD_NOVERA.md), [路线图](ROADMAP.md), [变更日志](docs/CHANGELOG.md).
-- [贡献](CONTRIBUTING.md)：跨 104 语言的代码、测试、母语校对和真实的工作流程反馈。
+- [贡献](CONTRIBUTING.md)：跨 120 语言的代码、测试、母语校对和真实的工作流程反馈。
 
 ## 身份和许可证
 

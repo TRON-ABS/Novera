@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Uchaza inhloso yakho. Novera ilungisa izinsiza, yenze umsebenzi futhi ihlele imiphumela.</strong></p>
   <p>Umsizi ozimele we-AI ngo-TRON-ABS, kusukela ekuqalisweni kokuqala kuya kumiphumela: umbhalo, izithombe, umculo kanye nevidiyo engxoxweni eyodwa.</p>
-  <p><strong>Iyatholakala ku-Windows, Linux, macOS kanye Android</strong> · 104 izilimi zesixhumi esibonakalayo · 42 abahlinzeki befu · 58 ukusetha kusengaphambili kwemidiya · Apache 2.0</p>
+  <p><strong>Iyatholakala ku-Windows, Linux, macOS kanye Android</strong> · 120 izilimi zesixhumi esibonakalayo · 42 abahlinzeki befu · 58 ukusetha kusengaphambili kwemidiya · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Okuzenzakalelayo</a> · <a href="#one-dashboard-for-every-creation">Ideshibhodi</a> · <a href="#local-models-in-use">AI amamodeli asebenza endaweni kudivayisi yakho</a> · <a href="#hub-and-compatible-models">Ihabhu namamodeli ahambisanayo</a> · <a href="#cloud-providers">Ifu</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Nikela</a></p>
   <p>Oxhumana naye ngokusemthethweni: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Amaphrofayili omphakathi asemthethweni ku-Novera: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -150,7 +150,7 @@ Isifaki khodi somculo esingu-Qwen kanye nemodeli yokubuyisa engu-Qwen **amafayel
 
 ## Abahlinzeki bamafu
 
-Ikhathalogi iqukethe amaphrofayela abahlinzeki be-43: 42 amasevisi efu kanye ne-TabbyAPI yeseva yendawo. Ukufinyelela kwemodeli namandla kuncike ku-akhawunti, isifunda kanye ne-API esekelwe. Zonke 104 izilimi zokusebenzelana zabelana ngale khathalogi.
+Ikhathalogi iqukethe amaphrofayela abahlinzeki be-43: 42 amasevisi efu kanye ne-TabbyAPI yeseva yendawo. Ukufinyelela kwemodeli namandla kuncike ku-akhawunti, isifunda kanye ne-API esekelwe. Zonke 120 izilimi zokusebenzelana zabelana ngale khathalogi.
 
 | | | |
 | --- | --- | --- |
@@ -273,9 +273,9 @@ Uhlobo oluzenzakalelayo oluguqulelwe kwihadiwe luthanda ukukhishwa okusha ngapha
 
 Imithombo ebuyekeziwe iyengeza **izingxenye ezilawulwayo ozikhethelayo kokuthi Ukucushwa kwe-Windows x64**: Izindawo eziyimfihlo zePython, kuphiniwe amaphrofayili angu-CPU/CUDA, izilinganiso kanye nokuqinisekiswa ngaphambi kokulandwa, ukuqinisekiswa, ukulungiswa nokususwa. Izindlela zotolika ngokwezifiso zihlala ngaphansi kwezinketho ezithuthukisiwe. Izinjini zomdabu ezingu-GGUF zigcina izingxenye zazo ezikhona; iselula nefu ayilandi i-desktop Python/PyTorch. Amaphrofayili amathathu angasese angu-CPU/okuthekelisa asetshenziswa ngokulungiswa kwangempela kokwenziwa; Umnakekeli ubika ukusetshenziswa okuyimpumelelo kwedeskithophu kokuthi 1 Novemba 2026; Amaphrofayili we-GPU kanye nokufakwa kwe-clean-PC kusadinga ukuqinisekiswa okuhlukene, okunemininingwane. [Amaphrofayela nemikhawulo yokuhlola](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Ukushumeka isitaki kokuthi EXE kuhlehlisiwe.
 
-## 104 izilimi zesixhumi esibonakalayo nokuhluka
+## 120 izilimi zesixhumi esibonakalayo nokuhluka
 
-**Wonke amakhathalogi angu-104 amboza okhiye bamanje besiNgisi abangu-2,435** kuzo zonke izikhala zamagama ezingu-15, okuhlanganisa amamenyu, izilungiselelo, izilungiselelo, usizo nezilawuli zemidiya. Amafomu amaningi kanye nesiqondiso se-interface silandela ulimi olukhethiwe. Izilimi zokuphendula nezezwi zincike ngokuhlukene kumodeli.
+**Wonke amakhathalogi angu-120 amboza okhiye bamanje besiNgisi abangu-2,484** kuzo zonke izikhala zamagama ezingu-15, okuhlanganisa amamenyu, izilungiselelo, izilungiselelo, usizo nezilawuli zemidiya. Amafomu amaningi kanye nesiqondiso se-interface silandela ulimi olukhethiwe. Izilimi zokuphendula nezezwi zincike ngokuhlukene kumodeli.
 
 Lokhu kufakwa kwezobuchwepheshe akuqinisekisi ikhwalithi yolimi: **Ukubuyekezwa komdabu kanye nokujwayela kwesifunda kusadingeka**. Bona amalebula omdabu kanye nemikhawulo eyaziwayo kokuthi [umhlahlandlela wolimi](docs/LANGUAGES.md) kanye [umbiko wokucwaningwa kwamabhuku](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -311,7 +311,7 @@ Ukwakhiwa kweManuwali GitHub Actions kunikwe amandla kuzo zonke izinhlobo zokusa
 - [Umhlahlandlela womsebenzisi onemininingwane](docs/USER_GUIDE.md), [imithetho yegolide yomkhiqizo nolwazi lomsebenzisi (isiFulentshi)](docs/REGLES_D_OR.md), [amamodeli nezinjini](docs/SUIVI_MOTEURS.md).
 - [Intuthuko](docs/DEVELOPMENT.md), [umhlahlandlela wokwakha nowokukhipha](docs/BUILD_AND_RELEASE.md), [izinguqulo zesikhathi esizayo kanye nokubuyekeza ukulungiswa](docs/FUTURES_VERSIONS.md).
 - [Ideshibhodi yephrojekthi](TABLEAU_DE_BORD_NOVERA.md), [umgwaqo](ROADMAP.md), [ushintsho](docs/CHANGELOG.md).
-- [Uyanikela](CONTRIBUTING.md): ikhodi, izivivinyo, isibuyekezo somdabu kuzo zonke izilimi ezingu-104 kanye nempendulo yangempela yokuhamba komsebenzi.
+- [Uyanikela](CONTRIBUTING.md): ikhodi, izivivinyo, isibuyekezo somdabu kuzo zonke izilimi ezingu-120 kanye nempendulo yangempela yokuhamba komsebenzi.
 
 ## Ubunikazi kanye nelayisensi
 

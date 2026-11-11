@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Urasobanura intego yawe. Novera itegura ibikoresho, ikora umurimo kandi itegura ibisubizo.</strong></p>
   <p>Umufasha wigenga wa AI na TRON-ABS, kuva yatangizwa bwa mbere kugeza ibisubizo: inyandiko, amashusho, umuziki na videwo mukiganiro kimwe.</p>
-  <p><strong>Iraboneka kuri Windows, Linux, macOS na Android</strong> · 104 indimi za interineti · 42 abatanga ibicu · 58 itangazamakuru ryandika · Apache 2.0</p>
+  <p><strong>Iraboneka kuri Windows, Linux, macOS na Android</strong> · 120 indimi za interineti · 42 abatanga ibicu · 58 itangazamakuru ryandika · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Gukoresha ibintu by'automatisme</a> · <a href="#one-dashboard-for-every-creation">Ikibaho</a> · <a href="#local-models-in-use">Moderi ya AI ikorera mugikoresho cyawe</a> · <a href="#hub-and-compatible-models">Hub hamwe nicyitegererezo</a> · <a href="#cloud-providers">Igicu</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Gufasha</a></p>
   <p>Twandikire kumugaragaro: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Umwirondoro wa Novera yemewe: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -150,7 +150,7 @@ Kodegisi ya muzika Qwen hamwe na Qwen yo kugarura ni **dosiye zitandukanye**, ib
 
 ## Abatanga ibicu
 
-Urutonde rurimo 43 imyirondoro yabatanga: 42 serivisi zicu na TabbyAPI kuri seriveri yaho. Icyitegererezo cyubushobozi nubushobozi biterwa na konte, akarere hamwe na API ishyigikiwe. Byose 104 indimi zindimi zisangiye uru rutonde.
+Urutonde rurimo 43 imyirondoro yabatanga: 42 serivisi zicu na TabbyAPI kuri seriveri yaho. Icyitegererezo cyubushobozi nubushobozi biterwa na konte, akarere hamwe na API ishyigikiwe. Byose 120 indimi zindimi zisangiye uru rutonde.
 
 | | | |
 | --- | --- | --- |
@@ -273,9 +273,9 @@ Ubusanzwe ibyuma-byahinduwe byubwoko bushyigikira ibyasohotse bishya muburyo bum
 
 Kode ivuguruye yongeramo **ibice bicungwa na Novera byo guhitamo muri Configurations kuri Windows x64**: ahantu hihariye ha Python, CPU/CUDA profiles zifite verisiyo zagenwe, kugereranya ibikenewe no kwemeza mbere yo gukurura, kugenzura, gusana no gukuraho. Inzira zihariye za Python interpreter ziguma mu mahitamo yisumbuye. GGUF engines zisanzwe zigumana ibice byazo; mobile na cloud ntibikurura Python/PyTorch bya desktop. CPU/export profiles eshatu zihariye zapimwe hakoreshejwe amakuru y’igerageza yakozwe; ushinzwe kubungabunga umushinga avuga ko desktop yakoreshejwe neza ku wa 1 Ugushyingo 2026. GPU profiles no gushyira porogaramu kuri PC itarayishyirwaho biracyakeneye igenzura ryihariye kandi rirambuye. [Profiles n’imbibi z’igerageza](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Gushyira ibyo bice byose muri EXE byarasubitswe.
 
-## 104 indimi nindimi zitandukanye
+## 120 indimi nindimi zitandukanye
 
-**Cataloge 104 zose zirimo urufunguzo rwicyongereza 2,435** hakurya ya 15, harimo menus, iboneza, igenamiterere, ubufasha hamwe nigenzura ryitangazamakuru. Imiterere myinshi nicyerekezo cyerekezo ikurikira ururimi rwatoranijwe. Igisubizo n'indimi zijwi biterwa nurugero.
+**Cataloge 120 zose zirimo urufunguzo rwicyongereza 2,484** hakurya ya 15, harimo menus, iboneza, igenamiterere, ubufasha hamwe nigenzura ryitangazamakuru. Imiterere myinshi nicyerekezo cyerekezo ikurikira ururimi rwatoranijwe. Igisubizo n'indimi zijwi biterwa nurugero.
 
 Ubu buryo bwa tekiniki ntabwo bwemeza ubuziranenge bwindimi: **gusubiramo kavukire no kurwanya imihindagurikire y'akarere bikomeza kuba ngombwa**. Reba ibirango kavukire nimbibi zizwi muri [ubugenzuzi bw'ururimi](docs/LANGUAGES.md) na [inyandiko y'ubwitonzi](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -311,7 +311,7 @@ Igitabo GitHub Actions yubaka irashoboka kubintu byose cumi na kimwe byo gukwira
 - [Ibisobanuro birambuye byabakoresha](docs/USER_GUIDE.md), [ibicuruzwa n-abakoresha-amakuru amategeko ya zahabu (Igifaransa)](docs/REGLES_D_OR.md), [icyitegererezo na moteri](docs/SUIVI_MOTEURS.md).
 - [Iterambere](docs/DEVELOPMENT.md), [kubaka no kurekura ubuyobozi](docs/BUILD_AND_RELEASE.md), [verisiyo yigihe kizaza no gutegura ivugurura](docs/FUTURES_VERSIONS.md).
 - [Icyemezo cy'Intego](TABLEAU_DE_BORD_NOVERA.md), [inyandiko y'ingenzi](ROADMAP.md), [impinduka](docs/CHANGELOG.md).
-- [Umusanzu](CONTRIBUTING.md): kode, ibizamini, isubiramo kavukire mundimi 104 nibitekerezo byukuri byakazi.
+- [Umusanzu](CONTRIBUTING.md): kode, ibizamini, isubiramo kavukire mundimi 120 nibitekerezo byukuri byakazi.
 
 ## Indangamuntu n'uruhushya
 

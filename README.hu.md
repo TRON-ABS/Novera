@@ -8,7 +8,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Írja le a feladatot. A Novera előkészíti, végrehajtja és rendezi az eredményeket.</strong></p>
   <p>A Novera független MI-asszisztens. Egyetlen beszélgetésben írhat szöveget, valamint képet, zenét és videót készíthet. A webes felület 120 nyelven és nyelvváltozatban érhető el.</p>
-  <p><strong>Elérhető Windows, Linux, macOS és Android rendszeren</strong> · 42 felhőszolgáltató · 58 média-előbeállítás · Apache 2.0</p>
+  <p><strong>Elérhető Windows, Linux, macOS és Android rendszeren</strong> · 120 felületi nyelv és nyelvváltozat · 42 felhőszolgáltató · 58 média-előbeállítás · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Automatizálás</a> · <a href="#one-dashboard-for-every-creation">Irányítópult</a> · <a href="#local-models-in-use">A helyi modellek</a> · <a href="#hub-and-compatible-models">Formátumok & hub</a> · <a href="#cloud-providers">Felhő</a> · <a href="README.fr.md">Franciaország</a> · <a href="CONTRIBUTING.md">Hozzájárulás</a></p>
   <p>Hivatalos elérhetőség: <a href="mailto:contact.novera.tronabs@gmail.com">E-mail cím: contact.novera.tronabs@gmail.com</a></p>
   <p>Hivatalos Novera Közösségi profilok: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -148,7 +148,7 @@ A Qwen A zenei kódoló és a Qwen A visszakeresési modell **Különböző fáj
 <a id="cloud-providers"></a>
 ## Felhő szolgáltatók listája
 
-A katalógus tartalmazza 43 A szolgáltató profiljai: 42 Felhőszolgáltatások és TabbyAPI A modellek hozzáférése és képességei a fióktól, a régiótól és a támogatott operációs rendszertől függenek. API. Minden 104 A felhasználói felület nyelvei megosztják ezt a katalógust.
+A katalógus tartalmazza 43 A szolgáltató profiljai: 42 Felhőszolgáltatások és TabbyAPI A modellek hozzáférése és képességei a fióktól, a régiótól és a támogatott operációs rendszertől függenek. API. Minden 120 A felhasználói felület nyelvei megosztják ezt a katalógust.
 
 | | | |
 | --- | --- | --- |
@@ -308,7 +308,7 @@ Kézikönyv GitHub Actions A buildek engedélyezve vannak mind a tizenegy disztr
 - [Részletes felhasználói útmutató](docs/USER_GUIDE.md), [Termék- és felhasználói tájékoztató aranyszabályok (franciául)](docs/REGLES_D_OR.md), [Modellek és motorok](docs/SUIVI_MOTEURS.md).
 - [Fejlesztés](docs/DEVELOPMENT.md), [Build és kiadási útmutató](docs/BUILD_AND_RELEASE.md), [Jövőbeli verziók és frissítések előkészítése](docs/FUTURES_VERSIONS.md).
 - [A projekt irányítópultja](TABLEAU_DE_BORD_NOVERA.md), [ütemterv](ROADMAP.md), [Változásnapló](docs/CHANGELOG.md).
-- [Hozzájárulás](CONTRIBUTING.md): kód, tesztek, natív áttekintés 104 Nyelvek és valódi munkafolyamat visszajelzés.
+- [Hozzájárulás](CONTRIBUTING.md): kód, tesztek, natív áttekintés 120 Nyelvek és valódi munkafolyamat visszajelzés.
 
 ## A projekt készítője és licence
 

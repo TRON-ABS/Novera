@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Ị kọwara ebumnuche gị. Novera na-akwado akụrụngwa, rụọ ọrụ ahụ ma hazie nsonaazụ ya.</strong></p>
   <p>Onye enyemaka AI nọọrọ onwe ya site na TRON-ABS, site na mbido mbụ ruo na nsonaazụ: ederede, onyonyo, egwu na vidiyo n'otu mkparịta ụka.</p>
-  <p><strong>Dị maka Windows, Linux, macOS na Android</strong> · 104 interface asụsụ · 42 ndị na-eweta igwe ojii · 58 nhazi mgbasa ozi · Apache 2.0</p>
+  <p><strong>Dị maka Windows, Linux, macOS na Android</strong> · 120 interface asụsụ · 42 ndị na-eweta igwe ojii · 58 nhazi mgbasa ozi · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Akpaaka</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">AI ụdị na-agba ọsọ na mpaghara na ngwaọrụ gị</a> · <a href="#hub-and-compatible-models">Hub na ụdị dakọtara</a> · <a href="#cloud-providers">Igwe ojii</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Nye aka</a></p>
   <p>Kọntaktị Official: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Official Novera profaịlụ ọha: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -150,7 +150,7 @@ Ihe ntinye egwu egwu Qwen yana ụdị eweghachi Qwen bụ **faịlụ dị iche
 
 ## Ndị na-eweta igwe ojii
 
-Katalọgụ ahụ nwere profaịlụ ndị na-eweta 43: 42 ọrụ igwe ojii yana TabbyAPI maka sava mpaghara. Ịnweta ụdị na ike dabere na akaụntụ, mpaghara yana API akwadoro. Asụsụ interface 104 niile na-ekekọrịta katalọgụ a.
+Katalọgụ ahụ nwere profaịlụ ndị na-eweta 43: 42 ọrụ igwe ojii yana TabbyAPI maka sava mpaghara. Ịnweta ụdị na ike dabere na akaụntụ, mpaghara yana API akwadoro. Asụsụ interface 120 niile na-ekekọrịta katalọgụ a.
 
 | | | |
 | --- | --- | --- |
@@ -273,9 +273,9 @@ AWQ 4-bit, GPTQ 4-bit, NF4 na INT8 bụ ọ bụla enwere tekst na RTX 5070 Lapt
 
 Isi mmalite ndị emelitere na-agbakwụnye **ihe ndị achịkọtara nhọrọ na nhazi maka Windows x64**: gburugburu Python nkeonwe, tinye CPU/CUDA profaịlụ, atụmatụ na nkwenye tupu nbudata, nkwenye, ndozi na iwepụ. Ụzọ ntụgharị asụsụ omenala na-anọ n'okpuru nhọrọ ndị dị elu. Ụmụ amaala GGUF engines na-edobe ihe ndị dị ugbu a; mkpanaka na igwe ojii anaghị ebudata Python/PyTorch desktọpụ. Atọ nkeonwe CPU/profaịlụ mbupụ ka ejiri ezigbo ihe nrụpụta sịntetị mee ihe; Onye nlekọta na-akọ iji desktọpụ na-aga nke ọma na 1 November 2026; GPU profaịlụ na ọcha-PC nwụnye ka chọrọ iche iche, zuru ezu nkwado. [Profaịlụ na oke ule](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Etinye ngwugwu ahụ na EXE ka ebigharịrị.
 
-## 104 asụsụ interface na ụdị dị iche iche
+## 120 asụsụ interface na ụdị dị iche iche
 
-**All 104 katalọgụ na-ekpuchi igodo 2,435 dị ugbu a** gafee 15 oghere aha, gụnyere menus, nhazi, ntọala, enyemaka na njikwa mgbasa ozi. Ụdị ọtụtụ na ntụzịaka interface na-eso asụsụ ahọpụtara. Azịza ya na asụsụ olu dabere iche na ụdị.
+**All 120 katalọgụ na-ekpuchi igodo 2,484 dị ugbu a** gafee 15 oghere aha, gụnyere menus, nhazi, ntọala, enyemaka na njikwa mgbasa ozi. Ụdị ọtụtụ na ntụzịaka interface na-eso asụsụ ahọpụtara. Azịza ya na asụsụ olu dabere iche na ụdị.
 
 Mkpuchi teknuzu a anaghị akwado ogo asụsụ: **nyocha nke ala na mmegharị mpaghara ka dị mkpa**. Hụ akara nwa afọ na oke amaara na [ntuziaka asụsụ](docs/LANGUAGES.md) na [akụkọ nyocha](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -311,7 +311,7 @@ Ejiri akwụkwọ ntuziaka GitHub Actions rụọ ọrụ maka ụdị nkesa iri
 - [Ntuziaka onye ọrụ zuru ezu](docs/USER_GUIDE.md), [ngwaahịa na ozi onye ọrụ iwu ọla edo (French)](docs/REGLES_D_OR.md), [ụdị na injin](docs/SUIVI_MOTEURS.md).
 - [Mmepe](docs/DEVELOPMENT.md), [iwu na ntọhapụ ndu](docs/BUILD_AND_RELEASE.md), [ụdịdị n'ọdịnihu yana nkwado nkwalite](docs/FUTURES_VERSIONS.md).
 - [dashboard ọrụ](TABLEAU_DE_BORD_NOVERA.md), [map okporo ụzọ](ROADMAP.md), [ndekọ](docs/CHANGELOG.md).
-- [Na-enye aka](CONTRIBUTING.md): koodu, ule, nyocha nke ala n'ofe 104 asụsụ yana ezigbo nzaghachi usoro ọrụ.
+- [Na-enye aka](CONTRIBUTING.md): koodu, ule, nyocha nke ala n'ofe 120 asụsụ yana ezigbo nzaghachi usoro ọrụ.
 
 ## Njirimara na ikike
 

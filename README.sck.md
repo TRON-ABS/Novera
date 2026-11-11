@@ -8,7 +8,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>आप अपने लक्ष्य का वर्णन करें. Novera संसाधन तैयार करता है, कार्य निष्पादित करता है और परिणाम व्यवस्थित करता है।</strong></p>
   <p>Novera एक स्वतंत्र AI सहायक हे। एके बात-चीत में लिखु, तस्वीर बनावु, संगीत आ वीडियो तैयार करु। वेब इंटरफेस में 120 भाषा आ रूप हे।</p>
-  <p><strong>Windows, Linux, macOS और Android के लिए उपलब्ध है</strong> · 42 क्लाउड प्रदाता · 58 मीडिया प्रीसेट · Apache 2.0</p>
+  <p><strong>Windows, Linux, macOS और Android के लिए उपलब्ध है</strong> · 120 इंटरफेस भाषा आ रूप · 42 क्लाउड प्रदाता · 58 मीडिया प्रीसेट · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">स्वचालन</a> · <a href="#one-dashboard-for-every-creation">डैशबोर्ड</a> · <a href="#local-models-in-use">AI मॉडल आपके डिवाइस पर स्थानीय रूप से चल रहे हैं</a> · <a href="#hub-and-compatible-models">प्रारूप और हब</a> · <a href="#cloud-providers">बादल</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">योगदान करें</a></p>
   <p>आधिकारिक संपर्क: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>आधिकारिक Novera सामाजिक प्रोफ़ाइल: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -152,7 +152,7 @@ Qwen संगीत एनकोडर और Qwen पुनर्प्रा�
 
 ## क्लाउड प्रदाता
 
-कैटलॉग में शामिल है 43 प्रदाता प्रोफाइल: 42 क्लाउड सेवाएँ और TabbyAPI एक स्थानीय सर्वर के लिए. मॉडल पहुंच और क्षमताएं खाते, क्षेत्र और समर्थित एपीआई पर निर्भर करती हैं। सभी 104 इंटरफ़ेस भाषाएँ इस कैटलॉग को साझा करती हैं।
+कैटलॉग में शामिल है 43 प्रदाता प्रोफाइल: 42 क्लाउड सेवाएँ और TabbyAPI एक स्थानीय सर्वर के लिए. मॉडल पहुंच और क्षमताएं खाते, क्षेत्र और समर्थित एपीआई पर निर्भर करती हैं। सभी 120 इंटरफ़ेस भाषाएँ इस कैटलॉग को साझा करती हैं।
 
 | | | |
 | --- | --- | --- |
@@ -313,7 +313,7 @@ AWQ 4-बिट, GPTQ 4-बिट, NF4 और INT8 प्रत्येक ऑ�
 - [विस्तृत उपयोगकर्ता मार्गदर्शिका](docs/USER_GUIDE.md), [उत्पाद और उपयोगकर्ता-जानकारी के सुनहरे नियम (फ़्रेंच)](docs/REGLES_D_OR.md), [मॉडल और इंजन](docs/SUIVI_MOTEURS.md).
 - [विकास](docs/DEVELOPMENT.md), [गाइड बनाएं और जारी करें](docs/BUILD_AND_RELEASE.md), [भविष्य के संस्करण और अद्यतन तैयारी](docs/FUTURES_VERSIONS.md).
 - [प्रोजेक्ट डैशबोर्ड](TABLEAU_DE_BORD_NOVERA.md), [रोडमैप](ROADMAP.md), [चेंजलॉग](docs/CHANGELOG.md).
-- [योगदान](CONTRIBUTING.md): कोड, परीक्षण, 104 भाषाओं में मूल समीक्षा और वास्तविक वर्कफ़्लो प्रतिक्रिया।
+- [योगदान](CONTRIBUTING.md): कोड, परीक्षण, 120 भाषाओं में मूल समीक्षा और वास्तविक वर्कफ़्लो प्रतिक्रिया।
 
 ## पहचान और लाइसेंस
 

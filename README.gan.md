@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>你描述一下。 Novera 準備、運作和組織。</strong></p>
   <p>由 TRON-ABS 打造的獨立 AI 助手，從首次啓動到結果：一次對話中的文本、圖像、音樂和視頻。</p>
-  <p><strong>適用於 Windows、Linux、macOS 和 Android</strong> · 104 界面语言 · 42 云提供商 · 58 媒体预设 · Apache 2.0</p>
+  <p><strong>適用於 Windows、Linux、macOS 和 Android</strong> · 120 界面语言 · 42 云提供商 · 58 媒体预设 · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">自動化</a> · <a href="#one-dashboard-for-every-creation">儀錶板</a> · <a href="#local-models-in-use">本地模特</a> · <a href="#hub-and-compatible-models">格式和中心</a> · <a href="#cloud-providers">雲端</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">貢獻</a></p>
   <p>官方聯絡方式： <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>官方 Novera 社羣個人檔案： <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -152,7 +152,7 @@ Qwen 音樂編碼器和 Qwen 檢索模型是 **不同檔案**，單獨存放。�
 
 ## 雲服務提供商
 
-该目录包含 43 提供商配置文件：42 云服务和本地服务器的 TabbyAPI。模型访问和功能取决于帐户、区域和支持的 API。所有 104 界面语言共享此目录。
+该目录包含 43 提供商配置文件：42 云服务和本地服务器的 TabbyAPI。模型访问和功能取决于帐户、区域和支持的 API。所有 120 界面语言共享此目录。
 
 | | | |
 | --- | --- | --- |
@@ -275,11 +275,11 @@ AWQ 4 位元、GPTQ 4 位元、NF4 和 INT8 皆使用離線建立的未經訓練
 
 更新的來源增加 **箇 Windows x64 設定中可選管理元件**: 私有 Python 環境、鎖定 CPU/CUDA 設定檔、下載前估算和確認、驗證、修復和移除。 自定義解釋器路徑留喺進階選項下。 原生 GGUF 引擎保留原有元件；行動和雲端冇下載桌面 Python/PyTorch。 測試箇三個私有 CPU/導出設定檔使用合成測試數據；維護者報告箇 1 十一月 2026 箇 GPU 設定檔和乾淨-PC 安裝仍需單獨、詳細驗證。 [設定檔和測試限制](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md)。 箇元件包到 EXE 吥推遲。
 
-## 104 介面語言與變體
+## 120 介面語言與變體
 
 原始碼更新， 6 十一月 2026: 24 額外的介面目錄使總數達到 104。這些是輔助翻譯草稿；本地審查和區域適應仍然是必要的。這批准備目錄和翻譯的自述文件；需要重建應用程式才能將它們包含在已安裝的二進位檔案中。
 
-**所有 104 目錄涵蓋目前的 2,435 英文鍵** 跨 15 命名空間，包括選單、設定、設定、幫助和媒體控制。複數形式和介面方向遵循所選語言。響應和語音語言分別取決於型號。
+**所有 120 目錄涵蓋目前的 2,484 英文鍵** 跨 15 命名空間，包括選單、設定、設定、幫助和媒體控制。複數形式和介面方向遵循所選語言。響應和語音語言分別取決於型號。
 
 箇技術覆蓋冇認證語言品質： **原生審閱和區域適應吥必要**. 睇原生標籤和已知限制在 [語言指南](docs/LANGUAGES.md) 亇 [審計報告](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -315,7 +315,7 @@ AWQ 4 位元、GPTQ 4 位元、NF4 和 INT8 皆使用離線建立的未經訓練
 - [詳細使用者指南](docs/USER_GUIDE.md), [product 和 用戶資訊金規（法語）](docs/REGLES_D_OR.md), [模型和引擎](docs/SUIVI_MOTEURS.md).
 - [開發](docs/DEVELOPMENT.md), [建置和發行指南](docs/BUILD_AND_RELEASE.md), [未來版本及更新準備](docs/FUTURES_VERSIONS.md).
 - [專案儀錶板](TABLEAU_DE_BORD_NOVERA.md), [路線圖](ROADMAP.md), [變更日誌](docs/CHANGELOG.md).
-- [貢獻](CONTRIBUTING.md)：跨 104 語言的程式碼、測試、本機審核以及真實的工作流程回饋。
+- [貢獻](CONTRIBUTING.md)：跨 120 語言的程式碼、測試、本機審核以及真實的工作流程回饋。
 
 ## 身分和許可證
 

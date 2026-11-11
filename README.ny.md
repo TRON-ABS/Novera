@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Mukulongosola. Novera amakonzekera, amayendetsa ndi kukonza.</strong></p>
   <p>Wothandizira wodziyimira pawokha AI ndi TRON-ABS, kuyambira pakukhazikitsa koyamba mpaka zotsatira: mawu, zithunzi, nyimbo ndi makanema pazokambirana kumodzi.</p>
-  <p><strong>Zilipo pa Windows, Linux, macOS ndi Android</strong> · 104 zilankhulo zamawonekedwe · 42 opereka mtambo · 58 zosinthira zowonera · Apache 2.0</p>
+  <p><strong>Zilipo pa Windows, Linux, macOS ndi Android</strong> · 120 zilankhulo zamawonekedwe · 42 opereka mtambo · 58 zosinthira zowonera · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Automation</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">Mitundu yakumalo</a> · <a href="#hub-and-compatible-models">Mawonekedwe & Hub</a> · <a href="#cloud-providers">Cloud</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Perekani</a></p>
   <p>Kulumikizana ndi boma: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Mbiri Yovomerezeka ya Novera: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -152,7 +152,7 @@ Qwen makina ojambulira nyimbo ndi Qwen mtundu wopezera ndi **mafayilo osiyanasiy
 
 ## Othandizira pamtambo
 
-Kataloguyo ili ndi mbiri yawo ya 43: 42 mautumiki apamtambo ndi TabbyAPI pa seva yapafupi. Kufikira kwachitsanzo ndi kuthekera kumadalira akaunti, dera ndi API yothandizidwa. Zilankhulo zonse za 104 zimagawana mndandandawu.
+Kataloguyo ili ndi mbiri yawo ya 43: 42 mautumiki apamtambo ndi TabbyAPI pa seva yapafupi. Kufikira kwachitsanzo ndi kuthekera kumadalira akaunti, dera ndi API yothandizidwa. Zilankhulo zonse za 120 zimagawana mndandandawu.
 
 | | | |
 | --- | --- | --- |
@@ -275,11 +275,11 @@ Mtundu wokhazikika wosinthidwa ndi hardware umakonda kutulutsa kwatsopano mkati 
 
 Zomwe zasinthidwa zimawonjezera **zigawo zoyendetsedwa mwasankha mu Zosintha za Windows x64**: malo achinsinsi a Python, mbiri yakale ya CPU/CUDA, kuyerekezera ndi kutsimikizira musanatsitse, kutsimikizira, kukonza ndi kuchotsa. Njira zotanthauzira mwamakonda zimakhala pansi pa zosankha zapamwamba. Ma injini a GGUF amasunga zida zawo zomwe zilipo kale; mafoni ndi mtambo samatsitsa Python pakompyuta/PyTorch. Zitatu zachinsinsi CPU/mbiri zotumiza kunja zidayesedwa pogwiritsa ntchito data yoyeserera; wosamalira anena kuti anagwiritsa ntchito bwino pa kompyuta pa 1 Novembala 2026; GPU ma profailo ndikuyeretsa-PC akufunikabe kutsimikizira mwatsatanetsatane. [Mbiri ndi malire a mayeso](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Kuphatikiza zigawo izi mu EXE kwachedwetsedwa.
 
-## 104 zinenero ndi zosiyana
+## 120 zinenero ndi zosiyana
 
 Zosintha, 6 Novembala 2026: 24 makatalogu owonjezera amafikitsa ku 104. Izi ndi zomasulira zothandizidwa; kuwunika kwachibadwidwe komanso kusintha kwamadera kumakhalabe kofunikira. Gululi limakonza makatalogu ndi ma README omasuliridwa; kumanganso pulogalamu kumafunika kuti muwaphatikize pamabinari omwe adayikidwa.
 
-**Makatalogu onse 104 amaika makiyi apano a 2,435 a Chingerezi** m'malo onse a 15, kuphatikiza mindandanda yazakudya, zochunira, zochunira, thandizo ndi zowongolera zowulutsa. Mafomu ochuluka ndi mayendedwe amawonekedwe amatsata chilankhulo chomwe mwasankha. Mayankho ndi zilankhulo zamawu zimadalira padera pa chitsanzo.
+**Makatalogu onse 120 amaika makiyi apano a 2,484 a Chingerezi** m'malo onse a 15, kuphatikiza mindandanda yazakudya, zochunira, zochunira, thandizo ndi zowongolera zowulutsa. Mafomu ochuluka ndi mayendedwe amawonekedwe amatsata chilankhulo chomwe mwasankha. Mayankho ndi zilankhulo zamawu zimadalira padera pa chitsanzo.
 
 Chidziwitso chaukadaulochi sichimatsimikizira mtundu wa zilankhulo: **kuunikanso kwawomwe komanso kusintha kwamadera kumakhalabe kofunikira**. Onani zolemba zakubadwa ndi malire odziwika mu [kalozera wachilankhulo](docs/LANGUAGES.md) ndi [lipoti la kafukufuku](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -315,7 +315,7 @@ Zomanga pamanja GitHub Actions ndizoyatsidwa pazosintha zonse khumi ndi chimodzi
 - [Chilolezo chatsatanetsatane cha ogwiritsa ntchito](docs/USER_GUIDE.md), [malamulo agolide opangidwa ndi ogwiritsa ntchito (Chifalansa)](docs/REGLES_D_OR.md), [mitundu ndi injini](docs/SUIVI_MOTEURS.md).
 - [Chitukuko](docs/DEVELOPMENT.md), [kalozera womanga ndi kutulutsa](docs/BUILD_AND_RELEASE.md), [mitundu yamtsogolo ndikukonzekera zosintha](docs/FUTURES_VERSIONS.md).
 - [Dashboard ya polojekiti](TABLEAU_DE_BORD_NOVERA.md), [mapu apamsewu](ROADMAP.md), [kusintha](docs/CHANGELOG.md).
-- [Kuthandizira](CONTRIBUTING.md): khodi, mayeso, ndemanga yachikale m'zinenero zonse 104 ndi ndemanga zenizeni za ndondomeko ya ntchito.
+- [Kuthandizira](CONTRIBUTING.md): khodi, mayeso, ndemanga yachikale m'zinenero zonse 120 ndi ndemanga zenizeni za ndondomeko ya ntchito.
 
 ## Chidziwitso ndi chilolezo
 

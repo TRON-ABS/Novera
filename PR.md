@@ -1,3 +1,7 @@
+## README language count and release checks
+
+All 120 README headers match the interface inventory. The historical 1.0.1 release blocks retain their original count. The distribution guide now records the repository-wide checks for each update, including public links after publication.
+
 ## Novera 1.0.2 publication complete
 
 Windows x64 EXE and MSI are public. The exact EXE passed native installation and signed replacement (run 43111006608). The 1.0.2 stable release serves the desktop, current CLI and portable manifests. The separate legacy CLI feed retains its existing version. Android build 1000023 and Web are public. iOS remains pending.

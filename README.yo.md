@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>O ṣe apejuwe ibi-afẹde rẹ. Novera ngbaradi awọn orisun, ṣiṣe iṣẹ-ṣiṣe ati ṣeto awọn abajade.</strong></p>
   <p>Oluranlọwọ AI ti ominira nipasẹ TRON-ABS, lati ifilọlẹ akọkọ si awọn abajade: ọrọ, awọn aworan, orin ati fidio ni ibaraẹnisọrọ kan.</p>
-  <p><strong>Wa fun Windows, Linux, macOS ati Android</strong> · 104 awọn ede wiwo · 42 awọn olupese awọsanma · 58 awọn tito tẹlẹ media · Apache 2.0</p>
+  <p><strong>Wa fun Windows, Linux, macOS ati Android</strong> · 120 awọn ede wiwo · 42 awọn olupese awọsanma · 58 awọn tito tẹlẹ media · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Adaṣiṣẹ</a> · <a href="#one-dashboard-for-every-creation">Dasibodu</a> · <a href="#local-models-in-use">Awọn awoṣe AI nṣiṣẹ ni agbegbe lori ẹrọ rẹ</a> · <a href="#hub-and-compatible-models">Awọn ọna kika & Ipele</a> · <a href="#cloud-providers">Awọsanma</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Tiwon</a></p>
   <p>Olubasọrọ osise: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Awọn profaili awujọ Novera osise: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -150,7 +150,7 @@ Ayipada orin Qwen ati awoṣe imupadabọ Qwen jẹ **oriṣiriṣi awọn faili
 
 ## Awọn olupese awọsanma
 
-Iwe akọọlẹ naa ni awọn profaili olupese 43: 42 awọn iṣẹ awọsanma ati TabbyAPI fun olupin agbegbe kan. Wiwọle awoṣe ati awọn agbara da lori akọọlẹ, agbegbe ati API atilẹyin. Gbogbo 104 ede ni wiwo pin katalogi yii.
+Iwe akọọlẹ naa ni awọn profaili olupese 43: 42 awọn iṣẹ awọsanma ati TabbyAPI fun olupin agbegbe kan. Wiwọle awoṣe ati awọn agbara da lori akọọlẹ, agbegbe ati API atilẹyin. Gbogbo 120 ede ni wiwo pin katalogi yii.
 
 | | | |
 | --- | --- | --- |
@@ -273,9 +273,9 @@ Iru ohun elo ti o ni ibamu pẹlu aifọwọyi ṣe ojurere awọn idasilẹ tun
 
 Awọn orisun imudojuiwọn ṣafikun **awọn paati iṣakoso iyan ni Awọn atunto fun Windows x64**: Awọn agbegbe Python ikọkọ, awọn profaili CPU/CUDA pinned, awọn iṣiro ati ijẹrisi ṣaaju awọn igbasilẹ, ijẹrisi, atunṣe ati yiyọ kuro. Awọn ọna onitumọ aṣa duro labẹ awọn aṣayan ilọsiwaju. Abinibi GGUF enjini pa wọn tẹlẹ irinše; alagbeka ati awọsanma ko ṣe igbasilẹ tabili Python/PyTorch. Meta ikọkọ CPU / okeere profaili won idaraya pẹlu gidi sintetiki amuse; Olutọju ṣe ijabọ lilo tabili aṣeyọri lori 1 Oṣu kọkanla 2026; Awọn profaili GPU ati mimọ-PC fifi sori si tun nilo lọtọ, alaye afọwọsi. [Awọn profaili ati awọn opin idanwo](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Ifisinu akopọ ninu EXE ti wa ni idaduro.
 
-## 104 ni wiwo awọn ede ati awọn iyatọ
+## 120 ni wiwo awọn ede ati awọn iyatọ
 
-**Gbogbo awọn katalogi 104 bo awọn bọtini Gẹẹsi lọwọlọwọ 2,435** kọja awọn aaye orukọ 15, pẹlu awọn akojọ aṣayan, awọn atunto, eto, iranlọwọ ati awọn iṣakoso media. Awọn fọọmu pupọ ati itọsọna wiwo tẹle ede ti o yan. Idahun ati awọn ede ohun gbarale lọtọ lori awoṣe.
+**Gbogbo awọn katalogi 120 bo awọn bọtini Gẹẹsi lọwọlọwọ 2,484** kọja awọn aaye orukọ 15, pẹlu awọn akojọ aṣayan, awọn atunto, eto, iranlọwọ ati awọn iṣakoso media. Awọn fọọmu pupọ ati itọsọna wiwo tẹle ede ti o yan. Idahun ati awọn ede ohun gbarale lọtọ lori awoṣe.
 
 Agbegbe imọ-ẹrọ yii ko jẹri didara ede: **atunwo abinibi ati aṣamubadọgba agbegbe wa pataki**. Wo awọn akole abinibi ati awọn opin ti a mọ ninu [ede itọnisọna](docs/LANGUAGES.md) ati [se ayewo iroyin](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -311,7 +311,7 @@ Afọwọṣe GitHub Actions kọ ni ṣiṣẹ fun gbogbo awọn iyatọ pinpin
 - [Itọsọna olumulo alaye](docs/USER_GUIDE.md), [ọja ati alaye olumulo awọn ofin goolu (Faranse)](docs/REGLES_D_OR.md), [si dede ati enjini](docs/SUIVI_MOTEURS.md).
 - [Idagbasoke](docs/DEVELOPMENT.md), [kọ ati itọsọna itusilẹ](docs/BUILD_AND_RELEASE.md), [awọn ẹya iwaju ati igbaradi imudojuiwọn](docs/FUTURES_VERSIONS.md).
 - [Dasibodu ise agbese](TABLEAU_DE_BORD_NOVERA.md), [ọna maapu](ROADMAP.md), [changelog](docs/CHANGELOG.md).
-- [Ilowosi](CONTRIBUTING.md): koodu, awọn idanwo, atunyẹwo abinibi kọja awọn ede 104 ati awọn esi ṣiṣan iṣẹ gidi.
+- [Ilowosi](CONTRIBUTING.md): koodu, awọn idanwo, atunyẹwo abinibi kọja awọn ede 120 ati awọn esi ṣiṣan iṣẹ gidi.
 
 ## Idanimọ ati iwe-aṣẹ
 

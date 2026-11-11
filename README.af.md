@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Jy beskryf jou doelwit. Novera berei die hulpbronne voor, voer die taak uit en organiseer die resultate.</strong></p>
   <p>'n Onafhanklike AI-assistent deur TRON-ABS, van eerste bekendstelling tot resultate: teks, beelde, musiek en video in een gesprek.</p>
-  <p><strong>Beskikbaar vir Windows, Linux, macOS en Android</strong> · 104 koppelvlaktale · 42 wolkverskaffers · 58 mediavoorinstellings · Apache 2.0</p>
+  <p><strong>Beskikbaar vir Windows, Linux, macOS en Android</strong> · 120 koppelvlaktale · 42 wolkverskaffers · 58 mediavoorinstellings · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Outomatisering</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">AI-modelle wat plaaslik op jou toestel loop</a> · <a href="#hub-and-compatible-models">Hub en versoenbare modelle</a> · <a href="#cloud-providers">Wolk</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Dra by</a></p>
   <p>Amptelike kontak: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Amptelike Novera sosiale profiele: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -150,7 +150,7 @@ Die Qwen musiekenkodeerder en die Qwen herwinningsmodel is **verskillende lêers
 
 ## Wolkverskaffers
 
-Die katalogus bevat 43 verskafferprofiele: 42 wolkdienste en TabbyAPI vir 'n plaaslike bediener. Modeltoegang en vermoëns hang af van die rekening, streek en ondersteunde API. Alle 104 koppelvlaktale deel hierdie katalogus.
+Die katalogus bevat 43 verskafferprofiele: 42 wolkdienste en TabbyAPI vir 'n plaaslike bediener. Modeltoegang en vermoëns hang af van die rekening, streek en ondersteunde API. Alle 120 koppelvlaktale deel hierdie katalogus.
 
 | | | |
 | --- | --- | --- |
@@ -273,9 +273,9 @@ Die standaard hardeware-aangepaste sorteer bevoordeel nuwer vrystellings binne d
 
 Die opgedateerde bronne voeg by **opsionele bestuurde komponente in konfigurasies vir Windows x64**: private Python-omgewings, vasgespelde CPU/CUDA-profiele, skattings en bevestiging voor aflaaie, verifikasie, herstel en verwydering. Pasgemaakte tolkpaaie bly onder gevorderde opsies. Inheemse GGUF-enjins behou hul bestaande komponente; selfoon en wolk laai nie desktop Python/PyTorch af nie. Drie private CPU/uitvoer-profiele is uitgeoefen met sintetiese toetsdata; Die instandhouer rapporteer suksesvolle rekenaargebruik op 1 November 2026; GPU-profiele en skoon PC-installasie benodig nog aparte, gedetailleerde validering. [Profiele en toetslimiete](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Die inbedding van die stapel in die EXE word uitgestel.
 
-## 104 koppelvlaktale en variante
+## 120 koppelvlaktale en variante
 
-**Alle 104 katalogusse dek die huidige 2,435 Engelse sleutels** oor 15 naamruimtes, insluitend spyskaarte, konfigurasies, instellings, hulp en mediakontroles. Meervoudsvorme en koppelvlakrigting volg die geselekteerde taal. Reaksie- en stemtale hang afsonderlik van die model af.
+**Alle 120 katalogusse dek die huidige 2,484 Engelse sleutels** oor 15 naamruimtes, insluitend spyskaarte, konfigurasies, instellings, hulp en mediakontroles. Meervoudsvorme en koppelvlakrigting volg die geselekteerde taal. Reaksie- en stemtale hang afsonderlik van die model af.
 
 Hierdie tegniese dekking sertifiseer nie linguistiese kwaliteit nie: **inheemse hersiening en streeksaanpassing bly nodig**. Sien inheemse etikette en bekende limiete in die [taalgids](docs/LANGUAGES.md) en [ouditverslag](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -311,7 +311,7 @@ Handleiding GitHub Actions bouwerk is geaktiveer vir al elf verspreidingsvariant
 - [Gedetailleerde gebruikersgids](docs/USER_GUIDE.md), [produk en gebruikersinligting goue reëls (Frans)](docs/REGLES_D_OR.md), [modelle en enjins](docs/SUIVI_MOTEURS.md).
 - [Ontwikkeling](docs/DEVELOPMENT.md), [bou- en vrystellinggids](docs/BUILD_AND_RELEASE.md), [toekomstige weergawes en opdateringsvoorbereiding](docs/FUTURES_VERSIONS.md).
 - [Projek dashboard](TABLEAU_DE_BORD_NOVERA.md), [padkaart](ROADMAP.md), [veranderingslogboek](docs/CHANGELOG.md).
-- [Dra by](CONTRIBUTING.md): kode, toetse, inheemse hersiening oor 104-tale en werklike werkvloeiterugvoer.
+- [Dra by](CONTRIBUTING.md): kode, toetse, inheemse hersiening oor 120-tale en werklike werkvloeiterugvoer.
 
 ## Identiteit en lisensie
 

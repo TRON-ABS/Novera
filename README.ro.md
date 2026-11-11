@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Voi descrie obiectivul. Novera pregătește resursele, execută sarcina și organizează rezultatele.</strong></p>
   <p>Un asistent AI independent de TRON-ABS, de la prima lansare la rezultate: text, imagini, muzică și video într-o singură conversație.</p>
-  <p><strong>Disponibil pentru Windows, Linux, macOS și Android</strong> · 104 limbi de interfață · 42 furnizori de cloud · 58 presetări media · Apache 2.0</p>
+  <p><strong>Disponibil pentru Windows, Linux, macOS și Android</strong> · 120 limbi de interfață · 42 furnizori de cloud · 58 presetări media · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Automatizare</a> · <a href="#one-dashboard-for-every-creation">Panou de control</a> · <a href="#local-models-in-use">Modele AI care rulează local pe dispozitivul dvs.</a> · <a href="#hub-and-compatible-models">Hub și modele compatibile</a> · <a href="#cloud-providers">Nor</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Contribuie</a></p>
   <p>Contact oficial: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Profiluri sociale oficiale Novera: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -150,7 +150,7 @@ Encoderul muzical Qwen și modelul de recuperare Qwen sunt **fișiere diferite**
 
 ## Furnizori de cloud
 
-Catalogul conține 43 profiluri de furnizor: 42 servicii cloud și TabbyAPI pentru un server local. Accesul la model și capabilitățile depind de cont, regiune și API-ul acceptat. Toate 104 limbi de interfață au acest catalog.
+Catalogul conține 43 profiluri de furnizor: 42 servicii cloud și TabbyAPI pentru un server local. Accesul la model și capabilitățile depind de cont, regiune și API-ul acceptat. Toate 120 limbi de interfață au acest catalog.
 
 | | | |
 | --- | --- | --- |
@@ -273,9 +273,9 @@ Sortarea implicită adaptată hardware-ului favorizează lansările mai noi din 
 
 Sursele actualizate adaugă **componente gestionate opționale în Configurații pentru Windows x64**: medii Python private, profiluri CPU/CUDA fixate, estimări și confirmare înainte de descărcări, verificare, reparare și eliminare. Căile interpretorului personalizate rămân sub opțiunile avansate. Motoarele native GGUF își păstrează componentele existente; mobile și cloud nu descarcă Python desktop/PyTorch. Trei profiluri private CPU/export au fost testate cu dispozitive sintetice reale; Menținătorul raportează utilizare de birou reușită pe 1 Noiembrie 2026; profilurile GPU și instalarea clean-PC necesită încă validare separată și detaliată. [Profiluri și limite de test](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Încorporarea stivei în EXE este amânată.
 
-## Limbile și variantele de interfață 104
+## Limbile și variantele de interfață 120
 
-**Toate catalogurile 104 acoperă cheile engleze 2,435 curente** în spațiile de nume 15, incluzând meniuri, configurații, setări, ajutor și controlere media. Formele plurare și direcția interfeței urmează limba selectată. Limbile de răspuns și vocale depind separat de model.
+**Toate catalogurile 120 acoperă cheile engleze 2,484 curente** în spațiile de nume 15, incluzând meniuri, configurații, setări, ajutor și controlere media. Formele plurare și direcția interfeței urmează limba selectată. Limbile de răspuns și vocale depind separat de model.
 
 Această acoperire tehnică nu certifică calitatea lingvistică: **revizuirea nativă și adaptarea regională rămân necesare**. Veți găsi etichete native și limite cunoscute în [ghidul lingvistic](docs/LANGUAGES.md) și [raportul de audit](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -311,7 +311,7 @@ Construirile manuale GitHub Actions sunt activate pentru toate cele unsprezece v
 - [Ghid detaliat pentru utilizator](docs/USER_GUIDE.md), [reguli de aur pentru informații despre produs și utilizator (franceză)](docs/REGLES_D_OR.md), [modele și motoare](docs/SUIVI_MOTEURS.md).
 - [Dezvoltare](docs/DEVELOPMENT.md), [ghid de construire și lansare](docs/BUILD_AND_RELEASE.md), [versiuni viitoare și pregătire pentru actualizare](docs/FUTURES_VERSIONS.md).
 - [Panou de control al proiectului](TABLEAU_DE_BORD_NOVERA.md), [hartă de rută](ROADMAP.md), [jurnal de modificări](docs/CHANGELOG.md).
-- [Contribuire](CONTRIBUTING.md): cod, teste, revizuire nativă în limbile 104 și feedback real al fluxului de lucru.
+- [Contribuire](CONTRIBUTING.md): cod, teste, revizuire nativă în limbile 120 și feedback real al fluxului de lucru.
 
 ## Identitate și licență
 

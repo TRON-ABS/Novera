@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>You describe. Novera prepares, runs and organizes.</strong></p>
   <p>An independent AI assistant by TRON-ABS, from first launch to results: text, images, music and video in one conversation.</p>
-  <p><strong>Available for Windows, Linux, macOS and Android</strong> · 104 interface languages · 42 cloud providers · 58 media presets · Apache 2.0</p>
+  <p><strong>Available for Windows, Linux, macOS and Android</strong> · 120 interface languages · 42 cloud providers · 58 media presets · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Automation</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">Local models</a> · <a href="#hub-and-compatible-models">Formats &amp; Hub</a> · <a href="#cloud-providers">Cloud</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Contribute</a></p>
   <p>Official contact: <a href="mailto:contact.novera.tronabs@gmail.com">contact.novera.tronabs@gmail.com</a></p>
   <p>Official Novera social profiles: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -142,7 +142,7 @@ The Qwen music encoder and the Qwen retrieval model are **different files**, sto
 
 ## Cloud providers
 
-The catalog contains 43 provider profiles: 42 cloud services and TabbyAPI for a local server. Model access and capabilities depend on the account, region and supported API. All 104 interface languages share this catalog.
+The catalog contains 43 provider profiles: 42 cloud services and TabbyAPI for a local server. Model access and capabilities depend on the account, region and supported API. All 120 interface languages share this catalog.
 
 | | | |
 | --- | --- | --- |
@@ -263,11 +263,11 @@ The default hardware-adapted sort favors newer releases within the same compatib
 
 The updated sources add **optional managed components in Configurations for Windows x64**: private Python environments, pinned CPU/CUDA profiles, estimates and confirmation before downloads, verification, repair and removal. Custom interpreter paths stay under advanced options. Native GGUF engines keep their existing components; mobile and cloud do not download desktop Python/PyTorch. Three private CPU/export profiles were tested using synthetic test data; the maintainer reports successful desktop use on 7 November 2026; GPU profiles and clean-PC installation still need separate, detailed validation. [Profiles and test limits](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Bundling these components in the EXE is deferred.
 
-## 104 interface languages and variants
+## 120 interface languages and variants
 
 Source update, 6 November 2026: 24 additional interface catalogs bring the total to 104. These are assisted translation drafts; native review and regional adaptation remain necessary. This batch prepares catalogs and translated READMEs; an application rebuild is required to include them in installed binaries.
 
-**All 104 catalogs cover the current 2,435 English keys** across 15 namespaces, including menus, configurations, settings, help and media controls. Plural forms and interface direction follow the selected language. Response and voice languages depend separately on the model.
+**All 120 catalogs cover the current 2,484 English keys** across 15 namespaces, including menus, configurations, settings, help and media controls. Plural forms and interface direction follow the selected language. Response and voice languages depend separately on the model.
 
 This technical coverage does not certify linguistic quality: **native review and regional adaptation remain necessary**. See native labels and known limits in the [language guide](docs/LANGUAGES.md) and [audit report](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -303,7 +303,7 @@ Manual GitHub Actions builds are enabled for all eleven distribution variants. F
 - [Detailed user guide](docs/USER_GUIDE.md), [product and user-information golden rules (French)](docs/REGLES_D_OR.md), [models and engines](docs/SUIVI_MOTEURS.md).
 - [Development](docs/DEVELOPMENT.md), [build and release guide](docs/BUILD_AND_RELEASE.md), [future versions and update preparation](docs/FUTURES_VERSIONS.md).
 - [Project dashboard](TABLEAU_DE_BORD_NOVERA.md), [roadmap](ROADMAP.md), [changelog](docs/CHANGELOG.md).
-- [Contributing](CONTRIBUTING.md): code, tests, native review across 104 languages and real workflow feedback.
+- [Contributing](CONTRIBUTING.md): code, tests, native review across 120 languages and real workflow feedback.
 
 ## Identity and license
 

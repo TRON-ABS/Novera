@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — すべての人に知識を" width="100%" />
   <p><strong>やりたいことを伝えると、Novera が準備・実行・整理します。</strong></p>
   <p>TRON-ABS による独立した AI アシスタント。初回起動から結果の取得まで、テキスト、画像、音楽、動画を一つの会話で扱えます。</p>
-  <p><strong>Windows、Linux、macOS、Androidで利用可能</strong> · 104 個のインターフェース言語 · 42 個のクラウド プロバイダー · 58 個のメディア プリセット · Apache 2.0</p>
+  <p><strong>Windows、Linux、macOS、Androidで利用可能</strong> · 120 個のインターフェース言語 · 42 個のクラウド プロバイダー · 58 個のメディア プリセット · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">自動化</a> · <a href="#one-dashboard-for-every-creation">制作パネル</a> · <a href="#local-models-in-use">ローカルモデル</a> · <a href="#hub-and-compatible-models">形式と Hub</a> · <a href="#cloud-providers">クラウド</a> · <a href="CONTRIBUTING.md">貢献する</a></p>
   <p>公式連絡先: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Novera の公式ソーシャル プロフィール: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -150,7 +150,7 @@ Qwen 音楽エンコーダーと Qwen 検索モデルは、 **別のファイル
 
 ## クラウドプロバイダー
 
-カタログには、43 プロバイダー プロファイル: 42 クラウド サービスとローカル サーバーの TabbyAPI が含まれています。モデルのアクセスと機能は、アカウント、リージョン、サポートされている API によって異なります。すべての 104 インターフェース言語はこのカタログを共有します。
+カタログには、43 プロバイダー プロファイル: 42 クラウド サービスとローカル サーバーの TabbyAPI が含まれています。モデルのアクセスと機能は、アカウント、リージョン、サポートされている API によって異なります。すべての 120 インターフェース言語はこのカタログを共有します。
 
 | | | |
 | --- | --- | --- |
@@ -273,9 +273,9 @@ AWQ 4-bit、GPTQ 4-bit、NF4、および INT8 はそれぞれ、オフライン�
 
 更新されたソースに追加 **Windows x64 の構成のオプションの管理対象コンポーネント**: プライベート Python 環境、固定された CPU/CUDA プロファイル、ダウンロード前の見積もりと確認、検証、修復、削除。カスタム インタープリタ パスは詳細オプションの下に残ります。ネイティブ GGUF エンジンは既存のコンポーネントを保持します。モバイルとクラウドはデスクトップ Python/PyTorch をダウンロードしません。 3 つのプライベート CPU/エクスポート プロファイルは、合成テストデータを使用して実行されました。メンテナは、2026年11月1日 でデスクトップの使用が成功したと報告しています。 GPU プロファイルとクリーン PC インストールには、別途詳細な検証が必要です。 [プロファイルとテスト限界](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md)。 EXE へのスタックの埋め込みは延期されます。
 
-## 104 インターフェース言語とそのバリアント
+## 120 インターフェース言語とそのバリアント
 
-**すべての 104 カタログは、現在の 2,435 英語キーをカバーしています。** メニュー、構成、設定、ヘルプ、メディア コントロールを含む、15 名前空間全体。複数の形式とインターフェイスの方向は、選択した言語に従います。応答言語と音声言語はモデルによって異なります。
+**すべての 120 カタログは、現在の 2,484 英語キーをカバーしています。** メニュー、構成、設定、ヘルプ、メディア コントロールを含む、15 名前空間全体。複数の形式とインターフェイスの方向は、選択した言語に従います。応答言語と音声言語はモデルによって異なります。
 
 この技術範囲は言語の品質を保証するものではありません。 **ネイティブレビューと地域適応は引き続き必要**。ネイティブ ラベルと既知の制限を参照してください。 [言語ガイド](docs/LANGUAGES.md) と [監査報告書](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -311,7 +311,7 @@ AWQ 4-bit、GPTQ 4-bit、NF4、および INT8 はそれぞれ、オフライン�
 - [詳細なユーザーガイド](docs/USER_GUIDE.md), [製品とユーザー情報の黄金律 (フランス語)](docs/REGLES_D_OR.md), [モデルとエンジン](docs/SUIVI_MOTEURS.md).
 - [開発](docs/DEVELOPMENT.md), [ビルドおよびリリース ガイド](docs/BUILD_AND_RELEASE.md), [将来のバージョンとアップデートの準備](docs/FUTURES_VERSIONS.md).
 - [プロジェクトダッシュボード](TABLEAU_DE_BORD_NOVERA.md), [ロードマップ](ROADMAP.md), [変更履歴](docs/CHANGELOG.md).
-- [貢献する](CONTRIBUTING.md): コード、テスト、104 言語にわたるネイティブ レビュー、および実際のワークフロー フィードバック。
+- [貢献する](CONTRIBUTING.md): コード、テスト、120 言語にわたるネイティブ レビュー、および実際のワークフロー フィードバック。
 
 ## IDとライセンス
 

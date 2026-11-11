@@ -6,7 +6,7 @@
   <img src=".github/assets/novera-banner-en.png" alt="Novera — Knowledge for everyone" width="100%" />
   <p><strong>Ɗum hollii. Novera waɗay, huuwa e hawta.</strong></p>
   <p>Ɓeɗo mari ndimu AI Ɗum wallitii TRON-ABSDiga fuɗɗam yahugo ko heɓata: defte, hootoji, gimi be video nder haalaji go’o.</p>
-  <p><strong>E woodi nde Windows, Linux, macOS e Android.</strong> · 104 ɗemɗe jokkorɗe · 42 rokkooɓe ruulde · 58 kuutorɗe jaayɗe · Apache 2.0</p>
+  <p><strong>E woodi nde Windows, Linux, macOS e Android.</strong> · 120 ɗemɗe jokkorɗe · 42 rokkooɓe ruulde · 58 kuutorɗe jaayɗe · Apache 2.0</p>
   <p><a href="#from-first-launch-to-results">Automation</a> · <a href="#one-dashboard-for-every-creation">Dashboard</a> · <a href="#local-models-in-use">Ɗum woni no ɗum woni.</a> · <a href="#hub-and-compatible-models">Formatji &amp; Hubji</a> · <a href="#cloud-providers">Ɓurna</a> · <a href="README.fr.md">Français</a> · <a href="CONTRIBUTING.md">Waylugo</a></p>
   <p>Anndaaki: <a href="mailto:contact.novera.tronabs@gmail.com" dir="ltr">contact.novera.tronabs@gmail.com</a></p>
   <p>Gootum nder Novera social profiles: <a href="https://www.facebook.com/profile.php?id=61596114515071">Facebook</a> · <a href="https://www.instagram.com/noveratronabs/">Instagram</a> · <a href="https://www.tiktok.com/@tronabs0">TikTok</a> · <a href="https://www.youtube.com/@noveratronabs">YouTube</a> · <a href="https://x.com/noveratronabs">X</a> · <a href="https://bsky.app/profile/noveratronabs.bsky.social">Bluesky</a></p>
@@ -152,7 +152,7 @@ Toppitagol e moƴƴitingol sirlu ina peewnitee ngam 1.0.1. Limlebbi cuɓaaɗi e 
 
 ## Ɓe hokkata Cloud
 
-Catal ngal ina waɗi 43 porofayle dokkoowo: 42 sarwisaaji ruulde e TabbyAPI ngam serwer nokkuure. Model keɓgol e mbaawkaaji fawii ko e konte, diiwaan e API ballitooɗo. Denndaangal 104 jokkorgal ina ndennda ndee catal.
+Catal ngal ina waɗi 43 porofayle dokkoowo: 42 sarwisaaji ruulde e TabbyAPI ngam serwer nokkuure. Model keɓgol e mbaawkaaji fawii ko e konte, diiwaan e API ballitooɗo. Denndaangal 120 jokkorgal ina ndennda ndee catal.
 
 | | | |
 | --- | --- | --- |
@@ -275,11 +275,11 @@ AWQ 4-bit, GPTQ 4-bit, NF4 e INT8 kala go'o nder ɗerewol ngol heɓaama dow RTX 
 
 Ɗuuɗal ɓoggi ɗin ɓeydake. **kuje ɗe ɓeydataaɗe ɗe ɓeydataaɗe nder Config ngam Windows x64**: ɗabii'aaji Python ɗi hoore maagal, ko hollata CPU/CUDA fiiji, ko hollata e ko tabbitina bako nastugo, tabbitinki, wo'itinaaki e sankitinaaki. Nastinaaki fiiji ɗi hoore maagal ɗon les suɓol yeeso. Native GGUF injiiji ɗo hokka fiiji maɓɓe ɗi jooni; na'uraaji e cloud ɗin na holla fiiji ɗi hoore maagal Python/PyTorch. fiiji tati ɗi hoore maagal CPU/export ɓe foondii e naftirki fiiji foonduɗi; hakkilanngo fiiji ɗin wi'i o heɓi nasaraaku dow naftirki fiiji ɗi hoore maagal nder 1 lewru November 2026; GPU fiiji e kadi nastinaaki fiiji ɗi hoore maagal e PC e ɗum tefata ko hewti, ko hollata. [Ɗuuɗal fiiji e foonduye keeriiji.](docs/REPRISE_COMPOSANTS_GERES_80_LANGUES.md). Hawtuki kuuje ɗe'e nder EXE e hoositiree.
 
-## 104 Ɗenngal na’ura e ko ferɗoodiri.
+## 120 Ɗenngal na’ura e ko ferɗoodiri.
 
 Ɗum waddi ƴamle. 6 lewru jemmaɓre 2026: 24 Ɗuuɗal ko ɓeydii nder deftere kawtal ngal e wadda kala fuu maaje. 104Ɗe'e ko waaway mballugo fassirgo; foonduki native e ko haandi e ɗum tefata. Ɗe'e kawtal e waɗa catalogji e fassirgo READMEji; ɗum tefata waafuki fiiji ngam hawtuki ɗi nder binaryji.
 
-**Ɗum fuu 104 Ɗuuɗal ɓoggi ɗin e hoosa ko woni jooni. 2,435 Tuubankeejo** Ɗuuɗal 15 Namespaces, hauti be menus, configuration, settings, help, and media controls. Plural forms and interface direction follow the chosen language. Response and voice languages separately depend on the model.
+**Ɗum fuu 120 Ɗuuɗal ɓoggi ɗin e hoosa ko woni jooni. 2,484 Tuubankeejo** Ɗuuɗal 15 Namespaces, hauti be menus, configuration, settings, help, and media controls. Plural forms and interface direction follow the chosen language. Response and voice languages separately depend on the model.
 
 Ɗu’um yajjinki kuuɗe ɗenngal wala tabbitinki gikkuji ɗenngal: **Laawol wiitinki ɓii lesdi’en e ko nandi e maajum e woodi faa’ida.** Laaru labelji native e keeri anndaaɗi nder. [Ɗenngal](docs/LANGUAGES.md) e [Ɗum waddi bayaanu](deliverables/interface-audit-2026-10-29/RAPPORT.md).
 
@@ -315,7 +315,7 @@ Binndi deftere nde GitHub Actions e waɗaa ngam kala darnde nde go'o fuu. [Tiggu
 - [Dabare huwoowo](docs/USER_GUIDE.md), [Kuje be haalaji nastugo (French)](docs/REGLES_D_OR.md), [Maadiiji e injiiji.](docs/SUIVI_MOTEURS.md).
 - [Jahal yeeso](docs/DEVELOPMENT.md), [Ɗum waddi e ɓeydaari kuuɗeji.](docs/BUILD_AND_RELEASE.md), [Waylitaare yeeso e tigguki ko ɓadi.](docs/FUTURES_VERSIONS.md).
 - [Taskaramji](TABLEAU_DE_BORD_NOVERA.md), [diidol](ROADMAP.md), [canji log](docs/CHANGELOG.md).
-- [Waɗugo](CONTRIBUTING.md): koode, foonduye, foonduye native nder. 104 Ɗenngal e ko haandi e kuuɗe ɗenɗe.
+- [Waɗugo](CONTRIBUTING.md): koode, foonduye, foonduye native nder. 120 Ɗenngal e ko haandi e kuuɗe ɗenɗe.
 
 ## Anndal be daliila
 
