@@ -1,6 +1,6 @@
 ## Restore native Auto Tune for 1.0.3
 
-The public 1.0.2 Desktop omitted the native calibration commands used by the Auto Tune button. Restore the native implementation from the local Desktop sources on top of the 120-locale release baseline. Windows, Linux and macOS must exercise the native command in the built application. Android retains the keyboard fix and advances to versionCode 1000024. iOS distribution remains pending.
+The public 1.0.2 Desktop omitted the native calibration commands used by the Auto Tune button. Restore the native implementation from the local Desktop sources on top of the 120-locale release baseline. Windows, Linux and macOS must exercise the native command in the built application. Android retains the keyboard fix and advances to versionCode 1000024. iOS distribution remains pending. The release guide now requires reconciling the exact CI commit with the last locally verified build and testing Auto Tune and the locale inventory in the actual packages before publishing.
 
 ## Current downloads in every README
 

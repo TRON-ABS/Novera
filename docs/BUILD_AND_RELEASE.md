@@ -6,6 +6,14 @@
 
 Avant la publication, comparer les versions et compteurs affichés aux sources et aux paquets effectivement validés. Contrôler la section About, le README principal et toutes ses traductions, les sélecteurs de langue, les liens de téléchargement, la vitrine et les fichiers de suivi. Compter séparément les catalogues d’interface et les README publiés. Relire la page complète du dépôt dans chaque langue. Le tableau des téléchargements, les annonces de disponibilité, les encadrés et les liens doivent tous présenter la dernière version effectivement publiée par plateforme. Conserver les chiffres des notes de version datées dans l’historique.
 
+### Vérifier le point de départ et les paquets livrés
+
+Le passage à la 1.0.2 a mobilisé plusieurs heures de compilation alors que le commit envoyé à GitHub ne contenait pas les commandes natives d’Auto Tune présentes dans la dernière Desktop validée en local.
+
+1. Avant de lancer les compilations, identifier le dernier build validé, son commit et les correctifs locaux qui y ont été intégrés. Rapprocher ces sources du commit exact à compiler sur GitHub et vérifier les fonctionnalités attendues par plateforme. Intégrer les correctifs absents avant de lancer les builds de distribution.
+2. Après compilation, vérifier les octets exacts de chaque paquet destiné à la publication. Relever sa version, son architecture, son SHA-256, son commit et le nombre de catalogues réellement embarqués. Sur les plateformes compatibles, lancer l’application du paquet, ouvrir Auto Tune et vérifier que l’interface répond à la calibration native. Sur Android, vérifier le clavier sur appareil et le compteur de mise à jour du nouvel APK. Pour la CLI, contrôler la version, le démarrage et les fonctions propres à la CLI.
+3. Dans le suivi de publication, consigner les résultats par plateforme avec les références des builds et des paquets. Les tests des sources, le succès de compilation et la vérification des signatures sont des contrôles distincts de l’essai des fonctionnalités. Attendre le résultat de ces essais pour annoncer la disponibilité et activer les canaux publics. Reporter explicitement toute plateforme exclue, dont iOS lorsqu’il doit attendre.
+
 Après publication, vérifier depuis un accès public la description du dépôt, les liens de la vitrine et des README, les paquets par plateforme et les manifests des canaux de mise à jour. Consigner les contrôles réussis et les plateformes encore en attente dans le [suivi de disponibilité](LAUNCH_STATUS.md).
 
 Les trois CLI signées passent aussi le remplacement isolé et l’exécution sur leurs hôtes. Le générateur de manifeste recontrôle signatures, identités ZIP et reçus ; le feed reste uniquement préparé localement. Le [bilan des canaux](LAUNCH_STATUS.md) distingue ces preuves des endpoints publics et certifications encore absents.
