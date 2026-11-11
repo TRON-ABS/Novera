@@ -7,6 +7,7 @@ import { normalizeLocalPath } from '@/modules/platform/local-path'
 import { musicCalibrationRequest, visualCalibrationRequest } from './calibration'
 import { browserPreviewEnabled } from '@/services/browser-preview/config'
 import { browserAutoTuneAvailable, browserAutoTuneEnabled, browserAutoTuneTextModels, browserAutoTuneTested, calibrateBrowserMedia, calibrateBrowserSampling } from '@/services/browser-preview/auto-tune'
+import { browserLocalTextModels } from '@/services/browser-preview/local-text-imports'
 import { browserAutoTuneWait, discoverBrowserAutoTuneProbes } from '@/services/browser-preview/auto-tune-registry'
 import type { BrowserWorkProgress } from '@/services/browser-preview/auto-tune'
 import { autoTuneCampaignKey, browserTextCalibrationRevision, browserTextProfiles, nativeTextChecks, type AutoTuneComponent } from './auto-tune-plan'
@@ -27,8 +28,8 @@ function readStoredIds(key: string): string[] {
   }
 }
 
-function plannedJob(task: AutoTuneTask, model: string, provider: string, run: Job, profile?: unknown, checks?: string[], components?: AutoTuneComponent[]): PlannedJob {
-  const identity = task === 'text' ? model : normalizeLocalPath(model).replace(/\\/g, '/')
+function plannedJob(task: AutoTuneTask, model: string, provider: string, run: Job, profile?: unknown, checks?: string[], components?: AutoTuneComponent[], textIdentity = model): PlannedJob {
+  const identity = task === 'text' ? textIdentity : normalizeLocalPath(model).replace(/\\/g, '/')
   const id = JSON.stringify([task, provider, identity])
   return { id, key: JSON.stringify([id, profile ?? null]), task, model, provider, run, checks, components }
 }
@@ -220,15 +221,20 @@ async function discoverJobs(): Promise<PlannedJob[][]> {
     const image: PlannedJob[] = []
     const music: PlannedJob[] = []
     const video: PlannedJob[] = []
-    for (const model of browserAutoTuneTextModels()) {
-      const job = plannedJob('text', model.id, 'novera-browser', () => runBrowserJob(
-        { task: 'text', model: model.id, provider: 'novera-browser' },
-        update => calibrateBrowserSampling(update, model.id),
-      ), [import.meta.env.VITE_NOVERA_BROWSER_TEXT_PATH, model.revision, model.file, browserTextCalibrationRevision],
-      browserTextProfiles.map(profile => profile.sampling.toUpperCase() + ' · ' + profile.commandBatchSize))
-      text.push({ ...job, alreadyComplete: browserAutoTuneTested(model.id) })
+    const probes = await discoverBrowserAutoTuneProbes()
+    const catalog = browserAutoTuneTextModels()
+    for (const model of catalog.length ? [...catalog, ...browserLocalTextModels()] : []) {
+      const label = 'repo' in model ? model.id : model.file.name
+      const identity = 'repo' in model ? [model.revision, model.file] : [model.id]
+      const task = { task: 'text' as const, model: label, provider: 'novera-browser' }
+      const job = plannedJob(task.task, task.model, task.provider, () => runBrowserJob(
+        task, update => calibrateBrowserSampling(update, model),
+      ), [import.meta.env.VITE_NOVERA_BROWSER_TEXT_PATH, ...identity, browserTextCalibrationRevision],
+      browserTextProfiles.map(profile => profile.sampling.toUpperCase() + ' · ' + profile.commandBatchSize),
+      undefined, model.id)
+      text.push({ ...job, alreadyComplete: browserAutoTuneTested(model) })
     }
-    for (const probe of await discoverBrowserAutoTuneProbes()) {
+    for (const probe of probes) {
       ;({ image, music, video })[probe.task].push(plannedJob(probe.task, probe.model, probe.provider, () => runBrowserJob(
         { task: probe.task, model: probe.model, provider: probe.provider },
         update => calibrateBrowserMedia(probe, update),

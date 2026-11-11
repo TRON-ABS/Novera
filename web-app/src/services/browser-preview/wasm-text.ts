@@ -1,17 +1,21 @@
 import { browserModel, type BrowserModelSpec } from './config'
 import { browserTextBatchSizes } from '../creation/auto-tune-plan'
+import type { BrowserLocalTextModel } from './local-text-imports'
 import type { Model, SdkResult, Turn } from './runtime'
 
 const runtimePath: string = import.meta.env.VITE_NOVERA_BROWSER_TEXT_PATH ?? ''
 export const defaultBrowserTextModel = 'LFM3-Omni-2B-Q4_K_M'
 export const browserSamplingKey = 'novera-web-sampling:' + runtimePath
 
-export function browserTextProfileKey(spec: BrowserModelSpec) {
+export type BrowserTextSource = BrowserModelSpec | BrowserLocalTextModel
+
+export function browserTextProfileKey(spec: BrowserTextSource) {
+  if (!('repo' in spec)) return JSON.stringify([browserSamplingKey, 'local', spec.id])
   return spec.id === defaultBrowserTextModel ? browserSamplingKey : JSON.stringify([browserSamplingKey, spec.id, spec.revision, spec.file])
 }
 
 export type BrowserTextProfile = { sampling: 'cpu' | 'gpu'; commandBatchSize: number }
-function preferredTextProfile(spec: BrowserModelSpec): BrowserTextProfile {
+function preferredTextProfile(spec: BrowserTextSource): BrowserTextProfile {
   try {
     const stored = JSON.parse(localStorage.getItem(browserTextProfileKey(spec)) ?? 'null')
     return { sampling: stored?.sampling === 'cpu' ? 'cpu' : 'gpu',
@@ -39,11 +43,14 @@ type Reply = {
   tokensPerSecond?: number
 }
 
-export async function loadWasmTextModel(signal: AbortSignal, onProgress: (fraction: number) => void, profile?: BrowserTextProfile, spec = browserModel(defaultBrowserTextModel)): Promise<Model> {
+export async function loadWasmTextModel(signal: AbortSignal, onProgress: (fraction: number) => void, profile?: BrowserTextProfile, spec: BrowserTextSource = browserModel(defaultBrowserTextModel)): Promise<Model> {
   signal.throwIfAborted()
   profile ??= preferredTextProfile(spec)
-  const asset = spec.assets.find(entry => entry.file === spec.file)
-  if (!asset) throw new Error('Fichier du modèle absent du catalogue.')
+  const asset = 'repo' in spec ? spec.assets.find(entry => entry.file === spec.file) : undefined
+  const source = 'repo' in spec
+    ? { catalogModel: true, model: { repo: spec.repo, revision: spec.revision, ...asset } }
+    : { localFile: spec.file }
+  if ('repo' in spec && !asset) throw new Error('Fichier du modèle absent du catalogue.')
   const base = new URL(import.meta.env.BASE_URL, window.location.href)
   const worker = new Worker(new URL(runtimePath + '/worker.mjs', base), { type: 'module' })
 
@@ -77,7 +84,7 @@ export async function loadWasmTextModel(signal: AbortSignal, onProgress: (fracti
   let progress = 0
   let contextLength: number | undefined
   try {
-    const loaded = await request({ type: 'load', catalogModel: true, model: { repo: spec.repo, revision: spec.revision, ...asset }, commandBatchSize: profile.commandBatchSize }, 'ready', event => {
+    const loaded = await request({ type: 'load', ...source, commandBatchSize: profile.commandBatchSize }, 'ready', event => {
       if (event.type === 'loading' && typeof event.progress === 'number' && event.progress > progress) {
         progress = event.progress
         onProgress(progress)

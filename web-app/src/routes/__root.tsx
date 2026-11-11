@@ -1,3 +1,6 @@
+import { useEffect } from 'react'
+import { watchBrowserModelFolder } from '@/services/browser-preview/model-folder'
+import { refreshAutoTuneModels } from '@/services/creation/auto-tune'
 import { useAndroidVisualViewport } from '@/hooks/useAndroidVisualViewport'
 import { createRootRoute, Outlet } from '@tanstack/react-router'
 // import { TanStackRouterDevtools } from '@tanstack/react-router-devtools'
@@ -44,6 +47,7 @@ export const Route = createRootRoute({
 
 const AppLayout = () => {
   const workspace = useAndroidVisualViewport()
+  useEffect(() => watchBrowserModelFolder(refreshAutoTuneModels), [])
   const { productAnalyticPrompt, analyticsAvailable } = useAnalytic()
   // The setup screen is the only onboarding surface: everything below that would
   // otherwise stack on top of it is deferred until it is done.

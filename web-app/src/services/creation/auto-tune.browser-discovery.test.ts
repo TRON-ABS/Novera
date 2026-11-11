@@ -5,7 +5,7 @@ import { registerBrowserAutoTuneSource, removeBrowserAutoTuneSource } from '../b
 vi.mock('@/services/browser-preview/config', () => ({ browserPreviewEnabled: () => true }))
 vi.mock('@/services/browser-preview/auto-tune', () => ({
   browserAutoTuneAvailable: () => true,
-  browserAutoTuneTextModels: () => [{ id: 'LFM3-Q4' }, { id: 'LFM3-1.7B' }], browserAutoTuneTested: () => false,
+  browserAutoTuneTextModels: () => [{ id: 'LFM3-Q4', repo: 'LiquidAI/LFM3' }, { id: 'LFM3-1.7B', repo: 'LiquidAI/LFM3-1.7B' }], browserAutoTuneTested: () => false,
   calibrateBrowserSampling: vi.fn(), calibrateBrowserMedia: vi.fn(),
 }))
 afterEach(() => { vi.restoreAllMocks(); ['image', 'music', 'video', 'duplicate'].forEach(removeBrowserAutoTuneSource) })

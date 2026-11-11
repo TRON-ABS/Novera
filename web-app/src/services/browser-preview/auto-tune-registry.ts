@@ -11,7 +11,7 @@ export function subscribeBrowserAutoTuneSources(listener: () => void) {
   return () => { listeners.delete(listener) }
 }
 
-function changed() {
+export function notifyBrowserAutoTuneSourcesChanged() {
   revision++
   listeners.forEach(listener => listener())
 }
@@ -29,11 +29,11 @@ export function browserAutoTuneWait() {
 /** Register only after Novera accepts an import. This never enables Auto Tune. */
 export function registerBrowserAutoTuneSource(id: string, source: Source) {
   sources.set(id, source)
-  changed()
+  notifyBrowserAutoTuneSourcesChanged()
 }
 
 export function removeBrowserAutoTuneSource(id: string) {
-  if (sources.delete(id)) changed()
+  if (sources.delete(id)) notifyBrowserAutoTuneSourcesChanged()
 }
 
 /** A failing adapter must not hide other compatible imports. */

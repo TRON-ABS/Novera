@@ -67,11 +67,11 @@ if(NOVERA_CPU_PTHREADS)
 endif()
 set_target_properties(novera-text PROPERTIES SUFFIX ".mjs" RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}")
 target_link_options(novera-text PRIVATE
-  --no-entry
+  --no-entry -lworkerfs.js
   "-sMODULARIZE=1" "-sEXPORT_ES6=1" "-sENVIRONMENT=web,worker"
   "-sALLOW_MEMORY_GROWTH=1" "-sINITIAL_MEMORY=268435456" "-sMAXIMUM_MEMORY=4294967296"
   "-sSTACK_SIZE=8388608" "-sFILESYSTEM=1" "-sASSERTIONS=1"
   "-sEXPORTED_FUNCTIONS=['_malloc','_free','_novera_load','_novera_generate','_novera_cancel','_novera_unload','_novera_result']"
-  "-sEXPORTED_RUNTIME_METHODS=['ccall','cwrap','UTF8ToString','FS','HEAPU8']"
+  "-sEXPORTED_RUNTIME_METHODS=['ccall','cwrap','UTF8ToString','FS','WORKERFS','HEAPU8']"
   "-sINCOMING_MODULE_JS_API=['wasmBinary','print','printErr','locateFile','onAbort']"
   "-sJSPI_EXPORTS=['novera_load','novera_generate','novera_unload']")

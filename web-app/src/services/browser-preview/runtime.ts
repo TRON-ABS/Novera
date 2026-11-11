@@ -1,5 +1,5 @@
 import { browserModel, type BrowserModelSpec } from './config'
-import { loadWasmTextModel, wasmTextSupported, type BrowserTextProfile } from './wasm-text'
+import { loadWasmTextModel, wasmTextSupported, type BrowserTextProfile, type BrowserTextSource } from './wasm-text'
 
 export type BrowserToolCall = { id: string; type: 'function'; function: { name: string; arguments: Record<string, unknown> }; errors?: string[] }
 export type BrowserTool = { type: 'function'; function: { name: string; description?: string; parameters?: Record<string, unknown> } }
@@ -219,7 +219,7 @@ export class BrowserRuntime {
   async compareWasmSampling<T>(
     signal: AbortSignal,
     compare: (sample: (profile: BrowserTextProfile, confirmation: boolean) => Promise<SdkResult>) => Promise<T>,
-    spec: BrowserModelSpec,
+    spec: BrowserTextSource,
   ): Promise<T> {
     if (this.calibrating || this.turn || this.loadJob) throw new Error('CALIBRATION_BUSY')
     const unloading = this.unload()

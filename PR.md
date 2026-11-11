@@ -1,3 +1,9 @@
+## Automatic Web model discovery
+
+Remember the browser-authorized models directory. Scan it on startup, when the tab regains focus and every 30 seconds while visible. Recognize local text GGUF files and enqueue their Auto Tune tests. The engine streams the browser File through WORKERFS and reports incompatible models during calibration. Existing media packs use the same directory scan.
+
+Focused tests verify startup, unchanged scans, revoked access, new downloads and queue insertion. Hardware validation depends on the browser and model.
+
 ## Novera Web 1.0.2
 
 The public Web release adds folder discovery, download links and persistent browser imports for FLUX.2 Klein, ACE-Step and Wan 2.1. In creation settings, select the Novera models folder and open Auto Tune to see compatible packs. Model files are downloaded from their sources. Pages ships the browser engines and the application.
