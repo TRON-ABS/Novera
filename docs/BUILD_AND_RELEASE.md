@@ -6,6 +6,10 @@
 
 Avant la publication, comparer les versions et compteurs affichés aux sources et aux paquets effectivement validés. Contrôler la section About, le README principal et toutes ses traductions, les sélecteurs de langue, les liens de téléchargement, la vitrine et les fichiers de suivi. Compter séparément les catalogues d’interface et les README publiés. Relire la page complète du dépôt dans chaque langue. Le tableau des téléchargements, les annonces de disponibilité, les encadrés et les liens doivent tous présenter la dernière version effectivement publiée par plateforme. Conserver les chiffres des notes de version datées dans l’historique.
 
+### Dossier unique des builds locaux sur le PC du mainteneur
+
+Déposer chaque livrable compilé localement sous `C:\msys64\home\jmsga\Novera\deliverables`, y compris si les sources se trouvent dans un autre worktree. Utiliser `NOVERA_BUILD_OUTPUT_DIR` dans le lanceur Windows et conserver un sous-dossier distinct par version, variante et build. Les dossiers de travail Cargo, Gradle et Vite restent des intermédiaires. Identifier le dernier livrable à partir de sa version, de son numéro de build, de son empreinte et de son reçu de validation.
+
 ### Vérifier le point de départ et les paquets livrés
 
 Le passage à la 1.0.2 a mobilisé plusieurs heures de compilation alors que le commit envoyé à GitHub ne contenait pas les commandes natives d’Auto Tune présentes dans la dernière Desktop validée en local.

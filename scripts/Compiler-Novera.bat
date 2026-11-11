@@ -23,8 +23,8 @@ set "NOVERA_BUILD_WEB=0"
 set "NOVERA_BUILD_CLI=0"
 
 rem Ce fichier fonctionne dans le dossier parent ou dans Novera\scripts.
-set "NOVERA_BUILD_REPO=%~dp0Novera"
-if exist "%~dp0..\src-tauri\Cargo.toml" set "NOVERA_BUILD_REPO=%~dp0.."
+if not defined NOVERA_BUILD_REPO if exist "%~dp0..\src-tauri\Cargo.toml" set "NOVERA_BUILD_REPO=%~dp0.."
+if not defined NOVERA_BUILD_REPO set "NOVERA_BUILD_REPO=%~dp0Novera"
 set "NOVERA_BUILD_ACTION=%~1"
 set "NOVERA_BUILD_OPTION=%~2"
 if not defined NOVERA_BUILD_ACTION set "NOVERA_BUILD_ACTION=desktop"
