@@ -4,7 +4,27 @@
 
 ## Contrôle complet à chaque mise à jour du dépôt
 
+### Respecter le périmètre autorisé
+
+Modifier uniquement les éléments explicitement autorisés par le mainteneur. Toute extension du périmètre, y compris une modification du code, de la configuration, des ressources ou du comportement d’un paquet déjà validé, demande son accord préalable. Pour une demande Android limitée au numéro de version, repartir du build validé et limiter le changement à l’identité de version autorisée. Si une autre modification est techniquement nécessaire, présenter le point précis au mainteneur avant de poursuivre. L’autorisation de vérifier une compilation ne vaut pas autorisation de remplacer le paquet public.
+
 Avant la publication, comparer les versions et compteurs affichés aux sources et aux paquets effectivement validés. Contrôler la section About, le README principal et toutes ses traductions, les sélecteurs de langue, les liens de téléchargement, la vitrine et les fichiers de suivi. Compter séparément les catalogues d’interface et les README publiés. Relire la page complète du dépôt dans chaque langue. Le tableau des téléchargements, les annonces de disponibilité, les encadrés et les liens doivent tous présenter la dernière version effectivement publiée par plateforme. Conserver les chiffres des notes de version datées dans l’historique.
+
+### Dossier unique des builds locaux sur le PC du mainteneur
+
+Déposer chaque livrable compilé localement sous `C:\msys64\home\jmsga\Novera\deliverables`, y compris si les sources se trouvent dans un autre worktree. Utiliser `NOVERA_BUILD_OUTPUT_DIR` dans le lanceur Windows et conserver un sous-dossier distinct par version, variante et build. Les dossiers de travail Cargo, Gradle et Vite restent des intermédiaires. Identifier le dernier livrable à partir de sa version, de son numéro de build, de son empreinte et de son reçu de validation. L’index `SUIVI_BUILDS_LOCAUX.md` indique les références utiles et leur état. Le reçu `BUILD-RECEIPT.json` du lanceur identifie le commit et indique si les sources comportaient des modifications locales avant compilation.
+
+### Vérifier le point de départ et les paquets livrés
+
+La version stable proposée sur le dépôt et la vitrine doit être la meilleure version validée pour chaque plateforme. Elle réunit les améliorations réussies des builds Test et des versions précédentes, ainsi que les correctifs vérifiés. Une nouvelle compilation devient la référence publique lorsque ces résultats sont confirmés dans le paquet livré.
+
+Le passage à la 1.0.2 a mobilisé plusieurs heures de compilation alors que le commit envoyé à GitHub ne contenait pas les commandes natives d’Auto Tune présentes dans la dernière Desktop validée en local.
+
+Pour chaque plateforme, la référence fonctionnelle peut être un livrable **Test** validé par le mainteneur. Relever le build exact, son SHA-256 et les fonctionnalités essayées. Une release publique plus récente doit conserver les fonctionnalités déjà validées dans ce build Test. Si elle en perd une, consigner une régression et retrouver le correctif à partir du Test. C’est ce qui s’est passé avec Auto Tune dans la 1.0.2. Si plusieurs builds validés couvrent des fonctions différentes, réunir leurs correctifs dans les sources du prochain candidat, puis vérifier ces fonctions dans le paquet exact qui sera publié.
+
+1. Avant de lancer les compilations, identifier le dernier build validé, son commit et les correctifs locaux qui y ont été intégrés. Rapprocher ces sources du commit exact à compiler sur GitHub et vérifier les fonctionnalités attendues par plateforme. Intégrer les correctifs absents avant de lancer les builds de distribution.
+2. Après compilation, vérifier les octets exacts de chaque paquet destiné à la publication. Relever sa version, son architecture, son SHA-256, son commit et le nombre de catalogues réellement embarqués. Sur les plateformes compatibles, lancer l’application du paquet, ouvrir Auto Tune et vérifier que l’interface répond à la calibration native. Sur Android, vérifier le clavier sur appareil et le compteur de mise à jour du nouvel APK. Pour la CLI, contrôler la version, le démarrage et les fonctions propres à la CLI.
+3. Dans le suivi de publication, consigner les résultats par plateforme avec les références des builds et des paquets. Les tests des sources, le succès de compilation et la vérification des signatures sont des contrôles distincts de l’essai des fonctionnalités. Attendre le résultat de ces essais pour annoncer la disponibilité et activer les canaux publics. Reporter explicitement toute plateforme exclue, dont iOS lorsqu’il doit attendre.
 
 Après publication, vérifier depuis un accès public la description du dépôt, les liens de la vitrine et des README, les paquets par plateforme et les manifests des canaux de mise à jour. Consigner les contrôles réussis et les plateformes encore en attente dans le [suivi de disponibilité](LAUNCH_STATUS.md).
 
