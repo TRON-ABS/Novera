@@ -1,3 +1,6 @@
+## Intel Mac 1.0.2
+
+The Intel build passed its CI build and tests. Its DMG and signed update archive are available under the canonical 1.0.2 macOS tag. Native installation and replacement passed for Windows ARM64, Linux x64 and Apple Silicon on the exact published update packages.
 ## Published 1.0.2 distributions
 
 The CLI for Windows x64, Linux x64 and Apple Silicon, the Windows ARM64 installer, the Linux AppImage and Debian packages, and the Apple Silicon DMG are public. The downloaded CI archives matched GitHub’s archive digests. The updater payloads were independently verified with the pinned Novera key. The showcase uses the verified public links and retains access to earlier packages while the remaining builds finish.
