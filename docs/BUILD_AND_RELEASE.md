@@ -12,6 +12,8 @@ Déposer chaque livrable compilé localement sous `C:\msys64\home\jmsga\Novera\d
 
 ### Vérifier le point de départ et les paquets livrés
 
+La version stable proposée sur le dépôt et la vitrine doit être la meilleure version validée pour chaque plateforme. Elle réunit les améliorations réussies des builds Test et des versions précédentes, ainsi que les correctifs vérifiés. Une nouvelle compilation devient la référence publique lorsque ces résultats sont confirmés dans le paquet livré.
+
 Le passage à la 1.0.2 a mobilisé plusieurs heures de compilation alors que le commit envoyé à GitHub ne contenait pas les commandes natives d’Auto Tune présentes dans la dernière Desktop validée en local.
 
 Pour chaque plateforme, la référence fonctionnelle peut être un livrable **Test** validé par le mainteneur. Relever le build exact, son SHA-256 et les fonctionnalités essayées. Une release publique plus récente doit conserver les fonctionnalités déjà validées dans ce build Test. Si elle en perd une, consigner une régression et retrouver le correctif à partir du Test. C’est ce qui s’est passé avec Auto Tune dans la 1.0.2. Si plusieurs builds validés couvrent des fonctions différentes, réunir leurs correctifs dans les sources du prochain candidat, puis vérifier ces fonctions dans le paquet exact qui sera publié.
