@@ -21,6 +21,35 @@ Data Adatvédelem és adatvédelem: [Helyi következtetés, opcionális telemetr
 
 ---
 
+<!-- novera-current-downloads:start -->
+
+## Rendelkezésre állás — Novera 1.0.2
+
+| Platform | Rendelkezésre állás |
+| --- | --- |
+| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2) |
+| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-arm64) |
+| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-linux-x64) |
+| Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-cli-novera) |
+| Windows x64 hordozható | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-portable) |
+| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos-arm64) |
+| Android ARM64 | [APK · 1000023](https://github.com/TRON-ABS/Novera/releases/download/v1.0.2-android-1000023/Novera_1.0.2_android-arm64.apk) · Android 7+ |
+| Web | [Novera Web 1.0.2](https://tron-abs.github.io/Novera/web/) |
+| iOS | Belső szimulátor build; Apple aláírása / ellátása szükséges az iPhone telepítése előtt. [Nyomon követés](docs/REPRISE_MACOS_IOS.md). |
+
+<!-- novera-current-downloads:end -->
+Mac rendszeren nyissa meg a DMG Kép és másolat Novera Ha az első indítás le van tiltva, engedélyezze a Novera és **Rendszerbeállítások → Adatvédelem és biztonság → Megnyitás mégis**. [Az Apple utasításai](https://support.apple.com/guide/mac-help/mh40616/mac).
+
+[Evidence and limitations](docs/LAUNCH_STATUS.md)
+
+On Android, a modern phone with enough memory is recommended for local models; use an API provider on less powerful devices. For web search, a context of at least **16K tokens (16,384)** is recommended, consistently across versions.
+
+**Windows x64 hordozható 1.0.2 Ingyenes WiFi áll rendelkezésre.** A beszélgetések, beállítások és letöltött modellek a hordozható mappában maradnak. `Data`Csomagolja ki a teljes archívumot, és indítsa el `Novera.exe`. Bezárás Novera A mappa áthelyezése vagy a meghajtó kiadása előtt USB tárolás. [Hordozható útmutató és korlátozások](docs/WINDOWS_PORTABLE.md).
+
+
+<details>
+<summary>Novera 1.0.1 · 2026-11-07</summary>
+
 <!-- novera-release-1.0.1:start -->
 <a id="version-1-0-1"></a>
 ## Novera 1.0.1
@@ -47,29 +76,11 @@ Novera 1.0.1 is available for the platforms listed below. Download the package f
 
 <!-- novera-release-1.0.1:end -->
 
-## Rendelkezésre állás — 2026-11-07
+For 1.0.1, LFM3-Omni-2B Q4_K_M with its required `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` is the default recommendation on desktop and mobile; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M remains a text-only alternative. Initial context is 32,768 tokens on desktop and 2,048 on mobile. Longer contexts use more memory. Existing model choices and settings are preserved until explicitly changed.
 
-**Novera 1.0.1 Ez a funkció elérhető a következőkhöz: Windows, Linux, macOS és Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Desktop csomagok, mindkettő CLI Az archívumok, aláírások és frissítési nyilatkozatok nyilvánosak és ellenőrzöttek.
+Karbantartási és adatvédelmi fejlesztések készülnek 1.0.1Az opcionális statisztikák és hibajelentések független, kifejezett beleegyezést és szűrt műszaki diagnosztikát használnak. A szükséges kiadási ellenőrzéseket és a fennmaradó biztonsági megállapításokat külön dokumentáljuk. [Karbantartási runbook](docs/MAINTENANCE.md)
 
-| Platform | Rendelkezésre állás |
-| --- | --- |
-| Windows x64 | Nyilvános NSIS Telepítő, aláírt frissítő; natív telepítés és csere ellenőrzött. |
-| Linux x64 | Nyilvános AppImage, aláírt frissítő; natív telepítés és csere ellenőrzött. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, dedikált aláírt frissítési csatornával. |
-| Windows ARM64 | [Nyilvános NSIS telepítő](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), natív CPU Szövegmotor; telepítés, csere és nyilvános csatorna ellenőrzése ellenőrzött. |
-| Android ARM64 | Android 1.0.1 Ez a könyv aláírt könyvként érhető el ARM64 APK, build 1000013. Használja a meglévő Novera Nem tartalmaz személyes beszélgetéseket, modelleket vagy egyéb személyes tartalmakat. API A telefonra történő telepítés és frissítés még tesztelés alatt áll. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
-| macOS Intel / Apple Silicon | [Hivatalos 1.0.1 DMG kiadás](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; NoveraNem Apple közjegyző; az automatizált ellenőrzések külön-külön haladtak mindkét architektúrán, a vizuális ellenőrzések elhalasztva. [Telepítés és bizonyíték](docs/RELEASE_1.0.1_2026-11-07.md). |
-| iOS | Belső szimulátor build; Apple aláírása / ellátása szükséges az iPhone telepítése előtt. [Nyomon követés](docs/REPRISE_MACOS_IOS.md). |
-| Windows x64 hordozható | [Aláírva ZIP Archívum](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); az adatok maradnak Data, aláírva Program A csere ellenőrzött. |
-| Web, MSI, Debian GNU/Linux | [Novera Web 1.0.2](https://tron-abs.github.io/Novera/web/). Az MSI- és Debian-csomagok belső használatban maradnak. |
-
-Mac rendszeren nyissa meg a DMG Kép és másolat Novera Ha az első indítás le van tiltva, engedélyezze a Novera és **Rendszerbeállítások → Adatvédelem és biztonság → Megnyitás mégis**. [Az Apple utasításai](https://support.apple.com/guide/mac-help/mh40616/mac).
-
-Updater signatures are separate from Windows Authenticode and Apple notarization. Package hashes, native checks and update tests are documented separately. A complete public 1.0.0 to 1.0.1 upgrade is confirmed only for the scenarios recorded in the release report. [Evidence and limitations](docs/LAUNCH_STATUS.md)
-
-On Android, a modern phone with enough memory is recommended for local models; use an API provider on less powerful devices. For web search, a context of at least **16K tokens (16,384)** is recommended, consistently across versions.
-
-**Windows x64 hordozható 1.0.0 Ingyenes WiFi áll rendelkezésre.** A beszélgetések, beállítások és letöltött modellek a hordozható mappában maradnak. `Data`Csomagolja ki a teljes archívumot, és indítsa el `Novera.exe`. Bezárás Novera A mappa áthelyezése vagy a meghajtó kiadása előtt USB tárolás. [Hordozható útmutató és korlátozások](docs/WINDOWS_PORTABLE.md).
+</details>
 
 <a id="one-dashboard-for-every-creation"></a>
 ## Egy irányítópult minden alkotáshoz
@@ -83,7 +94,6 @@ Novera Példáid és beállításaid segíthetnek más felhasználóknak megtal�
 **Összecsukható műszerfal: maximális munkaterület.** Hajtsa össze a beállításokat, hogy több helye legyen alkotásainak, a bemenet, a mikrofon és az elsődleges vezérlők pedig elérhetők maradnak. Kattintson a képernyőképre az eredeti, teljes felbontású kép megnyitásához PNG.
 
 [![Novera: összecsukható műszerfal a maximális munkaterület érdekében, hozzáférhető bemenettel és mikrofonnal](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
-
 
 Egy panel, öt mód: **Automatikus / szöveg / kép / zene / videó**A vezérlők követik a kiválasztott módot: arány, felbontás, időtartam, kadence, minőség, hangszeres, dalszöveg, mag és mennyiség.A panel szélessége és a gombok alkalmazkodnak az ablakhoz és a lefordított címkékhez.
 
@@ -109,11 +119,7 @@ Az automatizálás magában foglalja az integrált motorokat és munkafolyamatok
 
 [Felhasználói útmutató](docs/USER_GUIDE.md) · [Motorok és validálás](docs/SUIVI_MOTEURS.md) · [Fejlesztés](docs/DEVELOPMENT.md)
 
-For 1.0.1, LFM3-Omni-2B Q4_K_M with its required `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` is the default recommendation on desktop and mobile; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M remains a text-only alternative. Initial context is 32,768 tokens on desktop and 2,048 on mobile. Longer contexts use more memory. Existing model choices and settings are preserved until explicitly changed.
-
 ## Képességek a forrásban
-
-Karbantartási és adatvédelmi fejlesztések készülnek 1.0.1Az opcionális statisztikák és hibajelentések független, kifejezett beleegyezést és szűrt műszaki diagnosztikát használnak. A szükséges kiadási ellenőrzéseket és a fennmaradó biztonsági megállapításokat külön dokumentáljuk. [Karbantartási runbook](docs/MAINTENANCE.md)
 
 | Terület | Jellemzők |
 | --- | --- |
@@ -299,7 +305,7 @@ Ezek a hozzájárulásra és fejlesztésre vonatkozó iránymutatások, nem pedi
 
 ## A projekt állapota
 
-**Novera 1.0.1 Ez a funkció elérhető a következőkhöz: Windows, Linux, macOS és Android.** A képernyőkép egy Windows A forráskód módosításait, a célzott teszteket és a hardver érvényesítést külön dokumentáljuk; ez nem érvényesít minden modellt, platformot vagy felhőalapú fiókot.
+A képernyőkép egy Windows A forráskód módosításait, a célzott teszteket és a hardver érvényesítést külön dokumentáljuk; ez nem érvényesít minden modellt, platformot vagy felhőalapú fiókot.
 
 Kézikönyv GitHub Actions A buildek engedélyezve vannak mind a tizenegy disztribúciós változatban. Kövesse a [Build eredmények és ellenőrzött jelölt letöltések](docs/CI_DISTRIBUTIONS.md)A jelöltek különböznek az aláírt éles kiadásoktól. A terjesztés követelményeit a GNU General Public License (GPL) dokumentum írja le. [Hivatalos kiadási politika](OFFICIAL_RELEASES.md) és [A kiadványok oldala](https://github.com/TRON-ABS/Novera/releases)A nyilvános kiadásokhoz konfigurált és ellenőrzött frissítési mechanizmusra van szükség, melyet a fejlesztői környezetben kell beállítani. [Az asztali aláírás-ellenőrzések és a fennmaradó indítási követelmények dokumentálása](docs/LAUNCH_STATUS.md).
 

@@ -17,6 +17,37 @@
 
 ---
 
+<!-- novera-current-downloads:start -->
+
+## Disponibilitate — Novera 1.0.2
+
+| Platformă | Disponibilitate |
+| --- | --- |
+| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2) |
+| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-arm64) |
+| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-linux-x64) |
+| Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-cli-novera) |
+| Windows x64 portabil | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-portable) |
+| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos-arm64) |
+| Android ARM64 | [APK · 1000023](https://github.com/TRON-ABS/Novera/releases/download/v1.0.2-android-1000023/Novera_1.0.2_android-arm64.apk) · Android 7+ |
+| Web | [Novera Web 1.0.2](https://tron-abs.github.io/Novera/web/) |
+| iOS | Build intern de simulator; semnare/provisionare Apple este necesară înainte de instalarea pe iPhone. [Urmărire](docs/REPRISE_MACOS_IOS.md). |
+
+<!-- novera-current-downloads:end -->
+Pe Mac, deschideți DMG și copiați Novera în Aplicații. Dacă prima lansare este blocată, permiteți Novera în **Setări Sistem → Confidențialitate și Securitate → Deschide Oricum**. [Instrucțiuni Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
+
+[Dovezi și limitări](docs/LAUNCH_STATUS.md)
+
+Pe Android, se recomandă un telefon modern cu suficientă memorie pentru modele locale; folosiți un furnizor API pe dispozitive mai puțin puternice. Pentru căutare web, un context de cel puțin **token-uri 16K (16,384)** este recomandat, în mod consecvent pe toate versiunile.
+
+**1.0.2 portabil Windows x64 este disponibil.** Discuțiile, setările și modelele descărcate rămân în directorul portabil sub `Data`. Extrageți arhiva completă și începeți `Novera.exe`. Închideți Novera înainte de a muta directorul sau de a ejecta stocarea USB. [Ghid și limitări portabile](docs/WINDOWS_PORTABLE.md).
+
+<a id="one-dashboard-for-every-creation"></a>
+
+
+<details>
+<summary>Novera 1.0.1 · 2026-11-07</summary>
+
 <!-- novera-release-1.0.1:start -->
 <a id="version-1-0-1"></a>
 ## Novera 1.0.1
@@ -45,31 +76,11 @@ Novera 1.0.1 este disponibil pentru platformele enumerate mai jos. Descărcați 
 
 <!-- novera-release-1.0.1:end -->
 
-## Disponibilitate — 2026-11-07
+Pentru 1.0.1, LFM3-Omni-2B Q4_K_M cu `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` necesar este recomandarea prestabilită pe desktop și pe mobil; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M rămâne o alternativă doar text. Contextul inițial este 32,768 jetoane pe desktop și 2,048 pe mobil. Contextele mai lungi folosesc mai multă memorie. Opțiunile și setările de model existente sunt păstrate până când sunt modificate în mod explicit.
 
-**Novera 1.0.1 este disponibil pentru Windows, Linux, macOS și Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Pachetele desktop, atât arhivele CLI, cât și semnăturile și manifestele de actualizare sunt publice și verificate.
+Îmbunătățirile de întreținere și confidențialitate sunt pregătite pentru 1.0.1. Statisticile opționale și raportarea erorilor folosesc consimțământul independent, explicit și diagnostice tehnice filtrate. Verificările de eliberare necesare și constatările de securitate rămase sunt documentate separat. [cărțile de rulare de mentenanță](docs/MAINTENANCE.md)
 
-| Platformă | Disponibilitate |
-| --- | --- |
-| Windows x64 | Instalator public NSIS, actualizator semnat; instalarea și înlocuirea native verificate. |
-| Linux x64 | AppImage public, actualizator semnat; instalarea și înlocuirea native verificate. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, cu un canal de actualizare semnat dedicat. |
-| Windows ARM64 | [Instalator NSIS public](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), motor de text CPU nativ; instalarea, înlocuirea și verificările canalului public verificate. |
-| Android ARM64 | Android 1.0.1 este disponibil ca un APK ARM64 semnat, versiunea 1000013. Utilizează certificatul Novera existent și trece inspecția pachetului. Nu conține conversații personale, modele sau chei API. Instalarea și actualizarea pe un telefon rămân de testat. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
-| macOS Intel / Apple Silicon | [Lansare oficială 1.0.1 DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; actualizări semnate Novera. Nu notarizat de Apple; verificările automate au trecut separat pe ambele arhitecturi, verificările vizuale amânate. [Instalare și dovezi](docs/RELEASE_1.0.1_2026-11-07.md). |
-| iOS | Build intern de simulator; semnare/provisionare Apple este necesară înainte de instalarea pe iPhone. [Urmărire](docs/REPRISE_MACOS_IOS.md). |
-| Windows x64 portabil | [Arhivă ZIP semnată](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); datele rămân în Data, înlocuirea Program semnată verificată. |
-| Web, MSI, Debian | Client Web găzduit și alte formate rămân interne; site-ul de prezentare Pages este disponibil. |
-
-Pe Mac, deschideți DMG și copiați Novera în Aplicații. Dacă prima lansare este blocată, permiteți Novera în **Setări Sistem → Confidențialitate și Securitate → Deschide Oricum**. [Instrucțiuni Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
-
-Semnăturile de actualizare sunt separate de Windows Authenticode și notarizarea Apple. Hashe-urile pachetelor, verificările native și testele de actualizare sunt documentate separat. O actualizare publică completă de la 1.0.0 la 1.0.1 este confirmată numai pentru scenariile înregistrate în raportul de lansare. [Dovezi și limitări](docs/LAUNCH_STATUS.md)
-
-Pe Android, se recomandă un telefon modern cu suficientă memorie pentru modele locale; folosiți un furnizor API pe dispozitive mai puțin puternice. Pentru căutare web, un context de cel puțin **token-uri 16K (16,384)** este recomandat, în mod consecvent pe toate versiunile.
-
-**1.0.0 portabil Windows x64 este disponibil.** Discuțiile, setările și modelele descărcate rămân în directorul portabil sub `Data`. Extrageți arhiva completă și începeți `Novera.exe`. Închideți Novera înainte de a muta directorul sau de a ejecta stocarea USB. [Ghid și limitări portabile](docs/WINDOWS_PORTABLE.md).
-
-<a id="one-dashboard-for-every-creation"></a>
+</details>
 
 ## Un dashboard pentru fiecare creație
 
@@ -82,7 +93,6 @@ Novera crește cu tine. Exemplele și setările tale pot ajuta alți utilizatori
 Stare microfon: verde când este disponibil, roșu când este ocupat, gri când nu este disponibil. Recunoașterea, repornirea ascultării, manipularea focalizării și dictarea vizibilă au fost corectate. Modelul audio nativ de vorbire este implementat în prezent pe Windows; alte platforme mai au nevoie de validare nativă și suport vocal adecvat.
 
 [![Imagine generată de Novera și dashboard unificat cu cantitate, seed, upscaling și memorie automată](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
-
 
 Un panou, cinci moduri: **Auto / Text / Imagine / Muzică / Video**. Controlerele urmează modulul selectat: raport, rezoluție, durată, cadență, calitate, instrumental, versuri, semință și cantitate. Lățimea panoului și butoanele se adaptează ferestrei și etichetele sunt traduse.
 
@@ -109,11 +119,7 @@ Automatizarea acoperă motoare integrate și fluxuri de lucru; nu face ca fiecar
 
 [Ghid utilizator](docs/USER_GUIDE.md) · [Motoare și validare](docs/SUIVI_MOTEURS.md) · [Dezvoltare](docs/DEVELOPMENT.md)
 
-Pentru 1.0.1, LFM3-Omni-2B Q4_K_M cu `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` necesar este recomandarea prestabilită pe desktop și pe mobil; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M rămâne o alternativă doar text. Contextul inițial este 32,768 jetoane pe desktop și 2,048 pe mobil. Contextele mai lungi folosesc mai multă memorie. Opțiunile și setările de model existente sunt păstrate până când sunt modificate în mod explicit.
-
 ## Capabilități în sursă
-
-Îmbunătățirile de întreținere și confidențialitate sunt pregătite pentru 1.0.1. Statisticile opționale și raportarea erorilor folosesc consimțământul independent, explicit și diagnostice tehnice filtrate. Verificările de eliberare necesare și constatările de securitate rămase sunt documentate separat. [cărțile de rulare de mentenanță](docs/MAINTENANCE.md)
 
 | Domeniu | Funcționalități |
 | --- | --- |
@@ -302,7 +308,7 @@ Acestea sunt direcții de contribuție și dezvoltare, nu o afirmație că fieca
 
 ## Starea proiectului
 
-**Novera 1.0.1 este disponibil pentru Windows, Linux, macOS și Android.** Captura de ecran arată o aplicație Windows compilată local de deținătorul (maintainer). Schimbările sursă, testele țintite și validarea hardware sunt documentate separat; aceasta nu validează fiecare model, platformă sau cont cloud.
+Captura de ecran arată o aplicație Windows compilată local de deținătorul (maintainer). Schimbările sursă, testele țintite și validarea hardware sunt documentate separat; aceasta nu validează fiecare model, platformă sau cont cloud.
 
 Construirile manuale GitHub Actions sunt activate pentru toate cele unsprezece variante de distribuție. Urmăriți [rezultatele compilării și descărcările de candidați verificați](docs/CI_DISTRIBUTIONS.md); disponibilitatea este înregistrată separat pentru fiecare platformă. Candidații sunt distincti de lansările de producție semnate. Cerințele de distribuție sunt descrise în [politica oficială de lansare](OFFICIAL_RELEASES.md) și [pagina de lansări](https://github.com/TRON-ABS/Novera/releases). Candidații existenți dezactivați pentru actualizator rămân interni. Lansările publice necesită un mecanism de actualizare configurat și verificat; [verificările de semnătură desktop și cerințele de lansare rămase sunt documentate](docs/LAUNCH_STATUS.md).
 

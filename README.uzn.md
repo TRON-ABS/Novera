@@ -17,6 +17,37 @@
 
 ---
 
+<!-- novera-current-downloads:start -->
+
+## Mavjudligi — Novera 1.0.2
+
+| Platforma | Mavjudligi |
+| --- | --- |
+| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2) |
+| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-arm64) |
+| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-linux-x64) |
+| Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-cli-novera) |
+| Windows x64 portativ | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-portable) |
+| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos-arm64) |
+| Android ARM64 | [APK · 1000023](https://github.com/TRON-ABS/Novera/releases/download/v1.0.2-android-1000023/Novera_1.0.2_android-arm64.apk) · Android 7+ |
+| Web | [Novera Web 1.0.2](https://tron-abs.github.io/Novera/web/) |
+| iOS | Ichki simulyatorni qurish; iPhone-ni o'rnatishdan oldin Apple imzosi/ta'minoti talab qilinadi. [Kuzatuv](docs/REPRISE_MACOS_IOS.md). |
+
+<!-- novera-current-downloads:end -->
+Mac-da DMG-ni oching va Novera-ni Ilovalarga nusxalang. Agar birinchi ishga tushirish bloklangan bo'lsa, Novera dyuymga ruxsat bering **Tizim sozlamalari → Maxfiylik va xavfsizlik → Baribir ochish**. [Apple ko'rsatmalari](https://support.apple.com/guide/mac-help/mh40616/mac).
+
+[Dalillar va cheklovlar](docs/LAUNCH_STATUS.md)
+
+Android da mahalliy modellar uchun yetarli xotiraga ega zamonaviy telefon tavsiya etiladi; kamroq kuchli qurilmalarda API provayderidan foydalaning. Veb-qidiruv uchun kamida kontekst **16K token (16,384)** doimiy ravishda versiyalarda tavsiya etiladi.
+
+**Windows x64 portativ 1.0.2 mavjud.** Munozaralar, sozlamalar va yuklab olingan modellar ostidagi koʻchma papka ichida qoladi `Data`. To'liq arxivni chiqarib oling va boshlang `Novera.exe`. Jildni ko'chirish yoki USB xotirasini chiqarishdan oldin Novera raqamini yoping. [Portativ qo'llanma va cheklovlar](docs/WINDOWS_PORTABLE.md).
+
+<a id="one-dashboard-for-every-creation"></a>
+
+
+<details>
+<summary>Novera 1.0.1 · 2026-11-07</summary>
+
 <!-- novera-release-1.0.1:start -->
 <a id="version-1-0-1"></a>
 ## Novera 1.0.1
@@ -45,31 +76,11 @@ Novera 1.0.1 quyida keltirilgan platformalar uchun mavjud. Tizimingiz uchun pake
 
 <!-- novera-release-1.0.1:end -->
 
-## Mavjudligi — 2026-11-07
+1.0.1 uchun LFM3-Omni-2B Q4_K_M talab qilinadigan `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` bilan ish stoli va mobil qurilmalar uchun birlamchi tavsiya hisoblanadi; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M faqat matn uchun muqobilligicha qolmoqda. Dastlabki kontekst ish stolida 32,768 token va mobil qurilmada 2,048. Uzunroq kontekstlar ko'proq xotiradan foydalanadi. Mavjud model tanlovlari va sozlamalari aniq o'zgartirilguncha saqlanadi.
 
-**Novera 1.0.1 Windows, Linux, macOS va Android uchun mavjud.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Ish stoli paketlari, CLI arxivlari, imzolar va yangilanish manifestlari hammaga ochiq va tasdiqlangan.
+Xizmat va maxfiylik yaxshilanishi 1.0.1 uchun tayyorlandi. Ixtiyoriy statistika va xatolar haqida hisobot mustaqil, aniq rozilik va filtrlangan texnik diagnostikadan foydalanadi. Kerakli reliz tekshiruvlari va qolgan xavfsizlik xulosalari alohida hujjatlashtiriladi. [texnik xizmat ko'rsatish kitobi](docs/MAINTENANCE.md)
 
-| Platforma | Mavjudligi |
-| --- | --- |
-| Windows x64 | Ommaviy NSIS oʻrnatuvchi, imzolangan yangilovchi; mahalliy o'rnatish va almashtirish tasdiqlangan. |
-| Linux x64 | Ommaviy AppImage, imzolangan yangilovchi; mahalliy o'rnatish va almashtirish tasdiqlangan. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, maxsus imzolangan yangilash kanali bilan. |
-| Windows ARM64 | [Ommaviy NSIS oʻrnatuvchisi](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), mahalliy CPU matnli dvigatel; o'rnatish, almashtirish va ommaviy kanal tekshiruvlari tasdiqlangan. |
-| Android ARM64 | Android 1.0.1 imzolangan ARM64 APK, 1000013 versiyasi sifatida mavjud. U mavjud Novera sertifikatidan foydalanadi va paket tekshiruvidan o‘tadi. Unda shaxsiy suhbatlar, modellar yoki API kalitlari mavjud emas. Telefonda o'rnatish va yangilash sinovdan o'tishi kerak. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
-| macOS Intel / Apple Silicon | [Rasmiy 1.0.1 DMG chiqarish](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera imzolangan yangilanishlar. Apple notarial tasdiqlanmagan; avtomatlashtirilgan tekshiruvlar ikkala arxitekturada alohida o'tkazildi, vizual tekshiruvlar kechiktirildi. [O'rnatish va dalillar](docs/RELEASE_1.0.1_2026-11-07.md). |
-| iOS | Ichki simulyatorni qurish; iPhone-ni o'rnatishdan oldin Apple imzosi/ta'minoti talab qilinadi. [Kuzatuv](docs/REPRISE_MACOS_IOS.md). |
-| Windows x64 portativ | [Imzolangan ZIP arxiv](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); ma'lumotlar Data da qoladi, imzolangan Program almashtirish tekshiriladi. |
-| Web, MSI, Debian | Xost veb-mijoz va boshqa formatlar ichki qoladi; Pages taqdimot sayti mavjud. |
-
-Mac-da DMG-ni oching va Novera-ni Ilovalarga nusxalang. Agar birinchi ishga tushirish bloklangan bo'lsa, Novera dyuymga ruxsat bering **Tizim sozlamalari → Maxfiylik va xavfsizlik → Baribir ochish**. [Apple ko'rsatmalari](https://support.apple.com/guide/mac-help/mh40616/mac).
-
-Yangilovchi imzolari Windows Authenticode va Apple notarial tasdiqlashdan alohida. Paket xeshlari, mahalliy tekshiruvlar va yangilanish testlari alohida hujjatlashtirilgan. Toʻliq ommaviy 1.0.0 dan 1.0.1 ga yangilash faqat relizlar hisobotida qayd etilgan stsenariylar uchun tasdiqlangan. [Dalillar va cheklovlar](docs/LAUNCH_STATUS.md)
-
-Android da mahalliy modellar uchun yetarli xotiraga ega zamonaviy telefon tavsiya etiladi; kamroq kuchli qurilmalarda API provayderidan foydalaning. Veb-qidiruv uchun kamida kontekst **16K token (16,384)** doimiy ravishda versiyalarda tavsiya etiladi.
-
-**Windows x64 portativ 1.0.0 mavjud.** Munozaralar, sozlamalar va yuklab olingan modellar ostidagi koʻchma papka ichida qoladi `Data`. To'liq arxivni chiqarib oling va boshlang `Novera.exe`. Jildni ko'chirish yoki USB xotirasini chiqarishdan oldin Novera raqamini yoping. [Portativ qo'llanma va cheklovlar](docs/WINDOWS_PORTABLE.md).
-
-<a id="one-dashboard-for-every-creation"></a>
+</details>
 
 ## Har bir ijod uchun bitta boshqaruv paneli
 
@@ -82,7 +93,6 @@ Novera siz bilan birga o'sadi. Sizning misollaringiz va sozlamalaringiz boshqa f
 Mikrofon holati: mavjud boʻlganda yashil rang, band boʻlganda qizil, mavjud boʻlmaganda kulrang. Tanib olish, tinglashni qayta ishga tushirish, fokusni boshqarish va ko‘rinadigan diktant tuzatildi. Mahalliy audio-model nutqi hozirda Windows da joriy qilingan; boshqa platformalar hali ham mahalliy tasdiqlash va mos ovozli yordamga muhtoj.
 
 [![Novera hosil qilingan tasvir va miqdori, urugʻi, oʻlchamini oshirish va avtomatik xotira bilan birlashtirilgan boshqaruv paneli](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
-
 
 Bitta panel, besh rejim: **Avtomatik / Matn / Rasm / Musiqa / Video**. Boshqaruv elementlari tanlangan rejimga amal qiladi: nisbat, ruxsat, davomiylik, kadans, sifat, instrumental, qo'shiq matni, urug' va miqdor. Panelning kengligi va tugmalari oynaga va tarjima qilingan teglarga moslashadi.
 
@@ -109,11 +119,7 @@ Avtomatlashtirish birlashtirilgan dvigatellar va ish jarayonlarini qamrab oladi;
 
 [Foydalanuvchi qoʻllanmasi](docs/USER_GUIDE.md) · [Dvigatellar va tekshirish](docs/SUIVI_MOTEURS.md) · [Rivojlanish](docs/DEVELOPMENT.md)
 
-1.0.1 uchun LFM3-Omni-2B Q4_K_M talab qilinadigan `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` bilan ish stoli va mobil qurilmalar uchun birlamchi tavsiya hisoblanadi; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M faqat matn uchun muqobilligicha qolmoqda. Dastlabki kontekst ish stolida 32,768 token va mobil qurilmada 2,048. Uzunroq kontekstlar ko'proq xotiradan foydalanadi. Mavjud model tanlovlari va sozlamalari aniq o'zgartirilguncha saqlanadi.
-
 ## Manbadagi imkoniyatlar
-
-Xizmat va maxfiylik yaxshilanishi 1.0.1 uchun tayyorlandi. Ixtiyoriy statistika va xatolar haqida hisobot mustaqil, aniq rozilik va filtrlangan texnik diagnostikadan foydalanadi. Kerakli reliz tekshiruvlari va qolgan xavfsizlik xulosalari alohida hujjatlashtiriladi. [texnik xizmat ko'rsatish kitobi](docs/MAINTENANCE.md)
 
 | Hudud | Xususiyatlari |
 | --- | --- |
@@ -302,7 +308,7 @@ Bular hissa qo'shish va rivojlanish uchun yo'nalishlar, har bir sektorga xos ilo
 
 ## Loyiha holati
 
-**Novera 1.0.1 Windows, Linux, macOS va Android uchun mavjud.** Skrinshotda texnik xizmat ko'rsatuvchi tomonidan mahalliy ravishda tuzilgan Windows ilovasi ko'rsatilgan. Manba o'zgarishlari, maqsadli testlar va apparat tekshiruvi alohida hujjatlashtiriladi; bu har bir model, platforma yoki bulut hisobini tasdiqlamaydi.
+Skrinshotda texnik xizmat ko'rsatuvchi tomonidan mahalliy ravishda tuzilgan Windows ilovasi ko'rsatilgan. Manba o'zgarishlari, maqsadli testlar va apparat tekshiruvi alohida hujjatlashtiriladi; bu har bir model, platforma yoki bulut hisobini tasdiqlamaydi.
 
 GitHub Actions qo'llanmasi barcha o'n bitta tarqatish varianti uchun yoqilgan. ga rioya qiling [natijalar va tasdiqlangan nomzodlarni yuklab olish](docs/CI_DISTRIBUTIONS.md); mavjudligi har bir platforma uchun alohida qayd etiladi. Nomzodlar imzolangan ishlab chiqarish nashrlaridan farq qiladi. Tarqatish talablari maqolada tasvirlangan [rasmiy nashr siyosati](OFFICIAL_RELEASES.md) va [nashrlar sahifasi](https://github.com/TRON-ABS/Novera/releases). Mavjud yangilovchi o'chirilgan nomzodlar ichki bo'lib qoladi. Ommaviy relizlar sozlangan va tasdiqlangan yangilash mexanizmini talab qiladi; [ish stoli imzo tekshiruvlari va qolgan ishga tushirish talablari hujjatlashtirilgan](docs/LAUNCH_STATUS.md).
 

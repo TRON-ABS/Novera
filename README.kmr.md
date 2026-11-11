@@ -17,6 +17,37 @@
 
 ---
 
+<!-- novera-current-downloads:start -->
+
+## Hebûn — Novera 1.0.2
+
+| Platform | Hebûn |
+| --- | --- |
+| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2) |
+| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-arm64) |
+| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-linux-x64) |
+| Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-cli-novera) |
+| Windows x64 portable | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-portable) |
+| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos-arm64) |
+| Android ARM64 | [APK · 1000023](https://github.com/TRON-ABS/Novera/releases/download/v1.0.2-android-1000023/Novera_1.0.2_android-arm64.apk) · Android 7+ |
+| Web | [Novera Web 1.0.2](https://tron-abs.github.io/Novera/web/) |
+| iOS | Avakirina simulatora navxweyî; Berî sazkirina iPhone-ê îmzekirin / dabînkirina Apple hewce ye. [Şopandin](docs/REPRISE_MACOS_IOS.md). |
+
+<!-- novera-current-downloads:end -->
+Li Mac-ê, DMG vekin û Novera li Serlêdan kopî bikin. Ger destpêkirina yekem hate asteng kirin, destûr bidin Novera tê de **Mîhengên Pergalê → Nepenî û Ewlekarî → Bi her awayî vekin**. [talîmatên Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
+
+[Delîl û sînorkirin](docs/LAUNCH_STATUS.md)
+
+Li ser Android, têlefonek nûjen bi têra bîranîna ji bo modelên herêmî tê pêşniyar kirin; li ser cîhazên kêmtir hêzdar pêşkêşkerek API bikar bînin. Ji bo lêgerîna malperê, çarçoveyek herî kêm **Nîşaneyên 16K (16,384)** tê pêşniyar kirin, bi domdarî li seranserê guhertoyan.
+
+**Windows x64 portable 1.0.2 heye.** Nîqaş, mîheng û modelên dakêşandî di binê peldanka portable de dimînin `Data`. Arşîva tevahî derxînin û dest pê bikin `Novera.exe`. Berî ku peldankê biguhezînin an hilanînê USB derxin Novera bigrin. [Rêber û sînorkirinên portable](docs/WINDOWS_PORTABLE.md).
+
+<a id="one-dashboard-for-every-creation"></a>
+
+
+<details>
+<summary>Novera 1.0.1 · 2026-11-07</summary>
+
 <!-- novera-release-1.0.1:start -->
 <a id="version-1-0-1"></a>
 ## Novera 1.0.1
@@ -45,31 +76,11 @@ Novera 1.0.1 ji bo platformên li jêr hatine rêz kirin heye. Ji bo pergala xwe
 
 <!-- novera-release-1.0.1:end -->
 
-## Hebûn — 2026-11-07
+Ji bo 1.0.1, LFM3-Omni-2B Q4_K_M bi hewcedariya xwe `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` li ser sermaseyê û mobîl pêşniyara xwerû ye; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M alternatîfek tenê nivîsê dimîne. Çarçoveya destpêkê li ser sermaseyê 32,768 nîşanekan e û li ser mobîl 2,048 e. Têkiliyên dirêjtir bêtir bîranîn bikar tînin. Vebijarkên modela heyî û mîhengên heyî têne parastin heya ku bi eşkereyî werin guhertin.
 
-**Novera 1.0.1 ji bo Windows, Linux, macOS û Android heye.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Pakêtên sermaseyê, hem arşîvên CLI, hem îmze û hem jî diyardeyên nûvekirinê gelemperî û verastkirî ne.
+Pêşketinên nepenîtiyê û nepenîtiyê ji bo 1.0.1 têne amadekirin. Statîstîkên vebijarkî û raporkirina xeletiyê razîbûna serbixwe, eşkere û tespîtkirina teknîkî ya fîlterkirî bikar tînin. Kontrolên serbestberdana pêwîst û dîtinên ewlehiyê yên mayî ji hev cuda têne belge kirin. [runbook maintenance](docs/MAINTENANCE.md)
 
-| Platform | Hebûn |
-| --- | --- |
-| Windows x64 | Sazkerê Giştî yê NSIS, nûvekerê îmzekirî; sazkirin û veguheztina xwecî verast kirin. |
-| Linux x64 | AppImage giştî, nûvekerê îmzekirî; sazkirin û veguheztina xwecî verast kirin. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, bi kanalek nûvekirina îmzekirî ya diyarkirî. |
-| Windows ARM64 | [Sazkerê Giştî yê NSIS](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), motora nivîsê ya xwecî CPU; sazkirin, veguheztin û kontrolên kanala gelemperî hatine verast kirin. |
-| Android ARM64 | Android 1.0.1 wekî ARM64 APK-ya îmzekirî heye, avahî 1000013. Ew sertîfîkaya heyî ya Novera bikar tîne û kontrolkirina pakêtê derbas dike. Ew ti danûstendinên kesane, model an bişkojkên API-ê dihewîne. Sazkirin û nûvekirina li ser têlefonê dimîne ku were ceribandin. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
-| macOS Intel / Apple Silicon | [Serbestberdana 1.0.1 DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera nûvekirinên îmzekirî. Apple noterized; kontrolên otomatîkî li ser her du mîmarî ji hev cuda derbas bûn, kontrolên dîtbar hatin paşxistin. [Sazkirin û delîl](docs/RELEASE_1.0.1_2026-11-07.md). |
-| iOS | Avakirina simulatora navxweyî; Berî sazkirina iPhone-ê îmzekirin / dabînkirina Apple hewce ye. [Şopandin](docs/REPRISE_MACOS_IOS.md). |
-| Windows x64 portable | [Arşîva ZIP îmzekirî](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); Daneyên di Data de dimîne, veguhertina Program hatî îmzekirin verast kirin. |
-| Web, MSI, Debian | Muwekîlê Malpera Mêvandar û formên din hundurîn dimînin; Malpera pêşkêşkirina Pages heye. |
-
-Li Mac-ê, DMG vekin û Novera li Serlêdan kopî bikin. Ger destpêkirina yekem hate asteng kirin, destûr bidin Novera tê de **Mîhengên Pergalê → Nepenî û Ewlekarî → Bi her awayî vekin**. [talîmatên Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
-
-Îmzeyên nûveker ji noterkirina Windows Authenticode û Apple-ê veqetandî ne. Haşeyên pakêtê, kontrolên xwemalî û ceribandinên nûvekirinê ji hev cihê têne belge kirin. Nûvekirinek giştî ya tevahî 1.0.0 ji bo 1.0.1 tenê ji bo senaryoyên ku di rapora berdanê de hatine tomar kirin tê pejirandin. [Delîl û sînorkirin](docs/LAUNCH_STATUS.md)
-
-Li ser Android, têlefonek nûjen bi têra bîranîna ji bo modelên herêmî tê pêşniyar kirin; li ser cîhazên kêmtir hêzdar pêşkêşkerek API bikar bînin. Ji bo lêgerîna malperê, çarçoveyek herî kêm **Nîşaneyên 16K (16,384)** tê pêşniyar kirin, bi domdarî li seranserê guhertoyan.
-
-**Windows x64 portable 1.0.0 heye.** Nîqaş, mîheng û modelên dakêşandî di binê peldanka portable de dimînin `Data`. Arşîva tevahî derxînin û dest pê bikin `Novera.exe`. Berî ku peldankê biguhezînin an hilanînê USB derxin Novera bigrin. [Rêber û sînorkirinên portable](docs/WINDOWS_PORTABLE.md).
-
-<a id="one-dashboard-for-every-creation"></a>
+</details>
 
 ## Ji bo her afirandinê yek dashboard
 
@@ -82,7 +93,6 @@ Novera bi we re mezin dibe. Nimûne û mîhengên we dikarin ji bikarhênerên d
 Rewşa mîkrofonê: kesk dema peyda dibe, sor dema mijûl e, gewr dema peyda nabe. Naskirin, ji nû ve destpêkirina guhdarîkirinê, destwerdana baldarî û dîktatoriya xuyayî hatine rast kirin. Axaftina modêla dengî ya xwemalî niha li ser Windows tê pêkanîn; platformên din hîn jî hewceyê pejirandina xwemalî û piştgiriya dengê minasib in.
 
 [![Novera wêne û tabloya yekgirtî bi mîqdar, tov, bilindkirin û bîranîna otomatîkî çêkir.](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
-
 
 Yek panel, pênc mod: **Auto / Nivîs / Wêne / Muzîk / Vîdyo**. Kontrol moda hilbijartî dişopînin: rêje, çareserî, demdirêjî, kadence, kalîte, amûr, gotin, tov û hejmar. Berfirehiya panelê û bişkokên xwe bi pencereyê û etîketên werger re diguncînin.
 
@@ -109,11 +119,7 @@ Otomasyon motor û karûbarên yekbûyî vedigire; ew her modela Hub-ê pêkan n
 
 [Rêbernameya bikarhêner](docs/USER_GUIDE.md) · [Motor û erêkirin](docs/SUIVI_MOTEURS.md) · [Pêşveçûn](docs/DEVELOPMENT.md)
 
-Ji bo 1.0.1, LFM3-Omni-2B Q4_K_M bi hewcedariya xwe `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` li ser sermaseyê û mobîl pêşniyara xwerû ye; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M alternatîfek tenê nivîsê dimîne. Çarçoveya destpêkê li ser sermaseyê 32,768 nîşanekan e û li ser mobîl 2,048 e. Têkiliyên dirêjtir bêtir bîranîn bikar tînin. Vebijarkên modela heyî û mîhengên heyî têne parastin heya ku bi eşkereyî werin guhertin.
-
 ## Kapasîteyên di çavkaniyê de
-
-Pêşketinên nepenîtiyê û nepenîtiyê ji bo 1.0.1 têne amadekirin. Statîstîkên vebijarkî û raporkirina xeletiyê razîbûna serbixwe, eşkere û tespîtkirina teknîkî ya fîlterkirî bikar tînin. Kontrolên serbestberdana pêwîst û dîtinên ewlehiyê yên mayî ji hev cuda têne belge kirin. [runbook maintenance](docs/MAINTENANCE.md)
 
 | Herêm | Taybetmendî |
 | --- | --- |
@@ -302,7 +308,7 @@ Ev rêwerzên tevkarî û pêşkeftinê ne, ne îdîayek ku her serîlêdana sek
 
 ## Rewşa projeyê
 
-**Novera 1.0.1 ji bo Windows, Linux, macOS û Android heye.** Dîmenê serîlêdanek Windows nîşan dide ku li herêmê ji hêla parêzger ve hatî berhev kirin. Guhertinên çavkaniyê, ceribandinên armanckirî û pejirandina hardware ji hev cihê têne belge kirin; ev her model, platform an hesabê cloudê rast nake.
+Dîmenê serîlêdanek Windows nîşan dide ku li herêmê ji hêla parêzger ve hatî berhev kirin. Guhertinên çavkaniyê, ceribandinên armanckirî û pejirandina hardware ji hev cihê têne belge kirin; ev her model, platform an hesabê cloudê rast nake.
 
 Avakirinên manual GitHub Actions ji bo hemî yanzdeh guhertoyên belavkirinê têne çalak kirin. Bişopînin [encam ava bikin û dakêşanên berendamê verast kirin](docs/CI_DISTRIBUTIONS.md); hebûna ji bo her platformê ji hev cuda tê tomar kirin. Namzetên ji weşanên hilberîna îmzekirî cuda ne. Pêdiviyên belavkirinê di nav de têne diyar kirin [polîtîkaya serbestberdana fermî](OFFICIAL_RELEASES.md) û [rûpela weşanên](https://github.com/TRON-ABS/Novera/releases). Namzetên heyî yên neçalak nûveker navxweyî dimînin. Weşanên gelemperî mekanîzmayek nûvekirina mîhengkirî û verastkirî hewce dike; [Kontrolên îmzeya sermaseyê û pêdiviyên destpêkirinê yên mayî têne belge kirin](docs/LAUNCH_STATUS.md).
 

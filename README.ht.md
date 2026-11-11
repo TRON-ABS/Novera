@@ -19,6 +19,37 @@ Data ak enfòmasyon prive: [enferans lokal, telemetri si ou vle, rapò erè ak k
 
 ---
 
+<!-- novera-current-downloads:start -->
+
+## Disponibilite — Novera 1.0.2
+
+| Platfòm | Disponibilite |
+| --- | --- |
+| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2) |
+| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-arm64) |
+| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-linux-x64) |
+| Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-cli-novera) |
+| Windows x64 pòtab | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-portable) |
+| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos-arm64) |
+| Android ARM64 | [APK · 1000023](https://github.com/TRON-ABS/Novera/releases/download/v1.0.2-android-1000023/Novera_1.0.2_android-arm64.apk) · Android 7+ |
+| Web | [Novera Web 1.0.2](https://tron-abs.github.io/Novera/web/) |
+| iOS | Konstriksyon entèn similatè; Apple siyen / pwovizyon obligatwa anvan enstalasyon iPhone. [Swiv](docs/REPRISE_MACOS_IOS.md). |
+
+<!-- novera-current-downloads:end -->
+Sou Mac, louvri DMG epi kopye Novera nan Aplikasyon yo. Si premye lansman an bloke, pèmèt Novera antre **Anviwònman Sistèm → Konfidansyalite & Sekirite → Louvri Kanmèm**. [Apple enstriksyon yo](https://support.apple.com/guide/mac-help/mh40616/mac).
+
+[Prèv ak limit](docs/LAUNCH_STATUS.md)
+
+Sou Android, yon telefòn modèn ak ase memwa rekòmande pou modèl lokal yo; sèvi ak yon founisè API sou aparèy mwens pwisan. Pou rechèch entènèt, yon kontèks nan omwen **16K marqueur (16,384)** rekòmande, toujou nan tout vèsyon yo.
+
+**Windows x64 pòtab 1.0.2 disponib.** Diskisyon, paramèt ak modèl telechaje rete andedan katab pòtab anba a `Data`. Ekstrè achiv konplè a epi kòmanse `Novera.exe`. Fèmen Novera anvan ou deplase katab la oswa voye depo USB. [Gid pòtab ak limit](docs/WINDOWS_PORTABLE.md).
+
+<a id="one-dashboard-for-every-creation"></a>
+
+
+<details>
+<summary>Novera 1.0.1 · 2026-11-07</summary>
+
 <!-- novera-release-1.0.1:start -->
 <a id="version-1-0-1"></a>
 ## Novera 1.0.1
@@ -47,31 +78,11 @@ Novera 1.0.1 disponib pou platfòm ki nan lis anba a. Telechaje pake a pou sist�
 
 <!-- novera-release-1.0.1:end -->
 
-## Disponibilite — 2026-11-07
+Pou 1.0.1, LFM3-Omni-2B Q4_K_M ak `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` obligatwa li yo se rekòmandasyon default sou Desktop ak mobil; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M rete yon altènatif pou tèks sèlman. Premye kontèks se 32,768 siy sou Desktop ak 2,048 sou mobil. Kontèks ki pi long yo itilize plis memwa. Chwa ak paramèt modèl ki egziste deja yo konsève jiskaske yo chanje klèman.
 
-**Novera 1.0.1 disponib pou Windows, Linux, macOS ak Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Pake Desktop yo, tou de CLI achiv yo, siyati yo ak aktyalizasyon manifest yo piblik epi yo verifye.
+Antretyen ak amelyorasyon vi prive yo prepare pou 1.0.1. Estatistik si ou vle ak rapò erè itilize endepandan, konsantman eksplisit ak filtre dyagnostik teknik. Tèks lage obligatwa yo ak rezilta sekirite ki rete yo dokimante separeman. [antretyen runbook](docs/MAINTENANCE.md)
 
-| Platfòm | Disponibilite |
-| --- | --- |
-| Windows x64 | Enstalatè piblik NSIS, siyen aktyalizasyon; enstalasyon natif natal ak ranplasman verifye. |
-| Linux x64 | Piblik AppImage, siyen aktyalizasyon; enstalasyon natif natal ak ranplasman verifye. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, ak yon chanèl aktyalizasyon dedye siyen. |
-| Windows ARM64 | [Enstalatè piblik NSIS](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), natif natal CPU motè tèks; enstalasyon, ranplasman ak chèk piblik-chanèl verifye. |
-| Android ARM64 | Android 1.0.1 disponib kòm yon APK ARM64 ki siyen, konstwi 1000013. Li sèvi ak sètifika Novera ki egziste deja epi li pase enspeksyon pake a. Li pa gen okenn konvèsasyon pèsonèl, modèl oswa kle API. Enstalasyon ak mete ajou sou yon telefòn rete yo dwe teste. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
-| macOS Intel / Apple Silicon | [Divilgasyon ofisyèl 1.0.1 DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera-siyen mizajou. Pa Apple notarye; chèk otomatik pase separeman sou tou de achitekti, chèk vizyèl difere. [Enstalasyon ak prèv](docs/RELEASE_1.0.1_2026-11-07.md). |
-| iOS | Konstriksyon entèn similatè; Apple siyen / pwovizyon obligatwa anvan enstalasyon iPhone. [Swiv](docs/REPRISE_MACOS_IOS.md). |
-| Windows x64 pòtab | [Siyen achiv ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); done yo rete nan Data, siyen Program ranplasman verifye. |
-| Web, MSI, Debian | Kliyan Entènèt ak lòt fòma rete entèn; Pages sit prezantasyon disponib. |
-
-Sou Mac, louvri DMG epi kopye Novera nan Aplikasyon yo. Si premye lansman an bloke, pèmèt Novera antre **Anviwònman Sistèm → Konfidansyalite & Sekirite → Louvri Kanmèm**. [Apple enstriksyon yo](https://support.apple.com/guide/mac-help/mh40616/mac).
-
-Siyati Updater yo separe de Windows Authenticode ak notarizasyon Apple. Pake hash, chèk natif natal ak tès aktyalizasyon yo dokimante separeman. Yon ajou piblik konplè 1.0.0 a 1.0.1 konfime sèlman pou senaryo ki anrejistre nan rapò lage a. [Prèv ak limit](docs/LAUNCH_STATUS.md)
-
-Sou Android, yon telefòn modèn ak ase memwa rekòmande pou modèl lokal yo; sèvi ak yon founisè API sou aparèy mwens pwisan. Pou rechèch entènèt, yon kontèks nan omwen **16K marqueur (16,384)** rekòmande, toujou nan tout vèsyon yo.
-
-**Windows x64 pòtab 1.0.0 disponib.** Diskisyon, paramèt ak modèl telechaje rete andedan katab pòtab anba a `Data`. Ekstrè achiv konplè a epi kòmanse `Novera.exe`. Fèmen Novera anvan ou deplase katab la oswa voye depo USB. [Gid pòtab ak limit](docs/WINDOWS_PORTABLE.md).
-
-<a id="one-dashboard-for-every-creation"></a>
+</details>
 
 ## Yon tablodbò pou chak kreyasyon
 
@@ -84,7 +95,6 @@ Novera grandi avèk ou. Egzanp ou yo ak anviwònman yo ka ede lòt itilizatè yo
 Estati mikwofòn: vèt lè li disponib, wouj pandan w okipe, gri lè pa disponib. Rekonesans, rekòmanse koute, manyen konsantre ak dikte vizib yo te korije. Modèl lapawòl natif natal yo aplike kounye a sou Windows; lòt platfòm toujou bezwen validation natif natal ak sipò vwa apwopriye.
 
 [![Novera jenere imaj ak tablodbò inifye ak kantite, grenn, amelyorasyon ak memwa otomatik](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
-
 
 Yon panèl, senk mòd: **Oto / Tèks / Imaj / Mizik / Videyo**. Kontwòl yo swiv mòd chwazi a: rapò, rezolisyon, dire, kadans, bon jan kalite, enstrimantal, lyrics, grenn ak kantite. Lajè panèl ak bouton adapte yo ak fenèt la ak etikèt tradui.
 
@@ -111,11 +121,7 @@ Otomatik kouvri motè entegre ak workflows; li pa fè chak modèl Hub ègzekutab
 
 [Gid itilizatè](docs/USER_GUIDE.md) · [Motè ak validation](docs/SUIVI_MOTEURS.md) · [Devlopman](docs/DEVELOPMENT.md)
 
-Pou 1.0.1, LFM3-Omni-2B Q4_K_M ak `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` obligatwa li yo se rekòmandasyon default sou Desktop ak mobil; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M rete yon altènatif pou tèks sèlman. Premye kontèks se 32,768 siy sou Desktop ak 2,048 sou mobil. Kontèks ki pi long yo itilize plis memwa. Chwa ak paramèt modèl ki egziste deja yo konsève jiskaske yo chanje klèman.
-
 ## Kapasite nan sous la
-
-Antretyen ak amelyorasyon vi prive yo prepare pou 1.0.1. Estatistik si ou vle ak rapò erè itilize endepandan, konsantman eksplisit ak filtre dyagnostik teknik. Tèks lage obligatwa yo ak rezilta sekirite ki rete yo dokimante separeman. [antretyen runbook](docs/MAINTENANCE.md)
 
 | Zòn | Karakteristik |
 | --- | --- |
@@ -306,7 +312,7 @@ Sa yo se direksyon pou kontribisyon ak devlopman, se pa yon reklamasyon ke chak 
 
 ## Sitiyasyon pwojè a
 
-**Novera 1.0.1 disponib pou Windows, Linux, macOS ak Android.** Ekran an montre yon aplikasyon Windows konpile lokalman pa moun k ap okipe yo. Chanjman sous, tès vize ak validation pyès ki nan konpitè yo dokimante separeman; sa a pa valide chak modèl, platfòm oswa kont nwaj.
+Ekran an montre yon aplikasyon Windows konpile lokalman pa moun k ap okipe yo. Chanjman sous, tès vize ak validation pyès ki nan konpitè yo dokimante separeman; sa a pa valide chak modèl, platfòm oswa kont nwaj.
 
 Manyèl GitHub Actions bati yo aktive pou tout onz varyant distribisyon. Swiv la [bati rezilta ak verifye telechajman kandida yo](docs/CI_DISTRIBUTIONS.md); disponiblite anrejistre separeman pou chak platfòm. Kandida yo diferan de degaje pwodiksyon ki siyen. Kondisyon distribisyon yo dekri nan la [politik piblikasyon ofisyèl yo](OFFICIAL_RELEASES.md) ak [degaje paj](https://github.com/TRON-ABS/Novera/releases). Kandida ki egziste deja yo ki andikape yo rete entèn. Divilgasyon piblik mande pou yon mekanis aktyalizasyon configuré ak verifye; [chèk siyati Desktop yo ak rès kondisyon lansman yo dokimante](docs/LAUNCH_STATUS.md).
 

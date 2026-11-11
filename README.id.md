@@ -17,6 +17,37 @@
 
 ---
 
+<!-- novera-current-downloads:start -->
+
+## Ketersediaan — Novera 1.0.2
+
+| Peron | Ketersediaan |
+| --- | --- |
+| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2) |
+| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-arm64) |
+| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-linux-x64) |
+| Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-cli-novera) |
+| Windows x64 portabel | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-portable) |
+| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos-arm64) |
+| Android ARM64 | [APK · 1000023](https://github.com/TRON-ABS/Novera/releases/download/v1.0.2-android-1000023/Novera_1.0.2_android-arm64.apk) · Android 7+ |
+| Web | [Novera Web 1.0.2](https://tron-abs.github.io/Novera/web/) |
+| iOS | Pembuatan simulator internal; Penandatanganan/penyediaan Apple diperlukan sebelum instalasi iPhone. [Tindak lanjut](docs/REPRISE_MACOS_IOS.md). |
+
+<!-- novera-current-downloads:end -->
+Di Mac, buka DMG dan salin Novera ke dalam Aplikasi. Jika peluncuran pertama diblokir, izinkan Novera masuk **Pengaturan Sistem → Privasi & Keamanan → Tetap Buka**. [Instruksi Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
+
+[Bukti dan batasan](docs/LAUNCH_STATUS.md)
+
+Di Android, disarankan menggunakan ponsel modern dengan memori yang cukup untuk model lokal; gunakan penyedia API pada perangkat yang kurang bertenaga. Untuk penelusuran web, setidaknya ada konteks **Token 16K (16,384)** direkomendasikan, secara konsisten di seluruh versi.
+
+**Windows x64 portabel 1.0.2 tersedia.** Diskusi, pengaturan, dan model yang diunduh tetap berada di dalam folder portabel di bawah `Data`. Ekstrak arsip lengkap dan mulai `Novera.exe`. Tutup Novera sebelum memindahkan folder atau mengeluarkan penyimpanan USB. [Panduan dan batasan portabel](docs/WINDOWS_PORTABLE.md).
+
+<a id="one-dashboard-for-every-creation"></a>
+
+
+<details>
+<summary>Novera 1.0.1 · 2026-11-07</summary>
+
 <!-- novera-release-1.0.1:start -->
 <a id="version-1-0-1"></a>
 ## Novera 1.0.1
@@ -47,31 +78,11 @@ Katalog API
 
 <!-- novera-release-1.0.1:end -->
 
-## Ketersediaan — 2026-11-07
+Untuk 1.0.1, LFM3-Omni-2B Q4_K_M dengan `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` yang diperlukan adalah rekomendasi default di desktop dan seluler; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M tetap menjadi alternatif teks saja. Konteks awal adalah token 32,768 di desktop dan 2,048 di seluler. Konteks yang lebih panjang menggunakan lebih banyak memori. Pilihan dan pengaturan model yang ada dipertahankan hingga diubah secara eksplisit.
 
-**Novera 1.0.1 tersedia untuk Windows, Linux, macOS dan Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Paket desktop, baik arsip CLI, tanda tangan, dan manifes pembaruan bersifat publik dan terverifikasi.
+Pemeliharaan dan peningkatan privasi disiapkan untuk 1.0.1. Statistik opsional dan pelaporan kesalahan menggunakan persetujuan independen dan eksplisit serta diagnostik teknis yang disaring. Pemeriksaan pelepasan yang diperlukan dan temuan keamanan lainnya didokumentasikan secara terpisah. [buku panduan pemeliharaan](docs/MAINTENANCE.md)
 
-| Peron | Ketersediaan |
-| --- | --- |
-| Windows x64 | Penginstal NSIS publik, pembaru bertanda tangan; instalasi asli dan penggantian diverifikasi. |
-| Linux x64 | AppImage publik, pembaru bertanda tangan; instalasi asli dan penggantian diverifikasi. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, dengan saluran pembaruan bertanda tangan khusus. |
-| Windows ARM64 | [Pemasang NSIS publik](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), mesin teks CPU asli; pemasangan, penggantian dan pemeriksaan saluran publik diverifikasi. |
-| Android ARM64 | Android 1.0.1 tersedia sebagai APK ARM64 bertanda tangan, build 1000013. Ia menggunakan sertifikat Novera yang ada dan lolos pemeriksaan paket. Ini tidak berisi percakapan pribadi, model, atau kunci API. Instalasi dan pembaruan pada ponsel masih harus diuji. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
-| macOS Intel / Apple Silicon | [Rilis resmi 1.0.1 DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Pembaruan yang ditandatangani Novera. Bukan Apple yang diaktakan; pemeriksaan otomatis diteruskan secara terpisah pada kedua arsitektur, pemeriksaan visual ditangguhkan. [Instalasi dan bukti](docs/RELEASE_1.0.1_2026-11-07.md). |
-| iOS | Pembuatan simulator internal; Penandatanganan/penyediaan Apple diperlukan sebelum instalasi iPhone. [Tindak lanjut](docs/REPRISE_MACOS_IOS.md). |
-| Windows x64 portabel | [Arsip ZIP yang ditandatangani](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); data tetap di Data, pengganti Program yang ditandatangani diverifikasi. |
-| Web, MSI, Debian | Klien Web yang dihosting dan format lainnya tetap bersifat internal; Situs presentasi Pages tersedia. |
-
-Di Mac, buka DMG dan salin Novera ke dalam Aplikasi. Jika peluncuran pertama diblokir, izinkan Novera masuk **Pengaturan Sistem → Privasi & Keamanan → Tetap Buka**. [Instruksi Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
-
-Tanda tangan pembaru terpisah dari Windows Authenticode dan notarisasi Apple. Hash paket, pemeriksaan asli, dan pengujian pembaruan didokumentasikan secara terpisah. Peningkatan versi publik lengkap dari 1.0.0 ke 1.0.1 dikonfirmasi hanya untuk skenario yang dicatat dalam laporan rilis. [Bukti dan batasan](docs/LAUNCH_STATUS.md)
-
-Di Android, disarankan menggunakan ponsel modern dengan memori yang cukup untuk model lokal; gunakan penyedia API pada perangkat yang kurang bertenaga. Untuk penelusuran web, setidaknya ada konteks **Token 16K (16,384)** direkomendasikan, secara konsisten di seluruh versi.
-
-**Windows x64 portabel 1.0.0 tersedia.** Diskusi, pengaturan, dan model yang diunduh tetap berada di dalam folder portabel di bawah `Data`. Ekstrak arsip lengkap dan mulai `Novera.exe`. Tutup Novera sebelum memindahkan folder atau mengeluarkan penyimpanan USB. [Panduan dan batasan portabel](docs/WINDOWS_PORTABLE.md).
-
-<a id="one-dashboard-for-every-creation"></a>
+</details>
 
 ## Satu dasbor untuk setiap kreasi
 
@@ -84,7 +95,6 @@ Novera tumbuh bersama Anda. Contoh dan pengaturan Anda dapat membantu pengguna l
 Status mikrofon: hijau bila tersedia, merah saat sibuk, abu-abu bila tidak tersedia. Pengenalan, mendengarkan kembali, penanganan fokus, dan dikte yang terlihat telah diperbaiki. Pidato model audio asli saat ini diterapkan pada Windows; platform lain masih memerlukan validasi asli dan dukungan suara yang sesuai.
 
 [![Novera menghasilkan gambar dan dasbor terpadu dengan kuantitas, seed, peningkatan, dan memori otomatis](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
-
 
 Satu panel, lima mode: **Otomatis / Teks / Gambar / Musik / Video**. Kontrol mengikuti mode yang dipilih: rasio, resolusi, durasi, irama, kualitas, instrumental, lirik, seed, dan kuantitas. Lebar panel dan tombol menyesuaikan dengan jendela dan label yang diterjemahkan.
 
@@ -111,11 +121,7 @@ Otomatisasi mencakup mesin dan alur kerja yang terintegrasi; itu tidak membuat s
 
 [Panduan pengguna](docs/USER_GUIDE.md) · [Mesin dan validasi](docs/SUIVI_MOTEURS.md) · [Pengembangan](docs/DEVELOPMENT.md)
 
-Untuk 1.0.1, LFM3-Omni-2B Q4_K_M dengan `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` yang diperlukan adalah rekomendasi default di desktop dan seluler; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M tetap menjadi alternatif teks saja. Konteks awal adalah token 32,768 di desktop dan 2,048 di seluler. Konteks yang lebih panjang menggunakan lebih banyak memori. Pilihan dan pengaturan model yang ada dipertahankan hingga diubah secara eksplisit.
-
 ## Kemampuan di sumbernya
-
-Pemeliharaan dan peningkatan privasi disiapkan untuk 1.0.1. Statistik opsional dan pelaporan kesalahan menggunakan persetujuan independen dan eksplisit serta diagnostik teknis yang disaring. Pemeriksaan pelepasan yang diperlukan dan temuan keamanan lainnya didokumentasikan secara terpisah. [buku panduan pemeliharaan](docs/MAINTENANCE.md)
 
 | Daerah | Fitur |
 | --- | --- |
@@ -304,7 +310,7 @@ Ini adalah arahan untuk kontribusi dan pengembangan, bukan klaim bahwa setiap pe
 
 ## Status proyek
 
-**Novera 1.0.1 tersedia untuk Windows, Linux, macOS dan Android.** Tangkapan layar menunjukkan aplikasi Windows yang dikompilasi secara lokal oleh pengelola. Perubahan sumber, pengujian yang ditargetkan, dan validasi perangkat keras didokumentasikan secara terpisah; ini tidak memvalidasi setiap model, platform, atau akun cloud.
+Tangkapan layar menunjukkan aplikasi Windows yang dikompilasi secara lokal oleh pengelola. Perubahan sumber, pengujian yang ditargetkan, dan validasi perangkat keras didokumentasikan secara terpisah; ini tidak memvalidasi setiap model, platform, atau akun cloud.
 
 Pembuatan GitHub Actions manual diaktifkan untuk sebelas varian distribusi. Ikuti [hasil pembuatan dan unduhan kandidat terverifikasi](docs/CI_DISTRIBUTIONS.md); ketersediaan dicatat secara terpisah untuk setiap platform. Kandidat berbeda dari rilis produksi yang ditandatangani. Persyaratan distribusi dijelaskan dalam [kebijakan rilis resmi](OFFICIAL_RELEASES.md) dan [halaman rilis](https://github.com/TRON-ABS/Novera/releases). Kandidat yang tidak dapat melakukan updater tetap berada di internal. Rilis publik memerlukan mekanisme pembaruan yang dikonfigurasi dan diverifikasi; [pemeriksaan tanda tangan desktop dan persyaratan peluncuran lainnya didokumentasikan](docs/LAUNCH_STATUS.md).
 

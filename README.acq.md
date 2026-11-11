@@ -23,6 +23,35 @@ Data و الخصوصية: [الاستنتاج المحلي، التلفاز ال
 
 ---
 
+<!-- novera-current-downloads:start -->
+
+## Availability — Novera 1.0.2
+
+| منصة | الوصول |
+| --- | --- |
+| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2) |
+| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-arm64) |
+| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-linux-x64) |
+| Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-cli-novera) |
+| Windows x64 محمول | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-portable) |
+| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos-arm64) |
+| Android ARM64 | [APK · 1000023](https://github.com/TRON-ABS/Novera/releases/download/v1.0.2-android-1000023/Novera_1.0.2_android-arm64.apk) · Android 7+ |
+| Web | [Novera Web 1.0.2](https://tron-abs.github.io/Novera/web/) |
+| iOS | بناء محاكي داخلي؛ مطلوب توقيع / توفير Apple قبل تثبيت iPhone. [متابعة](docs/REPRISE_MACOS_IOS.md). |
+
+<!-- novera-current-downloads:end -->
+على ماك، افتح DMG ونسخ Novera اذا كان الإطلاق الاول محظور، اسمح Novera في **إعدادات النظام → خصوصية وأمن → مفتوحة على أي حال**. [تعليمات التفاح](https://support.apple.com/guide/mac-help/mh40616/mac).
+
+[الدليل والقيود](docs/LAUNCH_STATUS.md)
+
+على Android، هاتف عصري مع ذاكرة كافية توصي للنماذج المحلية. API مزود على أجهزة أقل قوة. **16K رموز (16,384)** يوصى به، باستمرار عبر الإصدارات.
+
+**Windows x64 محمول 1.0.2 متاح.** المناقشات والإعدادات والنماذج المتحملة تبقى داخل المجلد المحمول تحت `Data`. استخراج الأرشيف الكامل وبدء `Novera.exe`قريباً Novera قبل نقل المجلد او الطرد USB تخزين. [دليل ومحدوديات المحمولة](docs/WINDOWS_PORTABLE.md).
+
+
+<details>
+<summary>Novera 1.0.1 · 2026-11-07</summary>
+
 <!-- novera-release-1.0.1:start -->
 <a id="version-1-0-1"></a>
 ## Novera 1.0.1
@@ -49,29 +78,11 @@ Novera 1.0.1 متاح على المنصات المذكورة أدناه. تحم�
 
 <!-- novera-release-1.0.1:end -->
 
-## Availability — 2026-11-07
+لـ 1.0.1, LFM3-كُلّ شيء2B Q4_K_M مع المطلوب `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` هو التوصية الافتراضية على سطح المكتب والجوال. NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M يبقى بديل نص فقط. 32,768 رموز على سطح المكتب و 2,048 على الهاتف المحمول. سياقات أطول تستخدم المزيد من الذاكرة. اختيارات النموذج والإعدادات القائمة يتم الحفاظ عليها حتى يتم تغييرها صراحة.
 
-**Novera 1.0.1 متاح ل Windows, Linux, macOS و Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64)حزمة سطح المكتب، كليهما CLI الأرشيفات والتوقيعات والإشعارات المحدثة تكون عامة ومحققة.
+تم إعداد تحسينات في الصيانة والخصوصية 1.0.1. الإحصاءات الاختيارية وإبلاغ عن الأخطاء استخدامات مستقلة وموافقة صريحة وتشخيص فني مرشح. يتم توثيق التحقق من الإفراجات المطلوبة والنتائج الأمنية المتبقية بشكل منفصل. [دليل الصيانة](docs/MAINTENANCE.md)
 
-| منصة | الوصول |
-| --- | --- |
-| Windows x64 | عامة NSIS التثبيت، المحدد الموقّع؛ التثبيت الأصلي واستبداله مُحقق. |
-| Linux x64 | عامة AppImage, تم توقيع تحديث; التثبيت الأصلي واستبدال تم التحقق منه. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`، مع قناة تحديث مخصصة وقعت. |
-| Windows ARM64 | [عامة NSIS المثبتين](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), أصلي CPU المحرك النصي؛ التحقق من التثبيت والبدل والتحقق من القناة العامة. |
-| Android ARM64 | Android 1.0.1 متاح على شكل توقيع ARM64 APK, بناء 1000013 يستخدم المعلومات القائمة Novera شهادة وتجاوز فحص الحزمة. API المفاتيح. التثبيت والتحديث على الهاتف مازال ليتم اختباره. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
-| macOS Intel / Apple Silicon | [رسمي 1.0.1 DMG الإفراج](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ إنتل / 14+ Apple Silicon; Noveraمش اتثبتت شركة آبل؛ التحققات الآلية تمت بشكل منفصل على كلتا الهندسة المعمارية، التحققات البصرية تم تأجيلها. [التركيب والدليل](docs/RELEASE_1.0.1_2026-11-07.md). |
-| iOS | بناء محاكي داخلي؛ مطلوب توقيع / توفير Apple قبل تثبيت iPhone. [متابعة](docs/REPRISE_MACOS_IOS.md). |
-| Windows x64 محمول | [توقيع ZIP أرشيف](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); البيانات تبقى في Data, موقع Program تم التحقق من استبدال. |
-| شبكة، MSI, ديبيان | [Novera Web 1.0.2](https://tron-abs.github.io/Novera/web/). حزم MSI وDebian ما زالت للاستخدام الداخلي. |
-
-على ماك، افتح DMG ونسخ Novera اذا كان الإطلاق الاول محظور، اسمح Novera في **إعدادات النظام → خصوصية وأمن → مفتوحة على أي حال**. [تعليمات التفاح](https://support.apple.com/guide/mac-help/mh40616/mac).
-
-توقيعات المحدثة منفصلة عن Windows Authenticode و شهادة شركة آبل. هاشي الحزمة، التحققات الأصلية واختبارات التحديثات مُوثقة بشكل منفصل. 1.0.0 لـ 1.0.1 يتم تأكيد الترقية فقط للسيناريوهات المسجلة في تقرير الإفراج. [الدليل والقيود](docs/LAUNCH_STATUS.md)
-
-على Android، هاتف عصري مع ذاكرة كافية توصي للنماذج المحلية. API مزود على أجهزة أقل قوة. **16K رموز (16,384)** يوصى به، باستمرار عبر الإصدارات.
-
-**Windows x64 محمول 1.0.0 متاح.** المناقشات والإعدادات والنماذج المتحملة تبقى داخل المجلد المحمول تحت `Data`. استخراج الأرشيف الكامل وبدء `Novera.exe`قريباً Novera قبل نقل المجلد او الطرد USB تخزين. [دليل ومحدوديات المحمولة](docs/WINDOWS_PORTABLE.md).
+</details>
 
 <a id="one-dashboard-for-every-creation"></a>
 ## لوح واحد لكل خلقه
@@ -85,7 +96,6 @@ Novera يتنمو معك. مثالاتك وإعداداتك يمكن أن تسا
 **لوحة التحكم المثبتة: مساحة عمل قصوى.** ضعي الإعدادات لتعطيك المزيد من المساحة لخلقاتك. الإدخال والميكروفون والتحكم الأساسي يبقى متاح. انقر على لقطة الشاشة لفتح القرار الكامل الأصلي PNG.
 
 [![Novera: لوحة التحكم المنسقة لتحقيق أقصى مساحة عمل، مع مدخل وميكروفون متاح](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
-
 
 لوحة واحدة، خمسة وضعيات: **تلقائي / نص / صورة / موسيقى / فيديو**. التحكمات تتبع الوضع المحدد: النسبة، القرار، المدة، التردد، الجودة، الأداة، النصوص، البذور والكمية. عرض اللوحة والأزرار يتكيفان مع النافذة والتسميات المترجمة.
 
@@ -111,11 +121,7 @@ Novera يتنمو معك. مثالاتك وإعداداتك يمكن أن تسا
 
 [دليل المستخدم](docs/USER_GUIDE.md) · [المحركات والتحقق من الصلاحية](docs/SUIVI_MOTEURS.md) · [تنمية](docs/DEVELOPMENT.md)
 
-لـ 1.0.1, LFM3-كُلّ شيء2B Q4_K_M مع المطلوب `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` هو التوصية الافتراضية على سطح المكتب والجوال. NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M يبقى بديل نص فقط. 32,768 رموز على سطح المكتب و 2,048 على الهاتف المحمول. سياقات أطول تستخدم المزيد من الذاكرة. اختيارات النموذج والإعدادات القائمة يتم الحفاظ عليها حتى يتم تغييرها صراحة.
-
 ## القدرات في المصدر
-
-تم إعداد تحسينات في الصيانة والخصوصية 1.0.1. الإحصاءات الاختيارية وإبلاغ عن الأخطاء استخدامات مستقلة وموافقة صريحة وتشخيص فني مرشح. يتم توثيق التحقق من الإفراجات المطلوبة والنتائج الأمنية المتبقية بشكل منفصل. [دليل الصيانة](docs/MAINTENANCE.md)
 
 | مساحة | خصائص |
 | --- | --- |
@@ -301,7 +307,7 @@ AWQ 4-بيت، GPTQ 4-بيت، NF4 و INT8 كل نص تم توليده على RT
 
 ## حالة المشروع
 
-**Novera 1.0.1 متاح ل Windows, Linux, macOS و Android.** الصورة تظهر Windows التطبيق الذي تم تجميعه محلياً من قبل المراقب. تغييرات المصدر والاختبارات المستهدفة والتحقق من التحقق من الأجهزة يتم توثيقها بشكل منفصل؛ وهذا لا يصدق كل نموذج أو منصة أو حساب سحابة.
+الصورة تظهر Windows التطبيق الذي تم تجميعه محلياً من قبل المراقب. تغييرات المصدر والاختبارات المستهدفة والتحقق من التحقق من الأجهزة يتم توثيقها بشكل منفصل؛ وهذا لا يصدق كل نموذج أو منصة أو حساب سحابة.
 
 دليل يدوي GitHub Actions تمكن من بناء كل الاختيارات الحادية عشرة للتوزيع. اتبع [تكوين النتائج وتحميلات المرشحين المحققة](docs/CI_DISTRIBUTIONS.md)التوافر يتم تسجيله بشكل منفصل لكل منصة. المتقدمين مختلفون عن الإصدارات الإنتاجية الموقعة. [سياسة الإفراج الرسمي](OFFICIAL_RELEASES.md) و [يطلق الصفحة](https://github.com/TRON-ABS/Novera/releases)المرشحين الحاليين معاقين المحدثين يبقون داخليين. الإصدارات العامة تتطلب آلية تحديث مكونة ومحققة. [يتم توثيق عمليات التحقق من توقيع المكتب والمتطلبات المتبقية للإطلاق](docs/LAUNCH_STATUS.md).
 

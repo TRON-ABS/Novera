@@ -11,8 +11,9 @@ const render = (text, facts) => text.replace(/\{\{(\w+)\}\}/g, (_, key) => {
 })
 
 export function preparePublishedReadme(source, locale, facts, copy) {
-  source = source.replaceAll('\r\n', '\n')
   if (facts.published !== true || facts.stable !== facts.release || !/^\d+\.\d+\.\d+$/.test(facts.release)) throw new Error('Verified published release facts required')
+  if (source.includes('<!-- novera-current-downloads:start -->')) return source
+  source = source.replaceAll('\r\n', '\n')
   const currentLanguages = facts.currentLanguages ?? facts.languages
   const languageCount = new RegExp(`(^|\\D)(?:${facts.languages}|${currentLanguages})(\\D|$)`)
   const currentFacts = { ...facts, languages: currentLanguages }

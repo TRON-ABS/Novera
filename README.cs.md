@@ -17,6 +17,37 @@
 
 ---
 
+<!-- novera-current-downloads:start -->
+
+## Dostupnost — Novera 1.0.2
+
+| Platforma | Dostupnost |
+| --- | --- |
+| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2) |
+| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-arm64) |
+| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-linux-x64) |
+| Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-cli-novera) |
+| Přenosný Windows x64 | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-portable) |
+| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos-arm64) |
+| Android ARM64 | [APK · 1000023](https://github.com/TRON-ABS/Novera/releases/download/v1.0.2-android-1000023/Novera_1.0.2_android-arm64.apk) · Android 7+ |
+| Web | [Novera Web 1.0.2](https://tron-abs.github.io/Novera/web/) |
+| iOS | Sestavení interního simulátoru; Před instalací iPhone je vyžadováno podepsání/zřízení Apple. [Sledování](docs/REPRISE_MACOS_IOS.md). |
+
+<!-- novera-current-downloads:end -->
+Na Macu otevřete DMG a zkopírujte Novera do Aplikace. Pokud je první spuštění zablokováno, povolte vstup Novera **Nastavení systému → Soukromí a zabezpečení → Přesto otevřít**. [Pokyny Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
+
+[Důkazy a omezení](docs/LAUNCH_STATUS.md)
+
+Na Android se pro místní modely doporučuje moderní telefon s dostatkem paměti; použijte poskytovatele API na méně výkonných zařízeních. Pro vyhledávání na webu, kontext alespoň **Tokeny 16K (16,384)** , konzistentně napříč verzemi.
+
+**Windows x64 přenosný 1.0.2 je k dispozici.** Diskuze, nastavení a stažené modely zůstávají uvnitř přenosné složky pod `Data`. Rozbalte celý archiv a začněte `Novera.exe`. Před přesunem složky nebo vysunutím úložiště USB zavřete Novera. [Přenosný průvodce a omezení](docs/WINDOWS_PORTABLE.md).
+
+<a id="one-dashboard-for-every-creation"></a>
+
+
+<details>
+<summary>Novera 1.0.1 · 2026-11-07</summary>
+
 <!-- novera-release-1.0.1:start -->
 <a id="version-1-0-1"></a>
 ## Novera 1.0.1
@@ -47,31 +78,11 @@ Katalogy API
 
 <!-- novera-release-1.0.1:end -->
 
-## Dostupnost — 2026-11-07
+Pro 1.0.1 je LFM3-Omni-2B Q4_K_M s požadovaným `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` výchozím doporučením pro stolní počítače a mobilní zařízení; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M zůstává pouze textovou alternativou. Počáteční kontext je 32,768 tokenů na počítači a 2,048 na mobilu. Delší kontexty využívají více paměti. Stávající volby a nastavení modelu jsou zachovány, dokud nejsou explicitně změněny.
 
-**Novera 1.0.1 je k dispozici pro Windows, Linux, macOS a Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Desktopové balíčky, archivy CLI, podpisy a aktualizační manifesty jsou veřejné a ověřené.
+Pro 1.0.1 jsou připravena vylepšení údržby a ochrany soukromí. Volitelné statistiky a hlášení chyb využívají nezávislý, výslovný souhlas a filtrovanou technickou diagnostiku. Požadované kontroly vydání a zbývající bezpečnostní nálezy jsou dokumentovány samostatně. [příručka údržby](docs/MAINTENANCE.md)
 
-| Platforma | Dostupnost |
-| --- | --- |
-| Windows x64 | Veřejný instalační program NSIS, podepsaný aktualizátor; nativní instalace a výměna ověřena. |
-| Linux x64 | Public AppImage, podepsaný aktualizátor; nativní instalace a výměna ověřena. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`s vyhrazeným podepsaným aktualizačním kanálem. |
-| Windows ARM64 | [Veřejný instalační program NSIS](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), nativní textový stroj CPU; instalace, výměna a kontroly veřejného kanálu ověřeny. |
-| Android ARM64 | Android 1.0.1 je k dispozici jako podepsaný ARM64 APK, sestavení 1000013. Používá stávající certifikát Novera a projde kontrolou balíčku. Neobsahuje žádné osobní konverzace, modely ani klíče API. Instalace a aktualizace na telefonu zbývá otestovat. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
-| macOS Intel / Apple Silicon | [Oficiální vydání 1.0.1 DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Aktualizace podepsané Novera. Notářsky ověřeno společností Apple; automatizované kontroly prošly odděleně na obou architekturách, vizuální kontroly byly odloženy. [Instalace a evidence](docs/RELEASE_1.0.1_2026-11-07.md). |
-| iOS | Sestavení interního simulátoru; Před instalací iPhone je vyžadováno podepsání/zřízení Apple. [Sledování](docs/REPRISE_MACOS_IOS.md). |
-| Přenosný Windows x64 | [Podepsaný archiv ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); data zůstávají v Data, podepsaná výměna Program ověřena. |
-| Web, MSI, Debian | Hostovaný webový klient a další formáty zůstávají interní; K dispozici je prezentační stránka Pages. |
-
-Na Macu otevřete DMG a zkopírujte Novera do Aplikace. Pokud je první spuštění zablokováno, povolte vstup Novera **Nastavení systému → Soukromí a zabezpečení → Přesto otevřít**. [Pokyny Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
-
-Podpisy nástroje Updater jsou oddělené od Windows Authenticode a notářského ověření Apple. Hashe balíčků, nativní kontroly a testy aktualizací jsou dokumentovány samostatně. Úplný veřejný upgrade 1.0.0 na 1.0.1 je potvrzen pouze pro scénáře zaznamenané ve zprávě o vydání. [Důkazy a omezení](docs/LAUNCH_STATUS.md)
-
-Na Android se pro místní modely doporučuje moderní telefon s dostatkem paměti; použijte poskytovatele API na méně výkonných zařízeních. Pro vyhledávání na webu, kontext alespoň **Tokeny 16K (16,384)** , konzistentně napříč verzemi.
-
-**Windows x64 přenosný 1.0.0 je k dispozici.** Diskuze, nastavení a stažené modely zůstávají uvnitř přenosné složky pod `Data`. Rozbalte celý archiv a začněte `Novera.exe`. Před přesunem složky nebo vysunutím úložiště USB zavřete Novera. [Přenosný průvodce a omezení](docs/WINDOWS_PORTABLE.md).
-
-<a id="one-dashboard-for-every-creation"></a>
+</details>
 
 ## Jeden řídicí panel pro každý výtvor
 
@@ -84,7 +95,6 @@ Novera roste s vámi. Vaše příklady a nastavení mohou pomoci ostatním uživ
 Stav mikrofonu: zelený, když je dostupný, červený, když je zaneprázdněn, šedý, když není k dispozici. Bylo opraveno rozpoznávání, restart poslechu, ovládání zaostření a viditelné diktování. Nativní řeč zvukového modelu je aktuálně implementována na Windows; ostatní platformy stále potřebují nativní ověření a vhodnou hlasovou podporu.
 
 [![Novera generovaný obraz a jednotný řídicí panel s množstvím, seedem, upscaling a automatickou pamětí](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
-
 
 Jeden panel, pět režimů: **Auto / Text / Obrázek / Hudba / Video**. Ovládací prvky se řídí zvoleným režimem: poměr, rozlišení, trvání, kadence, kvalita, instrumentál, texty, semeno a kvantita. Šířka panelu a tlačítka se přizpůsobí oknu a přeloženým popiskům.
 
@@ -111,11 +121,7 @@ Automatizace pokrývá integrované motory a pracovní postupy; to neznamená, �
 
 [Uživatelská příručka](docs/USER_GUIDE.md) · [Motory a validace](docs/SUIVI_MOTEURS.md) · [Vývoj](docs/DEVELOPMENT.md)
 
-Pro 1.0.1 je LFM3-Omni-2B Q4_K_M s požadovaným `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` výchozím doporučením pro stolní počítače a mobilní zařízení; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M zůstává pouze textovou alternativou. Počáteční kontext je 32,768 tokenů na počítači a 2,048 na mobilu. Delší kontexty využívají více paměti. Stávající volby a nastavení modelu jsou zachovány, dokud nejsou explicitně změněny.
-
 ## Schopnosti ve zdroji
-
-Pro 1.0.1 jsou připravena vylepšení údržby a ochrany soukromí. Volitelné statistiky a hlášení chyb využívají nezávislý, výslovný souhlas a filtrovanou technickou diagnostiku. Požadované kontroly vydání a zbývající bezpečnostní nálezy jsou dokumentovány samostatně. [příručka údržby](docs/MAINTENANCE.md)
 
 | Oblast | Vlastnosti |
 | --- | --- |
@@ -304,7 +310,7 @@ Toto jsou pokyny pro přínos a vývoj, nikoli tvrzení, že každá aplikace sp
 
 ## Stav projektu
 
-**Novera 1.0.1 je k dispozici pro Windows, Linux, macOS a Android.** Snímek obrazovky ukazuje aplikaci Windows zkompilovanou lokálně správcem. Změny zdroje, cílené testy a ověření hardwaru jsou dokumentovány samostatně; to neověřuje každý model, platformu nebo cloudový účet.
+Snímek obrazovky ukazuje aplikaci Windows zkompilovanou lokálně správcem. Změny zdroje, cílené testy a ověření hardwaru jsou dokumentovány samostatně; to neověřuje každý model, platformu nebo cloudový účet.
 
 Manuální sestavení GitHub Actions jsou povolena pro všech jedenáct variant distribuce. Postupujte podle [výsledky sestavení a ověřené stažení kandidátů](docs/CI_DISTRIBUTIONS.md); dostupnost se zaznamenává samostatně pro každou platformu. Kandidáti se liší od podepsaných produkčních verzí. Požadavky na distribuci jsou popsány v [oficiální politika uvolňování](OFFICIAL_RELEASES.md) a [stránka vydání](https://github.com/TRON-ABS/Novera/releases). Stávající kandidáti s deaktivovaným aktualizátorem zůstávají interní. Veřejná vydání vyžadují nakonfigurovaný a ověřený aktualizační mechanismus; [kontroly podpisů na ploše a zbývající požadavky na spuštění jsou zdokumentovány](docs/LAUNCH_STATUS.md).
 

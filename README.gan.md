@@ -19,6 +19,37 @@ Data 與隱私： [本地推理、可選遙測、錯誤報告和更新連接（�
 
 ---
 
+<!-- novera-current-downloads:start -->
+
+## 可用性 — Novera 1.0.2
+
+| 平臺 | 可用性 |
+| --- | --- |
+| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2) |
+| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-arm64) |
+| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-linux-x64) |
+| Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-cli-novera) |
+| Windows x64 便攜版 | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-portable) |
+| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos-arm64) |
+| Android ARM64 | [APK · 1000023](https://github.com/TRON-ABS/Novera/releases/download/v1.0.2-android-1000023/Novera_1.0.2_android-arm64.apk) · Android 7+ |
+| Web | [Novera Web 1.0.2](https://tron-abs.github.io/Novera/web/) |
+| iOS | 內部模擬器建置；安裝 iPhone 前需要 Apple 簽名/設定。 [後續](docs/REPRISE_MACOS_IOS.md). |
+
+<!-- novera-current-downloads:end -->
+在 Mac 上，開啟 DMG 並將 Novera 複製到應用程式中。如果第一次啟動被阻止，則允許 Novera 進入 **系統設定 → 隱私與安全 → 任意開啟**. [Apple 指示](https://support.apple.com/guide/mac-help/mh40616/mac).
+
+[證據和限制](docs/LAUNCH_STATUS.md)
+
+在Android上，本地機型建議使用記憶體足夠的現代手機；在功能較弱的裝置上使用 API 提供程式。對於網絡搜索，上下文至少 **16K 令牌（16,384）** 建議，跨版本一致。
+
+**Windows x64 便攜式 1.0.2 可用。** 討論、設定和下載的模型保留在便攜式資料夾中 `Data`. 提取完整壓縮檔並啟動 `Novera.exe`. 關閉 Novera 之後再移動資料夾或卸載 USB 儲存。 [便攜指南和限制](docs/WINDOWS_PORTABLE.md).
+
+<a id="one-dashboard-for-every-creation"></a>
+
+
+<details>
+<summary>Novera 1.0.1 · 2026-11-07</summary>
+
 <!-- novera-release-1.0.1:start -->
 <a id="version-1-0-1"></a>
 ## Novera 1.0.1
@@ -47,31 +78,11 @@ Novera 1.0.1 适用于下列平台。下载适合您的系统的软件包或使�
 
 <!-- novera-release-1.0.1:end -->
 
-## 可用性 — 2026-11-07
+對於 1.0.1，LFM3-Omni-2B Q4_K_M 及其所需的 `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` 是桌面和行動裝置上的預設建議； NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M 仍然是純文字替代方案。桌面上的初始上下文是 32,768 令牌，行動裝置上的初始上下文是 2,048。較長的上下文使用更多的記憶體。現有的模型選擇和設定將被保留，直到明確更改為止。
 
-**Novera 1.0.1 箇可供 Windows, Linux, macOS 拕 Android。** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64)。桌面套件、CLI 檔案、簽署和更新清單都是公開的並經過驗證。
+維護和隱私改進已為 1.0.1 做好準備。可選的統計和錯誤報告使用獨立、明確的同意和過濾的技術診斷。所需的發布檢查和剩餘的安全調查結果單獨記錄。 [維護運行手冊](docs/MAINTENANCE.md)
 
-| 平臺 | 可用性 |
-| --- | --- |
-| Windows x64 | 公共 NSIS 安裝程序，簽名更新程序；本機安裝和替換已驗證。 |
-| Linux x64 | 公開AppImage，簽章更新者；本機安裝和替換已驗證。 |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`，有專門簽章更新管道。 |
-| Windows ARM64 | [公共 NSIS 安裝程序](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64)，原生CPU文字引擎；安裝、更換及公共管道檢查均經過驗證。 |
-| Android ARM64 | Android 1.0.1 可作为签名的 ARM64 APK，版本为 1000013。它使用现有的 Novera 证书并通过包检查。它不包含个人对话、模型或 API 密钥。在手机上的安装和更新仍有待测试。 Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
-| macOS Intel / Apple Silicon | [官方 1.0.1 DMG 版本](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos)，macOS 13+英特爾/14+Apple Silicon；Novera 簽名的更新。未經 Apple 公證；自動檢查在兩種架構上分別通過，目視檢查被推遲。 [安裝和證據](docs/RELEASE_1.0.1_2026-11-07.md). |
-| iOS | 內部模擬器建置；安裝 iPhone 前需要 Apple 簽名/設定。 [後續](docs/REPRISE_MACOS_IOS.md). |
-| Windows x64 便攜版 | [簽章 ZIP 歸檔](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); 數據拕在 Data 裡，簽名 Program 替換已驗證。 |
-| 網頁，MSI，Debian | 託管 Web 用戶端和其他格式保留在內部；Pages 演示站點可用。 |
-
-在 Mac 上，開啟 DMG 並將 Novera 複製到應用程式中。如果第一次啟動被阻止，則允許 Novera 進入 **系統設定 → 隱私與安全 → 任意開啟**. [Apple 指示](https://support.apple.com/guide/mac-help/mh40616/mac).
-
-更新程序签名与 Windows Authenticode 和 Apple 公证分开。包哈希、本机检查和更新测试单独记录。仅针对发布报告中记录的场景确认完整的公共 1.0.0 到 1.0.1 升级。 [證據和限制](docs/LAUNCH_STATUS.md)
-
-在Android上，本地機型建議使用記憶體足夠的現代手機；在功能較弱的裝置上使用 API 提供程式。對於網絡搜索，上下文至少 **16K 令牌（16,384）** 建議，跨版本一致。
-
-**Windows x64 便攜式 1.0.0 可用。** 討論、設定和下載的模型保留在便攜式資料夾中 `Data`. 提取完整壓縮檔並啟動 `Novera.exe`. 關閉 Novera 之後再移動資料夾或卸載 USB 儲存。 [便攜指南和限制](docs/WINDOWS_PORTABLE.md).
-
-<a id="one-dashboard-for-every-creation"></a>
+</details>
 
 ## 箇隻創作有一塊儀錶板
 
@@ -84,7 +95,6 @@ Novera 與您一起成長。您的範例和設定可以幫助其他使用者找�
 麥克風狀態：綠色表示可用，紅色表示忙碌，灰色表示不可用。辨識、聽力重新啟動、焦點處理和可見聽寫均已修正。原生音訊模型語音目前在 Windows 上實現；其他平台仍需要本機驗證和適當的語音支援。
 
 [![Novera 產生的圖像和統一的儀錶板，具有數量、種子、放大和自動記憶功能](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
-
 
 箇個面板，五種模式： **自動 / 文字 / 圖像 / 音樂 / 影片**。控制遵循所選模式：比率、解析度、持續時間、節奏、品質、樂器、歌詞、種子和數量。面板寬度和按鈕適應視窗和翻譯的標籤。
 
@@ -111,11 +121,7 @@ Novera 與您一起成長。您的範例和設定可以幫助其他使用者找�
 
 [用戶指南](docs/USER_GUIDE.md) · [引擎和驗證](docs/SUIVI_MOTEURS.md) · [開發](docs/DEVELOPMENT.md)
 
-對於 1.0.1，LFM3-Omni-2B Q4_K_M 及其所需的 `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` 是桌面和行動裝置上的預設建議； NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M 仍然是純文字替代方案。桌面上的初始上下文是 32,768 令牌，行動裝置上的初始上下文是 2,048。較長的上下文使用更多的記憶體。現有的模型選擇和設定將被保留，直到明確更改為止。
-
 ## 來源裏嗰能力
-
-維護和隱私改進已為 1.0.1 做好準備。可選的統計和錯誤報告使用獨立、明確的同意和過濾的技術診斷。所需的發布檢查和剩餘的安全調查結果單獨記錄。 [維護運行手冊](docs/MAINTENANCE.md)
 
 | 區域 | 功能 |
 | --- | --- |
@@ -306,7 +312,7 @@ AWQ 4 位元、GPTQ 4 位元、NF4 和 INT8 皆使用離線建立的未經訓練
 
 ## 項目狀態
 
-**Novera 1.0.1 箇可供 Windows, Linux, macOS 拕 Android。** 螢幕截圖顯示了維護者在本地編譯的 Windows 應用程式。原始碼變更、目標測試和硬體驗證單獨記錄；這並不驗證每個模型、平臺或雲端帳戶。
+螢幕截圖顯示了維護者在本地編譯的 Windows 應用程式。原始碼變更、目標測試和硬體驗證單獨記錄；這並不驗證每個模型、平臺或雲端帳戶。
 
 為所有 11 個發行版變體啟用了手動 GitHub Actions 建置。遵循 [建置結果和驗證候選下載](docs/CI_DISTRIBUTIONS.md);每個平臺的可用性是單獨記錄的。候選版本與已簽署的生產版本不同。分發要求描述於 [官方發佈政策](OFFICIAL_RELEASES.md) 亇 [釋出頁](https://github.com/TRON-ABS/Novera/releases)。現有的禁用更新程式的候選者仍保留在內部。公開發布需要配置和驗證的更新機制； [記錄桌面簽名檢查和剩餘啟動要求](docs/LAUNCH_STATUS.md).
 

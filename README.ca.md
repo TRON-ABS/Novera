@@ -17,6 +17,37 @@
 
 ---
 
+<!-- novera-current-downloads:start -->
+
+## Disponibilitat — Novera 1.0.2
+
+| Plataforma | Disponibilitat |
+| --- | --- |
+| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2) |
+| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-arm64) |
+| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-linux-x64) |
+| Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-cli-novera) |
+| Windows x64 portàtil | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-portable) |
+| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos-arm64) |
+| Android ARM64 | [APK · 1000023](https://github.com/TRON-ABS/Novera/releases/download/v1.0.2-android-1000023/Novera_1.0.2_android-arm64.apk) · Android 7+ |
+| Web | [Novera Web 1.0.2](https://tron-abs.github.io/Novera/web/) |
+| iOS | Construcció del simulador intern; Cal signar/provisionar Apple abans de la instal·lació de l'iPhone. [Seguiment](docs/REPRISE_MACOS_IOS.md). |
+
+<!-- novera-current-downloads:end -->
+Al Mac, obriu el DMG i copieu Novera a Aplicacions. Si el primer llançament està bloquejat, permeteu que Novera entri **Configuració del sistema → Privadesa i seguretat → Obre de totes maneres**. [Instruccions d'Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
+
+[Evidències i limitacions](docs/LAUNCH_STATUS.md)
+
+A Android, es recomana un telèfon modern amb prou memòria per als models locals; utilitzeu un proveïdor API en dispositius menys potents. Per a la cerca web, un context d'almenys **Fitxes 16K (16,384)** , de manera coherent entre les versions.
+
+**Windows x64 portàtil 1.0.2 disponible.** Les discussions, la configuració i els models descarregats romanen dins de la carpeta portàtil que hi ha a sota `Data`. Extreu l'arxiu complet i comença `Novera.exe`. Tanqueu Novera abans de moure la carpeta o expulsar l'emmagatzematge USB. [Guia portàtil i limitacions](docs/WINDOWS_PORTABLE.md).
+
+<a id="one-dashboard-for-every-creation"></a>
+
+
+<details>
+<summary>Novera 1.0.1 · 2026-11-07</summary>
+
 <!-- novera-release-1.0.1:start -->
 <a id="version-1-0-1"></a>
 ## Novera 1.0.1
@@ -45,31 +76,11 @@ Novera 1.0.1 està disponible per a les plataformes que s'indiquen a continuaci�
 
 <!-- novera-release-1.0.1:end -->
 
-## Disponibilitat — 2026-11-07
+Per a 1.0.1, LFM3-Omni-2B Q4_K_M amb el seu `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` obligatori és la recomanació predeterminada per a ordinadors i mòbils; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M segueix sent una alternativa només de text. El context inicial són 32,768 fitxes a l'ordinador i 2,048 al mòbil. Els contextos més llargs fan servir més memòria. Les opcions i la configuració del model existents es conserven fins que no es modifiquin explícitament.
 
-**Novera 1.0.1 està disponible per a Windows, Linux, macOS i Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Els paquets d'escriptori, tant els arxius CLI, les signatures com els manifests d'actualització són públics i verificats.
+S'estan preparant millores de manteniment i privadesa per a 1.0.1. Les estadístiques opcionals i els informes d'errors utilitzen consentiment explícit i independent i diagnòstics tècnics filtrats. Les comprovacions de llançament necessàries i les troballes de seguretat restants es documenten per separat. [runbook de manteniment](docs/MAINTENANCE.md)
 
-| Plataforma | Disponibilitat |
-| --- | --- |
-| Windows x64 | Instal·lador públic de NSIS, actualitzador signat; instal·lació nativa i substitució verificada. |
-| Linux x64 | Public AppImage, actualització signada; instal·lació nativa i substitució verificada. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, amb un canal d'actualització signat dedicat. |
-| Windows ARM64 | [Instal·lador públic de NSIS](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), motor de text natiu CPU; S'han verificat les comprovacions d'instal·lació, substitució i canal públic. |
-| Android ARM64 | Android 1.0.1 està disponible com a APK ARM64 signat, versió 1000013. Utilitza el certificat Novera existent i passa la inspecció del paquet. No conté converses personals, models o claus API. La instal·lació i l'actualització en un telèfon encara s'han de provar. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
-| macOS Intel / Apple Silicon | [Versió oficial de 1.0.1 DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Actualitzacions signades per Novera. No certificada per Apple; les comprovacions automatitzades es van passar per separat en ambdues arquitectures, les comprovacions visuals es van ajornar. [Instal·lació i proves](docs/RELEASE_1.0.1_2026-11-07.md). |
-| iOS | Construcció del simulador intern; Cal signar/provisionar Apple abans de la instal·lació de l'iPhone. [Seguiment](docs/REPRISE_MACOS_IOS.md). |
-| Windows x64 portàtil | [Arxiu ZIP signat](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); les dades es mantenen a Data, la substitució signada Program s'ha verificat. |
-| Web, MSI, Debian | El client web allotjat i altres formats romanen interns; El lloc de presentació de Pages està disponible. |
-
-Al Mac, obriu el DMG i copieu Novera a Aplicacions. Si el primer llançament està bloquejat, permeteu que Novera entri **Configuració del sistema → Privadesa i seguretat → Obre de totes maneres**. [Instruccions d'Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
-
-Les signatures de l'actualitzador són independents de Windows Authenticode i de la notarització d'Apple. Els hash de paquets, les comprovacions natives i les proves d'actualització es documenten per separat. Només es confirma una actualització pública completa de 1.0.0 a 1.0.1 per als escenaris registrats a l'informe de llançament. [Evidències i limitacions](docs/LAUNCH_STATUS.md)
-
-A Android, es recomana un telèfon modern amb prou memòria per als models locals; utilitzeu un proveïdor API en dispositius menys potents. Per a la cerca web, un context d'almenys **Fitxes 16K (16,384)** , de manera coherent entre les versions.
-
-**Windows x64 portàtil 1.0.0 disponible.** Les discussions, la configuració i els models descarregats romanen dins de la carpeta portàtil que hi ha a sota `Data`. Extreu l'arxiu complet i comença `Novera.exe`. Tanqueu Novera abans de moure la carpeta o expulsar l'emmagatzematge USB. [Guia portàtil i limitacions](docs/WINDOWS_PORTABLE.md).
-
-<a id="one-dashboard-for-every-creation"></a>
+</details>
 
 ## Un tauler per a cada creació
 
@@ -82,7 +93,6 @@ Novera creix amb tu. Els vostres exemples i configuració poden ajudar altres us
 Estat del micròfon: verd quan està disponible, vermell quan està ocupat, gris quan no està disponible. S'han corregit el reconeixement, el reinici de l'escolta, el maneig del focus i el dictat visible. El model de veu natiu d'àudio està implementat actualment a Windows; altres plataformes encara necessiten validació nativa i suport de veu adequat.
 
 [![Novera imatge generada i tauler de control unificat amb quantitat, llavor, augment d'escala i memòria automàtica](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
-
 
 Un panell, cinc modes: **Automàtic / Text / Imatge / Música / Vídeo**. Els controls segueixen el mode seleccionat: proporció, resolució, durada, cadència, qualitat, instrumental, lletra, llavor i quantitat. L'amplada del panell i els botons s'adapten a la finestra i a les etiquetes traduïdes.
 
@@ -109,11 +119,7 @@ L'automatització cobreix motors i fluxos de treball integrats; no fa que tots e
 
 [Guia de l'usuari](docs/USER_GUIDE.md) · [Motors i validació](docs/SUIVI_MOTEURS.md) · [Desenvolupament](docs/DEVELOPMENT.md)
 
-Per a 1.0.1, LFM3-Omni-2B Q4_K_M amb el seu `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` obligatori és la recomanació predeterminada per a ordinadors i mòbils; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M segueix sent una alternativa només de text. El context inicial són 32,768 fitxes a l'ordinador i 2,048 al mòbil. Els contextos més llargs fan servir més memòria. Les opcions i la configuració del model existents es conserven fins que no es modifiquin explícitament.
-
 ## Capacitats a la font
-
-S'estan preparant millores de manteniment i privadesa per a 1.0.1. Les estadístiques opcionals i els informes d'errors utilitzen consentiment explícit i independent i diagnòstics tècnics filtrats. Les comprovacions de llançament necessàries i les troballes de seguretat restants es documenten per separat. [runbook de manteniment](docs/MAINTENANCE.md)
 
 | Àrea | Característiques |
 | --- | --- |
@@ -302,7 +308,7 @@ Aquestes són indicacions per a la contribució i el desenvolupament, no una afi
 
 ## Estat del projecte
 
-**Novera 1.0.1 està disponible per a Windows, Linux, macOS i Android.** La captura de pantalla mostra una aplicació Windows compilada localment pel responsable. Els canvis d'origen, les proves dirigides i la validació de maquinari es documenten per separat; això no valida tots els models, plataformes o comptes al núvol.
+La captura de pantalla mostra una aplicació Windows compilada localment pel responsable. Els canvis d'origen, les proves dirigides i la validació de maquinari es documenten per separat; això no valida tots els models, plataformes o comptes al núvol.
 
 Les compilacions manuals GitHub Actions estan habilitades per a les onze variants de distribució. Seguiu el [generar resultats i verificar les descàrregues de candidats](docs/CI_DISTRIBUTIONS.md); la disponibilitat es registra per separat per a cada plataforma. Els candidats són diferents dels llançaments de producció signats. Els requisits de distribució es descriuen a [política de llançament oficial](OFFICIAL_RELEASES.md) i [pàgina de llançaments](https://github.com/TRON-ABS/Novera/releases). Els candidats actuals amb discapacitat actual continuen sent interns. Les versions públiques requereixen un mecanisme d'actualització configurat i verificat; [Les comprovacions de signatura de l'escriptori i els requisits de llançament restants estan documentats](docs/LAUNCH_STATUS.md).
 

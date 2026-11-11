@@ -19,6 +19,37 @@ Data och integritet: [lokal slutledning, valfri telemetri, felrapporter och uppd
 
 ---
 
+<!-- novera-current-downloads:start -->
+
+## Tillgänglighet — Novera 1.0.2
+
+| Plattform | Tillgänglighet |
+| --- | --- |
+| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2) |
+| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-arm64) |
+| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-linux-x64) |
+| Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-cli-novera) |
+| Windows x64 bärbar | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-portable) |
+| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos-arm64) |
+| Android ARM64 | [APK · 1000023](https://github.com/TRON-ABS/Novera/releases/download/v1.0.2-android-1000023/Novera_1.0.2_android-arm64.apk) · Android 7+ |
+| Web | [Novera Web 1.0.2](https://tron-abs.github.io/Novera/web/) |
+| iOS | Bygg av intern simulator; Apple-signering/provisionering krävs innan iPhone-installation. [Uppföljning](docs/REPRISE_MACOS_IOS.md). |
+
+<!-- novera-current-downloads:end -->
+På Mac, öppna DMG och kopiera Novera till Applications. Om den första lanseringen är blockerad, låt Novera komma in **Systeminställningar → Sekretess och säkerhet → Öppna ändå**. [Apple-instruktioner](https://support.apple.com/guide/mac-help/mh40616/mac).
+
+[Bevis och begränsningar](docs/LAUNCH_STATUS.md)
+
+På Android rekommenderas en modern telefon med tillräckligt med minne för lokala modeller; använd en API-leverantör på mindre kraftfulla enheter. För webbsökning, ett sammanhang på minst **16K tokens (16,384)** rekommenderas, konsekvent i olika versioner.
+
+**Windows x64 bärbar 1.0.2 är tillgänglig.** Diskussioner, inställningar och nedladdade modeller stannar i den bärbara mappen under `Data`. Extrahera hela arkivet och börja `Novera.exe`. Stäng Novera innan du flyttar mappen eller matar ut USB lagringsutrymme. [Bärbar guide och begränsningar](docs/WINDOWS_PORTABLE.md).
+
+<a id="one-dashboard-for-every-creation"></a>
+
+
+<details>
+<summary>Novera 1.0.1 · 2026-11-07</summary>
+
 <!-- novera-release-1.0.1:start -->
 <a id="version-1-0-1"></a>
 ## Novera 1.0.1
@@ -47,31 +78,11 @@ Novera 1.0.1 är tillgänglig för plattformarna som listas nedan. Ladda ner pak
 
 <!-- novera-release-1.0.1:end -->
 
-## Tillgänglighet — 2026-11-07
+För 1.0.1 är LFM3-Omni-2B Q4_K_M med dess obligatoriska `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` standardrekommendationen på dator och mobil; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M förblir ett textalternativ. Inledande kontext är 32,768 tokens på skrivbordet och 2,048 på mobilen. Längre sammanhang använder mer minne. Befintliga modellval och inställningar bevaras tills de explicit ändras.
 
-**Novera 1.0.1 är tillgänglig för Windows, Linux, macOS och Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Desktoppaket, både CLI arkiv, signaturer och uppdateringsmanifest är offentliga och verifierade.
+Underhålls- och sekretessförbättringar är förberedda för 1.0.1. Valfri statistik och felrapportering använder oberoende, uttryckligt samtycke och filtrerad teknisk diagnostik. Nödvändiga utsläppskontroller och återstående säkerhetsresultat dokumenteras separat. [underhållsbok](docs/MAINTENANCE.md)
 
-| Plattform | Tillgänglighet |
-| --- | --- |
-| Windows x64 | Offentlig NSIS installationsprogram, signerad uppdaterare; inbyggd installation och utbyte verifierad. |
-| Linux x64 | Offentlig AppImage, signerad uppdaterare; inbyggd installation och utbyte verifierad. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, med en dedikerad signerad uppdateringskanal. |
-| Windows ARM64 | [Offentlig installation av NSIS](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), inbyggd CPU textmotor; verifierade installation, utbyte och kontroller av offentliga kanaler. |
-| Android ARM64 | Android 1.0.1 är tillgänglig som en signerad ARM64 APK, build 1000013. Den använder det befintliga Novera-certifikatet och klarar paketinspektionen. Den innehåller inga personliga konversationer, modeller eller API-nycklar. Installation och uppdatering på en telefon återstår att testa. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
-| macOS Intel / Apple Silicon | [Officiell 1.0.1 DMG release](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera-signerade uppdateringar. Inte Apple attesterat; automatiserade kontroller passerade separat på båda arkitekturerna, visuella kontroller skjuts upp. [Installation och bevis](docs/RELEASE_1.0.1_2026-11-07.md). |
-| iOS | Bygg av intern simulator; Apple-signering/provisionering krävs innan iPhone-installation. [Uppföljning](docs/REPRISE_MACOS_IOS.md). |
-| Windows x64 bärbar | [Signerat ZIP arkiv](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); data stannar i Data, signerad Program ersättning verifierad. |
-| Webb, MSI, Debian | Hosted webbklient och andra format förblir interna; Pages presentationswebbplats är tillgänglig. |
-
-På Mac, öppna DMG och kopiera Novera till Applications. Om den första lanseringen är blockerad, låt Novera komma in **Systeminställningar → Sekretess och säkerhet → Öppna ändå**. [Apple-instruktioner](https://support.apple.com/guide/mac-help/mh40616/mac).
-
-Uppdateringssignaturer är separata från Windows Authenticode och Apple-notarisering. Pakethaschar, inbyggda kontroller och uppdateringstester dokumenteras separat. En fullständig offentlig uppgradering från 1.0.0 till 1.0.1 bekräftas endast för de scenarier som registrerats i releaserapporten. [Bevis och begränsningar](docs/LAUNCH_STATUS.md)
-
-På Android rekommenderas en modern telefon med tillräckligt med minne för lokala modeller; använd en API-leverantör på mindre kraftfulla enheter. För webbsökning, ett sammanhang på minst **16K tokens (16,384)** rekommenderas, konsekvent i olika versioner.
-
-**Windows x64 bärbar 1.0.0 är tillgänglig.** Diskussioner, inställningar och nedladdade modeller stannar i den bärbara mappen under `Data`. Extrahera hela arkivet och börja `Novera.exe`. Stäng Novera innan du flyttar mappen eller matar ut USB lagringsutrymme. [Bärbar guide och begränsningar](docs/WINDOWS_PORTABLE.md).
-
-<a id="one-dashboard-for-every-creation"></a>
+</details>
 
 ## En instrumentpanel för varje skapelse
 
@@ -84,7 +95,6 @@ Novera växer med dig. Dina exempel och inställningar kan hjälpa andra använd
 Mikrofonstatus: grön när den är tillgänglig, röd när den är upptagen, grå när den inte är tillgänglig. Igenkänning, omstart av lyssnande, fokushantering och synlig diktering har korrigerats. Inbyggt ljudmodelltal är för närvarande implementerat på Windows; andra plattformar behöver fortfarande inbyggd validering och lämpligt röststöd.
 
 [![Novera genererad bild och enhetlig instrumentpanel med kvantitet, utsäde, uppskalning och automatiskt minne](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
-
 
 En panel, fem lägen: **Auto / Text / Bild / Musik / Video**. Kontrollerna följer det valda läget: förhållande, upplösning, varaktighet, kadens, kvalitet, instrumental, text, frö och kvantitet. Panelbredd och knappar anpassar sig till fönstret och översatta etiketter.
 
@@ -111,11 +121,7 @@ Automation omfattar integrerade motorer och arbetsflöden; det gör inte varje H
 
 [Användarhandbok](docs/USER_GUIDE.md) · [Motorer och validering](docs/SUIVI_MOTEURS.md) · [Utveckling](docs/DEVELOPMENT.md)
 
-För 1.0.1 är LFM3-Omni-2B Q4_K_M med dess obligatoriska `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` standardrekommendationen på dator och mobil; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M förblir ett textalternativ. Inledande kontext är 32,768 tokens på skrivbordet och 2,048 på mobilen. Längre sammanhang använder mer minne. Befintliga modellval och inställningar bevaras tills de explicit ändras.
-
 ## Förmåga i källan
-
-Underhålls- och sekretessförbättringar är förberedda för 1.0.1. Valfri statistik och felrapportering använder oberoende, uttryckligt samtycke och filtrerad teknisk diagnostik. Nödvändiga utsläppskontroller och återstående säkerhetsresultat dokumenteras separat. [underhållsbok](docs/MAINTENANCE.md)
 
 | Område | Funktioner |
 | --- | --- |
@@ -306,7 +312,7 @@ Dessa är anvisningar för bidrag och utveckling, inte ett påstående om att va
 
 ## Projektstatus
 
-**Novera 1.0.1 är tillgänglig för Windows, Linux, macOS och Android.** Skärmdumpen visar en Windows-applikation kompilerad lokalt av underhållaren. Källändringar, riktade tester och hårdvaruvalidering dokumenteras separat; detta validerar inte varje modell, plattform eller molnkonto.
+Skärmdumpen visar en Windows-applikation kompilerad lokalt av underhållaren. Källändringar, riktade tester och hårdvaruvalidering dokumenteras separat; detta validerar inte varje modell, plattform eller molnkonto.
 
 Manual GitHub Actions builds är aktiverade för alla elva distributionsvarianter. Följ [bygga resultat och verifierade kandidatnedladdningar](docs/CI_DISTRIBUTIONS.md); tillgänglighet registreras separat för varje plattform. Kandidater skiljer sig från undertecknade produktionsutgåvor. Distributionskraven beskrivs i [officiell utgivningspolicy](OFFICIAL_RELEASES.md) och [releases sida](https://github.com/TRON-ABS/Novera/releases). Befintliga kandidater som är inaktiverade för uppdateringar förblir interna. Offentliga utgåvor kräver en konfigurerad och verifierad uppdateringsmekanism; [skrivbordssignaturkontroller och återstående startkrav dokumenteras](docs/LAUNCH_STATUS.md).
 

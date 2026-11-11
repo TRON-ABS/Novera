@@ -17,6 +17,37 @@
 
 ---
 
+<!-- novera-current-downloads:start -->
+
+## Disponibilidade — Novera 1.0.2
+
+| Plataforma | Disponibilidade |
+| --- | --- |
+| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2) |
+| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-arm64) |
+| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-linux-x64) |
+| Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-cli-novera) |
+| Windows x64 portátil | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-portable) |
+| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos-arm64) |
+| Android ARM64 | [APK · 1000023](https://github.com/TRON-ABS/Novera/releases/download/v1.0.2-android-1000023/Novera_1.0.2_android-arm64.apk) · Android 7+ |
+| Web | [Novera Web 1.0.2](https://tron-abs.github.io/Novera/web/) |
+| iOS | Construção de simulador interno; A subscrição/provisionamento da Apple é necessária antes da instalação do iPhone. [Acompanhamento](docs/REPRISE_MACOS_IOS.md). |
+
+<!-- novera-current-downloads:end -->
+No Mac, abra o DMG e copie o Novera em Aplicações. Se a primeira inicialização estiver bloqueada, permita a entrada do Novera **Definições do sistema → Privacidade e segurança → Abrir na mesma**. [Instruções Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
+
+[Evidências e limitações](docs/LAUNCH_STATUS.md)
+
+No Android, um telefone moderno com memória suficiente é recomendado para modelos locais; utilize um fornecedor de API em dispositivos menos potentes. Para a pesquisa na web, um contexto de pelo **16K fichas (16,384)** é recomendado, de forma consistente em todas as versões.
+
+**O Windows x64 portátil 1.0.2 está disponível.** As discussões, definições e modelos descarregados encontram-se dentro da pasta portátil em `Data`. Extraia o ficheiro completo e comece `Novera.exe`. Feche o Novera antes de mover a pasta ou ejetar o armazenamento USB. [Guia portátil e limitações](docs/WINDOWS_PORTABLE.md).
+
+<a id="one-dashboard-for-every-creation"></a>
+
+
+<details>
+<summary>Novera 1.0.1 · 2026-11-07</summary>
+
 <!-- novera-release-1.0.1:start -->
 <a id="version-1-0-1"></a>
 ## Novera 1.0.1
@@ -45,31 +76,11 @@ Novera 1.0.1 está disponível para as plataformas listadas abaixo. Transfira o 
 
 <!-- novera-release-1.0.1:end -->
 
-## Disponibilidade — 2026-11-07
+Para 1.0.1, LFM3-Omni-2B Q4_K_M com o seu `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` obrigatório é a recomendação padrão em computadores e dispositivos móveis; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M continua a ser uma alternativa apenas de texto. O contexto inicial são 32,768 tokens no desktop e 2,048 no telemóvel. Contextos mais longos utilizam mais memória. As opções e definições do modelo existente são preservadas até serem explicitamente alteradas.
 
-**O Novera 1.0.1 está disponível para Windows, Linux, macOS e Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Os pacotes de ambiente de trabalho, os ficheiros CLI, as assinaturas e os manifestos de atualização são públicos e verificados.
+Melhorias de manutenção e privacidade estão preparadas para 1.0.1. As estatísticas opcionais e os relatórios de erros utilizam consentimento explícito e independente e diagnósticos técnicos filtrados. As verificações de libertação necessárias e as restantes conclusões de segurança são documentadas separadamente. [livro de manutenção](docs/MAINTENANCE.md)
 
-| Plataforma | Disponibilidade |
-| --- | --- |
-| Windows x64 | Instalador NSIS público, atualizador assinado; instalação nativa e substituição verificada. |
-| Linux x64 | AppImage pública, atualizador assinado; instalação nativa e substituição verificada. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, com um canal de atualização assinado dedicado. |
-| Windows ARM64 | [Instalador NSIS público](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), motor de texto nativo da CPU; verificação da instalação, substituição e canal público verificada. |
-| Android ARM64 | O Android 1.0.1 está disponível como um APK ARM64 assinado, versão 1000013. Utiliza o certificado Novera existente e passa a inspeção do pacote. Não contém conversas pessoais, modelos ou chaves API. A instalação e atualização num telefone ainda precisam de ser testadas. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
-| macOS Intel / Apple Silicon | [Lançamento oficial 1.0.1 DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel/14+ Apple Silicon; Atualizações assinadas pela Novera. Não é autenticado pela Apple; verificações automatizadas passadas separadamente em ambas as arquiteturas, verificações visuais adiadas. [Instalação e evidência](docs/RELEASE_1.0.1_2026-11-07.md). |
-| iOS | Construção de simulador interno; A subscrição/provisionamento da Apple é necessária antes da instalação do iPhone. [Acompanhamento](docs/REPRISE_MACOS_IOS.md). |
-| Windows x64 portátil | [Ficheiro ZIP assinado](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); os dados permanecem em Data, substituição assinada Program verificada. |
-| Web, MSI, Debian | O cliente Web alojado e outros formatos permanecem internos; Pages site de apresentação está disponível. |
-
-No Mac, abra o DMG e copie o Novera em Aplicações. Se a primeira inicialização estiver bloqueada, permita a entrada do Novera **Definições do sistema → Privacidade e segurança → Abrir na mesma**. [Instruções Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
-
-As subscrições do atualizador são separadas do Windows Authenticode e do reconhecimento de assinatura da Apple. Os hashes de pacotes, as verificações nativas e os testes de atualização são documentados separadamente. Uma atualização pública completa de 1.0.0 para 1.0.1 é confirmada apenas para os cenários registados no relatório de lançamento. [Evidências e limitações](docs/LAUNCH_STATUS.md)
-
-No Android, um telefone moderno com memória suficiente é recomendado para modelos locais; utilize um fornecedor de API em dispositivos menos potentes. Para a pesquisa na web, um contexto de pelo **16K fichas (16,384)** é recomendado, de forma consistente em todas as versões.
-
-**O Windows x64 portátil 1.0.0 está disponível.** As discussões, definições e modelos descarregados encontram-se dentro da pasta portátil em `Data`. Extraia o ficheiro completo e comece `Novera.exe`. Feche o Novera antes de mover a pasta ou ejetar o armazenamento USB. [Guia portátil e limitações](docs/WINDOWS_PORTABLE.md).
-
-<a id="one-dashboard-for-every-creation"></a>
+</details>
 
 ## Um painel para cada criação
 
@@ -82,7 +93,6 @@ A Novera cresce consigo. Os seus exemplos e configurações podem ajudar outros 
 Estado do microfone: verde quando disponível, vermelho quando ocupado, cinzento quando indisponível. O reconhecimento, o reinício da audição, a gestão do foco e o ditado visível foram corrigidos. A fala com modelo áudio nativo está atualmente implementada em Windows; outras plataformas ainda precisam de validação nativa e de suporte de voz adequado.
 
 [![Imagem gerada pela Novera e dashboard unificado com quantidade, seed, upscaling e memória automática](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
-
 
 Um painel, cinco modos: **Automático / Texto / Imagem / Música / Vídeo**. Os controlos seguem o modo selecionado: rácio, resolução, duração, cadência, qualidade, instrumental, letra, semente e quantidade. A largura do painel e os botões adaptam-se à janela e aos rótulos traduzidos.
 
@@ -109,11 +119,7 @@ A automatização abrange mecanismos e fluxos de trabalho integrados; isto não 
 
 [Manual do utilizador](docs/USER_GUIDE.md) · [Motores e validação](docs/SUIVI_MOTEURS.md) · [Desenvolvimento](docs/DEVELOPMENT.md)
 
-Para 1.0.1, LFM3-Omni-2B Q4_K_M com o seu `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` obrigatório é a recomendação padrão em computadores e dispositivos móveis; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M continua a ser uma alternativa apenas de texto. O contexto inicial são 32,768 tokens no desktop e 2,048 no telemóvel. Contextos mais longos utilizam mais memória. As opções e definições do modelo existente são preservadas até serem explicitamente alteradas.
-
 ## Capacidades na fonte
-
-Melhorias de manutenção e privacidade estão preparadas para 1.0.1. As estatísticas opcionais e os relatórios de erros utilizam consentimento explícito e independente e diagnósticos técnicos filtrados. As verificações de libertação necessárias e as restantes conclusões de segurança são documentadas separadamente. [livro de manutenção](docs/MAINTENANCE.md)
 
 | Área | Características |
 | --- | --- |
@@ -302,7 +308,7 @@ Estas são orientações para a contribuição e desenvolvimento, e não uma afi
 
 ## Estado do projeto
 
-**O Novera 1.0.1 está disponível para Windows, Linux, macOS e Android.** A captura de ecrã mostra uma aplicação Windows compilada localmente pelo mantenedor. As alterações na fonte, os testes direcionados e a validação de hardware são documentados separadamente; isto não valida todos os modelos, plataformas ou contas de cloud.
+A captura de ecrã mostra uma aplicação Windows compilada localmente pelo mantenedor. As alterações na fonte, os testes direcionados e a validação de hardware são documentados separadamente; isto não valida todos os modelos, plataformas ou contas de cloud.
 
 As compilações manuais GitHub Actions estão ativadas para todas as onze variantes de distribuição. Siga o [resultados de construção e downloads de candidatos verificados](docs/CI_DISTRIBUTIONS.md); a disponibilidade é registada separadamente para cada plataforma. Os candidatos são distintos dos lançamentos de produção assinados. Os requisitos de distribuição estão descritos no [política oficial de libertação](OFFICIAL_RELEASES.md) e [página de lançamentos](https://github.com/TRON-ABS/Novera/releases). Os candidatos existentes com atualização desativada mantêm-se internos. As versões públicas requerem um mecanismo de atualização configurado e verificado; [verificações de assinatura de desktop e os restantes requisitos de lançamento são documentados](docs/LAUNCH_STATUS.md).
 

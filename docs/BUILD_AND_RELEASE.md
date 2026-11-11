@@ -4,7 +4,7 @@
 
 ## Contrôle complet à chaque mise à jour du dépôt
 
-Avant la publication, comparer les versions et compteurs affichés aux sources et aux paquets effectivement validés. Contrôler la section About, le README principal et toutes ses traductions, les sélecteurs de langue, les liens de téléchargement, la vitrine et les fichiers de suivi. Compter séparément les catalogues d’interface et les README publiés. Conserver les chiffres des notes de version datées.
+Avant la publication, comparer les versions et compteurs affichés aux sources et aux paquets effectivement validés. Contrôler la section About, le README principal et toutes ses traductions, les sélecteurs de langue, les liens de téléchargement, la vitrine et les fichiers de suivi. Compter séparément les catalogues d’interface et les README publiés. Relire la page complète du dépôt dans chaque langue. Le tableau des téléchargements, les annonces de disponibilité, les encadrés et les liens doivent tous présenter la dernière version effectivement publiée par plateforme. Conserver les chiffres des notes de version datées dans l’historique.
 
 Après publication, vérifier depuis un accès public la description du dépôt, les liens de la vitrine et des README, les paquets par plateforme et les manifests des canaux de mise à jour. Consigner les contrôles réussis et les plateformes encore en attente dans le [suivi de disponibilité](LAUNCH_STATUS.md).
 

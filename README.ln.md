@@ -17,6 +17,37 @@
 
 ---
 
+<!-- novera-current-downloads:start -->
+
+## Bozali — Novera 1.0.2
+
+| Esika ya kosala | Bozali |
+| --- | --- |
+| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2) |
+| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-arm64) |
+| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-linux-x64) |
+| Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-cli-novera) |
+| Windows x64 oyo ekoki komema yango | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-portable) |
+| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos-arm64) |
+| Android ARM64 | [APK · 1000023](https://github.com/TRON-ABS/Novera/releases/download/v1.0.2-android-1000023/Novera_1.0.2_android-arm64.apk) · Android 7+ |
+| Web | [Novera Web 1.0.2](https://tron-abs.github.io/Novera/web/) |
+| iOS | Botongi ya simulateur ya kati; Esengeli ko signer/provisionnement ya Apple avant installation ya iPhone. [Bolandi](docs/REPRISE_MACOS_IOS.md). |
+
+<!-- novera-current-downloads:end -->
+Na Mac, fungola DMG mpe copier Novera na Applications. Soki lancement ya liboso ekangami, tika Novera ekota **Paramètres ya système → Bomoi & Bobateli → Fungola ata ndenge nini**. [Malako ya Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
+
+[Bilembeteli mpe ndelo](docs/LAUNCH_STATUS.md)
+
+Na Android, téléphone ya sika oyo ezali na mémoire ekoki esengami mpo na ba modèles ya mboka; salela mopesi ya API na ba dispositifs ya makasi mingi te. Pona recherche web, contexte ya au moins **Ba jetons ya 16K (16,384) .** ezali recommandé, mbala na mbala na ba versions nionso.
+
+**Windows x64 portable 1.0.2 ezali.** Masolo, ba paramètres na ba modèles téléchargés etikalaka na kati ya dossier portable na se `Data`. Bimisa archive mobimba mpe banda `Novera.exe`. Bokanga Novera yambo ya kokende na dossier to kobimisa ebombelo ya USB. [Motambwisi ya komema mpe ndelo](docs/WINDOWS_PORTABLE.md).
+
+<a id="one-dashboard-for-every-creation"></a>
+
+
+<details>
+<summary>Novera 1.0.1 · 2026-11-07</summary>
+
 <!-- novera-release-1.0.1:start -->
 <a id="version-1-0-1"></a>
 ## Novera 1.0.1
@@ -45,31 +76,11 @@ Novera 1.0.1 ezali mpo na ba plateformes oyo ezali awa na se. Télécharger forf
 
 <!-- novera-release-1.0.1:end -->
 
-## Bozali — 2026-11-07
+Mpo na 1.0.1, LFM3-Omni-2B Q4_K_M na yango oyo esengeli `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` ezali toli ya liboso na bureau mpe na telefone; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M etikali alternative ya makomi kaka. Contexte ya liboso ezali 32,768 ba jetons na bureau mpe 2,048 na mobile. Ba contextes ya milayi esalelaka mémoire mingi. Ba choix ya modèle oyo ezali pe ba paramètres ebatelami tii tango ekobongwana polele.
 
-**Novera 1.0.1 ezali mpo na Windows, Linux, macOS mpe Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Ba forfaits ya bureau, ba archives nionso mibale CLI, ba signature na ba manifestes ya mise à jour ezali public pe vérifié.
+Bobongisi mpe bobateli bomoto ebongisami mpo na 1.0.1. Ba statistiques optionnelles mpe rapport ya erreur esalelaka consentement indépendant, explicite mpe ba diagnostics techniques filtrés. Ba vérifications ya liberation oyo esengeli mpe ba résultats ya sécurité oyo etikali ekomami separatement. [buku ya bolandi ya bobateli](docs/MAINTENANCE.md)
 
-| Esika ya kosala | Bozali |
-| --- | --- |
-| Windows x64 | Installateur public NSIS, mise à jour oyo azali na signature; installation native na remplacement vérifié. |
-| Linux x64 | AppImage ya bato banso, mobongisi ya sika oyo atie sinyatili; installation native na remplacement vérifié. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, na chaîne ya mise à jour oyo e signer dédié. |
-| Windows ARM64 | [Mobongisi ya NSIS ya bato banso](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), moteur ya makomi CPU ya mboka; installation, remplacement mpe ba vérifications ya canal public e vérifié. |
-| Android ARM64 | Android 1.0.1 ezali lokola APK ARM64 oyo etiamaki sinyatili, kotonga 1000013. Esalelaka certificat Novera oyo ezali mpe elekaka botali ya paquet. Ezali na masolo ya moto ye moko te, ba modèles to ba clés ya API te. Installation mpe mise à jour na téléphone etikali komekama. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
-| macOS Intel / Apple Silicon | [Bobimisi ya officiel ya 1.0.1 DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera-e signé ba mises à jour. Apple te oyo ezwaki notariat; ba vérifications automatiques eleki separatement na ba architectures nionso mibale, ba vérifications visuelles différées. [Botiami mpe bilembeteli](docs/RELEASE_1.0.1_2026-11-07.md). |
-| iOS | Botongi ya simulateur ya kati; Esengeli ko signer/provisionnement ya Apple avant installation ya iPhone. [Bolandi](docs/REPRISE_MACOS_IOS.md). |
-| Windows x64 oyo ekoki komema yango | [Archive ya ZIP oyo etiamaki sinyatili](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable)Ezali na ; ba données etikalaka na Data, signé Program remplacement vérifié. |
-| Web, MSI, Debian, mpe basusu | Client Web hébergé mpe ba formats mosusu etikali na kati; Pages site ya présentation ezali. |
-
-Na Mac, fungola DMG mpe copier Novera na Applications. Soki lancement ya liboso ekangami, tika Novera ekota **Paramètres ya système → Bomoi & Bobateli → Fungola ata ndenge nini**. [Malako ya Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
-
-Ba signature ya mise à jour ezali separate na Windows Authenticode na notariation ya Apple. Ba hashes ya paquet, ba vérifications natives na ba tests ya mise à jour e documenté separatement. Bomatisi mobimba ya bato banso 1.0.0 na 1.0.1 endimami kaka mpo na ba scénarios oyo ekomami na rapport ya bobimisi. [Bilembeteli mpe ndelo](docs/LAUNCH_STATUS.md)
-
-Na Android, téléphone ya sika oyo ezali na mémoire ekoki esengami mpo na ba modèles ya mboka; salela mopesi ya API na ba dispositifs ya makasi mingi te. Pona recherche web, contexte ya au moins **Ba jetons ya 16K (16,384) .** ezali recommandé, mbala na mbala na ba versions nionso.
-
-**Windows x64 portable 1.0.0 ezali.** Masolo, ba paramètres na ba modèles téléchargés etikalaka na kati ya dossier portable na se `Data`. Bimisa archive mobimba mpe banda `Novera.exe`. Bokanga Novera yambo ya kokende na dossier to kobimisa ebombelo ya USB. [Motambwisi ya komema mpe ndelo](docs/WINDOWS_PORTABLE.md).
-
-<a id="one-dashboard-for-every-creation"></a>
+</details>
 
 ## Tableau de bord moko pona création nionso
 
@@ -82,7 +93,6 @@ Novera ekolaka elongo na yo. Bandakisa mpe ba paramètres na yo ekoki kosalisa b
 Ezalela ya micro: vert soki ezali, rouge tango ozali na mosala, gris soki ezali te. Reconnaissance, restart ya koyoka, manipulation ya focus na dictation visible e corrigé. Discours audio-modèle natif ezali kosalelama sikoyo na Windows; ba plateformes misusu esengeli kaka na validation native na soutien ya voix oyo ebongi.
 
 [![Novera esalemi image mpe tableau de bord unifié na quantité, semence, upscaling mpe mémoire automatique](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
-
 
 Panneau moko, ba modes mitano: **Auto / Mokanda ya kokoma / Elilingi / Miziki / Vidéo oyo ezali**. Ba contrôles elandaka mode oyo oponi : rapport, résolution, durée, cadence, qualité, instrumental, paroles, semence na quantité. Largeur ya panneau na ba boutons ezo adapter na fenêtre na ba étiquettes oyo ebongolami.
 
@@ -109,11 +119,7 @@ Automatisation etali ba moteurs intégrés na ba flux ya mosala ; ekomisaka te m
 
 [Buku ya mosaleli](docs/USER_GUIDE.md) · [Ba moteurs na validation](docs/SUIVI_MOTEURS.md) · [Bokoli](docs/DEVELOPMENT.md)
 
-Mpo na 1.0.1, LFM3-Omni-2B Q4_K_M na yango oyo esengeli `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` ezali toli ya liboso na bureau mpe na telefone; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M etikali alternative ya makomi kaka. Contexte ya liboso ezali 32,768 ba jetons na bureau mpe 2,048 na mobile. Ba contextes ya milayi esalelaka mémoire mingi. Ba choix ya modèle oyo ezali pe ba paramètres ebatelami tii tango ekobongwana polele.
-
 ## Makoki na kati ya source
-
-Bobongisi mpe bobateli bomoto ebongisami mpo na 1.0.1. Ba statistiques optionnelles mpe rapport ya erreur esalelaka consentement indépendant, explicite mpe ba diagnostics techniques filtrés. Ba vérifications ya liberation oyo esengeli mpe ba résultats ya sécurité oyo etikali ekomami separatement. [buku ya bolandi ya bobateli](docs/MAINTENANCE.md)
 
 | Etando | Makambo oyo ezali na kati |
 | --- | --- |
@@ -302,7 +308,7 @@ Yango ezali ba direction ya contribution pe développement, kasi te koloba que d
 
 ## Ezalela ya mosala
 
-**Novera 1.0.1 ezali mpo na Windows, Linux, macOS mpe Android.** Capture d'écran ezali kolakisa application Windows oyo esangisi na esika na yango na mobateli. Mbongwana ya source, ba tests ciblés pe validation ya matériel ekomami na mikanda separatement ; yango e validaka te modèle, plateforme to compte cloud nionso.
+Capture d'écran ezali kolakisa application Windows oyo esangisi na esika na yango na mobateli. Mbongwana ya source, ba tests ciblés pe validation ya matériel ekomami na mikanda separatement ; yango e validaka te modèle, plateforme to compte cloud nionso.
 
 Manuel GitHub Actions builds ezali activé pona ba variantes nionso zomi na moko ya distribution. Bolanda ba [kotonga ba résultats pe ba téléchargements ya ba candidats vérifiés](docs/CI_DISTRIBUTIONS.md)Ezali na ; disponibilité ekomami separatement mpo na plateforme moko na moko. Ba candidats bakeseni na ba sorties ya production oyo ba signer. Esengeli ya bopanzi sango elimbolami na [politiki ya bobimisi ya officiel](OFFICIAL_RELEASES.md) mpe [ebimisi lokasa](https://github.com/TRON-ABS/Novera/releases). Ba candidats oyo bazali désactivés na mise à jour batikali na kati. Ba sorties publiques esengaka mécanisme ya mise à jour configuré pe vérifié; [ba vérifications ya signature ya bureau pe ba exigences ya lancement oyo etikali ekomami](docs/LAUNCH_STATUS.md).
 

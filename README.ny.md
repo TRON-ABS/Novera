@@ -19,6 +19,37 @@ Data ndi zachinsinsi: [kulingalira kwanuko, telemetry yosasankha, malipoti olakw
 
 ---
 
+<!-- novera-current-downloads:start -->
+
+## kupezeka — Novera 1.0.2
+
+| nsanja | kupezeka |
+| --- | --- |
+| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2) |
+| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-arm64) |
+| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-linux-x64) |
+| Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-cli-novera) |
+| Windows x64 chonyamula | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-portable) |
+| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos-arm64) |
+| Android ARM64 | [APK · 1000023](https://github.com/TRON-ABS/Novera/releases/download/v1.0.2-android-1000023/Novera_1.0.2_android-arm64.apk) · Android 7+ |
+| Web | [Novera Web 1.0.2](https://tron-abs.github.io/Novera/web/) |
+| iOS | Kupanga kwa simulator yamkati; Kusaina kwa Apple / kupereka ndikofunikira musanakhazikitse iPhone. [Kutsatira](docs/REPRISE_MACOS_IOS.md). |
+
+<!-- novera-current-downloads:end -->
+Pa Mac, tsegulani DMG ndi kukopera Novera mu Mapulogalamu. Ngati kutsegulira koyamba kwaletsedwa, lolani Novera alowe **Zokonda pa System → Zazinsinsi & Chitetezo → Tsegulani Komabe**. [Malangizo a Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
+
+[Umboni ndi malire](docs/LAUNCH_STATUS.md)
+
+Pa Android, foni yamakono yokhala ndi kukumbukira kokwanira imalimbikitsidwa kuti ikhale yamtundu wakomweko; gwiritsani ntchito API pazida zamphamvu zochepa. Pakusaka pa intaneti, pafupifupi **16K zizindikiro (16,384)** imalimbikitsidwa, mosasinthasintha m'mitundu yonse.
+
+**Windows x64 zonyamula 1.0.2 zilipo.** Zokambirana, makonda ndi mitundu yotsitsa imakhala mkati mwa chikwatu chonyamulika pansi `Data`. Chotsani zonse zakale ndikuyamba `Novera.exe`. Tsekani Novera musanasamutse chikwatu kapena kuchotsa USB zosungira. [Kalozera wam'manja ndi malire](docs/WINDOWS_PORTABLE.md).
+
+<a id="one-dashboard-for-every-creation"></a>
+
+
+<details>
+<summary>Novera 1.0.1 · 2026-11-07</summary>
+
 <!-- novera-release-1.0.1:start -->
 <a id="version-1-0-1"></a>
 ## Novera 1.0.1
@@ -47,31 +78,11 @@ Novera 1.0.1 ikupezeka pamapulatifomu omwe ali pansipa. Tsitsani phukusi la maki
 
 <!-- novera-release-1.0.1:end -->
 
-## kupezeka — 2026-11-07
+Pa 1.0.1, LFM3-Omni-2B Q4_K_M                                `mmproj-LFM3-Omni-2B-Q4_K_M.gguf`                                                                                                                                 NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M ikadali m'malo mwamawu okha. Mawu oyamba ndi 32,768 ma tokeni apakompyuta ndi 2,048 pa lamya. Zolemba zazitali zimagwiritsa ntchito kukumbukira kwambiri. Zosankha zachitsanzo zomwe zilipo komanso zokonda zimasungidwa mpaka zitasinthidwa.
 
-**Novera 1.0.1 ikupezeka pa Windows, Linux, macOS ndi Android.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Maphukusi apakompyuta, zolemba zonse za CLI, siginecha ndi zosintha zosintha ndizowonekera ndipo zimatsimikiziridwa.
+Kukonza ndi kukonza zinsinsi zakonzekera 1.0.1. Ziwerengero zosafunikira ndi malipoti olakwika amagwiritsa ntchito chilolezo chodziyimira pawokha, chodziwikiratu komanso zosefera zaukadaulo. Macheke omasulidwa ofunikira ndi zotsalira zotsalira zimalembedwa mosiyana. [bukhu lokonzekera](docs/MAINTENANCE.md)
 
-| nsanja | kupezeka |
-| --- | --- |
-| Windows x64 | Choyikira pagulu NSIS, chosinthira chosaina; unsembe mbadwa ndi m'malo zatsimikiziridwa. |
-| Linux x64 | Pagulu AppImage, chosinthira chosaina; unsembe mbadwa ndi m'malo zatsimikiziridwa. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, yokhala ndi njira yosinthira yokhazikika. |
-| Windows ARM64 | [Woyikira pagulu NSIS](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), injini zamawu CPU; kuyika, kusintha ndi macheke apagulu atsimikiziridwa. |
-| Android ARM64 | Android 1.0.1 ikupezeka ngati APK ya ARM64 yosainidwa, pangani 1000013. Imagwiritsa ntchito satifiketi yomwe ilipo kale ya Novera ndikudutsa pakuwunika kwa phukusi. Ilibe zokambirana zaumwini, zitsanzo kapena makiyi a API. Kuyika ndi kukonzanso pa foni kumayenera kuyesedwa. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
-| macOS Intel / Apple Silicon | [1.0.1 DMG kutulutsa](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera-zosintha zosinthidwa. Osati Apple notarized; macheke aatomatiki adadutsa padera pazomanga zonse ziwiri, macheke owoneka adachedwetsa. [Kuyika ndi umboni](docs/RELEASE_1.0.1_2026-11-07.md). |
-| iOS | Kupanga kwa simulator yamkati; Kusaina kwa Apple / kupereka ndikofunikira musanakhazikitse iPhone. [Kutsatira](docs/REPRISE_MACOS_IOS.md). |
-| Windows x64 chonyamula | [Yasaina ZIP zolemba zakale](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); Zambiri zimakhalabe mu Data, zomwe zasaina Program zotsimikizika. |
-| Web, MSI, Debian | Makasitomala omwe ali pa Webusayiti ndi mawonekedwe ena amakhalabe mkati; Pages malo owonetsera alipo. |
-
-Pa Mac, tsegulani DMG ndi kukopera Novera mu Mapulogalamu. Ngati kutsegulira koyamba kwaletsedwa, lolani Novera alowe **Zokonda pa System → Zazinsinsi & Chitetezo → Tsegulani Komabe**. [Malangizo a Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
-
-Ma signature osinthika ndi osiyana ndi Windows Authenticode ndi Apple notarization. Phukusi, macheke achilengedwe ndi mayeso osintha amalembedwa mosiyana. Kukwezedwa kwapagulu kwa 1.0.0 mpaka ku 1.0.1 kumatsimikiziridwa ndi zochitika zomwe zalembedwa mu lipoti lotulutsidwa. [Umboni ndi malire](docs/LAUNCH_STATUS.md)
-
-Pa Android, foni yamakono yokhala ndi kukumbukira kokwanira imalimbikitsidwa kuti ikhale yamtundu wakomweko; gwiritsani ntchito API pazida zamphamvu zochepa. Pakusaka pa intaneti, pafupifupi **16K zizindikiro (16,384)** imalimbikitsidwa, mosasinthasintha m'mitundu yonse.
-
-**Windows x64 zonyamula 1.0.0 zilipo.** Zokambirana, makonda ndi mitundu yotsitsa imakhala mkati mwa chikwatu chonyamulika pansi `Data`. Chotsani zonse zakale ndikuyamba `Novera.exe`. Tsekani Novera musanasamutse chikwatu kapena kuchotsa USB zosungira. [Kalozera wam'manja ndi malire](docs/WINDOWS_PORTABLE.md).
-
-<a id="one-dashboard-for-every-creation"></a>
+</details>
 
 ## Dashboard imodzi pazolengedwa zilizonse
 
@@ -84,7 +95,6 @@ Novera imakula nanu. Zitsanzo ndi zokonda zanu zingathandize ogwiritsa ntchito e
 Mkhalidwe wa maikofoni: wobiriwira ukapezeka, wofiyira uli wotanganidwa, wotuwa pakalibe. Kuzindikira, kuyambitsanso kumvetsera, kuwongolera kolunjika ndi kuwongolera kowonekera kwakonzedwa. Mawu achitsanzo chamtundu wamtundu wamtunduwu akugwiritsidwa ntchito pa Windows; mapulatifomu ena amafunikirabe kutsimikizika kwawomweko komanso thandizo la mawu oyenera.
 
 [![Novera chithunzi chopangidwa ndi dashboard yolumikizana yokhala ndi kuchuluka, mbewu, kukwera ndi kukumbukira](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
-
 
 Gulu limodzi, mitundu isanu: **Auto / Zolemba / Chithunzi / Nyimbo / Kanema**. Kuwongolera kumatsata njira yosankhidwa: chiŵerengero, kusamvana, nthawi, cadence, khalidwe, zida, mawu, mbewu ndi kuchuluka kwake. M'lifupi mwake ndi mabatani amatengera zenera ndi zilembo zotanthauziridwa.
 
@@ -111,11 +121,7 @@ Automation imakwirira injini zophatikizika ndi kayendedwe ka ntchito; sizimapang
 
 [Wogwiritsa ntchito](docs/USER_GUIDE.md) · [Injini ndi kutsimikizira](docs/SUIVI_MOTEURS.md) · [Chitukuko](docs/DEVELOPMENT.md)
 
-Pa 1.0.1, LFM3-Omni-2B Q4_K_M                                `mmproj-LFM3-Omni-2B-Q4_K_M.gguf`                                                                                                                                 NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M ikadali m'malo mwamawu okha. Mawu oyamba ndi 32,768 ma tokeni apakompyuta ndi 2,048 pa lamya. Zolemba zazitali zimagwiritsa ntchito kukumbukira kwambiri. Zosankha zachitsanzo zomwe zilipo komanso zokonda zimasungidwa mpaka zitasinthidwa.
-
 ## Kuthekera kochokera
-
-Kukonza ndi kukonza zinsinsi zakonzekera 1.0.1. Ziwerengero zosafunikira ndi malipoti olakwika amagwiritsa ntchito chilolezo chodziyimira pawokha, chodziwikiratu komanso zosefera zaukadaulo. Macheke omasulidwa ofunikira ndi zotsalira zotsalira zimalembedwa mosiyana. [bukhu lokonzekera](docs/MAINTENANCE.md)
 
 | Chigawo | Zinthu |
 | --- | --- |
@@ -306,7 +312,7 @@ Awa ndi malangizo okhudza zopereka ndi chitukuko, osati zonena kuti ntchito iliy
 
 ## Mkhalidwe wa polojekiti
 
-**Novera 1.0.1 ikupezeka pa Windows, Linux, macOS ndi Android.** Chithunzi chojambula chikuwonetsa pulogalamu ya Windows yopangidwa kwanuko ndi wosamalira. Kusintha kwa magwero, mayesero omwe akuwunikira komanso kutsimikizira kwa hardware kumalembedwa mosiyana; izi sizikutsimikizira mtundu uliwonse, nsanja kapena akaunti yamtambo.
+Chithunzi chojambula chikuwonetsa pulogalamu ya Windows yopangidwa kwanuko ndi wosamalira. Kusintha kwa magwero, mayesero omwe akuwunikira komanso kutsimikizira kwa hardware kumalembedwa mosiyana; izi sizikutsimikizira mtundu uliwonse, nsanja kapena akaunti yamtambo.
 
 Zomanga pamanja GitHub Actions ndizoyatsidwa pazosintha zonse khumi ndi chimodzi. Tsatirani [pangani zotsatira ndikutsimikizira kutsitsa kwa omwe akufuna](docs/CI_DISTRIBUTIONS.md); kupezeka kwalembedwa padera pa nsanja iliyonse. Otsatira amasiyana ndi zomwe zatulutsidwa zomwe zasainidwa. Zofunikira zogawa zikufotokozedwa mu [ndondomeko yotulutsa boma](OFFICIAL_RELEASES.md) ndi [tsamba lotulutsidwa](https://github.com/TRON-ABS/Novera/releases). Otsatira omwe alipo omwe ali olumala amakhalabe mkati. Kutulutsa kwapagulu kumafunikira njira yosinthidwa ndikutsimikiziridwa; [macheke a siginecha apakompyuta ndi zofunikira zina zoyambira zimalembedwa](docs/LAUNCH_STATUS.md).
 

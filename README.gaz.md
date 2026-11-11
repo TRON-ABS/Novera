@@ -17,6 +17,37 @@
 
 ---
 
+<!-- novera-current-downloads:start -->
+
+## Argamuu — Novera 1.0.2
+
+| Waltajjii | Argamuu |
+| --- | --- |
+| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2) |
+| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-arm64) |
+| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-linux-x64) |
+| Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-cli-novera) |
+| Windows x64 kan socho’uu danda’u | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-portable) |
+| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos-arm64) |
+| Android ARM64 | [APK · 1000023](https://github.com/TRON-ABS/Novera/releases/download/v1.0.2-android-1000023/Novera_1.0.2_android-arm64.apk) · Android 7+ |
+| Web | [Novera Web 1.0.2](https://tron-abs.github.io/Novera/web/) |
+| iOS | Ijaarsa simulaatorii keessoo; Apple mallatteessuu/provisioning gochuun iPhone install gochuu dura barbaachisaadha. [Hordoffii](docs/REPRISE_MACOS_IOS.md). |
+
+<!-- novera-current-downloads:end -->
+Mac irratti DMG banaatii Novera gara Applications tti waraabi. Yoo eegaliin jalqabaa uggurame, Novera in hayyami **Sajoo Sirna → Iccitii fi Nageenya → Akkamiin iyyuu banaa**. [Qajeelfama Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
+
+[Ragaa fi daangaa](docs/LAUNCH_STATUS.md)
+
+Android irratti bilbilli ammayyaa mimoorii gahaa qabu moodeelota biyya keessaatiif ni gorfama; meeshaalee humna xiqqaa qaban irratti dhiyeessaa API fayyadamuu. Barbaacha weebiitiif, haala yoo xiqqaate **16K mallattoo (16,384) .** ni gorfama, wal irraa hin cinne gosoota hunda keessatti.
+
+**Windows x64 kan socho’u 1.0.2 ni argama.** Mariin, qindaa'inootaa fi moodeelotni buufaman galmee socho'aa keessa turu jalatti `Data`. Kuusaa guutuu baafadhuutii jalqabi `Novera.exe`. Galfata sochoosuu ykn kuusaa USB baasuu dura Novera cufi. [Qajeelfama socho’aa fi daangaa](docs/WINDOWS_PORTABLE.md).
+
+<a id="one-dashboard-for-every-creation"></a>
+
+
+<details>
+<summary>Novera 1.0.1 · 2026-11-07</summary>
+
 <!-- novera-release-1.0.1:start -->
 <a id="version-1-0-1"></a>
 ## Novera 1.0.1
@@ -45,31 +76,11 @@ Novera 1.0.1 waltajjiiwwan armaan gadii tarreeffamaniif ni argama. Paakeejii sir
 
 <!-- novera-release-1.0.1:end -->
 
-## Argamuu — 2026-11-07
+1.0.1 tiif, LFM3-Omni-2B Q4_K_M kan barbaachisu `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` waliin gorsa durtii deeskitooppii fi moobaayila irratti; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M filannoo barruu qofa ta'ee hafa. Haalli jalqabaa 32,768 tokens desktop irratti fi 2,048 mobile irratti. Yaadonni dheeraan yaadannoo baay'ee fayyadamu. Filannoon moodeela fi qindaa'inoota jiran hanga ifatti jijjiiramutti ni eegamu.
 
-**Novera 1.0.1 irratti Windows, Linux, macOS fi Android irratti argama.** [Windows x64 / Linux x64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1) · [Windows ARM64](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64). Paakeejiiwwan deeskitooppii, lamaan isaanii iyyuu CLI kuusaa, mallattoo fi manifeestota fooyya'iinsaa ummataaf ifa ta'anii fi mirkanaa'aniiru.
+Fooyya'iinsi suphaa fi iccitii 1.0.1'f qophaa'eera. Istaatistiksii filannoo fi gabaasa dogoggoraa hayyama of danda’e, ifa ta’ee fi adda baasuu teeknikaa calalame fayyadamu. Sakatta’iinsi gadhiifamuu barbaachisu fi argannoowwan nageenyaa hafan addatti galmaa’aniiru. [kitaaba fiigichaa suphaa](docs/MAINTENANCE.md)
 
-| Waltajjii | Argamuu |
-| --- | --- |
-| Windows x64 | Uummataa NSIS fe'aa, fooyya'aa mallattaa'e; native installation fi bakka buusuun mirkanaa'e. |
-| Linux x64 | Uummataa AppImage, fooyya’aa mallattaa’e; native installation fi bakka buusuun mirkanaa'e. |
-| Windows x64 / Linux x64 CLI | [Novera CLI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-cli-novera): `novera.exe` / `novera`, chaanaalii fooyya’iinsa mallatteeffamee adda ta’e waliin. |
-| Windows ARM64 | [Uummataa NSIS fe'aa](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-windows-arm64), dhalootaan CPU motora barreeffamaa; dhaabuu, bakka buusuu fi sakatta’iinsa chaanaalii ummataa mirkanaa’e. |
-| Android ARM64 | Android 1.0.1 akka mallattoo ARM64 APK, ijaarsa 1000013 ta'ee argama. Ragaa Novera jiru fayyadama fi sakatta'iinsa paakeejii darba. Haasaa dhuunfaa, moodeelota ykn furtuu API hin qabu. Bilbila tokko irratti fe'uu fi fooyyessuunis qoratamuu qaba. Android 7+ · [APK](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-android-1000013) · [1.0.1](docs/RELEASE_1.0.1_2026-11-07.md). |
-| macOS Intel / Apple Silicon | [Ofiisaa 1.0.1 DMG gadhiifamuu](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.1-macos), macOS 13+ Intel / 14+ Apple Silicon; Novera-mallatteeffame fooyya'iinsa. Applen notarized miti; sakatta'iinsa ofumaan arkiteekcharii lamaan irratti addaan darbu, sakatta'iinsi mul'ataa yeroo biraatti darbe. [Dhaabbii fi ragaa](docs/RELEASE_1.0.1_2026-11-07.md). |
-| iOS | Ijaarsa simulaatorii keessoo; Apple mallatteessuu/provisioning gochuun iPhone install gochuu dura barbaachisaadha. [Hordoffii](docs/REPRISE_MACOS_IOS.md). |
-| Windows x64 kan socho’uu danda’u | [Mallatteeffame ZIP kuusaa](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.0-windows-portable); daataa Data keessa turuu, mallattaa'ee Program bakka bu'iinsa mirkanaa'e. |
-| Weeb, MSI, Deebiyaan | Maamila Weebii keessummeefamee fi bifawwan biroo keessoo ta'anii hafu; Pages marsariitiin dhiheessituu ni argama. |
-
-Mac irratti DMG banaatii Novera gara Applications tti waraabi. Yoo eegaliin jalqabaa uggurame, Novera in hayyami **Sajoo Sirna → Iccitii fi Nageenya → Akkamiin iyyuu banaa**. [Qajeelfama Apple](https://support.apple.com/guide/mac-help/mh40616/mac).
-
-Mallattoolee fooyyessaa Windows Authenticode fi Apple notarization irraa adda. Haashiin paakeejii, sakatta'iinsa dhalootaa fi qorannoowwan fooyya'iinsaa addaan galmaa'u. Fooyya'iinsi ummataa guutuu 1.0.0 hanga 1.0.1 haalawwan gabaasa gadhiifama keessatti galmaa'aniif qofa mirkanaa'a. [Ragaa fi daangaa](docs/LAUNCH_STATUS.md)
-
-Android irratti bilbilli ammayyaa mimoorii gahaa qabu moodeelota biyya keessaatiif ni gorfama; meeshaalee humna xiqqaa qaban irratti dhiyeessaa API fayyadamuu. Barbaacha weebiitiif, haala yoo xiqqaate **16K mallattoo (16,384) .** ni gorfama, wal irraa hin cinne gosoota hunda keessatti.
-
-**Windows x64 kan socho’u 1.0.0 ni argama.** Mariin, qindaa'inootaa fi moodeelotni buufaman galmee socho'aa keessa turu jalatti `Data`. Kuusaa guutuu baafadhuutii jalqabi `Novera.exe`. Galfata sochoosuu ykn kuusaa USB baasuu dura Novera cufi. [Qajeelfama socho’aa fi daangaa](docs/WINDOWS_PORTABLE.md).
-
-<a id="one-dashboard-for-every-creation"></a>
+</details>
 
 ## Uumama hundaaf daashboordii tokko
 
@@ -82,7 +93,6 @@ Novera si waliin guddata. Fakkeenyonni fi qindaa'inoota kee fayyadamtoonni biroo
 Haala maaykiroofoonii: yeroo argamu magariisa, yeroo hojiin itti baay'atu diimaa, yeroo hin jirre halluu diimaa. Beekkamtii, dhaggeeffachuu deebi’ee jalqabuu, xiyyeeffannoo qabachuu fi dictation mul’atu sirreeffamaniiru. Haasaan moodeela sagalee dhalootaa yeroo ammaa Windows irratti hojiirra oola; waltajjiiwwan biroo ammallee mirkaneessa dhalootaa fi deeggarsa sagalee mijaawaa barbaadu.
 
 [![Novera fakkii fi daashboordii tokkummaa kan baay'ina, sanyii, olka'iinsaa fi yaadannoo ofumaan qabu maddisiise](.github/assets/novera-dashboard-collapsed-2026-11-07.png)](.github/assets/novera-dashboard-collapsed-2026-11-07.png)
-
 
 Paanaalii tokko, haalawwan shan: **Ofumaan / Barreeffama / Fakkii / Muuziqaa / Viidiyoo**. To'annoon haalata filatame hordofu: reeshiyoo, furmaata, yeroo, kaadeensi, qulqullina, meeshaa, jechoota, sanyii fi baay'ina. Bal'inni paanaalii fi qareewwan foddaa fi asxaalee hiikamanitti madaqu.
 
@@ -109,11 +119,7 @@ Otoomaashiniin motora fi adeemsa hojii walitti makame kan hammatudha; moodeela H
 
 [Qajeelfama fayyadamaa](docs/USER_GUIDE.md) · [Mootora fi mirkaneessuu](docs/SUIVI_MOTEURS.md) · [Misooma](docs/DEVELOPMENT.md)
 
-1.0.1 tiif, LFM3-Omni-2B Q4_K_M kan barbaachisu `mmproj-LFM3-Omni-2B-Q4_K_M.gguf` waliin gorsa durtii deeskitooppii fi moobaayila irratti; NVIDIA Nemotron-3.5-Bolt-E4B Q4_K_M filannoo barruu qofa ta'ee hafa. Haalli jalqabaa 32,768 tokens desktop irratti fi 2,048 mobile irratti. Yaadonni dheeraan yaadannoo baay'ee fayyadamu. Filannoon moodeela fi qindaa'inoota jiran hanga ifatti jijjiiramutti ni eegamu.
-
 ## Dandeettiiwwan madda keessatti
-
-Fooyya'iinsi suphaa fi iccitii 1.0.1'f qophaa'eera. Istaatistiksii filannoo fi gabaasa dogoggoraa hayyama of danda’e, ifa ta’ee fi adda baasuu teeknikaa calalame fayyadamu. Sakatta’iinsi gadhiifamuu barbaachisu fi argannoowwan nageenyaa hafan addatti galmaa’aniiru. [kitaaba fiigichaa suphaa](docs/MAINTENANCE.md)
 
 | Bal’ina lafaa | Amaloota |
 | --- | --- |
@@ -302,7 +308,7 @@ Kunniin kallattii gumaachaa fi misoomaati malee iyyanni damee addaa hunduu durse
 
 ## Haala pirojektii
 
-**Novera 1.0.1 irratti Windows, Linux, macOS fi Android irratti argama.** Fakkiin iskiriinii aplikeeshinii Windows kan naannootti qindaa'e kan kunuunsaan agarsiisa. Jijjiiramni madda, qorannoowwan xiyyeeffannoo fi mirkaneessuu haardwaaraa addaan galmaa’u; kunis moodeela, waltajjii ykn herrega duumessaa hunda hin mirkaneessu.
+Fakkiin iskiriinii aplikeeshinii Windows kan naannootti qindaa'e kan kunuunsaan agarsiisa. Jijjiiramni madda, qorannoowwan xiyyeeffannoo fi mirkaneessuu haardwaaraa addaan galmaa’u; kunis moodeela, waltajjii ykn herrega duumessaa hunda hin mirkaneessu.
 
 Maanu'alii GitHub Actions ijaarsi garaagarummaa raabsaa kudha tokko hundaaf dandeessifameera. Hordofaa hordofaa [bu’aa ijaaruu fi buufachuu kaadhimamaa mirkanaa’e](docs/CI_DISTRIBUTIONS.md); argamuun waltajjii tokkoon tokkoon isaaniif addaan galmaa’a. Dorgomtoonni gadhiifama oomishaa mallattaa’e irraa adda. Ulaagaaleen raabsaa kan ibsaman [imaammata gadhiifamuu ofiisaa](OFFICIAL_RELEASES.md) fi [fuula gadhiisa](https://github.com/TRON-ABS/Novera/releases). Kaadhimamaa updater-disabled jiran keessaa hafan. Gadhiifamni ummataa mala fooyya'iinsa qindaa'ee fi mirkanaa'e barbaada; [sakatta'iinsi mallattoo deeskitooppii fi ulaagaaleen eebbaa hafan galmaa'aniiru](docs/LAUNCH_STATUS.md).
 
