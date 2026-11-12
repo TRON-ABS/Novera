@@ -242,7 +242,17 @@ Pour la distribution directe, `scripts/android/initialize-signing.ps1` crée une
 
 `scripts/android/build-release.ps1` reconstruit le moteur et l'APK release, signe les octets après alignement, puis vérifie identité, certificat, bibliothèques, permissions et notices. Le `versionCode` de `tauri.android.conf.json` doit correspondre à `release.json` et progresser à chaque mise à jour distribuée. Le mode release refuse les revues incomplètes, même avec l'option de test historique.
 
-La distribution retenue est un APK téléchargé manuellement et installé par Android, avec confirmation de l'utilisateur, même identité et même certificat. L'updater desktop Tauri ne s'applique pas au mobile ; aucune mise à jour automatique n'est annoncée. L'AAB et Google Play ne sont pas préparés par ce chemin. Consulter le [bilan Android](RELEASE_ANDROID_1.0.0.md) pour les octets vérifiés et les essais téléphone, et la [note macOS/iOS](REPRISE_MACOS_IOS.md) pour reprendre ensuite les deux plateformes Apple.
+#### Vérifications de démarrage avant livraison
+
+- Passer par [build-release.ps1](../scripts/android/build-release.ps1). Pour une compilation Cargo directe de la bibliothèque Android de production, activer explicitement `--no-default-features --features mobile,tauri/custom-protocol` et vérifier que la page d’accueil et son JavaScript sont intégrés à la bibliothèque de l’APK signé. Le profil Cargo `--release` seul ne sélectionne pas le protocole de production Tauri. C’est l’erreur du build 1000014, dont la WebView essayait de joindre `https://tauri.localhost/` via le proxy de développement.
+- Conserver Android 7 (API 24) comme minimum. Sur Android, garder `sysinfo` sans l’option `gpu` et comparer les imports natifs aux symboles du NDK pour l’API 24. Le build 1000013 importait `statx`, disponible depuis l’API 30, et échouait au chargement sur Android 10.
+- Exécuter [verify-apk.py](../scripts/android/verify-apk.py) sur l’APK signé et conserver le reçu. Garder l’identifiant `io.github.tronabs.novera`, le certificat de production et un `versionCode` supérieur à celui installé. Sur un appareil Android 10, installer par-dessus la version précédente, ouvrir l’interface en mode avion et vérifier qu’une donnée témoin est toujours présente. Consigner l’essai sur appareil séparément des contrôles du paquet.
+
+À partir de la 1.0.3 build 1000026, l’APK signé vérifie les mises à jour à l’ouverture, puis toutes les six heures tant que l’app est au premier plan. L’utilisateur accepte le téléchargement dans Novera et confirme l’installation dans Android. Android installe le paquet par-dessus l’application existante et conserve ses données. Pour passer d’un build plus ancien au premier APK doté de cette fonction, installer ce dernier manuellement par-dessus l’existant.
+
+Publier chaque APK de production sous un tag GitHub `v<VERSION>-android-<VERSION_CODE>` avec l’asset `Novera_<VERSION>_android-arm64.apk`. Publier comme release stable et garder la release générale comme `latest`. Le code Android doit augmenter à chaque publication, même quand la version affichée reste identique. La version spécifique à Android est définie dans `tauri.android.conf.json`. L’app sélectionne le code supérieur le plus élevé, compare l’empreinte SHA-256 fournie par GitHub et vérifie le paquet, la version et le certificat avant de lancer l’installateur. Sur Android 8 et ultérieur, Android peut demander à l’utilisateur d’autoriser Novera comme source d’installation.
+
+Avant publication, vérifier sur téléphone l’installation par-dessus avec une conversation, un modèle et un réglage témoins, puis vérifier l’offre de mise à jour depuis un build équipé du mécanisme. Consulter le [bilan Android](RELEASE_ANDROID_1.0.0.md) pour les essais précédents.
 
 <a id="cli"></a>
 

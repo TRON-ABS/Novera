@@ -115,8 +115,9 @@ text = text.replace(/^[ \t]*compileOptions\s*\{[^{}]*\}[ \t]*(?:\n)?/gm, '')
 if (!text.includes('useLegacyPackaging')) text = text.replace('android {', 'android {\n    packaging { jniLibs.useLegacyPackaging = true }')
 text = text.replace('android {', 'android {\n    compileOptions {\n        sourceCompatibility = JavaVersion.VERSION_11\n        targetCompatibility = JavaVersion.VERSION_11\n    }')
 if (!text.includes('applicationIdSuffix')) text = text.replace('getByName("debug") {', 'getByName("debug") {\n            applicationIdSuffix = ".debug"\n            versionNameSuffix = "-debug"')
-const version = JSON.parse(read(path.join(repo, 'src-tauri/tauri.conf.json'))).version
-const versionCode = JSON.parse(read(path.join(repo, 'src-tauri/tauri.android.conf.json'))).bundle.android.versionCode
+const android = JSON.parse(read(path.join(repo, 'src-tauri/tauri.android.conf.json')))
+const version = android.version ?? JSON.parse(read(path.join(repo, 'src-tauri/tauri.conf.json'))).version
+const versionCode = android.bundle.android.versionCode
 const release = JSON.parse(read(path.join(here, 'release.json')))
 if (versionCode !== release.versionCode) throw new Error('Android release versionCode is not synchronized')
 text = text.replace(/getProperty\("tauri.android.versionName",\s*"[^"]*"\)/g, 'getProperty("tauri.android.versionName", "' + version + '")')
@@ -161,6 +162,10 @@ write(properties, props)
 
 const manifest = path.join(project, 'app/src/main/AndroidManifest.xml')
 let xml = read(manifest)
+const installPermission = '<uses-permission android:name="android.permission.REQUEST_INSTALL_PACKAGES" />'
+if (!xml.includes('android.permission.REQUEST_INSTALL_PACKAGES')) {
+  xml = xml.replace('<application', installPermission + '\n    <application')
+}
 for (const [key, value] of [['allowBackup', 'false'], ['fullBackupContent', 'false'], ['extractNativeLibs', 'true']]) {
   const expression = new RegExp('android:' + key + '="[^"]*"')
   xml = expression.test(xml) ? xml.replace(expression, 'android:' + key + '="' + value + '"') : xml.replace('<application', '<application\n        android:' + key + '="' + value + '"')
@@ -175,7 +180,23 @@ write(security, '<?xml version="1.0" encoding="utf-8"?>\n<network-security-confi
 xml = xml.replace(/\s+android:networkSecurityConfig="[^"]*"/g, '')
 xml = xml.replace('<application', '<application\n        android:networkSecurityConfig="@xml/network_security_config"')
 write(manifest, xml)
-write(path.join(project, 'app/src/main/res/xml/file_paths.xml'), '<?xml version="1.0" encoding="utf-8"?>\n<paths xmlns:android="http://schemas.android.com/apk/res/android">\n  <files-path name="novera_exports" path="exports/" />\n  <cache-path name="novera_export_cache" path="exports/" />\n</paths>\n')
+write(path.join(project, 'app/src/main/res/xml/file_paths.xml'), '<?xml version="1.0" encoding="utf-8"?>\n<paths xmlns:android="http://schemas.android.com/apk/res/android">\n  <files-path name="novera_exports" path="exports/" />\n  <cache-path name="novera_export_cache" path="exports/" />\n  <cache-path name="novera_apk_updates" path="apk-updates/" />\n</paths>\n')
+const appSources = path.join(project, 'app/src/main/java/io/github/tronabs/novera')
+write(path.join(appSources, 'MainActivity.kt'), read(path.join(here, 'templates/MainActivity.kt')))
+write(path.join(appSources, 'ApkUpdater.kt'), read(path.join(here, 'templates/ApkUpdater.kt'))
+  .replace('__RELEASE_PACKAGE__', release.packageId)
+  .replace('__RELEASE_CERTIFICATE__', release.certificateSha256))
+for (const locale of ['values', 'values-fr']) {
+  const file = path.join(locale, 'apk_updates.xml')
+  write(path.join(project, 'app/src/main/res', file), read(path.join(here, 'templates', file)))
+}
+const appLabels = path.join(project, 'app/src/main/res/values/strings.xml')
+if (fs.existsSync(appLabels)) {
+  write(appLabels, read(appLabels).replace(
+    /(<string name="(?:app_name|main_activity_title)")>Novera<\/string>/g,
+    '$1 translatable="false">Novera</string>',
+  ))
+}
 fs.mkdirSync(path.join(project, 'app/src/main/java/io/github/tronabs/novera/generated'), { recursive: true })
 write(path.join(project, 'app/src/main/assets/resources/LICENSE'), read(path.join(repo, 'LICENSE')))
 write(path.join(project, 'app/src/main/assets/resources/SIGNATURE.txt'), read(path.join(here, 'templates/SIGNATURE.txt')))

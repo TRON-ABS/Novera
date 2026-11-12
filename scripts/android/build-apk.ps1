@@ -28,7 +28,8 @@ $env:NOVERA_ENABLE_UPDATER='false'
 Set-NoveraAndroidTelemetry -Enabled:$WithTelemetry -ConfigurationPath (Join-Path $repo 'web-app/.env.local')
 Remove-Item Env:__TAURI_BUNDLE_TYPE -ErrorAction SilentlyContinue
 # Yarn supplies project-local tools to Tauri's beforeBuildCommand (cross-env).
-$arguments=@('tauri','android','build','--apk','--target','aarch64','--features','mobile')
+$features=if ($Release) {'mobile,tauri/custom-protocol'} else {'mobile'}
+$arguments=@('tauri','android','build','--apk','--target','aarch64','--features',$features)
 if (!$Release) { $arguments+='--debug' }
 $log=Join-Path $repo '.build/android-tauri-build.log'
 New-Item -ItemType Directory -Force -Path (Split-Path $log -Parent) | Out-Null
@@ -42,7 +43,12 @@ if ($buildCode -and $Release) {
         $target=if ($env:CARGO_TARGET_DIR) { $env:CARGO_TARGET_DIR } else { Join-Path $repo 'src-tauri/target' }
         Write-Output 'Cargo release complete; packaging its exact library by copy because Windows symlinks are unavailable.'
         & (Join-Path $PSScriptRoot 'package-release.ps1') -NativeLibrary (Join-Path $target 'aarch64-linux-android/release/libapp_lib.so')
-        exit 0
+        $buildCode=0
     }
+}
+if (!$buildCode -and $Release) {
+    $apk=Join-Path $repo 'src-tauri/gen/android/app/build/outputs/apk/arm64/release/app-arm64-release-unsigned.apk'
+    & python (Join-Path $PSScriptRoot 'verify-apk.py') $apk --sdk $android.sdk --native-only
+    if ($LASTEXITCODE) { throw 'Compilation Android refusee : protocole Tauri ou compatibilite native invalide.' }
 }
 exit $buildCode

@@ -43,10 +43,11 @@ test('synchronizes cached Gradle version values from canonical application and r
   const f = fixture(t)
   f.put(path.join(f.project, 'app/tauri.properties'), 'tauri.android.versionName=0.0.1\ntauri.android.versionCode=1\ncustom.keep=unchanged\n')
   f.run()
+  const android = JSON.parse(fs.readFileSync(path.join(root, 'src-tauri/tauri.android.conf.json'), 'utf8'))
   const app = JSON.parse(fs.readFileSync(path.join(root, 'src-tauri/tauri.conf.json'), 'utf8'))
   const release = JSON.parse(fs.readFileSync(path.join(root, 'scripts/android/release.json'), 'utf8'))
   const properties = f.read('app/tauri.properties')
-  assert.ok(properties.includes('tauri.android.versionName=' + app.version + '\n'))
+  assert.ok(properties.includes('tauri.android.versionName=' + (android.version ?? app.version) + '\n'))
   assert.ok(properties.includes('tauri.android.versionCode=' + release.versionCode + '\n'))
   assert.match(properties, /^custom.keep=unchanged$/m)
 })
@@ -95,6 +96,22 @@ test('reconfiguration preserves generated content without duplicate blocks', t =
   const before = snapshot(f.project)
   f.run()
   assert.deepEqual(snapshot(f.project), before)
+})
+
+test('installs the native updater with the release identity and a scoped APK cache', t => {
+  const f = fixture(t)
+  const release = JSON.parse(fs.readFileSync(path.join(root, 'scripts/android/release.json'), 'utf8'))
+  const app = 'app/src/main/'
+  f.put(path.join(f.project, app, 'res/values/strings.xml'), '<resources><string name="app_name">Novera</string></resources>')
+  f.run()
+  const source = app + 'java/io/github/tronabs/novera/'
+  assert.match(f.read(source + 'MainActivity.kt'), /apkUpdater\.resume\(\)/)
+  assert.ok(f.read(source + 'ApkUpdater.kt').includes(release.certificateSha256))
+  assert.ok(f.read(source + 'ApkUpdater.kt').includes(release.packageId))
+  assert.match(f.read(app + 'AndroidManifest.xml'), /REQUEST_INSTALL_PACKAGES/)
+  assert.match(f.read(app + 'res/xml/file_paths.xml'), /<cache-path name="novera_apk_updates" path="apk-updates\/" \/>/)
+  assert.match(f.read(app + 'res/values-fr/apk_updates.xml'), /Mise à jour de Novera/)
+  assert.match(f.read(app + 'res/values/strings.xml'), /name="app_name" translatable="false"/)
 })
 
 test('settings hook reapplies the task adaptation after Tauri regenerates Kotlin files', t => {
