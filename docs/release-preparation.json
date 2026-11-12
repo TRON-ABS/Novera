@@ -32,7 +32,7 @@
   "androidCurrentRelease": {
     "version": "1.0.3",
     "versionCode": 1000025,
-    "deviceValidated": false
+    "deviceValidated": true
   },
   "portableVersion": "1.0.0",
   "webExperimentalPublished": true,

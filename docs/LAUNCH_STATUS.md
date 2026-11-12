@@ -3,7 +3,7 @@
 ## Novera 1.0.3
 
 - Auto Tune est rétabli dans l’application Desktop. L’interface comporte 120 langues et variantes.
-- [Android ARM64, APK signé 1000025](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-android-1000025). Cette mise à jour reprend le build 1000023 validé sur Huawei P20 et change son numéro de version. Le test sur téléphone concerne le build 1000023.
+- [Android ARM64, APK signé 1000025](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-android-1000025). Cette mise à jour reprend le build 1000023 validé sur Huawei P20 et change son numéro de version. Le mainteneur a également confirmé le clavier et le sélecteur de langue du build 1000025 sur Huawei P20.
 - [Novera Web expérimental](https://tron-abs.github.io/Novera/web/) propose les 120 langues et variantes. iOS reste en attente de signature et de provisionnement Apple.
 
 <!-- novera-current-distributions:start -->

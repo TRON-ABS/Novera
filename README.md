@@ -37,7 +37,7 @@ Data and privacy: [local inference, optional telemetry, error reports and update
 
 <!-- novera-current-downloads:end -->
 
-The keyboard and 120 interface languages were tested on a Huawei P20 with Android build 1000023. The macOS packages are distributed without Apple notarization.
+The keyboard and language selector were tested on a Huawei P20 with Android build 1000025, which includes 120 interface languages. The macOS packages are distributed without Apple notarization.
 
 On Mac, open the DMG and copy Novera into Applications. If the first launch is blocked, allow Novera in **System Settings → Privacy & Security → Open Anyway**. [Apple instructions](https://support.apple.com/guide/mac-help/mh40616/mac).
 

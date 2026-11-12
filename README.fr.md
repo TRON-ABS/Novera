@@ -39,7 +39,7 @@ Données et confidentialité : [inférence locale, télémétrie facultative, er
 
 <!-- novera-current-downloads:end -->
 
-Le clavier et les 120 langues d’interface ont été testés sur un Huawei P20 avec le build Android 1000023. Les paquets macOS sont distribués sans notarisation Apple.
+Le clavier et le sélecteur de langue ont été testés sur un Huawei P20 avec le build Android 1000025, qui intègre 120 langues d’interface. Les paquets macOS sont distribués sans notarisation Apple.
 
 Sur Mac, ouvrir le DMG et copier Novera dans Applications. Si le premier lancement est bloqué, autoriser Novera dans **Réglages Système → Confidentialité et sécurité → Ouvrir quand même**. [Procédure Apple](https://support.apple.com/fr-fr/guide/mac-help/-mh40616/mac).
 
