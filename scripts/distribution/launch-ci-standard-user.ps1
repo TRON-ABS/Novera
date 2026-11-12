@@ -3,13 +3,15 @@
 param([Parameter(Mandatory=$true)][string]$Executable,[Parameter(Mandatory=$true)][string]$Receipt,[Parameter(Mandatory=$true)][string]$LogFile)
 $ErrorActionPreference='Stop'
 $portable = $env:NOVERA_VALIDATE_PORTABLE -eq 'true' -and $env:RUNNER_ARCH -eq 'X64'
-if ($env:GITHUB_ACTIONS -ne 'true' -or $env:RUNNER_ENVIRONMENT -ne 'github-hosted' -or ($env:RUNNER_ARCH -ne 'ARM64' -and !$portable)) { throw 'Disposable ARM64 GitHub runner required (or explicit native x64 portable validation)' }
+$desktopX64 = $env:NOVERA_VALIDATE_AUTO_TUNE -eq 'true' -and $env:RUNNER_ARCH -eq 'X64' -and !$portable
+if ($env:GITHUB_ACTIONS -ne 'true' -or $env:RUNNER_ENVIRONMENT -ne 'github-hosted' -or ($env:RUNNER_ARCH -ne 'ARM64' -and !$portable -and !$desktopX64)) { throw 'Disposable GitHub runner required for native UI validation' }
 $runnerPath=[IO.Path]::GetFullPath($env:RUNNER_TEMP).TrimEnd('\')+'\'
 $executablePath=(Resolve-Path -LiteralPath $Executable).Path
 $receiptPath=[IO.Path]::GetFullPath($Receipt)
 $logPath=[IO.Path]::GetFullPath($LogFile)
 $validationPath=[IO.Path]::GetFullPath((Join-Path $env:GITHUB_WORKSPACE '.build/validation')).TrimEnd('\')+'\'
 if (!$executablePath.StartsWith($runnerPath,[StringComparison]::OrdinalIgnoreCase) -or [IO.Path]::GetFileName($executablePath) -ne 'Novera-Desktop.exe' -or !$receiptPath.StartsWith($runnerPath,[StringComparison]::OrdinalIgnoreCase) -or !$logPath.StartsWith($validationPath,[StringComparison]::OrdinalIgnoreCase)) { throw 'Owned CI installation, scratch receipt and validation log required' }
+if ($desktopX64 -and $executablePath.Substring($runnerPath.Length) -notmatch '^novera-install-validation-[^\\]+\\installed\\Novera-Desktop\.exe$') { throw 'Owned x64 installed validation executable required' }
 if ($portable) {
     $programPath=[IO.Path]::GetDirectoryName($executablePath)
     if ([IO.Path]::GetFileName($programPath) -ne 'Program' -or !(Test-Path -LiteralPath (Join-Path ([IO.Path]::GetDirectoryName($programPath)) 'novera-portable.json') -PathType Leaf)) { throw 'Marked portable Program directory required' }

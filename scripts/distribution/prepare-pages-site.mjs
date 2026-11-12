@@ -103,6 +103,7 @@ ${creationPromptGuide(repository)}
     if (!Object.hasOwn(distributionLinks, platform) || !/^\d+\.\d+\.\d+$/.test(version)) throw new Error('Invalid public distribution')
   }
   if (Object.keys(publicDistributions).length) {
+    const currentVersion = publicDistributions.windows ?? facts.stable
     const buttons = Object.entries(publicDistributions).map(([platform, version]) => {
       const [label, suffix] = distributionLinks[platform]
       return `<a class="button" href="${repository}/releases/tag/v${version}${suffix}">${label} · ${version}</a>`
@@ -115,6 +116,8 @@ ${creationPromptGuide(repository)}
       : 'Le clavier et les 120 langues de l’APK Android 1.0.2 ont été testés sur Huawei P20.'
     html = html.replace('<h2 id="preparation-title">Novera', '<h2 id="preparation-title">Historique Novera')
       .replace(/<h1>Novera [\d.]+ est disponible\.<\/h1>/, '<h1>Télécharger Novera</h1>')
+      .replace(/(<meta name="description" content="[^"]*?Novera )[\d.]+( est disponible)/, (_, start, end) => start + currentVersion + end)
+      .replace(/<p class="numbers">[^<]+<\/p>/, `<p class="numbers">Novera ${currentVersion} · ${locales.length} langues et variantes d’interface · ${escape(facts.providers)} profils dont ${escape(facts.cloud)} fournisseurs cloud · ${escape(facts.media)} préréglages média · Apache 2.0</p>`)
       .replace(/<div class="actions"><a class="button primary" href="[^"]+">Windows x64 \/ Linux x64<\/a>[\s\S]*?<\/div><\/div><figure>/,
         `<div class="actions" aria-label="Téléchargements publics">${buttons}${androidButton}${earlier}</div></div><figure>`)
       .replace(/<aside class="notice" aria-label="Disponibilité">[\s\S]*?<\/aside>/,

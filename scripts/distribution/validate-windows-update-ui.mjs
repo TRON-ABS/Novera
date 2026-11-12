@@ -8,11 +8,12 @@ import { createRequire } from 'node:module'
 import { createHash } from 'node:crypto'
 import { fileURLToPath } from 'node:url'
 import { compareVersions } from './prepare-version.mjs'
+import { checkAutoTune } from './auto-tune-smoke.js'
 
 const feedUrl = 'https://github.com/TRON-ABS/Novera/releases/latest/download/latest.json'
 const applicationVersion = JSON.parse(fs.readFileSync(new URL('../../src-tauri/tauri.conf.json', import.meta.url))).version
-export function requireWindowsUiHost(platform, architecture, env) {
-  if (platform !== 'win32' || architecture !== 'arm64' || env.GITHUB_ACTIONS !== 'true' || env.RUNNER_ENVIRONMENT !== 'github-hosted') throw new Error('Disposable Windows ARM64 GitHub runner required')
+export function requireWindowsUiHost(platform, architecture, env, autoTune = false) {
+  if (platform !== 'win32' || (architecture !== 'arm64' && !(autoTune && architecture === 'x64')) || env.GITHUB_ACTIONS !== 'true' || env.RUNNER_ENVIRONMENT !== 'github-hosted') throw new Error('Disposable Windows ARM64 GitHub runner required')
 }
 export function expectedWindowsUiMessage(feed, currentVersion = applicationVersion) {
   if (typeof feed?.version !== 'string' || !/^\d+\.\d+\.\d+$/.test(feed.version) || compareVersions(feed.version, currentVersion) > 0) throw new Error('This no-update check requires a feed no newer than the current application version')
@@ -33,18 +34,20 @@ async function until(operation, timeout = 60_000) {
 }
 
 async function main(executable) {
-  requireWindowsUiHost(process.platform, process.arch, process.env)
+  const autoTune = process.argv.includes('--auto-tune')
+  requireWindowsUiHost(process.platform, process.arch, process.env, autoTune)
   const base = fs.realpathSync(process.env.RUNNER_TEMP)
   const exe = fs.realpathSync(executable)
   const relative = path.relative(base, exe)
   if (!relative || relative.startsWith('..') || path.isAbsolute(relative) || path.basename(exe) !== 'Novera-Desktop.exe') throw new Error('Use the owned CI installation only')
   const binary = fs.readFileSync(exe)
   const pe = binary.readUInt32LE(60)
-  if (binary.subarray(0, 2).toString() !== 'MZ' || binary.subarray(pe, pe + 4).toString() !== 'PE\0\0' || binary.readUInt16LE(pe + 4) !== 0xaa64) throw new Error('The tested application must be a native ARM64 PE')
+  const machine = process.arch === 'arm64' ? 0xaa64 : 0x8664
+  if (binary.subarray(0, 2).toString() !== 'MZ' || binary.subarray(pe, pe + 4).toString() !== 'PE\0\0' || binary.readUInt16LE(pe + 4) !== machine) throw new Error('The tested application must match the native runner architecture')
   const response = await fetch(feedUrl)
   if (!response.ok) throw new Error(`Unexpected production feed HTTP ${response.status}`)
   const productionFeed = await response.json()
-  const expected = expectedWindowsUiMessage(productionFeed)
+  const expected = autoTune ? null : expectedWindowsUiMessage(productionFeed)
   const out = path.resolve('.build/validation')
   fs.mkdirSync(out, { recursive: true })
   const scratch = fs.mkdtempSync(path.join(base, 'novera-arm64-ui-'))
@@ -57,7 +60,16 @@ async function main(executable) {
   delete env.CI
   const data = path.join(locations.APPDATA, 'Novera/data')
   fs.mkdirSync(data, { recursive: true })
-  fs.writeFileSync(path.join(data, 'settings.json'), JSON.stringify({ '__settings_migrated_to_backend__': 'true', 'llamacpp-embedder-bootstrapped': 'true', 'llamacpp-qwen3-embedder-bootstrapped': 'true', 'setting-general': JSON.stringify({ state: { currentLanguage: 'en' } }) }))
+  const settings = { '__settings_migrated_to_backend__': 'true', 'llamacpp-embedder-bootstrapped': 'true', 'llamacpp-qwen3-embedder-bootstrapped': 'true', 'setting-general': JSON.stringify({ state: { currentLanguage: 'en' } }) }
+  if (autoTune) {
+    // Seed an isolated provider so the chat UI opens after onboarding.
+    settings['model-provider'] = JSON.stringify({ version: 22, state: { providers: [{
+      provider: 'validation-local',
+      base_url: 'http://127.0.0.1:1',
+      models: [{ id: 'validation-model', name: 'Validation model' }],
+    }] } })
+  }
+  fs.writeFileSync(path.join(data, 'settings.json'), JSON.stringify(settings))
   const port = await new Promise((resolve, reject) => { const server = net.createServer(); server.once('error', reject); server.listen(0, '127.0.0.1', () => { const port = server.address().port; server.close(() => resolve(port)) }) })
   env.WEBVIEW2_ADDITIONAL_BROWSER_ARGUMENTS = `--remote-debugging-port=${port} --remote-debugging-address=127.0.0.1 --lang=en-US`
   env.WEBVIEW2_USER_DATA_FOLDER = path.join(scratch, 'webview-profile')
@@ -75,13 +87,19 @@ async function main(executable) {
   const processHandle = JSON.parse(fs.readFileSync(launchReceipt, 'utf8'))
   if (processHandle.integrityRid !== 8192 || processHandle.elevated !== false) throw new Error('The actual UI process must be non-elevated at medium integrity')
   let browser, page
-  const receipt = { platform: 'windows-aarch64', sourceCommit: process.env.GITHUB_SHA, checkedAt: new Date().toISOString(), executableSha256: createHash('sha256').update(binary).digest('hex'), nativeArchitecture: 'arm64', processIntegrity: processHandle, feed: feedUrl, feedPlatformPresent: expected.supported, nativeUiCheckPassed: false, productionManualCheckValidated: false, updateInstalled: false, limitations: ['Direct Settings route in a fresh isolated profile; onboarding and model setup are not covered', 'No offered update or transition between two public versions is installed'] }
+  const receipt = { platform: process.arch === 'arm64' ? 'windows-aarch64' : 'windows-x86_64', sourceCommit: process.env.GITHUB_SHA, checkedAt: new Date().toISOString(), executableSha256: createHash('sha256').update(binary).digest('hex'), nativeArchitecture: process.arch, processIntegrity: processHandle, feed: feedUrl, feedPlatformPresent: expected?.supported, nativeUiCheckPassed: false, productionManualCheckValidated: false, updateInstalled: false, limitations: ['Direct Settings route in a fresh isolated profile; onboarding and model setup are not covered', 'No offered update or transition between two public versions is installed'] }
   Object.assign(receipt, { applicationVersion, productionFeedVersion: productionFeed.version, feedMatchesApplicationVersion: productionFeed.version === applicationVersion })
   try {
     await until(async () => { const r = await fetch(`http://127.0.0.1:${port}/json/version`, { signal: AbortSignal.timeout(2_000) }); return r.ok })
     browser = await chromium.connectOverCDP(`http://127.0.0.1:${port}`)
     page = await until(() => browser.contexts().flatMap(context => context.pages()).find(p => p.url().startsWith('http://tauri.localhost') || p.url().startsWith('tauri://localhost')))
     const origin = await page.evaluate(() => location.origin)
+    if (autoTune) {
+      await page.goto(origin + '/')
+      receipt.autoTune = await page.evaluate(checkAutoTune)
+      await page.screenshot({ path: path.join(out, 'WINDOWS-AUTO-TUNE.png'), fullPage: true })
+      return
+    }
     await page.goto(origin + '/settings/general')
     const button = page.getByRole('button', { name: /^check for updates$/i })
     await button.waitFor({ state: 'visible', timeout: 60_000 })
@@ -99,7 +117,7 @@ async function main(executable) {
     if (page) { receipt.visibleTextAtFailure = await page.locator('body').innerText().catch(() => ''); await page.screenshot({ path: path.join(out, 'WINDOWS-UPDATER-UI.png'), fullPage: true }).catch(() => {}) }
     throw error
   } finally {
-    fs.writeFileSync(path.join(out, 'WINDOWS-UPDATER-UI.json'), JSON.stringify(receipt, null, 2) + '\n')
+    fs.writeFileSync(path.join(out, autoTune ? 'WINDOWS-AUTO-TUNE.json' : 'WINDOWS-UPDATER-UI.json'), JSON.stringify(receipt, null, 2) + '\n')
     await browser?.close().catch(() => {})
     if (processHandle.pid) spawnSync('taskkill', ['/PID', String(processHandle.pid), '/T', '/F'], { windowsHide: true, stdio: 'ignore' })
   }

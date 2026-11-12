@@ -245,6 +245,53 @@ def main():
             'releasePublicationAuthorizedByThisTest':False}
         destination=REPO/'.build/validation';destination.mkdir(parents=True,exist_ok=True)
         (destination/(platform+'.json')).write_text(json.dumps(report,indent=2)+'\n')
+        if os.environ.get('NOVERA_VALIDATE_AUTO_TUNE') == 'true':
+            if platform.startswith('windows-'):
+                subprocess.run(['python', str(REPO/'scripts/distribution/verify-packaged-locales.py'), str(executable), '--expected-count', '120'], env=env, cwd=REPO, check=True, timeout=60)
+                subprocess.run(['node', str(REPO/'scripts/distribution/validate-windows-update-ui.mjs'), str(executable), '--auto-tune'], env=env, cwd=REPO, check=True, timeout=180)
+            elif platform.startswith('darwin-'):
+                subprocess.run(['python3', str(REPO/'scripts/distribution/verify-packaged-locales.py'), str(executable), '--expected-count', '120'], env=env, cwd=REPO, check=True, timeout=60)
+                test_data_root = root/'auto-tune-profile'
+                test_settings = test_data_root/'Novera/data/settings.json'
+                test_settings.parent.mkdir(parents=True)
+                test_settings.write_text(json.dumps({
+                    '__settings_migrated_to_backend__': 'true',
+                    'llamacpp-embedder-bootstrapped': 'true',
+                    'llamacpp-qwen3-embedder-bootstrapped': 'true',
+                    'desktop.local-model-calibration': 'false',
+                    'setting-general': json.dumps({'state': {'currentLanguage': 'en', 'autoUpdateCheck': False}}),
+                    'model-provider': json.dumps({'version': 22, 'state': {'providers': [{
+                        'provider': 'validation-local',
+                        'base_url': 'http://127.0.0.1:1',
+                        'models': [{'id': 'validation-model', 'name': 'Validation model'}],
+                    }]}}),
+                }))
+                test_env = {**env, 'JAN_DATA_ROOT': str(test_data_root)}
+                test_env.pop('CI', None)
+                with (destination/(platform+'-auto-tune-launch.log')).open('w') as launch_log:
+                    process = subprocess.Popen([str(executable)], env=test_env, stdout=launch_log, stderr=subprocess.STDOUT)
+                    try:
+                        output = subprocess.check_output(['swift', str(REPO/'scripts/distribution/validate-macos-auto-tune.swift'),
+                            str(process.pid), str(test_settings)], env=test_env, text=True, timeout=160)
+                        report['autoTune'] = json.loads(output)
+                        (destination/(platform+'.json')).write_text(json.dumps(report,indent=2)+'\n')
+                    finally:
+                        if process.poll() is None:
+                            process.terminate()
+                            try: process.wait(timeout=10)
+                            except subprocess.TimeoutExpired:
+                                process.kill()
+                                process.wait()
+            elif platform.startswith('linux-'):
+                extract = root/'locale-check'
+                extract.mkdir()
+                bundle.chmod(bundle.stat().st_mode | 0o100)
+                subprocess.run([str(bundle), '--appimage-extract'], env=env, cwd=extract, check=True, timeout=180, stdout=subprocess.DEVNULL)
+                candidates = list((extract/'squashfs-root').glob('**/Novera-Desktop'))
+                if len(candidates) != 1:
+                    raise RuntimeError('Expected one application executable inside the AppImage')
+                subprocess.run(['python3', str(REPO/'scripts/distribution/verify-packaged-locales.py'), str(candidates[0]), '--expected-count', '120'], env=env, cwd=REPO, check=True, timeout=60)
+                subprocess.run(['python3', str(REPO/'scripts/distribution/validate-linux-update-ui.py'), '--auto-tune', str(bundle)], env=env, cwd=REPO, check=True, timeout=180)
         if platform=='windows-aarch64' and os.environ.get('NOVERA_VALIDATE_WINDOWS_UI')=='true':
             subprocess.run(['node',str(REPO/'scripts/distribution/validate-windows-update-ui.mjs'),str(executable)],env=env,cwd=REPO,check=True,timeout=180)
         print(json.dumps(report,indent=2))

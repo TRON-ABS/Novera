@@ -1,5 +1,9 @@
 # Novera — historique consolidé
 
+## 1.0.3 — Auto Tune et 120 langues
+
+Les commandes natives de calibration sont rétablies dans Novera Desktop. Les applications compatibles conservent les 120 langues et variantes d’interface. Sur Android, l’APK ARM64 1000025 reprend le build 1000023 avec les champs de version actualisés et la même signature. Le mainteneur a confirmé le clavier et le sélecteur de langue sur Huawei P20. iOS reste en attente. [Disponibilité et validation](LAUNCH_STATUS.md).
+
 ## 1.0.2 — Android et Web
 
 Android ARM64 1000023 embarque les 120 langues d’interface et ajuste la zone de saisie à l’ouverture du clavier. Le mainteneur a validé ces deux points sur Huawei P20. Le fichier téléchargé publiquement correspond à l’APK signé testé. [Release Android](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-android-1000023). Le client Web expérimental 1.0.2 propose également les 120 langues. [Novera Web](https://tron-abs.github.io/Novera/web/).

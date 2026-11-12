@@ -106,6 +106,7 @@ macro_rules! invoke_commands_with_extras {
         // Backend-owned settings store (webview zustand persistence)
         core::app::settings_store::settings_get,
         core::app::settings_store::settings_set,
+        core::app::settings_store::desktop_calibration,
         core::app::settings_store::settings_remove,
         core::server::provider_secrets::set_secret,
         core::server::provider_secrets::get_secret,
@@ -335,7 +336,10 @@ pub fn run() {
     // test binary would hand over its argv and exit before the embedded
     // WebDriver server ever bound.
     #[cfg(all(desktop, not(feature = "e2e")))]
-    let builder = builder.plugin(tauri_plugin_single_instance::init(|_app, argv, _cwd| {
+    let builder = builder.plugin(tauri_plugin_single_instance::init(|app, argv, _cwd| {
+        if core::mlx_calibration::handle_cli(app.clone(), argv.iter().cloned()) {
+            return;
+        }
         println!("a new app instance was opened with {argv:?} and the deep link event was already triggered");
         // when defining deep link schemes at runtime, you must also check `argv` here
     }));
@@ -388,13 +392,19 @@ pub fn run() {
         core::components::components_status,
         core::components::components_action,
         core::onnx::onnx_list,
+        core::desktop_calibration::desktop_auto_tune_gains,
+        core::desktop_calibration::desktop_auto_tune_activity,
+        core::onnx::onnx_calibrate_registered,
         core::onnx::onnx_import,
         core::onnx::onnx_delete,
         core::onnx::onnx_load,
         core::onnx::onnx_unload,
         core::onnx::onnx_session,
         core::onnx::onnx_probe,
+        core::mlx_calibration::mlx_calibrate,
+        core::mlx_calibration::mlx_calibration_profile,
         core::transformers::transformers_list,
+        core::transformers::transformers_calibrate_registered,
         core::transformers::transformers_import,
         core::transformers::transformers_delete,
         core::transformers::transformers_load,
@@ -413,6 +423,7 @@ pub fn run() {
         core::creation::creation_video_runtime_check,
         core::creation::creation_release_idle,
         core::creation::creation_start,
+        core::creation::creation_calibrate,
         core::creation::creation_status,
         core::creation::creation_cancel,
         core::creation::creation_resolve,
@@ -449,6 +460,7 @@ pub fn run() {
         .setup(|app| {
             #[cfg(any(target_os = "android", target_os = "ios"))]
             core::app::paths::initialize_mobile_data_root(app.path().app_data_dir()?)?;
+            core::app::settings_store::initialize_desktop_calibration();
             app.handle().plugin(
                 tauri_plugin_log::Builder::default()
                     .level(log::LevelFilter::Debug)
@@ -544,6 +556,8 @@ pub fn run() {
 
             setup_mcp(app);
             setup::setup_theme_listener(app)?;
+            #[cfg(not(any(target_os = "android", target_os = "ios")))]
+            core::mlx_calibration::handle_cli(app.handle().clone(), std::env::args());
             Ok(())
         })
         .build(context)

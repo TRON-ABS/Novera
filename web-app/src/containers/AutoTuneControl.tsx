@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
-import { dashboardPanelLimit, useDashboardPanel } from '@/hooks/useDashboardPanel'
+import { dashboardPanelLimit, singleDashboardPanel, useDashboardPanel } from '@/hooks/useDashboardPanel'
 import { createPortal } from 'react-dom'
 import { AutoTuneDashboard, type ConfirmedGain } from './AutoTuneDashboard'
 import { invoke } from '@tauri-apps/api/core'
@@ -47,7 +47,7 @@ export function AutoTuneControl() {
   const controlRef = useRef<HTMLButtonElement>(null)
   const [panelHost, setPanelHost] = useState<HTMLElement | null>(null)
   const panelOpen = useDashboardPanel(state => state.panels.includes('auto-tune'))
-  const stackFull = useDashboardPanel(state => state.panels.length >= dashboardPanelLimit)
+  const stackFull = useDashboardPanel(state => !singleDashboardPanel && state.panels.length >= dashboardPanelLimit)
   const openPanel = useDashboardPanel(state => state.openPanel)
   const closeDashboard = useDashboardPanel(state => state.closePanel)
   useEffect(() => () => closeDashboard('auto-tune'), [closeDashboard])

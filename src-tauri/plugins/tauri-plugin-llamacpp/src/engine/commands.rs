@@ -491,6 +491,37 @@ pub async fn engine_slots_idle(
     })
 }
 
+/// Runs on a disposable worker and yields if the interactive router takes a model.
+#[tauri::command]
+pub async fn calibrate_engine_model<R: tauri::Runtime>(
+    app_handle: tauri::AppHandle<R>,
+    state: State<'_, Arc<LlamacppState>>,
+    preset_path: String,
+    model_id: String,
+    envs: HashMap<String, String>,
+) -> Result<Option<serde_json::Value>, String> {
+    #[cfg(any(target_os = "android", target_os = "ios"))]
+    {
+        let _ = (app_handle, state, preset_path, model_id, envs);
+        Ok(None)
+    }
+    #[cfg(not(any(target_os = "android", target_os = "ios")))]
+    {
+        let exe = resolve_worker_exe(&app_handle)?;
+        let root = app_handle.path().app_cache_dir().map_err(|e| e.to_string())?;
+        let (port, key) = {
+            let engine = state.engine.lock().await;
+            let worker = engine.as_ref().ok_or("CALIBRATION_BUSY")?;
+            (worker.port, worker.api_key.clone())
+        };
+        super::calibration::run(
+            &exe, &root, PathBuf::from(preset_path), &model_id, envs, port, &key,
+            &generate_worker_key(),
+        )
+        .await
+    }
+}
+
 /// Drops saved state without a worker, by editing the directory in this
 /// process.
 ///

@@ -7,6 +7,7 @@ use std::{
     sync::LazyLock,
 };
 use tauri::{AppHandle, Runtime};
+use jan_utils::calibration::{ForegroundWork, ACTIVE};
 use tokio::{
     process::{Child, Command},
     sync::Mutex,
@@ -14,11 +15,14 @@ use tokio::{
 
 const TRANSPORT: &str = include_str!("../../../onnx-server/transport.py");
 const SCRIPT: &str = include_str!("../../../onnx-server/server.py");
+#[path = "onnx_calibration.rs"]
+mod calibration;
 static WORKER: LazyLock<Mutex<Option<Worker>>> = LazyLock::new(|| Mutex::new(None));
 static REGISTRY: LazyLock<Mutex<()>> = LazyLock::new(|| Mutex::new(()));
 
 struct Worker {
     _components_lease: tokio::sync::OwnedRwLockReadGuard<()>,
+    _foreground: ForegroundWork,
     child: Child,
     session: Session,
 }
@@ -114,6 +118,27 @@ pub async fn onnx_list<R: Runtime>(app: AppHandle<R>) -> Result<Vec<Model>, Stri
 }
 
 #[tauri::command]
+pub async fn onnx_calibrate_registered<R: Runtime>(
+    app: AppHandle<R>,
+    model_id: String,
+    python_path: String,
+    device: String,
+) -> Result<(), String> {
+    if !jan_utils::calibration::available() {
+        return Ok(());
+    }
+    if !jan_utils::calibration::enabled() {
+        return Err("CALIBRATION_BUSY".into());
+    }
+    let directory = directory(app.clone()).await?;
+    let Some(model) = read_models(&directory)?.into_iter().find(|model| model.id == model_id) else {
+        return Ok(());
+    };
+    let python = super::components::resolve(&app, &python_path, "onnx")?;
+    calibration::run(&app, &directory, &model, &python, &device).await
+}
+
+#[tauri::command]
 pub async fn onnx_import<R: Runtime>(
     app: AppHandle<R>,
     model_id: String,
@@ -153,12 +178,12 @@ pub async fn onnx_import<R: Runtime>(
         return Err(String::from_utf8_lossy(&output.stderr).into_owned());
     }
     let _guard = REGISTRY.lock().await;
-    let directory = directory(app).await?;
+    let directory = directory(app.clone()).await?;
     let mut models = read_models(&directory)?;
     if models.iter().any(|m| m.id == model_id) {
         return Err("A model with this name already exists".into());
     }
-    models.push(Model {
+    let model = Model {
         name: model_id.clone(),
         id: model_id,
         path,
@@ -167,8 +192,10 @@ pub async fn onnx_import<R: Runtime>(
         port: 0,
         imported: true,
         memory: None,
-    });
-    write_models(&directory, &models)
+    };
+    models.push(model);
+    write_models(&directory, &models)?;
+    Ok(())
 }
 
 async fn stop_worker(worker: &mut Option<Worker>) -> Result<(), String> {
@@ -227,6 +254,8 @@ pub async fn onnx_load<R: Runtime>(
     ctx_size: Option<u32>,
     device: Option<String>,
 ) -> Result<Session, String> {
+    let foreground = ForegroundWork::start();
+    let _ = tokio::time::timeout(std::time::Duration::from_secs(3), ACTIVE.lock()).await;
     let components_lease = super::components::lease().await?;
     let python_path = super::components::resolve(&app, &python_path, "onnx")?;
     let device = device.unwrap_or_else(|| "auto".into());
@@ -251,6 +280,7 @@ pub async fn onnx_load<R: Runtime>(
         }
     }
     stop_worker(&mut worker).await?;
+    let context = ctx_size.unwrap_or(2048).clamp(16, 131072);
     let script = directory.join("server.py");
     std::fs::write(&script, SCRIPT).map_err(|e| e.to_string())?;
     std::fs::write(directory.join("transport.py"), TRANSPORT).map_err(|e| e.to_string())?;
@@ -276,7 +306,7 @@ pub async fn onnx_load<R: Runtime>(
         .arg("--port")
         .arg(port.to_string())
         .arg("--ctx-size")
-        .arg(ctx_size.unwrap_or(2048).clamp(16, 131072).to_string())
+        .arg(context.to_string())
         .arg("--device")
         .arg(&device)
         .arg("--parent-pid")
@@ -286,6 +316,10 @@ pub async fn onnx_load<R: Runtime>(
         .stdout(Stdio::null())
         .stderr(log)
         .kill_on_drop(true);
+    let threads = calibration::selected(&directory, &model, &python_path, &device, context);
+    if threads > 0 {
+        command.arg("--cpu-threads").arg(threads.to_string());
+    }
     #[cfg(windows)]
     command.creation_flags(0x08000000); // CREATE_NO_WINDOW
     let mut child = command.spawn().map_err(|e| format!("Cannot start Python: {e}. Configure the Python executable with onnxruntime, onnx and numpy installed."))?;
@@ -345,6 +379,7 @@ pub async fn onnx_load<R: Runtime>(
     };
     *worker = Some(Worker {
         _components_lease: components_lease,
+        _foreground: foreground,
         child,
         session: session.clone(),
     });

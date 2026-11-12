@@ -2,6 +2,9 @@ import { create } from 'zustand'
 
 export type DashboardPanel = 'auto-tune' | 'models' | 'settings' | 'search' | 'project' | 'thread-project' | 'model-settings'
 export const dashboardPanelLimit = 4
+export const singleDashboardPanel =
+  (typeof IS_IOS !== 'undefined' && IS_IOS) ||
+  (typeof IS_ANDROID !== 'undefined' && IS_ANDROID)
 
 export const useDashboardPanel = create<{
   panels: DashboardPanel[]
@@ -20,6 +23,15 @@ export const useDashboardPanel = create<{
   openPanel(panel, anchor) {
     const state = get()
     const exists = state.panels.includes(panel)
+    if (singleDashboardPanel) {
+      set({
+        panels: [panel],
+        anchor: anchor ?? state.anchor,
+        modelSettings: panel === 'model-settings' ? state.modelSettings : null,
+        settingsPath: panel === 'settings' ? state.settingsPath : null,
+      })
+      return true
+    }
     if (!exists && state.panels.length >= dashboardPanelLimit) return false
     set({ panels: exists ? state.panels : [...state.panels, panel], anchor: anchor ?? state.anchor })
     return true

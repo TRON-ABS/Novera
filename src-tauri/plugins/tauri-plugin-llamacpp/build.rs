@@ -39,6 +39,7 @@ const COMMANDS: &[&str] = &[
     "engine_devices",
     "force_stop_engine",
     "engine_slots_idle",
+    "calibrate_engine_model",
     "erase_thread_slot_state",
     // GGUF commands
     "read_gguf_metadata",

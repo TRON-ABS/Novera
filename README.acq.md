@@ -1,4 +1,4 @@
-[Novera Web 1.0.2 · تجريبي](https://tron-abs.github.io/Novera/web/) · [Novera Android 1.0.3 · ARM64 · APK](https://github.com/TRON-ABS/Novera/releases/download/v1.0.3-android-1000025/Novera_1.0.3_android-arm64.apk)
+[Novera Web 1.0.3 · تجريبي](https://tron-abs.github.io/Novera/web/) · [Novera Android 1.0.3 · ARM64 · APK](https://github.com/TRON-ABS/Novera/releases/download/v1.0.3-android-1000025/Novera_1.0.3_android-arm64.apk)
 
 <div dir="rtl" lang="acq">
 
@@ -19,24 +19,24 @@
 
 Data و الخصوصية: [الاستنتاج المحلي، التلفاز الاختياري، تقارير الخطأ وتحديث الاتصالات (فرنسية)](docs/DONNEES_ET_CONFIDENTIALITE.md)رخصة: [Apache 2.0](LICENSE) · [التصنيف](NOTICE).
 
-**Novera Web 1.0.2 متاح على الإنترنت بنسخة تجريبية.** [Novera Web](https://tron-abs.github.io/Novera/web/) · [دليل الويب](docs/WEB_BROWSER_PREPARATION.md).
+**Novera Web 1.0.3 متاح على الإنترنت بنسخة تجريبية.** [Novera Web](https://tron-abs.github.io/Novera/web/) · [دليل الويب](docs/WEB_BROWSER_PREPARATION.md).
 
 ---
 
 <!-- novera-current-downloads:start -->
 
-## Availability — Novera 1.0.2
+## Availability — Novera 1.0.3
 
 | منصة | الوصول |
 | --- | --- |
-| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2) |
-| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-arm64) |
-| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-linux-x64) |
-| Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-cli-novera) |
-| Windows x64 محمول | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-portable) |
-| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos-arm64) |
+| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3) |
+| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-windows-arm64) |
+| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-linux-x64) |
+| Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-cli-novera) |
+| Windows x64 محمول | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-windows-portable) |
+| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-macos-arm64) |
 | Android ARM64 | [APK · 1000025](https://github.com/TRON-ABS/Novera/releases/download/v1.0.3-android-1000025/Novera_1.0.3_android-arm64.apk) · Android 7+ |
-| Web | [Novera Web 1.0.2](https://tron-abs.github.io/Novera/web/) |
+| Web | [Novera Web 1.0.3](https://tron-abs.github.io/Novera/web/) |
 | iOS | بناء محاكي داخلي؛ مطلوب توقيع / توفير Apple قبل تثبيت iPhone. [متابعة](docs/REPRISE_MACOS_IOS.md). |
 
 <!-- novera-current-downloads:end -->
@@ -46,7 +46,7 @@ Data و الخصوصية: [الاستنتاج المحلي، التلفاز ال
 
 على Android، هاتف عصري مع ذاكرة كافية توصي للنماذج المحلية. API مزود على أجهزة أقل قوة. **16K رموز (16,384)** يوصى به، باستمرار عبر الإصدارات.
 
-**Windows x64 محمول 1.0.2 متاح.** المناقشات والإعدادات والنماذج المتحملة تبقى داخل المجلد المحمول تحت `Data`. استخراج الأرشيف الكامل وبدء `Novera.exe`قريباً Novera قبل نقل المجلد او الطرد USB تخزين. [دليل ومحدوديات المحمولة](docs/WINDOWS_PORTABLE.md).
+**Windows x64 محمول 1.0.3 متاح.** المناقشات والإعدادات والنماذج المتحملة تبقى داخل المجلد المحمول تحت `Data`. استخراج الأرشيف الكامل وبدء `Novera.exe`قريباً Novera قبل نقل المجلد او الطرد USB تخزين. [دليل ومحدوديات المحمولة](docs/WINDOWS_PORTABLE.md).
 
 
 <details>

@@ -92,6 +92,27 @@ describe('getModelContextLimit', () => {
   })
 })
 
+describe('Auto Tune registered MLX models', () => {
+  it('calibrates the original absolute model path with the configured context', async () => {
+    const ext = newExt()
+    ext.onSettingUpdate('ctx_size', 8192)
+    mockExistsSync.mockResolvedValue(true)
+    mockInvoke.mockResolvedValueOnce({ model_path: '/external/model' })
+    mockInvoke.mockResolvedValueOnce(undefined)
+    await ext.calibrateRegisteredModel('org/model')
+    expect(mockInvoke).toHaveBeenCalledWith('mlx_calibrate', { modelPath: '/external/model', context: 8192 })
+  })
+
+  it('skips embedding profiles and invalid model IDs', async () => {
+    const ext = newExt()
+    mockExistsSync.mockResolvedValue(true)
+    mockInvoke.mockResolvedValueOnce({ model_path: '/external/model', embedding: true })
+    await ext.calibrateRegisteredModel('org/model')
+    await ext.calibrateRegisteredModel('org/../model')
+    expect(mockInvoke).toHaveBeenCalledTimes(1)
+  })
+})
+
 describe('createDownloadTaskId', () => {
   it('prefixes the provider and strips everything after the first dot', () => {
     const ext = newExt()
@@ -337,6 +358,26 @@ describe('isToolSupported', () => {
 })
 
 describe('model download storage', () => {
+  it('registers the imported folder for dashboard discovery without starting calibration', async () => {
+    const ext = newExt()
+    const modelPath = '/Documents/Novera models/mlx-test'
+    const configPath = '/data/mlx/models/mlx-test/model.yml'
+    mockExistsSync.mockResolvedValueOnce(false).mockImplementation(async p =>
+      p === modelPath || p === configPath
+    )
+    mockFileStat.mockResolvedValue({ size: 42 } as never)
+    vi.spyOn(ext, 'isVisionSupported').mockResolvedValue(false)
+    mockInvoke.mockResolvedValue(undefined)
+    await ext.import('mlx-test', { modelPath })
+    expect(mockInvoke).toHaveBeenCalledWith('write_yaml', {
+      data: { name: 'mlx-test', model_path: modelPath, size_bytes: 42 },
+      savePath: configPath,
+    })
+    expect(mockInvoke.mock.calls.map(([command]) => command)).not.toContain('mlx_calibrate')
+    vi.spyOn(ext, 'list').mockResolvedValue([{ id: 'mlx-test' }, { id: 'embedding', embedding: true }])
+    expect(await ext.calibrationCandidates()).toEqual(['mlx-test'])
+  })
+
   it('keeps Safetensors and companion files in the same Documents model folder', async () => {
     const ext = newExt()
     mockJanData.mockResolvedValue('/data')

@@ -6,6 +6,7 @@ $previousPortableTauriConfig = $env:TAURI_CONFIG
 Set-StrictMode -Version 2
 
 $repo = if ($env:NOVERA_BUILD_REPO) { [IO.Path]::GetFullPath($env:NOVERA_BUILD_REPO) } else { Split-Path (Split-Path $PSScriptRoot -Parent) -Parent }
+$deliverables = if ($env:NOVERA_BUILD_OUTPUT_DIR) { [IO.Path]::GetFullPath($env:NOVERA_BUILD_OUTPUT_DIR) } else { Join-Path $repo 'deliverables' }
 $monitoringRequested = $WithTelemetry -or $env:NOVERA_BUILD_MONITORING -eq '1'
 $variants = @(
     [pscustomobject]@{Id='desktop'; Flag='DESKTOP'; Name='Novera-Desktop Windows x64'; Host='Windows x64'; Command='prepare engine worker/resources + yarn build:web + cargo build --offline --locked --release --bin Novera-Desktop'},
@@ -40,7 +41,7 @@ $id = if ($planOnly) { if ($env:NOVERA_BUILD_OPTION) { $env:NOVERA_BUILD_OPTION.
 $selected = $variants | Where-Object Id -eq $id
 if (!$selected) { Write-Output "ERREUR : variante inconnue '$id'. Utiliser /list."; exit 2 }
 if ($planOnly) {
-    [ordered]@{variant=$selected.Id; enabled=$selected.Enabled; repository=$repo; required_host=$selected.Host; command=$selected.Command; compiled=$false; published=$false; automatic_updates=$false; statistics=$false; telemetry_requested=[bool]$monitoringRequested; consent_default=$false} | ConvertTo-Json
+    [ordered]@{variant=$selected.Id; enabled=$selected.Enabled; repository=$repo; output_directory=$deliverables; required_host=$selected.Host; command=$selected.Command; compiled=$false; published=$false; automatic_updates=$false; statistics=$false; telemetry_requested=[bool]$monitoringRequested; consent_default=$false} | ConvertTo-Json
     exit 0
 }
 if (!$selected.Enabled) { Write-Output "DESACTIVE : $($selected.Name). Mettre NOVERA_BUILD_$($selected.Flag)=1 dans le BAT pour preparer son activation."; exit 2 }
@@ -59,6 +60,10 @@ try {
     try { $locked = $mutex.WaitOne(0) } catch [Threading.AbandonedMutexException] { $locked = $true }
     if (!$locked) { throw 'Une autre compilation de ce lanceur est en cours.' }
     Set-Location -LiteralPath $repo
+    $sourceCommit = (& git rev-parse HEAD)
+    if ($LASTEXITCODE -ne 0) { throw 'Commit source du build introuvable.' }
+    $sourceStatus = @(& git status --porcelain --untracked-files=normal)
+    if ($LASTEXITCODE -ne 0) { throw 'Etat des sources du build introuvable.' }
     $nodeDir = Join-Path $env:ProgramFiles 'nodejs'
     $env:PATH = "$nodeDir;" + $env:PATH
     $corepack = (Get-Command corepack.cmd -ErrorAction Stop).Source
@@ -67,7 +72,7 @@ try {
     $logs = Join-Path $repo ".build/launcher-$id-$stamp"
     New-Item -ItemType Directory -Path $logs | Out-Null
     $config = Get-Content -LiteralPath 'src-tauri/tauri.conf.json' -Raw | ConvertFrom-Json
-    $output = Join-Path $repo "deliverables/Novera-$id-$($config.version)-$stamp"
+    $output = Join-Path $deliverables "Novera-$id-$($config.version)-$stamp"
     $env:NOVERA_ENABLE_UPDATER = 'false'
     $env:NOVERA_ANALYTICS_HOST = ''
     $env:NOVERA_ANALYTICS_PROJECT_KEY = ''
@@ -157,7 +162,10 @@ try {
         Copy-Item -LiteralPath $bundleDir -Destination $output -Recurse
     } elseif ($id -eq 'cli') {
         Run-Step 'cli' (Join-Path $toolchain 'cargo.exe') @('build','--offline','--locked','--release','--manifest-path','src-tauri/novera-cli/Cargo.toml')
-        Write-Output "CLI : $env:CARGO_TARGET_DIR/release (nom historique defini par le manifeste CLI)."
+        New-Item -ItemType Directory -Path $output | Out-Null
+        $cli = Join-Path $env:CARGO_TARGET_DIR 'release/novera.exe'
+        Copy-Item -LiteralPath $cli -Destination $output
+        Write-Output "CLI : $output"
     } else {
         # The web application imports extension dist files. Rebuild them from
         # source before Vite so a local compile includes extension changes.
@@ -216,9 +224,10 @@ try {
             }
         }
     }
-    $record = [ordered]@{variant=$id;version=$config.version;build_id=$env:NOVERA_BUILD_ID;completed_utc=[DateTime]::UtcNow.ToString('o');output=$output;logs=$logs;published=$false;automatic_updates=$false;statistics=$false;telemetry_configured=$telemetryConfigured;consent_default=$false;private_symbols=if ($telemetryConfigured) {".build/monitoring-symbols/$env:NOVERA_BUILD_ID"} else {$null}}
+    $record = [ordered]@{variant=$id;version=$config.version;build_id=$env:NOVERA_BUILD_ID;source_commit=$sourceCommit;source_dirty=($sourceStatus.Count -gt 0);completed_utc=[DateTime]::UtcNow.ToString('o');output=$output;logs=$logs;published=$false;automatic_updates=$false;statistics=$false;telemetry_configured=$telemetryConfigured;consent_default=$false;private_symbols=if ($telemetryConfigured) {".build/monitoring-symbols/$env:NOVERA_BUILD_ID"} else {$null}}
     $record | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $logs 'result.json') -Encoding UTF8
     if (Test-Path -LiteralPath $output) {
+        $record | ConvertTo-Json | Set-Content -LiteralPath (Join-Path $output 'BUILD-RECEIPT.json') -Encoding UTF8
         $checksums = Get-ChildItem -LiteralPath $output -File -Recurse | ForEach-Object { "$((Get-FileHash -LiteralPath $_.FullName).Hash)  $($_.FullName.Substring($output.Length + 1))" }
         $checksums | Set-Content -LiteralPath (Join-Path $output 'SHA256SUMS') -Encoding UTF8
     }

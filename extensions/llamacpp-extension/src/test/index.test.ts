@@ -1075,6 +1075,18 @@ describe('refreshEnginePreset embedding slot reservation', () => {
     vi.clearAllMocks()
   })
 
+  it('refreshes an import after a concurrent startup has finished writing its preset', async () => {
+    const { reloadEngineModels } = await setupRunningEngine({ userModelsMax: 1, embeddingCount: 0 })
+    let finishStartup!: () => void
+    extension['engineStartLock'] = new Promise<void>(resolve => { finishStartup = resolve })
+    const refresh = extension['refreshEnginePreset']()
+    await Promise.resolve()
+    expect(generatePreset).not.toHaveBeenCalled()
+    finishStartup()
+    await refresh
+    expect(reloadEngineModels).toHaveBeenCalledWith('/p/router.preset.ini', 1, expect.any(Number))
+  })
+
   // The router fixed models_max at spawn, so this case had to cold-restart and
   // evict the model the user was talking to. The worker resizes in place.
   it('reloads rather than restarting when an embedder appears', async () => {

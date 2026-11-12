@@ -1,3 +1,9 @@
+## Restore native Auto Tune for 1.0.3
+
+The public 1.0.2 Desktop omitted the native calibration commands used by the Auto Tune button. This change restores the native implementation from the tested Desktop sources and retains the 120-locale release baseline. The local Windows x64 build passed the Auto Tune button, dashboard, and native toggle checks. The signed Android 1.0.3 candidate, build 1000025, comes from an exact unsigned reproduction of the 1000023 package tested on Huawei P20, with only the version metadata updated in the sources. The 1000025 package and signing certificate have been verified. The maintainer confirmed the keyboard and language selector on Huawei P20 for build 1000025. Build 1000024 was withdrawn. iOS distribution remains pending. The 120 README download tables and the Pages showcase are prepared for the coordinated publication.
+
+Android build 1000025 is public, and [PR #79](https://github.com/TRON-ABS/Novera/pull/79) updated the Android links in all 120 README files. The remaining 1.0.3 showcase links are prepared in this branch.
+
 ## Current downloads in every README
 
 All 120 README download tables now link to the public 1.0.2 distributions. Dated 1.0.1 notes remain available in a collapsed section. The release guide requires a full repository-page review on each update.

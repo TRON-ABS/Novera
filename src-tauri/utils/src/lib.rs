@@ -1,4 +1,5 @@
 pub mod cli;
+pub mod calibration;
 pub mod config;
 pub mod crypto;
 pub mod fs;

@@ -1,8 +1,23 @@
 # Novera — disponibilité
 
-## Android 1.0.3 — 12 novembre 2026
+## Novera 1.0.3
 
-Le build ARM64 1000025 est publié avec les 120 langues. Le mainteneur a confirmé le clavier et le sélecteur de langue sur Huawei P20. [APK signé](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-android-1000025).
+- Auto Tune est rétabli dans l’application Desktop. L’interface comporte 120 langues et variantes.
+- [Android ARM64, APK signé 1000025](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-android-1000025). Cette mise à jour reprend le build 1000023 validé sur Huawei P20 et change son numéro de version. Le mainteneur a également confirmé le clavier et le sélecteur de langue du build 1000025 sur Huawei P20.
+- [Novera Web expérimental](https://tron-abs.github.io/Novera/web/) propose les 120 langues et variantes. iOS reste en attente de signature et de provisionnement Apple.
+
+<!-- novera-current-distributions:start -->
+### Paquets 1.0.3 disponibles
+
+- [Windows x64 (EXE et MSI)](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3)
+- [Windows ARM64 (EXE)](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-windows-arm64)
+- [Linux x64 (AppImage et Debian)](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-linux-x64)
+- [macOS Apple Silicon (DMG)](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-macos-arm64)
+- [macOS Intel (DMG)](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-macos)
+- [CLI Windows, Linux et macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-cli-novera)
+- [Windows x64 portable (ZIP)](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-windows-portable)
+
+<!-- novera-current-distributions:end -->
 
 ## Publications 1.0.2 du 11 novembre 2026
 
@@ -10,7 +25,6 @@ Le build ARM64 1000025 est publié avec les 120 langues. Le mainteneur a confirm
 - Le client Web expérimental 1.0.2 est en ligne avec 120 langues d’interface. [Ouvrir Novera Web](https://tron-abs.github.io/Novera/web/).
 - Les publications Desktop, CLI et portable sont suivies séparément. iOS reste en attente.
 
-<!-- novera-current-distributions:start -->
 ### Paquets 1.0.2 disponibles
 
 - [Windows x64 (EXE et MSI)](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2)
@@ -21,8 +35,6 @@ Le build ARM64 1000025 est publié avec les 120 langues. Le mainteneur a confirm
 - [CLI Windows, Linux et macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-cli-novera)
 - [Windows x64 portable (ZIP)](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-portable)
 
-
-<!-- novera-current-distributions:end -->
 
 ## Publications 1.0.1
 
