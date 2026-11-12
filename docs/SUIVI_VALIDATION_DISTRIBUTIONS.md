@@ -2,6 +2,8 @@
 
 ## Novera 1.0.3 — validation par distribution
 
+- **Windows x64** : installation et remplacement natifs sur le paquet NSIS signé, 120 locales embarquées, ouverture du panneau Auto Tune et changement du réglage natif. Le MSI et sa signature ont été vérifiés pour la publication. [Contrôle CI](https://github.com/TRON-ABS/Novera/actions/runs/43191233784).
+
 - **Windows ARM64** : installation et remplacement natifs, 120 locales embarquées, ouverture du panneau Auto Tune et changement du réglage natif sur le paquet signé. [Contrôle CI](https://github.com/TRON-ABS/Novera/actions/runs/43125715051).
 - **Linux x64** : installation et remplacement natifs, 120 locales embarquées, ouverture du panneau Auto Tune et changement du réglage natif sur l’AppImage signé. [Contrôle CI](https://github.com/TRON-ABS/Novera/actions/runs/43128245850).
 - **macOS Apple Silicon** : installation et remplacement natifs, 120 locales embarquées, activation d’Auto Tune par le panneau et désactivation depuis la barre de saisie. [Contrôle CI](https://github.com/TRON-ABS/Novera/actions/runs/43130681522).
