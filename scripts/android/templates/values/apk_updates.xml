@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="apk_update_title">Novera update available</string>
+    <string name="apk_update_message">Install Novera %1$s (build %2$d)? Android will update the app and keep your conversations, models and settings.</string>
+    <string name="apk_update_install">Install</string>
+    <string name="apk_update_later">Later</string>
+    <string name="apk_update_downloading">Downloading and verifying the Novera update…</string>
+    <string name="apk_update_error">Couldn’t prepare the update. Try again later.</string>
+    <string name="apk_update_permission">To install this update, allow Novera to install apps in Android settings.</string>
+    <string name="apk_update_settings">Open settings</string>
+</resources>

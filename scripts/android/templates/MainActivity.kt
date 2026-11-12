@@ -10,6 +10,8 @@ import android.webkit.WebView
 import androidx.activity.enableEdgeToEdge
 
 class MainActivity : TauriActivity() {
+    private val apkUpdater by lazy { ApkUpdater(this) }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_RESIZE)
         // On older Android versions, let the system resize the WebView for the IME.
@@ -17,6 +19,16 @@ class MainActivity : TauriActivity() {
             enableEdgeToEdge()
         }
         super.onCreate(savedInstanceState)
+    }
+
+    override fun onResume() {
+        super.onResume()
+        apkUpdater.resume()
+    }
+
+    override fun onPause() {
+        apkUpdater.pause()
+        super.onPause()
     }
 
     override fun onWebViewCreate(webView: WebView) {

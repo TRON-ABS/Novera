@@ -268,7 +268,11 @@ Pour la distribution directe, `scripts/android/initialize-signing.ps1` crée une
 
 `scripts/android/build-release.ps1` reconstruit le moteur et l'APK release, signe les octets après alignement, puis vérifie identité, certificat, bibliothèques, permissions et notices. Le `versionCode` de `tauri.android.conf.json` doit correspondre à `release.json` et progresser à chaque mise à jour distribuée. Le mode release refuse les revues incomplètes, même avec l'option de test historique.
 
-La distribution retenue est un APK téléchargé manuellement et installé par Android, avec confirmation de l'utilisateur, même identité et même certificat. L'updater desktop Tauri ne s'applique pas au mobile ; aucune mise à jour automatique n'est annoncée. L'AAB et Google Play ne sont pas préparés par ce chemin. Consulter le [bilan Android](RELEASE_ANDROID_1.0.0.md) pour les octets vérifiés et les essais téléphone, et la [note macOS/iOS](REPRISE_MACOS_IOS.md) pour reprendre ensuite les deux plateformes Apple.
+Le build 1000027 de la 1.0.3 vérifie les mises à jour à l’ouverture, puis toutes les six heures tant que l’app est au premier plan. L’utilisateur accepte le téléchargement dans Novera et confirme l’installation dans Android. Android installe le paquet par-dessus l’application existante et conserve ses données. Pour passer d’un build sans cette fonction au build 1000027, installer l’APK manuellement par-dessus l’existant.
+
+Publier chaque APK de production sous un tag GitHub `v<VERSION>-android-<VERSION_CODE>` avec l’asset `Novera_<VERSION>_android-arm64.apk`. Publier comme release stable et garder la release générale comme `latest`. Le code Android doit augmenter à chaque publication, même quand la version affichée reste identique. La version spécifique à Android est définie dans `tauri.android.conf.json`. L’app sélectionne le code supérieur le plus élevé, compare l’empreinte SHA-256 fournie par GitHub et vérifie le paquet, la version et le certificat avant de lancer l’installateur. Sur Android 8 et ultérieur, Android peut demander à l’utilisateur d’autoriser Novera comme source d’installation.
+
+Avant publication, vérifier sur téléphone l’installation par-dessus avec une conversation, un modèle et un réglage témoins, puis vérifier l’offre de mise à jour depuis un build équipé du mécanisme. Consulter le [bilan Android](RELEASE_ANDROID_1.0.0.md) pour les essais précédents.
 
 <a id="cli"></a>
 

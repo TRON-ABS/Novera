@@ -9,6 +9,8 @@ $store=Join-Path $directory 'novera-android.p12'
 $passwordFile=Join-Path $directory 'password.dpapi'
 if (!(Test-Path -LiteralPath $store) -or !(Test-Path -LiteralPath $passwordFile)) { throw 'Identite Android absente : initialize-signing.ps1 requis.' }
 if (Test-Path -LiteralPath $OutputApk) { throw 'Le paquet de destination existe deja ; ne pas ecraser des octets signes.' }
+& python (Join-Path $PSScriptRoot 'verify-apk.py') $InputApk --sdk $android.sdk --native-only
+if ($LASTEXITCODE) { throw 'APK Android refuse avant signature : protocole Tauri ou compatibilite native invalide.' }
 New-Item -ItemType Directory -Force -Path (Split-Path ([IO.Path]::GetFullPath($OutputApk)) -Parent) | Out-Null
 $tools=Join-Path $android.sdk "build-tools/$($android.pin.buildTools)"
 $aligned=$OutputApk+'.aligned-unsigned'

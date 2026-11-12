@@ -20,7 +20,8 @@ $env:NOVERA_BUILD_ANDROID='1'
 if ($LASTEXITCODE) { throw 'APK release en echec.' }
 $inputApk=Join-Path $repo 'src-tauri/gen/android/app/build/outputs/apk/arm64/release/app-arm64-release-unsigned.apk'
 if (!(Test-Path -LiteralPath $inputApk)) { throw 'APK release non signe absent.' }
-$version=(Get-Content -LiteralPath (Join-Path $repo 'src-tauri/tauri.conf.json') -Raw | ConvertFrom-Json).version
+$version=$config.version
+if (!$version) { $version=(Get-Content -LiteralPath (Join-Path $repo 'src-tauri/tauri.conf.json') -Raw | ConvertFrom-Json).version }
 New-Item -ItemType Directory -Path $OutputDirectory | Out-Null
 $outputApk=Join-Path $OutputDirectory "Novera_${version}_android-arm64.apk"
 & (Join-Path $PSScriptRoot 'sign-apk.ps1') -InputApk $inputApk -OutputApk $outputApk
