@@ -79,7 +79,7 @@ Le dakhini, le bajjika, l’arabe de Sanaa et l’arabe tunisien restent des **a
 **104 langues et variantes sélectionnables dans les sources**, avec **2,435 clés chacune** dans 15 espaces de noms. Le lot demandé vise 104 locales ; 24 ajouts sont intégrés et 0 restent ouverts. Les contrôles de clés, variables et code ne constituent pas une validation linguistique native. Voir [le détail du lot](#next-24).
 ## README du dépôt — 120 langues et variantes — 11 novembre 2026
 
-Le sélecteur partagé donne accès aux **120 README**. Les seize nouveaux fichiers reprennent les rubriques, tableaux et liens techniques des versions existantes. Les notes de version antérieures restent datées. Le lien en tête de chaque README mène à Novera Web 1.0.2.
+Le sélecteur partagé donne accès aux **120 README**. Les seize nouveaux fichiers reprennent les rubriques, tableaux et liens techniques des versions existantes. Les notes de version antérieures restent datées. Le lien en tête de chaque README mène au client Novera Web expérimental.
 
 [دکنی](../README.dcc.md) · [बज्जिका](../README.vjk.md) · [Luganda](../README.lg.md) · [عربي صنعاني](../README.ayn.md) · [تونسي](../README.aeb.md) · [Kituba](../README.ktu.md) · [عربي حجازي](../README.acw.md) · [عربي تعزّي–عدني](../README.acq.md) · [Magyar](../README.hu.md) · [सादरी](../README.sck.md) · [Afaan Oromoo (Bahaa)](../README.hae.md) · [Kamtok](../README.wes.md) · [عربي شمال بلاد الرافدين](../README.ayp.md) · [Mòoré](../README.mos.md) · [閩北語](../README.mnp.md) · [সিলেটি](../README.syl.md).
 
