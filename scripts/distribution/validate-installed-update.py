@@ -285,6 +285,7 @@ def main():
             elif platform.startswith('linux-'):
                 extract = root/'locale-check'
                 extract.mkdir()
+                bundle.chmod(bundle.stat().st_mode | 0o100)
                 subprocess.run([str(bundle), '--appimage-extract'], env=env, cwd=extract, check=True, timeout=180, stdout=subprocess.DEVNULL)
                 candidates = list((extract/'squashfs-root').glob('**/Novera-Desktop'))
                 if len(candidates) != 1:
