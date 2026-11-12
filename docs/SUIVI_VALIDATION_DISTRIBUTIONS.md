@@ -4,6 +4,7 @@
 
 - **Windows ARM64** : installation et remplacement natifs, 120 locales embarquées, ouverture du panneau Auto Tune et changement du réglage natif sur le paquet signé. [Contrôle CI](https://github.com/TRON-ABS/Novera/actions/runs/43125715051).
 - **Linux x64** : installation et remplacement natifs, 120 locales embarquées, ouverture du panneau Auto Tune et changement du réglage natif sur l’AppImage signé. [Contrôle CI](https://github.com/TRON-ABS/Novera/actions/runs/43128245850).
+- **macOS Apple Silicon** : installation et remplacement natifs, 120 locales embarquées, activation d’Auto Tune par le panneau et désactivation depuis la barre de saisie. [Contrôle CI](https://github.com/TRON-ABS/Novera/actions/runs/43130681522).
 - **CLI** : remplacement signé et démarrage natif sur Windows x64, Linux x64 et macOS Apple Silicon. [Contrôle CI](https://github.com/TRON-ABS/Novera/actions/runs/43118348085).
 - **Android ARM64** : build 1000025, 120 locales et certificat de signature identique au 1000023. Le mainteneur a confirmé le clavier et le sélecteur de langue sur Huawei P20. SHA-256 `97490deeb0ddc8c96d8265a77dcf45498fe097730e1f09c858f1d408dbad1262`.
 
