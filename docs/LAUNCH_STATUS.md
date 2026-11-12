@@ -1,5 +1,9 @@
 # Novera — disponibilité
 
+## Android 1.0.3 — 12 novembre 2026
+
+Le build ARM64 1000025 est publié avec les 120 langues. Le mainteneur a confirmé le clavier et le sélecteur de langue sur Huawei P20. [APK signé](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-android-1000025).
+
 ## Publications 1.0.2 du 11 novembre 2026
 
 - Android ARM64 1000023 est publié. Le clavier et les 120 langues d’interface ont été validés sur Huawei P20. [APK signé et somme SHA-256](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-android-1000023).
