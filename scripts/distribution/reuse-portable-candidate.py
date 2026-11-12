@@ -62,7 +62,7 @@ def main(run_id):
             if entry.is_dir():
                 continue
             name = Path(entry.filename).name
-            if name in seen or not name.startswith(('Novera_1.0.0_x64-portable', 'PORTABLE-', 'latest-portable')) or not name.endswith(('.exe', '.zip', '.sig', '.json', '.sha256')) or entry.file_size > 2*1024**3:
+            if name in seen or not name.startswith(('Novera_1.0.3_x64-portable', 'PORTABLE-', 'latest-portable')) or not name.endswith(('.exe', '.zip', '.sig', '.json', '.sha256')) or entry.file_size > 2*1024**3:
                 raise RuntimeError('Unexpected candidate artifact file')
             seen.add(name)
             with archive.open(entry) as source, (packages/name).open('xb') as stream:
@@ -73,7 +73,7 @@ def main(run_id):
     subprocess.run(['git', 'fetch', '--depth=1', 'origin', run['head_sha']], cwd=ROOT, check=True)
     subprocess.run(['git', 'diff', '--quiet', run['head_sha'], 'HEAD', '--', 'src-tauri', 'web-app', 'core', 'extensions', 'media-server'], cwd=ROOT, check=True)
     # Actual signatures are checked again before any candidate code is run.
-    script = "import fs from 'node:fs';import {verifyUpdateBundle} from './scripts/distribution/ci-check-updater.mjs';const key=JSON.parse(fs.readFileSync('src-tauri/tauri.portable.conf.json')).plugins.updater.pubkey;for(const name of ['Novera_1.0.0_x64-portable.zip','Novera_1.0.0_x64-portable-update.exe']) { const file='.build/portable/packages/'+name;await verifyUpdateBundle(file,fs.readFileSync(file+'.sig','utf8'),key) }"
+    script = "import fs from 'node:fs';import {verifyUpdateBundle} from './scripts/distribution/ci-check-updater.mjs';const key=JSON.parse(fs.readFileSync('src-tauri/tauri.portable.conf.json')).plugins.updater.pubkey;for(const name of ['Novera_1.0.3_x64-portable.zip','Novera_1.0.3_x64-portable-update.exe']) { const file='.build/portable/packages/'+name;await verifyUpdateBundle(file,fs.readFileSync(file+'.sig','utf8'),key) }"
     subprocess.run(['node', '--input-type=module', '-e', script], cwd=ROOT, check=True)
     receipt = {'candidateRun': run_id, 'candidateWorkflowConclusion': run['conclusion'], 'compilationAndSigningPassed': True, 'compilationCommit': run['head_sha'], 'sourceCommit': os.environ['GITHUB_SHA'], 'artifactId': artifact['id'], 'artifactSha256': digest.hexdigest(), 'nativeSourcesUnchanged': True, 'bothPayloadSignaturesVerified': True}
     (ROOT/'.build/validation').mkdir(parents=True, exist_ok=True)

@@ -3,11 +3,12 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import net from 'node:net'
-import { spawnSync } from 'node:child_process'
+import { spawnSync, execFileSync } from 'node:child_process'
 import { createRequire } from 'node:module'
 import { createHash } from 'node:crypto'
 import { fileURLToPath } from 'node:url'
 import { compareVersions } from './prepare-version.mjs'
+import { checkAutoTune } from './auto-tune-smoke.js'
 
 const feedUrl = 'https://github.com/TRON-ABS/Novera/releases/latest/download/latest-portable.json'
 const applicationVersion = JSON.parse(fs.readFileSync(new URL('../../src-tauri/tauri.conf.json', import.meta.url))).version
@@ -61,7 +62,7 @@ async function main(executable) {
   env.NOVERA_VALIDATE_PORTABLE = 'true'
   const data = path.join(portableRoot, 'Data/Novera/data')
   fs.mkdirSync(data, { recursive: true })
-  if (!fs.existsSync(path.join(data, 'settings.json'))) fs.writeFileSync(path.join(data, 'settings.json'), JSON.stringify({ '__settings_migrated_to_backend__': 'true', 'llamacpp-embedder-bootstrapped': 'true', 'llamacpp-qwen3-embedder-bootstrapped': 'true', 'setting-general': JSON.stringify({ state: { currentLanguage: 'en' } }) }))
+  if (!fs.existsSync(path.join(data, 'settings.json'))) fs.writeFileSync(path.join(data, 'settings.json'), JSON.stringify({ '__settings_migrated_to_backend__': 'true', 'llamacpp-embedder-bootstrapped': 'true', 'llamacpp-qwen3-embedder-bootstrapped': 'true', 'setting-general': JSON.stringify({ state: { currentLanguage: 'en' } }), 'model-provider': JSON.stringify({ version: 22, state: { providers: [{ provider: 'validation-local', base_url: 'http://127.0.0.1:1', models: [{ id: 'validation-model', name: 'Validation model' }] }] } }) }))
   const port = await new Promise((resolve, reject) => { const server = net.createServer(); server.once('error', reject); server.listen(0, '127.0.0.1', () => { const port = server.address().port; server.close(() => resolve(port)) }) })
   env.WEBVIEW2_ADDITIONAL_BROWSER_ARGUMENTS = `--remote-debugging-port=${port} --remote-debugging-address=127.0.0.1 --lang=en-US`
   env.WEBVIEW2_USER_DATA_FOLDER = path.join(scratch, 'webview-profile')
@@ -85,6 +86,11 @@ async function main(executable) {
     browser = await chromium.connectOverCDP(`http://127.0.0.1:${port}`)
     page = await until(() => browser.contexts().flatMap(context => context.pages()).find(p => p.url().startsWith('http://tauri.localhost') || p.url().startsWith('tauri://localhost')))
     const origin = await page.evaluate(() => location.origin)
+    if (phase === 'initial') {
+      execFileSync('python', ['scripts/distribution/verify-packaged-locales.py', exe, '--expected-count', '120'], { stdio: 'inherit' })
+      await page.goto(origin + '/')
+      receipt.autoTune = await page.evaluate(checkAutoTune)
+    }
     await page.goto(origin + '/settings/general')
     // These calls exercise the shipping backend; they neither intercept IPC nor
     // replace updater/network services.
