@@ -62,6 +62,14 @@ press(button)
 let switchRoles: Set<String> = ["AXCheckBox", "AXSwitch", "AXToggleButton"]
 press(waitFor("The Auto Tune dashboard did not open") { autoTuneControl(with: switchRoles) })
 let _: Bool = waitFor("Auto Tune did not enable native calibration") { calibration() == "true" ? true : nil }
-press(waitFor("The Auto Tune switch disappeared") { autoTuneControl(with: switchRoles) })
+let activeSwitch = waitFor("The Auto Tune switch did not finish enabling") { () -> AXUIElement? in
+    guard let element = autoTuneControl(with: switchRoles),
+          (attribute(element, kAXEnabledAttribute) as? NSNumber)?.boolValue == true,
+          (attribute(element, kAXValueAttribute) as? NSNumber)?.boolValue == true else {
+        return nil
+    }
+    return element
+}
+press(activeSwitch)
 let _: Bool = waitFor("Auto Tune did not restore native calibration") { calibration() == "false" ? true : nil }
 print("{\"buttonRendered\":true,\"dashboardOpened\":true,\"nativeToggleVerified\":true,\"initialStateRestored\":true}")
