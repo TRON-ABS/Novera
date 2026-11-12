@@ -8,12 +8,15 @@ import { preparePublication, preparePublishedReadme } from '../publish-readme-re
 
 const root = fileURLToPath(new URL('../../../', import.meta.url))
 test('historical publication preview preserves current downloads and dated notes', () => {
+  const { androidCurrentRelease } = JSON.parse(fs.readFileSync(path.join(root, 'docs/release-preparation.json')))
+  const androidTag = `v${androidCurrentRelease.version}-android-${androidCurrentRelease.versionCode}`
   const plan = preparePublication(root, true)
   assert.equal(plan.length, 104)
   for (const { before, after } of plan) {
     assert.equal(after, before)
     assert.match(after, /<summary>Novera 1\.0\.1 · 2026-11-07<\/summary>/)
-    assert.match(after, /<!-- novera-current-downloads:start -->[\s\S]+v1\.0\.2-android-1000023/)
+    const currentDownloads = after.match(/<!-- novera-current-downloads:start -->([\s\S]+?)<!-- novera-current-downloads:end -->/)?.[1]
+    assert.ok(currentDownloads?.includes(`/releases/download/${androidTag}/`))
   }
 })
 test('unpublished state refuses source publication before reading or writing READMEs', t => {

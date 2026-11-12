@@ -110,12 +110,15 @@ ${creationPromptGuide(repository)}
     const androidButton = `<a class="button" href="${androidDownload}">Android ARM64 · APK · ${androidVersion}</a>`
     const pending = Object.keys(distributionLinks).some(platform => !Object.hasOwn(publicDistributions, platform))
     const earlier = pending ? `<a class="button" href="${repository}/releases">Versions précédentes</a>` : ''
+    const androidEvidence = facts.androidCurrentRelease?.deviceValidated === true
+      ? `Le clavier et le sélecteur de langue de l’APK Android ${androidVersion} (build ${androidVersionCode}) ont été testés sur Huawei P20.`
+      : 'Le clavier et les 120 langues de l’APK Android 1.0.2 ont été testés sur Huawei P20.'
     html = html.replace('<h2 id="preparation-title">Novera', '<h2 id="preparation-title">Historique Novera')
       .replace(/<h1>Novera [\d.]+ est disponible\.<\/h1>/, '<h1>Télécharger Novera</h1>')
       .replace(/<div class="actions"><a class="button primary" href="[^"]+">Windows x64 \/ Linux x64<\/a>[\s\S]*?<\/div><\/div><figure>/,
         `<div class="actions" aria-label="Téléchargements publics">${buttons}${androidButton}${earlier}</div></div><figure>`)
       .replace(/<aside class="notice" aria-label="Disponibilité">[\s\S]*?<\/aside>/,
-        `<aside class="notice" aria-label="Disponibilité"><p>La version de chaque paquet figure sur son lien de téléchargement. Le clavier et les 120 langues de l’APK Android 1.0.2 ont été testés sur Huawei P20. Sur macOS, consultez les instructions d’installation du DMG sur la page de sa version. iOS reste en préparation.</p></aside>`)
+        `<aside class="notice" aria-label="Disponibilité"><p>La version de chaque paquet figure sur son lien de téléchargement. ${androidEvidence} Sur macOS, consultez les instructions d’installation du DMG sur la page de sa version. iOS reste en préparation.</p></aside>`)
   }
   html = html.replace('<section class="cards"', `<section class="notice" aria-labelledby="web-title"><h2 id="web-title">Novera Web : préparation expérimentale</h2><p>L’interface et ses couleurs sont reprises de Desktop. Les essais locaux utilisent un contexte texte de 32k et une recherche Internet Exa sans clé, préparée dès l’activation, dans les limites du quota gratuit du fournisseur. Les créations image et musique locales sont testées ; Wan vidéo reste expérimental et n’est pas encore intégré à la conversation Web.</p><p>Les sources et résultats sont publics sur le dépôt. Le client Web n’est pas encore proposé comme service hébergé : audit de sécurité complet, licences du moteur et validations de publication restent à terminer. <a href="${repository}/blob/main/docs/WEB_BROWSER_PREPARATION.md">Fonctions, essais et limites de Novera Web</a>.</p></section><section class="cards"`)
   if (published && facts.webExperimentalPublished === true) {
