@@ -30,19 +30,19 @@
   "androidVersionCode": 1000013,
   "androidReleaseVersion": "1.0.1",
   "androidCurrentRelease": {
-    "version": "1.0.2",
-    "versionCode": 1000023,
-    "deviceValidated": true
+    "version": "1.0.3",
+    "versionCode": 1000025,
+    "deviceValidated": false
   },
   "portableVersion": "1.0.0",
   "webExperimentalPublished": true,
   "publicDistributions": {
-    "windows": "1.0.2",
-    "windowsArm": "1.0.2",
-    "linux": "1.0.2",
-    "macArm": "1.0.2",
-    "macIntel": "1.0.2",
-    "cli": "1.0.2",
-    "portable": "1.0.2"
+    "windows": "1.0.3",
+    "windowsArm": "1.0.3",
+    "linux": "1.0.3",
+    "macArm": "1.0.3",
+    "macIntel": "1.0.3",
+    "cli": "1.0.3",
+    "portable": "1.0.3"
   }
 }

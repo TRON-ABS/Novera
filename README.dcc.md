@@ -1,4 +1,4 @@
-[Novera Web 1.0.2 · تجرباتی](https://tron-abs.github.io/Novera/web/) · [Novera Android 1.0.2 · ARM64 · APK](https://github.com/TRON-ABS/Novera/releases/download/v1.0.2-android-1000023/Novera_1.0.2_android-arm64.apk)
+[Novera Web 1.0.3 · تجرباتی](https://tron-abs.github.io/Novera/web/) · [Novera Android 1.0.3 · ARM64 · APK](https://github.com/TRON-ABS/Novera/releases/download/v1.0.3-android-1000025/Novera_1.0.3_android-arm64.apk)
 
 <div dir="rtl" lang="dcc">
 
@@ -17,24 +17,24 @@
   <p>اپنی تخلیقات، ماڈلز، ترتیبات، سوالات، تاثرات اور خیالات کا اشتراک کریں۔</p>
 </div>
 
-**Novera Web 1.0.2 تجرباتی طور پر آن لائن ہے۔** [Novera Web](https://tron-abs.github.io/Novera/web/) · [ویب دستاویزات](docs/WEB_BROWSER_PREPARATION.md).
+**Novera Web 1.0.3 تجرباتی طور پر آن لائن ہے۔** [Novera Web](https://tron-abs.github.io/Novera/web/) · [ویب دستاویزات](docs/WEB_BROWSER_PREPARATION.md).
 
 ---
 
 <!-- novera-current-downloads:start -->
 
-## دستیابی — Novera 1.0.2
+## دستیابی — Novera 1.0.3
 
 | پلیٹ فارم | دستیابی |
 | --- | --- |
-| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2) |
-| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-arm64) |
-| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-linux-x64) |
-| Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-cli-novera) |
-| Windows x64 پورٹیبل | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-portable) |
-| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos-arm64) |
-| Android ARM64 | [APK · 1000023](https://github.com/TRON-ABS/Novera/releases/download/v1.0.2-android-1000023/Novera_1.0.2_android-arm64.apk) · Android 7+ |
-| Web | [Novera Web 1.0.2](https://tron-abs.github.io/Novera/web/) |
+| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3) |
+| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-windows-arm64) |
+| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-linux-x64) |
+| Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-cli-novera) |
+| Windows x64 پورٹیبل | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-windows-portable) |
+| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-macos-arm64) |
+| Android ARM64 | [APK · 1000025](https://github.com/TRON-ABS/Novera/releases/download/v1.0.3-android-1000025/Novera_1.0.3_android-arm64.apk) · Android 7+ |
+| Web | [Novera Web 1.0.3](https://tron-abs.github.io/Novera/web/) |
 | iOS | اندرونی سمیلیٹر کی تعمیر؛ آئی فون کی تنصیب سے پہلے ایپل پر دستخط/ فراہمی کی ضرورت ہے۔ [فالو اپ](docs/REPRISE_MACOS_IOS.md). |
 
 <!-- novera-current-downloads:end -->
@@ -44,7 +44,7 @@ Mac پر، DMG کھولیں اور Novera کو ایپلی کیشنز میں کا
 
 Android پر، مقامی ماڈلز کے لیے کافی میموری والا ایک جدید فون تجویز کیا جاتا ہے۔ کم طاقتور آلات پر API فراہم کنندہ استعمال کریں۔ ویب تلاش کے لیے، کم از کم ایک سیاق و سباق **16K ٹوکنز (16,384)** کی سفارش کی جاتی ہے، مستقل طور پر تمام ورژنز میں۔
 
-**Windows x64 پورٹیبل 1.0.2 دستیاب ہے۔** بات چیت، ترتیبات اور ڈاؤن لوڈ کردہ ماڈل پورٹیبل فولڈر کے اندر رہتے ہیں `Data`. مکمل محفوظ شدہ دستاویزات کو نکالیں اور شروع کریں۔ `Novera.exe`. فولڈر کو منتقل کرنے یا USB اسٹوریج کو نکالنے سے پہلے Novera بند کریں۔ [پورٹیبل گائیڈ اور حدود](docs/WINDOWS_PORTABLE.md).
+**Windows x64 پورٹیبل 1.0.3 دستیاب ہے۔** بات چیت، ترتیبات اور ڈاؤن لوڈ کردہ ماڈل پورٹیبل فولڈر کے اندر رہتے ہیں `Data`. مکمل محفوظ شدہ دستاویزات کو نکالیں اور شروع کریں۔ `Novera.exe`. فولڈر کو منتقل کرنے یا USB اسٹوریج کو نکالنے سے پہلے Novera بند کریں۔ [پورٹیبل گائیڈ اور حدود](docs/WINDOWS_PORTABLE.md).
 
 <a id="one-dashboard-for-every-creation"></a>
 

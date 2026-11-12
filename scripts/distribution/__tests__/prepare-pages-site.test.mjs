@@ -89,6 +89,7 @@ test('showcase links public 1.0.2 packages while other platforms are pending', t
   const facts = {
     ...JSON.parse(fs.readFileSync(new URL('../../../docs/release-preparation.json', import.meta.url))),
     publicDistributions: { windowsArm: '1.0.2', linux: '1.0.2', cli: '1.0.2' },
+    androidCurrentRelease: { version: '1.0.2', versionCode: 1000023, deviceValidated: true },
   }
   const output = path.join(root, 'site')
   const result = preparePagesSite(output, 'a'.repeat(40), facts, '1.0.2')

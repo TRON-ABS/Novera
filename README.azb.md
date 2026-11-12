@@ -1,4 +1,4 @@
-[Novera Web 1.0.2 · Experimental](https://tron-abs.github.io/Novera/web/) · [Novera Android 1.0.2 · ARM64 · APK](https://github.com/TRON-ABS/Novera/releases/download/v1.0.2-android-1000023/Novera_1.0.2_android-arm64.apk)
+[Novera Web 1.0.3 · Experimental](https://tron-abs.github.io/Novera/web/) · [Novera Android 1.0.3 · ARM64 · APK](https://github.com/TRON-ABS/Novera/releases/download/v1.0.3-android-1000025/Novera_1.0.3_android-arm64.apk)
 
 <div dir="rtl" lang="azb">
 
@@ -23,18 +23,18 @@ Data وه مَخفیلیک: [یئرلی نتیجه, ایستئغئ باغلی ت
 
 <!-- novera-current-downloads:start -->
 
-## مؤوجودلوق — Novera 1.0.2
+## مؤوجودلوق — Novera 1.0.3
 
 | پلاتفورما | مؤوجودلوق |
 | --- | --- |
-| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2) |
-| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-arm64) |
-| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-linux-x64) |
-| Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-cli-novera) |
-| Windows x64 پوْرتاتیو | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-portable) |
-| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos-arm64) |
-| Android ARM64 | [APK · 1000023](https://github.com/TRON-ABS/Novera/releases/download/v1.0.2-android-1000023/Novera_1.0.2_android-arm64.apk) · Android 7+ |
-| Web | [Novera Web 1.0.2](https://tron-abs.github.io/Novera/web/) |
+| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3) |
+| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-windows-arm64) |
+| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-linux-x64) |
+| Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-cli-novera) |
+| Windows x64 پوْرتاتیو | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-windows-portable) |
+| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-macos-arm64) |
+| Android ARM64 | [APK · 1000025](https://github.com/TRON-ABS/Novera/releases/download/v1.0.3-android-1000025/Novera_1.0.3_android-arm64.apk) · Android 7+ |
+| Web | [Novera Web 1.0.3](https://tron-abs.github.io/Novera/web/) |
 | iOS | داخلی سیمولیاتوْرون قورولماسی; ایپهوْنئ قوراشدیرمادان اوّل آپپلئ ایمزالاماسی/تَمیناتی طلب اوْلونور. [ایزلَمه](docs/REPRISE_MACOS_IOS.md). |
 
 <!-- novera-current-downloads:end -->
@@ -44,7 +44,7 @@ Data وه مَخفیلیک: [یئرلی نتیجه, ایستئغئ باغلی ت
 
 Android تاریخینده یئرلی موْدئللَر اوٍچون كفایت قدر یادداشا مالك معاصر تلفون توصیه اوْلونور; داها آز گۆجلۆ جیهازلاردا API پروْوایدئریندَن استفاده ائدین. وئب آختاریشی اوٍچون اَن آزی بیر کوْنتئکست **16K توْکئن (16,384)** آردیجیل اوْلاراق وئرسییالار آراسیندا توصیه اوْلونور.
 
-**Windows x64 پوْرتاتیو 1.0.2 مؤوجوددور.** مذاكره‌لر, پارامترلر وه ائندیریلمیش موْدئللَر آشاغیداکی پوْرتاتیو قوْولوقدا قالیر. `Data`. تام آرخیوی چیخارین وه باشلایین `Novera.exe`. قوْولوغو کؤچۆرمَزدَن وه یا USB یادداشی چیخارمازدان اوّل Novera باغلایین. [پوْرتاتیو بَلَدچی وه مَهدودیییَتلَر](docs/WINDOWS_PORTABLE.md).
+**Windows x64 پوْرتاتیو 1.0.3 مؤوجوددور.** مذاكره‌لر, پارامترلر وه ائندیریلمیش موْدئللَر آشاغیداکی پوْرتاتیو قوْولوقدا قالیر. `Data`. تام آرخیوی چیخارین وه باشلایین `Novera.exe`. قوْولوغو کؤچۆرمَزدَن وه یا USB یادداشی چیخارمازدان اوّل Novera باغلایین. [پوْرتاتیو بَلَدچی وه مَهدودیییَتلَر](docs/WINDOWS_PORTABLE.md).
 
 <a id="one-dashboard-for-every-creation"></a>
 

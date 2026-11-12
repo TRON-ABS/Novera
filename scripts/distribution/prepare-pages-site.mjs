@@ -103,6 +103,7 @@ ${creationPromptGuide(repository)}
     if (!Object.hasOwn(distributionLinks, platform) || !/^\d+\.\d+\.\d+$/.test(version)) throw new Error('Invalid public distribution')
   }
   if (Object.keys(publicDistributions).length) {
+    const currentVersion = publicDistributions.windows
     const buttons = Object.entries(publicDistributions).map(([platform, version]) => {
       const [label, suffix] = distributionLinks[platform]
       return `<a class="button" href="${repository}/releases/tag/v${version}${suffix}">${label} · ${version}</a>`
@@ -112,6 +113,7 @@ ${creationPromptGuide(repository)}
     const earlier = pending ? `<a class="button" href="${repository}/releases">Versions précédentes</a>` : ''
     html = html.replace('<h2 id="preparation-title">Novera', '<h2 id="preparation-title">Historique Novera')
       .replace(/<h1>Novera [\d.]+ est disponible\.<\/h1>/, '<h1>Télécharger Novera</h1>')
+      .replace(/(<meta name="description" content="[^"]*?Novera )[\d.]+( est disponible)/, (_, start, end) => currentVersion ? start + currentVersion + end : start + facts.stable + end)
       .replace(/<div class="actions"><a class="button primary" href="[^"]+">Windows x64 \/ Linux x64<\/a>[\s\S]*?<\/div><\/div><figure>/,
         `<div class="actions" aria-label="Téléchargements publics">${buttons}${androidButton}${earlier}</div></div><figure>`)
       .replace(/<aside class="notice" aria-label="Disponibilité">[\s\S]*?<\/aside>/,

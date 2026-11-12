@@ -1,6 +1,6 @@
 ## Restore native Auto Tune for 1.0.3
 
-The public 1.0.2 Desktop omitted the native calibration commands used by the Auto Tune button. Restore the native implementation from the local Desktop sources on top of the 120-locale release baseline. Windows, Linux and macOS must exercise the native command in the built application. The Android 1.0.3 local test APK is withdrawn from the publication plan because Android changes were authorized only for the version number. The validated public 1.0.2 build 1000023 remains available. iOS distribution remains pending. The release guide now requires reconciling the exact CI commit with the last locally verified build and testing Auto Tune and the locale inventory in the actual packages before publishing.
+The public 1.0.2 Desktop omitted the native calibration commands used by the Auto Tune button. This change restores the native implementation from the tested Desktop sources and retains the 120-locale release baseline. The local Windows x64 build passed the Auto Tune button, dashboard, and native toggle checks. The signed Android 1.0.3 candidate, build 1000025, comes from an exact unsigned reproduction of the 1000023 package tested on Huawei P20, with only the version metadata updated in the sources. The 1000025 package and signing certificate have been verified. The phone test applies to 1000023. Build 1000024 was withdrawn. iOS distribution remains pending. The 120 README download tables and the Pages showcase are prepared for the coordinated publication.
 
 ## Current downloads in every README
 

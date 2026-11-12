@@ -1,4 +1,4 @@
-[Novera Web 1.0.2 · Experimental](https://tron-abs.github.io/Novera/web/) · [Novera Android 1.0.2 · ARM64 · APK](https://github.com/TRON-ABS/Novera/releases/download/v1.0.2-android-1000023/Novera_1.0.2_android-arm64.apk)
+[Novera Web 1.0.3 · Experimental](https://tron-abs.github.io/Novera/web/) · [Novera Android 1.0.3 · ARM64 · APK](https://github.com/TRON-ABS/Novera/releases/download/v1.0.3-android-1000025/Novera_1.0.3_android-arm64.apk)
 
 <div dir="rtl" lang="pbt">
 
@@ -23,18 +23,18 @@ Data او محرمیت: [ځایی اټکل، اختیاری ټیلی میټری�
 
 <!-- novera-current-downloads:start -->
 
-## موجودیت — Novera 1.0.2
+## موجودیت — Novera 1.0.3
 
 | پلیټ فارم | موجودیت |
 | --- | --- |
-| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2) |
-| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-arm64) |
-| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-linux-x64) |
-| Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-cli-novera) |
-| Windows x64 پورټ ایبل | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-windows-portable) |
-| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-macos-arm64) |
-| Android ARM64 | [APK · 1000023](https://github.com/TRON-ABS/Novera/releases/download/v1.0.2-android-1000023/Novera_1.0.2_android-arm64.apk) · Android 7+ |
-| Web | [Novera Web 1.0.2](https://tron-abs.github.io/Novera/web/) |
+| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3) |
+| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-windows-arm64) |
+| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-linux-x64) |
+| Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-cli-novera) |
+| Windows x64 پورټ ایبل | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-windows-portable) |
+| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-macos-arm64) |
+| Android ARM64 | [APK · 1000025](https://github.com/TRON-ABS/Novera/releases/download/v1.0.3-android-1000025/Novera_1.0.3_android-arm64.apk) · Android 7+ |
+| Web | [Novera Web 1.0.3](https://tron-abs.github.io/Novera/web/) |
 | iOS | داخلي سمیلیټر جوړول؛ د آی فون نصبولو دمخه د ایپل لاسلیک / چمتو کول اړین دي. [تعقیب](docs/REPRISE_MACOS_IOS.md). |
 
 <!-- novera-current-downloads:end -->
@@ -44,7 +44,7 @@ Data او محرمیت: [ځایی اټکل، اختیاری ټیلی میټری�
 
 په Android کښي، یو عصري تلیفون چي کافي حافظه لري د محلي ماډلونو لپاره وړاندیز کیږي؛ په لږ ځواکمن وسایلو کښي د API برابرونکي وکاروئ. د ویب لټون لپاره، لږترلږه یو شرایط **16K ټوکن (16,384)** سپارښتنه کیږي، په دوامداره توګه په نسخو کښي.
 
-**Windows x64 پورټ ایبل 1.0.2 شتون لري.** بحثونه، ترتیبات او ډاونلوډ سوي ماډلونه د پورټ ایبل فولډر لاندې پاتې کیږي `Data`بشپړ آرشیف راوباسئ او پیل کړئ `Novera.exe`Novera وتړئ مخکې له دې چي فولډر ته حرکت ورکړئ یا د USB ذخیرې خارج کړئ. [د پورټ ایبل لارښود او محدودیتونه](docs/WINDOWS_PORTABLE.md).
+**Windows x64 پورټ ایبل 1.0.3 شتون لري.** بحثونه، ترتیبات او ډاونلوډ سوي ماډلونه د پورټ ایبل فولډر لاندې پاتې کیږي `Data`بشپړ آرشیف راوباسئ او پیل کړئ `Novera.exe`Novera وتړئ مخکې له دې چي فولډر ته حرکت ورکړئ یا د USB ذخیرې خارج کړئ. [د پورټ ایبل لارښود او محدودیتونه](docs/WINDOWS_PORTABLE.md).
 
 <a id="one-dashboard-for-every-creation"></a>
 
