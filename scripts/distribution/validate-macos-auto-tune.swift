@@ -57,12 +57,13 @@ func calibration() -> String? {
 }
 
 guard calibration() == "false" else { fatalError("The isolated profile must start with Auto Tune disabled") }
-let button = waitFor("The Auto Tune button did not render") { autoTuneControl(with: ["AXButton", "AXDisclosureTriangle"]) }
+let composerRoles: Set<String> = ["AXButton", "AXDisclosureTriangle"]
+let button = waitFor("The Auto Tune button did not render") { autoTuneControl(with: composerRoles) }
 press(button)
 let switchRoles: Set<String> = ["AXCheckBox", "AXSwitch", "AXToggleButton"]
 press(waitFor("The Auto Tune dashboard did not open") { autoTuneControl(with: switchRoles) })
 let _: Bool = waitFor("Auto Tune did not enable native calibration") { calibration() == "true" ? true : nil }
-let activeSwitch = waitFor("The Auto Tune switch did not finish enabling") { () -> AXUIElement? in
+let _: AXUIElement = waitFor("The Auto Tune switch did not finish enabling") {
     guard let element = autoTuneControl(with: switchRoles),
           (attribute(element, kAXEnabledAttribute) as? NSNumber)?.boolValue == true,
           (attribute(element, kAXValueAttribute) as? NSNumber)?.boolValue == true else {
@@ -70,6 +71,7 @@ let activeSwitch = waitFor("The Auto Tune switch did not finish enabling") { () 
     }
     return element
 }
-press(activeSwitch)
+// Closing an active Auto Tune panel disables calibration through the native command.
+press(waitFor("The Auto Tune composer button disappeared") { autoTuneControl(with: composerRoles) })
 let _: Bool = waitFor("Auto Tune did not restore native calibration") { calibration() == "false" ? true : nil }
 print("{\"buttonRendered\":true,\"dashboardOpened\":true,\"nativeToggleVerified\":true,\"initialStateRestored\":true}")
