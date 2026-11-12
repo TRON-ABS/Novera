@@ -98,7 +98,16 @@ def main():
     data = mapping['XDG_DATA_HOME']/'Novera/data'
     data.mkdir(parents=True)
     # Test setup only: avoid the unrelated background embedding download.
-    (data/'settings.json').write_text(json.dumps({'llamacpp-embedder-bootstrapped':'true'}))
+    settings = {'llamacpp-embedder-bootstrapped': 'true'}
+    if auto_tune:
+        settings['__settings_migrated_to_backend__'] = 'true'
+        settings['llamacpp-qwen3-embedder-bootstrapped'] = 'true'
+        settings['model-provider'] = json.dumps({'version': 22, 'state': {'providers': [{
+            'provider': 'validation-local',
+            'base_url': 'http://127.0.0.1:1',
+            'models': [{'id': 'validation-model', 'name': 'Validation model'}],
+        }]}})
+    (data/'settings.json').write_text(json.dumps(settings))
     env.update(APPIMAGE_EXTRACT_AND_RUN='1', TAURI_WEBVIEW_AUTOMATION='true', LANG='en_US.UTF-8', LANGUAGE='en')
     env.pop('CI', None)
     app.chmod(app.stat().st_mode | 0o111)

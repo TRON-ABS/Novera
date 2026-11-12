@@ -60,7 +60,16 @@ async function main(executable) {
   delete env.CI
   const data = path.join(locations.APPDATA, 'Novera/data')
   fs.mkdirSync(data, { recursive: true })
-  fs.writeFileSync(path.join(data, 'settings.json'), JSON.stringify({ '__settings_migrated_to_backend__': 'true', 'llamacpp-embedder-bootstrapped': 'true', 'llamacpp-qwen3-embedder-bootstrapped': 'true', 'setting-general': JSON.stringify({ state: { currentLanguage: 'en' } }) }))
+  const settings = { '__settings_migrated_to_backend__': 'true', 'llamacpp-embedder-bootstrapped': 'true', 'llamacpp-qwen3-embedder-bootstrapped': 'true', 'setting-general': JSON.stringify({ state: { currentLanguage: 'en' } }) }
+  if (autoTune) {
+    // Seed an isolated provider so the chat UI opens after onboarding.
+    settings['model-provider'] = JSON.stringify({ version: 22, state: { providers: [{
+      provider: 'validation-local',
+      base_url: 'http://127.0.0.1:1',
+      models: [{ id: 'validation-model', name: 'Validation model' }],
+    }] } })
+  }
+  fs.writeFileSync(path.join(data, 'settings.json'), JSON.stringify(settings))
   const port = await new Promise((resolve, reject) => { const server = net.createServer(); server.once('error', reject); server.listen(0, '127.0.0.1', () => { const port = server.address().port; server.close(() => resolve(port)) }) })
   env.WEBVIEW2_ADDITIONAL_BROWSER_ARGUMENTS = `--remote-debugging-port=${port} --remote-debugging-address=127.0.0.1 --lang=en-US`
   env.WEBVIEW2_USER_DATA_FOLDER = path.join(scratch, 'webview-profile')
