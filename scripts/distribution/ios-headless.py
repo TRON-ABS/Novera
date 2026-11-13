@@ -69,24 +69,26 @@ def main():
     if not bundle.startswith('io.github.tronabs.novera'):
         raise ValueError('Unexpected app identity')
     listing = json.loads(run('xcrun', 'simctl', 'list', 'devices', 'available', '--json'))['devices']
-    options = [(runtime, device) for runtime, devices in listing.items() if '.iOS-' in runtime
-               for device in devices if device.get('isAvailable') and device['name'].startswith('iPhone')]
-    options.sort(key=lambda item: (item[0], item[1]['name']))
-    if not options:
-        raise RuntimeError('No installed iPhone simulator runtime')
-    runtime = options[-1][0]
-    phones = [d for r, d in options if r == runtime]
-    compact = next((d for d in phones if 'SE' in d['name']), next((d for d in phones if 'Max' not in d['name']), phones[0]))
-    large = next((d for d in phones if 'Max' in d['name']), phones[-1])
-    if compact['name'] == large['name']:
-        raise RuntimeError('Two distinct iPhone form factors are required')
-    device_types = {d['name']: d['identifier'] for d in json.loads(run('xcrun', 'simctl', 'list', 'devicetypes', '--json'))['devicetypes']}
+    runtimes = [runtime for runtime, devices in listing.items()
+                if '.iOS-' in runtime and any(device.get('isAvailable') for device in devices)]
+    if not runtimes:
+        raise RuntimeError('No installed iOS simulator runtime')
+    runtime = max(runtimes, key=lambda value: tuple(map(int, value.split('.iOS-')[1].split('-'))))
+    device_types = json.loads(run('xcrun', 'simctl', 'list', 'devicetypes', '--json'))['devicetypes']
+    runtime_version = [int(value) for value in runtime.split('.iOS-')[1].split('-')]
+    runtime_version += [0] * (3 - len(runtime_version))
+    version_code = (runtime_version[0] << 16) + (runtime_version[1] << 8) + runtime_version[2]
+    phones = [device for device in device_types if device['name'].startswith('iPhone')
+              and device.get('minRuntimeVersion', 0) <= version_code <= device.get('maxRuntimeVersion', 0xffffffff)]
+    large = next((device for device in reversed(phones) if 'Max' in device['name'] or 'Plus' in device['name']), None)
+    compact = next((device for device in reversed(phones) if 'SE' in device['name'] or 'mini' in device['name']), None)
+    if compact is None:
+        compact = next((device for device in reversed(phones) if 'Max' not in device['name'] and 'Plus' not in device['name']), None)
+    if compact is None or large is None:
+        raise RuntimeError(f'Two distinct iPhone form factors are required for {runtime}')
     results = []
     for phone in [compact, large]:
-        kind = phone.get('deviceTypeIdentifier', device_types.get(phone['name']))
-        if not kind:
-            raise RuntimeError('Unknown simulator device type')
-        device = owned_uuid(run('xcrun', 'simctl', 'create', 'Novera-CI-' + uuid.uuid4().hex[:8], kind, runtime))
+        device = owned_uuid(run('xcrun', 'simctl', 'create', 'Novera-CI-' + uuid.uuid4().hex[:8], phone['identifier'], runtime))
         try:
             run('xcrun', 'simctl', 'boot', device)
             run('xcrun', 'simctl', 'bootstatus', device, '-b', timeout=240)
