@@ -264,7 +264,7 @@ export function ModelAdjustmentControl({ disabled, recalibration }: { disabled: 
         <TooltipTrigger asChild>
           <Button ref={trigger} type="button" variant="ghost" size="icon-xs"
             className={`composer-tool shrink-0${running ? ' composer-tool-active' : ''}`}
-            aria-label={`${t('ui:modelAdjustmentTitle')} · ${statusLabel}`} aria-expanded={panelOpen} aria-haspopup="dialog"
+            data-testid="model-adjustment-trigger" aria-label={`${t('ui:modelAdjustmentTitle')} · ${statusLabel}`} aria-expanded={panelOpen} aria-haspopup="dialog"
             data-state={running ? 'on' : 'off'} disabled={!panelOpen && (disabled || stackFull)}
             onClick={() => panelOpen ? closePanel('model-adjustment')
               : openPanel('model-adjustment', trigger.current?.closest<HTMLElement>('[data-dashboard-composer]'))}>
@@ -274,7 +274,7 @@ export function ModelAdjustmentControl({ disabled, recalibration }: { disabled: 
         </TooltipTrigger>
         <TooltipContent>{t('ui:modelAdjustmentTitle')} · {statusLabel}</TooltipContent>
       </Tooltip>
-      <DialogContent docked positionEnabled={panelOpen} className="min-w-0 grid-cols-[minmax(0,1fr)] overflow-x-hidden [scrollbar-gutter:stable]">
+      <DialogContent docked positionEnabled={panelOpen} data-testid="model-adjustment-dialog" className="min-w-0 grid-cols-[minmax(0,1fr)] overflow-x-hidden [scrollbar-gutter:stable]">
         <DialogTitle>{t('ui:modelAdjustmentTitle')}</DialogTitle>
         <DialogDescription className={!native && (local || browserQuantizationAvailable) ? 'sr-only' : undefined}>
           {native ? t('ui:modelAdjustmentDesktopFiles') : local || browserQuantizationAvailable ? t('ui:modelAdjustmentChoose') : t('ui:modelAdjustmentLocalOnly')}
@@ -314,7 +314,7 @@ export function ModelAdjustmentControl({ disabled, recalibration }: { disabled: 
         {nativeOrLocal && <section className="grid min-w-0 grid-cols-[minmax(0,1fr)] gap-1 rounded border p-3" aria-label={t('ui:modelAdjustmentWeights')}>
           <p>{t('ui:modelAdjustmentSubtitle')}</p>
           <div className="flex flex-wrap gap-2">
-            <Button type="button" variant="secondary" className="h-auto min-w-0 flex-1 whitespace-normal py-2"
+            <Button type="button" variant="secondary" data-testid="model-adjustment-start" className="h-auto min-w-0 flex-1 whitespace-normal py-2"
               disabled={running || disabled} onClick={() => void startWeightRecalibration(variant)}>
               {`${statusLabel} · ${running ? t('ui:modelAdjustmentProgress') : t('ui:modelAdjustmentStart', { variant })}`}
             </Button>

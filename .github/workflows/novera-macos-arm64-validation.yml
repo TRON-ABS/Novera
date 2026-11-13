@@ -43,7 +43,7 @@ jobs:
           "$tools/novera-llama-worker" --version-json | jq -e '.tag == "v1.0.0"'
           printf 'NOVERA_TEST_TOOLS=%s\n' "$tools" >> "$GITHUB_ENV"
           ditto -c -k --keepParent "$app" "$RUNNER_TEMP/Novera-macOS-arm64.zip"
-      - name: Benchmark bundled tools with LFM3 on five corpora
+      - name: Prepare verified LFM3 test models
         run: |
           mkdir -p .build/macos-validation
           cd .build/macos-validation
@@ -53,9 +53,26 @@ jobs:
           curl --fail --location --retry 3 --output "$q8" "$base/$q8"
           curl --fail --location --retry 3 --output "$q4" "$base/$q4"
           printf '%s  %s\n' 59118f661eaacb93d204723d76355b53347f0940b508c11412f6290fd49158d4 "$q8" 9f8d30e9d4fd7a9349d586e077988229b3ca0a0e4ad730897563d1eccc9893e2 "$q4" | shasum -a 256 -c
-          python3 ../../scripts/benchmark-q4-recalibration.py --tools "$NOVERA_TEST_TOOLS" --reference "$PWD/$q8" --baseline "$PWD/$q4" --output "$PWD/results"
-          jq -e '.runs | length == 2 and all(.[]; (.corpus_max_kl | length) == 5)' results/report.json
-          cat results/report.json
+          profile="$RUNNER_TEMP/novera-model-adjustment-profile"
+          models="$profile/Documents/Novera models"
+          mkdir -p "$models"
+          mv "$q8" "$q4" "$models/"
+          printf 'JAN_E2E_HOME=%s\n' "$profile" >> "$GITHUB_ENV"
+      - name: Build a separate app with the embedded WebDriver
+        run: |
+          yarn tauri build --ci --target aarch64-apple-darwin --bundles app --features e2e --config '{"bundle":{"createUpdaterArtifacts":false}}'
+          app=$(find src-tauri/target/aarch64-apple-darwin/release/bundle/macos -maxdepth 1 -name '*.app' -print -quit)
+          binary="$PWD/$app/Contents/MacOS/Novera-Desktop"
+          test -x "$binary"
+          printf 'NOVERA_E2E_APP_BINARY=%s\n' "$binary" >> "$GITHUB_ENV"
+      - name: Test the native WKWebView with LFM3 and llama.cpp settings
+        working-directory: e2e
+        env:
+          NOVERA_E2E_MODEL_ADJUSTMENT: '1'
+        run: |
+          yarn install --immutable
+          yarn typecheck
+          yarn test
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         if: always()
         with:
@@ -63,5 +80,5 @@ jobs:
           include-hidden-files: true
           path: |
             ${{ runner.temp }}/Novera-macOS-arm64.zip
-            .build/macos-validation/results/report.json
-            .build/macos-validation/results/*.log
+            e2e/logs/macos-model-adjustment
+            e2e/logs/*.log
