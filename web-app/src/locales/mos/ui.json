@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Kɛnɛɛ",
   "modelAdjustmentStopLabel": "Kɛnɛɛ kɛnɛɛ",
   "modelAdjustmentStopping": "Kɛnɛɛ kɛnɛɛ",
+  "modelAdjustmentDesktopFiles": "Novera a baoonda GGUF LFM3 Omni 2B Q8 / Q4 sɛbrã fo model-rãmb folderã pʋgẽ. Diga model-rãmbã a yembre n yãk a sɛbrã fo menga.",
+  "modelAdjustmentDesktopFailed": "Lebg n seglgã pa tõog ye. Ges Novera gom-biis gʋlsgrã.",
   "modelAdjustmentFailed": "Kɛnɛɛ kɛnɛɛ. Kɛnɛɛ local server log kɛnɛɛ.",
   "modelAdjustmentTarget": "KL sẽn yɩɩdã tɩɩr ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Rɛkɔlɪbrɛʃn rɛzʌlts",

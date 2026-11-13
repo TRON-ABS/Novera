@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "ودریږي",
   "modelAdjustmentStopLabel": "بیا حساب کول بند کړئ",
   "modelAdjustmentStopping": "ودرول…",
+  "modelAdjustmentDesktopFiles": "Novera ستاسو د ماډلونو په فولډر کې د GGUF LFM3 Omni 2B Q8 / Q4 فایلونه لټوي. د فایل په لاس ټاکلو لپاره پر یوه ماډل کلیک وکړئ.",
+  "modelAdjustmentDesktopFailed": "بیا کالیبراسیون ناکام شو. د Novera لاګ وګورئ.",
   "modelAdjustmentFailed": "بیا حساب کول ناکام شول. د محلي سرور لاګ وګورئ.",
   "modelAdjustmentTarget": "اعظمي KL هدف ≤ {{threshold}} nat",
   "modelAdjustmentResults": "د بیاکتنې پایلې",

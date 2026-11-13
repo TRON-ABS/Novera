@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "หยุด",
   "modelAdjustmentStopLabel": "หยุดการปรับเทียบ",
   "modelAdjustmentStopping": "กำลังหยุด...",
+  "modelAdjustmentDesktopFiles": "Novera สิค้นหาไฟล์ GGUF LFM3 Omni 2B Q8 / Q4 ในโฟลเดอร์โมเดลของเจ้า กดโมเดลโตใด๋โตหนึ่งเพื่อเลือกไฟล์เอง",
+  "modelAdjustmentDesktopFailed": "ปรับเทียบใหม่บ่สำเร็จ เบิ่งบันทึกของ Novera",
   "modelAdjustmentFailed": "การปรับเทียบล้มเหลว ตรวจสอบบันทึกเซิร์ฟเวอร์ท้องถิ่น",
   "modelAdjustmentTarget": "เป้าหมาย KL สูงสุด ≤ {{threshold}} nat",
   "modelAdjustmentResults": "ผลการปรับเทียบใหม่",

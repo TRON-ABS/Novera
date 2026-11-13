@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Dhaabuu",
   "modelAdjustmentStopLabel": "Irra deebiin safaruu dhaabuu",
   "modelAdjustmentStopping": "Dhaabuu...",
+  "modelAdjustmentDesktopFiles": "Novera faayiloota GGUF LFM3 Omni 2B Q8 / Q4 galmee moodeelota kee keessatti barbaada. Faayila isaa harkaan filachuuf moodeelota lamaan keessaa tokko cuqaasi.",
+  "modelAdjustmentDesktopFailed": "Irra deebi’anii safaruun hin milkoofne. Galmee Novera ilaali.",
   "modelAdjustmentFailed": "Irra deebiin safaruun hin milkoofne. Galmee sarvarii naannoo ilaali.",
   "modelAdjustmentTarget": "galma KL guddaa ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Bu’aa irra deebiin safaruu",

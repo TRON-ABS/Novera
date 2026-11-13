@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "توختاڭ",
   "modelAdjustmentStopLabel": "قايتا ھېسابلاشنى توختىتىڭ",
   "modelAdjustmentStopping": "توختىتىش…",
+  "modelAdjustmentDesktopFiles": "Novera مودېل قىسقۇچىڭىزدىن GGUF LFM3 Omni 2B Q8 / Q4 ھۆججەتلىرىنى ئىزدەيدۇ. ھۆججەتنى قولدا تاللاش ئۈچۈن ئىككى مودېلنىڭ بىرىنى چېكىڭ.",
+  "modelAdjustmentDesktopFailed": "قايتا تەڭشەش مەغلۇپ بولدى. Novera خاتىرىسىنى تەكشۈرۈڭ.",
   "modelAdjustmentFailed": "قايتا قۇرۇش مەغلۇب بولدى. يەرلىك مۇلازىمېتىر خاتىرىسىنى تەكشۈرۈڭ.",
   "modelAdjustmentTarget": "ئەڭ چوڭ KL نىشان ≤ {{threshold}} nat",
   "modelAdjustmentResults": "قايتا تەكشۈرۈش نەتىجىسى",

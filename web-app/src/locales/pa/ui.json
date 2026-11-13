@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "ਰੂਕੋ",
   "modelAdjustmentStopLabel": "ਰੀਕੈਲੀਬ੍ਰੇਸ਼ਨ ਬੰਦ ਕਰੋ",
   "modelAdjustmentStopping": "ਰੋਕਿਆ ਜਾ ਰਿਹਾ ਹੈ...",
+  "modelAdjustmentDesktopFiles": "Novera ਤੁਹਾਡੇ ਮਾਡਲ ਫੋਲਡਰ ਵਿੱਚ GGUF LFM3 Omni 2B Q8 / Q4 ਫਾਈਲਾਂ ਲੱਭਦਾ ਹੈ। ਫਾਈਲ ਖੁਦ ਚੁਣਨ ਲਈ ਦੋਵਾਂ ਵਿੱਚੋਂ ਕਿਸੇ ਇੱਕ ਮਾਡਲ 'ਤੇ ਕਲਿੱਕ ਕਰੋ।",
+  "modelAdjustmentDesktopFailed": "ਮੁੜ ਕੈਲੀਬ੍ਰੇਸ਼ਨ ਅਸਫਲ ਰਹੀ। Novera ਦਾ ਲੌਗ ਵੇਖੋ।",
   "modelAdjustmentFailed": "ਰੀਕੈਲੀਬ੍ਰੇਸ਼ਨ ਅਸਫਲ। ਸਥਾਨਕ ਸਰਵਰ ਲੌਗ ਦੀ ਜਾਂਚ ਕਰੋ।",
   "modelAdjustmentTarget": "ਵੱਧ ਤੋਂ ਵੱਧ KL ਟੀਚਾ ≤ {{threshold}} nat",
   "modelAdjustmentResults": "ਰੀਕੈਲੀਬ੍ਰੇਸ਼ਨ ਨਤੀਜੇ",

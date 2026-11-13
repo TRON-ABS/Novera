@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Atureu-vos",
   "modelAdjustmentStopLabel": "Atura la recalibració",
   "modelAdjustmentStopping": "S'està aturant…",
+  "modelAdjustmentDesktopFiles": "Novera cerca els fitxers GGUF LFM3 Omni 2B Q8 / Q4 a la carpeta de models. Fes clic en qualsevol dels dos models per seleccionar-ne el fitxer manualment.",
+  "modelAdjustmentDesktopFailed": "El recalibratge ha fallat. Consulta el registre de Novera.",
   "modelAdjustmentFailed": "La recalibració ha fallat. Comproveu el registre del servidor local.",
   "modelAdjustmentTarget": "màxim KL objectiu ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Resultats de la recalibració",

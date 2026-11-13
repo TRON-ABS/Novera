@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Dakkal dal",
   "modelAdjustmentStopLabel": "Taxawal etalonnage",
   "modelAdjustmentStopping": "taxaw...",
+  "modelAdjustmentDesktopFiles": "Novera dafay seet ay dencukaay GGUF LFM3 Omni 2B Q8 / Q4 ci sa wayndare modeli. Cuqal ci benn ci ñaari modeli yi ngir tànn dencukaayam sa bopp.",
+  "modelAdjustmentDesktopFailed": "Jubbantiwaat bi antuwul. Seetal ci téere bindu Novera.",
   "modelAdjustmentFailed": "Rekalibraasioŋ bi sottiwul. Saytu serwër bi ci dëkk bi.",
   "modelAdjustmentTarget": "KL bi gëna mag ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Résultaa yiñ defaraat ci etalonnage",

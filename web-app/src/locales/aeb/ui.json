@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Waqef",
   "modelAdjustmentStopLabel": "Waqef recalibration",
   "modelAdjustmentStopping": "Waqef...",
+  "modelAdjustmentDesktopFiles": "Novera يلوّج على ملفات GGUF LFM3 Omni 2B Q8 / Q4 في دوسي النماذج. اكبس على أي نموذج باش تختار الملف متاعو بيدك.",
+  "modelAdjustmentDesktopFailed": "إعادة المعايرة ما نجحتش. شوف سجل Novera.",
   "modelAdjustmentFailed": "El recalibration fashel. Chouf log serveur local.",
   "modelAdjustmentTarget": "أقصى هدف KL ≤ {{threshold}} نات",
   "modelAdjustmentResults": "نتائج إعادة المعايرة",

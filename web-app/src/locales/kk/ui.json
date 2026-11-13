@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Тоқта",
   "modelAdjustmentStopLabel": "Қайта калибрлеуді тоқтатыңыз",
   "modelAdjustmentStopping": "Тоқталуда…",
+  "modelAdjustmentDesktopFiles": "Novera GGUF LFM3 Omni 2B Q8 / Q4 файлдарын модельдер қалтасынан іздейді. Файлды қолмен таңдау үшін екі модельдің бірін басыңыз.",
+  "modelAdjustmentDesktopFailed": "Қайта калибрлеу сәтсіз аяқталды. Novera журналын тексеріңіз.",
   "modelAdjustmentFailed": "Қайта калибрлеу сәтсіз аяқталды. Жергілікті сервер журналын тексеріңіз.",
   "modelAdjustmentTarget": "максималды KL мақсатты ≤ {{threshold}} нат",
   "modelAdjustmentResults": "Қайта калибрлеу нәтижелері",

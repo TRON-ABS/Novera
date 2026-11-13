@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "rok",
   "modelAdjustmentStopLabel": "recalibration rok",
   "modelAdjustmentStopping": "rokat ho rahi hai…",
+  "modelAdjustmentDesktopFiles": "Novera तुम्‍हर मॉडल फोल्डर म GGUF LFM3 Omni 2B Q8 / Q4 फाइल मन ला खोजथे। फाइल खुद चुने बर दूनों म ले कोनो एक मॉडल म क्लिक करव।",
+  "modelAdjustmentDesktopFailed": "फेर ले कैलिब्रेशन नइ हो पाइस। Novera के लॉग देखव।",
   "modelAdjustmentFailed": "recalibration fail ho gaye. local server log check kar.",
   "modelAdjustmentTarget": "अधिकतम KL लक्ष्य ≤ {{threshold}} nat",
   "modelAdjustmentResults": "पुनः कैलिब्रेशन के परिणाम",

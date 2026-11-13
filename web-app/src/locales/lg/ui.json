@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Okulekera",
   "modelAdjustmentStopLabel": "Lekera awo okuddamu okupima",
   "modelAdjustmentStopping": "Okuyimiriza...",
+  "modelAdjustmentDesktopFiles": "Novera enoonya fayiro za GGUF LFM3 Omni 2B Q8 / Q4 mu folda y’ebyokulabirako byo. Nyiga ku emu ku zo okulonda fayiro yaayo ggwe kennyini.",
+  "modelAdjustmentDesktopFailed": "Okuddamu okutereeza kugudde butaka. Kebera likodi ya Novera.",
   "modelAdjustmentFailed": "Okuddamu okupima (Recalibration) kulemereddwa. Kebera ekiwandiiko kya seva y'omu kitundu.",
   "modelAdjustmentTarget": "ekisinga obunene KL ekigendererwa ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Ebivudde mu kuddamu okupima",

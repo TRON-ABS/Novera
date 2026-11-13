@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "توقف کنید",
   "modelAdjustmentStopLabel": "کالیبراسیون مجدد را متوقف کنید",
   "modelAdjustmentStopping": "توقف…",
+  "modelAdjustmentDesktopFiles": "Novera فایل‌های GGUF LFM3 Omni 2B Q8 / Q4 را در پوشهٔ مدل‌هایتان جست‌وجو می‌کند. برای انتخاب دستی فایل، روی یکی از دو مدل کلیک کنید.",
+  "modelAdjustmentDesktopFailed": "کالیبراسیون مجدد ناموفق بود. گزارش Novera را بررسی کنید.",
   "modelAdjustmentFailed": "کالیبراسیون مجدد انجام نشد. گزارش سرور محلی را بررسی کنید.",
   "modelAdjustmentTarget": "حداکثر هدف KL ≤ {{threshold}} nat",
   "modelAdjustmentResults": "نتایج کالیبراسیون مجدد",

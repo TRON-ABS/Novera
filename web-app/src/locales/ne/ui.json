@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "रोक्नुहोस्",
   "modelAdjustmentStopLabel": "पुन: क्यालिब्रेसन रोक्नुहोस्",
   "modelAdjustmentStopping": "रोक्दै...",
+  "modelAdjustmentDesktopFiles": "Novera ले तपाईंको मोडेल फोल्डरमा GGUF LFM3 Omni 2B Q8 / Q4 फाइलहरू खोज्छ। फाइल आफैँ छान्न दुईमध्ये कुनै एउटा मोडेलमा क्लिक गर्नुहोस्।",
+  "modelAdjustmentDesktopFailed": "पुनः क्यालिब्रेसन असफल भयो। Novera को लग हेर्नुहोस्।",
   "modelAdjustmentFailed": "पुन: क्यालिब्रेसन असफल भयो। स्थानीय सर्भर लग जाँच गर्नुहोस्।",
   "modelAdjustmentTarget": "अधिकतम KL लक्ष्य ≤ {{threshold}} nat",
   "modelAdjustmentResults": "पुन: क्यालिब्रेसन परिणामहरू",

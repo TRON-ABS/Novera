@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Ema",
   "modelAdjustmentStopLabel": "Emiša go lekanya gape",
   "modelAdjustmentStopping": "Go emiša...",
+  "modelAdjustmentDesktopFiles": "Novera e nyaka difaele tša GGUF LFM3 Omni 2B Q8 / Q4 foltareng ya gago ya dimotlolo. Tobetša e nngwe ya dimotlolo tše pedi go ikgethela faele ya yona.",
+  "modelAdjustmentDesktopFailed": "Peakanyoleswa e paletšwe. Lekola rekoto ya Novera.",
   "modelAdjustmentFailed": "Recalibration e paletšwe. Hlahloba log ya seva ya selegae.",
   "modelAdjustmentTarget": "palo e kahodimodimo KL sepheo ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Dipoelo tša go lekanya gape",

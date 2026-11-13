@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Imani",
   "modelAdjustmentStopLabel": "Lekani kukonzanso",
   "modelAdjustmentStopping": "Kuyimitsa...",
+  "modelAdjustmentDesktopFiles": "Novera imasaka mafayilo a GGUF LFM3 Omni 2B Q8 / Q4 mufoda yanu ya zitsanzo. Dinani chimodzi mwa zitsanzozo kuti musankhe fayilo yake nokha.",
+  "modelAdjustmentDesktopFailed": "Kuyesanso kukonza kwalephera. Onani zolemba za Novera.",
   "modelAdjustmentFailed": "Kukonzanso kwalephera. Yang'anani chipika cha seva chapafupi.",
   "modelAdjustmentTarget": "pazipita KL chandamale ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Recalibration zotsatira",

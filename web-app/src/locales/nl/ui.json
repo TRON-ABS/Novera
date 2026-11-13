@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Stop",
   "modelAdjustmentStopLabel": "Stop met herkalibreren",
   "modelAdjustmentStopping": "Stoppen…",
+  "modelAdjustmentDesktopFiles": "Novera zoekt in je modellenmap naar de GGUF LFM3 Omni 2B Q8 / Q4-bestanden. Klik op een van beide modellen om het bestand handmatig te selecteren.",
+  "modelAdjustmentDesktopFailed": "Herkalibratie mislukt. Controleer het logboek van Novera.",
   "modelAdjustmentFailed": "Herkalibratie is mislukt. Controleer het lokale serverlogboek.",
   "modelAdjustmentTarget": "maximum KL doel ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Herkalibratieresultaten",

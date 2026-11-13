@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Ka dabila",
   "modelAdjustmentStopLabel": "Aw bɛ seginkanni dabila",
   "modelAdjustmentStopping": "Ka dabila...",
+  "modelAdjustmentDesktopFiles": "Novera bɛ GGUF LFM3 Omni 2B Q8 / Q4 dosiyew ɲini i ka modɛli dosiye kɔnɔ. I ka modɛli fila la kelen digi walasa ka a ka dosiye sugandi i yɛrɛ ye.",
+  "modelAdjustmentDesktopFailed": "Kalibirali kokura ma se. Novera ka kibaruyɛlɛ lajɛ.",
   "modelAdjustmentFailed": "Segin-ka-bɔnye ma ɲɛ. Aw ye sigida ka baarakɛminɛnw jatebɔsɛbɛn lajɛ.",
   "modelAdjustmentTarget": "maksimali KL laɲini ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Recalibration (kaliba seginni) jaabiw",

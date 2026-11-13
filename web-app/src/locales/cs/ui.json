@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Zastávka",
   "modelAdjustmentStopLabel": "Zastavte rekalibraci",
   "modelAdjustmentStopping": "Zastavení…",
+  "modelAdjustmentDesktopFiles": "Novera hledá soubory GGUF LFM3 Omni 2B Q8 / Q4 ve složce s modely. Kliknutím na jeden z modelů můžete jeho soubor vybrat ručně.",
+  "modelAdjustmentDesktopFailed": "Překalibrování se nezdařilo. Zkontrolujte protokol Novera.",
   "modelAdjustmentFailed": "Rekalibrace se nezdařila. Zkontrolujte protokol místního serveru.",
   "modelAdjustmentTarget": "maximální KL cíl ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Výsledky rekalibrace",

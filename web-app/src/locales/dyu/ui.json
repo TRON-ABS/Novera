@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Lalɔ",
   "modelAdjustmentStopLabel": "Kalibrasiyɔn kura lalɔ",
   "modelAdjustmentStopping": "Ka lɔ...",
+  "modelAdjustmentDesktopFiles": "Novera bɛ GGUF LFM3 Omni 2B Q8 / Q4 dosiyew ɲini i ka modɛli dosiye kɔnɔ. Modɛli fila la kelen digi ka a ka dosiye sugandi i yɛrɛ ye.",
+  "modelAdjustmentDesktopFailed": "Kalibirali kura ma se. Novera ka jurnali lajɛ.",
   "modelAdjustmentFailed": "Kalibrasiyɔn kura ma se ka kɛ. A’ ye yɔrɔ ka serveur ka sɛbɛw sɛgɛsɛgɛ.",
   "modelAdjustmentTarget": "KL laɲini ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Kalibrasiyɔn kura jaabiw",

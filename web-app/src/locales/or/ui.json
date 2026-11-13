@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "ବନ୍ଦ କର |",
   "modelAdjustmentStopLabel": "ପୁନ al ବିଚାର ବନ୍ଦ କରନ୍ତୁ |",
   "modelAdjustmentStopping": "ବନ୍ଦ…",
+  "modelAdjustmentDesktopFiles": "Novera ଆପଣଙ୍କ ମଡେଲ୍ ଫୋଲ୍ଡରରେ GGUF LFM3 Omni 2B Q8 / Q4 ଫାଇଲ୍ ଖୋଜେ। ଫାଇଲ୍ ନିଜେ ବାଛିବାକୁ ଯେକୌଣସି ଗୋଟିଏ ମଡେଲ୍‌ରେ କ୍ଲିକ୍ କରନ୍ତୁ।",
+  "modelAdjustmentDesktopFailed": "ପୁନଃ କ୍ୟାଲିବ୍ରେସନ୍ ବିଫଳ ହେଲା। Novera ଲଗ୍ ଯାଞ୍ଚ କରନ୍ତୁ।",
   "modelAdjustmentFailed": "ପୁନ al ବିଚାର ବିଫଳ ହେଲା | ସ୍ଥାନୀୟ ସର୍ଭର ଲଗ ଯାଞ୍ଚ କରନ୍ତୁ |",
   "modelAdjustmentTarget": "ସର୍ବାଧିକ KL ଲକ୍ଷ୍ୟ ≤ {{threshold}} nat",
   "modelAdjustmentResults": "ପୁନ al ବିଚାର ଫଳାଫଳ |",

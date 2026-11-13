@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Dartin",
   "modelAdjustmentStopLabel": "Dartin feewtingol",
   "modelAdjustmentStopping": "Nana dartina…",
+  "modelAdjustmentDesktopFiles": "Novera ina yiylaa piille GGUF LFM3 Omni 2B Q8 / Q4 e foolde modeleeji maa. Dobo gooto e modeleeji ɗiɗi ɗin ngam suɓaade fiilde mum e junngo.",
+  "modelAdjustmentDesktopFailed": "Kalibiraade kadi woorii. Ƴeewto log Novera.",
   "modelAdjustmentFailed": "Feewtingol moƴƴaani. Ƴeewto log sarworde lokal.",
   "modelAdjustmentTarget": "Daraja KL ɓurɗo toowde ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Njaltudi feewtingol",

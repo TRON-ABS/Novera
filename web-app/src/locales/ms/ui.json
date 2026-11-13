@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Berhenti",
   "modelAdjustmentStopLabel": "Hentikan penentukuran semula",
   "modelAdjustmentStopping": "Berhenti…",
+  "modelAdjustmentDesktopFiles": "Novera mencari fail GGUF LFM3 Omni 2B Q8 / Q4 dalam folder model anda. Klik salah satu model untuk memilih failnya secara manual.",
+  "modelAdjustmentDesktopFailed": "Penentukuran semula gagal. Semak log Novera.",
   "modelAdjustmentFailed": "Penentukuran semula gagal. Semak log pelayan tempatan.",
   "modelAdjustmentTarget": "maksimum KL sasaran ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Keputusan penentukuran semula",

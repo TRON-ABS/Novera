@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Dayandır",
   "modelAdjustmentStopLabel": "Kvantizasiyanı dayandır",
   "modelAdjustmentStopping": "Dayandırılır…",
+  "modelAdjustmentDesktopFiles": "Novera مدل قوولوغونوزدا GGUF LFM3 Omni 2B Q8 / Q4 فایللارینی آختاریر. فایلی ال ایله سئچمک اوچون مدللردن بیرینه کلیک ائدین.",
+  "modelAdjustmentDesktopFailed": "یئنی‌دن کالیبرله‌مه آلینمادی. Novera-نین قئیدلرینه باخین.",
   "modelAdjustmentFailed": "Kvantizasiya uğursuz oldu. Yerli server logunu yoxlayın.",
   "modelAdjustmentTarget": "maksimum KL hədəfi ≤ {{threshold}} nat",
   "modelAdjustmentResults": "yenidən kalibrasiya nəticələri",

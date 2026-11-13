@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "بنده کړئ",
   "modelAdjustmentStopLabel": "کوانټایزیشن بنده کړئ",
   "modelAdjustmentStopping": "بنده کیږي…",
+  "modelAdjustmentDesktopFiles": "Novera ستاسو د موډلونو په فولډر کې د GGUF LFM3 Omni 2B Q8 / Q4 فایلونه لټوي. د فایل په لاس ټاکلو لپاره له دوو موډلونو یو کېکاږئ.",
+  "modelAdjustmentDesktopFailed": "بیا کالیبراسیون ناکام شو. د Novera ثبت وګورئ.",
   "modelAdjustmentFailed": "کوانټایزیشن ناکام شوه. محلي سرور لاګ وګورئ.",
   "modelAdjustmentTarget": "زویې KL هدف ≤ {{threshold}} نات",
   "modelAdjustmentResults": "د بیا تنظیم کولو پایلې",

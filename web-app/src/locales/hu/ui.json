@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Stop",
   "modelAdjustmentStopLabel": "Állítsa le az újrakalibrálást",
   "modelAdjustmentStopping": "Leállítás…",
+  "modelAdjustmentDesktopFiles": "A Novera a modellek mappájában keresi a(z) GGUF LFM3 Omni 2B Q8 / Q4 fájlokat. A fájl kézi kiválasztásához kattints valamelyik modellre.",
+  "modelAdjustmentDesktopFailed": "Az újrakalibrálás sikertelen. Ellenőrizd a Novera naplóját.",
   "modelAdjustmentFailed": "Az újrakalibrálás nem sikerült. Ellenőrizze a helyi szerver naplóját.",
   "modelAdjustmentTarget": "maximális KL cél ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Újrakalibrálási eredmények",

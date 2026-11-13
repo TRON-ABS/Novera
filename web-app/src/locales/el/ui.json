@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Στάση",
   "modelAdjustmentStopLabel": "Σταματήστε την επαναβαθμονόμηση",
   "modelAdjustmentStopping": "Στάθμευση…",
+  "modelAdjustmentDesktopFiles": "Το Novera αναζητά τα αρχεία GGUF LFM3 Omni 2B Q8 / Q4 στον φάκελο των μοντέλων σου. Κάνε κλικ σε ένα από τα δύο μοντέλα για να επιλέξεις το αρχείο του χειροκίνητα.",
+  "modelAdjustmentDesktopFailed": "Η επαναβαθμονόμηση απέτυχε. Έλεγξε το αρχείο καταγραφής του Novera.",
   "modelAdjustmentFailed": "Η επαναβαθμονόμηση απέτυχε. Ελέγξτε το αρχείο καταγραφής του τοπικού διακομιστή.",
   "modelAdjustmentTarget": "μέγιστος στόχος KL ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Αποτελέσματα επαναβαθμονόμησης",

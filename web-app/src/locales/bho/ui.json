@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "रूकीं",
   "modelAdjustmentStopLabel": "रिकैलिब्रेशन बंद कर दिहल जाव",
   "modelAdjustmentStopping": "बंद हो रहल बा...",
+  "modelAdjustmentDesktopFiles": "Novera रउआ के मॉडल फोल्डर में GGUF LFM3 Omni 2B Q8 / Q4 फाइल खोजेला। फाइल खुद चुने खातिर कवनो एक मॉडल पर क्लिक करीं।",
+  "modelAdjustmentDesktopFailed": "फेर से कैलिब्रेशन ना हो पावल। Novera के लॉग देखीं।",
   "modelAdjustmentFailed": "रिकैलिब्रेशन फेल हो गइल. स्थानीय सर्वर लॉग के जांच करीं।",
   "modelAdjustmentTarget": "अधिकतम बा KL लक्ष्य ≤ {{threshold}} नट के बा",
   "modelAdjustmentResults": "रिकैलिब्रेशन के परिणाम बा",

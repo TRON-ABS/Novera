@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Stoppa",
   "modelAdjustmentStopLabel": "Rekalibrierung stoppa",
   "modelAdjustmentStopping": "Wird gstoppt…",
+  "modelAdjustmentDesktopFiles": "Novera suacht de GGUF LFM3 Omni 2B Q8 / Q4-Dateien in deim Modellordner. Klick auf oans vo de Modelle, damitst sei Datei selber auswähln kannst.",
+  "modelAdjustmentDesktopFailed": "S Neikalibriern is fehlgschlogn. Schau ins Protokoll vo Novera.",
   "modelAdjustmentFailed": "Rekalibrierung is gscheit. Schau in's lokale Server-Log.",
   "modelAdjustmentTarget": "maximale KL Ziel ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Rekalibrierungsergebniss",

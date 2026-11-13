@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "إيقاف",
   "modelAdjustmentStopLabel": "إيقاف التكميم",
   "modelAdjustmentStopping": "جاري الإيقاف…",
+  "modelAdjustmentDesktopFiles": "Novera يدوّر على ملفات GGUF LFM3 Omni 2B Q8 / Q4 في مجلد النماذج. اضغط على أي نموذج عشان تختار ملفه يدوي.",
+  "modelAdjustmentDesktopFailed": "إعادة المعايرة ما نجحت. شيّك على سجل Novera.",
   "modelAdjustmentFailed": "فشل التكميم. تحقق من سجل الخادم المحلي.",
   "modelAdjustmentTarget": "الهدف الأقصى لـ KL ≤ {{threshold}} نات",
   "modelAdjustmentResults": "نتائج إعادة المعايرة",

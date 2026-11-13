@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "停止",
   "modelAdjustmentStopLabel": "停止重新校准",
   "modelAdjustmentStopping": "停止…",
+  "modelAdjustmentDesktopFiles": "Novera 会在你的模型文件夹中查找 GGUF LFM3 Omni 2B Q8 / Q4 文件。点击任一模型可手动选择对应的文件。",
+  "modelAdjustmentDesktopFailed": "重新校准失败。请查看 Novera 日志。",
   "modelAdjustmentFailed": "重新校准失败。检查本地服务器日志。",
   "modelAdjustmentTarget": "最大 KL 目标 ≤ {{threshold}} nat",
   "modelAdjustmentResults": "重新校准结果",
