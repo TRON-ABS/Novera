@@ -577,6 +577,8 @@ mod engine {
                 "-DGGML_METAL_EMBED_LIBRARY=ON", "-DGGML_SSE42=OFF",
                 "-DGGML_AVX=OFF", "-DGGML_AVX2=OFF", "-DGGML_BMI2=OFF",
                 "-DGGML_FMA=OFF", "-DGGML_F16C=OFF"]);
+            // Tauri links the iOS static archive in Xcode without Cargo framework flags.
+            cfg.arg("-DGGML_ACCELERATE=OFF");
             if !feature_enabled("engine-metal") { cfg.arg("-DGGML_METAL=OFF"); }
         }
         // Every ggml library is staged into one directory, so each can find
