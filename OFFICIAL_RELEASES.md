@@ -1,5 +1,14 @@
 # Official Novera releases and governance
 
+## Signing and update feed
+
+Always sign official Novera packages with the established signing identity for the platform and enable the official Novera update feed for every supported distribution channel before publishing to this repository.
+
+- Desktop, portable and CLI releases must include the signed update payloads and the stable manifests for their respective channels. Preserve the existing entries for platforms that are not being updated.
+- Android releases must use the existing Novera APK signing identity. Publish the signed APK through GitHub Releases under its Android release tag so the in-app Novera updater can discover it.
+- Before announcing a release, verify the published signatures and check that the live update channel resolves to the intended version and artifacts.
+
+
 Novera **1.0.2** is public for Windows x64 and ARM64, Linux x64, Intel and Apple Silicon Macs, Windows portable and Novera CLI. The stable desktop, current CLI and portable update manifests are served from the main release. [Release](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2) · [Availability](docs/LAUNCH_STATUS.md).
 
 Android ARM64 **1.0.2**, build **1000023**, a été publié le **11 novembre 2026**. Le clavier et les 120 langues d’interface ont été testés sur Huawei P20. Le téléchargement public a été vérifié par SHA-256. [APK signé et notes](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.2-android-1000023).
