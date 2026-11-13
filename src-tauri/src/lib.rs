@@ -394,6 +394,10 @@ pub fn run() {
         core::onnx::onnx_list,
         core::desktop_calibration::desktop_auto_tune_gains,
         core::desktop_calibration::desktop_auto_tune_activity,
+        core::model_adjustment::model_adjustment_start,
+        core::model_adjustment::model_adjustment_report,
+        core::model_adjustment::model_adjustment_stop,
+        core::model_adjustment::model_adjustment_save,
         core::onnx::onnx_calibrate_registered,
         core::onnx::onnx_import,
         core::onnx::onnx_delete,
@@ -654,6 +658,8 @@ pub fn run() {
             return;
         }
         if let RunEvent::Exit = event {
+            #[cfg(not(any(target_os = "ios", target_os = "android")))]
+            let _ = core::model_adjustment::model_adjustment_stop();
             let app_handle = app.clone();
 
             #[cfg(not(any(target_os = "ios", target_os = "android")))]

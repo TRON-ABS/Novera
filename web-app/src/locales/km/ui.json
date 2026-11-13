@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "ឈប់",
   "modelAdjustmentStopLabel": "បញ្ឈប់​ការ​គណនា​ឡើងវិញ",
   "modelAdjustmentStopping": "កំពុង​ឈប់…",
+  "modelAdjustmentDesktopFiles": "Novera ស្វែងរកឯកសារ GGUF LFM3 Omni 2B Q8 / Q4 ក្នុងថតម៉ូដែលរបស់អ្នក។ ចុចលើម៉ូដែលណាមួយដើម្បីជ្រើសរើសឯកសាររបស់វាដោយដៃ។",
+  "modelAdjustmentDesktopFailed": "ការក្រិតតម្រូវឡើងវិញបានបរាជ័យ។ សូមពិនិត្យកំណត់ហេតុ Novera។",
   "modelAdjustmentFailed": "ការកែតម្រូវឡើងវិញបានបរាជ័យ។ ពិនិត្យមើលកំណត់ហេតុម៉ាស៊ីនមេមូលដ្ឋាន។",
   "modelAdjustmentTarget": "អតិបរមា KL គោលដៅ ≤ {{threshold}} nat",
   "modelAdjustmentResults": "លទ្ធផលនៃការគណនាឡើងវិញ",

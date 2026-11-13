@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Guhagarika",
   "modelAdjustmentStopLabel": "Hagarika gusubiramwo",
   "modelAdjustmentStopping": "Guhagarara...",
+  "modelAdjustmentDesktopFiles": "Novera irondera amadosiye GGUF LFM3 Omni 2B Q8 / Q4 mu bubiko bw’amamodeli yawe. Fyonda kuri imwe muri ayo mamodeli abiri kugira wihitiremwo idosiye yayo.",
+  "modelAdjustmentDesktopFailed": "Gusubira gutunganya ntivyashobotse. Raba inyandiko ya Novera.",
   "modelAdjustmentFailed": "Gusubira gupima vyananiwe. Suzuma urutonde rwa server yo mu karere.",
   "modelAdjustmentTarget": "igitigiri kinini KL intego ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Ivyavuye mu gusubiramwo",

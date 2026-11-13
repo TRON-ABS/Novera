@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Kosukisa",
   "modelAdjustmentStopLabel": "Tika kosala recalibration",
   "modelAdjustmentStopping": "Kotika...",
+  "modelAdjustmentDesktopFiles": "Novera elukaka bafichiers ya GGUF LFM3 Omni 2B Q8 / Q4 na dossier ya bamodɛlɛ na yo. Finá moko ya bamodɛlɛ mpo na kopona fichier na yango yo moko.",
+  "modelAdjustmentDesktopFailed": "Kobongisa lisusu elongi te. Talá journal ya Novera.",
   "modelAdjustmentFailed": "Recalibration elongi te. Tala journal ya serveur ya esika ozali.",
   "modelAdjustmentTarget": "maximum KL cible ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Ba résultats ya recalibration",

@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Hunong",
   "modelAdjustmentStopLabel": "Hunonga ang pag-recalibrate",
   "modelAdjustmentStopping": "Paghunong…",
+  "modelAdjustmentDesktopFiles": "Pangitaon sa Novera ang mga file nga GGUF LFM3 Omni 2B Q8 / Q4 sa folder sa imong mga modelo. I-klik ang usa sa duha ka modelo aron mano-manong pilion ang file niini.",
+  "modelAdjustmentDesktopFailed": "Napakyas ang pag-usab sa kalibrasyon. Tan-awa ang log sa Novera.",
   "modelAdjustmentFailed": "Napakyas ang pag-recalibrate. Susiha ang lokal nga log sa server.",
   "modelAdjustmentTarget": "maximum nga KL target ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Recalibration resulta",

@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Detener",
   "modelAdjustmentStopLabel": "Detener la recalibración",
   "modelAdjustmentStopping": "Parada…",
+  "modelAdjustmentDesktopFiles": "Novera busca los archivos GGUF LFM3 Omni 2B Q8 / Q4 en tu carpeta de modelos. Haz clic en cualquiera de los dos modelos para seleccionar su archivo manualmente.",
+  "modelAdjustmentDesktopFailed": "La recalibración falló. Consulta el registro de Novera.",
   "modelAdjustmentFailed": "La recalibración falló. Verifique el registro del servidor local.",
   "modelAdjustmentTarget": "objetivo máximo KL ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Resultados de recalibración",

@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "停脫",
   "modelAdjustmentStopLabel": "Tíng recalibration",
   "modelAdjustmentStopping": "Zài tíng…",
+  "modelAdjustmentDesktopFiles": "Novera 会勒侬个模型文件夹里寻 GGUF LFM3 Omni 2B Q8 / Q4 文件。点其中一个模型，就好自家选文件。",
+  "modelAdjustmentDesktopFailed": "重新校准呒没成功。看一看 Novera 个日志。",
   "modelAdjustmentFailed": "Recalibration wán bù le. Kàn kàn local server log.",
   "modelAdjustmentTarget": "KL 最大值个目標 ≤ {{threshold}} nat",
   "modelAdjustmentResults": "zài zhèngmíng de kě",

@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Kusukisa",
   "modelAdjustmentStopLabel": "Kukanga diaka etalonnage",
   "modelAdjustmentStopping": "Kukangama...",
+  "modelAdjustmentDesktopFiles": "Novera ke sosa bafisye ya GGUF LFM3 Omni 2B Q8 / Q4 na dosye ya bamodelo na nge. Finika modelo mosi sambu na kupona fisye na yo nge mosi.",
+  "modelAdjustmentDesktopFailed": "Kuyidika diaka me nunga ve. Tala mukanda ya Novera.",
   "modelAdjustmentFailed": "Kuvutukila mambu me nunga ve. Tala nsangu ya serveur ya bwala na beno.",
   "modelAdjustmentTarget": "mingi KL kima ya bo ke kanga ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Ba mvutu ya kuvutukila",

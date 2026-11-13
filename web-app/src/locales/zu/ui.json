@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Ima",
   "modelAdjustmentStopLabel": "Misa ukulungisa kabusha",
   "modelAdjustmentStopping": "Iyamisa...",
+  "modelAdjustmentDesktopFiles": "I-Novera isesha amafayela e-GGUF LFM3 Omni 2B Q8 / Q4 kufolda yamamodeli akho. Chofoza enye yamamodeli amabili ukuze uzikhethele ifayela layo.",
+  "modelAdjustmentDesktopFailed": "Ukulinganisa kabusha kwehlulekile. Hlola ilogi ye-Novera.",
   "modelAdjustmentFailed": "Ukulinganiswa kabusha kwehlulekile. Hlola ilogu yeseva yendawo.",
   "modelAdjustmentTarget": "umkhawulo we-KL uhloselwe i-≤ {{threshold}} nat",
   "modelAdjustmentResults": "Imiphumela yokulinganisa kabusha",

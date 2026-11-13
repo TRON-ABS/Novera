@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "روکنا",
   "modelAdjustmentStopLabel": "دوبارہ انشانکن بند کرو",
   "modelAdjustmentStopping": "رکنا...",
+  "modelAdjustmentDesktopFiles": "Novera تہاڈے ماڈلاں دے فولڈر وچ GGUF LFM3 Omni 2B Q8 / Q4 فائلاں لبھدا اے۔ فائل آپ چنݨ لئی دوہاں وچوں کسے اک ماڈل تے کلک کرو۔",
+  "modelAdjustmentDesktopFailed": "مڑ کیلیبریشن نہیں ہو سکی۔ Novera دا لاگ ویکھو۔",
   "modelAdjustmentFailed": "دوبارہ انشانکن ناکام ہو گیا۔ مقامی سرور لاگ چیک کرو۔",
   "modelAdjustmentTarget": "ودھ توں ودھ KL ہدف ≤ {{threshold}} نیٹ",
   "modelAdjustmentResults": "دوبارہ انشانکن دے نتائج",

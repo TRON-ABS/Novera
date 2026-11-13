@@ -16,6 +16,10 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--chunks', type=int, default=6)
     parser.add_argument('--output', type=Path, help='New directory for this benchmark run')
+    parser.add_argument('--tools', type=Path, help='Directory containing the native llama.cpp tools')
+    parser.add_argument('--reference', type=Path, help='LFM3 Omni 2B Q8 GGUF')
+    parser.add_argument('--baseline', type=Path, help='Original LFM3 Omni 2B Q4 GGUF')
+    parser.add_argument('--gpu-layers', type=int, default=99, help='Set to 0 for CPU-only execution')
     parser.add_argument('--extend', type=Path, help='Continue a completed comparison with its reference cache')
     parser.add_argument('--near-q8', action='store_true', help='Test selective compression starting from Q8')
     parser.add_argument('--layer-sweep', action='store_true', help='Compare two late FFN layers at Q6')
@@ -23,6 +27,8 @@ def main():
     args = parser.parse_args()
     if args.chunks < 1:
         parser.error('--chunks must be positive')
+    if args.gpu_layers < 0:
+        parser.error('--gpu-layers must be non-negative')
     if args.validation and not args.extend:
         parser.error('--validation requires --extend to locate the candidate and importance matrix')
     root = Path(__file__).resolve().parents[1]
@@ -30,13 +36,13 @@ def main():
     output = args.output or base / 'q4-varied'
     models = root / '.build/web-runtime-real/models'
     corpora = root / 'scripts/validation/q4-quantization'
-    reference = models / 'LFM3-Omni-2B-Q8_0.gguf'
-    baseline = models / 'LFM3-Omni-2B-Q4_K_M.gguf'
-    tools = base / 'tools'
+    reference = args.reference or models / 'LFM3-Omni-2B-Q8_0.gguf'
+    baseline = args.baseline or models / 'LFM3-Omni-2B-Q4_K_M.gguf'
+    tools = args.tools or base / 'tools'
     matrix = output / 'importance.gguf'
     cache = output / 'reference.logits'
-    common = ['-c', 512, '-ngl', 99, '--chunks', args.chunks]
-    output.mkdir(exist_ok=False)
+    common = ['-c', 512, '-ngl', args.gpu_layers, '--chunks', args.chunks]
+    output.mkdir(parents=True, exist_ok=False)
     report = {'stage': '', 'chunks': args.chunks, 'runs': []}
 
     def run(stage, tool, options, log):
@@ -143,9 +149,9 @@ def main():
             (corpora / 'transfer.txt', 4),
             (corpora / 'holdout-4.txt', 4),
         ], start=1):
-            evaluation = ['-f', corpus, '-c', 512, '-ngl', 99, '--chunks', chunks]
+            evaluation = ['-f', corpus, '-c', 512, '-ngl', args.gpu_layers, '--chunks', chunks]
             cache = output / ('reference.logits' if number == 1 else f'reference-{number}.logits')
-            run(f'Calcul de la référence Q8 · corpus {number}/4', 'perplexity',
+            run(f'Calcul de la référence Q8 · corpus {number}/5', 'perplexity',
                 ['-m', reference, *evaluation, '--save-all-logits', cache], f'reference-{number}.log')
             evaluations.append((evaluation, cache))
 
@@ -167,7 +173,7 @@ def main():
             ['-m', reference, '-f', corpora / 'calibration.txt', '-o', matrix, *common], 'importance.log')
         mixed_rules = ['attn_q=q6_K', 'attn_k=q6_K', 'attn_output=q6_K']
         base_rules = [*mixed_rules, r'blk\.[0-5]\.ffn_gate=q8_0', r'blk\.[0-5]\.ffn_up=q6_K']
-        holdout = ['-f', corpora / 'holdout-5.txt', '-c', 512, '-ngl', 99, '--chunks', 4]
+        holdout = ['-f', corpora / 'holdout-5.txt', '-c', 512, '-ngl', args.gpu_layers, '--chunks', 4]
         holdout_cache = output / 'reference-5.logits'
         run('Calcul de la référence Q8 · corpus 5/5', 'perplexity',
             ['-m', reference, *holdout, '--save-all-logits', holdout_cache], 'reference-5.log')

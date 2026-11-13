@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "СТІЙ",
   "modelAdjustmentStopLabel": "Зупиніть повторне калібрування",
   "modelAdjustmentStopping": "Зупинка…",
+  "modelAdjustmentDesktopFiles": "Novera шукає файли GGUF LFM3 Omni 2B Q8 / Q4 у теці моделей. Натисніть одну з двох моделей, щоб вибрати її файл вручну.",
+  "modelAdjustmentDesktopFailed": "Повторне калібрування не вдалося. Перевірте журнал Novera.",
   "modelAdjustmentFailed": "Помилка повторного калібрування. Перевірте журнал локального сервера.",
   "modelAdjustmentTarget": "максимум KL мета ≤ {{threshold}} нац",
   "modelAdjustmentResults": "Результати повторного калібрування",

@@ -35,7 +35,7 @@ const repoRoot = resolve(import.meta.dirname, '..')
 
 // The desktop binary built by `yarn build:e2e:app`. Debug profile: the e2e
 // feature is a test-only opt-in and never goes near a release artifact.
-const appBinary = join(
+const appBinary = process.env.NOVERA_E2E_APP_BINARY || join(
   repoRoot,
   'src-tauri/target/debug',
   process.platform === 'win32' ? 'Novera-Desktop.exe' : 'Novera-Desktop'
@@ -265,7 +265,7 @@ export const config: WebdriverIO.Config = {
   // nothing and reads only the sidebar, the settings menu and where a URL
   // lands, so it would pass anywhere; last keeps the three calibrated specs in
   // the order they were tuned in.
-  specs: [
+  specs: process.env.NOVERA_E2E_MODEL_ADJUSTMENT === '1' ? ['./specs/model-adjustment-macos.e2e.ts'] : [
     './specs/smoke.e2e.ts',
     './specs/chat.e2e.ts',
     './specs/message-actions.e2e.ts',
@@ -302,7 +302,7 @@ export const config: WebdriverIO.Config = {
   // before() hook that walks Add Provider and Add Model has half a dozen phases
   // and budgets ~30s each, which sums past two minutes on a machine slow enough
   // to need any of it -- exactly when the message matters most.
-  mochaOpts: { ui: 'bdd', timeout: 300_000 },
+  mochaOpts: { ui: 'bdd', timeout: process.env.NOVERA_E2E_MODEL_ADJUSTMENT === '1' ? 1_500_000 : 300_000 },
 
   // Suppress the service's per-command window-focus recovery, which this app can
   // never satisfy and which costs five seconds on every element lookup.

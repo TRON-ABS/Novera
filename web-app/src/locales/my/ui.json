@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "ရပ်",
   "modelAdjustmentStopLabel": "ပြန်လည်ချိန်ညှိခြင်းကို ရပ်ပါ။",
   "modelAdjustmentStopping": "ရပ်နေသည်...",
+  "modelAdjustmentDesktopFiles": "Novera သည် သင့်မော်ဒယ်ဖိုလ်ဒါတွင် GGUF LFM3 Omni 2B Q8 / Q4 ဖိုင်များကို ရှာဖွေသည်။ ဖိုင်ကို ကိုယ်တိုင်ရွေးရန် မော်ဒယ်တစ်ခုခုကို နှိပ်ပါ။",
+  "modelAdjustmentDesktopFailed": "ပြန်လည်ချိန်ညှိမှု မအောင်မြင်ပါ။ Novera မှတ်တမ်းကို စစ်ဆေးပါ။",
   "modelAdjustmentFailed": "ပြန်လည်ချိန်ညှိခြင်း မအောင်မြင်ပါ။ ဒေသတွင်း ဆာဗာမှတ်တမ်းကို စစ်ဆေးပါ။",
   "modelAdjustmentTarget": "အမြင့်ဆုံး KL ပစ်မှတ် ≤ {{threshold}} နတ်",
   "modelAdjustmentResults": "ပြန်လည်ချိန်ညှိခြင်းရလဒ်များ",

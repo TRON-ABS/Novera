@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Ema",
   "modelAdjustmentStopLabel": "Emisa ho nchafatsa",
   "modelAdjustmentStopping": "E emisa…",
+  "modelAdjustmentDesktopFiles": "Novera e batla difaele tsa GGUF LFM3 Omni 2B Q8 / Q4 foldareng ea limotlolo tsa hao. Tobetsa e ’ngoe ea limotlolo tse peli ho ikhethela faele ea eona.",
+  "modelAdjustmentDesktopFailed": "Ho lekanya bocha ho hlolehile. Sheba rekoto ea Novera.",
   "modelAdjustmentFailed": "Ntlafatso e hlolehile. Sheba lethathamo la li-server tsa lehae.",
   "modelAdjustmentTarget": "boholo ba KL target ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Liphetho tsa ntlafatso",

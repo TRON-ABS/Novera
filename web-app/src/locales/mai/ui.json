@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "रुकू",
   "modelAdjustmentStopLabel": "पुनः मापन बंद करू",
   "modelAdjustmentStopping": "रुकि रहल अछि...",
+  "modelAdjustmentDesktopFiles": "Novera अहाँक मॉडल फोल्डरमे GGUF LFM3 Omni 2B Q8 / Q4 फाइल ताकैत अछि। फाइल अपने चुनबाक लेल कोनो एक मॉडल पर क्लिक करू।",
+  "modelAdjustmentDesktopFailed": "पुनः कैलिब्रेशन विफल भेल। Novera केर लॉग देखू।",
   "modelAdjustmentFailed": "पुनर्मापन विफल भ गेल। स्थानीय सर्वर लॉग जाँच करू.",
   "modelAdjustmentTarget": "अधिकतम KL निशाना ≤ {{threshold}} नट",
   "modelAdjustmentResults": "पुनर्मापन के परिणाम",

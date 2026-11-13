@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Stopp",
   "modelAdjustmentStopLabel": "Stoppa omkalibreringen",
   "modelAdjustmentStopping": "Stoppar...",
+  "modelAdjustmentDesktopFiles": "Novera letar efter GGUF LFM3 Omni 2B Q8 / Q4-filerna i din modellmapp. Klicka på någon av modellerna för att välja filen manuellt.",
+  "modelAdjustmentDesktopFailed": "Omkalibreringen misslyckades. Kontrollera Noveras logg.",
   "modelAdjustmentFailed": "Omkalibrering misslyckades. Kontrollera den lokala serverloggen.",
   "modelAdjustmentTarget": "maximalt KL mål ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Omkalibreringsresultat",

@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "ఆపు",
   "modelAdjustmentStopLabel": "రీకాలిబ్రేషన్‌ని ఆపండి",
   "modelAdjustmentStopping": "ఆపివేస్తోంది...",
+  "modelAdjustmentDesktopFiles": "Novera మీ మోడళ్ల ఫోల్డర్‌లో GGUF LFM3 Omni 2B Q8 / Q4 ఫైళ్ల కోసం వెతుకుతుంది. ఫైల్‌ను మీరే ఎంచుకోవడానికి రెండు మోడళ్లలో దేనిపైనైనా క్లిక్ చేయండి.",
+  "modelAdjustmentDesktopFailed": "పునః కాలిబ్రేషన్ విఫలమైంది. Novera లాగ్‌ను చూడండి.",
   "modelAdjustmentFailed": "రీకాలిబ్రేషన్ విఫలమైంది. స్థానిక సర్వర్ లాగ్‌ను తనిఖీ చేయండి.",
   "modelAdjustmentTarget": "గరిష్ట KL లక్ష్యం ≤ {{threshold}} nat",
   "modelAdjustmentResults": "రీకాలిబ్రేషన్ ఫలితాలు",

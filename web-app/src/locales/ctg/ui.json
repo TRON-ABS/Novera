@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "বন্ধ কর",
   "modelAdjustmentStopLabel": "রিক্যালিব্রেশন বন্ধ কর",
   "modelAdjustmentStopping": "বন্ধ হচ্ছে…",
+  "modelAdjustmentDesktopFiles": "Novera আঁরার মডেল ফোল্ডারত GGUF LFM3 Omni 2B Q8 / Q4 ফাইল তালাশ গরে। ফাইল নিজে বাছিবার লাই দুই মডেলর এক্কানত ক্লিক গরন।",
+  "modelAdjustmentDesktopFailed": "আবার ক্যালিব্রেশন সফল অয় নাই। Novera-র লগ চঅন।",
   "modelAdjustmentFailed": "রিক্যালিব্রেশন ফেল হইছে। লোকাল সার্ভার লগ চেক কর।",
   "modelAdjustmentTarget": "সর্বোচ্চ KL টার্গেট ≤ {{threshold}} nat",
   "modelAdjustmentResults": "পুনঃ-ক্যালি브্রেশন ফলাফল",

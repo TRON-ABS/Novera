@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "நிறுத்து",
   "modelAdjustmentStopLabel": "மறு அளவீடு செய்வதை நிறுத்துங்கள்",
   "modelAdjustmentStopping": "நிறுத்துகிறது…",
+  "modelAdjustmentDesktopFiles": "Novera உங்கள் மாதிரிகள் கோப்புறையில் GGUF LFM3 Omni 2B Q8 / Q4 கோப்புகளைத் தேடுகிறது. கோப்பை நீங்களே தேர்ந்தெடுக்க இரு மாதிரிகளில் ஒன்றைக் கிளிக் செய்யவும்.",
+  "modelAdjustmentDesktopFailed": "மறுசீரமைப்பு தோல்வியடைந்தது. Novera பதிவைப் பார்க்கவும்.",
   "modelAdjustmentFailed": "மறுசீரமைப்பு தோல்வியடைந்தது. உள்ளூர் சர்வர் பதிவைச் சரிபார்க்கவும்.",
   "modelAdjustmentTarget": "அதிகபட்ச KL இலக்கு ≤ {{threshold}} நாட்",
   "modelAdjustmentResults": "மறுசீரமைப்பு முடிவுகள்",

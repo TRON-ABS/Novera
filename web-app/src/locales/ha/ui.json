@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Tsaya",
   "modelAdjustmentStopLabel": "Dakatar da sake gyarawa",
   "modelAdjustmentStopping": "Tsayawa…",
+  "modelAdjustmentDesktopFiles": "Novera yana neman fayilolin GGUF LFM3 Omni 2B Q8 / Q4 a cikin babban fayil ɗin samfuranka. Danna ɗaya daga cikin samfuran biyu don zaɓar fayil ɗinsa da kanka.",
+  "modelAdjustmentDesktopFailed": "Sake daidaitawa ya gaza. Duba kundin bayanan Novera.",
   "modelAdjustmentFailed": "An gaza gyarawa. Duba log ɗin uwar garken gida.",
   "modelAdjustmentTarget": "iyakar KL manufa ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Sakamakon sake gyarawa",

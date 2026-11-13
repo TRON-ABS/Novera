@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Hagarara",
   "modelAdjustmentStopLabel": "Hagarika gusubiramo",
   "modelAdjustmentStopping": "Guhagarara…",
+  "modelAdjustmentDesktopFiles": "Novera ishakira amadosiye ya GGUF LFM3 Omni 2B Q8 / Q4 mu bubiko bw’amamodeli yawe. Kanda kuri imwe muri izo modeli ebyiri kugira ngo wihitiremo dosiye yayo.",
+  "modelAdjustmentDesktopFailed": "Ongera kuringaniza ntibyashobotse. Reba inyandiko y’ibikorwa ya Novera.",
   "modelAdjustmentFailed": "Gusubiramo byarananiranye. Reba ahanditse seriveri.",
   "modelAdjustmentTarget": "ntarengwa KL intego ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Ibisubizo byo kwisubiramo",

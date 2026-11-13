@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "ৰ’ব",
   "modelAdjustmentStopLabel": "পুনৰ মানাংকন বন্ধ কৰক",
   "modelAdjustmentStopping": "বন্ধ...",
+  "modelAdjustmentDesktopFiles": "Novera-ই আপোনাৰ মডেল ফ’ল্ডাৰত GGUF LFM3 Omni 2B Q8 / Q4 ফাইলবোৰ বিচাৰে। নিজে ফাইল বাছিবলৈ যিকোনো এটা মডেলত ক্লিক কৰক।",
+  "modelAdjustmentDesktopFailed": "পুনৰ মানাংকন বিফল হ’ল। Novera-ৰ লগ চাওক।",
   "modelAdjustmentFailed": "পুনৰ মানাংকন ব্যৰ্থ হ'ল। স্থানীয় চাৰ্ভাৰ লগ পৰীক্ষা কৰক।",
   "modelAdjustmentTarget": "সৰ্বোচ্চ KL লক্ষ্য ≤ {{threshold}} nat",
   "modelAdjustmentResults": "পুনৰ মানাংকনৰ ফলাফল",

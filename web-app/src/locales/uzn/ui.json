@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "STOP",
   "modelAdjustmentStopLabel": "Qayta kalibrlashni to'xtating",
   "modelAdjustmentStopping": "Toʻxtatilmoqda…",
+  "modelAdjustmentDesktopFiles": "Novera GGUF LFM3 Omni 2B Q8 / Q4 fayllarini modellar jildingizdan qidiradi. Faylni qo‘lda tanlash uchun ikki modeldan birini bosing.",
+  "modelAdjustmentDesktopFailed": "Qayta kalibrlash muvaffaqiyatsiz tugadi. Novera jurnalini tekshiring.",
   "modelAdjustmentFailed": "Qayta kalibrlash amalga oshmadi. Mahalliy server jurnalini tekshiring.",
   "modelAdjustmentTarget": "maksimal KL maqsad ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Qayta kalibrlash natijalari",

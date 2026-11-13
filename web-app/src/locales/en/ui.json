@@ -9,6 +9,8 @@
   "modelAdjustmentCorpusProgress": "{{label}} · corpus {{index}}",
   "modelAdjustmentTitle": "Model Adjustment",
   "modelAdjustmentChoose": "Choose a quantization to compare with the reference model.",
+  "modelAdjustmentDesktopFiles": "Novera looks for the LFM3 Omni 2B Q8 and Q4 GGUF files in your models folder. Click either model to select its file manually.",
+  "modelAdjustmentDesktopFailed": "Recalibration failed. Check the Novera application log.",
   "modelAdjustmentLocalOnly": "Weight recalibration is available in the local web version.",
   "modelAdjustmentReference": "Reference model",
   "modelAdjustmentPrecision": "Minimum precision: Q8.",

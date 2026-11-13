@@ -13,10 +13,10 @@
 // vendor/llama.cpp and with engine::PINNED_* on the Rust side; the shim
 // re-exports llama_version()/llama_build_number() so a mismatch is caught at
 // runtime instead of producing a silently wrong engine.
-pub const LLAMA_CPP_TAG: &str = "v0.9.0";
-pub const LLAMA_CPP_BUILD_NUMBER: u32 = 12110;
-pub const LLAMA_CPP_COMMIT: &str = "cd959bae99ff4bed22bef2604f45241c09bbb8c8";
-pub const LLAMA_CPP_VERSION: &str = "0.9.0";
+pub const LLAMA_CPP_TAG: &str = "v1.0.0";
+pub const LLAMA_CPP_BUILD_NUMBER: u32 = 12359;
+pub const LLAMA_CPP_COMMIT: &str = "b1b770d90d94cad9e9ea5b993bdbc383a522fb28";
+pub const LLAMA_CPP_VERSION: &str = "1.0.0";
 
 #[cfg(not(feature = "headless"))]
 const COMMANDS: &[&str] = &[
@@ -786,6 +786,11 @@ mod engine {
         ]);
         cfg.arg(format!("-DLLAMA_BUILD_NUMBER={LLAMA_CPP_BUILD_NUMBER}"));
         cfg.arg(format!("-DLLAMA_BUILD_COMMIT={LLAMA_CPP_COMMIT}"));
+        match env::var("CARGO_CFG_TARGET_OS").unwrap_or_default().as_str() {
+            "macos" => { cfg.args(["-DCMAKE_BUILD_WITH_INSTALL_RPATH=ON", "-DCMAKE_INSTALL_RPATH=@loader_path"]); }
+            "linux" => { cfg.args(["-DCMAKE_BUILD_WITH_INSTALL_RPATH=ON", "-DCMAKE_INSTALL_RPATH=$ORIGIN"]); }
+            _ => {}
+        }
         run(&mut cfg, "cmake configure (llama)");
 
         let mut bld = Command::new("cmake");
@@ -794,6 +799,9 @@ mod engine {
             .args(["--config", CONFIG])
             .arg("--target")
             .arg("server-context");
+        if !matches!(env::var("CARGO_CFG_TARGET_OS").unwrap_or_default().as_str(), "android" | "ios") {
+            bld.args(["llama-quantize", "llama-imatrix", "llama-perplexity"]);
+        }
         if let Ok(jobs) = env::var("NUM_JOBS") {
             bld.arg("-j").arg(jobs);
         }

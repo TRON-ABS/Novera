@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Duro",
   "modelAdjustmentStopLabel": "Da recalibration",
   "modelAdjustmentStopping": "Nduro…",
+  "modelAdjustmentDesktopFiles": "Novera ń wá àwọn fáìlì GGUF LFM3 Omni 2B Q8 / Q4 nínú àpò àwọn àwòṣe rẹ. Tẹ ọ̀kan nínú àwòṣe méjèèjì láti yan fáìlì rẹ fúnra rẹ.",
+  "modelAdjustmentDesktopFailed": "Àtúnṣe ìwọ̀n náà kùnà. Ṣàyẹ̀wò àkọsílẹ̀ Novera.",
   "modelAdjustmentFailed": "Atunṣe kuna. Ṣayẹwo akọọlẹ olupin agbegbe.",
   "modelAdjustmentTarget": "o pọju KL afojusun ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Awọn abajade atunṣe",

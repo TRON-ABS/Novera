@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "وقف",
   "modelAdjustmentStopLabel": "وقف الكالبريشن",
   "modelAdjustmentStopping": "دا أوقف…",
+  "modelAdjustmentDesktopFiles": "Novera يدور على ملفات GGUF LFM3 Omni 2B Q8 / Q4 بمجلد الموديلات. دوس على أي موديل حتى تختار ملفه بإيدك.",
+  "modelAdjustmentDesktopFailed": "ما نجحت إعادة المعايرة. شوف سجل Novera.",
   "modelAdjustmentFailed": "الفشل بالكالبريشن. شوف سجل السيرفر المحلي.",
   "modelAdjustmentTarget": "أقصى هدف KL ≤ {{threshold}} نات",
   "modelAdjustmentResults": "نتائج إعادة المعايرة",

@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Rawestan",
   "modelAdjustmentStopLabel": "Recalibration rawestînin",
   "modelAdjustmentStopping": "Rawestandin…",
+  "modelAdjustmentDesktopFiles": "Novera li pelên GGUF LFM3 Omni 2B Q8 / Q4 di peldanka modelên te de digere. Ji bo hilbijartina pelê bi destan, li yek ji her du modelan bitikîne.",
+  "modelAdjustmentDesktopFailed": "Kalîbrasyona nû bi ser neket. Tomara Novera kontrol bike.",
   "modelAdjustmentFailed": "Recalibration têk çû. Têketina servera herêmî kontrol bikin.",
   "modelAdjustmentTarget": "zêdetir KL armanc ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Encamên Recalibration",

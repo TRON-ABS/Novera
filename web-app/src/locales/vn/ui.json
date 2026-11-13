@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Dừng lại",
   "modelAdjustmentStopLabel": "Dừng hiệu chuẩn lại",
   "modelAdjustmentStopping": "Đang dừng…",
+  "modelAdjustmentDesktopFiles": "Novera tìm các tệp GGUF LFM3 Omni 2B Q8 / Q4 trong thư mục mô hình của bạn. Nhấp vào một trong hai mô hình để chọn tệp theo cách thủ công.",
+  "modelAdjustmentDesktopFailed": "Hiệu chỉnh lại không thành công. Hãy kiểm tra nhật ký Novera.",
   "modelAdjustmentFailed": "Hiệu chỉnh lại không thành công. Kiểm tra nhật ký máy chủ cục bộ.",
   "modelAdjustmentTarget": "mục tiêu KL tối đa ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Kết quả hiệu chuẩn lại",

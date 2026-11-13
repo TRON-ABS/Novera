@@ -43,6 +43,7 @@
     "resources": [
       "resources/LICENSE",
       "resources/bin/novera-llama-worker.exe",
+      "resources/bin/llama-*.exe",
       "resources/bin/*.dll",
       "resources/image-engine/*.*",
       "resources/image-engine/cuda/*.*",

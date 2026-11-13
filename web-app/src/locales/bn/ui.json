@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "থামো",
   "modelAdjustmentStopLabel": "রিক্যালিব্রেশন বন্ধ করুন",
   "modelAdjustmentStopping": "থামানো হচ্ছে...",
+  "modelAdjustmentDesktopFiles": "Novera আপনার মডেলের ফোল্ডারে GGUF LFM3 Omni 2B Q8 / Q4 ফাইল খোঁজে। নিজে ফাইল বেছে নিতে যেকোনো একটি মডেলে ক্লিক করুন।",
+  "modelAdjustmentDesktopFailed": "পুনঃক্যালিব্রেশন ব্যর্থ হয়েছে। Novera অ্যাপের লগ দেখুন।",
   "modelAdjustmentFailed": "রিক্যালিব্রেশন ব্যর্থ হয়েছে৷ স্থানীয় সার্ভার লগ চেক করুন.",
   "modelAdjustmentTarget": "সর্বাধিক KL লক্ষ্য ≤ {{threshold}} nat",
   "modelAdjustmentResults": "পুনঃনির্মাণ ফলাফল",

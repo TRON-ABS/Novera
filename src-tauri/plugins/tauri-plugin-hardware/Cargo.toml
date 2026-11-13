@@ -15,11 +15,14 @@ libc = "0.2.191"
 log = "0.4.35"
 serde = { version = "1.0.229", features = ["derive"] }
 serde_json = "1.0.154"
-sysinfo = "0.40.1"
 tauri = { version = "2.12.5", default-features = false, features = ["test"] }
+
+[target.'cfg(any(target_os = "android", target_os = "ios"))'.dependencies]
+sysinfo = { version = "0.40.1", default-features = false, features = ["system"] }
 
 # Desktop-only dependencies
 [target.'cfg(not(any(target_os = "android", target_os = "ios")))'.dependencies]
+sysinfo = "0.40.1"
 vulkano = "0.35.2"
 ash = "0.38.0"
 nvml-wrapper = "0.13.0"

@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "නවත්වන්න",
   "modelAdjustmentStopLabel": "නැවත ක්‍රමාංකනය කිරීම නවත්වන්න",
   "modelAdjustmentStopping": "නවතිනවා...",
+  "modelAdjustmentDesktopFiles": "Novera ඔබේ ආකෘති ෆෝල්ඩරයේ GGUF LFM3 Omni 2B Q8 / Q4 ගොනු සොයයි. ගොනුව ඔබම තෝරා ගැනීමට ආකෘති දෙකෙන් එකක් ක්ලික් කරන්න.",
+  "modelAdjustmentDesktopFailed": "නැවත ක්‍රමාංකනය අසාර්ථක විය. Novera ලොගය පරීක්ෂා කරන්න.",
   "modelAdjustmentFailed": "නැවත ක්‍රමාංකනය අසාර්ථක විය. දේශීය සේවාදායක ලොගය පරීක්ෂා කරන්න.",
   "modelAdjustmentTarget": "උපරිම KL ඉලක්කය ≤ {{threshold}} nat",
   "modelAdjustmentResults": "නැවත ක්රමාංකනය කිරීමේ ප්රතිඵල",

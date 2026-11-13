@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "നിർത്തുക",
   "modelAdjustmentStopLabel": "റീകാലിബ്രേഷൻ നിർത്തുക",
   "modelAdjustmentStopping": "നിർത്തുന്നു...",
+  "modelAdjustmentDesktopFiles": "Novera നിങ്ങളുടെ മോഡൽ ഫോൾഡറിൽ GGUF LFM3 Omni 2B Q8 / Q4 ഫയലുകൾ തിരയുന്നു. ഫയൽ നേരിട്ട് തിരഞ്ഞെടുക്കാൻ ഏതെങ്കിലും ഒരു മോഡലിൽ ക്ലിക്ക് ചെയ്യുക.",
+  "modelAdjustmentDesktopFailed": "പുനഃക്രമീകരണം പരാജയപ്പെട്ടു. Novera ലോഗ് പരിശോധിക്കുക.",
   "modelAdjustmentFailed": "റീകാലിബ്രേഷൻ പരാജയപ്പെട്ടു. പ്രാദേശിക സെർവർ ലോഗ് പരിശോധിക്കുക.",
   "modelAdjustmentTarget": "പരമാവധി KL ലക്ഷ്യം ≤ {{threshold}} നാറ്റ്",
   "modelAdjustmentResults": "റീകാലിബ്രേഷൻ ഫലങ്ങൾ",

@@ -70,6 +70,32 @@ it('keeps four independent windows in the composer stack and refuses a fifth', a
   expect(screen.getByRole('textbox')).toHaveValue('Keep this draft')
 })
 
+it('realigns the stack when the sidebar moves a composer of unchanged width', () => {
+  let left = 120
+  let resize: () => void = () => {}
+  const observe = vi.fn()
+  vi.stubGlobal('ResizeObserver', class {
+    constructor(callback: () => void) { resize = callback }
+    observe = observe
+    disconnect() {}
+  })
+  vi.mocked(HTMLElement.prototype.getBoundingClientRect).mockImplementation(() =>
+    new DOMRect(left, top, 700, 180))
+  const { container } = render(
+    <main data-sidebar-inset>
+      <div data-dashboard-composer>
+        <DashboardPanelStack />
+        <div data-dashboard-input />
+      </div>
+    </main>,
+  )
+  const stack = container.querySelector('[data-dashboard-stack]')
+  expect(observe).toHaveBeenCalledWith(container.querySelector('main'))
+  expect(stack).toHaveStyle({ left: '120px', width: '700px' })
+  act(() => { left = 28; resize() })
+  expect(stack).toHaveStyle({ left: '28px', width: '700px' })
+})
+
 it('moves the Android dashboard above the keyboard even when the WebView does not resize', () => {
   vi.stubGlobal('IS_ANDROID', true)
   useDashboardPanel.setState({ panels: ['auto-tune'] })

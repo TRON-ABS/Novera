@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "رک جاؤ",
   "modelAdjustmentStopLabel": "ری کیلیبریشن بند کریں۔",
   "modelAdjustmentStopping": "روک رہا ہے…",
+  "modelAdjustmentDesktopFiles": "Novera آپ کے ماڈلز کے فولڈر میں GGUF LFM3 Omni 2B Q8 / Q4 فائلیں تلاش کرتا ہے۔ فائل خود منتخب کرنے کے لیے دونوں میں سے کسی ایک ماڈل پر کلک کریں۔",
+  "modelAdjustmentDesktopFailed": "دوبارہ کیلیبریشن ناکام ہو گئی۔ Novera کا لاگ دیکھیں۔",
   "modelAdjustmentFailed": "ری کیلیبریشن ناکام ہو گئی۔ مقامی سرور لاگ کو چیک کریں۔",
   "modelAdjustmentTarget": "زیادہ سے زیادہ KL ہدف ≤ {{threshold}} نیٹ",
   "modelAdjustmentResults": "ری کیلیبریشن کے نتائج",

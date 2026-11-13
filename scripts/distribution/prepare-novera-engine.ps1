@@ -81,7 +81,7 @@ function Prepare-NoveraEngine([string]$Repo, [string]$Cargo, [scriptblock]$RunSt
     $sourceKey = Get-NoveraEngineSourceKey $Repo
     $recordPath = Join-Path $resources '.novera-engine-build.json'
     $buildOptions = @('JAN_ENGINE_VARIANT','JAN_ENGINE_CUDA_ARCHS','JAN_ENGINE_HIP_TARGETS',
-        'JAN_LLAMA_CPP_DIR','JAN_LLAMA_PREBUILT_DIR','CUDA_PATH','CUDACXX')
+        'JAN_LLAMA_CPP_DIR','JAN_LLAMA_PREBUILT_DIR','CUDA_PATH','CUDACXX','VULKAN_SDK','JAN_ENGINE_BUILD_DIR')
     # Reuse only our own successfully staged build, with matching sources and
     # unchanged binaries. This lets an Explorer double-click reuse its prepared
     # engine without needing a native-toolchain environment every time.
@@ -98,10 +98,10 @@ function Prepare-NoveraEngine([string]$Repo, [string]$Cargo, [scriptblock]$RunSt
                 }
                 if ($requested -and $requested -ne $recorded) { $reuse = $false }
             }
-            $names = @(Get-ChildItem -LiteralPath $resources -File | Where-Object { $_.Name -eq 'novera-llama-worker.exe' -or $_.Extension -eq '.dll' } | ForEach-Object Name)
+            $names = @(Get-ChildItem -LiteralPath $resources -File | Where-Object { $_.Name -match '^(novera-llama-worker|llama-(quantize|imatrix|perplexity))\.exe$' -or $_.Extension -eq '.dll' } | ForEach-Object Name)
             if (Compare-Object $names @($record.files | ForEach-Object name)) { $reuse = $false }
             foreach ($entry in $record.files) {
-                if ($entry.name -notmatch '^(novera-llama-worker\.exe|[A-Za-z0-9_.-]+\.dll)$') { $reuse = $false; break }
+                if ($entry.name -notmatch '^((novera-llama-worker|llama-(quantize|imatrix|perplexity))\.exe|[A-Za-z0-9_.-]+\.dll)$') { $reuse = $false; break }
                 $path = Join-Path $resources $entry.name
                 if (!(Test-Path -LiteralPath $path -PathType Leaf) -or (Get-FileHash -LiteralPath $path).Hash -ne $entry.hash) { $reuse = $false; break }
             }
@@ -151,7 +151,7 @@ function Prepare-NoveraEngine([string]$Repo, [string]$Cargo, [scriptblock]$RunSt
         throw 'Engine preparation did not produce novera-llama-worker.exe.'
     }
     & $RunStep 'engine-version' $worker @('--version-json')
-    $files = @(Get-ChildItem -LiteralPath $resources -File | Where-Object { $_.Name -eq 'novera-llama-worker.exe' -or $_.Extension -eq '.dll' } |
+    $files = @(Get-ChildItem -LiteralPath $resources -File | Where-Object { $_.Name -match '^(novera-llama-worker|llama-(quantize|imatrix|perplexity))\.exe$' -or $_.Extension -eq '.dll' } |
         Sort-Object Name | ForEach-Object { [ordered]@{name=$_.Name; hash=(Get-FileHash -LiteralPath $_.FullName).Hash} })
     $options = [ordered]@{}
     foreach ($option in $buildOptions) { $options[$option] = [Environment]::GetEnvironmentVariable($option) }

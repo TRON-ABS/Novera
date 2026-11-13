@@ -422,6 +422,7 @@ const SidebarInset = React.forwardRef<
 	return (
 		<main
 			ref={ref}
+			data-sidebar-inset
 			className={cn(
 				// min-w-0 prevents flex-1 children from expanding beyond the flex container
 				// when they contain non-breakable content (e.g. long URLs without whitespace).

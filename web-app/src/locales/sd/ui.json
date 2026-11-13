@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "روڪ",
   "modelAdjustmentStopLabel": "Recalibration بند ڪريو",
   "modelAdjustmentStopping": "روڪي رهيو آهي…",
+  "modelAdjustmentDesktopFiles": "Novera توهان جي ماڊلن واري فولڊر ۾ GGUF LFM3 Omni 2B Q8 / Q4 فائلون ڳولي ٿو. فائل پاڻ چونڊڻ لاءِ ٻن مان ڪنهن هڪ ماڊل تي ڪلڪ ڪريو.",
+  "modelAdjustmentDesktopFailed": "ٻيهر ڪيليبريشن ناڪام ٿي. Novera جو لاگ ڏسو.",
   "modelAdjustmentFailed": "Recalibration ناڪام ٿيو. مقامي سرور لاگ چيڪ ڪريو.",
   "modelAdjustmentTarget": "وڌ ۾ وڌ KL ٽارگيٽ ≤ {{threshold}} نيٽ",
   "modelAdjustmentResults": "Recalibration نتيجا",

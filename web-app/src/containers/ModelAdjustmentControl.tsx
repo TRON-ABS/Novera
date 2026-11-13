@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 import { Save, Zap } from 'lucide-react'
+import { invoke } from '@tauri-apps/api/core'
 import { Button } from '@/components/ui/button'
 import {
   Dialog, DialogContent, DialogDescription, DialogTitle,
@@ -10,6 +11,7 @@ import { useTranslation } from '@/i18n/react-i18next-compat'
 import { KL_THRESHOLD } from '@/lib/model-adjustment-kl'
 import { BrowserModelQuantization, browserQuantizationAvailable } from './BrowserModelQuantization'
 import { intlLocale } from '@/utils/intlLocale'
+import { isPlatformTauri } from '@/lib/platform/utils'
 
 
 type WeightMetrics = { mean_kl: number | null; max_kl: number | null }
@@ -18,6 +20,7 @@ const numericCell = 'min-w-0 wrap-anywhere px-2 py-1.5 text-right font-medium ta
 const compactLabel = 'block text-xs font-normal text-muted-foreground @min-[640px]:hidden'
 const local = import.meta.env.DEV && import.meta.env.VITE_NOVERA_PRIVATE_NATIVE_CONVERSATION === 'true' &&
   typeof window !== 'undefined' && window.location.hostname === '127.0.0.1'
+const desktop = () => typeof IS_TAURI !== 'undefined' && Boolean(IS_TAURI) && isPlatformTauri() && !IS_ANDROID && !IS_IOS
 
 // Older benchmark reports store display labels in French.
 function reportText(value: string) {
@@ -102,19 +105,43 @@ export function useWeightRecalibration() {
   const [startingWeights, setStartingWeights] = useState(false)
   const [requestingStop, setRequestingStop] = useState(false)
   const [weightError, setWeightError] = useState('')
+  const [inputs, setInputs] = useState<{ reference?: string; baseline?: string }>({})
+  const [nativeError, setNativeError] = useState('')
   const running = startingWeights || Boolean(weightReport?.recalibrating)
+
+  async function chooseModel(key: 'reference' | 'baseline') {
+    setNativeError('')
+    try {
+      const path = await invoke<string | null>('open_dialog', { options: { filters: [{ name: 'GGUF', extensions: ['gguf'] }] } })
+      if (path) {
+        setInputs(current => ({ ...current, [key]: path }))
+        setWeightError('')
+      }
+    } catch (error) {
+      setWeightError('StartError')
+      console.error(error)
+    }
+  }
 
   async function startWeightRecalibration(variant: string) {
     setStartingWeights(true)
     setWeightError('')
+    setNativeError('')
     try {
-      const params = new URLSearchParams({ level: variant, reference: 'q8' })
-      const response = await fetch('/__novera/quantization-start?' + params, { method: 'POST' })
-      if (response.status === 409) throw new Error('Busy')
-      if (!response.ok) throw new Error('StartError')
-      setWeightReport({ stage: 'Démarrage du recalibrage', runs: [], recalibrating: true, canStop: true })
+      if (desktop()) {
+        await invoke('model_adjustment_start', { inputs })
+        setWeightReport(await invoke<WeightReport>('model_adjustment_report'))
+      } else {
+        const params = new URLSearchParams({ level: variant, reference: 'q8' })
+        const response = await fetch('/__novera/quantization-start?' + params, { method: 'POST' })
+        if (response.status === 409) throw new Error('Busy')
+        if (!response.ok) throw new Error('StartError')
+        setWeightReport({ stage: 'Démarrage du recalibrage', runs: [], recalibrating: true, canStop: true })
+      }
     } catch (cause) {
-      setWeightError(cause instanceof Error && cause.message === 'Busy' ? 'Busy' : 'StartError')
+      const message = cause instanceof Error ? cause.message : String(cause)
+      setWeightError(message === 'Busy' ? 'Busy' : 'StartError')
+      if (desktop() && message !== 'Busy') setNativeError(message)
     } finally {
       setStartingWeights(false)
     }
@@ -124,6 +151,11 @@ export function useWeightRecalibration() {
     setRequestingStop(true)
     setWeightError('')
     try {
+      if (desktop()) {
+        await invoke('model_adjustment_stop')
+        setWeightReport(await invoke<WeightReport>('model_adjustment_report'))
+        return
+      }
       const response = await fetch('/__novera/quantization-stop', { method: 'POST' })
       if (!response.ok && response.status !== 409) throw new Error('StopError')
       if (response.ok) {
@@ -136,10 +168,15 @@ export function useWeightRecalibration() {
     }
   }
   useEffect(() => {
-    if (!local) return
+    if (!local && !desktop()) return
     const request = new AbortController()
     const refresh = async () => {
       try {
+        if (desktop()) {
+          const report = await invoke<WeightReport>('model_adjustment_report')
+          if (!request.signal.aborted) setWeightReport(report)
+          return
+        }
         const response = await fetch(`/__novera/quantization-report?level=${variant}`, { signal: request.signal })
         if (response.ok) {
           const report = await response.json() as WeightReport
@@ -156,11 +193,13 @@ export function useWeightRecalibration() {
     setWeightError('')
     setVariant(level)
   }
-  return { variant, selectVariant, weightReport, weightError, running, requestingStop, startWeightRecalibration, stopWeightRecalibration }
+  return { variant, selectVariant, weightReport, weightError, running, requestingStop, startWeightRecalibration, stopWeightRecalibration, inputs, chooseModel, nativeError }
 }
 
 export function ModelAdjustmentControl({ disabled, recalibration }: { disabled: boolean; recalibration: ReturnType<typeof useWeightRecalibration> }) {
   const { t, i18n } = useTranslation()
+  const native = desktop()
+  const nativeOrLocal = native || local
   const french = /^fr(?:-|$)/i.test(i18n.language)
   const locale = intlLocale(i18n.language)
   const formatKl = new Intl.NumberFormat(locale, { maximumFractionDigits: 8 })
@@ -191,9 +230,13 @@ export function ModelAdjustmentControl({ disabled, recalibration }: { disabled: 
     setSavedModel(null)
     setSaveFailed(false)
     try {
-      const response = await fetch(`/__novera/quantization-download?${new URLSearchParams({ run, file })}`, { method: 'POST' })
-      if (!response.ok) throw new Error('SaveError')
-      setSavedModel(await response.json())
+      if (native) {
+        setSavedModel(await invoke<NonNullable<typeof savedModel>>('model_adjustment_save', { run, file }))
+      } else {
+        const response = await fetch(`/__novera/quantization-download?${new URLSearchParams({ run, file })}`, { method: 'POST' })
+        if (!response.ok) throw new Error('SaveError')
+        setSavedModel(await response.json())
+      }
       setCompletedSaves(previous => new Set(previous).add(saveKey))
     } catch {
       setSaveFailed(true)
@@ -221,7 +264,7 @@ export function ModelAdjustmentControl({ disabled, recalibration }: { disabled: 
         <TooltipTrigger asChild>
           <Button ref={trigger} type="button" variant="ghost" size="icon-xs"
             className={`composer-tool shrink-0${running ? ' composer-tool-active' : ''}`}
-            aria-label={`${t('ui:modelAdjustmentTitle')} · ${statusLabel}`} aria-expanded={panelOpen} aria-haspopup="dialog"
+            data-testid="model-adjustment-trigger" aria-label={`${t('ui:modelAdjustmentTitle')} · ${statusLabel}`} aria-expanded={panelOpen} aria-haspopup="dialog"
             data-state={running ? 'on' : 'off'} disabled={!panelOpen && (disabled || stackFull)}
             onClick={() => panelOpen ? closePanel('model-adjustment')
               : openPanel('model-adjustment', trigger.current?.closest<HTMLElement>('[data-dashboard-composer]'))}>
@@ -231,13 +274,27 @@ export function ModelAdjustmentControl({ disabled, recalibration }: { disabled: 
         </TooltipTrigger>
         <TooltipContent>{t('ui:modelAdjustmentTitle')} · {statusLabel}</TooltipContent>
       </Tooltip>
-      <DialogContent docked positionEnabled={panelOpen}>
+      <DialogContent docked positionEnabled={panelOpen} data-testid="model-adjustment-dialog" className="min-w-0 grid-cols-[minmax(0,1fr)] overflow-x-hidden [scrollbar-gutter:stable]">
         <DialogTitle>{t('ui:modelAdjustmentTitle')}</DialogTitle>
-        <DialogDescription className={local || browserQuantizationAvailable ? 'sr-only' : undefined}>
-          {local || browserQuantizationAvailable ? t('ui:modelAdjustmentChoose') : t('ui:modelAdjustmentLocalOnly')}
+        <DialogDescription className={!native && (local || browserQuantizationAvailable) ? 'sr-only' : undefined}>
+          {native ? t('ui:modelAdjustmentDesktopFiles') : local || browserQuantizationAvailable ? t('ui:modelAdjustmentChoose') : t('ui:modelAdjustmentLocalOnly')}
         </DialogDescription>
-        {!local && <BrowserModelQuantization />}
-        {local && <div className="grid items-start gap-3 sm:grid-cols-2">
+        {!nativeOrLocal && <BrowserModelQuantization />}
+        {native && <div className="grid items-start gap-3 sm:grid-cols-2">
+          {(['reference', 'baseline'] as const).map(key => {
+            const label = t(key === 'reference' ? 'ui:modelAdjustmentReference' : 'ui:modelAdjustmentVariant')
+            const selected = recalibration.inputs[key]
+            return <div key={key} className="grid min-w-0 gap-1 text-sm">
+              <span>{label}</span>
+              <Button type="button" variant="outline" className="justify-start truncate" disabled={running}
+                aria-label={`${label} · GGUF`} title={selected}
+                onClick={() => void recalibration.chooseModel(key)}>
+                {selected?.split(/[\\/]/).pop() ?? `LFM3 Omni 2B ${key === 'reference' ? 'Q8' : 'Q4'} · GGUF`}
+              </Button>
+            </div>
+          })}
+        </div>}
+        {local && !native && <div className="grid items-start gap-3 sm:grid-cols-2">
           <label className="grid min-w-0 gap-1 text-sm">
             <span>{t('ui:modelAdjustmentReference')}{french ? ' : ' : ': '}<span className="text-muted-foreground">{t('ui:modelAdjustmentPrecision')}</span></span>
             <select className="h-10 w-full rounded border bg-background px-2" defaultValue="q8" disabled>
@@ -254,10 +311,10 @@ export function ModelAdjustmentControl({ disabled, recalibration }: { disabled: 
             </select>
           </label>
         </div>}
-        {local && <section className="grid min-w-0 gap-1 rounded border p-3" aria-label={t('ui:modelAdjustmentWeights')}>
+        {nativeOrLocal && <section className="grid min-w-0 grid-cols-[minmax(0,1fr)] gap-1 rounded border p-3" aria-label={t('ui:modelAdjustmentWeights')}>
           <p>{t('ui:modelAdjustmentSubtitle')}</p>
           <div className="flex flex-wrap gap-2">
-            <Button type="button" variant="secondary" className="h-auto min-w-0 flex-1 whitespace-normal py-2"
+            <Button type="button" variant="secondary" data-testid="model-adjustment-start" className="h-auto min-w-0 flex-1 whitespace-normal py-2"
               disabled={running || disabled} onClick={() => void startWeightRecalibration(variant)}>
               {`${statusLabel} · ${running ? t('ui:modelAdjustmentProgress') : t('ui:modelAdjustmentStart', { variant })}`}
             </Button>
@@ -268,6 +325,7 @@ export function ModelAdjustmentControl({ disabled, recalibration }: { disabled: 
             </Button>}
           </div>
           {weightError && <p role="alert">{t(`ui:modelAdjustment${weightError}`)}</p>}
+          {native && recalibration.nativeError && <p className="wrap-anywhere text-sm">{recalibration.nativeError}</p>}
           {saveFailed && <p role="alert">{t('ui:modelAdjustmentSaveError')}</p>}
           {(savingModel || savedModel) && <div role="status" className="grid gap-1 py-1">
             <div className="flex items-center justify-between gap-2 text-sm">
@@ -281,7 +339,7 @@ export function ModelAdjustmentControl({ disabled, recalibration }: { disabled: 
             {t('ui:modelAdjustmentSaved', { name: savedModel.name, folder: savedModel.folder })}
             {savedModel.projector && ` · ${t('ui:modelAdjustmentProjector', { name: savedModel.projector })}`}
           </p>}
-          {weightReport?.recalibrationFailed && <p role="alert">{t('ui:modelAdjustmentFailed')}</p>}
+          {weightReport?.recalibrationFailed && <p role="alert">{t(native ? 'ui:modelAdjustmentDesktopFailed' : 'ui:modelAdjustmentFailed')}</p>}
           {weightReport?.corpus && <p>{weightReport.corpus}</p>}
           {weightReport?.stage && <p aria-live="polite">{weightReport.stage} · {t('ui:modelAdjustmentTarget', { threshold: formattedKlThreshold })}</p>}
           {weightReport?.runs ? (weightReport.runs.length > 0 && <div className="@container min-w-0 rounded-md border">
@@ -329,7 +387,7 @@ export function ModelAdjustmentControl({ disabled, recalibration }: { disabled: 
                 )) ?? '—'}
               </td>
               <td role="cell" className="px-2 py-1.5 text-right @min-[640px]:text-center">
-              {weightReport.runId && downloadable && run.file && <Button size="icon-xs" variant="outline" type="button"
+              {weightReport.runId && downloadable && run.file && (!native || recalibration.weightReport?.stage === 'Comparaison terminée') && <Button size="icon-xs" variant="outline" type="button"
                 disabled={savingModel !== null} aria-label={t('ui:modelAdjustmentSaveModel', { model: run.label })} title={t('ui:modelAdjustmentSaveFolder')}
                 onClick={() => { if (weightReport.runId && run.file) void saveModel(weightReport.runId, run.file) }}>
                 <Save aria-hidden="true" className="size-4" />

@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Mira",
   "modelAdjustmentStopLabel": "Rega kugadzirisa",
   "modelAdjustmentStopping": "Kumira...",
+  "modelAdjustmentDesktopFiles": "Novera inotsvaga mafaira eGGUF LFM3 Omni 2B Q8 / Q4 muforodha yemamodheru ako. Dzvanya pane rimwe remamodheru kuti uzvisarudzire faira raro.",
+  "modelAdjustmentDesktopFailed": "Kugadzirisazve kwakundikana. Tarisa gwaro rezviitiko reNovera.",
   "modelAdjustmentFailed": "Kugadzirisazve kwakundikana. Tarisa iyo server yenzvimbo.",
   "modelAdjustmentTarget": "yepamusoro KL chinangwa ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Recalibration mhinduro",

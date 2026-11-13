@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Bādh karō",
   "modelAdjustmentStopLabel": "Recalibration bādh karō",
   "modelAdjustmentStopping": "Bādh karatī…",
+  "modelAdjustmentDesktopFiles": "Novera आपणे मॉडल फोल्डर में GGUF LFM3 Omni 2B Q8 / Q4 फाइलां ढूंढै है। फाइल खुद चुनण खातर दोन्यूं में सूं कोई एक मॉडल पर क्लिक करो।",
+  "modelAdjustmentDesktopFailed": "फेर कैलिब्रेशन नीं हो सक्यो। Novera रो लॉग देखो।",
   "modelAdjustmentFailed": "Recalibration vīkaḷa. Lōkal sērvar lōg jō chēk karō.",
   "modelAdjustmentTarget": "अधिकतम KL लक्ष्य ≤ {{threshold}} नट",
   "modelAdjustmentResults": "पुनः-कैलिब्रेशन परिणाम",

@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Jooji",
   "modelAdjustmentStopLabel": "Jooji dib u habeynta",
   "modelAdjustmentStopping": "Joojinta…",
+  "modelAdjustmentDesktopFiles": "Novera wuxuu faylasha GGUF LFM3 Omni 2B Q8 / Q4 ka raadiyaa galka moodeelladaada. Guji mid ka mid ah labada moodeel si aad faylkiisa gacanta ugu doorato.",
+  "modelAdjustmentDesktopFailed": "Dib-u-habeyntu way fashilantay. Eeg diiwaanka Novera.",
   "modelAdjustmentFailed": "Dib-u-habaynta ayaa ku guuldareysatay. Hubi diiwaanka server-ka deegaanka",
   "modelAdjustmentTarget": "bartilmaameedka ugu badan ee KL ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Natiijooyinka dib u habeynta",

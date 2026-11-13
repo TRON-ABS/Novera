@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Dhabu",
   "modelAdjustmentStopLabel": "Recalibration dhabu",
   "modelAdjustmentStopping": "Dhabuu jiraa...",
+  "modelAdjustmentDesktopFiles": "Novera faayiloota GGUF LFM3 Omni 2B Q8 / Q4 galmee moodeelota kee keessatti barbaada. Faayila harkaan filachuuf moodeela lamaan keessaa tokko cuqaasi.",
+  "modelAdjustmentDesktopFailed": "Irra deebi’anii sirreessuun hin milkoofne. Galmee Novera ilaali.",
   "modelAdjustmentFailed": "Recalibration dhabe. Logi serverii haa ta'uuf hubadhu.",
   "modelAdjustmentTarget": "KL ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Nagaa jalqabaa",

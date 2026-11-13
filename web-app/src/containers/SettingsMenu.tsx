@@ -120,6 +120,7 @@ const SettingsMenu = () => {
     return (
       <div
         key={provider.provider}
+        data-settings-provider={provider.provider}
         className={cn(
           'novera-settings-link flex px-2 items-center gap-1.5 cursor-pointer hover:bg-secondary/60 py-1 w-full rounded-sm text-foreground',
           isRouteActive && 'bg-secondary',
@@ -328,6 +329,7 @@ const SettingsMenu = () => {
               {hiddenProviders.length > 0 && (
                 <>
                   <button
+                    data-testid="settings-hidden-providers"
                     className="flex items-center justify-between px-2 py-1 w-full rounded-sm text-muted-foreground hover:bg-secondary/60"
                     onClick={() => setExpandedProviders(!expandedProviders)}
                   >
@@ -354,6 +356,7 @@ const SettingsMenu = () => {
                       return (
                         <div
                           key={provider.provider}
+                          data-settings-provider={provider.provider}
                           className={cn(
                             'novera-settings-link flex px-2 items-center gap-1.5 cursor-pointer hover:bg-secondary/60 py-1 w-full rounded-sm text-muted-foreground',
                             isRouteActive && 'bg-secondary'

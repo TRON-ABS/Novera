@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Thamo",
   "modelAdjustmentStopLabel": "Recalibration thamo",
   "modelAdjustmentStopping": "Thama hochche…",
+  "modelAdjustmentDesktopFiles": "Novera তোমার মডেল ফোল্ডারও GGUF LFM3 Omni 2B Q8 / Q4 ফাইল খোঁজে। নিজে ফাইল বাছবার লাগি দুইটার যেকুনু এক মডেলও ক্লিক করো।",
+  "modelAdjustmentDesktopFailed": "আবার ক্যালিব্রেশন অইছে না। Novera-র লগ দেখো।",
   "modelAdjustmentFailed": "Recalibration fail holo. local server log dekho.",
   "modelAdjustmentTarget": "সর্বোচ্চ KL টার্গেট ≤ {{threshold}} নট",
   "modelAdjustmentResults": "পুনঃ-ক্যালিব্রেশন ফলাফল",

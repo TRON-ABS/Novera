@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "停止",
   "modelAdjustmentStopLabel": "停止重新校正",
   "modelAdjustmentStopping": "停止緊 …",
+  "modelAdjustmentDesktopFiles": "Novera 會喺你嘅模型資料夾搵 GGUF LFM3 Omni 2B Q8 / Q4 檔案。撳其中一個模型就可以手動揀檔案。",
+  "modelAdjustmentDesktopFailed": "重新校準失敗。請睇 Novera 嘅記錄。",
   "modelAdjustmentFailed": "重新校正失敗咗。檢查本機伺服器記錄。",
   "modelAdjustmentTarget": "最大 KL 目標 ≤ {{threshold}} 自然",
   "modelAdjustmentResults": "重新校正結果",

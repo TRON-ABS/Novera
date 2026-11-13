@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "ನಿಲ್ಲಿಸು",
   "modelAdjustmentStopLabel": "ಮರುಮಾಪನವನ್ನು ನಿಲ್ಲಿಸಿ",
   "modelAdjustmentStopping": "ನಿಲ್ಲಿಸಲಾಗುತ್ತಿದೆ...",
+  "modelAdjustmentDesktopFiles": "Novera ನಿಮ್ಮ ಮಾಡೆಲ್ ಫೋಲ್ಡರ್‌ನಲ್ಲಿ GGUF LFM3 Omni 2B Q8 / Q4 ಫೈಲ್‌ಗಳನ್ನು ಹುಡುಕುತ್ತದೆ. ಫೈಲ್ ಅನ್ನು ನೀವೇ ಆಯ್ಕೆ ಮಾಡಲು ಯಾವುದಾದರೂ ಒಂದು ಮಾಡೆಲ್ ಮೇಲೆ ಕ್ಲಿಕ್ ಮಾಡಿ.",
+  "modelAdjustmentDesktopFailed": "ಮರುಮಾಪನ ವಿಫಲವಾಗಿದೆ. Novera ಲಾಗ್ ಪರಿಶೀಲಿಸಿ.",
   "modelAdjustmentFailed": "ಮರು ಮಾಪನಾಂಕ ನಿರ್ಣಯ ವಿಫಲವಾಗಿದೆ. ಸ್ಥಳೀಯ ಸರ್ವರ್ ಲಾಗ್ ಅನ್ನು ಪರಿಶೀಲಿಸಿ.",
   "modelAdjustmentTarget": "ಗರಿಷ್ಠ KL ಗುರಿ ≤ {{threshold}} nat",
   "modelAdjustmentResults": "ಮರುಮಾಪನ ಫಲಿತಾಂಶಗಳು",

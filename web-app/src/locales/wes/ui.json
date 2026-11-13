@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Stop",
   "modelAdjustmentStopLabel": "Stop kalaibra",
   "modelAdjustmentStopping": "Stop-ing…",
+  "modelAdjustmentDesktopFiles": "Novera di find GGUF LFM3 Omni 2B Q8 / Q4 files for ya model folder. Click any one for di two models for choose yi file ya sef.",
+  "modelAdjustmentDesktopFailed": "Recalibration no succeed. Check Novera log.",
   "modelAdjustmentFailed": "Recalibration fail. Check the local server log.",
   "modelAdjustmentTarget": "Di highest KL target na ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Kalaibra-shun result",

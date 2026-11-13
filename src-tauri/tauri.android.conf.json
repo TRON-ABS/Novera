@@ -1,6 +1,6 @@
 {
   "identifier": "io.github.tronabs.novera",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "build": {
     "devUrl": null,
     "frontendDist": "../web-app/dist",
@@ -31,7 +31,7 @@
     "externalBin": [],
     "android": {
       "minSdkVersion": 24,
-      "versionCode": 1000027,
+      "versionCode": 1000029,
       "debugApplicationIdSuffix": ".debug"
     }
   }

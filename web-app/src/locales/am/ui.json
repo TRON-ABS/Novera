@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "ተወ",
   "modelAdjustmentStopLabel": "እንደገና ማስተካከልን አቁም",
   "modelAdjustmentStopping": "በማቆም ላይ…",
+  "modelAdjustmentDesktopFiles": "Novera የGGUF LFM3 Omni 2B Q8 / Q4 ፋይሎችን በሞዴሎች አቃፊዎ ውስጥ ይፈልጋል። ፋይሉን በእጅ ለመምረጥ አንዱን ሞዴል ይጫኑ።",
+  "modelAdjustmentDesktopFailed": "ዳግም ማስተካከሉ አልተሳካም። የNovera ማስታወሻ መዝገብን ይመልከቱ።",
   "modelAdjustmentFailed": "ዳግም ማስተካከል አልተሳካም። የአካባቢ አገልጋይ ምዝግብ ማስታወሻን ያረጋግጡ።",
   "modelAdjustmentTarget": "ከፍተኛው KL ኢላማ ≤ {{threshold}} nat",
   "modelAdjustmentResults": "የመልሶ ማቋቋም ውጤቶች",

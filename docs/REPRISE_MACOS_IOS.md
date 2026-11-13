@@ -1,5 +1,7 @@
 # Reprendre les sorties macOS et iOS après Android
 
+**Préparation interne du 13 novembre 2026.** La configuration iOS annonce Novera **1.0.4**, crée explicitement la fenêtre principale et reprend le moteur embarqué **llama.cpp v1.0.0** avec Metal. Le build de validation est à lancer sur Apple Silicon avec **Xcode 27.2** et un simulateur iOS 27.2. Les vérifications de démarrage, du clavier et de la navigation dans Configurations restent à exécuter sur simulateur. La signature iPhone et la distribution restent en attente.
+
 **Situation au 7 novembre 2026 :** macOS Intel et Apple Silicon sont publiés en [1.0.1](RELEASE_1.0.1_2026-11-07.md). iOS reste inclus dans la mise à jour 1.0.1 des sources communes ; le mainteneur confirme ne pas encore disposer du compte et de la signature Apple nécessaires à une distribution sur iPhone. Les remarques ci-dessous sur la 1.0.0 sont historiques.
 
 Mise à jour du **3 novembre 2026** : Android et macOS sont disponibles ; iOS reste interne et ne doit pas être annoncé installable sur iPhone.

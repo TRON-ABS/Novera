@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Ruko",
   "modelAdjustmentStopLabel": "Recalibration ruko",
   "modelAdjustmentStopping": "Ruk raha hai…",
+  "modelAdjustmentDesktopFiles": "Novera تمہارے ماڈل فولڈر میں GGUF LFM3 Omni 2B Q8 / Q4 فائلیں ڈھونڈتا۔ خود فائل چننے کو کِسی ایک ماڈل پہ کلک کرو۔",
+  "modelAdjustmentDesktopFailed": "دوبارہ کیلیبریشن نئیں ہوئی۔ Novera کا لاگ دیکھو۔",
   "modelAdjustmentFailed": "Recalibration nakaam. local server log check karo.",
   "modelAdjustmentTarget": "زیادہ سے زیادہ KL ہدف ≤ {{threshold}} نَت",
   "modelAdjustmentResults": "recalibration results",

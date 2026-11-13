@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "멈추다",
   "modelAdjustmentStopLabel": "재보정 중지",
   "modelAdjustmentStopping": "멎는…",
+  "modelAdjustmentDesktopFiles": "Novera는 모델 폴더에서 GGUF LFM3 Omni 2B Q8 / Q4 파일을 찾습니다. 파일을 직접 선택하려면 두 모델 중 하나를 클릭하세요.",
+  "modelAdjustmentDesktopFailed": "재보정에 실패했습니다. Novera 로그를 확인하세요.",
   "modelAdjustmentFailed": "재보정에 실패했습니다. 로컬 서버 로그를 확인하세요.",
   "modelAdjustmentTarget": "최대 KL 대상 ≤ {{threshold}} nat",
   "modelAdjustmentResults": "재보정 결과",

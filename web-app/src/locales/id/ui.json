@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Berhenti",
   "modelAdjustmentStopLabel": "Hentikan kalibrasi ulang",
   "modelAdjustmentStopping": "Henti…",
+  "modelAdjustmentDesktopFiles": "Novera mencari berkas GGUF LFM3 Omni 2B Q8 / Q4 di folder model Anda. Klik salah satu model untuk memilih berkasnya secara manual.",
+  "modelAdjustmentDesktopFailed": "Kalibrasi ulang gagal. Periksa log Novera.",
   "modelAdjustmentFailed": "Kalibrasi ulang gagal. Periksa log server lokal.",
   "modelAdjustmentTarget": "target KL maksimum ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Hasil kalibrasi ulang",

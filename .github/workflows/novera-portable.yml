@@ -71,7 +71,7 @@ jobs:
         with:
           path: src-tauri/target
           key: windows-portable-native-${{ hashFiles('src-tauri/Cargo.lock') }}
-      - name: Reuse the pinned publicly released native engines
+      - name: Prepare the pinned portable runtime fixture
         shell: pwsh
         run: |
           python scripts/distribution/prepare-portable-runtime.py --download-source

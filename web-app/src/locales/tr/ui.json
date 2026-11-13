@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Durmak",
   "modelAdjustmentStopLabel": "Yeniden kalibrasyonu durdur",
   "modelAdjustmentStopping": "Durduruluyor…",
+  "modelAdjustmentDesktopFiles": "Novera, GGUF LFM3 Omni 2B Q8 / Q4 dosyalarını model klasöründe arar. Dosyayı elle seçmek için iki modelden birine tıkla.",
+  "modelAdjustmentDesktopFailed": "Yeniden kalibrasyon başarısız oldu. Novera günlüğünü kontrol et.",
   "modelAdjustmentFailed": "Yeniden kalibrasyon başarısız oldu. Yerel sunucu günlüğünü kontrol edin.",
   "modelAdjustmentTarget": "maksimum KL hedefi ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Yeniden kalibrasyon sonuçları",

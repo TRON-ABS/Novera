@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Sispann",
   "modelAdjustmentStopLabel": "Sispann rekalibrasyon",
   "modelAdjustmentStopping": "Sispann…",
+  "modelAdjustmentDesktopFiles": "Novera chèche fichye GGUF LFM3 Omni 2B Q8 / Q4 yo nan dosye modèl ou yo. Klike sou youn nan de modèl yo pou chwazi fichye li alamen.",
+  "modelAdjustmentDesktopFailed": "Rekalibrasyon an echwe. Tcheke jounal Novera a.",
   "modelAdjustmentFailed": "Rekalibrasyon echwe. Tcheke boutèy demi lit sèvè lokal la.",
   "modelAdjustmentTarget": "maksimòm KL sib ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Rezilta rekalibrasyon",

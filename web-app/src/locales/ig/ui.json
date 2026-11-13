@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Kwụsị",
   "modelAdjustmentStopLabel": "Kwụsị recalibration",
   "modelAdjustmentStopping": "Na-akwụsị…",
+  "modelAdjustmentDesktopFiles": "Novera na-achọ faịlụ GGUF LFM3 Omni 2B Q8 / Q4 na folda ụdịdị gị. Pịa otu n’ime ụdị abụọ ahụ ka i jiri aka họrọ faịlụ ya.",
+  "modelAdjustmentDesktopFailed": "Nhazigharị ahụ akụrụ afọ n’ala. Lelee ndekọ Novera.",
   "modelAdjustmentFailed": "Nhazigharị dara. Lelee ndekọ ihe nkesa mpaghara.",
   "modelAdjustmentTarget": "kacha KL lekwasịrị anya ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Nsonaazụ mweghachi",

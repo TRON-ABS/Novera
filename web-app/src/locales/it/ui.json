@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Fermare",
   "modelAdjustmentStopLabel": "Interrompere la ricalibrazione",
   "modelAdjustmentStopping": "Arresto…",
+  "modelAdjustmentDesktopFiles": "Novera cerca i file GGUF LFM3 Omni 2B Q8 / Q4 nella cartella dei modelli. Fai clic su uno dei due modelli per selezionarne manualmente il file.",
+  "modelAdjustmentDesktopFailed": "Ricalibrazione non riuscita. Controlla il registro di Novera.",
   "modelAdjustmentFailed": "Ricalibrazione non riuscita. Controlla il registro del server locale.",
   "modelAdjustmentTarget": "massimo KL target ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Risultati della ricalibrazione",

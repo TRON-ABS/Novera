@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Eureun",
   "modelAdjustmentStopLabel": "Ngeureunkeun recalibration",
   "modelAdjustmentStopping": "Ngeureunkeun…",
+  "modelAdjustmentDesktopFiles": "Novera milarian berkas GGUF LFM3 Omni 2B Q8 / Q4 dina polder modél anjeun. Klik salah sahiji modél pikeun milih berkasna sacara manual.",
+  "modelAdjustmentDesktopFailed": "Kalibrasi ulang gagal. Pariksa log Novera.",
   "modelAdjustmentFailed": "Recalibration gagal. Pariksa log server lokal.",
   "modelAdjustmentTarget": "maksimum KL sasaran ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Hasil recalibration",

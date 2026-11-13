@@ -1,5 +1,6 @@
 {
   "identifier": "io.github.tronabs.novera.ios",
+  "version": "1.0.4",
   "build": {
     "devUrl": null,
     "frontendDist": "../web-app/dist",
@@ -7,6 +8,15 @@
     "beforeBuildCommand": "cross-env IS_IOS=true yarn build:web"
   },
   "app": {
+    "windows": [
+      {
+        "label": "main",
+        "title": "Novera",
+        "url": "index.html",
+        "create": true,
+        "visible": true
+      }
+    ],
     "security": {
       "capabilities": ["mobile"]
     }
@@ -15,6 +25,7 @@
   "bundle": {
     "active": true,
     "iOS": {
+      "bundleVersion": "104",
       "developmentTeam": "<DEVELOPMENT_TEAM_ID>"
     },
     "resources": [

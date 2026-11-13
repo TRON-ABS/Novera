@@ -21,6 +21,8 @@
   "modelAdjustmentStop": "Acha",
   "modelAdjustmentStopLabel": "Acha kurekebisha tena",
   "modelAdjustmentStopping": "Inasimamisha...",
+  "modelAdjustmentDesktopFiles": "Novera hutafuta faili za GGUF LFM3 Omni 2B Q8 / Q4 kwenye folda yako ya modeli. Bofya mojawapo ya modeli hizo ili uchague faili yake mwenyewe.",
+  "modelAdjustmentDesktopFailed": "Urekebishaji upya umeshindwa. Angalia kumbukumbu ya Novera.",
   "modelAdjustmentFailed": "Urekebishaji upya umeshindwa. Angalia logi ya seva ya ndani.",
   "modelAdjustmentTarget": "kiwango cha juu cha lengo la KL ≤ {{threshold}} nat",
   "modelAdjustmentResults": "Matokeo ya urekebishaji",
