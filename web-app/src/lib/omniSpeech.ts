@@ -2,6 +2,7 @@ import { invoke } from '@tauri-apps/api/core'
 import { fetch as fetchLocalEngine } from '@tauri-apps/plugin-http'
 import { spokenMath } from './spokenMath'
 import { frenchNumbers } from './frenchNumbers'
+import { isPlatformAndroid, isPlatformTauri } from './platform/utils'
 
 export type OmniVoice = 'male' | 'female'
 const supportedLanguages = new Set(['ar','da','de','el','en','fi','fr','he','it','ja','ko','nl','pl','pt','es','sv','tr','zh'])
@@ -52,7 +53,12 @@ export async function playOmniReply(text: string, locale: string, voice: OmniVoi
   const foreground=async()=>{
     if(checking||operation.signal.aborted||finished)return
     checking=true
-    try{const focused=await invoke<boolean>('voice_is_foreground');if(!finished&&!focused)operation.abort()}
+    try{
+      const focused = isPlatformTauri() && isPlatformAndroid()
+        ? document.visibilityState === 'visible'
+        : await invoke<boolean>('voice_is_foreground')
+      if(!finished&&!focused)operation.abort()
+    }
     catch{if(!finished)operation.abort()}
     finally{checking=false}
   }

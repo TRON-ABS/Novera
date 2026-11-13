@@ -2,6 +2,11 @@ import { defineConfig, loadEnv, type Plugin } from 'vite'
 import react from '@vitejs/plugin-react'
 import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
+import { homedir } from 'node:os'
+import { execFile, type ChildProcess } from 'node:child_process'
+import { link, mkdir, readdir, readFile, rename, stat, writeFile } from 'node:fs/promises'
+import { createReadStream } from 'node:fs'
+import { pipeline } from 'node:stream'
 import { prepareBrowserRuntime } from '../scripts/distribution/browser-runtime-assets.mjs'
 import { TanStackRouterVite } from '@tanstack/router-plugin/vite'
 import packageJson from './package.json'
@@ -34,8 +39,208 @@ export default defineConfig(({ mode, command }) => {
   return {
     base: browserPreview ? (env.VITE_NOVERA_WEB_BASE || './') : undefined,
     plugins: [
+      ...(command === 'serve' && browserPreview && env.VITE_NOVERA_PRIVATE_NATIVE_CONVERSATION === 'true' ? [{
+        name: 'novera-local-model-adjustment',
+        configureServer(server) {
+          let running = false
+          let recalibrating = false
+          let recalibrationFailed = false
+          let currentRun: string | undefined
+          let recalibrationProcess: ChildProcess | undefined
+          let stopping = false
+          const weightDirectory = path.resolve(__dirname, '../.build/weight-recalibration')
+          server.middlewares.use('/__novera/quantization-download', async (request, response) => {
+            const saving = request.method === 'POST'
+            const host = request.headers.host
+            if ((!saving && request.method !== 'GET') || !/^127\.0\.0\.1:\d+$/.test(host ?? '') ||
+              request.headers['sec-fetch-site'] !== 'same-origin' ||
+              (saving && request.headers.origin !== `http://${host}`)) {
+              response.writeHead(403).end()
+              return
+            }
+            const params = new URL(request.url ?? '/', 'http://localhost').searchParams
+            const run = params.get('run') ?? ''
+            const file = params.get('file') ?? ''
+            const first = file === 'LFM3-Q4_K_M-calibrated.gguf'
+            if (!/^(?:q4-varied|q[234]-run-\d+)$/.test(run) ||
+              (!first && !/^(?:LFM3-(?:Q4_K_M|Q[234])|Qwen3\.5-Q4)-[a-z0-9-]+\.gguf$/.test(file))) {
+              response.writeHead(404).end()
+              return
+            }
+            try {
+              const report = JSON.parse(await readFile(path.join(weightDirectory, run, 'report.json'), 'utf8'))
+              if (!report.runs?.some((entry: { file: string }) => entry.file === file)) {
+                response.writeHead(404).end()
+                return
+              }
+              const source = path.join(weightDirectory, first ? 'q4-first' : run, file)
+              if (saving) {
+                const qwen = file.startsWith('Qwen3.5-')
+                const runtimeModels = path.resolve(__dirname, '../.build/web-runtime-real/models')
+                const parent = qwen
+                  ? path.resolve(__dirname, '../.build/engine-validation-2026-10-22/models')
+                  : path.join(homedir(), 'Documents', 'Novera models', 'LFM3-Omni-2B-Q8')
+                const name = `Novera-${path.basename(file, '.gguf')}-${run}.gguf`
+                const destination = path.join(parent, name)
+                const projector = qwen ? null : 'mmproj-LFM3-Omni-2B-Q8_0.gguf'
+                const saveLink = async (originalPath: string, targetPath: string) => link(originalPath, targetPath).catch(async error => {
+                  if (error.code !== 'EEXIST') throw error
+                  const [original, existing] = await Promise.all([stat(originalPath), stat(targetPath)])
+                  if (original.ino !== existing.ino || original.dev !== existing.dev || original.size !== existing.size) throw error
+                })
+                await mkdir(parent, { recursive: true })
+                if (projector) await saveLink(path.join(runtimeModels, projector), path.join(parent, projector))
+                await saveLink(source, destination)
+                response.writeHead(200, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' })
+                response.end(JSON.stringify({ name, folder: parent, projector }))
+                return
+              }
+              const stream = createReadStream(source)
+              stream.once('error', () => { if (!response.headersSent) response.writeHead(404).end() })
+              stream.once('open', () => {
+                response.writeHead(200, {
+                  'Content-Type': 'application/octet-stream',
+                  'Content-Disposition': `attachment; filename="Novera-${file}"`,
+                  'Cache-Control': 'no-store',
+                })
+                pipeline(stream, response, () => {})
+              })
+            } catch {
+              response.writeHead(404).end()
+            }
+          })
+          server.middlewares.use('/__novera/quantization-start', (request, response) => {
+            const host = request.headers.host
+            if (request.method !== 'POST' || !/^127\.0\.0\.1:\d+$/.test(host ?? '') ||
+              request.headers.origin !== `http://${host}` || request.headers['sec-fetch-site'] !== 'same-origin') {
+              response.writeHead(403).end()
+              return
+            }
+            if (running || recalibrating) { response.writeHead(409).end(); return }
+            const params = new URL(request.url ?? '/', 'http://localhost').searchParams
+            const level = params.get('level') ?? '4'
+            const reference = params.get('reference') ?? 'q8'
+            if (level !== '2' && level !== '3' && level !== '4') { response.writeHead(400).end(); return }
+            if (reference !== 'q8') {
+              response.writeHead(400).end()
+              return
+            }
+            recalibrating = true
+            recalibrationFailed = false
+            currentRun = `q${level}-run-${Date.now()}`
+            const script = level === '4' ? 'benchmark-q4-recalibration.py' : 'benchmark-q3-recalibration.py'
+            const runDirectory = path.join(weightDirectory, currentRun)
+            recalibrationProcess = execFile('python', [path.resolve(__dirname, '../scripts', script),
+              ...(level === '4' ? [] : ['--level', level, '--reference', reference]),
+              '--output', runDirectory], { windowsHide: true }, async error => {
+              recalibrationProcess = undefined
+              const stopped = stopping
+              try {
+                if (stopped) {
+                  await mkdir(runDirectory, { recursive: true })
+                  const destination = path.join(runDirectory, 'report.json')
+                  const report = JSON.parse(await readFile(destination, 'utf8').catch(() => '{"runs":[]}'))
+                  report.stage = 'Comparaison arrêtée'
+                  const temporary = path.join(runDirectory, 'stopped.json')
+                  await writeFile(temporary, JSON.stringify(report), 'utf8')
+                  await rename(temporary, destination)
+                }
+              } catch (cause) {
+                server.config.logger.error('Could not save stopped recalibration: ' + String(cause))
+              } finally {
+                stopping = false
+                recalibrating = false
+                recalibrationFailed = Boolean(error) && !stopped
+                if (recalibrationFailed && error) server.config.logger.error('Weight recalibration failed: ' + error.message)
+              }
+            })
+            response.writeHead(202, { 'Cache-Control': 'no-store' }).end()
+          })
+          server.middlewares.use('/__novera/quantization-stop', (request, response) => {
+            const host = request.headers.host
+            if (request.method !== 'POST' || !/^127\.0\.0\.1:\d+$/.test(host ?? '') ||
+              request.headers.origin !== `http://${host}` || request.headers['sec-fetch-site'] !== 'same-origin') {
+              response.writeHead(403).end()
+              return
+            }
+            const pid = recalibrationProcess?.pid
+            if (!pid || stopping || process.platform !== 'win32') { response.writeHead(409).end(); return }
+            stopping = true
+            execFile('taskkill.exe', ['/PID', String(pid), '/T', '/F'], { windowsHide: true }, error => {
+              if (error && recalibrationProcess?.pid === pid) {
+                stopping = false
+                response.writeHead(500).end()
+                return
+              }
+              response.writeHead(202, { 'Cache-Control': 'no-store' }).end()
+            })
+          })
+          server.middlewares.use('/__novera/quantization-report', async (request, response) => {
+            if (request.method !== 'GET' || !/^127\.0\.0\.1:\d+$/.test(request.headers.host ?? '') ||
+              request.headers['sec-fetch-site'] !== 'same-origin') {
+              response.writeHead(403).end()
+              return
+            }
+            try {
+              const names = await readdir(weightDirectory).catch(() => [] as string[])
+              const latest = (recalibrating ? currentRun : undefined) ?? names.filter(name => /^q[234]-run-\d+$/.test(name))
+                .sort((left, right) => Number(left.slice(7)) - Number(right.slice(7))).at(-1) ?? 'q4-varied'
+              const varied = await readFile(path.join(weightDirectory, latest, 'report.json'), 'utf8').catch(() => null)
+              const initial = varied ? null : await readFile(path.join(weightDirectory, 'q4-first/report.json'), 'utf8').catch(() => null)
+              const report = JSON.parse(varied ?? initial ?? '{}')
+              response.writeHead(200, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' })
+              const activeReport = /^q[234]-run-\d+$/.test(latest) && varied &&
+                !['Comparaison terminée', 'Comparaison interrompue', 'Comparaison arrêtée'].includes(report.stage)
+              response.end(JSON.stringify({ recalibrating: recalibrating || Boolean(activeReport),
+                canStop: process.platform === 'win32' && Boolean(recalibrationProcess?.pid) && !stopping,
+                stopping,
+                recalibrationFailed: recalibrationFailed || report.stage === 'Comparaison interrompue', ...(varied
+                ? { stage: report.stage, runs: report.runs, runId: latest, corpus: report.corpus,
+                    referenceBytes: report.referenceBytes, referenceName: report.referenceName }
+                : recalibrating ? { stage: 'Démarrage du recalibrage', runs: [] }
+                : { baseline: report.baseline_metrics, candidate: report.candidate_metrics }) }))
+            } catch {
+              response.writeHead(404, { 'Cache-Control': 'no-store' }).end()
+            }
+          })
+          server.middlewares.use('/__novera/local-model-adjustment', (request, response) => {
+            const host = request.headers.host
+            if (request.method !== 'POST' || !/^127\.0\.0\.1:\d+$/.test(host ?? '') ||
+              request.headers.origin !== `http://${host}` || request.headers['sec-fetch-site'] !== 'same-origin') {
+              response.writeHead(403).end()
+              return
+            }
+            if (running || recalibrating) { response.writeHead(409).end(); return }
+            running = true
+            const controller = new AbortController()
+            response.once('close', () => { if (!response.writableEnded) controller.abort() })
+            const mode = new URL(request.url ?? '/', 'http://localhost').searchParams.get('mode')
+            const child = execFile('python', [path.resolve(__dirname, '../scripts/local-model-adjustment.py'),
+              ...(mode === 'calibrate-q8' ? ['--calibrate-q8'] : mode === 'reference-q4' ? ['--reference-q4'] : [])], {
+              signal: controller.signal, timeout: 1800000, windowsHide: true, maxBuffer: 8 * 1024 * 1024,
+            }, error => {
+              running = false
+              if (error && !controller.signal.aborted) server.config.logger.error('Local model adjustment failed: ' + error.message)
+              if (!response.destroyed) response.end()
+            })
+            response.writeHead(200, { 'Content-Type': 'application/x-ndjson', 'Cache-Control': 'no-store' })
+            response.flushHeaders()
+            child.stdout?.on('data', chunk => { if (!response.destroyed) response.write(chunk) })
+          })
+        },
+      } satisfies Plugin] : []),
       ...[textRuntime, text64Runtime].filter(runtime => runtime !== undefined).map((runtime, index) => ({
         name: 'novera-local-text-assets-' + index,
+        configureServer(server) {
+          server.middlewares.use('/' + runtime.directory, (request, response, next) => {
+            const asset = runtime.assets.find(entry => request.url === '/' + entry.name)
+            if (!asset) return next()
+            const type = asset.name.endsWith('.wasm') ? 'application/wasm' : asset.name.endsWith('.mjs')
+              ? 'text/javascript' : asset.name.endsWith('.json') ? 'application/json' : 'text/plain'
+            response.writeHead(200, { 'Content-Type': type })
+            response.end(asset.source)
+          })
+        },
         generateBundle() {
           for (const asset of runtime.assets) this.emitFile({ type: 'asset', fileName: `${runtime.directory}/${asset.name}`, source: asset.source })
         },

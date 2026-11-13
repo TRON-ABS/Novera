@@ -1,0 +1,191 @@
+Note de gestion. Au atelier de menuiserie, le registre indique 197 unités en stock. Une livraison de 82 unités arrive et 19 unités sont utilisées. Le nouveau total est 260. Explique comment vérifier ce résultat dans un tableur. Compare ensuite la valeur comptable et le comptage physique.
+
+English workshop report. A team inspected 135 samples before lunch and 11 afterward. The supervisor compared both batches with a target of 143. Write an explanation that distinguishes the observed total from the target and describes how a second observer could repeat the count.
+
+Informe de transporte. El primer recorrido tiene 179 kilómetros y el segundo 91. La reserva cubre 60 kilómetros. Distingue los datos medidos de las estimaciones y explica qué información hace falta para calcular el coste total.
+
+Python exercise. Given readings = [127, 137, 151], produce a sorted copy and compute the median. Explain why sorted(readings) leaves the original unchanged. In a unit test, verify the output length and compare it with the input after sorting.
+
+Note de gestion. Au imprimerie, le registre indique 199 unités en stock. Une livraison de 103 unités arrive et 165 unités sont utilisées. Le nouveau total est 137. Explique comment vérifier ce résultat dans un tableur. Compare ensuite la valeur comptable et le comptage physique.
+
+English workshop report. A team inspected 48 samples before lunch and 149 afterward. The supervisor compared both batches with a target of 193. Write an explanation that distinguishes the observed total from the target and describes how a second observer could repeat the count.
+
+Informe de transporte. El primer recorrido tiene 76 kilómetros y el segundo 144. La reserva cubre 129 kilómetros. Distingue los datos medidos de las estimaciones y explica qué información hace falta para calcular el coste total.
+
+Python exercise. Given readings = [112, 195, 94], produce a sorted copy and compute the median. Explain why sorted(readings) leaves the original unchanged. In a unit test, verify the output length and compare it with the input after sorting.
+
+Note de gestion. Au atelier de couture, le registre indique 164 unités en stock. Une livraison de 66 unités arrive et 42 unités sont utilisées. Le nouveau total est 188. Explique comment vérifier ce résultat dans un tableur. Compare ensuite la valeur comptable et le comptage physique.
+
+English workshop report. A team inspected 179 samples before lunch and 131 afterward. The supervisor compared both batches with a target of 21. Write an explanation that distinguishes the observed total from the target and describes how a second observer could repeat the count.
+
+Informe de transporte. El primer recorrido tiene 141 kilómetros y el segundo 21. La reserva cubre 48 kilómetros. Distingue los datos medidos de las estimaciones y explica qué información hace falta para calcular el coste total.
+
+Python exercise. Given readings = [21, 137, 145], produce a sorted copy and compute the median. Explain why sorted(readings) leaves the original unchanged. In a unit test, verify the output length and compare it with the input after sorting.
+
+English workshop report. A team inspected 185 samples before lunch and 84 afterward. The supervisor compared both batches with a target of 147. Write an explanation that distinguishes the observed total from the target and describes how a second observer could repeat the count.
+
+Informe de transporte. El primer recorrido tiene 37 kilómetros y el segundo 13. La reserva cubre 71 kilómetros. Distingue los datos medidos de las estimaciones y explica qué información hace falta para calcular el coste total.
+
+Python exercise. Given readings = [61, 118, 44], produce a sorted copy and compute the median. Explain why sorted(readings) leaves the original unchanged. In a unit test, verify the output length and compare it with the input after sorting.
+
+Note de gestion. Au refuge de montagne, le registre indique 84 unités en stock. Une livraison de 190 unités arrive et 38 unités sont utilisées. Le nouveau total est 236. Explique comment vérifier ce résultat dans un tableur. Compare ensuite la valeur comptable et le comptage physique.
+
+English workshop report. A team inspected 79 samples before lunch and 40 afterward. The supervisor compared both batches with a target of 197. Write an explanation that distinguishes the observed total from the target and describes how a second observer could repeat the count.
+
+Informe de transporte. El primer recorrido tiene 36 kilómetros y el segundo 149. La reserva cubre 28 kilómetros. Distingue los datos medidos de las estimaciones y explica qué información hace falta para calcular el coste total.
+
+Python exercise. Given readings = [129, 151, 17], produce a sorted copy and compute the median. Explain why sorted(readings) leaves the original unchanged. In a unit test, verify the output length and compare it with the input after sorting.
+
+Note de gestion. Au médiathèque, le registre indique 47 unités en stock. Une livraison de 196 unités arrive et 191 unités sont utilisées. Le nouveau total est 52. Explique comment vérifier ce résultat dans un tableur. Compare ensuite la valeur comptable et le comptage physique.
+
+English workshop report. A team inspected 133 samples before lunch and 16 afterward. The supervisor compared both batches with a target of 192. Write an explanation that distinguishes the observed total from the target and describes how a second observer could repeat the count.
+
+Informe de transporte. El primer recorrido tiene 164 kilómetros y el segundo 171. La reserva cubre 176 kilómetros. Distingue los datos medidos de las estimaciones y explica qué información hace falta para calcular el coste total.
+
+Python exercise. Given readings = [44, 150, 162], produce a sorted copy and compute the median. Explain why sorted(readings) leaves the original unchanged. In a unit test, verify the output length and compare it with the input after sorting.
+
+Note de gestion. Au gare fluviale, le registre indique 167 unités en stock. Une livraison de 58 unités arrive et 50 unités sont utilisées. Le nouveau total est 175. Explique comment vérifier ce résultat dans un tableur. Compare ensuite la valeur comptable et le comptage physique.
+
+Informe de transporte. El primer recorrido tiene 77 kilómetros y el segundo 57. La reserva cubre 91 kilómetros. Distingue los datos medidos de las estimaciones y explica qué información hace falta para calcular el coste total.
+
+Python exercise. Given readings = [104, 147, 88], produce a sorted copy and compute the median. Explain why sorted(readings) leaves the original unchanged. In a unit test, verify the output length and compare it with the input after sorting.
+
+Note de gestion. Au centre de tri, le registre indique 48 unités en stock. Une livraison de 135 unités arrive et 118 unités sont utilisées. Le nouveau total est 65. Explique comment vérifier ce résultat dans un tableur. Compare ensuite la valeur comptable et le comptage physique.
+
+English workshop report. A team inspected 54 samples before lunch and 152 afterward. The supervisor compared both batches with a target of 175. Write an explanation that distinguishes the observed total from the target and describes how a second observer could repeat the count.
+
+Informe de transporte. El primer recorrido tiene 171 kilómetros y el segundo 14. La reserva cubre 29 kilómetros. Distingue los datos medidos de las estimaciones y explica qué información hace falta para calcular el coste total.
+
+Python exercise. Given readings = [13, 131, 66], produce a sorted copy and compute the median. Explain why sorted(readings) leaves the original unchanged. In a unit test, verify the output length and compare it with the input after sorting.
+
+Note de gestion. Au observatoire, le registre indique 162 unités en stock. Une livraison de 75 unités arrive et 32 unités sont utilisées. Le nouveau total est 205. Explique comment vérifier ce résultat dans un tableur. Compare ensuite la valeur comptable et le comptage physique.
+
+English workshop report. A team inspected 172 samples before lunch and 47 afterward. The supervisor compared both batches with a target of 121. Write an explanation that distinguishes the observed total from the target and describes how a second observer could repeat the count.
+
+Informe de transporte. El primer recorrido tiene 144 kilómetros y el segundo 175. La reserva cubre 108 kilómetros. Distingue los datos medidos de las estimaciones y explica qué información hace falta para calcular el coste total.
+
+Python exercise. Given readings = [109, 176, 168], produce a sorted copy and compute the median. Explain why sorted(readings) leaves the original unchanged. In a unit test, verify the output length and compare it with the input after sorting.
+
+Note de gestion. Au jardin botanique, le registre indique 79 unités en stock. Une livraison de 100 unités arrive et 180 unités sont utilisées. Le nouveau total est -1. Explique comment vérifier ce résultat dans un tableur. Compare ensuite la valeur comptable et le comptage physique.
+
+English workshop report. A team inspected 177 samples before lunch and 99 afterward. The supervisor compared both batches with a target of 79. Write an explanation that distinguishes the observed total from the target and describes how a second observer could repeat the count.
+
+Python exercise. Given readings = [36, 11, 83], produce a sorted copy and compute the median. Explain why sorted(readings) leaves the original unchanged. In a unit test, verify the output length and compare it with the input after sorting.
+
+Note de gestion. Au coopérative agricole, le registre indique 165 unités en stock. Une livraison de 100 unités arrive et 187 unités sont utilisées. Le nouveau total est 78. Explique comment vérifier ce résultat dans un tableur. Compare ensuite la valeur comptable et le comptage physique.
+
+English workshop report. A team inspected 151 samples before lunch and 88 afterward. The supervisor compared both batches with a target of 161. Write an explanation that distinguishes the observed total from the target and describes how a second observer could repeat the count.
+
+Informe de transporte. El primer recorrido tiene 28 kilómetros y el segundo 155. La reserva cubre 66 kilómetros. Distingue los datos medidos de las estimaciones y explica qué información hace falta para calcular el coste total.
+
+Python exercise. Given readings = [192, 106, 156], produce a sorted copy and compute the median. Explain why sorted(readings) leaves the original unchanged. In a unit test, verify the output length and compare it with the input after sorting.
+
+Note de gestion. Au école de musique, le registre indique 161 unités en stock. Une livraison de 79 unités arrive et 93 unités sont utilisées. Le nouveau total est 147. Explique comment vérifier ce résultat dans un tableur. Compare ensuite la valeur comptable et le comptage physique.
+
+English workshop report. A team inspected 184 samples before lunch and 77 afterward. The supervisor compared both batches with a target of 141. Write an explanation that distinguishes the observed total from the target and describes how a second observer could repeat the count.
+
+Informe de transporte. El primer recorrido tiene 76 kilómetros y el segundo 137. La reserva cubre 10 kilómetros. Distingue los datos medidos de las estimaciones y explica qué información hace falta para calcular el coste total.
+
+Python exercise. Given readings = [113, 12, 80], produce a sorted copy and compute the median. Explain why sorted(readings) leaves the original unchanged. In a unit test, verify the output length and compare it with the input after sorting.
+
+Note de gestion. Au entrepôt, le registre indique 37 unités en stock. Une livraison de 44 unités arrive et 66 unités sont utilisées. Le nouveau total est 15. Explique comment vérifier ce résultat dans un tableur. Compare ensuite la valeur comptable et le comptage physique.
+
+English workshop report. A team inspected 84 samples before lunch and 194 afterward. The supervisor compared both batches with a target of 126. Write an explanation that distinguishes the observed total from the target and describes how a second observer could repeat the count.
+
+Informe de transporte. El primer recorrido tiene 55 kilómetros y el segundo 132. La reserva cubre 71 kilómetros. Distingue los datos medidos de las estimaciones y explica qué información hace falta para calcular el coste total.
+
+Note de gestion. Au atelier de menuiserie, le registre indique 122 unités en stock. Une livraison de 169 unités arrive et 77 unités sont utilisées. Le nouveau total est 214. Explique comment vérifier ce résultat dans un tableur. Compare ensuite la valeur comptable et le comptage physique.
+
+English workshop report. A team inspected 41 samples before lunch and 32 afterward. The supervisor compared both batches with a target of 29. Write an explanation that distinguishes the observed total from the target and describes how a second observer could repeat the count.
+
+Informe de transporte. El primer recorrido tiene 150 kilómetros y el segundo 55. La reserva cubre 43 kilómetros. Distingue los datos medidos de las estimaciones y explica qué información hace falta para calcular el coste total.
+
+Python exercise. Given readings = [71, 90, 119], produce a sorted copy and compute the median. Explain why sorted(readings) leaves the original unchanged. In a unit test, verify the output length and compare it with the input after sorting.
+
+Note de gestion. Au imprimerie, le registre indique 54 unités en stock. Une livraison de 97 unités arrive et 166 unités sont utilisées. Le nouveau total est -15. Explique comment vérifier ce résultat dans un tableur. Compare ensuite la valeur comptable et le comptage physique.
+
+English workshop report. A team inspected 20 samples before lunch and 176 afterward. The supervisor compared both batches with a target of 17. Write an explanation that distinguishes the observed total from the target and describes how a second observer could repeat the count.
+
+Informe de transporte. El primer recorrido tiene 154 kilómetros y el segundo 136. La reserva cubre 38 kilómetros. Distingue los datos medidos de las estimaciones y explica qué información hace falta para calcular el coste total.
+
+Python exercise. Given readings = [119, 103, 65], produce a sorted copy and compute the median. Explain why sorted(readings) leaves the original unchanged. In a unit test, verify the output length and compare it with the input after sorting.
+
+Note de gestion. Au atelier de couture, le registre indique 181 unités en stock. Une livraison de 58 unités arrive et 101 unités sont utilisées. Le nouveau total est 138. Explique comment vérifier ce résultat dans un tableur. Compare ensuite la valeur comptable et le comptage physique.
+
+English workshop report. A team inspected 98 samples before lunch and 14 afterward. The supervisor compared both batches with a target of 128. Write an explanation that distinguishes the observed total from the target and describes how a second observer could repeat the count.
+
+Informe de transporte. El primer recorrido tiene 150 kilómetros y el segundo 10. La reserva cubre 81 kilómetros. Distingue los datos medidos de las estimaciones y explica qué información hace falta para calcular el coste total.
+
+Python exercise. Given readings = [198, 41, 97], produce a sorted copy and compute the median. Explain why sorted(readings) leaves the original unchanged. In a unit test, verify the output length and compare it with the input after sorting.
+
+English workshop report. A team inspected 35 samples before lunch and 10 afterward. The supervisor compared both batches with a target of 183. Write an explanation that distinguishes the observed total from the target and describes how a second observer could repeat the count.
+
+Informe de transporte. El primer recorrido tiene 163 kilómetros y el segundo 104. La reserva cubre 161 kilómetros. Distingue los datos medidos de las estimaciones y explica qué información hace falta para calcular el coste total.
+
+Python exercise. Given readings = [165, 100, 152], produce a sorted copy and compute the median. Explain why sorted(readings) leaves the original unchanged. In a unit test, verify the output length and compare it with the input after sorting.
+
+Note de gestion. Au refuge de montagne, le registre indique 40 unités en stock. Une livraison de 162 unités arrive et 187 unités sont utilisées. Le nouveau total est 15. Explique comment vérifier ce résultat dans un tableur. Compare ensuite la valeur comptable et le comptage physique.
+
+English workshop report. A team inspected 168 samples before lunch and 15 afterward. The supervisor compared both batches with a target of 126. Write an explanation that distinguishes the observed total from the target and describes how a second observer could repeat the count.
+
+Informe de transporte. El primer recorrido tiene 94 kilómetros y el segundo 124. La reserva cubre 74 kilómetros. Distingue los datos medidos de las estimaciones y explica qué información hace falta para calcular el coste total.
+
+Python exercise. Given readings = [145, 88, 39], produce a sorted copy and compute the median. Explain why sorted(readings) leaves the original unchanged. In a unit test, verify the output length and compare it with the input after sorting.
+
+Note de gestion. Au médiathèque, le registre indique 97 unités en stock. Une livraison de 89 unités arrive et 72 unités sont utilisées. Le nouveau total est 114. Explique comment vérifier ce résultat dans un tableur. Compare ensuite la valeur comptable et le comptage physique.
+
+English workshop report. A team inspected 88 samples before lunch and 77 afterward. The supervisor compared both batches with a target of 66. Write an explanation that distinguishes the observed total from the target and describes how a second observer could repeat the count.
+
+Informe de transporte. El primer recorrido tiene 133 kilómetros y el segundo 50. La reserva cubre 108 kilómetros. Distingue los datos medidos de las estimaciones y explica qué información hace falta para calcular el coste total.
+
+Python exercise. Given readings = [130, 40, 129], produce a sorted copy and compute the median. Explain why sorted(readings) leaves the original unchanged. In a unit test, verify the output length and compare it with the input after sorting.
+
+Note de gestion. Au gare fluviale, le registre indique 90 unités en stock. Une livraison de 148 unités arrive et 98 unités sont utilisées. Le nouveau total est 140. Explique comment vérifier ce résultat dans un tableur. Compare ensuite la valeur comptable et le comptage physique.
+
+Informe de transporte. El primer recorrido tiene 188 kilómetros y el segundo 112. La reserva cubre 104 kilómetros. Distingue los datos medidos de las estimaciones y explica qué información hace falta para calcular el coste total.
+
+Python exercise. Given readings = [188, 133, 168], produce a sorted copy and compute the median. Explain why sorted(readings) leaves the original unchanged. In a unit test, verify the output length and compare it with the input after sorting.
+
+Note de gestion. Au centre de tri, le registre indique 131 unités en stock. Une livraison de 187 unités arrive et 193 unités sont utilisées. Le nouveau total est 125. Explique comment vérifier ce résultat dans un tableur. Compare ensuite la valeur comptable et le comptage physique.
+
+English workshop report. A team inspected 171 samples before lunch and 168 afterward. The supervisor compared both batches with a target of 85. Write an explanation that distinguishes the observed total from the target and describes how a second observer could repeat the count.
+
+Informe de transporte. El primer recorrido tiene 21 kilómetros y el segundo 22. La reserva cubre 10 kilómetros. Distingue los datos medidos de las estimaciones y explica qué información hace falta para calcular el coste total.
+
+Python exercise. Given readings = [32, 37, 189], produce a sorted copy and compute the median. Explain why sorted(readings) leaves the original unchanged. In a unit test, verify the output length and compare it with the input after sorting.
+
+Note de gestion. Au observatoire, le registre indique 34 unités en stock. Une livraison de 175 unités arrive et 109 unités sont utilisées. Le nouveau total est 100. Explique comment vérifier ce résultat dans un tableur. Compare ensuite la valeur comptable et le comptage physique.
+
+English workshop report. A team inspected 139 samples before lunch and 92 afterward. The supervisor compared both batches with a target of 32. Write an explanation that distinguishes the observed total from the target and describes how a second observer could repeat the count.
+
+Informe de transporte. El primer recorrido tiene 134 kilómetros y el segundo 73. La reserva cubre 141 kilómetros. Distingue los datos medidos de las estimaciones y explica qué información hace falta para calcular el coste total.
+
+Python exercise. Given readings = [174, 150, 101], produce a sorted copy and compute the median. Explain why sorted(readings) leaves the original unchanged. In a unit test, verify the output length and compare it with the input after sorting.
+
+Note de gestion. Au jardin botanique, le registre indique 127 unités en stock. Une livraison de 18 unités arrive et 173 unités sont utilisées. Le nouveau total est -28. Explique comment vérifier ce résultat dans un tableur. Compare ensuite la valeur comptable et le comptage physique.
+
+English workshop report. A team inspected 119 samples before lunch and 146 afterward. The supervisor compared both batches with a target of 71. Write an explanation that distinguishes the observed total from the target and describes how a second observer could repeat the count.
+
+Python exercise. Given readings = [109, 155, 93], produce a sorted copy and compute the median. Explain why sorted(readings) leaves the original unchanged. In a unit test, verify the output length and compare it with the input after sorting.
+
+Note de gestion. Au coopérative agricole, le registre indique 86 unités en stock. Une livraison de 100 unités arrive et 154 unités sont utilisées. Le nouveau total est 32. Explique comment vérifier ce résultat dans un tableur. Compare ensuite la valeur comptable et le comptage physique.
+
+English workshop report. A team inspected 104 samples before lunch and 11 afterward. The supervisor compared both batches with a target of 34. Write an explanation that distinguishes the observed total from the target and describes how a second observer could repeat the count.
+
+Informe de transporte. El primer recorrido tiene 31 kilómetros y el segundo 191. La reserva cubre 197 kilómetros. Distingue los datos medidos de las estimaciones y explica qué información hace falta para calcular el coste total.
+
+Python exercise. Given readings = [103, 185, 108], produce a sorted copy and compute the median. Explain why sorted(readings) leaves the original unchanged. In a unit test, verify the output length and compare it with the input after sorting.
+
+Note de gestion. Au école de musique, le registre indique 153 unités en stock. Une livraison de 90 unités arrive et 136 unités sont utilisées. Le nouveau total est 107. Explique comment vérifier ce résultat dans un tableur. Compare ensuite la valeur comptable et le comptage physique.
+
+English workshop report. A team inspected 93 samples before lunch and 109 afterward. The supervisor compared both batches with a target of 34. Write an explanation that distinguishes the observed total from the target and describes how a second observer could repeat the count.
+
+Informe de transporte. El primer recorrido tiene 146 kilómetros y el segundo 12. La reserva cubre 123 kilómetros. Distingue los datos medidos de las estimaciones y explica qué información hace falta para calcular el coste total.
+
+Python exercise. Given readings = [87, 38, 163], produce a sorted copy and compute the median. Explain why sorted(readings) leaves the original unchanged. In a unit test, verify the output length and compare it with the input after sorting.
+
+Note de gestion. Au entrepôt, le registre indique 178 unités en stock. Une livraison de 195 unités arrive et 45 unités sont utilisées. Le nouveau total est 328. Explique comment vérifier ce résultat dans un tableur. Compare ensuite la valeur comptable et le comptage physique.
+
+English workshop report. A team inspected 34 samples before lunch and 82 afterward. The supervisor compared both batches with a target of 197. Write an explanation that distinguishes the observed total from the target and describes how a second observer could repeat the count.
+
+Informe de transporte. El primer recorrido tiene 62 kilómetros y el segundo 72. La reserva cubre 155 kilómetros. Distingue los datos medidos de las estimaciones y explica qué información hace falta para calcular el coste total.

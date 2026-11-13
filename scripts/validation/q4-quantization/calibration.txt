@@ -1,0 +1,383 @@
+Exemple 1
+Demande : Rédige une note sur les relevés d'humidité d'une serre
+Réponse : Le matin, les mesures sont consignées avec l'heure et le numéro du capteur. On compare ensuite les valeurs à la médiane de la semaine. Une dérive persistante justifie de vérifier l'étalonnage.
+
+Exemple 2
+Demande : Write a brief handover for a library inventory
+Réponse : The incoming shift should scan the returns cart, reconcile damaged items with the register, and record missing labels separately. A second person can verify the changes before closing.
+
+Exemple 3
+Demande : Explique une boucle Python à un débutant
+Réponse : La boucle for parcourt une collection. Par exemple, for nom in noms: print(nom) affiche les noms dans leur ordre initial. Une boucle while convient quand le nombre d'itérations est inconnu.
+
+Exemple 4
+Demande : Resume en español un itinerario rural
+Réponse : El sendero cruza un puente de piedra y sigue el cauce hasta el molino. Hay que llevar agua y consultar el horario del autobús antes de salir.
+
+Exemple 5
+Demande : Interprète un tableau de stock
+Réponse : Les colonnes article, quantité et date de réception servent à repérer les écarts. Le comptage physique précède la correction des lignes et la nouvelle commande.
+
+Exemple 6
+Demande : Describe why bread dough rises
+Réponse : Yeast consumes sugars and releases carbon dioxide. The gluten network traps some of this gas. A warm room speeds fermentation, while a refrigerator slows it down.
+
+Exemple 7
+Demande : Propose une scène de fiction courte
+Réponse : Au dernier étage de l'hôtel, la lampe oscillait malgré les fenêtres fermées. Nora posa sa valise, reconnut une mélodie ancienne et attendit que l'ascenseur reparte.
+
+Exemple 8
+Demande : Erkläre den Unterschied zwischen Wetter und Klima
+Réponse : Das Wetter beschreibt kurzfristige Zustände. Das Klima fasst langfristige Muster zusammen, etwa typische Temperaturen und die Häufigkeit von Niederschlag.
+
+Exemple 9
+Demande : Rédige une note sur les relevés d'humidité d'une serre
+Réponse : Le matin, les mesures sont consignées avec l'heure et le numéro du capteur. On compare ensuite les valeurs à la médiane de la semaine. Une dérive persistante justifie de vérifier l'étalonnage.
+
+Exemple 10
+Demande : Write a brief handover for a library inventory
+Réponse : The incoming shift should scan the returns cart, reconcile damaged items with the register, and record missing labels separately. A second person can verify the changes before closing.
+
+Exemple 11
+Demande : Explique une boucle Python à un débutant
+Réponse : La boucle for parcourt une collection. Par exemple, for nom in noms: print(nom) affiche les noms dans leur ordre initial. Une boucle while convient quand le nombre d'itérations est inconnu.
+
+Exemple 12
+Demande : Resume en español un itinerario rural
+Réponse : El sendero cruza un puente de piedra y sigue el cauce hasta el molino. Hay que llevar agua y consultar el horario del autobús antes de salir.
+
+Exemple 13
+Demande : Interprète un tableau de stock
+Réponse : Les colonnes article, quantité et date de réception servent à repérer les écarts. Le comptage physique précède la correction des lignes et la nouvelle commande.
+
+Exemple 14
+Demande : Describe why bread dough rises
+Réponse : Yeast consumes sugars and releases carbon dioxide. The gluten network traps some of this gas. A warm room speeds fermentation, while a refrigerator slows it down.
+
+Exemple 15
+Demande : Propose une scène de fiction courte
+Réponse : Au dernier étage de l'hôtel, la lampe oscillait malgré les fenêtres fermées. Nora posa sa valise, reconnut une mélodie ancienne et attendit que l'ascenseur reparte.
+
+Exemple 16
+Demande : Erkläre den Unterschied zwischen Wetter und Klima
+Réponse : Das Wetter beschreibt kurzfristige Zustände. Das Klima fasst langfristige Muster zusammen, etwa typische Temperaturen und die Häufigkeit von Niederschlag.
+
+Exemple 17
+Demande : Rédige une note sur les relevés d'humidité d'une serre
+Réponse : Le matin, les mesures sont consignées avec l'heure et le numéro du capteur. On compare ensuite les valeurs à la médiane de la semaine. Une dérive persistante justifie de vérifier l'étalonnage.
+
+Exemple 18
+Demande : Write a brief handover for a library inventory
+Réponse : The incoming shift should scan the returns cart, reconcile damaged items with the register, and record missing labels separately. A second person can verify the changes before closing.
+
+Exemple 19
+Demande : Explique une boucle Python à un débutant
+Réponse : La boucle for parcourt une collection. Par exemple, for nom in noms: print(nom) affiche les noms dans leur ordre initial. Une boucle while convient quand le nombre d'itérations est inconnu.
+
+Exemple 20
+Demande : Resume en español un itinerario rural
+Réponse : El sendero cruza un puente de piedra y sigue el cauce hasta el molino. Hay que llevar agua y consultar el horario del autobús antes de salir.
+
+Exemple 21
+Demande : Interprète un tableau de stock
+Réponse : Les colonnes article, quantité et date de réception servent à repérer les écarts. Le comptage physique précède la correction des lignes et la nouvelle commande.
+
+Exemple 22
+Demande : Describe why bread dough rises
+Réponse : Yeast consumes sugars and releases carbon dioxide. The gluten network traps some of this gas. A warm room speeds fermentation, while a refrigerator slows it down.
+
+Exemple 23
+Demande : Propose une scène de fiction courte
+Réponse : Au dernier étage de l'hôtel, la lampe oscillait malgré les fenêtres fermées. Nora posa sa valise, reconnut une mélodie ancienne et attendit que l'ascenseur reparte.
+
+Exemple 24
+Demande : Erkläre den Unterschied zwischen Wetter und Klima
+Réponse : Das Wetter beschreibt kurzfristige Zustände. Das Klima fasst langfristige Muster zusammen, etwa typische Temperaturen und die Häufigkeit von Niederschlag.
+
+Exemple 25
+Demande : Rédige une note sur les relevés d'humidité d'une serre
+Réponse : Le matin, les mesures sont consignées avec l'heure et le numéro du capteur. On compare ensuite les valeurs à la médiane de la semaine. Une dérive persistante justifie de vérifier l'étalonnage.
+
+Exemple 26
+Demande : Write a brief handover for a library inventory
+Réponse : The incoming shift should scan the returns cart, reconcile damaged items with the register, and record missing labels separately. A second person can verify the changes before closing.
+
+Exemple 27
+Demande : Explique une boucle Python à un débutant
+Réponse : La boucle for parcourt une collection. Par exemple, for nom in noms: print(nom) affiche les noms dans leur ordre initial. Une boucle while convient quand le nombre d'itérations est inconnu.
+
+Exemple 28
+Demande : Resume en español un itinerario rural
+Réponse : El sendero cruza un puente de piedra y sigue el cauce hasta el molino. Hay que llevar agua y consultar el horario del autobús antes de salir.
+
+Exemple 29
+Demande : Interprète un tableau de stock
+Réponse : Les colonnes article, quantité et date de réception servent à repérer les écarts. Le comptage physique précède la correction des lignes et la nouvelle commande.
+
+Exemple 30
+Demande : Describe why bread dough rises
+Réponse : Yeast consumes sugars and releases carbon dioxide. The gluten network traps some of this gas. A warm room speeds fermentation, while a refrigerator slows it down.
+
+Exemple 31
+Demande : Propose une scène de fiction courte
+Réponse : Au dernier étage de l'hôtel, la lampe oscillait malgré les fenêtres fermées. Nora posa sa valise, reconnut une mélodie ancienne et attendit que l'ascenseur reparte.
+
+Exemple 32
+Demande : Erkläre den Unterschied zwischen Wetter und Klima
+Réponse : Das Wetter beschreibt kurzfristige Zustände. Das Klima fasst langfristige Muster zusammen, etwa typische Temperaturen und die Häufigkeit von Niederschlag.
+
+Exemple 33
+Demande : Rédige une note sur les relevés d'humidité d'une serre
+Réponse : Le matin, les mesures sont consignées avec l'heure et le numéro du capteur. On compare ensuite les valeurs à la médiane de la semaine. Une dérive persistante justifie de vérifier l'étalonnage.
+
+Exemple 34
+Demande : Write a brief handover for a library inventory
+Réponse : The incoming shift should scan the returns cart, reconcile damaged items with the register, and record missing labels separately. A second person can verify the changes before closing.
+
+Exemple 35
+Demande : Explique une boucle Python à un débutant
+Réponse : La boucle for parcourt une collection. Par exemple, for nom in noms: print(nom) affiche les noms dans leur ordre initial. Une boucle while convient quand le nombre d'itérations est inconnu.
+
+Exemple 36
+Demande : Resume en español un itinerario rural
+Réponse : El sendero cruza un puente de piedra y sigue el cauce hasta el molino. Hay que llevar agua y consultar el horario del autobús antes de salir.
+
+Exemple 37
+Demande : Interprète un tableau de stock
+Réponse : Les colonnes article, quantité et date de réception servent à repérer les écarts. Le comptage physique précède la correction des lignes et la nouvelle commande.
+
+Exemple 38
+Demande : Describe why bread dough rises
+Réponse : Yeast consumes sugars and releases carbon dioxide. The gluten network traps some of this gas. A warm room speeds fermentation, while a refrigerator slows it down.
+
+Exemple 39
+Demande : Propose une scène de fiction courte
+Réponse : Au dernier étage de l'hôtel, la lampe oscillait malgré les fenêtres fermées. Nora posa sa valise, reconnut une mélodie ancienne et attendit que l'ascenseur reparte.
+
+Exemple 40
+Demande : Erkläre den Unterschied zwischen Wetter und Klima
+Réponse : Das Wetter beschreibt kurzfristige Zustände. Das Klima fasst langfristige Muster zusammen, etwa typische Temperaturen und die Häufigkeit von Niederschlag.
+
+Exemple 41
+Demande : Rédige une note sur les relevés d'humidité d'une serre
+Réponse : Le matin, les mesures sont consignées avec l'heure et le numéro du capteur. On compare ensuite les valeurs à la médiane de la semaine. Une dérive persistante justifie de vérifier l'étalonnage.
+
+Exemple 42
+Demande : Write a brief handover for a library inventory
+Réponse : The incoming shift should scan the returns cart, reconcile damaged items with the register, and record missing labels separately. A second person can verify the changes before closing.
+
+Exemple 43
+Demande : Explique une boucle Python à un débutant
+Réponse : La boucle for parcourt une collection. Par exemple, for nom in noms: print(nom) affiche les noms dans leur ordre initial. Une boucle while convient quand le nombre d'itérations est inconnu.
+
+Exemple 44
+Demande : Resume en español un itinerario rural
+Réponse : El sendero cruza un puente de piedra y sigue el cauce hasta el molino. Hay que llevar agua y consultar el horario del autobús antes de salir.
+
+Exemple 45
+Demande : Interprète un tableau de stock
+Réponse : Les colonnes article, quantité et date de réception servent à repérer les écarts. Le comptage physique précède la correction des lignes et la nouvelle commande.
+
+Exemple 46
+Demande : Describe why bread dough rises
+Réponse : Yeast consumes sugars and releases carbon dioxide. The gluten network traps some of this gas. A warm room speeds fermentation, while a refrigerator slows it down.
+
+Exemple 47
+Demande : Propose une scène de fiction courte
+Réponse : Au dernier étage de l'hôtel, la lampe oscillait malgré les fenêtres fermées. Nora posa sa valise, reconnut une mélodie ancienne et attendit que l'ascenseur reparte.
+
+Exemple 48
+Demande : Erkläre den Unterschied zwischen Wetter und Klima
+Réponse : Das Wetter beschreibt kurzfristige Zustände. Das Klima fasst langfristige Muster zusammen, etwa typische Temperaturen und die Häufigkeit von Niederschlag.
+
+Exemple 49
+Demande : Rédige une note sur les relevés d'humidité d'une serre
+Réponse : Le matin, les mesures sont consignées avec l'heure et le numéro du capteur. On compare ensuite les valeurs à la médiane de la semaine. Une dérive persistante justifie de vérifier l'étalonnage.
+
+Exemple 50
+Demande : Write a brief handover for a library inventory
+Réponse : The incoming shift should scan the returns cart, reconcile damaged items with the register, and record missing labels separately. A second person can verify the changes before closing.
+
+Exemple 51
+Demande : Explique une boucle Python à un débutant
+Réponse : La boucle for parcourt une collection. Par exemple, for nom in noms: print(nom) affiche les noms dans leur ordre initial. Une boucle while convient quand le nombre d'itérations est inconnu.
+
+Exemple 52
+Demande : Resume en español un itinerario rural
+Réponse : El sendero cruza un puente de piedra y sigue el cauce hasta el molino. Hay que llevar agua y consultar el horario del autobús antes de salir.
+
+Exemple 53
+Demande : Interprète un tableau de stock
+Réponse : Les colonnes article, quantité et date de réception servent à repérer les écarts. Le comptage physique précède la correction des lignes et la nouvelle commande.
+
+Exemple 54
+Demande : Describe why bread dough rises
+Réponse : Yeast consumes sugars and releases carbon dioxide. The gluten network traps some of this gas. A warm room speeds fermentation, while a refrigerator slows it down.
+
+Exemple 55
+Demande : Propose une scène de fiction courte
+Réponse : Au dernier étage de l'hôtel, la lampe oscillait malgré les fenêtres fermées. Nora posa sa valise, reconnut une mélodie ancienne et attendit que l'ascenseur reparte.
+
+Exemple 56
+Demande : Erkläre den Unterschied zwischen Wetter und Klima
+Réponse : Das Wetter beschreibt kurzfristige Zustände. Das Klima fasst langfristige Muster zusammen, etwa typische Temperaturen und die Häufigkeit von Niederschlag.
+
+Exemple 57
+Demande : Rédige une note sur les relevés d'humidité d'une serre
+Réponse : Le matin, les mesures sont consignées avec l'heure et le numéro du capteur. On compare ensuite les valeurs à la médiane de la semaine. Une dérive persistante justifie de vérifier l'étalonnage.
+
+Exemple 58
+Demande : Write a brief handover for a library inventory
+Réponse : The incoming shift should scan the returns cart, reconcile damaged items with the register, and record missing labels separately. A second person can verify the changes before closing.
+
+Exemple 59
+Demande : Explique une boucle Python à un débutant
+Réponse : La boucle for parcourt une collection. Par exemple, for nom in noms: print(nom) affiche les noms dans leur ordre initial. Une boucle while convient quand le nombre d'itérations est inconnu.
+
+Exemple 60
+Demande : Resume en español un itinerario rural
+Réponse : El sendero cruza un puente de piedra y sigue el cauce hasta el molino. Hay que llevar agua y consultar el horario del autobús antes de salir.
+
+Exemple 61
+Demande : Interprète un tableau de stock
+Réponse : Les colonnes article, quantité et date de réception servent à repérer les écarts. Le comptage physique précède la correction des lignes et la nouvelle commande.
+
+Exemple 62
+Demande : Describe why bread dough rises
+Réponse : Yeast consumes sugars and releases carbon dioxide. The gluten network traps some of this gas. A warm room speeds fermentation, while a refrigerator slows it down.
+
+Exemple 63
+Demande : Propose une scène de fiction courte
+Réponse : Au dernier étage de l'hôtel, la lampe oscillait malgré les fenêtres fermées. Nora posa sa valise, reconnut une mélodie ancienne et attendit que l'ascenseur reparte.
+
+Exemple 64
+Demande : Erkläre den Unterschied zwischen Wetter und Klima
+Réponse : Das Wetter beschreibt kurzfristige Zustände. Das Klima fasst langfristige Muster zusammen, etwa typische Temperaturen und die Häufigkeit von Niederschlag.
+
+Exemple 65
+Demande : Rédige une note sur les relevés d'humidité d'une serre
+Réponse : Le matin, les mesures sont consignées avec l'heure et le numéro du capteur. On compare ensuite les valeurs à la médiane de la semaine. Une dérive persistante justifie de vérifier l'étalonnage.
+
+Exemple 66
+Demande : Write a brief handover for a library inventory
+Réponse : The incoming shift should scan the returns cart, reconcile damaged items with the register, and record missing labels separately. A second person can verify the changes before closing.
+
+Exemple 67
+Demande : Explique une boucle Python à un débutant
+Réponse : La boucle for parcourt une collection. Par exemple, for nom in noms: print(nom) affiche les noms dans leur ordre initial. Une boucle while convient quand le nombre d'itérations est inconnu.
+
+Exemple 68
+Demande : Resume en español un itinerario rural
+Réponse : El sendero cruza un puente de piedra y sigue el cauce hasta el molino. Hay que llevar agua y consultar el horario del autobús antes de salir.
+
+Exemple 69
+Demande : Interprète un tableau de stock
+Réponse : Les colonnes article, quantité et date de réception servent à repérer les écarts. Le comptage physique précède la correction des lignes et la nouvelle commande.
+
+Exemple 70
+Demande : Describe why bread dough rises
+Réponse : Yeast consumes sugars and releases carbon dioxide. The gluten network traps some of this gas. A warm room speeds fermentation, while a refrigerator slows it down.
+
+Exemple 71
+Demande : Propose une scène de fiction courte
+Réponse : Au dernier étage de l'hôtel, la lampe oscillait malgré les fenêtres fermées. Nora posa sa valise, reconnut une mélodie ancienne et attendit que l'ascenseur reparte.
+
+Exemple 72
+Demande : Erkläre den Unterschied zwischen Wetter und Klima
+Réponse : Das Wetter beschreibt kurzfristige Zustände. Das Klima fasst langfristige Muster zusammen, etwa typische Temperaturen und die Häufigkeit von Niederschlag.
+
+Exemple 73
+Demande : Rédige une note sur les relevés d'humidité d'une serre
+Réponse : Le matin, les mesures sont consignées avec l'heure et le numéro du capteur. On compare ensuite les valeurs à la médiane de la semaine. Une dérive persistante justifie de vérifier l'étalonnage.
+
+Exemple 74
+Demande : Write a brief handover for a library inventory
+Réponse : The incoming shift should scan the returns cart, reconcile damaged items with the register, and record missing labels separately. A second person can verify the changes before closing.
+
+Exemple 75
+Demande : Explique une boucle Python à un débutant
+Réponse : La boucle for parcourt une collection. Par exemple, for nom in noms: print(nom) affiche les noms dans leur ordre initial. Une boucle while convient quand le nombre d'itérations est inconnu.
+
+Exemple 76
+Demande : Resume en español un itinerario rural
+Réponse : El sendero cruza un puente de piedra y sigue el cauce hasta el molino. Hay que llevar agua y consultar el horario del autobús antes de salir.
+
+Exemple 77
+Demande : Interprète un tableau de stock
+Réponse : Les colonnes article, quantité et date de réception servent à repérer les écarts. Le comptage physique précède la correction des lignes et la nouvelle commande.
+
+Exemple 78
+Demande : Describe why bread dough rises
+Réponse : Yeast consumes sugars and releases carbon dioxide. The gluten network traps some of this gas. A warm room speeds fermentation, while a refrigerator slows it down.
+
+Exemple 79
+Demande : Propose une scène de fiction courte
+Réponse : Au dernier étage de l'hôtel, la lampe oscillait malgré les fenêtres fermées. Nora posa sa valise, reconnut une mélodie ancienne et attendit que l'ascenseur reparte.
+
+Exemple 80
+Demande : Erkläre den Unterschied zwischen Wetter und Klima
+Réponse : Das Wetter beschreibt kurzfristige Zustände. Das Klima fasst langfristige Muster zusammen, etwa typische Temperaturen und die Häufigkeit von Niederschlag.
+
+Exemple 81
+Demande : Rédige une note sur les relevés d'humidité d'une serre
+Réponse : Le matin, les mesures sont consignées avec l'heure et le numéro du capteur. On compare ensuite les valeurs à la médiane de la semaine. Une dérive persistante justifie de vérifier l'étalonnage.
+
+Exemple 82
+Demande : Write a brief handover for a library inventory
+Réponse : The incoming shift should scan the returns cart, reconcile damaged items with the register, and record missing labels separately. A second person can verify the changes before closing.
+
+Exemple 83
+Demande : Explique une boucle Python à un débutant
+Réponse : La boucle for parcourt une collection. Par exemple, for nom in noms: print(nom) affiche les noms dans leur ordre initial. Une boucle while convient quand le nombre d'itérations est inconnu.
+
+Exemple 84
+Demande : Resume en español un itinerario rural
+Réponse : El sendero cruza un puente de piedra y sigue el cauce hasta el molino. Hay que llevar agua y consultar el horario del autobús antes de salir.
+
+Exemple 85
+Demande : Interprète un tableau de stock
+Réponse : Les colonnes article, quantité et date de réception servent à repérer les écarts. Le comptage physique précède la correction des lignes et la nouvelle commande.
+
+Exemple 86
+Demande : Describe why bread dough rises
+Réponse : Yeast consumes sugars and releases carbon dioxide. The gluten network traps some of this gas. A warm room speeds fermentation, while a refrigerator slows it down.
+
+Exemple 87
+Demande : Propose une scène de fiction courte
+Réponse : Au dernier étage de l'hôtel, la lampe oscillait malgré les fenêtres fermées. Nora posa sa valise, reconnut une mélodie ancienne et attendit que l'ascenseur reparte.
+
+Exemple 88
+Demande : Erkläre den Unterschied zwischen Wetter und Klima
+Réponse : Das Wetter beschreibt kurzfristige Zustände. Das Klima fasst langfristige Muster zusammen, etwa typische Temperaturen und die Häufigkeit von Niederschlag.
+
+Exemple 89
+Demande : Rédige une note sur les relevés d'humidité d'une serre
+Réponse : Le matin, les mesures sont consignées avec l'heure et le numéro du capteur. On compare ensuite les valeurs à la médiane de la semaine. Une dérive persistante justifie de vérifier l'étalonnage.
+
+Exemple 90
+Demande : Write a brief handover for a library inventory
+Réponse : The incoming shift should scan the returns cart, reconcile damaged items with the register, and record missing labels separately. A second person can verify the changes before closing.
+
+Exemple 91
+Demande : Explique une boucle Python à un débutant
+Réponse : La boucle for parcourt une collection. Par exemple, for nom in noms: print(nom) affiche les noms dans leur ordre initial. Une boucle while convient quand le nombre d'itérations est inconnu.
+
+Exemple 92
+Demande : Resume en español un itinerario rural
+Réponse : El sendero cruza un puente de piedra y sigue el cauce hasta el molino. Hay que llevar agua y consultar el horario del autobús antes de salir.
+
+Exemple 93
+Demande : Interprète un tableau de stock
+Réponse : Les colonnes article, quantité et date de réception servent à repérer les écarts. Le comptage physique précède la correction des lignes et la nouvelle commande.
+
+Exemple 94
+Demande : Describe why bread dough rises
+Réponse : Yeast consumes sugars and releases carbon dioxide. The gluten network traps some of this gas. A warm room speeds fermentation, while a refrigerator slows it down.
+
+Exemple 95
+Demande : Propose une scène de fiction courte
+Réponse : Au dernier étage de l'hôtel, la lampe oscillait malgré les fenêtres fermées. Nora posa sa valise, reconnut une mélodie ancienne et attendit que l'ascenseur reparte.
+
+Exemple 96
+Demande : Erkläre den Unterschied zwischen Wetter und Klima
+Réponse : Das Wetter beschreibt kurzfristige Zustände. Das Klima fasst langfristige Muster zusammen, etwa typische Temperaturen und die Häufigkeit von Niederschlag.

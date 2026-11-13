@@ -15,3 +15,10 @@ export function omniTtsPrompt(locale: string, voice: 'male' | 'female' = 'male')
   return `Perform TTS in ${omniSpeechLanguage(locale)} using a ${voice} voice.`
 }
 export function omniAsrPrompt(locale: string) { return `Perform ASR in ${omniSpeechLanguage(locale)}.` }
+export function nativeSpeechSettings(prompt: unknown) {
+  const text = typeof prompt === 'string' ? prompt : ''
+  const named = /Perform (?:TTS|ASR) in (.+?)(?: using a |\.)/.exec(text)?.[1]
+  const locale = Object.entries(languages).find(([, name]) => name === named)?.[0]
+  const hint = /(?:Language(?: hint)?):\s*([a-z]{2}(?:-[a-z]{2})?)/i.exec(text)?.[1].toLowerCase()
+  return { lang: locale ?? hint ?? 'fr', voice: /using a female voice\./.test(text) ? 'female' : 'male' }
+}

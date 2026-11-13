@@ -16,9 +16,9 @@ export function unlockBrowserVoice() {
   } catch { /* The actual voice operation reports unavailable audio devices. */ }
 }
 
-export function browserVoiceSupported() {
+export function browserVoiceSupported(model?: string) {
   const gpu = (navigator as Navigator & { gpu?: { requestAdapter?: unknown } }).gpu
-  return typeof gpu?.requestAdapter === 'function' && typeof navigator.mediaDevices?.getUserMedia === 'function' &&
+  return ((model && browserRuntime.supportsNative(model)) || typeof gpu?.requestAdapter === 'function') && typeof navigator.mediaDevices?.getUserMedia === 'function' &&
     typeof window.AudioContext === 'function' && typeof window.AudioWorkletNode === 'function'
 }
 

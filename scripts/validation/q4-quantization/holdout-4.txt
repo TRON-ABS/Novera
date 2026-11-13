@@ -1,0 +1,65 @@
+Le 18 mars, la bibliothèque annonce que les inscriptions au cours de reliure ouvriront à midi. Une erreur dans le calendrier mentionne pourtant neuf heures. La responsable retire le calendrier, affiche un correctif et précise que les demandes reçues entre neuf heures et midi seront traitées ensemble. Un lecteur qui a préparé son formulaire la veille demande s’il doit le renvoyer. La réponse doit distinguer la préparation d’une demande et son envoi effectif. Elle doit aussi citer l’heure corrigée sans supposer que le lecteur a déjà envoyé quoi que ce soit.
+
+During a rehearsal, three lights marked amber, blue and white turn on in sequence. The stage manager records an event only when the light has remained on for five seconds. A flicker at the beginning is visible in the video but does not appear in the event list. Write a brief explanation that distinguishes the camera's observations from the stage manager's rule. Do not describe the missing event as an equipment failure without supporting evidence.
+
+En el huerto escolar hay dos zonas separadas por un sendero. En la primera se registraron veintitrés plantas al principio del trimestre; en la segunda, diecisiete. Antes de la visita se trasladaron cuatro macetas de la primera zona a la segunda. Después llegaron cinco macetas nuevas, pero todavía no se sabe dónde se colocaron. Indica qué cifras se pueden calcular con certeza y qué dato sigue pendiente. Explica por qué un traslado no cambia el total general.
+
+{
+  "source": "daily-check",
+  "events": [
+    {"id": "alpha", "state": "ok", "elapsed_ms": 124},
+    {"id": "beta", "state": "retry", "elapsed_ms": 275},
+    {"id": "gamma", "state": "ok", "elapsed_ms": 311}
+  ],
+  "next": null
+}
+Summarize the record without treating a retry as a final failure. Then write a SQL statement to count the rows grouped by state, using a table called events. Explain why a null value in the next field does not imply that the events array is empty.
+
+Le carnet de cuisine distingue le poids des ingrédients avant et après cuisson. Pour deux personnes, la recette emploie 160 grammes de riz cru, 350 millilitres d’eau et une pincée de sel. Pour six personnes, le cuisinier triple les quantités de départ. Une partie de l’eau s’évapore, mais aucune mesure ne précise combien. Calcule les quantités de départ et explique pourquoi le poids final ne peut pas être déduit par simple addition. Garde les unités d’origine.
+
+Ein Fahrplan zeigt zwei Abfahrten mit denselben Stationsnamen. Der erste Zug fährt direkt. Der zweite Zug hat einen Umstieg und erreicht das Ziel später. Eine Kundin möchte so spät wie möglich losfahren und dennoch vor vierzehn Uhr ankommen. Erläutere, welche Zeiten für die Entscheidung nötig sind. Gib keine konkrete Abfahrt an, wenn die Ankunftszeit fehlt.
+
+def stable_unique(values):
+    seen = set()
+    result = []
+    for value in values:
+        if value not in seen:
+            seen.add(value)
+            result.append(value)
+    return result
+
+Describe the function's output for the input [3, 1, 3, 2, 1]. Contrast the returned order with sorted order. Provide a second example that exposes what happens when an element cannot be hashed. Keep the discussion separate from proposed changes to the code.
+
+The journal entry says, “We left the green door open so the courier could reach the courtyard.” The building has a second green door in a photograph taken from the street. A later note says the street entrance had already been locked. Identify what can reasonably be inferred about the intended door and what remains uncertain. Use the two notes as evidence, and avoid inventing an address or a time.
+
+Un musée prête un objet à une école pour une exposition d’une semaine. L’inventaire initial comporte une photographie, une fiche d’état et une date de retour. L’école remarque une rayure déjà visible sur la photographie, mais absente de la fiche. Elle contacte le musée avant l’ouverture et demande une mise à jour du dossier. Rédige un court message qui décrit l’observation, cite la pièce disponible et ne présente pas l’origine de la rayure comme certaine.
+
+La traducción de “pending review” depende del estado real de un trámite. Una solicitud puede estar registrada y todavía no haber sido examinada. Otra puede haber sido examinada una vez y estar a la espera de una segunda revisión. Propón una traducción breve para cada caso. Indica cuál conservarías si la pantalla muestra una sola etiqueta común y no ofrece más información.
+
+In a small survey, 48 people answered the first question, 42 answered the second, and 37 answered both. The analyst wants the number of distinct respondents who answered at least one question. Explain how to use inclusion and exclusion. Report separately how many answered only the first question. Do not use the number who answered both as the total for either question.
+
+台所の棚には同じ形の瓶が三つあります。ラベルには「砂糖」「塩」「小麦粉」と書いてありますが、一つのラベルがはがれています。料理を始める前に、材料の確認が必要です。文章に書かれている事実と、まだ分からないことを分けて説明してください。瓶の中身を見ていないのに断定しないでください。
+
+La fiche de contrôle contient les colonnes date, lot et statut. Les lignes sans statut doivent rester dans le fichier, car elles représentent des contrôles à faire. Une collègue propose de supprimer ces lignes avant de compter les contrôles terminés. Explique comment obtenir le même compte avec un filtre sans détruire l’information. Donne un exemple de ligne qui serait utile à garder pour le lendemain.
+
+The relay team may submit its final list after the morning warm-up but before the starting bell. The instructions mention the captain, the timekeeper and a substitute. Only the captain is allowed to submit the list. If the captain is absent, the team must ask the organizer to appoint a replacement. Summarize this as a checklist, separating ordinary steps from the conditional step.
+
+On compare deux devis pour l’impression d’une brochure. Le premier facture 38 euros de mise en page puis 0,32 euro par exemplaire. Le second n’a pas de frais fixes, mais facture 0,51 euro par exemplaire. Les deux prix sont annoncés hors taxe. Calcule le nombre d’exemplaires pour lequel les deux coûts sont égaux, puis compare les coûts pour 150 exemplaires. Indique les hypothèses qui rendent la comparaison valable.
+
+Eine Maschine schreibt die Zeit in UTC, ein anderes Gerät verwendet die Ortszeit. In den Berichten erscheinen zwei Einträge in scheinbar umgekehrter Reihenfolge. Bevor man einen Fehler meldet, sollte man beide Zeitangaben auf dieselbe Zeitzone umstellen und prüfen, ob Datum und Zeitzonenangabe vollständig sind. Erkläre, warum eine Sortierung nach dem angezeigten Text allein nicht zuverlässig ist.
+
+An editor receives a paragraph in which “its” appears twice and “it’s” appears once. The first word introduces possession, while the contraction expands to “it is.” Write two fresh examples that illustrate the distinction. Then rewrite a short sentence with a deliberately ambiguous pronoun so that the person responsible for the action is explicit.
+
+La radio associative garde une copie brute de chaque entretien et un fichier séparé pour les extraits montés. Une bénévole remarque qu’un mot a disparu au début d’un extrait. Elle compare les fichiers et retrouve le mot dans la copie brute. Décris une correction qui restaure le début de la phrase et qui permet de revenir à l’ancien montage en cas d’erreur. Précise quel fichier doit servir de source.
+
+Una tienda ofrece una rebaja del diez por ciento y, después, un cupón fijo de tres euros. El precio inicial es de cuarenta euros. Calcula el precio final aplicando las condiciones en el orden indicado. Luego explica por qué aplicar el cupón primero cambia el resultado. No añadas impuestos ni condiciones que no se mencionan.
+
+To check a batch of translations, the reviewer compares names, quantities and negation with the original. A sentence that says “the office did not approve the change” cannot be summarized as “the office approved the change.” Propose a short review note for this error. Distinguish it from a stylistic issue such as choosing “office” instead of “department.”
+
+Le dossier de voyage contient une réservation d’hôtel, un billet de train et une facture déjà réglée. Le billet indique un départ le samedi, tandis que l’hôtel confirme une arrivée le dimanche. Ce décalage peut être voulu, car une étape intermédiaire est mentionnée dans les notes. Rédige une demande de confirmation au voyageur en citant les dates et l’étape sans conclure qu’une réservation est erronée.
+
+The classroom thermometer and the outdoor sensor disagreed after the window was opened. One sensor was in direct sunlight and the other was next to a shelf. Plan a repeat measurement that makes the placement and timing comparable. Record the raw measurements before calculating averages, and explain what you would report if the two readings still differed.
+
+Une équipe publie deux listes de prénoms : celle des bénévoles disponibles vendredi et celle des personnes formées à l’accueil. La cheffe de salle cherche les personnes qui figurent dans les deux listes. Décris une méthode pour repérer cette intersection et traiter deux personnes qui ont le même prénom. Explique pourquoi un identifiant stable peut éviter une confusion.
+
+On Tuesday the supply log shows that the last box of envelopes was opened. On Wednesday the courier delivers two sealed boxes. On Thursday an employee finds another sealed box on a different shelf. The log alone cannot show whether the Thursday box had already been counted. Draft a correction that records the discovery and flags the unresolved inventory question.

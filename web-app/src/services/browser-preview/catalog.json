@@ -57,5 +57,37 @@
       "text"
     ],
     "dependencyReview": "apache-2.0-dist-notice"
+  },
+  {
+    "id": "LFM3-Omni-2B-Q8_0",
+    "name": "LFM3-Omni-2B · Q8_0",
+    "kind": "omni",
+    "repo": "LiquidAI/LFM3-Omni-2B-GGUF",
+    "revision": "d508b88f08a5b4286f2d2805a6a8d69a0ff44c72",
+    "file": "LFM3-Omni-2B-Q8_0.gguf",
+    "projector": "mmproj-LFM3-Omni-2B-Q8_0.gguf",
+    "bytes": 2353083296,
+    "assets": [
+      {
+        "file": "LFM3-Omni-2B-Q8_0.gguf",
+        "bytes": 1846240768,
+        "sha256": "59118f661eaacb93d204723d76355b53347f0940b508c11412f6290fd49158d4"
+      },
+      {
+        "file": "mmproj-LFM3-Omni-2B-Q8_0.gguf",
+        "bytes": 506842528,
+        "sha256": "8a25f9d1931244429de404fccacfb7fb933970a36aa5688d2f5069f29c6b27b1"
+      }
+    ],
+    "sdk": {
+      "url": "https://huggingface.co/spaces/LiquidAI/LFM3-Omni-2B-WebGPU/resolve/9c2fb176f4c222da394e8037d3c0d0837f70b978/Lfm3OmniForConditionalGeneration.js",
+      "sha256": "77821949412f5dd6d60e37f22415f0e71454e65f6a73928529c6fbec0f2cf2cb",
+      "export": "Lfm3OmniForConditionalGeneration"
+    },
+    "licenseUrl": "https://huggingface.co/LiquidAI/LFM3-Omni-2B-GGUF/blob/d508b88f08a5b4286f2d2805a6a8d69a0ff44c72/LICENSE",
+    "browserCapabilities": [
+      "text"
+    ],
+    "dependencyReview": "required-before-public-distribution"
   }
 ]

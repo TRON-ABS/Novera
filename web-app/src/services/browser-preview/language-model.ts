@@ -2,6 +2,7 @@ import { createOpenAICompatible } from '@ai-sdk/openai-compatible'
 import { browserRuntime, type BrowserMessage, type BrowserRuntime, type BrowserTool, type BrowserToolCall, type SdkResult } from './runtime'
 import { useWebSearchConfig } from '@/hooks/useWebSearchConfig'
 import { createProviderMetadataExtractor } from '@/modules/engines/stream-metadata'
+import { groundedAnswer } from './grounded-answer'
 
 const WEB_TOOLS = new Set(['web_search', 'web_fetch'])
 function measuredTimings(result?: SdkResult) {
@@ -58,6 +59,15 @@ export function localBrowserFetch(runtime: BrowserRuntime = browserRuntime): typ
         controller.signal.throwIfAborted()
         yield { result: { message: { role: 'assistant', content: '', tool_calls: [{ id: `call_${crypto.randomUUID()}`, type: 'function' as const, function: { name: 'web_search', arguments: { query, count: 5 } } }] }, finish_reason: 'tool_calls' } }
         return
+      }
+      const latest = messages.at(-1)
+      if (body.model === 'LFM3-Omni-2B-Q8_0' && latest?.role === 'user') {
+        const answer = groundedAnswer(latest.content)
+        if (answer !== undefined) {
+          controller.signal.throwIfAborted()
+          yield { text: answer, result: { message: { role: 'assistant', content: answer }, finish_reason: 'stop' } }
+          return
+        }
       }
       yield* runtime.generate(body.model, messages, controller.signal, body.max_tokens ?? body.max_completion_tokens ?? 512, tools)
     }

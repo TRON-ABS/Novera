@@ -1,5 +1,5 @@
 import {describe,it,expect} from 'vitest'
-import {frenchNumbers} from '../frenchNumbers'
+import {frenchNumbers, normalizeFrenchCalculation} from '../frenchNumbers'
 describe('French speech numbers',()=>{
  it.each([
   ['1889','mille huit cent quatre-vingt-neuf'],['2019','deux mille dix-neuf'],
@@ -18,6 +18,10 @@ describe('French speech numbers',()=>{
  })
 })
 
+it('normalizes spoken operands while preserving other requests', () => {
+  expect(normalizeFrenchCalculation('Combien font dix-sept fois quatorze ?')).toBe('Combien font 17 fois 14 ?')
+  expect(normalizeFrenchCalculation('Combien font 20 euros moins 7,50 euros ?')).toBe('Combien font 20 euros moins 7,50 euros ?')
+})
 
 it('reads a euro subtraction with the cents after the currency', () => {
   expect(frenchNumbers('20 € − 7,50 € = 12,50 €', 'fr-FR'))

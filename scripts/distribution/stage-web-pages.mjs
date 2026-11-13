@@ -26,5 +26,5 @@ for (const file of ['video-performance/index.html', 'video-performance/worker.js
 }
 preparePagesSite(output, commit, undefined, identity.version)
 fs.cpSync(source, path.join(output, 'web'), { recursive: true, errorOnExist: true, force: false })
-fs.writeFileSync(path.join(output, 'web/WEB-DELIVERY-READINESS.json'), JSON.stringify({ ...receipt, channel: 'public-experimental', publicReleaseAuthorized: true, cachePolicy: 'GitHub Pages managed cache; no strict no-store guarantee' }, null, 2) + '\n')
-console.log(JSON.stringify({ commit, version: identity.version, files: receipt.artifacts.length, channel: 'public-experimental' }))
+fs.writeFileSync(path.join(output, 'web/WEB-DELIVERY-READINESS.json'), JSON.stringify({ ...receipt, channel: 'public', publicReleaseAuthorized: true, cachePolicy: 'GitHub Pages managed cache; no strict no-store guarantee' }, null, 2) + '\n')
+console.log(JSON.stringify({ commit, version: identity.version, files: receipt.artifacts.length, channel: 'public' }))

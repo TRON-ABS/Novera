@@ -1,5 +1,6 @@
 import type { VoiceBackend } from './voiceConversation'
 import { nativeWindowsVoice } from './voicePlatform'
+import { isPlatformAndroid, isPlatformTauri } from './platform/utils'
 import { playOmniReply, type OmniVoice } from './omniSpeech'
 import { VoiceUtterance } from './voiceUtterance'
 import { fetch as fetchLocalEngine } from '@tauri-apps/plugin-http'
@@ -15,7 +16,8 @@ export function isOmniVoiceModel(provider: string, id: string, name = '') {
   return provider === 'llamacpp' && /lfm3[-_\s]*(omni|audio)/i.test(`${id} ${name}`)
 }
 export function omniVoiceSupported() {
-  return nativeWindowsVoice() && typeof navigator.mediaDevices?.getUserMedia === 'function' &&
+  return (nativeWindowsVoice() || (isPlatformTauri() && isPlatformAndroid())) &&
+    typeof navigator.mediaDevices?.getUserMedia === 'function' &&
     typeof window.AudioContext === 'function' && typeof window.AudioWorkletNode === 'function'
 }
 
@@ -115,7 +117,9 @@ export function createOmniVoiceBackend(locale: string, options: OmniVoiceOptions
           if (checkingForeground || operation.signal.aborted) return
           checkingForeground = true
           try {
-            const foreground = await invoke<boolean>('voice_is_foreground')
+            const foreground = nativeWindowsVoice()
+              ? await invoke<boolean>('voice_is_foreground')
+              : document.visibilityState === 'visible'
             if (guardingForeground && !foreground) operation.abort()
           } catch { if (guardingForeground) operation.abort() }
           finally { checkingForeground = false }

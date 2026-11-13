@@ -5,8 +5,10 @@ const speech = vi.hoisted(() => ({listen:vi.fn(),speak:vi.fn(),stop:vi.fn()}))
 const playReply = vi.hoisted(() => vi.fn())
 vi.mock('../omniSpeech', () => ({playOmniReply:playReply}))
 const foreground = vi.hoisted(() => vi.fn())
+const platform = vi.hoisted(() => ({ android: false }))
 vi.mock('@tauri-apps/api/core', () => ({invoke:foreground}))
-vi.mock('../voicePlatform', () => ({ nativeWindowsVoice: () => true, createVoiceBackend: () => speech }))
+vi.mock('../platform/utils', () => ({ isPlatformAndroid: () => platform.android, isPlatformTauri: () => true }))
+vi.mock('../voicePlatform', () => ({ nativeWindowsVoice: () => !platform.android, createVoiceBackend: () => speech }))
 vi.mock('@tauri-apps/plugin-http', () => ({ fetch: (...args: unknown[]) => fetchMock(...args) }))
 const stopTrack = vi.fn()
 const stream = {getTracks: () => [{stop:stopTrack}]}
@@ -29,6 +31,7 @@ class Worklet {
 }
 const fetchMock = vi.fn()
 beforeEach(() => {
+  platform.android = false
   vi.clearAllMocks(); Worklet.current = undefined
   foreground.mockResolvedValue(true)
   playReply.mockResolvedValue(undefined)
@@ -48,6 +51,16 @@ async function phrase() {
 const prepare = () => Promise.resolve({port:34123,api_key:'test-local-key'})
 
 describe('direct local Omni microphone', () => {
+  it('captures Android audio with the local model without using Windows focus commands', async () => {
+    platform.android = true
+    vi.spyOn(document, 'visibilityState', 'get').mockReturnValue('visible')
+    expect(omniVoiceSupported()).toBe(true)
+    const result = createOmniVoiceBackend('fr', { model: 'local-omni', prepare }).listen(new AbortController().signal)
+    await phrase()
+    expect(await result).toBe('Bonjour Novera')
+    expect(foreground).not.toHaveBeenCalled()
+    expect(fetchMock).toHaveBeenCalledOnce()
+  })
   it('uses the user message language for speech even when the interface is English', async () => {
     const backend=createOmniVoiceBackend('en',{model:'local-omni',prepare})
     backend.setInputLanguage?.('Combien font deux plus deux ?')

@@ -6,10 +6,10 @@ import { useMusicCreation } from '@/hooks/useMusicCreation'
 import { normalizeLocalPath } from '@/modules/platform/local-path'
 import { musicCalibrationRequest, visualCalibrationRequest } from './calibration'
 import { browserPreviewEnabled } from '@/services/browser-preview/config'
-import { browserAutoTuneAvailable, browserAutoTuneEnabled, browserAutoTuneTextModels, browserAutoTuneTested, calibrateBrowserMedia, calibrateBrowserSampling } from '@/services/browser-preview/auto-tune'
+import { browserAutoTuneAvailable, browserAutoTuneEnabled, browserAutoTuneTextModels, browserAutoTuneTested, calibrateBrowserMedia, calibrateBrowserSampling, setBrowserAutoTune } from '@/services/browser-preview/auto-tune'
 import { browserTextRuntimeFor } from '@/services/browser-preview/wasm-text'
 import { browserLocalTextModels } from '@/services/browser-preview/local-text-imports'
-import { browserAutoTuneWait, discoverBrowserAutoTuneProbes } from '@/services/browser-preview/auto-tune-registry'
+import { discoverBrowserAutoTuneProbes } from '@/services/browser-preview/auto-tune-registry'
 import type { BrowserWorkProgress } from '@/services/browser-preview/auto-tune'
 import { autoTuneCampaignKey, browserTextCalibrationRevision, browserTextProfiles, nativeTextChecks, type AutoTuneComponent } from './auto-tune-plan'
 
@@ -159,10 +159,11 @@ export async function readAutoTuneEnabled() {
 
 export function startAutoTune(): Promise<void> {
   if (running) return running
-  const storageKey = autoTuneCampaignKey(browserPreviewEnabled(), typeof VERSION === 'string' ? VERSION : 'development')
+  const browser = browserPreviewEnabled()
+  const storageKey = autoTuneCampaignKey(browser, typeof VERSION === 'string' ? VERSION : 'development')
   const completed = new Set(readStoredIds(storageKey))
   const handled = new Set(completed)
-  running = runAutoTuneLoop(() => tuneImportedModels({
+  const pass = () => tuneImportedModels({
     handled,
     record(job, error) {
       handled.add(job.key)
@@ -171,9 +172,27 @@ export function startAutoTune(): Promise<void> {
       try { localStorage.setItem(storageKey, JSON.stringify([...completed])) }
       catch { /* The active session still remembers finished profiles. */ }
     },
-  }), readAutoTuneEnabled, browserPreviewEnabled() ? browserAutoTuneWait() : undefined).finally(() => {
+  })
+  const run = browser ? async () => {
+    if (await readAutoTuneEnabled() !== true) return
+    publishProgress({ ...progress, browserComplete: false, standby: false })
+    try {
+      await pass()
+      if (await readAutoTuneEnabled() === true) {
+        publishProgress({ ...progress, browserComplete: true, standby: false })
+      }
+    } finally {
+      if (browserAutoTuneEnabled() === true) {
+        const enabled = setBrowserAutoTune(false)
+        window.dispatchEvent(new CustomEvent('novera:calibration-change', { detail: enabled }))
+      }
+    }
+  } : () => runAutoTuneLoop(pass, readAutoTuneEnabled)
+  running = run().finally(() => {
     running = undefined
-    publishProgress({ ...emptyProgress, models: progress.models, excluded: progress.excluded, results: progress.results })
+    if (!progress.browserComplete) {
+      publishProgress({ ...emptyProgress, models: progress.models, excluded: progress.excluded, results: progress.results })
+    }
   })
   return running
 }

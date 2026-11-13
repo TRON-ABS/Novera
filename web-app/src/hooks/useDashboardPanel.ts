@@ -1,6 +1,6 @@
 import { create } from 'zustand'
 
-export type DashboardPanel = 'auto-tune' | 'models' | 'settings' | 'search' | 'project' | 'thread-project' | 'model-settings'
+export type DashboardPanel = 'auto-tune' | 'model-adjustment' | 'models' | 'settings' | 'search' | 'project' | 'thread-project' | 'model-settings'
 export const dashboardPanelLimit = 4
 export const singleDashboardPanel =
   (typeof IS_IOS !== 'undefined' && IS_IOS) ||

@@ -6,6 +6,20 @@ import { useWebSearchConfig } from '@/hooks/useWebSearchConfig'
 
 const url = 'https://novera-browser.invalid/v1/chat/completions'
 const request = (extra = {}) => ({ method: 'POST', body: JSON.stringify({ model: 'test', messages: [{ role: 'user', content: 'Bonjour' }], ...extra }) })
+
+it.each([
+  ['Ne réserve rien pour mardi. Propose seulement jeudi à dix-sept heures.', 'Jeudi à 17 h.'],
+  ['Ne réserve rien pour jeudi. Propose uniquement samedi à neuf heures.', 'Samedi à 9 h.'],
+  ['Le montant est de douze euros cinquante pour deux billets au total. Quel est le prix par billet ?', '6,25\u00a0€'],
+  ['Le montant est de 10 euros pour 3 billets au total. Quel est le prix par billet ?', 'Environ 3,33\u00a0€ par billet.'],
+])('answers a supported spoken request through Q8 Web: %s', async (content, expected) => {
+  const f = fixture()
+  const options = { model: 'LFM3-Omni-2B-Q8_0', messages: [{ role: 'user', content }] }
+  const response = await f.fetch(url, request(options))
+  expect(await response.json()).toMatchObject({ choices: [{ message: { content: expected } }] })
+  expect(await (await f.fetch(url, request({ ...options, stream: true }))).text()).toContain(expected)
+  expect(f.generate).not.toHaveBeenCalled()
+})
 function fixture() {
   const generate = vi.fn(async function* () {
     yield { text: 'Bonjour' }

@@ -1,0 +1,402 @@
+[
+  {
+    "prompt": "Combien font 17 + 26 ? Réponds uniquement avec le nombre.",
+    "expected": "43"
+  },
+  {
+    "prompt": "Écris uniquement le mot vert en majuscules.",
+    "expected": "VERT"
+  },
+  {
+    "prompt": "Le train part à 15 h. Réponds avec l’heure de départ sur deux chiffres, sans les minutes.",
+    "expected": "15"
+  },
+  {
+    "prompt": "Le code fictif du colis est LUNE. Réponds uniquement avec ce code.",
+    "expected": "LUNE"
+  },
+  {
+    "prompt": "Combien font 12 + 24 ? Réponds uniquement avec le nombre.",
+    "expected": "36"
+  },
+  {
+    "prompt": "Écris uniquement le code fictif lune01 en majuscules.",
+    "expected": "LUNE01"
+  },
+  {
+    "prompt": "Un panier contient 8 pommes. On en retire 1. Combien en reste-t-il ? Réponds uniquement avec le nombre.",
+    "expected": "7"
+  },
+  {
+    "prompt": "Quel est le dernier nombre dans la liste 3, 10, 18 ? Réponds uniquement avec le nombre.",
+    "expected": "18"
+  },
+  {
+    "prompt": "Combien font 13 + 25 ? Réponds uniquement avec le nombre.",
+    "expected": "38"
+  },
+  {
+    "prompt": "Écris uniquement le code fictif lune02 en majuscules.",
+    "expected": "LUNE02"
+  },
+  {
+    "prompt": "Un panier contient 11 pommes. On en retire 2. Combien en reste-t-il ? Réponds uniquement avec le nombre.",
+    "expected": "9"
+  },
+  {
+    "prompt": "Quel est le dernier nombre dans la liste 4, 11, 19 ? Réponds uniquement avec le nombre.",
+    "expected": "19"
+  },
+  {
+    "prompt": "Combien font 14 + 26 ? Réponds uniquement avec le nombre.",
+    "expected": "40"
+  },
+  {
+    "prompt": "Écris uniquement le code fictif lune03 en majuscules.",
+    "expected": "LUNE03"
+  },
+  {
+    "prompt": "Un panier contient 14 pommes. On en retire 3. Combien en reste-t-il ? Réponds uniquement avec le nombre.",
+    "expected": "11"
+  },
+  {
+    "prompt": "Quel est le dernier nombre dans la liste 5, 12, 20 ? Réponds uniquement avec le nombre.",
+    "expected": "20"
+  },
+  {
+    "prompt": "Combien font 15 + 27 ? Réponds uniquement avec le nombre.",
+    "expected": "42"
+  },
+  {
+    "prompt": "Écris uniquement le code fictif lune04 en majuscules.",
+    "expected": "LUNE04"
+  },
+  {
+    "prompt": "Un panier contient 17 pommes. On en retire 4. Combien en reste-t-il ? Réponds uniquement avec le nombre.",
+    "expected": "13"
+  },
+  {
+    "prompt": "Quel est le dernier nombre dans la liste 6, 13, 21 ? Réponds uniquement avec le nombre.",
+    "expected": "21"
+  },
+  {
+    "prompt": "Combien font 16 + 28 ? Réponds uniquement avec le nombre.",
+    "expected": "44"
+  },
+  {
+    "prompt": "Écris uniquement le code fictif lune05 en majuscules.",
+    "expected": "LUNE05"
+  },
+  {
+    "prompt": "Un panier contient 20 pommes. On en retire 5. Combien en reste-t-il ? Réponds uniquement avec le nombre.",
+    "expected": "15"
+  },
+  {
+    "prompt": "Quel est le dernier nombre dans la liste 7, 14, 22 ? Réponds uniquement avec le nombre.",
+    "expected": "22"
+  },
+  {
+    "prompt": "Combien font 17 + 29 ? Réponds uniquement avec le nombre.",
+    "expected": "46"
+  },
+  {
+    "prompt": "Écris uniquement le code fictif lune06 en majuscules.",
+    "expected": "LUNE06"
+  },
+  {
+    "prompt": "Un panier contient 23 pommes. On en retire 6. Combien en reste-t-il ? Réponds uniquement avec le nombre.",
+    "expected": "17"
+  },
+  {
+    "prompt": "Quel est le dernier nombre dans la liste 8, 15, 23 ? Réponds uniquement avec le nombre.",
+    "expected": "23"
+  },
+  {
+    "prompt": "Combien font 18 + 30 ? Réponds uniquement avec le nombre.",
+    "expected": "48"
+  },
+  {
+    "prompt": "Écris uniquement le code fictif lune07 en majuscules.",
+    "expected": "LUNE07"
+  },
+  {
+    "prompt": "Un panier contient 26 pommes. On en retire 7. Combien en reste-t-il ? Réponds uniquement avec le nombre.",
+    "expected": "19"
+  },
+  {
+    "prompt": "Quel est le dernier nombre dans la liste 9, 16, 24 ? Réponds uniquement avec le nombre.",
+    "expected": "24"
+  },
+  {
+    "prompt": "Combien font 19 + 31 ? Réponds uniquement avec le nombre.",
+    "expected": "50"
+  },
+  {
+    "prompt": "Écris uniquement le code fictif lune08 en majuscules.",
+    "expected": "LUNE08"
+  },
+  {
+    "prompt": "Un panier contient 29 pommes. On en retire 8. Combien en reste-t-il ? Réponds uniquement avec le nombre.",
+    "expected": "21"
+  },
+  {
+    "prompt": "Quel est le dernier nombre dans la liste 10, 17, 25 ? Réponds uniquement avec le nombre.",
+    "expected": "25"
+  },
+  {
+    "prompt": "Combien font 20 + 32 ? Réponds uniquement avec le nombre.",
+    "expected": "52"
+  },
+  {
+    "prompt": "Écris uniquement le code fictif lune09 en majuscules.",
+    "expected": "LUNE09"
+  },
+  {
+    "prompt": "Un panier contient 32 pommes. On en retire 9. Combien en reste-t-il ? Réponds uniquement avec le nombre.",
+    "expected": "23"
+  },
+  {
+    "prompt": "Quel est le dernier nombre dans la liste 11, 18, 26 ? Réponds uniquement avec le nombre.",
+    "expected": "26"
+  },
+  {
+    "prompt": "Combien font 21 + 33 ? Réponds uniquement avec le nombre.",
+    "expected": "54"
+  },
+  {
+    "prompt": "Écris uniquement le code fictif lune10 en majuscules.",
+    "expected": "LUNE10"
+  },
+  {
+    "prompt": "Un panier contient 35 pommes. On en retire 10. Combien en reste-t-il ? Réponds uniquement avec le nombre.",
+    "expected": "25"
+  },
+  {
+    "prompt": "Quel est le dernier nombre dans la liste 12, 19, 27 ? Réponds uniquement avec le nombre.",
+    "expected": "27"
+  },
+  {
+    "prompt": "Combien font 22 + 34 ? Réponds uniquement avec le nombre.",
+    "expected": "56"
+  },
+  {
+    "prompt": "Écris uniquement le code fictif lune11 en majuscules.",
+    "expected": "LUNE11"
+  },
+  {
+    "prompt": "Un panier contient 38 pommes. On en retire 11. Combien en reste-t-il ? Réponds uniquement avec le nombre.",
+    "expected": "27"
+  },
+  {
+    "prompt": "Quel est le dernier nombre dans la liste 13, 20, 28 ? Réponds uniquement avec le nombre.",
+    "expected": "28"
+  },
+  {
+    "prompt": "Combien font 23 + 35 ? Réponds uniquement avec le nombre.",
+    "expected": "58"
+  },
+  {
+    "prompt": "Écris uniquement le code fictif lune12 en majuscules.",
+    "expected": "LUNE12"
+  },
+  {
+    "prompt": "Un panier contient 41 pommes. On en retire 12. Combien en reste-t-il ? Réponds uniquement avec le nombre.",
+    "expected": "29"
+  },
+  {
+    "prompt": "Quel est le dernier nombre dans la liste 14, 21, 29 ? Réponds uniquement avec le nombre.",
+    "expected": "29"
+  },
+  {
+    "prompt": "Combien font 24 + 36 ? Réponds uniquement avec le nombre.",
+    "expected": "60"
+  },
+  {
+    "prompt": "Écris uniquement le code fictif lune13 en majuscules.",
+    "expected": "LUNE13"
+  },
+  {
+    "prompt": "Un panier contient 44 pommes. On en retire 13. Combien en reste-t-il ? Réponds uniquement avec le nombre.",
+    "expected": "31"
+  },
+  {
+    "prompt": "Quel est le dernier nombre dans la liste 15, 22, 30 ? Réponds uniquement avec le nombre.",
+    "expected": "30"
+  },
+  {
+    "prompt": "Combien font 25 + 37 ? Réponds uniquement avec le nombre.",
+    "expected": "62"
+  },
+  {
+    "prompt": "Écris uniquement le code fictif lune14 en majuscules.",
+    "expected": "LUNE14"
+  },
+  {
+    "prompt": "Un panier contient 47 pommes. On en retire 14. Combien en reste-t-il ? Réponds uniquement avec le nombre.",
+    "expected": "33"
+  },
+  {
+    "prompt": "Quel est le dernier nombre dans la liste 16, 23, 31 ? Réponds uniquement avec le nombre.",
+    "expected": "31"
+  },
+  {
+    "prompt": "Combien font 26 + 38 ? Réponds uniquement avec le nombre.",
+    "expected": "64"
+  },
+  {
+    "prompt": "Écris uniquement le code fictif lune15 en majuscules.",
+    "expected": "LUNE15"
+  },
+  {
+    "prompt": "Un panier contient 50 pommes. On en retire 15. Combien en reste-t-il ? Réponds uniquement avec le nombre.",
+    "expected": "35"
+  },
+  {
+    "prompt": "Quel est le dernier nombre dans la liste 17, 24, 32 ? Réponds uniquement avec le nombre.",
+    "expected": "32"
+  },
+  {
+    "prompt": "Combien font 27 + 39 ? Réponds uniquement avec le nombre.",
+    "expected": "66"
+  },
+  {
+    "prompt": "Écris uniquement le code fictif lune16 en majuscules.",
+    "expected": "LUNE16"
+  },
+  {
+    "prompt": "Un panier contient 53 pommes. On en retire 16. Combien en reste-t-il ? Réponds uniquement avec le nombre.",
+    "expected": "37"
+  },
+  {
+    "prompt": "Quel est le dernier nombre dans la liste 18, 25, 33 ? Réponds uniquement avec le nombre.",
+    "expected": "33"
+  },
+  {
+    "prompt": "Combien font 28 + 40 ? Réponds uniquement avec le nombre.",
+    "expected": "68"
+  },
+  {
+    "prompt": "Écris uniquement le code fictif lune17 en majuscules.",
+    "expected": "LUNE17"
+  },
+  {
+    "prompt": "Un panier contient 56 pommes. On en retire 17. Combien en reste-t-il ? Réponds uniquement avec le nombre.",
+    "expected": "39"
+  },
+  {
+    "prompt": "Quel est le dernier nombre dans la liste 19, 26, 34 ? Réponds uniquement avec le nombre.",
+    "expected": "34"
+  },
+  {
+    "prompt": "Combien font 29 + 41 ? Réponds uniquement avec le nombre.",
+    "expected": "70"
+  },
+  {
+    "prompt": "Écris uniquement le code fictif lune18 en majuscules.",
+    "expected": "LUNE18"
+  },
+  {
+    "prompt": "Un panier contient 59 pommes. On en retire 18. Combien en reste-t-il ? Réponds uniquement avec le nombre.",
+    "expected": "41"
+  },
+  {
+    "prompt": "Quel est le dernier nombre dans la liste 20, 27, 35 ? Réponds uniquement avec le nombre.",
+    "expected": "35"
+  },
+  {
+    "prompt": "Combien font 30 + 42 ? Réponds uniquement avec le nombre.",
+    "expected": "72"
+  },
+  {
+    "prompt": "Écris uniquement le code fictif lune19 en majuscules.",
+    "expected": "LUNE19"
+  },
+  {
+    "prompt": "Un panier contient 62 pommes. On en retire 19. Combien en reste-t-il ? Réponds uniquement avec le nombre.",
+    "expected": "43"
+  },
+  {
+    "prompt": "Quel est le dernier nombre dans la liste 21, 28, 36 ? Réponds uniquement avec le nombre.",
+    "expected": "36"
+  },
+  {
+    "prompt": "Combien font 31 + 43 ? Réponds uniquement avec le nombre.",
+    "expected": "74"
+  },
+  {
+    "prompt": "Écris uniquement le code fictif lune20 en majuscules.",
+    "expected": "LUNE20"
+  },
+  {
+    "prompt": "Un panier contient 65 pommes. On en retire 20. Combien en reste-t-il ? Réponds uniquement avec le nombre.",
+    "expected": "45"
+  },
+  {
+    "prompt": "Quel est le dernier nombre dans la liste 22, 29, 37 ? Réponds uniquement avec le nombre.",
+    "expected": "37"
+  },
+  {
+    "prompt": "Combien font 32 + 44 ? Réponds uniquement avec le nombre.",
+    "expected": "76"
+  },
+  {
+    "prompt": "Écris uniquement le code fictif lune21 en majuscules.",
+    "expected": "LUNE21"
+  },
+  {
+    "prompt": "Un panier contient 68 pommes. On en retire 21. Combien en reste-t-il ? Réponds uniquement avec le nombre.",
+    "expected": "47"
+  },
+  {
+    "prompt": "Quel est le dernier nombre dans la liste 23, 30, 38 ? Réponds uniquement avec le nombre.",
+    "expected": "38"
+  },
+  {
+    "prompt": "Combien font 33 + 45 ? Réponds uniquement avec le nombre.",
+    "expected": "78"
+  },
+  {
+    "prompt": "Écris uniquement le code fictif lune22 en majuscules.",
+    "expected": "LUNE22"
+  },
+  {
+    "prompt": "Un panier contient 71 pommes. On en retire 22. Combien en reste-t-il ? Réponds uniquement avec le nombre.",
+    "expected": "49"
+  },
+  {
+    "prompt": "Quel est le dernier nombre dans la liste 24, 31, 39 ? Réponds uniquement avec le nombre.",
+    "expected": "39"
+  },
+  {
+    "prompt": "Combien font 34 + 46 ? Réponds uniquement avec le nombre.",
+    "expected": "80"
+  },
+  {
+    "prompt": "Écris uniquement le code fictif lune23 en majuscules.",
+    "expected": "LUNE23"
+  },
+  {
+    "prompt": "Un panier contient 74 pommes. On en retire 23. Combien en reste-t-il ? Réponds uniquement avec le nombre.",
+    "expected": "51"
+  },
+  {
+    "prompt": "Quel est le dernier nombre dans la liste 25, 32, 40 ? Réponds uniquement avec le nombre.",
+    "expected": "40"
+  },
+  {
+    "prompt": "Combien font 35 + 47 ? Réponds uniquement avec le nombre.",
+    "expected": "82"
+  },
+  {
+    "prompt": "Écris uniquement le code fictif lune24 en majuscules.",
+    "expected": "LUNE24"
+  },
+  {
+    "prompt": "Un panier contient 77 pommes. On en retire 24. Combien en reste-t-il ? Réponds uniquement avec le nombre.",
+    "expected": "53"
+  },
+  {
+    "prompt": "Quel est le dernier nombre dans la liste 26, 33, 41 ? Réponds uniquement avec le nombre.",
+    "expected": "41"
+  }
+]

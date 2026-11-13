@@ -21,7 +21,7 @@ test('published showcase uses reviewed versions without carrying forward the old
   assert.match(html, /La version portable Windows x64 1\.0\.0 est disponible/)
   assert.match(html, /href="web\/"/)
   assert.ok(html.indexOf('id="web-title"') < html.indexOf('class="hero"'))
-  assert.match(html, /Novera Web 1\.0\.2 · version expérimentale/)
+  assert.match(html, /Novera Web 1\.0\.2<\/h2>/)
   assert.match(html, /L’interface Web propose 120 langues et variantes/)
   assert.equal(result.webVersion, '1.0.2')
   assert.equal(result.webInterfaceLanguageCount, 120)

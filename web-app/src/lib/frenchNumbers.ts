@@ -43,3 +43,18 @@ export function frenchNumbers(text: string, locale: string): string {
     return integer + (fraction === undefined ? '' : ` virgule ${[...fraction].map(digit => small[Number(digit)]).join(' ')}`)
   })
 }
+
+const spokenIntegers = new Map(Array.from({ length: 100 }, (_, n) => [cardinal(n), String(n)]))
+const spokenOperand = [...spokenIntegers.keys()].sort((a, b) => b.length - a.length).join('|')
+const spokenCalculation = new RegExp(
+  '^(Combien (?:font|fait) )(' + spokenOperand + '|[0-9]+(?:[,.][0-9]+)?)( plus | moins | fois | divis\u00e9 par )(' + spokenOperand + '|[0-9]+(?:[,.][0-9]+)?)(\\s*[?.]?)$',
+  'iu'
+)
+
+/** Normalize operands in simple French arithmetic questions sent to the model. */
+export function normalizeFrenchCalculation(text: string): string {
+  return text.replace(spokenCalculation, (_, start, left, operator, right, end) =>
+    start + (spokenIntegers.get(left.toLowerCase()) ?? left) + operator +
+    (spokenIntegers.get(right.toLowerCase()) ?? right) + end
+  )
+}

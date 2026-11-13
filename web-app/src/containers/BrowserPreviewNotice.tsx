@@ -1,3 +1,4 @@
+import { NativeConversationSetup } from './NativeConversationSetup'
 import { restoreBrowserModelImports } from '@/services/browser-preview/model-imports'
 import { useEffect, useSyncExternalStore } from 'react'
 import { browserRuntime, BROWSER_CONTEXT_TOKENS } from '@/services/browser-preview/runtime'
@@ -13,9 +14,9 @@ export function BrowserPreviewNotice() {
   const select = useModelProvider(store => store.selectModelProvider)
   const spec = browserCatalog.find(model => model.id === (state.modelId || selected?.id)) ?? browserCatalog[0]
   const busy = state.phase === 'loading' || state.phase === 'generating'
-  return <aside aria-label="Novera Web expérimentale" className="border-b border-border px-4 py-2 text-xs bg-muted/50 text-foreground shrink-0">
+  return <aside aria-label="Novera Web" className="border-b border-border px-4 py-2 text-xs bg-muted/50 text-foreground shrink-0">
     <div className="flex flex-wrap items-center gap-2">
-      <strong>Novera Web {VERSION} · expérimentale</strong>
+      <strong>Novera Web {VERSION}</strong>
       <span>Texte sur cet appareil · sans clé API</span>
       <span>{spec.name} · {(spec.bytes / 1e9).toFixed(2)} Go au premier chargement</span>
       <span>Contexte · {BROWSER_CONTEXT_TOKENS.toLocaleString('fr-FR')} tokens</span>
@@ -30,6 +31,7 @@ export function BrowserPreviewNotice() {
       <a className="underline ml-auto" href="https://github.com/TRON-ABS/Novera/releases" target="_blank" rel="noreferrer">Novera Desktop</a>
     </div>
     <BrowserSearchNotice />
+    {import.meta.env.VITE_NOVERA_PRIVATE_NATIVE_CONVERSATION === 'true' && <NativeConversationSetup disabled={busy} />}
     <BrowserUpdateNotice modelBusy={busy} />
     {state.error && <p role="alert" className="text-destructive mt-1">{state.error}</p>}
     <details className="mt-1 text-muted-foreground"><summary className="cursor-pointer">Fonctions, données et limites</summary>

@@ -1,4 +1,4 @@
-import { browserModel, type BrowserModelSpec } from './config'
+import { browserModel, nativeOmniQ8, type BrowserModelSpec } from './config'
 import { loadWasmTextModel, wasmTextSupported, type BrowserTextProfile, type BrowserTextSource } from './wasm-text'
 
 export type BrowserToolCall = { id: string; type: 'function'; function: { name: string; arguments: Record<string, unknown> }; errors?: string[] }
@@ -14,6 +14,7 @@ export type Model = { contextLength?: number; create_session(): Session; dispose
 type Sdk = { from_pretrained(repo: string, options: Record<string, unknown>): Promise<Model> }
 export const BROWSER_CONTEXT_TOKENS = 32768
 export type BrowserRuntimeStatus = {
+  backend?: 'browser' | 'native'
   phase: 'idle' | 'loading' | 'ready' | 'generating' | 'error'
   modelId: string
   progress?: number
@@ -49,20 +50,43 @@ export class BrowserRuntime {
   private loadingEngine?: 'wasm' | 'sdk'
   private previousHistory?: BrowserMessage[]
   private calibrating = false
+  private native?: NativeConversationBackend
+  private nativeSubscription?: () => void
+  private activeNative = false
 
   constructor(private sdkLoader = loadPinnedSdk, private gpuAvailable = async () => {
     const gpu = (navigator as Navigator & { gpu?: { requestAdapter(): Promise<unknown> } }).gpu
     return Boolean(await gpu?.requestAdapter())
   }) {}
 
-  snapshot = () => this.status
+  snapshot = (): BrowserRuntimeStatus => this.activeNative && this.native ? this.native.snapshot() : this.status
   subscribe = (listener: () => void) => { this.listeners.add(listener); return () => { this.listeners.delete(listener) } }
   private publish(status: BrowserRuntimeStatus) { this.status = status; this.listeners.forEach(listener => listener()) }
-  loadedId() { return this.model ? this.activeId : '' }
-  cancelLoad() { this.loadController?.abort() }
+  loadedId(): string { return this.activeNative && this.native ? this.native.loadedId() : this.model ? this.activeId : '' }
+  supportsNative(id: string) { return this.native?.supports(id) === true }
+  cancelLoad() { if (this.activeNative) this.native?.cancelLoad(); else this.loadController?.abort() }
+
+  async setNativeBackend(backend?: NativeConversationBackend) {
+    if (['loading', 'generating'].includes(this.snapshot().phase)) throw new Error('Attendez la fin de l’opération en cours.')
+    await this.unload()
+    this.nativeSubscription?.()
+    this.native = backend
+    this.activeNative = Boolean(backend)
+    this.nativeSubscription = backend?.subscribe(() => { if (this.activeNative) this.listeners.forEach(listener => listener()) })
+    this.listeners.forEach(listener => listener())
+  }
 
   async load(id: string, preferSdk = false): Promise<void> {
     if (this.calibrating) throw new Error('CALIBRATION_BUSY')
+    if (this.native?.supports(id)) {
+      if (!this.activeNative) {
+        await this.unload()
+        this.activeNative = true
+      }
+      return this.native.load(id)
+    }
+    if (id === nativeOmniQ8) throw new Error('Connectez la passerelle locale LFM3-Omni Q8_0.')
+    if (this.activeNative) await this.unload()
     return this.loadModel(id, preferSdk)
   }
 
@@ -136,6 +160,7 @@ export class BrowserRuntime {
       messages.some(message => message.role === 'tool' || message.tool_calls?.length)
     signal?.throwIfAborted()
     await this.load(id, requiresSdk)
+    if (this.activeNative && this.native) { yield* this.native.generate(id, messages, signal, maxTokens, tools); return }
     signal?.throwIfAborted()
     if (this.calibrating || this.turn || !this.session) throw new Error('Le moteur est occupé. Attendez la fin de la réponse.')
     // Both pinned SDKs reconcile token prefixes internally. Reuse their cache
@@ -182,6 +207,7 @@ export class BrowserRuntime {
   // Share the GPU turn lock and release this extra cache after each operation.
   async speech(id: string, messages: SpeechMessage[], mode: 'text' | 'audio', signal: AbortSignal,
     onAudio?: (samples: Float32Array) => void): Promise<string> {
+    if (this.native?.supports(id)) { await this.load(id); return this.native.speech(id, messages, mode, signal, onAudio) }
     if (browserModel(id).kind !== 'omni') throw new Error('unavailable')
     signal.throwIfAborted()
     await this.load(id, true)
@@ -260,6 +286,8 @@ export class BrowserRuntime {
 
   async unload() {
     if (this.calibrating) throw new Error("CALIBRATION_BUSY")
+    if (this.activeNative) await this.native?.unload()
+    this.activeNative = false
     this.cancelLoad()
     const pending = this.loadJob
     if (pending) await pending.catch(() => {})
@@ -272,5 +300,7 @@ export class BrowserRuntime {
     this.publish({ phase: 'idle', modelId: '' })
   }
 }
+
+export type NativeConversationBackend = Pick<BrowserRuntime, 'snapshot' | 'subscribe' | 'load' | 'loadedId' | 'cancelLoad' | 'generate' | 'speech' | 'unload'> & { supports(id: string): boolean }
 
 export const browserRuntime = new BrowserRuntime()

@@ -1,7 +1,7 @@
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 import { createBrowserVoiceBackend, pcmSamples, unlockBrowserVoice } from './voice'
 import type { BrowserRuntime } from './runtime'
-import { omniAsrPrompt, omniTtsPrompt } from './voice-prompts'
+import { nativeSpeechSettings, omniAsrPrompt, omniTtsPrompt } from './voice-prompts'
 
 const capture = vi.hoisted(() => vi.fn())
 vi.mock('@/lib/omniVoice', () => ({ capturePcm: capture }))
@@ -11,6 +11,7 @@ describe('browser Omni microphone', () => {
   it('uses documented task prompts with English language names and selected gender', () => {
     expect(omniAsrPrompt('fr-FR')).toBe('Perform ASR in French.')
     expect(omniTtsPrompt('en_GB', 'female')).toBe('Perform TTS in British English using a female voice.')
+    expect(nativeSpeechSettings(omniTtsPrompt('de', 'female'))).toEqual({ lang: 'de', voice: 'female' })
     expect(() => omniTtsPrompt('xx')).toThrow('unavailable')
   })
   it('plays model samples at 24 kHz and rejects a silent synthesis result', async () => {

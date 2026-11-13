@@ -1,4 +1,4 @@
-name: Publish Novera Web experimental
+name: Publish Novera Web
 on:
   workflow_dispatch:
   workflow_call:

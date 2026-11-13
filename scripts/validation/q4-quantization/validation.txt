@@ -1,0 +1,383 @@
+Exemple 1
+Demande : Écris un courriel pour reporter une visite au musée
+Réponse : Bonjour, notre visite de vendredi doit être reportée. Serait-il possible de choisir un créneau la semaine prochaine ? Merci pour votre aide.
+
+Exemple 2
+Demande : What does a bicycle derailleur do?
+Réponse : It moves the chain between sprockets, changing the ratio between pedaling speed and wheel speed. A lower gear makes climbing easier.
+
+Exemple 3
+Demande : Convertis trois heures et quarante minutes en minutes.
+Réponse : Trois heures font 180 minutes. En ajoutant 40 minutes, on obtient 220 minutes.
+
+Exemple 4
+Demande : Explique une requête SQL avec GROUP BY.
+Réponse : SELECT ville, COUNT(*) FROM clients GROUP BY ville; renvoie une ligne par ville et le nombre de clients qui y figurent.
+
+Exemple 5
+Demande : Translate to English: La pluie a cessé avant l'aube.
+Réponse : The rain stopped before dawn.
+
+Exemple 6
+Demande : Résume le dialogue entre deux voyageurs qui ont perdu leur billet.
+Réponse : Ils vérifient leurs sacs, retrouvent le courriel de réservation et montrent le code au guichet.
+
+Exemple 7
+Demande : Donne la structure JSON de deux articles.
+Réponse :  [{"nom":"carnet","quantite":2},{"nom":"stylo","quantite":4}]
+
+Exemple 8
+Demande : Was ist der Unterschied zwischen einem Quadrat und einem Rechteck?
+Réponse : Ein Quadrat hat vier gleich lange Seiten. Ein Rechteck hat vier rechte Winkel; seine Seiten müssen nicht alle gleich lang sein.
+
+Exemple 9
+Demande : ¿Por qué una sombra cambia durante el día?
+Réponse : La posición aparente del Sol cambia y, con ella, la dirección y la longitud de la sombra.
+
+Exemple 10
+Demande : Rédige une procédure pour restaurer une sauvegarde personnelle.
+Réponse : Vérifie la date de la copie, restaure les fichiers dans un dossier temporaire, puis ouvre un échantillon de documents avant de remplacer les fichiers courants.
+
+Exemple 11
+Demande : Analyse cet extrait de journal : 14:02 entrée, 14:05 sortie.
+Réponse : La présence a duré trois minutes. Le journal indique une seule entrée suivie d'une sortie.
+
+Exemple 12
+Demande : Explain why a glass of ice water develops droplets outside.
+Réponse : Water vapor in the air cools near the glass and condenses when the surface temperature is below the dew point.
+
+Exemple 13
+Demande : Écris un courriel pour reporter une visite au musée
+Réponse : Bonjour, notre visite de vendredi doit être reportée. Serait-il possible de choisir un créneau la semaine prochaine ? Merci pour votre aide.
+
+Exemple 14
+Demande : What does a bicycle derailleur do?
+Réponse : It moves the chain between sprockets, changing the ratio between pedaling speed and wheel speed. A lower gear makes climbing easier.
+
+Exemple 15
+Demande : Convertis trois heures et quarante minutes en minutes.
+Réponse : Trois heures font 180 minutes. En ajoutant 40 minutes, on obtient 220 minutes.
+
+Exemple 16
+Demande : Explique une requête SQL avec GROUP BY.
+Réponse : SELECT ville, COUNT(*) FROM clients GROUP BY ville; renvoie une ligne par ville et le nombre de clients qui y figurent.
+
+Exemple 17
+Demande : Translate to English: La pluie a cessé avant l'aube.
+Réponse : The rain stopped before dawn.
+
+Exemple 18
+Demande : Résume le dialogue entre deux voyageurs qui ont perdu leur billet.
+Réponse : Ils vérifient leurs sacs, retrouvent le courriel de réservation et montrent le code au guichet.
+
+Exemple 19
+Demande : Donne la structure JSON de deux articles.
+Réponse :  [{"nom":"carnet","quantite":2},{"nom":"stylo","quantite":4}]
+
+Exemple 20
+Demande : Was ist der Unterschied zwischen einem Quadrat und einem Rechteck?
+Réponse : Ein Quadrat hat vier gleich lange Seiten. Ein Rechteck hat vier rechte Winkel; seine Seiten müssen nicht alle gleich lang sein.
+
+Exemple 21
+Demande : ¿Por qué una sombra cambia durante el día?
+Réponse : La posición aparente del Sol cambia y, con ella, la dirección y la longitud de la sombra.
+
+Exemple 22
+Demande : Rédige une procédure pour restaurer une sauvegarde personnelle.
+Réponse : Vérifie la date de la copie, restaure les fichiers dans un dossier temporaire, puis ouvre un échantillon de documents avant de remplacer les fichiers courants.
+
+Exemple 23
+Demande : Analyse cet extrait de journal : 14:02 entrée, 14:05 sortie.
+Réponse : La présence a duré trois minutes. Le journal indique une seule entrée suivie d'une sortie.
+
+Exemple 24
+Demande : Explain why a glass of ice water develops droplets outside.
+Réponse : Water vapor in the air cools near the glass and condenses when the surface temperature is below the dew point.
+
+Exemple 25
+Demande : Écris un courriel pour reporter une visite au musée
+Réponse : Bonjour, notre visite de vendredi doit être reportée. Serait-il possible de choisir un créneau la semaine prochaine ? Merci pour votre aide.
+
+Exemple 26
+Demande : What does a bicycle derailleur do?
+Réponse : It moves the chain between sprockets, changing the ratio between pedaling speed and wheel speed. A lower gear makes climbing easier.
+
+Exemple 27
+Demande : Convertis trois heures et quarante minutes en minutes.
+Réponse : Trois heures font 180 minutes. En ajoutant 40 minutes, on obtient 220 minutes.
+
+Exemple 28
+Demande : Explique une requête SQL avec GROUP BY.
+Réponse : SELECT ville, COUNT(*) FROM clients GROUP BY ville; renvoie une ligne par ville et le nombre de clients qui y figurent.
+
+Exemple 29
+Demande : Translate to English: La pluie a cessé avant l'aube.
+Réponse : The rain stopped before dawn.
+
+Exemple 30
+Demande : Résume le dialogue entre deux voyageurs qui ont perdu leur billet.
+Réponse : Ils vérifient leurs sacs, retrouvent le courriel de réservation et montrent le code au guichet.
+
+Exemple 31
+Demande : Donne la structure JSON de deux articles.
+Réponse :  [{"nom":"carnet","quantite":2},{"nom":"stylo","quantite":4}]
+
+Exemple 32
+Demande : Was ist der Unterschied zwischen einem Quadrat und einem Rechteck?
+Réponse : Ein Quadrat hat vier gleich lange Seiten. Ein Rechteck hat vier rechte Winkel; seine Seiten müssen nicht alle gleich lang sein.
+
+Exemple 33
+Demande : ¿Por qué una sombra cambia durante el día?
+Réponse : La posición aparente del Sol cambia y, con ella, la dirección y la longitud de la sombra.
+
+Exemple 34
+Demande : Rédige une procédure pour restaurer une sauvegarde personnelle.
+Réponse : Vérifie la date de la copie, restaure les fichiers dans un dossier temporaire, puis ouvre un échantillon de documents avant de remplacer les fichiers courants.
+
+Exemple 35
+Demande : Analyse cet extrait de journal : 14:02 entrée, 14:05 sortie.
+Réponse : La présence a duré trois minutes. Le journal indique une seule entrée suivie d'une sortie.
+
+Exemple 36
+Demande : Explain why a glass of ice water develops droplets outside.
+Réponse : Water vapor in the air cools near the glass and condenses when the surface temperature is below the dew point.
+
+Exemple 37
+Demande : Écris un courriel pour reporter une visite au musée
+Réponse : Bonjour, notre visite de vendredi doit être reportée. Serait-il possible de choisir un créneau la semaine prochaine ? Merci pour votre aide.
+
+Exemple 38
+Demande : What does a bicycle derailleur do?
+Réponse : It moves the chain between sprockets, changing the ratio between pedaling speed and wheel speed. A lower gear makes climbing easier.
+
+Exemple 39
+Demande : Convertis trois heures et quarante minutes en minutes.
+Réponse : Trois heures font 180 minutes. En ajoutant 40 minutes, on obtient 220 minutes.
+
+Exemple 40
+Demande : Explique une requête SQL avec GROUP BY.
+Réponse : SELECT ville, COUNT(*) FROM clients GROUP BY ville; renvoie une ligne par ville et le nombre de clients qui y figurent.
+
+Exemple 41
+Demande : Translate to English: La pluie a cessé avant l'aube.
+Réponse : The rain stopped before dawn.
+
+Exemple 42
+Demande : Résume le dialogue entre deux voyageurs qui ont perdu leur billet.
+Réponse : Ils vérifient leurs sacs, retrouvent le courriel de réservation et montrent le code au guichet.
+
+Exemple 43
+Demande : Donne la structure JSON de deux articles.
+Réponse :  [{"nom":"carnet","quantite":2},{"nom":"stylo","quantite":4}]
+
+Exemple 44
+Demande : Was ist der Unterschied zwischen einem Quadrat und einem Rechteck?
+Réponse : Ein Quadrat hat vier gleich lange Seiten. Ein Rechteck hat vier rechte Winkel; seine Seiten müssen nicht alle gleich lang sein.
+
+Exemple 45
+Demande : ¿Por qué una sombra cambia durante el día?
+Réponse : La posición aparente del Sol cambia y, con ella, la dirección y la longitud de la sombra.
+
+Exemple 46
+Demande : Rédige une procédure pour restaurer une sauvegarde personnelle.
+Réponse : Vérifie la date de la copie, restaure les fichiers dans un dossier temporaire, puis ouvre un échantillon de documents avant de remplacer les fichiers courants.
+
+Exemple 47
+Demande : Analyse cet extrait de journal : 14:02 entrée, 14:05 sortie.
+Réponse : La présence a duré trois minutes. Le journal indique une seule entrée suivie d'une sortie.
+
+Exemple 48
+Demande : Explain why a glass of ice water develops droplets outside.
+Réponse : Water vapor in the air cools near the glass and condenses when the surface temperature is below the dew point.
+
+Exemple 49
+Demande : Écris un courriel pour reporter une visite au musée
+Réponse : Bonjour, notre visite de vendredi doit être reportée. Serait-il possible de choisir un créneau la semaine prochaine ? Merci pour votre aide.
+
+Exemple 50
+Demande : What does a bicycle derailleur do?
+Réponse : It moves the chain between sprockets, changing the ratio between pedaling speed and wheel speed. A lower gear makes climbing easier.
+
+Exemple 51
+Demande : Convertis trois heures et quarante minutes en minutes.
+Réponse : Trois heures font 180 minutes. En ajoutant 40 minutes, on obtient 220 minutes.
+
+Exemple 52
+Demande : Explique une requête SQL avec GROUP BY.
+Réponse : SELECT ville, COUNT(*) FROM clients GROUP BY ville; renvoie une ligne par ville et le nombre de clients qui y figurent.
+
+Exemple 53
+Demande : Translate to English: La pluie a cessé avant l'aube.
+Réponse : The rain stopped before dawn.
+
+Exemple 54
+Demande : Résume le dialogue entre deux voyageurs qui ont perdu leur billet.
+Réponse : Ils vérifient leurs sacs, retrouvent le courriel de réservation et montrent le code au guichet.
+
+Exemple 55
+Demande : Donne la structure JSON de deux articles.
+Réponse :  [{"nom":"carnet","quantite":2},{"nom":"stylo","quantite":4}]
+
+Exemple 56
+Demande : Was ist der Unterschied zwischen einem Quadrat und einem Rechteck?
+Réponse : Ein Quadrat hat vier gleich lange Seiten. Ein Rechteck hat vier rechte Winkel; seine Seiten müssen nicht alle gleich lang sein.
+
+Exemple 57
+Demande : ¿Por qué una sombra cambia durante el día?
+Réponse : La posición aparente del Sol cambia y, con ella, la dirección y la longitud de la sombra.
+
+Exemple 58
+Demande : Rédige une procédure pour restaurer une sauvegarde personnelle.
+Réponse : Vérifie la date de la copie, restaure les fichiers dans un dossier temporaire, puis ouvre un échantillon de documents avant de remplacer les fichiers courants.
+
+Exemple 59
+Demande : Analyse cet extrait de journal : 14:02 entrée, 14:05 sortie.
+Réponse : La présence a duré trois minutes. Le journal indique une seule entrée suivie d'une sortie.
+
+Exemple 60
+Demande : Explain why a glass of ice water develops droplets outside.
+Réponse : Water vapor in the air cools near the glass and condenses when the surface temperature is below the dew point.
+
+Exemple 61
+Demande : Écris un courriel pour reporter une visite au musée
+Réponse : Bonjour, notre visite de vendredi doit être reportée. Serait-il possible de choisir un créneau la semaine prochaine ? Merci pour votre aide.
+
+Exemple 62
+Demande : What does a bicycle derailleur do?
+Réponse : It moves the chain between sprockets, changing the ratio between pedaling speed and wheel speed. A lower gear makes climbing easier.
+
+Exemple 63
+Demande : Convertis trois heures et quarante minutes en minutes.
+Réponse : Trois heures font 180 minutes. En ajoutant 40 minutes, on obtient 220 minutes.
+
+Exemple 64
+Demande : Explique une requête SQL avec GROUP BY.
+Réponse : SELECT ville, COUNT(*) FROM clients GROUP BY ville; renvoie une ligne par ville et le nombre de clients qui y figurent.
+
+Exemple 65
+Demande : Translate to English: La pluie a cessé avant l'aube.
+Réponse : The rain stopped before dawn.
+
+Exemple 66
+Demande : Résume le dialogue entre deux voyageurs qui ont perdu leur billet.
+Réponse : Ils vérifient leurs sacs, retrouvent le courriel de réservation et montrent le code au guichet.
+
+Exemple 67
+Demande : Donne la structure JSON de deux articles.
+Réponse :  [{"nom":"carnet","quantite":2},{"nom":"stylo","quantite":4}]
+
+Exemple 68
+Demande : Was ist der Unterschied zwischen einem Quadrat und einem Rechteck?
+Réponse : Ein Quadrat hat vier gleich lange Seiten. Ein Rechteck hat vier rechte Winkel; seine Seiten müssen nicht alle gleich lang sein.
+
+Exemple 69
+Demande : ¿Por qué una sombra cambia durante el día?
+Réponse : La posición aparente del Sol cambia y, con ella, la dirección y la longitud de la sombra.
+
+Exemple 70
+Demande : Rédige une procédure pour restaurer une sauvegarde personnelle.
+Réponse : Vérifie la date de la copie, restaure les fichiers dans un dossier temporaire, puis ouvre un échantillon de documents avant de remplacer les fichiers courants.
+
+Exemple 71
+Demande : Analyse cet extrait de journal : 14:02 entrée, 14:05 sortie.
+Réponse : La présence a duré trois minutes. Le journal indique une seule entrée suivie d'une sortie.
+
+Exemple 72
+Demande : Explain why a glass of ice water develops droplets outside.
+Réponse : Water vapor in the air cools near the glass and condenses when the surface temperature is below the dew point.
+
+Exemple 73
+Demande : Écris un courriel pour reporter une visite au musée
+Réponse : Bonjour, notre visite de vendredi doit être reportée. Serait-il possible de choisir un créneau la semaine prochaine ? Merci pour votre aide.
+
+Exemple 74
+Demande : What does a bicycle derailleur do?
+Réponse : It moves the chain between sprockets, changing the ratio between pedaling speed and wheel speed. A lower gear makes climbing easier.
+
+Exemple 75
+Demande : Convertis trois heures et quarante minutes en minutes.
+Réponse : Trois heures font 180 minutes. En ajoutant 40 minutes, on obtient 220 minutes.
+
+Exemple 76
+Demande : Explique une requête SQL avec GROUP BY.
+Réponse : SELECT ville, COUNT(*) FROM clients GROUP BY ville; renvoie une ligne par ville et le nombre de clients qui y figurent.
+
+Exemple 77
+Demande : Translate to English: La pluie a cessé avant l'aube.
+Réponse : The rain stopped before dawn.
+
+Exemple 78
+Demande : Résume le dialogue entre deux voyageurs qui ont perdu leur billet.
+Réponse : Ils vérifient leurs sacs, retrouvent le courriel de réservation et montrent le code au guichet.
+
+Exemple 79
+Demande : Donne la structure JSON de deux articles.
+Réponse :  [{"nom":"carnet","quantite":2},{"nom":"stylo","quantite":4}]
+
+Exemple 80
+Demande : Was ist der Unterschied zwischen einem Quadrat und einem Rechteck?
+Réponse : Ein Quadrat hat vier gleich lange Seiten. Ein Rechteck hat vier rechte Winkel; seine Seiten müssen nicht alle gleich lang sein.
+
+Exemple 81
+Demande : ¿Por qué una sombra cambia durante el día?
+Réponse : La posición aparente del Sol cambia y, con ella, la dirección y la longitud de la sombra.
+
+Exemple 82
+Demande : Rédige une procédure pour restaurer une sauvegarde personnelle.
+Réponse : Vérifie la date de la copie, restaure les fichiers dans un dossier temporaire, puis ouvre un échantillon de documents avant de remplacer les fichiers courants.
+
+Exemple 83
+Demande : Analyse cet extrait de journal : 14:02 entrée, 14:05 sortie.
+Réponse : La présence a duré trois minutes. Le journal indique une seule entrée suivie d'une sortie.
+
+Exemple 84
+Demande : Explain why a glass of ice water develops droplets outside.
+Réponse : Water vapor in the air cools near the glass and condenses when the surface temperature is below the dew point.
+
+Exemple 85
+Demande : Écris un courriel pour reporter une visite au musée
+Réponse : Bonjour, notre visite de vendredi doit être reportée. Serait-il possible de choisir un créneau la semaine prochaine ? Merci pour votre aide.
+
+Exemple 86
+Demande : What does a bicycle derailleur do?
+Réponse : It moves the chain between sprockets, changing the ratio between pedaling speed and wheel speed. A lower gear makes climbing easier.
+
+Exemple 87
+Demande : Convertis trois heures et quarante minutes en minutes.
+Réponse : Trois heures font 180 minutes. En ajoutant 40 minutes, on obtient 220 minutes.
+
+Exemple 88
+Demande : Explique une requête SQL avec GROUP BY.
+Réponse : SELECT ville, COUNT(*) FROM clients GROUP BY ville; renvoie une ligne par ville et le nombre de clients qui y figurent.
+
+Exemple 89
+Demande : Translate to English: La pluie a cessé avant l'aube.
+Réponse : The rain stopped before dawn.
+
+Exemple 90
+Demande : Résume le dialogue entre deux voyageurs qui ont perdu leur billet.
+Réponse : Ils vérifient leurs sacs, retrouvent le courriel de réservation et montrent le code au guichet.
+
+Exemple 91
+Demande : Donne la structure JSON de deux articles.
+Réponse :  [{"nom":"carnet","quantite":2},{"nom":"stylo","quantite":4}]
+
+Exemple 92
+Demande : Was ist der Unterschied zwischen einem Quadrat und einem Rechteck?
+Réponse : Ein Quadrat hat vier gleich lange Seiten. Ein Rechteck hat vier rechte Winkel; seine Seiten müssen nicht alle gleich lang sein.
+
+Exemple 93
+Demande : ¿Por qué una sombra cambia durante el día?
+Réponse : La posición aparente del Sol cambia y, con ella, la dirección y la longitud de la sombra.
+
+Exemple 94
+Demande : Rédige une procédure pour restaurer une sauvegarde personnelle.
+Réponse : Vérifie la date de la copie, restaure les fichiers dans un dossier temporaire, puis ouvre un échantillon de documents avant de remplacer les fichiers courants.
+
+Exemple 95
+Demande : Analyse cet extrait de journal : 14:02 entrée, 14:05 sortie.
+Réponse : La présence a duré trois minutes. Le journal indique une seule entrée suivie d'une sortie.
+
+Exemple 96
+Demande : Explain why a glass of ice water develops droplets outside.
+Réponse : Water vapor in the air cools near the glass and condenses when the surface temperature is below the dew point.

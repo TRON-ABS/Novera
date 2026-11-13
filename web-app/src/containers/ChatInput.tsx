@@ -8,6 +8,7 @@ import { DownloadManagement } from './DownloadManegement'
 import { ComposerNavigation } from './ComposerNavigation'
 import { MemoryModeControl } from './MemoryModeControl'
 import { AutoTuneControl, useDesktopAutoTuneEnabled } from './AutoTuneControl'
+import { ModelAdjustmentControl, useWeightRecalibration } from './ModelAdjustmentControl'
 import { useCreation } from '@/hooks/useCreation'
 import { resolveOutputMode } from '@/modules/engines/creation'
 import { cn, formatBytes } from '@/lib/utils'
@@ -289,7 +290,9 @@ const ChatInput = memo(function ChatInput({
 }: ChatInputProps) {
 
   const isStreaming = chatStatus === 'submitted' || chatStatus === 'streaming'
-  const autoTuneLocksComposer = useDesktopAutoTuneEnabled() === true
+  const autoTuneEnabled = useDesktopAutoTuneEnabled() === true
+  const recalibration = useWeightRecalibration()
+  const composerLocked = autoTuneEnabled || recalibration.running
   const turnBusy = isStreaming || !!toolsRunning
   const textareaRef = useRef<HTMLTextAreaElement>(null)
   const [composerFolded, setComposerFolded] = useComposerDisclosure()
@@ -321,6 +324,9 @@ const ChatInput = memo(function ChatInput({
     (state) => state.updateCurrentThreadAssistant
   )
   const { t } = useTranslation()
+  const composerLockMessage = recalibration.running
+    ? 'Envoi indisponible pendant le recalibrage des poids.'
+    : t('ui:autoTuneComposerLocked')
   const spellCheckChatInput = useGeneralSetting(
     (state) => state.spellCheckChatInput
   )
@@ -660,7 +666,7 @@ const ChatInput = memo(function ChatInput({
   const MCPToolComponent = mcpExtension?.getToolComponent?.()
 
   const handleSendMessage = async (prompt: string) => {
-    if (autoTuneLocksComposer) return
+    if (composerLocked) return
     const creationScope = currentThreadId ?? 'new'
     const creationState = useCreation.getState()
     const outputMode = effectiveAgentMode || scopeKey ? 'text' : resolveOutputMode(creationState.modes[creationScope] ?? 'auto', prompt)
@@ -2287,8 +2293,8 @@ const ChatInput = memo(function ChatInput({
               maxRows={10}
               value={prompt}
               data-testid={'chat-input'}
-              disabled={autoTuneLocksComposer}
-              title={autoTuneLocksComposer ? t('ui:autoTuneComposerLocked') : undefined}
+              disabled={composerLocked}
+              title={composerLocked ? composerLockMessage : undefined}
               onScroll={(event) => {
                 if (highlightRef.current) {
                   highlightRef.current.scrollTop = event.currentTarget.scrollTop
@@ -2371,7 +2377,7 @@ const ChatInput = memo(function ChatInput({
                 }
               }}
               onPaste={handlePaste}
-              placeholder={t(autoTuneLocksComposer ? 'ui:autoTuneComposerLocked' : 'common:placeholder.chatInput')}
+              placeholder={composerLocked ? composerLockMessage : t('common:placeholder.chatInput')}
               spellCheck={spellCheckChatInput}
               data-gramm={spellCheckChatInput}
               data-gramm_editor={spellCheckChatInput}
@@ -2387,7 +2393,7 @@ const ChatInput = memo(function ChatInput({
               scope={scopeKey ?? currentThreadId ?? 'new'}
               isNew={!currentThreadId || currentThreadId === TEMPORARY_CHAT_ID}
               eligible={!effectiveAgentMode && !scopeKey}
-              busy={turnBusy || autoTuneLocksComposer}
+              busy={turnBusy || composerLocked}
               failed={chatStatus === 'error'}
               canStart={Boolean(selectedModel) && !ingestingAny && !prompt.trim() && attachments.length === 0}
               canContinue={Boolean(selectedModel) && !ingestingAny && attachments.length === 0}
@@ -2400,7 +2406,7 @@ const ChatInput = memo(function ChatInput({
                 if (!usePrompt.getState().prompt.trim()) setPrompt(text)
               }}
             />
-            <div className="composer-submit-area">
+            <div className="composer-submit-area" data-composer-locked={composerLocked}>
               {isStreaming || toolsRunning ? (
                 <Tooltip>
                   <TooltipTrigger asChild>
@@ -2442,7 +2448,7 @@ const ChatInput = memo(function ChatInput({
                       <Button
                         variant="default"
                         size="icon-sm"
-                        disabled={autoTuneLocksComposer || (!prompt.trim() && !hasSendableMedia) || ingestingAny}
+                        disabled={composerLocked || (!prompt.trim() && !hasSendableMedia) || ingestingAny}
                         data-test-id="send-message-button"
                         data-testid="send-message-button"
                         data-state="idle"
@@ -2479,7 +2485,7 @@ const ChatInput = memo(function ChatInput({
             )}
 
             <div id={composerContentId} hidden={composerFolded}>
-        {!effectiveAgentMode && !scopeKey && <CreationControls scope={currentThreadId ?? 'new'} disabled={turnBusy} prompt={prompt} showSettingsButton={false} autoTuneEnabled={autoTuneLocksComposer} />}
+        {!effectiveAgentMode && !scopeKey && <CreationControls scope={currentThreadId ?? 'new'} disabled={turnBusy} prompt={prompt} showSettingsButton={false} autoTuneEnabled={composerLocked} />}
         <div className="composer-footer relative z-20 w-full p-2">
           <div
             ref={controlRowRef}
@@ -3113,6 +3119,7 @@ const ChatInput = memo(function ChatInput({
                   </div>
                   <MemoryModeControl scope={currentThreadId ?? 'new'} />
                   <AutoTuneControl />
+                  <ModelAdjustmentControl disabled={turnBusy || autoTuneEnabled} recalibration={recalibration} />
                   <CreationSettingsControl scope={currentThreadId ?? 'new'} disabled={turnBusy} />
                   <DownloadManagement composer />
                 </div>

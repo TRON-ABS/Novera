@@ -73,7 +73,7 @@ export function VoiceConversationButton({ scope, isNew, eligible, busy, failed, 
     },
   }
   const browserOmni = browserPreviewEnabled() && Boolean(omniModelId)
-  const supported = eligible && (omniModelId ? (browserOmni ? browserVoiceSupported() : omniVoiceSupported()) : voiceSupported())
+  const supported = eligible && (omniModelId ? (browserOmni ? browserVoiceSupported(omniModelId) : omniVoiceSupported()) : voiceSupported())
   const outputSupported = eligible && (systemOutput ? Boolean(localSystemVoice(voiceLocale(language), systemVoiceURI, systemVoices)) : supported)
   const createBackend = () => {
     const locale=voiceLocale(language)
