@@ -27,10 +27,6 @@ Novera recalibrates model weights to bring a smaller quantization closer to a hi
 
 On five text corpora, the local LFM3 Q4 recalibrated v1 measured 72.3% lower mean KL and 78.7% lower maximum KL than the original Q4 against the same Q8 reference. The recalibrated GGUF was 33.48% smaller than Q8. These results describe the local benchmark. The experimental Web version runs GGUF quantization directly in the browser and uses a shorter KL check.
 
-[![Novera Model Adjustment showing the original and recalibrated LFM3 Q4, with size savings and KL measurements on five corpora](.github/assets/novera-model-adjustment.png)](.github/assets/novera-model-adjustment.png)
-
-*Local Novera Web benchmark. Click the screenshot to view the original PNG.*
-
 ## Availability — Novera 1.0.3
 
 | Platform | Availability |
