@@ -45,7 +45,10 @@ describe('browser Omni microphone', () => {
   })
 
   it('transcribes captured PCM through the browser runtime', async () => {
-    capture.mockResolvedValue(new Uint8Array([0, 128, 255, 127]))
+    capture.mockImplementation(async (_signal, onReady) => {
+      onReady()
+      return new Uint8Array([0, 128, 255, 127])
+    })
     const runtime = { load: vi.fn(), speech: vi.fn().mockResolvedValue(' Bonjour ') }
     const phase = vi.fn()
     const backend = createBrowserVoiceBackend('omni', 'fr', runtime as unknown as BrowserRuntime)

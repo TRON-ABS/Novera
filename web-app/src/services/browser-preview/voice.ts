@@ -57,8 +57,7 @@ export function createBrowserVoiceBackend(model: string, locale: string, runtime
       phase?.('preparing')
       await runtime.load(model)
       operation.throwIfAborted()
-      phase?.('listening')
-      const pcm = await capturePcm(operation)
+      const pcm = await capturePcm(operation, () => phase?.('listening'))
       operation.throwIfAborted()
       if (!pcm.length) return ''
       phase?.('transcribing')

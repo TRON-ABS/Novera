@@ -100,11 +100,12 @@ describe('direct local Omni microphone', () => {
     getUserMedia.mockReturnValue(new Promise(resolve => { grant = resolve }))
     const controller = new AbortController()
     const result = capturePcm(controller.signal)
+    await vi.waitFor(() => expect(getUserMedia).toHaveBeenCalledOnce())
     controller.abort()
     await expect(result).rejects.toThrow('cancelled')
     grant(stream); await Promise.resolve(); await Promise.resolve()
     expect(stopTrack).toHaveBeenCalledOnce()
-    expect(Worklet.current).toBeUndefined()
+    expect(Worklet.current?.disconnect).toHaveBeenCalledOnce()
   })
   it('never opens the microphone in a background native window', async () => {
     foreground.mockResolvedValue(false)

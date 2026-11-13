@@ -19,7 +19,7 @@ export function omniVoiceSupported() {
     typeof window.AudioContext === 'function' && typeof window.AudioWorkletNode === 'function'
 }
 
-export async function capturePcm(signal: AbortSignal): Promise<Uint8Array> {
+export async function capturePcm(signal: AbortSignal, onReady?: () => void): Promise<Uint8Array> {
   if (signal.aborted) throw new Error('cancelled')
   let stream: MediaStream | undefined
   let context: AudioContext | undefined
@@ -35,6 +35,11 @@ export async function capturePcm(signal: AbortSignal): Promise<Uint8Array> {
     if (context && context.state !== 'closed') void context.close().catch(() => {})
   }
   try {
+    context = new AudioContext({sampleRate:16000})
+    if (context.sampleRate !== 16000) throw new Error('unavailable')
+    await abortable(context.audioWorklet.addModule(`${import.meta.env.BASE_URL}audio/pcm-capture-worklet.js`), signal)
+    if (signal.aborted) throw new Error('cancelled')
+    node = new AudioWorkletNode(context, 'novera-pcm-capture')
     const requested = navigator.mediaDevices.getUserMedia({ video: false, audio: {
       channelCount: 1, echoCancellation: true, noiseSuppression: true, autoGainControl: true,
     } })
@@ -42,15 +47,10 @@ export async function capturePcm(signal: AbortSignal): Promise<Uint8Array> {
     void requested.then(value => { if (closed || signal.aborted) value.getTracks().forEach(track => track.stop()) }, () => {})
     stream = await abortable(requested, signal)
     if (signal.aborted) throw new Error('cancelled')
-    context = new AudioContext({sampleRate:16000})
-    if (context.sampleRate !== 16000) throw new Error('unavailable')
-    await abortable(context.audioWorklet.addModule(`${import.meta.env.BASE_URL}audio/pcm-capture-worklet.js`), signal)
-    if (signal.aborted) throw new Error('cancelled')
     source = context.createMediaStreamSource(stream)
-    node = new AudioWorkletNode(context, 'novera-pcm-capture')
-    source.connect(node); node.connect(context.destination)
     const utterance = new VoiceUtterance()
     return await new Promise<Uint8Array>((resolve, reject) => {
+      let ready = false
       const finish = (error?: Error) => {
         clearTimeout(timeout); signal.removeEventListener('abort', cancel)
         cleanup()
@@ -61,9 +61,14 @@ export async function capturePcm(signal: AbortSignal): Promise<Uint8Array> {
       signal.addEventListener('abort', cancel, {once:true})
       node!.port.onmessage = event => {
         if (closed) return
-        try { if (utterance.push(event.data.pcm, event.data.rms)) finish() }
+        try {
+          const complete = utterance.push(event.data.pcm, event.data.rms)
+          if (!ready) { ready = true; onReady?.() }
+          if (complete) finish()
+        }
         catch { finish(new Error('unavailable')) }
       }
+      source!.connect(node!); node!.connect(context!.destination)
       void context!.resume().catch(() => finish(new Error('unavailable')))
     })
   } finally { cleanup() }
@@ -118,8 +123,7 @@ export function createOmniVoiceBackend(locale: string, options: OmniVoiceOptions
         await checkForeground()
         if (operation.signal.aborted) throw new Error('cancelled')
         foregroundTimer = setInterval(() => { void checkForeground() }, 100)
-        phase?.('listening')
-        const pcm = await capturePcm(operation.signal)
+        const pcm = await capturePcm(operation.signal, () => phase?.('listening'))
         if (operation.signal.aborted) throw new Error('cancelled')
         if (!pcm.length) return ''
         phase?.('transcribing')

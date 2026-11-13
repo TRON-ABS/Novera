@@ -17,3 +17,9 @@ describe('French speech numbers',()=>{
   expect(frenchNumbers('In 1889.','en')).toBe('In 1889.')
  })
 })
+
+
+it('reads a euro subtraction with the cents after the currency', () => {
+  expect(frenchNumbers('20 € − 7,50 € = 12,50 €', 'fr-FR'))
+    .toBe('vingt euros moins sept euros cinquante égale douze euros cinquante')
+})

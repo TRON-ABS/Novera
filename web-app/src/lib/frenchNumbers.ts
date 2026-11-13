@@ -20,9 +20,22 @@ function cardinal(n: number, terminal = true): string {
 }
 export function frenchNumbers(text: string, locale: string): string {
   if (locale.toLowerCase().split('-')[0] !== 'fr') return text
+  const withSpokenEuros = text.replace(
+    /(?<=€|\beuros?)[ \u00a0\u202f]*([−=])[ \u00a0\u202f]*(?=\d)/gu,
+    (_, operator: string) => operator === '−' ? ' moins ' : ' égale '
+  ).replace(
+    /(?<![\p{L}\p{N}_/.,])([0-9]{1,12}(?:[\u00a0\u202f][0-9]{3})*)[,.]([0-9]{2})[ \u00a0\u202f]*(?:€|euros?\b)/giu,
+    (amount, whole: string, fraction: string) => {
+      const digits = whole.replace(/[\u00a0\u202f]/g, '')
+      if (digits.length > 12) return amount
+      const euros = Number(digits)
+      const cents = Number(fraction)
+      return `${cardinal(euros)} euro${euros > 1 ? 's' : ''}${cents ? ` ${cardinal(cents)}` : ''}`
+    }
+  ).replace(/(?<=\d)[ \u00a0\u202f]*€/gu, ' euros')
   // Exclude identifiers, URLs and multi-part version/date tokens. Fractional
   // digits are spoken separately to preserve precision and leading zeroes.
-  return text.replace(/(?<![\p{L}\p{N}_/.])\d+(?:[\u00a0\u202f]\d{3})*(?:[.,]\d+)?(?![\p{L}\p{N}_/]|\.\d)/gu, token => {
+  return withSpokenEuros.replace(/(?<![\p{L}\p{N}_/.])\d+(?:[\u00a0\u202f]\d{3})*(?:[.,]\d+)?(?![\p{L}\p{N}_/]|\.\d)/gu, token => {
     const [whole, fraction] = token.replace(/[\u00a0\u202f]/g, '').split(/[.,]/)
     if (whole.length > 12) return token
     const integer = whole.length > 1 && whole.startsWith('0')
