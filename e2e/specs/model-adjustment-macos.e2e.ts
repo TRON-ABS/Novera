@@ -23,8 +23,12 @@ describe('Novera macOS ARM64 native model adjustment', () => {
   it('keeps the llama.cpp provider page open while the dashboard rerenders', async () => {
     await clickWhenReady('[data-testid="composer-nav-settings"]')
     const engine = `${settings} [data-settings-provider="llamacpp"]`
-    if (!(await $(engine).isExisting())) {
-      await clickWhenReady(`${settings} [data-testid="settings-hidden-providers"]`)
+    const hidden = `${settings} [data-testid="settings-hidden-providers"]`
+    await browser.waitUntil(async () => (await $(engine).isDisplayed()) || (await $(hidden).isDisplayed()), {
+      timeout: 30_000, timeoutMsg: 'Settings did not display llama.cpp or the hidden providers control',
+    })
+    if (!(await $(engine).isDisplayed())) {
+      await clickWhenReady(hidden)
     }
     await clickWhenReady(engine)
     const engineInfo = `${settings} a[href$="/releases/tag/v1.0.0"]`
