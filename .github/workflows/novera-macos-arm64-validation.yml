@@ -31,7 +31,8 @@ jobs:
           yarn build:icon
           yarn copy:assets:tauri
           yarn download:bin
-          make build-engine build-mlx-server
+          make build-engine
+          make build-mlx-server NOVERA_MLX_XCODE_FLAGS=-skipPackagePluginValidation
           yarn tauri build --ci --target aarch64-apple-darwin --bundles app --config '{"bundle":{"createUpdaterArtifacts":false}}'
           app=$(find src-tauri/target/aarch64-apple-darwin/release/bundle/macos -maxdepth 1 -name '*.app' -print -quit)
           test -n "$app"
@@ -59,6 +60,7 @@ jobs:
         if: always()
         with:
           name: Novera-macOS-arm64-validation
+          include-hidden-files: true
           path: |
             ${{ runner.temp }}/Novera-macOS-arm64.zip
             .build/macos-validation/results/report.json

@@ -228,7 +228,7 @@ ifeq ($(JAN_MLX_PREBUILT_DIR),)
 	# binary with no default.metallib and the app fails at runtime. See
 	# https://github.com/ml-explore/mlx-swift README ("SwiftPM (command
 	# line) cannot build the Metal shaders").
-	cd mlx-server && xcodebuild build -scheme mlx-server -destination 'platform=OS X' -configuration Release OTHER_LDFLAGS="-dead_strip"
+	cd mlx-server && xcodebuild build $(NOVERA_MLX_XCODE_FLAGS) -scheme mlx-server -destination 'platform=OS X' -configuration Release OTHER_LDFLAGS="-dead_strip"
 endif
 	@echo "Finding build products..."
 	@DERIVED_DATA=$${JAN_MLX_PREBUILT_DIR:-$$(find ~/Library/Developer/Xcode/DerivedData/mlx-server-*/Build/Products/Release -maxdepth 0 2>/dev/null | head -1)}; \
