@@ -131,6 +131,13 @@ def main():
                 ('mixed', 'Q2 mixte · attention et embeddings Q8', 'Q2_K',
                  ['attn_=q8_0', 'token_embd=q8_0']),
             ]
+        if level in ('2', '3'):
+            quantization = {'2': 'Q2_K', '3': 'Q3_K_M'}[level]
+            original = output / f'LFM3-Q{level}-original.gguf'
+            run(f'Quantification Q{level} original', 'quantize', [
+                '--allow-requantize', reference, original, quantization,
+            ], 'original-build.log')
+            measure(f'Q{level} original', original, 'original')
         if level == '4' and not args.continue_q4:
             measure('Q4 actuel', reference.with_name('LFM3-Omni-2B-Q4_K_M.gguf'), 'stock-q4')
             mixed = output / 'LFM3-Q4_K_M-mixed.gguf'

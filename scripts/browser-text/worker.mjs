@@ -96,7 +96,7 @@ self.onmessage=async event=>{
   if(busy){postMessage({type:'error',error:'An operation is already running'});return;}
   busy=true;
   try{
-    if(event.data.type==='load'){
+    if(event.data.type==='load' || event.data.type==='quantize-q4'){
       const batchSize = event.data.commandBatchSize ?? 64;
       if (![8,16,32,64,128,256].includes(batchSize)) throw new Error('Unsupported command batch size');
       self.noveraWebgpuBatchSize = batchSize;
@@ -159,6 +159,31 @@ self.onmessage=async event=>{
         initializedCpuThreads = selected; initializedModuleSha = metadata.sha256;
       }
       const localFile = event.data.localFile;
+      if (event.data.type === 'quantize-q4') {
+        if (!(localFile instanceof Blob) || localFile.size <= 24 || !engine.WORKERFS) throw new Error('Invalid local GGUF file');
+        const started = performance.now();
+        engine.FS.mkdirTree('/local-model');
+        engine.FS.mount(engine.WORKERFS, { blobs: [{ name: 'model.gguf', data: localFile }] }, '/local-model');
+        const output = '/Novera-Q4_K_M.gguf';
+        const matrixPath = '/importance.gguf';
+        try {
+          const matrix = event.data.importanceMatrix;
+          if (matrix !== undefined) {
+            if (!(matrix instanceof Blob) || matrix.size < 24 || matrix.size > 64 * 1024 * 1024) throw new Error('Invalid GGUF importance matrix');
+            engine.FS.writeFile(matrixPath, new Uint8Array(await matrix.arrayBuffer()), { canOwn: true });
+          }
+          const code = engine.ccall('novera_quantize_q4', 'number', ['string', 'string', 'string'],
+            ['/local-model/model.gguf', output, matrix ? matrixPath : '']);
+          if (code !== 0) throw new Error('GGUF quantization failed');
+          const blob = new Blob([engine.FS.readFile(output)], { type: 'application/octet-stream' });
+          postMessage({ type: 'quantized', blob, inputBytes: localFile.size, outputBytes: blob.size, elapsedMs: performance.now() - started });
+        } finally {
+          engine.FS.unmount('/local-model');
+          if (engine.FS.analyzePath(output).exists) engine.FS.unlink(output);
+          if (engine.FS.analyzePath(matrixPath).exists) engine.FS.unlink(matrixPath);
+        }
+        return;
+      }
       let modelPath = '/model.gguf';
       if (localFile !== undefined) {
         if (!(localFile instanceof Blob) || localFile.size <= 24) throw new Error('Invalid local GGUF file');
@@ -181,6 +206,13 @@ self.onmessage=async event=>{
       }
       if(code!==0)throw new Error(result().error??'Native loading failed');
       postMessage({type:'ready',...result(),cpuTopology,reuseQ8Requested:self.noveraReuseQ8,matvecRowsRequested:self.noveraMatvecRows,matvecThreadsRequested:self.noveraMatvecThreads,batchedHostInputsRequested:self.noveraBatchHostInputs,loadMs:performance.now()-started,heapBytes:engine.HEAPU8.buffer.byteLength,receipt});
+    }else if(event.data.type==='probe-logits'){
+      if (!engine) throw new Error('Load the model first');
+      const pointer = Number(await engine.ccall('novera_probe_logits', 'number', ['string'], [event.data.prompt], { async: true }));
+      const { vocab, tokens, error } = result();
+      if (!pointer || !Number.isSafeInteger(vocab) || vocab <= 0) throw new Error(error ?? 'Logits unavailable');
+      const logits = new Float32Array(engine.HEAPU8.buffer, pointer, vocab).slice();
+      postMessage({ type: 'logits', logits, tokens }, [logits.buffer]);
     }else if(event.data.type==='generate'){
       self.noveraNativeSpans = [];
       self.noveraBatchedHostInputSplits = 0;

@@ -9,7 +9,7 @@ const manifest = { application: 'NoveraWeb', schemaVersion: 1, version: '1.0.2',
 afterEach(() => { vi.unstubAllEnvs(); vi.unstubAllGlobals(); usePrompt.setState({ prompt: '' }); useCreation.setState({ progress: {} }) })
 
 it('only accepts the matching Web manifest with a different build identity', () => {
-  expect(newerWebVersion(manifest, 'current-build')).toBe('1.0.2')
+  expect(newerWebVersion(manifest, 'current-build')).toEqual({ version: '1.0.2', buildId: 'next-build' })
   expect(newerWebVersion(manifest, 'next-build')).toBeUndefined()
   expect(newerWebVersion({ ...manifest, application: 'OtherApp' }, 'current-build')).toBeUndefined()
   expect(newerWebVersion({ ...manifest, buildId: '<script>' }, 'current-build')).toBeUndefined()
@@ -22,7 +22,7 @@ it('offers an update without reloading through a draft or active media job', asy
   usePrompt.setState({ prompt: 'Unsaved draft' })
   useCreation.setState({ progress: {} })
   const view = render(<BrowserUpdateNotice modelBusy={false} />)
-  await screen.findByText(/Nouvelle version disponible/)
+  await screen.findByText(/Nouvelle version disponible · 1\.0\.2 · Build next-build/)
   expect(screen.getByRole('button', { name: 'Recharger Novera' })).toBeDisabled()
   await act(async () => { usePrompt.setState({ prompt: '' }); useCreation.setState({ progress: { test: { stage: 'generating', progress: 40 } } }) })
   expect(screen.getByRole('button', { name: 'Recharger Novera' })).toBeDisabled()

@@ -5,6 +5,7 @@ from pathlib import Path
 import re
 from shutil import copyfile
 import sys
+from statistics import fmean
 
 from importlib import import_module
 
@@ -31,9 +32,6 @@ def main():
     corpora = root / 'scripts/validation/q4-quantization'
     reference = models / 'LFM3-Omni-2B-Q8_0.gguf'
     baseline = models / 'LFM3-Omni-2B-Q4_K_M.gguf'
-    first = base / 'q4-first/LFM3-Q4_K_M-calibrated.gguf'
-    varied = output / 'LFM3-Q4_K_M-varied.gguf'
-    mixed = output / 'LFM3-Q4_K_M-mixed.gguf'
     tools = base / 'tools'
     matrix = output / 'importance.gguf'
     cache = output / 'reference.logits'
@@ -46,9 +44,10 @@ def main():
         engine.publish(output, report)
         return engine.run(tools, tool, options, output / log)
 
-    def evaluate(label, model, index):
+    def measure(label, model, index, *, options=None, reference_cache=None):
         result = run('Mesure · ' + label, 'perplexity', [
-            '-m', model, *evaluation, '--kl-divergence', '--kl-divergence-base', cache,
+            '-m', model, *(evaluation if options is None else options),
+            '--kl-divergence', '--kl-divergence-base', reference_cache or cache,
         ], f'{index}.log')
         metrics = {}
         for key, pattern in (('mean_kl', 'Mean'), ('max_kl', 'Max(?:imum)?')):
@@ -56,7 +55,11 @@ def main():
             if not match:
                 raise ValueError(f'Missing {key} for {label}')
             metrics[key] = float(match[1])
-        report['runs'].append(dict(label=label, file=model.name, bytes=model.stat().st_size, **metrics))
+        return metrics
+
+    def evaluate(label, model, index):
+        report['runs'].append(dict(label=label, file=model.name, bytes=model.stat().st_size,
+                                   **measure(label, model, index)))
         engine.publish(output, report)
 
     evaluation = ['-f', args.validation or corpora / 'validation.txt', *common]
@@ -132,20 +135,53 @@ def main():
                 evaluate(label, model, name)
             report['stage'] = 'Comparaison terminée'
             return
-        run('Calcul de la référence Q8', 'perplexity', ['-m', reference, *evaluation, '--save-all-logits', cache], '01-reference.log')
-        evaluate('Q4 actuel', baseline, '02-baseline')
-        evaluate('Q4 recalibré v1', first, '03-v1')
+        evaluations = []
+        report.update(referenceBytes=reference.stat().st_size, referenceName='Q8')
+        for number, (corpus, chunks) in enumerate([
+            (corpora / 'validation.txt', args.chunks),
+            (base / 'validation-independent.txt', args.chunks),
+            (corpora / 'transfer.txt', 4),
+            (corpora / 'holdout-4.txt', 4),
+        ], start=1):
+            evaluation = ['-f', corpus, '-c', 512, '-ngl', 99, '--chunks', chunks]
+            cache = output / ('reference.logits' if number == 1 else f'reference-{number}.logits')
+            run(f'Calcul de la référence Q8 · corpus {number}/4', 'perplexity',
+                ['-m', reference, *evaluation, '--save-all-logits', cache], f'reference-{number}.log')
+            evaluations.append((evaluation, cache))
+
+        def evaluate_corpora(label, model, slug):
+            entry = dict(label=label, file=model.name, bytes=model.stat().st_size,
+                         mean_kl=None, max_kl=None, corpus_max_kl=[])
+            report['runs'].append(entry)
+            means = []
+            for number, (options, reference_cache) in enumerate(evaluations, start=1):
+                score = measure(f'{label} · corpus {number}/{len(evaluations)}', model, f'{slug}-{number}',
+                                options=options, reference_cache=reference_cache)
+                means.append(score['mean_kl'])
+                entry['corpus_max_kl'].append(score['max_kl'])
+                entry['max_kl'] = max(entry['corpus_max_kl'])
+                entry['mean_kl'] = fmean(means)
+                engine.publish(output, report)
+
         run('Matrice d’importance sur corpus varié', 'imatrix',
-            ['-m', reference, '-f', corpora / 'calibration.txt', '-o', matrix, *common], '04-importance.log')
-        quantize = ['--allow-requantize', '--imatrix', matrix]
-        run('Quantification Q4 recalibré v2', 'quantize', [*quantize, reference, varied, 'Q4_K_M'], '05-v2-build.log')
-        evaluate('Q4 recalibré v2', varied, '06-v2')
-        run('Quantification Q4 mixte', 'quantize', [
-            *quantize, '--tensor-type', 'attn_q=q6_K', '--tensor-type', 'attn_k=q6_K',
-            '--tensor-type', 'attn_output=q6_K', '--token-embedding-type', 'q6_K',
-            reference, mixed, 'Q4_K_M',
-        ], '07-mixed-build.log')
-        evaluate('Q4 mixte', mixed, '08-mixed')
+            ['-m', reference, '-f', corpora / 'calibration.txt', '-o', matrix, *common], 'importance.log')
+        mixed_rules = ['attn_q=q6_K', 'attn_k=q6_K', 'attn_output=q6_K']
+        base_rules = [*mixed_rules, r'blk\.[0-5]\.ffn_gate=q8_0', r'blk\.[0-5]\.ffn_up=q6_K']
+        holdout = ['-f', corpora / 'holdout-5.txt', '-c', 512, '-ngl', 99, '--chunks', 4]
+        holdout_cache = output / 'reference-5.logits'
+        run('Calcul de la référence Q8 · corpus 5/5', 'perplexity',
+            ['-m', reference, *holdout, '--save-all-logits', holdout_cache], 'reference-5.log')
+        evaluations.append((holdout, holdout_cache))
+        evaluate_corpora('Q4 original', baseline, 'stock')
+
+        recalibrated = output / 'LFM3-Q4_K_M-recalibrated-v1.gguf'
+        recalibrated_rules = [*base_rules, r'blk\.([0-9]|1[01])\.shortconv\.(in_proj|out_proj)=q6_K']
+        options = [part for rule in recalibrated_rules for part in ('--tensor-type', rule)]
+        run('Quantification Q4 recalibré v1', 'quantize', [
+            '--allow-requantize', '--imatrix', matrix, '--token-embedding-type', 'q6_K',
+            *options, reference, recalibrated, 'Q4_K_M',
+        ], 'v1-build.log')
+        evaluate_corpora('Q4 recalibré v1', recalibrated, 'v1')
         report['stage'] = 'Comparaison terminée'
     except Exception:
         report['stage'] = 'Comparaison interrompue'

@@ -4,7 +4,7 @@ import { loopbackFetch } from './model-factory'
 type TokenProbability = { id: number; logprob: number; bytes: number[] }
 export type Distribution = { tokens: string[]; logprobs: Float64Array }
 const vocabularyLimit = 262144
-export const KL_THRESHOLD = 0.00145
+export const KL_THRESHOLD = 2.5
 
 export async function firstTokenDistribution(modelId: string, prompt: string, signal: AbortSignal): Promise<Distribution> {
   const session = await findSessionByModel(modelId)

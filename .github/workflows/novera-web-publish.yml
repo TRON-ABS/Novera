@@ -117,6 +117,7 @@ jobs:
           VITE_NOVERA_AUTO_TUNE_CONTRIBUTION_URL: ${{ vars.NOVERA_AUTO_TUNE_CONTRIBUTION_URL }}
           VITE_NOVERA_WEB_LOCAL_WAN: 'true'
           VITE_NOVERA_WEB_BASE: /Novera/web/
+          NOVERA_BUILD_ID: ${{ github.run_number }}.${{ github.run_attempt }}
           NOVERA_BROWSER_MEDIA_BUILD: .build/browser-media/build
           NOVERA_BROWSER_MUSIC_BUILD: .build/browser-music/build
           NOVERA_MONITORING_BUILD: 'false'

@@ -26,7 +26,9 @@ export function prepareBrowserRuntime(folder, kind = 'image', memory64 = false) 
     }
     const checkedOutWorker = fs.readFileSync(new URL('../browser-text/worker.mjs', import.meta.url))
     const expectedWorkerHash = receipt.wrapperSha256?.['worker.mjs']
-    const worker = [checkedOutWorker, Buffer.from(checkedOutWorker.toString('utf8').replaceAll('\r\n', '\n'))]
+    const bundledWorkerPath = path.join(root, 'worker.mjs')
+    const worker = [checkedOutWorker, Buffer.from(checkedOutWorker.toString('utf8').replaceAll('\r\n', '\n')),
+      ...(fs.existsSync(bundledWorkerPath) ? [fs.readFileSync(bundledWorkerPath)] : [])]
       .find(candidate => createHash('sha256').update(candidate).digest('hex') === expectedWorkerHash)
     if (!worker) throw new Error('Browser text worker differs from its build receipt.')
     assets.push({ name: 'worker.mjs', source: worker })
@@ -40,5 +42,6 @@ export function prepareBrowserRuntime(folder, kind = 'image', memory64 = false) 
   for (const asset of assets) hash.update(asset.name).update('\0').update(createHash('sha256').update(asset.source).digest())
   // The JS module resolves its WASM relative to itself. Give the whole verified
   // set a new directory so browser caches cannot mix two runtime versions.
-  return { directory: `novera-runtime/${hash.digest('hex')}`, assets }
+  return { directory: `novera-runtime/${hash.digest('hex')}`, assets,
+    modelQuantization: kind === 'text' && assets.some(asset => asset.name === 'worker.mjs' && asset.source.includes("type==='quantize-q4'")) }
 }

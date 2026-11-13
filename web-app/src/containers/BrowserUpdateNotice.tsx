@@ -6,18 +6,18 @@ import { flushBrowserConversations } from '@/services/browser-preview/storage'
 
 declare const NOVERA_BUILD_ID: string
 
-export function newerWebVersion(value: unknown, currentBuildId: string): string | undefined {
+export function newerWebVersion(value: unknown, currentBuildId: string): { version: string; buildId: string } | undefined {
   if (!value || typeof value !== 'object') return
   const manifest = value as Record<string, unknown>
   if (manifest.application !== 'NoveraWeb' || manifest.schemaVersion !== 1 ||
       typeof manifest.buildId !== 'string' || !/^[A-Za-z0-9._-]{1,96}$/.test(manifest.buildId) ||
       manifest.buildId === currentBuildId || typeof manifest.version !== 'string' ||
       !/^\d+\.\d+\.\d+(?:[-+][0-9A-Za-z.-]+)?$/.test(manifest.version)) return
-  return manifest.version
+  return { version: manifest.version, buildId: manifest.buildId }
 }
 
 export function BrowserUpdateNotice({ modelBusy }: { modelBusy: boolean }) {
-  const [available, setAvailable] = useState<string>()
+  const [available, setAvailable] = useState<ReturnType<typeof newerWebVersion>>()
   const [reloading, setReloading] = useState(false)
   const [error, setError] = useState('')
   const mediaBusy = useCreation(state => Object.keys(state.progress).length > 0)
@@ -39,8 +39,8 @@ export function BrowserUpdateNotice({ modelBusy }: { modelBusy: boolean }) {
           cache: 'no-store', credentials: 'omit', signal: controller.signal,
         })
         if (!response.ok) return
-        const version = newerWebVersion(await response.json(), typeof NOVERA_BUILD_ID === 'undefined' ? 'unknown' : NOVERA_BUILD_ID)
-        if (active) setAvailable(version)
+        const update = newerWebVersion(await response.json(), typeof NOVERA_BUILD_ID === 'undefined' ? 'unknown' : NOVERA_BUILD_ID)
+        if (active) setAvailable(update)
       } catch { /* Offline sessions keep working without an update check. */ }
       finally { window.clearTimeout(timeout); fetching = false }
     }
@@ -68,7 +68,7 @@ export function BrowserUpdateNotice({ modelBusy }: { modelBusy: boolean }) {
     } catch { setReloading(false); setError('Les discussions ne sont pas encore enregistrées. Réessayez avant de recharger.') }
   }
   return <div className="mt-2 flex flex-wrap items-center gap-2" role="status">
-    <strong>Nouvelle version disponible · {available}</strong>
+    <strong>Nouvelle version disponible · {available.version} · Build {available.buildId}</strong>
     <button className="underline" disabled={busy || reloading} onClick={() => { void reload() }}>Recharger Novera</button>
     {busy && <span>Terminez la génération et envoyez ou conservez votre brouillon avant de recharger.</span>}
     {error && <span role="alert">{error}</span>}

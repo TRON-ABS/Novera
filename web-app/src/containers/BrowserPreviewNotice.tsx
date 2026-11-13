@@ -17,6 +17,9 @@ export function BrowserPreviewNotice() {
   return <aside aria-label="Novera Web" className="border-b border-border px-4 py-2 text-xs bg-muted/50 text-foreground shrink-0">
     <div className="flex flex-wrap items-center gap-2">
       <strong>Novera Web {VERSION}</strong>
+      {typeof NOVERA_BUILD_ID === 'string' && <span className="break-all text-muted-foreground tabular-nums">
+        Build {NOVERA_BUILD_ID}
+      </span>}
       <span>Texte sur cet appareil · sans clé API</span>
       <span>{spec.name} · {(spec.bytes / 1e9).toFixed(2)} Go au premier chargement</span>
       <span>Contexte · {BROWSER_CONTEXT_TOKENS.toLocaleString('fr-FR')} tokens</span>

@@ -4,6 +4,7 @@
 #include "ggml-alloc.h"
 #include <atomic>
 #include "chat.h"
+#include "imatrix-loader.h"
 #include "llama-model.h"
 #include "diagnostic-trace.h"
 #include <nlohmann/json.hpp>
@@ -249,6 +250,64 @@ void novera_cpu_get_rows_audit(int thread, int rows) {
 EMSCRIPTEN_KEEPALIVE const char * novera_result() { return result.c_str(); }
 EMSCRIPTEN_KEEPALIVE void novera_cancel() { cancelled = true; }
 EMSCRIPTEN_KEEPALIVE void novera_unload() { if (!running) clear(); else cancelled = true; }
+
+// Browser quantization uses the same GGUF quantizer as the native CLI.
+EMSCRIPTEN_KEEPALIVE int novera_quantize_q4(const char * input, const char * output, const char * matrix_path) {
+    if (running || model) return 1;
+    auto params = llama_model_quantize_default_params();
+    params.nthread = 1;
+    params.ftype = LLAMA_FTYPE_MOSTLY_Q4_K_M;
+    params.allow_requantize = true;
+    params.max_buf_size = 64 * 1024 * 1024;
+    const llama_model_tensor_override overrides[] = {
+        {"attn_", GGML_TYPE_Q8_0},
+        {"token_embd", GGML_TYPE_Q6_K},
+        {"ffn_gate", GGML_TYPE_Q8_0},
+        {nullptr, GGML_TYPE_COUNT},
+    };
+    common_imatrix matrix;
+    std::vector<llama_model_imatrix_data> weights;
+    if (matrix_path && *matrix_path) {
+        if (!common_imatrix_load(matrix_path, matrix) || matrix.is_legacy || !matrix.has_metadata || matrix.entries.empty()) return 1;
+        for (auto & [name, entry] : matrix.entries) {
+            const auto count = entry.counts.size();
+            if (count == 0 || entry.sums.empty() || entry.sums.size() % count != 0) return 1;
+            const auto stride = entry.sums.size() / count;
+            for (size_t j = 0; j < count; ++j) {
+                for (size_t i = j * stride; i < (j + 1) * stride; ++i) {
+                    entry.sums[i] = entry.counts[j] > 0 ? entry.sums[i] / float(entry.counts[j]) : 1.0f;
+                }
+            }
+            weights.push_back({name.c_str(), entry.sums.data(), entry.sums.size()});
+        }
+        weights.push_back({nullptr, nullptr, 0});
+        params.imatrix = weights.data();
+        params.tt_overrides = overrides;
+    }
+    return llama_model_quantize(input, output, &params) != 0;
+}
+
+// Export the complete next-token distribution without running a sampler.
+EMSCRIPTEN_KEEPALIVE const float * novera_probe_logits(const char * prompt) {
+    if (!context || running) return nullptr;
+    cancelled = false;
+    running = true;
+    const float * logits = nullptr;
+    try {
+        const auto tokens = tokenize(prompt);
+        if (tokens.empty() || tokens.size() > 512) throw std::runtime_error("Invalid probe context");
+        llama_set_sampler(context, 0, nullptr);
+        llama_memory_clear(llama_get_memory(context), true);
+        auto batch = llama_batch_get_one(const_cast<llama_token *>(tokens.data()), (int) tokens.size());
+        if (llama_decode(context, batch) != 0) throw std::runtime_error("Probe decode failed");
+        logits = llama_get_logits_ith(context, -1);
+        result = json({{"vocab", llama_vocab_n_tokens(llama_model_get_vocab(model))}, {"tokens", tokens}}).dump();
+    } catch (const std::exception & error) {
+        result = json({{"error", error.what()}}).dump();
+    }
+    running = false;
+    return logits;
+}
 
 EMSCRIPTEN_KEEPALIVE int novera_load(const char * path, int context_tokens) {
     if (running || context_tokens != 32768) {

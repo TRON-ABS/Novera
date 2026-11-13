@@ -8,6 +8,7 @@ import { Tooltip, TooltipContent, TooltipTrigger } from '@/components/ui/tooltip
 import { dashboardPanelLimit, singleDashboardPanel, useDashboardPanel } from '@/hooks/useDashboardPanel'
 import { useTranslation } from '@/i18n/react-i18next-compat'
 import { KL_THRESHOLD } from '@/lib/model-adjustment-kl'
+import { BrowserModelQuantization, browserQuantizationAvailable } from './BrowserModelQuantization'
 import { intlLocale } from '@/utils/intlLocale'
 
 
@@ -21,6 +22,7 @@ const local = import.meta.env.DEV && import.meta.env.VITE_NOVERA_PRIVATE_NATIVE_
 // Older benchmark reports store display labels in French.
 function reportText(value: string) {
   return value
+    .replace(/(Q[234]) original/g, 'Original $1')
     .replace('Comparaison terminée', 'Comparison complete')
     .replace('Comparaison interrompue', 'Comparison interrupted')
     .replace('Comparaison arrêtée', 'Comparison stopped')
@@ -95,6 +97,7 @@ function weightReportInLocale(report: WeightReport | null, french: boolean, t: R
 }
 
 export function useWeightRecalibration() {
+  const [variant, setVariant] = useState('4')
   const [weightReport, setWeightReport] = useState<WeightReport | null>(null)
   const [startingWeights, setStartingWeights] = useState(false)
   const [requestingStop, setRequestingStop] = useState(false)
@@ -137,17 +140,23 @@ export function useWeightRecalibration() {
     const request = new AbortController()
     const refresh = async () => {
       try {
-        const response = await fetch('/__novera/quantization-report', { signal: request.signal })
+        const response = await fetch(`/__novera/quantization-report?level=${variant}`, { signal: request.signal })
         if (response.ok) {
-          setWeightReport(await response.json() as WeightReport)
+          const report = await response.json() as WeightReport
+          if (!request.signal.aborted) setWeightReport(report)
         }
       } catch { /* The local benchmark can run independently of this panel. */ }
     }
     void refresh()
     const timer = window.setInterval(() => void refresh(), 4000)
     return () => { window.clearInterval(timer); request.abort() }
-  }, [])
-  return { weightReport, weightError, running, requestingStop, startWeightRecalibration, stopWeightRecalibration }
+  }, [variant])
+  function selectVariant(level: string) {
+    setWeightReport(null)
+    setWeightError('')
+    setVariant(level)
+  }
+  return { variant, selectVariant, weightReport, weightError, running, requestingStop, startWeightRecalibration, stopWeightRecalibration }
 }
 
 export function ModelAdjustmentControl({ disabled, recalibration }: { disabled: boolean; recalibration: ReturnType<typeof useWeightRecalibration> }) {
@@ -155,6 +164,7 @@ export function ModelAdjustmentControl({ disabled, recalibration }: { disabled: 
   const french = /^fr(?:-|$)/i.test(i18n.language)
   const locale = intlLocale(i18n.language)
   const formatKl = new Intl.NumberFormat(locale, { maximumFractionDigits: 8 })
+  const formattedKlThreshold = KL_THRESHOLD.toLocaleString(locale, { minimumFractionDigits: 6, maximumFractionDigits: 6 })
   const formatGain = new Intl.NumberFormat(locale, { style: 'percent', maximumFractionDigits: 1, signDisplay: 'exceptZero' })
   const formatSizeGain = new Intl.NumberFormat(locale, { style: 'percent', maximumFractionDigits: 2 })
   const panelOpen = useDashboardPanel(state => state.panels.includes('model-adjustment'))
@@ -162,8 +172,7 @@ export function ModelAdjustmentControl({ disabled, recalibration }: { disabled: 
   const openPanel = useDashboardPanel(state => state.openPanel)
   const closePanel = useDashboardPanel(state => state.closePanel)
   const trigger = useRef<HTMLButtonElement>(null)
-  const [variant, setVariant] = useState('4')
-  const { weightError, running, requestingStop, startWeightRecalibration, stopWeightRecalibration } = recalibration
+  const { variant, selectVariant, weightError, running, requestingStop, startWeightRecalibration, stopWeightRecalibration } = recalibration
   const weightReport = weightReportInLocale(recalibration.weightReport, french, t)
   const [savingModel, setSavingModel] = useState<string | null>(null)
   const [completedSaves, setCompletedSaves] = useState<ReadonlySet<string>>(() => new Set())
@@ -224,9 +233,10 @@ export function ModelAdjustmentControl({ disabled, recalibration }: { disabled: 
       </Tooltip>
       <DialogContent docked positionEnabled={panelOpen}>
         <DialogTitle>{t('ui:modelAdjustmentTitle')}</DialogTitle>
-        <DialogDescription className={local ? 'sr-only' : undefined}>
-          {local ? t('ui:modelAdjustmentChoose') : t('ui:modelAdjustmentLocalOnly')}
+        <DialogDescription className={local || browserQuantizationAvailable ? 'sr-only' : undefined}>
+          {local || browserQuantizationAvailable ? t('ui:modelAdjustmentChoose') : t('ui:modelAdjustmentLocalOnly')}
         </DialogDescription>
+        {!local && <BrowserModelQuantization />}
         {local && <div className="grid items-start gap-3 sm:grid-cols-2">
           <label className="grid min-w-0 gap-1 text-sm">
             <span>{t('ui:modelAdjustmentReference')}{french ? ' : ' : ': '}<span className="text-muted-foreground">{t('ui:modelAdjustmentPrecision')}</span></span>
@@ -237,7 +247,7 @@ export function ModelAdjustmentControl({ disabled, recalibration }: { disabled: 
           <label className="grid min-w-0 gap-1 text-sm">
             <span>{t('ui:modelAdjustmentVariant')} <span className="text-muted-foreground">{t('ui:modelAdjustmentSmaller')}</span></span>
             <select className="h-10 w-full rounded border bg-background px-2" value={variant} disabled={running}
-              onChange={event => setVariant(event.target.value)}>
+              onChange={event => { selectVariant(event.target.value); setSavedModel(null); setSaveFailed(false) }}>
               <option value="4">LFM3 Omni 2B Q4</option>
               <option value="3">LFM3 Omni 2B Q3</option>
               <option value="2">LFM3 Omni 2B Q2</option>
@@ -273,7 +283,7 @@ export function ModelAdjustmentControl({ disabled, recalibration }: { disabled: 
           </p>}
           {weightReport?.recalibrationFailed && <p role="alert">{t('ui:modelAdjustmentFailed')}</p>}
           {weightReport?.corpus && <p>{weightReport.corpus}</p>}
-          {weightReport?.stage && <p aria-live="polite">{weightReport.stage} · {t('ui:modelAdjustmentTarget', { threshold: formatKl.format(KL_THRESHOLD) })}</p>}
+          {weightReport?.stage && <p aria-live="polite">{weightReport.stage} · {t('ui:modelAdjustmentTarget', { threshold: formattedKlThreshold })}</p>}
           {weightReport?.runs ? (weightReport.runs.length > 0 && <div className="@container min-w-0 rounded-md border">
             <table role="table" className="block w-full text-sm @min-[640px]:table @min-[640px]:table-fixed" aria-label={t('ui:modelAdjustmentResults')}>
               <thead role="rowgroup" className="sr-only bg-muted text-muted-foreground @min-[640px]:not-sr-only">
@@ -283,44 +293,41 @@ export function ModelAdjustmentControl({ disabled, recalibration }: { disabled: 
                   <th scope="col" className="px-2 py-2 text-right">{t('ui:modelAdjustmentMean')}</th>
                   <th scope="col" className="px-2 py-2 text-right">{t('ui:modelAdjustmentMax')}</th>
                   <th scope="col" className="px-2 py-2 text-right">{t('ui:modelAdjustmentByCorpus')}</th>
-                  {weightReport.referenceBytes && <th scope="col" className="px-2 py-2 text-right">
-                    {t('ui:modelAdjustmentGain', { reference: weightReport.referenceName ?? 'Q8' })}
-                  </th>}
                   <th scope="col" className="w-16 px-2 py-2 text-center"><span className="sr-only">{t('ui:modelAdjustmentSave')}</span></th>
                 </tr>
               </thead>
               <tbody role="rowgroup" className="block divide-y @min-[640px]:table-row-group">
-              {weightReport.runs.map((run, index, runs) => {
-            const downloadable = Boolean(run.file?.match(/^(?:LFM3-(?:Q4_K_M|Q[234])|Qwen3\.5-Q4)-/))
+              {[...weightReport.runs].sort((left, right) =>
+                Number(/^(?:Q[234] original|Original Q[234])$/.test(right.label)) -
+                Number(/^(?:Q[234] original|Original Q[234])$/.test(left.label))
+              ).map((run, _index, runs) => {
+            const downloadable = Boolean(run.file?.match(/^(?:LFM3-(?:Q4_K_M|Q[234])|Qwen3\.5-Q4)-/) && !run.file.endsWith('-original.gguf'))
             const saveKey = `${weightReport.runId}/${run.file}`
             const saveProgress = savingModel === saveKey ? 0 : completedSaves.has(saveKey) ? 1 : null
             const referenceBytes = run.referenceBytes ?? weightReport.referenceBytes
-            const sizeGain = referenceBytes && (index > 0 || run.referenceBytes)
-              ? formatSizeGain.format(1 - run.bytes / referenceBytes)
-              : '—'
-            const gain = (key: keyof WeightMetrics) => {
-              if (weightReport.referenceBytes) return ''
-              const start = runs[0][key]
-              const value = run[key]
-              return start !== null && start > 0 && value !== null ? ` (${formatGain.format(1 - value / start)})` : ''
-            }
+            const sizeGain = referenceBytes ? formatSizeGain.format(1 - run.bytes / referenceBytes) : null
+            const original = runs.find(row => /^(?:Q[234] (?:original|actuel)|(?:Original|Current) Q[234])$/.test(row.label))
+            const comparison = original ?? (!weightReport.referenceBytes ? runs[0] : undefined)
+            const gain = (start: number | null | undefined, value: number | null) =>
+              run !== comparison && start != null && start > 0 && value !== null
+                ? ` (${formatGain.format(1 - value / start)})`
+                : ''
             return <tr role="row" key={run.label} className="grid grid-cols-2 hover:bg-muted/50 @min-[640px]:table-row">
               <th role="rowheader" scope="row" className="col-span-2 min-w-0 wrap-anywhere px-2 py-2 text-left font-medium">{run.label}
-                {index > 0 && downloadable && run.max_kl !== null && run.max_kl <= KL_THRESHOLD &&
+                {downloadable && run.max_kl !== null && run.max_kl <= KL_THRESHOLD &&
                   <span className="block text-xs text-emerald-700 dark:text-emerald-300">{t('ui:modelAdjustmentMet')}</span>}
               </th>
-              <td role="cell" className={numericCell}><span className={compactLabel}>{t('ui:modelAdjustmentSize')}</span>{formatKl.format(Math.round(run.bytes / 1e6))}</td>
-              <td role="cell" className={numericCell}><span className={compactLabel}>{t('ui:modelAdjustmentMean')}</span>{run.mean_kl === null ? '—' : formatKl.format(run.mean_kl)}{index > 0 && gain('mean_kl')}</td>
-              <td role="cell" className={numericCell}><span className={compactLabel}>{t('ui:modelAdjustmentMax')}</span>{run.max_kl === null ? '—' : formatKl.format(run.max_kl)}{index > 0 && gain('max_kl')}</td>
+              <td role="cell" className={numericCell}><span className={compactLabel}>{t('ui:modelAdjustmentSize')}</span>{formatKl.format(Math.round(run.bytes / 1e6))}{sizeGain && <span className="whitespace-nowrap text-xs" title={t('ui:modelAdjustmentGain', { reference: weightReport.referenceName ?? 'Q8' })}> ({sizeGain})</span>}</td>
+              <td role="cell" className={numericCell}><span className={compactLabel}>{t('ui:modelAdjustmentMean')}</span>{run.mean_kl === null ? '—' : formatKl.format(run.mean_kl)}{gain(comparison?.mean_kl, run.mean_kl)}</td>
+              <td role="cell" className={numericCell}><span className={compactLabel}>{t('ui:modelAdjustmentMax')}</span>{run.max_kl === null ? '—' : formatKl.format(run.max_kl)}{gain(comparison?.max_kl, run.max_kl)}</td>
               <td role="cell" className={numericCell}>
                 <span className={compactLabel}>{t('ui:modelAdjustmentByCorpus')}</span>
                 {run.corpus_max_kl?.map((value, corpusIndex) => (
                   <span key={corpusIndex} className="block">
-                    <span className="text-muted-foreground">{corpusIndex + 1} · </span>{formatKl.format(value)}
+                    <span className="text-muted-foreground">{corpusIndex + 1} · </span>{formatKl.format(value)}{gain(comparison?.corpus_max_kl?.[corpusIndex], value)}
                   </span>
                 )) ?? '—'}
               </td>
-              {weightReport.referenceBytes && <td role="cell" className={numericCell}><span className={compactLabel}>{t('ui:modelAdjustmentGain', { reference: weightReport.referenceName ?? 'Q8' })}</span>{sizeGain}</td>}
               <td role="cell" className="px-2 py-1.5 text-right @min-[640px]:text-center">
               {weightReport.runId && downloadable && run.file && <Button size="icon-xs" variant="outline" type="button"
                 disabled={savingModel !== null} aria-label={t('ui:modelAdjustmentSaveModel', { model: run.label })} title={t('ui:modelAdjustmentSaveFolder')}

@@ -182,14 +182,26 @@ export default defineConfig(({ mode, command }) => {
               return
             }
             try {
+              const level = new URL(request.url ?? '/', 'http://localhost').searchParams.get('level') ?? '4'
+              if (!/^[234]$/.test(level)) { response.writeHead(400).end(); return }
               const names = await readdir(weightDirectory).catch(() => [] as string[])
-              const latest = (recalibrating ? currentRun : undefined) ?? names.filter(name => /^q[234]-run-\d+$/.test(name))
-                .sort((left, right) => Number(left.slice(7)) - Number(right.slice(7))).at(-1) ?? 'q4-varied'
-              const varied = await readFile(path.join(weightDirectory, latest, 'report.json'), 'utf8').catch(() => null)
-              const initial = varied ? null : await readFile(path.join(weightDirectory, 'q4-first/report.json'), 'utf8').catch(() => null)
+              const selectedRunActive = recalibrating && currentRun?.startsWith(`q${level}-run-`)
+              const candidates = names.filter(name =>
+                /^q[234]-run-\d+$/.test(name) && name.startsWith(`q${level}-run-`))
+                .sort((left, right) => Number(right.slice(7)) - Number(left.slice(7)))
+              let latest = selectedRunActive ? currentRun : undefined
+              let varied: string | null = null
+              for (const candidate of latest ? [latest] : [...candidates, ...(level === '4' ? ['q4-varied'] : [])]) {
+                const contents = await readFile(path.join(weightDirectory, candidate, 'report.json'), 'utf8').catch(() => null)
+                if (!contents || /^Q[234]$/.test(JSON.parse(contents).referenceName ?? '')) continue
+                latest = candidate
+                varied = contents
+                break
+              }
+              const initial = varied || level !== '4' ? null : await readFile(path.join(weightDirectory, 'q4-first/report.json'), 'utf8').catch(() => null)
               const report = JSON.parse(varied ?? initial ?? '{}')
               response.writeHead(200, { 'Content-Type': 'application/json', 'Cache-Control': 'no-store' })
-              const activeReport = /^q[234]-run-\d+$/.test(latest) && varied &&
+              const activeReport = latest && /^q[234]-run-\d+$/.test(latest) && varied &&
                 !['Comparaison terminée', 'Comparaison interrompue', 'Comparaison arrêtée'].includes(report.stage)
               response.end(JSON.stringify({ recalibrating: recalibrating || Boolean(activeReport),
                 canStop: process.platform === 'win32' && Boolean(recalibrationProcess?.pid) && !stopping,
@@ -197,7 +209,7 @@ export default defineConfig(({ mode, command }) => {
                 recalibrationFailed: recalibrationFailed || report.stage === 'Comparaison interrompue', ...(varied
                 ? { stage: report.stage, runs: report.runs, runId: latest, corpus: report.corpus,
                     referenceBytes: report.referenceBytes, referenceName: report.referenceName }
-                : recalibrating ? { stage: 'Démarrage du recalibrage', runs: [] }
+                : selectedRunActive ? { stage: 'Démarrage du recalibrage', runs: [] }
                 : { baseline: report.baseline_metrics, candidate: report.candidate_metrics }) }))
             } catch {
               response.writeHead(404, { 'Cache-Control': 'no-store' }).end()
@@ -301,6 +313,7 @@ export default defineConfig(({ mode, command }) => {
     define: {
       'import.meta.env.VITE_NOVERA_BROWSER_TEXT64_PATH': JSON.stringify(text64Runtime?.directory ?? ''),
       'import.meta.env.VITE_NOVERA_BROWSER_TEXT_PATH': JSON.stringify(textRuntime?.directory ?? ''),
+      'import.meta.env.VITE_NOVERA_BROWSER_QUANTIZATION': JSON.stringify(textRuntime?.modelQuantization === true),
       'import.meta.env.VITE_NOVERA_BROWSER_MEDIA_PATH': JSON.stringify(mediaRuntime?.directory ?? ''),
       'import.meta.env.VITE_NOVERA_BROWSER_MUSIC_PATH': JSON.stringify(musicRuntime?.directory ?? ''),
       NOVERA_BUILD_ID: JSON.stringify(build.buildId),
