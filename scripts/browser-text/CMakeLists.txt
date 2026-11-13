@@ -79,7 +79,7 @@ target_link_options(novera-text PRIVATE
   "-sMODULARIZE=1" "-sEXPORT_ES6=1" "-sENVIRONMENT=web,worker"
   "-sALLOW_MEMORY_GROWTH=1" "-sINITIAL_MEMORY=268435456" "-sMAXIMUM_MEMORY=${NOVERA_MAXIMUM_MEMORY}"
   "-sSTACK_SIZE=8388608" "-sFILESYSTEM=1" "-sASSERTIONS=1"
-  "-sEXPORTED_FUNCTIONS=['_malloc','_free','_novera_load','_novera_generate','_novera_cancel','_novera_unload','_novera_result','_novera_quantize_q4','_novera_probe_logits']"
+  "-sEXPORTED_FUNCTIONS=['_malloc','_free','_novera_load','_novera_generate','_novera_cancel','_novera_unload','_novera_result','_novera_quantize_q4','_novera_probe_logits','_novera_probe_chunk']"
   "-sEXPORTED_RUNTIME_METHODS=['ccall','cwrap','UTF8ToString','FS','WORKERFS','HEAPU8']"
   "-sINCOMING_MODULE_JS_API=['wasmBinary','print','printErr','locateFile','onAbort']"
-  "-sJSPI_EXPORTS=['novera_load','novera_generate','novera_unload','novera_probe_logits']")
+  "-sJSPI_EXPORTS=['novera_load','novera_generate','novera_unload','novera_probe_logits','novera_probe_chunk']")

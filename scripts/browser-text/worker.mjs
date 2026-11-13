@@ -155,7 +155,7 @@ self.onmessage=async event=>{
       if (!engine) {
         const factory=(await import('./novera-text.mjs')).default;
         engine=await factory({wasmBinary:wasm,print:line=>postMessage({type:'log',line}),printErr:line=>postMessage({type:'log',line})});
-        if (receipt.memory64) configureLocalFileReads(engine.WORKERFS);
+        configureLocalFileReads(engine.WORKERFS);
         initializedCpuThreads = selected; initializedModuleSha = metadata.sha256;
       }
       const localFile = event.data.localFile;
@@ -185,7 +185,11 @@ self.onmessage=async event=>{
         return;
       }
       let modelPath = '/model.gguf';
-      if (localFile !== undefined) {
+      const benchmarkFile = event.data.benchmark === true && localFile instanceof Blob;
+      if (benchmarkFile) {
+        const bytes = new Uint8Array(await localFile.arrayBuffer());
+        engine.FS.writeFile(modelPath, bytes, {canOwn:true});
+      } else if (localFile !== undefined) {
         if (!(localFile instanceof Blob) || localFile.size <= 24) throw new Error('Invalid local GGUF file');
         if (!engine.WORKERFS) throw new Error('The runtime does not support local GGUF files');
         engine.FS.mkdirTree('/local-model');
@@ -199,13 +203,22 @@ self.onmessage=async event=>{
       const started=performance.now();
       let code;
       try {
-        code=await engine.ccall('novera_load','number',['string','number'],[modelPath,32768],{async:true});
+        code=await engine.ccall('novera_load','number',['string','number'],[modelPath,event.data.benchmark === true ? 512 : 32768],{async:true});
       } finally {
-        if (localFile !== undefined) engine.FS.unmount('/local-model');
+        if (localFile !== undefined && !benchmarkFile) engine.FS.unmount('/local-model');
         else engine.FS.unlink(modelPath);
       }
       if(code!==0)throw new Error(result().error??'Native loading failed');
       postMessage({type:'ready',...result(),cpuTopology,reuseQ8Requested:self.noveraReuseQ8,matvecRowsRequested:self.noveraMatvecRows,matvecThreadsRequested:self.noveraMatvecThreads,batchedHostInputsRequested:self.noveraBatchHostInputs,loadMs:performance.now()-started,heapBytes:engine.HEAPU8.buffer.byteLength,receipt});
+    }else if(event.data.type==='probe-chunk'){
+      if (!engine) throw new Error('Load the model first');
+      const pointer = Number(await engine.ccall('novera_probe_chunk', 'number', ['string','number'],
+        [event.data.corpus, event.data.chunk], { async: true }));
+      const { vocab, positions, tokens, done, error } = result();
+      if (done) { postMessage({type:'chunk-end'}); return; }
+      if (!pointer || !positions || !vocab) throw new Error(error ?? 'Corpus logits unavailable');
+      const logits = new Float32Array(engine.HEAPU8.buffer, pointer, vocab * positions).slice();
+      postMessage({type:'chunk-logits', logits, tokens, vocab, positions}, [logits.buffer]);
     }else if(event.data.type==='probe-logits'){
       if (!engine) throw new Error('Load the model first');
       const pointer = Number(await engine.ccall('novera_probe_logits', 'number', ['string'], [event.data.prompt], { async: true }));

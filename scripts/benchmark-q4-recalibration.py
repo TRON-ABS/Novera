@@ -139,7 +139,7 @@ def main():
         report.update(referenceBytes=reference.stat().st_size, referenceName='Q8')
         for number, (corpus, chunks) in enumerate([
             (corpora / 'validation.txt', args.chunks),
-            (base / 'validation-independent.txt', args.chunks),
+            (corpora / 'validation-independent.txt', args.chunks),
             (corpora / 'transfer.txt', 4),
             (corpora / 'holdout-4.txt', 4),
         ], start=1):

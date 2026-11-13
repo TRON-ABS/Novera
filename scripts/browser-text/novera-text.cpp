@@ -4,6 +4,7 @@
 #include "ggml-alloc.h"
 #include <atomic>
 #include "chat.h"
+#include "common.h"
 #include "imatrix-loader.h"
 #include "llama-model.h"
 #include "diagnostic-trace.h"
@@ -260,9 +261,12 @@ EMSCRIPTEN_KEEPALIVE int novera_quantize_q4(const char * input, const char * out
     params.allow_requantize = true;
     params.max_buf_size = 64 * 1024 * 1024;
     const llama_model_tensor_override overrides[] = {
-        {"attn_", GGML_TYPE_Q8_0},
-        {"token_embd", GGML_TYPE_Q6_K},
-        {"ffn_gate", GGML_TYPE_Q8_0},
+        {"attn_q", GGML_TYPE_Q6_K},
+        {"attn_k", GGML_TYPE_Q6_K},
+        {"attn_output", GGML_TYPE_Q6_K},
+        {R"(blk\.[0-5]\.ffn_gate)", GGML_TYPE_Q8_0},
+        {R"(blk\.[0-5]\.ffn_up)", GGML_TYPE_Q6_K},
+        {R"(blk\.([0-9]|1[01])\.shortconv\.(in_proj|out_proj))", GGML_TYPE_Q6_K},
         {nullptr, GGML_TYPE_COUNT},
     };
     common_imatrix matrix;
@@ -283,8 +287,40 @@ EMSCRIPTEN_KEEPALIVE int novera_quantize_q4(const char * input, const char * out
         weights.push_back({nullptr, nullptr, 0});
         params.imatrix = weights.data();
         params.tt_overrides = overrides;
+        params.token_embedding_type = GGML_TYPE_Q6_K;
     }
     return llama_model_quantize(input, output, &params) != 0;
+}
+
+EMSCRIPTEN_KEEPALIVE const float * novera_probe_chunk(const char * corpus, int chunk) {
+    if (!context || running || chunk < 0) return nullptr;
+    constexpr int width = 512;
+    constexpr int first = width / 2;
+    const auto vocab = llama_model_get_vocab(model);
+    std::string prompt(corpus);
+    if (!prompt.empty() && prompt.back() == '\n') prompt.pop_back();
+    string_process_escapes(prompt);
+    auto tokens = common_tokenize(vocab, prompt, true, false);
+    const size_t offset = size_t(chunk) * width;
+    const int vocabulary = llama_vocab_n_tokens(vocab);
+    if (offset + width > tokens.size()) {
+        result = json({{"done", true}}).dump();
+        return nullptr;
+    }
+    if (llama_vocab_get_add_bos(vocab)) tokens[offset] = llama_vocab_bos(vocab);
+    llama_set_sampler(context, 0, nullptr);
+    llama_memory_clear(llama_get_memory(context), true);
+    auto batch = llama_batch_get_one(tokens.data() + offset, width);
+    std::vector<int8_t> mask(width);
+    for (int i = first; i < width - 1; ++i) mask[i] = 1;
+    batch.logits = mask.data();
+    if (llama_decode(context, batch) != 0) {
+        result = json({{"error", "Corpus decode failed"}}).dump();
+        return nullptr;
+    }
+    result = json({{"vocab", vocabulary}, {"positions", width - first - 1},
+                   {"tokens", std::vector<llama_token>(tokens.begin() + offset, tokens.begin() + offset + width)}}).dump();
+    return llama_get_logits(context);
 }
 
 // Export the complete next-token distribution without running a sampler.
@@ -310,8 +346,8 @@ EMSCRIPTEN_KEEPALIVE const float * novera_probe_logits(const char * prompt) {
 }
 
 EMSCRIPTEN_KEEPALIVE int novera_load(const char * path, int context_tokens) {
-    if (running || context_tokens != 32768) {
-        result = json({{"error", running ? "An operation is already running" : "Full 32768 context is required"}}).dump();
+    if (running || (context_tokens != 32768 && context_tokens != 512)) {
+        result = json({{"error", running ? "An operation is already running" : "Unsupported context size"}}).dump();
         return 1;
     }
     cancelled = false;
@@ -360,7 +396,7 @@ EMSCRIPTEN_KEEPALIVE int novera_load(const char * path, int context_tokens) {
         options.n_samplers = 1;
         options.n_ctx = context_tokens;
         options.n_batch = 512;
-        options.n_ubatch = 256;
+        options.n_ubatch = context_tokens == 512 ? 512 : 256;
         options.n_seq_max = 1;
         options.n_threads = 1;
 #ifdef __EMSCRIPTEN_PTHREADS__
@@ -376,7 +412,7 @@ EMSCRIPTEN_KEEPALIVE int novera_load(const char * path, int context_tokens) {
         audit_placement = EM_ASM_INT({ return globalThis.noveraAuditPlacement ? 1 : 0; });
         if (audit_placement) options.cb_eval = observe_placement;
         context = llama_init_from_model(model, options);
-        if (!context || llama_n_ctx(context) < 32768) throw std::runtime_error("Full 32768 context allocation failed");
+        if (!context || llama_n_ctx(context) < uint32_t(context_tokens)) throw std::runtime_error("Context allocation failed");
         if (cpu_threads > 1) {
             auto pool_options = ggml_threadpool_params_default(cpu_threads);
             pool_options.poll = 0; // Sleep between CPU work; do not busy-spin during GPU execution.

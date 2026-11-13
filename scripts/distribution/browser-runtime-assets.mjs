@@ -43,5 +43,6 @@ export function prepareBrowserRuntime(folder, kind = 'image', memory64 = false) 
   // The JS module resolves its WASM relative to itself. Give the whole verified
   // set a new directory so browser caches cannot mix two runtime versions.
   return { directory: `novera-runtime/${hash.digest('hex')}`, assets,
-    modelQuantization: kind === 'text' && assets.some(asset => asset.name === 'worker.mjs' && asset.source.includes("type==='quantize-q4'")) }
+    modelQuantization: kind === 'text' && assets.some(asset => asset.name === 'worker.mjs' &&
+      asset.source.includes("type==='quantize-q4'") && asset.source.includes("type==='probe-chunk'")) }
 }
