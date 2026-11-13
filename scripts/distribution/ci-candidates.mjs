@@ -75,7 +75,7 @@ function run(mode, kind) {
       config.bundle.resources = ['resources/LICENSE', 'resources/SIGNATURE.txt', 'resources/bin/novera-llama-worker.exe', 'resources/bin/*.dll']
       config.bundle.targets = ['nsis']
     }
-    if (mode === 'config-ios') config.bundle.iOS = { developmentTeam: null }
+    if (mode === 'config-ios') config.bundle.iOS = { ...base.bundle.iOS, developmentTeam: null }
     json('.build/candidate-config.json', config)
   } else if (mode === 'web') {
     for (const p of files('web-app/dist')) copy(p, path.join('web', path.relative('web-app/dist', p)))

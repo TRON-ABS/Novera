@@ -57,6 +57,10 @@ def main():
         raise RuntimeError('Expected exactly one generated iOS simulator app')
     app = apps[0]
     info = plistlib.loads((app / 'Info.plist').read_bytes())
+    config = json.loads((REPO / 'src-tauri/tauri.ios.conf.json').read_text())
+    version, build = info.get('CFBundleShortVersionString'), info.get('CFBundleVersion')
+    if version != config['version'] or build != config['bundle']['iOS']['bundleVersion'] or not re.fullmatch(r'[0-9]{3}', build):
+        raise RuntimeError(f'Unexpected simulator app version or build: {version}, {build}')
     if info.get('CFBundleSupportedPlatforms') != ['iPhoneSimulator']:
         raise RuntimeError('Device package cannot be advertised as simulator proof')
     executable = app / info['CFBundleExecutable']
@@ -122,7 +126,7 @@ def main():
     if frontend.get('numFailedTests') != 0 or not frontend.get('numPassedTests', 0):
         raise RuntimeError('Frontend contracts failed')
     report = {'sourceCommit': os.environ['GITHUB_SHA'], 'runId': os.environ['GITHUB_RUN_ID'], 'bundleId': bundle,
-        'appVersion': info.get('CFBundleShortVersionString'), 'simulatorOnly': True,
+        'appVersion': version, 'buildNumber': build, 'simulatorOnly': True,
         'simulatorBinarySha256': hashlib.sha256(executable.read_bytes()).hexdigest(),
         'frontendTestsPassed': frontend['numPassedTests'], 'devices': results,
         'sharedPaletteSha256': hashlib.sha256((REPO / 'web-app/src/index.css').read_bytes()).hexdigest(),
