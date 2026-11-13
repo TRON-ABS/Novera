@@ -21,6 +21,12 @@ Data and privacy: [local inference, optional telemetry, error reports and update
 
 <!-- novera-current-downloads:start -->
 
+## Model Adjustment
+
+Novera recalibrates model weights to bring a smaller quantization closer to a higher-precision reference. The local comparison shows KL divergence before and after recalibration, the reduction in KL, and the file-size savings. Model Adjustment uses Novera’s 120 interface languages and variants for its shared controls.
+
+On five text corpora, the local LFM3 Q4 recalibrated v1 measured 72.3% lower mean KL and 78.7% lower maximum KL than the original Q4 against the same Q8 reference. The recalibrated GGUF was 33.48% smaller than Q8. These results describe the local benchmark. The experimental Web version runs GGUF quantization directly in the browser and uses a shorter KL check.
+
 ## Availability — Novera 1.0.3
 
 | Platform | Availability |
