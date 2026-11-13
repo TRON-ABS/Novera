@@ -159,6 +159,14 @@ try {
         . (Join-Path $PSScriptRoot 'prepare-novera-image.ps1')
         Prepare-NoveraImageEngine $repo
         . (Join-Path $PSScriptRoot 'prepare-novera-engine.ps1')
+        $sdk = [Environment]::GetEnvironmentVariable('VULKAN_SDK','Machine')
+        if ($sdk -and (Test-Path -LiteralPath (Join-Path $sdk 'Bin/glslc.exe'))) {
+            $env:VULKAN_SDK = $sdk
+            $env:PATH = "$(Join-Path $sdk 'Bin');$env:PATH"
+            if (!$env:JAN_ENGINE_BUILD_DIR) {
+                $env:JAN_ENGINE_BUILD_DIR = Join-Path $env:LOCALAPPDATA "jan-engine/vulkan-$(Split-Path $sdk -Leaf)"
+            }
+        }
         Prepare-NoveraEngine $repo (Join-Path $toolchain 'cargo.exe') {
             param($Name, $Exe, $Arguments)
             Run-Step $Name $Exe $Arguments

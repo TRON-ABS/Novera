@@ -177,6 +177,7 @@ write(manifest, xml)
 // Tauri init leaves its sample launcher in the generated project. Reapply the
 // existing Novera hand assets on every configuration, including round variants.
 fs.cpSync(path.join(repo, 'src-tauri/icons/android'), path.join(project, 'app/src/main/res'), { recursive: true })
+write(path.join(project, 'app/src/main/res/values/ic_launcher_background.xml'), '<?xml version="1.0" encoding="utf-8"?>\n<resources>\n  <color name="ic_launcher_background">#000000</color>\n</resources>\n')
 // Local inference uses authenticated HTTP on loopback. Keep remote traffic TLS-only.
 const security = path.join(project, 'app/src/main/res/xml/network_security_config.xml')
 write(security, '<?xml version="1.0" encoding="utf-8"?>\n<network-security-config>\n  <base-config cleartextTrafficPermitted="false" />\n  <domain-config cleartextTrafficPermitted="true">\n    <domain includeSubdomains="false">localhost</domain>\n    <domain includeSubdomains="false">127.0.0.1</domain>\n  </domain-config>\n</network-security-config>\n')

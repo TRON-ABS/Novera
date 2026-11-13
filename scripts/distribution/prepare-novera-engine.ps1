@@ -81,7 +81,7 @@ function Prepare-NoveraEngine([string]$Repo, [string]$Cargo, [scriptblock]$RunSt
     $sourceKey = Get-NoveraEngineSourceKey $Repo
     $recordPath = Join-Path $resources '.novera-engine-build.json'
     $buildOptions = @('JAN_ENGINE_VARIANT','JAN_ENGINE_CUDA_ARCHS','JAN_ENGINE_HIP_TARGETS',
-        'JAN_LLAMA_CPP_DIR','JAN_LLAMA_PREBUILT_DIR','CUDA_PATH','CUDACXX')
+        'JAN_LLAMA_CPP_DIR','JAN_LLAMA_PREBUILT_DIR','CUDA_PATH','CUDACXX','VULKAN_SDK','JAN_ENGINE_BUILD_DIR')
     # Reuse only our own successfully staged build, with matching sources and
     # unchanged binaries. This lets an Explorer double-click reuse its prepared
     # engine without needing a native-toolchain environment every time.
