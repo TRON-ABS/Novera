@@ -1,0 +1,42 @@
+name: Novera iOS simulator validation
+on:
+  push:
+    branches: [codex/ios-104-xcode-27-2]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  simulator:
+    runs-on: xcode-27
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - run: bash .github/scripts/select-xcode-27.2.sh
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 24
+      - name: Build iOS ARM64 for Simulator
+        run: |
+          xcrun --sdk iphonesimulator --show-sdk-version
+          xcrun simctl list runtimes available
+          xcrun --find metal || xcodebuild -downloadComponent MetalToolchain
+          corepack enable
+          bash scripts/distribution/ci-prerequisites.sh ios
+          bash scripts/distribution/ci-build.sh ios
+      - name: Test mobile frontend and simulator launches
+        run: |
+          mkdir -p .build/ios-headless
+          cd web-app
+          yarn vitest run src/containers/__tests__/DashboardNavigationPages.test.tsx src/components/ui/__tests__/dashboard-dialog.test.tsx src/i18n/__tests__/keys.test.ts --reporter=json --outputFile=../.build/ios-headless/frontend.json
+          cd ..
+          python3 scripts/distribution/ios-headless.py
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: novera-ios-simulator-evidence
+          include-hidden-files: true
+          path: |
+            .build/ios-headless/frontend.json
+            .build/candidates/IOS-HEADLESS.json
