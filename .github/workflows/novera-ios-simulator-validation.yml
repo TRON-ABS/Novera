@@ -24,6 +24,7 @@ jobs:
           xcrun --find metal || xcodebuild -downloadComponent MetalToolchain
           corepack enable
           bash scripts/distribution/ci-prerequisites.sh ios
+          bash src-tauri/build-utils/fetch-engine-source.sh
           bash scripts/distribution/ci-build.sh ios
       - name: Test mobile frontend and simulator launches
         run: |
