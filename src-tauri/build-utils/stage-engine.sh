@@ -78,6 +78,15 @@ if [ -z "$PREFIX" ]; then
   exit 1
 fi
 
+for tool in llama-quantize llama-imatrix llama-perplexity; do
+  if [ -n "${JAN_LLAMA_PREBUILT_DIR:-}" ]; then
+    source_tool="$PREFIX/bin/$tool$EXE"
+  else
+    source_tool="$(find "$(dirname "$PREFIX")/llama-build/bin" -maxdepth 2 -type f -name "$tool$EXE" -print -quit)"
+  fi
+  install -m755 "$source_tool" "$DEST/$tool$EXE"
+done
+
 # cp -P keeps the libggml.so -> .so.0 -> .so.0.N.0 soname chain as links.
 stage_lib() {
   local name

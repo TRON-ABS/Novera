@@ -36,6 +36,9 @@ is_complete() {
   for a in $list ggml ggml-base; do # plus build.rs SHARED_LIBS; -e follows the .so symlink chain
     [ -e "$1/lib/lib$a.a" ] || [ -e "$1/lib/$a.lib" ] || [ -e "$1/lib/lib$a.so" ] || return 1
   done
+  for a in llama-quantize llama-imatrix llama-perplexity; do
+    [ -x "$1/bin/$a" ] || [ -x "$1/bin/$a.exe" ] || return 1
+  done
   [ -d "$1/include" ] && ls "$1"/bin/*ggml-cpu* >/dev/null 2>&1
 }
 
@@ -136,6 +139,9 @@ save)
   find "$root/ggml-prefix/lib" -maxdepth 1 ! -type d -exec cp -P -t "$o/lib/" {} +
   # Verbatim: the backend modules, plus ggml.dll and ggml-base.dll on Windows
   cp -P "$root/ggml-prefix/bin/"* "$o/bin/"
+  for tool in llama-quantize llama-imatrix llama-perplexity; do
+    find "$root/llama-build/bin" -maxdepth 2 -type f -name "$tool$exe" -exec cp -p -t "$o/bin/" {} +
+  done
   is_complete "$o" || { echo "::warning::engine-prebuilt: incomplete cmake outputs; not saving"; exit 0; }
   tar -czf - -C "$o" lib include bin | aws s3 cp --no-progress - "s3://$BUCKET/$KEY"
   echo "::notice::engine-prebuilt: saved $KEY" ;;

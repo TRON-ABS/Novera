@@ -1,4 +1,4 @@
-"""Stage a freshly compiled portable app with pinned, previously released engines."""
+"""Stage a portable app from a verified runtime fixture and optional fresh engine."""
 import argparse
 import hashlib
 import json
@@ -63,12 +63,14 @@ def stage(source, binary, output, info_path, profile, local_engine=False, fresh_
         identity = json.loads(subprocess.check_output([str(resources/'novera-llama-worker.exe'), '--version-json'], text=True))
         pin = (REPO/'src-tauri/plugins/tauri-plugin-llamacpp/build.rs').read_text()
         expected_commit = re.search(r'LLAMA_CPP_COMMIT: &str = "([a-f0-9]{40})"', pin).group(1)
-        if identity.get('commit') != expected_commit:
+        expected_tag = re.search(r'LLAMA_CPP_TAG: &str = "([^"]+)"', pin).group(1)
+        if identity.get('commit') != expected_commit or identity.get('tag') != expected_tag:
             raise ValueError('Portable worker does not match the current engine pin')
         target = output/'resources/bin'
         for old in target.glob('*.dll'):
             old.unlink()  # Only the newly created output tree, never the source.
-        for path in [resources/'novera-llama-worker.exe', *resources.glob('*.dll')]:
+        tools = [resources/f'llama-{tool}.exe' for tool in ('quantize', 'imatrix', 'perplexity')]
+        for path in [resources/'novera-llama-worker.exe', *tools, *resources.glob('*.dll')]:
             if path.is_symlink(): raise ValueError('Linked fresh engine input')
             shutil.copy2(path, target/path.name)
         for name in ['bun', 'uv']:
@@ -92,8 +94,6 @@ def stage(source, binary, output, info_path, profile, local_engine=False, fresh_
         info['engineOrigin'] = 'fresh-build-from-application-commit'
         info['workerIdentity'] = identity
     info_path.write_text(json.dumps(info, indent=2)+'\n', encoding='utf-8')
-    # These sidecars are needed by tauri-build, even though the engine itself
-    # is reused byte-for-byte and is not recompiled by this workflow.
     return info
 
 

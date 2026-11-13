@@ -27,6 +27,7 @@
     "resources": [
       "resources/LICENSE",
       "resources/bin/novera-llama-worker",
+      "resources/bin/llama-*",
       "resources/bin/lib*.so*"
     ],
     "externalBin": [

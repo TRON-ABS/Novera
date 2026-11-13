@@ -15,7 +15,9 @@ import { prepareSymbols, uploadSymbols } from '../scripts/monitoring/symbols.mjs
 import { resolvePublicTelemetry } from '../scripts/monitoring/telemetry.mjs'
 import publicTelemetry from '../scripts/monitoring/novera-telemetry.public.json'
 const host = process.env.TAURI_DEV_HOST
-const __dirname = import.meta.dirname
+// Vite may load the bundled config through a shared node_modules junction.
+// The workspace command runs from web-app, which owns the inputs and output.
+const __dirname = process.cwd()
 
 // https://vite.dev/config/
 export default defineConfig(({ mode, command }) => {
@@ -268,11 +270,12 @@ export default defineConfig(({ mode, command }) => {
           application: 'NoveraWeb', schemaVersion: 1, version: packageJson.version, buildId: build.buildId, commit: build.commit,
         }) })
       } } satisfies Plugin] : []),
-      ...(monitoring ? [{ name: 'novera-private-symbols', closeBundle() {
-        prepareSymbols({ dist: path.resolve(__dirname, 'dist'), output: privateSymbols, ...build, version: packageJson.version })
+      ...(monitoring ? [{ name: 'novera-private-symbols', writeBundle: { order: 'post' as const, sequential: true, handler(options) {
+        if (!options.dir) this.error('The monitored build requires an output directory')
+        prepareSymbols({ dist: options.dir, output: privateSymbols, ...build, version: packageJson.version })
         if (process.env.POSTHOG_CLI_API_KEY) uploadSymbols(privateSymbols)
         else console.warn('PostHog: private source maps prepared locally; authenticated upload is still required before release.')
-      } }] : []),
+      } } } satisfies Plugin] : []),
       TanStackRouterVite({
         target: 'react',
         autoCodeSplitting: true,

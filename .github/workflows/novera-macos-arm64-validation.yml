@@ -1,0 +1,65 @@
+name: Novera macOS ARM64 validation
+on:
+  push:
+    branches: [codex/macos-arm64-xcode-27-2]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: xcode-27
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - run: bash .github/scripts/select-xcode-27.2.sh
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 24
+      - uses: ./.github/actions/setup-engine-toolchain
+        with:
+          variant: metal
+      - name: Build the ARM64 app
+        run: |
+          test "$(uname -m)" = arm64
+          xcrun --find metal || xcodebuild -downloadComponent MetalToolchain
+          corepack enable
+          yarn install --immutable
+          yarn build:tauri:plugin:api
+          yarn build:extensions
+          yarn build:icon
+          yarn copy:assets:tauri
+          yarn download:bin
+          make build-engine build-mlx-server
+          yarn tauri build --ci --target aarch64-apple-darwin --bundles app --config '{"bundle":{"createUpdaterArtifacts":false}}'
+          app=$(find src-tauri/target/aarch64-apple-darwin/release/bundle/macos -maxdepth 1 -name '*.app' -print -quit)
+          test -n "$app"
+          tools="$PWD/$app/Contents/Resources/resources/bin"
+          for name in novera-llama-worker llama-imatrix llama-perplexity llama-quantize; do
+            test "$(lipo -archs "$tools/$name")" = arm64
+          done
+          "$tools/novera-llama-worker" --version-json | jq -e '.tag == "v1.0.0"'
+          printf 'NOVERA_TEST_TOOLS=%s\n' "$tools" >> "$GITHUB_ENV"
+          ditto -c -k --keepParent "$app" "$RUNNER_TEMP/Novera-macOS-arm64.zip"
+      - name: Benchmark bundled tools with LFM3 on five corpora
+        run: |
+          mkdir -p .build/macos-validation
+          cd .build/macos-validation
+          base=https://huggingface.co/LiquidAI/LFM3-Omni-2B-GGUF/resolve/d508b88f08a5b4286f2d2805a6a8d69a0ff44c72
+          q8=LFM3-Omni-2B-Q8_0.gguf
+          q4=LFM3-Omni-2B-Q4_K_M.gguf
+          curl --fail --location --retry 3 --output "$q8" "$base/$q8"
+          curl --fail --location --retry 3 --output "$q4" "$base/$q4"
+          printf '%s  %s\n' 59118f661eaacb93d204723d76355b53347f0940b508c11412f6290fd49158d4 "$q8" 9f8d30e9d4fd7a9349d586e077988229b3ca0a0e4ad730897563d1eccc9893e2 "$q4" | shasum -a 256 -c
+          python3 ../../scripts/benchmark-q4-recalibration.py --tools "$NOVERA_TEST_TOOLS" --reference "$PWD/$q8" --baseline "$PWD/$q4" --output "$PWD/results"
+          jq -e '.runs | length == 2 and all(.[]; (.corpus_max_kl | length) == 5)' results/report.json
+          cat results/report.json
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: Novera-macOS-arm64-validation
+          path: |
+            ${{ runner.temp }}/Novera-macOS-arm64.zip
+            .build/macos-validation/results/report.json
+            .build/macos-validation/results/*.log

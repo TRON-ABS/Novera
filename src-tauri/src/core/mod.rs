@@ -51,6 +51,8 @@ pub mod onnx;
 #[cfg(all(not(feature = "cli"), not(any(target_os = "android", target_os = "ios"))))]
 pub mod desktop_calibration;
 #[cfg(all(not(feature = "cli"), not(any(target_os = "android", target_os = "ios"))))]
+pub mod model_adjustment;
+#[cfg(all(not(feature = "cli"), not(any(target_os = "android", target_os = "ios"))))]
 pub mod mlx_calibration;
 
 #[cfg(all(not(feature = "cli"), not(any(target_os = "android", target_os = "ios"))))]

@@ -1,6 +1,7 @@
 """Build a separate GGUF with activation-aware quantization and compare it to Q8."""
 import argparse
 import json
+import os
 from pathlib import Path
 import re
 import subprocess
@@ -9,7 +10,8 @@ import subprocess
 def run(tools, tool, options, log):
     print(json.dumps({'stage': log.stem}), flush=True)
     with log.open('wb') as output:
-        subprocess.run([str(tools / f'llama-{tool}.exe'), *map(str, options)],
+        suffix = '.exe' if os.name == 'nt' else ''
+        subprocess.run([str((tools / f'llama-{tool}{suffix}').resolve()), *map(str, options)],
                        stdout=output, stderr=subprocess.STDOUT, check=True)
     return log.read_text(encoding='utf-8', errors='replace')
 

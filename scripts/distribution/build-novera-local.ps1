@@ -137,6 +137,9 @@ try {
                 [Environment]::SetEnvironmentVariable($Matches[1],$Matches[2],'Process')
             }
         }
+        $vsCmake = Join-Path ($vs | Select-Object -First 1) 'Common7/IDE/CommonExtensions/Microsoft/CMake'
+        $env:PATH = "$env:PATH;$(Join-Path $vsCmake 'CMake/bin');$(Join-Path $vsCmake 'Ninja')"
+        if ($env:CUDA_PATH) { $env:PATH = "$env:PATH;$(Join-Path $env:CUDA_PATH 'bin')" }
     }
     if ($id -eq 'web') { Remove-Item Env:IS_TAURI -ErrorAction SilentlyContinue } else { $env:IS_TAURI = 'true' }
     Remove-Item Env:CARGO_BUILD_TARGET -ErrorAction SilentlyContinue
@@ -146,6 +149,13 @@ try {
     $env:TAURI_ENV_FAMILY = 'windows'
     $env:__TAURI_BUNDLE_TYPE = 'nsis'
     if ($id -in @('desktop','portable','setup','msi')) {
+        if (!(Test-Path -LiteralPath 'src-tauri/icons/icon.ico')) {
+            Run-Step 'icons' $corepack @('yarn','build:icon')
+        }
+        if (!(Test-Path -LiteralPath 'src-tauri/resources/bin/bun-x86_64-pc-windows-msvc.exe') -or
+            !(Test-Path -LiteralPath 'src-tauri/resources/bin/uv-x86_64-pc-windows-msvc.exe')) {
+            Run-Step 'sidecars' $corepack @('yarn','download:bin')
+        }
         . (Join-Path $PSScriptRoot 'prepare-novera-image.ps1')
         Prepare-NoveraImageEngine $repo
         . (Join-Path $PSScriptRoot 'prepare-novera-engine.ps1')
@@ -203,7 +213,7 @@ try {
                 Copy-Item -LiteralPath $source -Destination (Join-Path $output "$(Split-Path $sidecar -Leaf).exe")
             }
             Get-ChildItem -LiteralPath $binaryRoot -Filter '*.dll' -File | ForEach-Object { Copy-Item -LiteralPath $_.FullName -Destination $output }
-            foreach ($name in @('ggml.dll','ggml-base.dll','novera-llama-worker.exe')) {
+            foreach ($name in @('ggml.dll','ggml-base.dll','novera-llama-worker.exe','llama-quantize.exe','llama-imatrix.exe','llama-perplexity.exe')) {
                 if (!(Test-Path -LiteralPath (Join-Path $output "resources/bin/$name"))) { throw "Moteur incomplet : $name" }
             }
             if (!(Get-ChildItem -LiteralPath (Join-Path $output 'resources/bin') -Filter 'ggml-cpu*.dll' -File)) { throw 'Backend CPU absent.' }

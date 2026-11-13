@@ -22,7 +22,12 @@ export function useDashboardPanelPosition(enabled: boolean, positioningStack = f
       if (target !== next) {
         observer?.disconnect()
         target = next
-        if (target && !host) observer?.observe(target)
+        if (target && !host) {
+          observer?.observe(target)
+          // The sidebar can move a centered composer without resizing it.
+          const inset = target.closest('[data-sidebar-inset]')
+          if (inset) observer?.observe(inset)
+        }
       }
       if (host) return
       const android = typeof IS_ANDROID !== 'undefined' && IS_ANDROID

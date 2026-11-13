@@ -45,6 +45,7 @@
       "resources/bin/mlx-server",
       "resources/bin/mlx-swift_Cmlx.bundle",
       "resources/bin/novera-llama-worker",
+      "resources/bin/llama-*",
       "resources/bin/libggml*"
     ],
     "externalBin": [
