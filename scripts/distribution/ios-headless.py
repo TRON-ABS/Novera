@@ -68,14 +68,15 @@ def main():
     bundle = info['CFBundleIdentifier']
     if not bundle.startswith('io.github.tronabs.novera'):
         raise ValueError('Unexpected app identity')
-    listing = json.loads(run('xcrun', 'simctl', 'list', 'devices', 'available', '--json'))['devices']
-    runtimes = [runtime for runtime, devices in listing.items()
-                if '.iOS-' in runtime and any(device.get('isAvailable') for device in devices)]
+    listing = json.loads(run('xcrun', 'simctl', 'list', 'runtimes', 'available', '--json'))['runtimes']
+    runtimes = [item for item in listing if item.get('isAvailable') and '.iOS-' in item['identifier']
+                and re.fullmatch(r'\d+(?:\.\d+){0,2}', item['version'])]
     if not runtimes:
         raise RuntimeError('No installed iOS simulator runtime')
-    runtime = max(runtimes, key=lambda value: tuple(map(int, value.split('.iOS-')[1].split('-'))))
+    selected = max(runtimes, key=lambda item: tuple(map(int, item['version'].split('.'))))
+    runtime = selected['identifier']
     device_types = json.loads(run('xcrun', 'simctl', 'list', 'devicetypes', '--json'))['devicetypes']
-    runtime_version = [int(value) for value in runtime.split('.iOS-')[1].split('-')]
+    runtime_version = [int(value) for value in selected['version'].split('.')]
     runtime_version += [0] * (3 - len(runtime_version))
     version_code = (runtime_version[0] << 16) + (runtime_version[1] << 8) + runtime_version[2]
     phones = [device for device in device_types if device['name'].startswith('iPhone')
