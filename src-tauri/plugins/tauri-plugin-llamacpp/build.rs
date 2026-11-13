@@ -788,6 +788,9 @@ mod engine {
         cfg.arg(format!("-DLLAMA_BUILD_COMMIT={LLAMA_CPP_COMMIT}"));
         match env::var("CARGO_CFG_TARGET_OS").unwrap_or_default().as_str() {
             "macos" => { cfg.args(["-DCMAKE_BUILD_WITH_INSTALL_RPATH=ON", "-DCMAKE_INSTALL_RPATH=@loader_path"]); }
+            // iOS defaults executables to app bundles. We only build the static
+            // server-context target, and upstream tool install rules expect executables.
+            "ios" => { cfg.arg("-DCMAKE_MACOSX_BUNDLE=OFF"); }
             "linux" => { cfg.args(["-DCMAKE_BUILD_WITH_INSTALL_RPATH=ON", "-DCMAKE_INSTALL_RPATH=$ORIGIN"]); }
             _ => {}
         }
