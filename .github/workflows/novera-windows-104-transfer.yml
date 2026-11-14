@@ -1,0 +1,46 @@
+name: Transfer verified Windows Desktop 1.0.4
+on:
+  push:
+    branches: [codex/windows-104-transfer]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  stage:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          github-token: ${{ github.token }}
+          run-id: 43518746374
+          name: Novera-windows-x64-43518746374
+          path: desktop-stage
+      - name: Verify packages and stage exact bytes
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          test "$(gh api repos/TRON-ABS/Novera/releases/444868015 --jq .draft)" = true
+          test "$(gh api repos/TRON-ABS/Novera/actions/runs/43518746374 --jq .conclusion)" = success
+          node scripts/distribution/ci-check-updater.mjs --publication-check desktop-stage
+          node --input-type=module <<'JS'
+          import fs from 'node:fs'
+          import {verifyUpdateBundle} from './scripts/distribution/ci-check-updater.mjs'
+          const key=JSON.parse(fs.readFileSync('src-tauri/tauri.updater.conf.json')).plugins.updater.pubkey
+          for(const name of fs.readdirSync('desktop-stage/packages').filter(name=>name.endsWith('.msi'))){
+            const file='desktop-stage/packages/'+name
+            await verifyUpdateBundle(file,fs.readFileSync(file+'.sig','utf8'),key)
+          }
+          JS
+          for file in desktop-stage/packages/* desktop-stage/UPDATER-READINESS.json; do
+            digest="$(sha256sum "$file" | cut -d' ' -f1)"
+            name="$(basename "$file")"
+            existing="$(gh api repos/TRON-ABS/Novera/releases/444868015/assets --jq ".[] | select(.name == \"$name\") | .digest")"
+            if [[ -z "$existing" ]]; then
+              existing="$(gh api --method POST "https://uploads.github.com/repos/TRON-ABS/Novera/releases/444868015/assets?name=$name" -H 'Content-Type: application/octet-stream' --input "$file" --jq .digest)"
+            fi
+            test "$existing" = "sha256:$digest"
+            echo "Verified uploaded $name"
+          done
