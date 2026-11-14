@@ -1,4 +1,4 @@
-[Novera Web 1.0.3 · Experimental](https://tron-abs.github.io/Novera/web/) · [Novera Android 1.0.4 · build 1000029 · ARM64 · APK](https://github.com/TRON-ABS/Novera/releases/download/v1.0.4-android-1000029/Novera_1.0.4_android-arm64.apk)
+[Novera Web 1.0.4 · Experimental](https://tron-abs.github.io/Novera/web/) · [Novera Android 1.0.4 · build 1000029 · ARM64 · APK](https://github.com/TRON-ABS/Novera/releases/download/v1.0.4-android-1000029/Novera_1.0.4_android-arm64.apk)
 
 <div dir="rtl" lang="arz">
 
@@ -32,7 +32,7 @@
 | Windows x64 محمول. | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-windows-portable) |
 | macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-macos-arm64) |
 | Android ARM64 | [APK 1.0.4 · build 1000029](https://github.com/TRON-ABS/Novera/releases/download/v1.0.4-android-1000029/Novera_1.0.4_android-arm64.apk) · Android 7+ |
-| Web | [Novera Web 1.0.3](https://tron-abs.github.io/Novera/web/) |
+| Web | [Novera Web 1.0.4](https://tron-abs.github.io/Novera/web/) |
 | iOS | بناء محاكي داخلي؛ مطلوب توقيع/تجهيز آبل قبل تثبيت الآيفون. [متابعة.](docs/REPRISE_MACOS_IOS.md). |
 
 <!-- novera-current-downloads:end -->
