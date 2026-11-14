@@ -64,6 +64,23 @@
         "id": 745556293
       },
       "releaseId": 444838318
+    },
+    "windows-x86_64": {
+      "signature": {
+        "bytes": 416,
+        "id": 745898740,
+        "name": "Novera_1.0.4_x64-setup.exe.sig",
+        "sha256": "34a303f2bfbd0f17086bee7378fb6fb8fff6574e62122e43e0eb531d723ed97b"
+      },
+      "bundle": {
+        "bytes": 831599116,
+        "id": 745897479,
+        "name": "Novera_1.0.4_x64-setup.exe",
+        "sha256": "5adee67b2306703beea198ab1260af546f0c379be8be326e1dc5e270cbe42f93"
+      },
+      "commit": "03fb47e8d0e1ec2dc3a169b2086a78d530eeae81",
+      "runtimeExecutableSha256": "ca5f843a717f5655b67f4af82abd65485dd4648ec25a20884f56a7aa2745a155",
+      "releaseId": 444868015
     }
   },
   "applicationVersion": "1.0.4",
