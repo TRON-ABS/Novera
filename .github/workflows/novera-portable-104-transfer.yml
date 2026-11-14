@@ -1,0 +1,48 @@
+name: Transfer verified portable 1.0.4 packages
+on:
+  push:
+    branches: [codex/portable-104-transfer]
+permissions:
+  contents: write
+  actions: read
+jobs:
+  stage:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          github-token: ${{ github.token }}
+          run-id: 43518764143
+          name: windows-portable-43518764143
+          path: portable-stage
+      - name: Verify signatures and stage exact bytes
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          test "$(gh api repos/TRON-ABS/Novera/releases/444900704 --jq .draft)" = true
+          node --input-type=module <<'JS'
+          import fs from 'node:fs'
+          import {verifyUpdateBundle} from './scripts/distribution/ci-check-updater.mjs'
+          const key = JSON.parse(fs.readFileSync('src-tauri/tauri.portable.conf.json')).plugins.updater.pubkey
+          const feed = JSON.parse(fs.readFileSync('portable-stage/latest-portable.json'))
+          if (feed.version !== '1.0.4') throw Error('Unexpected portable version')
+          for(const suffix of ['.zip','-update.exe']){
+            const file='portable-stage/Novera_1.0.4_x64-portable'+suffix
+            const sig=fs.readFileSync(file+'.sig','utf8').trim()
+            await verifyUpdateBundle(file,sig,key)
+            if(suffix.endsWith('.exe') && feed.platforms['windows-x86_64'].signature!==sig)throw Error('Feed signature mismatch')
+          }
+          JS
+          for file in portable-stage/Novera_1.0.4_x64-portable* portable-stage/latest-portable.json portable-stage/PORTABLE-SIGNATURES.json; do
+            digest="$(sha256sum "$file" | cut -d' ' -f1)"
+            name="$(basename "$file")"
+            existing="$(gh api repos/TRON-ABS/Novera/releases/444900704/assets --jq ".[] | select(.name == \"$name\") | .digest")"
+            if [[ -z "$existing" ]]; then
+              existing="$(gh api --method POST "https://uploads.github.com/repos/TRON-ABS/Novera/releases/444900704/assets?name=$name" -H 'Content-Type: application/octet-stream' --input "$file" --jq .digest)"
+            fi
+            test "$existing" = "sha256:$digest"
+            echo "Verified uploaded $name"
+          done
