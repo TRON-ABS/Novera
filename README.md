@@ -39,7 +39,7 @@ On five text corpora, the local LFM3 Q4 recalibrated v1 measured 72.3% lower mea
 | Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-windows-arm64) |
 | Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-linux-x64) |
 | Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.4-cli-novera) |
-| Windows x64 portable | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-windows-portable) |
+| Windows x64 portable | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.4-windows-portable) |
 | macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-macos-arm64) |
 | Android ARM64 | [APK 1.0.4 · build 1000029](https://github.com/TRON-ABS/Novera/releases/download/v1.0.4-android-1000029/Novera_1.0.4_android-arm64.apk) · Android 7+ |
 | Web | [Novera Web 1.0.4](https://tron-abs.github.io/Novera/web/) |
@@ -55,7 +55,7 @@ On Mac, open the DMG and copy Novera into Applications. If the first launch is b
 
 On Android, a modern phone with enough memory is recommended for local models; use an API provider on less powerful devices. For web search, a context of at least **16K tokens (16,384)** is recommended, consistently across versions.
 
-**Windows x64 portable 1.0.3 is available.** Discussions, settings and downloaded models stay inside the portable folder under `Data`. Extract the complete archive and start `Novera.exe`. Close Novera before moving the folder or ejecting USB storage. [Portable guide and limitations](docs/WINDOWS_PORTABLE.md).
+**Windows x64 portable 1.0.4 is available.** Discussions, settings and downloaded models stay inside the portable folder under `Data`. Extract the complete archive and start `Novera.exe`. Close Novera before moving the folder or ejecting USB storage. [Portable guide and limitations](docs/WINDOWS_PORTABLE.md).
 
 
 <details>

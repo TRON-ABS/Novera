@@ -29,7 +29,7 @@ Data e soinde: [Ɗuuɗal ƴaɓɓutugo, telemetri, ƴaɓɓutugo ƴaɓɓutugo e ƴ
 | Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-windows-arm64) |
 | Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-linux-x64) |
 | Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.4-cli-novera) |
-| Windows x64 | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-windows-portable) |
+| Windows x64 | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.4-windows-portable) |
 | macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-macos-arm64) |
 | Android ARM64 | [APK 1.0.4 · build 1000029](https://github.com/TRON-ABS/Novera/releases/download/v1.0.4-android-1000029/Novera_1.0.4_android-arm64.apk) · Android 7+ |
 | Web | [Novera Web 1.0.4](https://tron-abs.github.io/Novera/web/) |
@@ -42,7 +42,7 @@ To Mac, huuwa DMG nden huwira Novera nder taskaramji. To tiggugo arandejum sanji
 
 To Android, foonditol jamanu marngol hakkillo heedi ko hewti e ɗum yi'a-yi'a ngam moodelji to nokkuure; naftora API nder ko hewti e ko hewti. Ngam tefuki nder webre, ko hewti e ko hewti. **16K tokenji (16,384)** Ɗu’um ɗon hoo’e, e ko nandi e maajum nder ferɗoodiral ɗenɗe.
 
-**Windows x64 portable 1.0.3 won.** Anniyaaji, dabareeji, e moodeeji nyaamnduɗi e jooɗii nder deftere kawtuɗe les. `Data`. Ɓaɓɓina deftere binndi nden fuɗɗa `Novera.exe`. Cukkugo Novera bako hebbinki deftere nden ko sankita USB. [Ɗum waɗi daliilaji be ko ɗum waɗata.](docs/WINDOWS_PORTABLE.md).
+**Windows x64 portable 1.0.4 won.** Anniyaaji, dabareeji, e moodeeji nyaamnduɗi e jooɗii nder deftere kawtuɗe les. `Data`. Ɓaɓɓina deftere binndi nden fuɗɗa `Novera.exe`. Cukkugo Novera bako hebbinki deftere nden ko sankita USB. [Ɗum waɗi daliilaji be ko ɗum waɗata.](docs/WINDOWS_PORTABLE.md).
 
 <a id="one-dashboard-for-every-creation"></a>
 

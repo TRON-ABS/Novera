@@ -29,7 +29,7 @@ Data और गोपनीयता: [स्थानीय अनुमान,
 | Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-windows-arm64) |
 | Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-linux-x64) |
 | Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.4-cli-novera) |
-| Windows x64 मोबाइल | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-windows-portable) |
+| Windows x64 मोबाइल | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.4-windows-portable) |
 | macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-macos-arm64) |
 | Android ARM64 | [APK 1.0.4 · build 1000029](https://github.com/TRON-ABS/Novera/releases/download/v1.0.4-android-1000029/Novera_1.0.4_android-arm64.apk) · Android 7+ |
 | Web | [Novera Web 1.0.4](https://tron-abs.github.io/Novera/web/) |
@@ -42,7 +42,7 @@ Data और गोपनीयता: [स्थानीय अनुमान,
 
 Android पर, स्थानीय मॉडल के लेल पर्याप्त मेमोरी वाला एगो आधुनिक फोन के सिफारिश कैल जाई हई; कम शक्तिशाली उपकरण पर API प्रदाता के उपयोग करई हई। वेब खोज के लेल, कम से कम एगो संदर्भ **16K टोकन 16,384** सभे संस्करण में सुसंगत रूप से सिफारिश कैल जाई हई।
 
-**Windows x64 portable 1.0.3 उपलब्ध हई।** चर्चा, सेटिंग्स और डाउनलोड मॉडल नीचे पोर्टेबल फ़ोल्डर के अंदर रहई हई `Data`. पूरा अभिलेखागार के निकालि अउर शुरू करई छलई `Novera.exe`. फ़ोल्डर स्थानांतरित करे चाहे USB भंडारण निकाले से पहिले Novera बंद करई छई। [पोर्टेबल गाइड अउर सीमा](docs/WINDOWS_PORTABLE.md).
+**Windows x64 portable 1.0.4 उपलब्ध हई।** चर्चा, सेटिंग्स और डाउनलोड मॉडल नीचे पोर्टेबल फ़ोल्डर के अंदर रहई हई `Data`. पूरा अभिलेखागार के निकालि अउर शुरू करई छलई `Novera.exe`. फ़ोल्डर स्थानांतरित करे चाहे USB भंडारण निकाले से पहिले Novera बंद करई छई। [पोर्टेबल गाइड अउर सीमा](docs/WINDOWS_PORTABLE.md).
 
 <a id="one-dashboard-for-every-creation"></a>
 

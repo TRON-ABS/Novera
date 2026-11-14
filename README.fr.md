@@ -31,7 +31,7 @@ Données et confidentialité : [inférence locale, télémétrie facultative, er
 | Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-windows-arm64) |
 | Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-linux-x64) |
 | Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.4-cli-novera) |
-| Windows x64 portable | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-windows-portable) |
+| Windows x64 portable | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.4-windows-portable) |
 | macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-macos-arm64) |
 | Android ARM64 | [APK 1.0.4 · build 1000029](https://github.com/TRON-ABS/Novera/releases/download/v1.0.4-android-1000029/Novera_1.0.4_android-arm64.apk) · Android 7+ |
 | Web | [Novera Web 1.0.4](https://tron-abs.github.io/Novera/web/) |
@@ -47,7 +47,7 @@ Sur Mac, ouvrir le DMG et copier Novera dans Applications. Si le premier lanceme
 
 Sur Android, un téléphone moderne avec suffisamment de mémoire est conseillé pour les modèles locaux ; sur un appareil moins puissant, privilégier un fournisseur API. Pour la recherche web, un contexte d'au moins **16K tokens (16 384)** est conseillé, comme sur les autres versions.
 
-**La version portable Windows x64 1.0.3 est disponible.** Les discussions, réglages et modèles téléchargés restent dans le dossier portable, sous `Data`. Extraire l’archive complète et ouvrir `Novera.exe`. Fermer Novera avant de déplacer le dossier ou d’éjecter la clé USB. [Guide portable et limites](docs/WINDOWS_PORTABLE.md).
+**La version portable Windows x64 1.0.4 est disponible.** Les discussions, réglages et modèles téléchargés restent dans le dossier portable, sous `Data`. Extraire l’archive complète et ouvrir `Novera.exe`. Fermer Novera avant de déplacer le dossier ou d’éjecter la clé USB. [Guide portable et limites](docs/WINDOWS_PORTABLE.md).
 
 
 <details>

@@ -27,7 +27,7 @@
 | Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-windows-arm64) |
 | Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-linux-x64) |
 | Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.4-cli-novera) |
-| Windows x64 oyo ekoki komema yango | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-windows-portable) |
+| Windows x64 oyo ekoki komema yango | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.4-windows-portable) |
 | macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-macos-arm64) |
 | Android ARM64 | [APK 1.0.4 · build 1000029](https://github.com/TRON-ABS/Novera/releases/download/v1.0.4-android-1000029/Novera_1.0.4_android-arm64.apk) · Android 7+ |
 | Web | [Novera Web 1.0.4](https://tron-abs.github.io/Novera/web/) |
@@ -40,7 +40,7 @@ Na Mac, fungola DMG mpe copier Novera na Applications. Soki lancement ya liboso 
 
 Na Android, téléphone ya sika oyo ezali na mémoire ekoki esengami mpo na ba modèles ya mboka; salela mopesi ya API na ba dispositifs ya makasi mingi te. Pona recherche web, contexte ya au moins **Ba jetons ya 16K (16,384) .** ezali recommandé, mbala na mbala na ba versions nionso.
 
-**Windows x64 portable 1.0.3 ezali.** Masolo, ba paramètres na ba modèles téléchargés etikalaka na kati ya dossier portable na se `Data`. Bimisa archive mobimba mpe banda `Novera.exe`. Bokanga Novera yambo ya kokende na dossier to kobimisa ebombelo ya USB. [Motambwisi ya komema mpe ndelo](docs/WINDOWS_PORTABLE.md).
+**Windows x64 portable 1.0.4 ezali.** Masolo, ba paramètres na ba modèles téléchargés etikalaka na kati ya dossier portable na se `Data`. Bimisa archive mobimba mpe banda `Novera.exe`. Bokanga Novera yambo ya kokende na dossier to kobimisa ebombelo ya USB. [Motambwisi ya komema mpe ndelo](docs/WINDOWS_PORTABLE.md).
 
 <a id="one-dashboard-for-every-creation"></a>
 

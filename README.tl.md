@@ -27,7 +27,7 @@
 | Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-windows-arm64) |
 | Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-linux-x64) |
 | Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.4-cli-novera) |
-| Windows x64 portable | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-windows-portable) |
+| Windows x64 portable | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.4-windows-portable) |
 | macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-macos-arm64) |
 | Android ARM64 | [APK 1.0.4 · build 1000029](https://github.com/TRON-ABS/Novera/releases/download/v1.0.4-android-1000029/Novera_1.0.4_android-arm64.apk) · Android 7+ |
 | Web | [Novera Web 1.0.4](https://tron-abs.github.io/Novera/web/) |
@@ -40,7 +40,7 @@ Sa Mac, buksan ang DMG at kopyahin ang Novera sa Applications. Kung na-block ang
 
 Sa Android, inirerekomenda ang modernong teleponong may sapat na memorya para sa mga lokal na modelo; gumamit ng API provider sa hindi gaanong makapangyarihang mga device. Para sa paghahanap sa web, isang konteksto ng hindi bababa sa **16K token (16,384)** ay inirerekomenda, pare-pareho sa mga bersyon.
 
-**Windows x64 portable 1.0.3.** Ang mga talakayan, setting at na-download na modelo ay mananatili sa loob ng portable folder sa ilalim ng `Data`. I-extract ang kumpletong archive at magsimula `Novera.exe`. Isara ang Novera bago ilipat ang folder o i-eject ang storage ng USB. [Portable na gabay at mga limitasyon](docs/WINDOWS_PORTABLE.md).
+**Windows x64 portable 1.0.4.** Ang mga talakayan, setting at na-download na modelo ay mananatili sa loob ng portable folder sa ilalim ng `Data`. I-extract ang kumpletong archive at magsimula `Novera.exe`. Isara ang Novera bago ilipat ang folder o i-eject ang storage ng USB. [Portable na gabay at mga limitasyon](docs/WINDOWS_PORTABLE.md).
 
 <a id="one-dashboard-for-every-creation"></a>
 
