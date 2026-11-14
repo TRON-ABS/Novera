@@ -23,12 +23,12 @@
 
 | ప్లాట్‌ఫారమ్ | లభ్యత |
 | --- | --- |
-| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.4) |
-| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.4-windows-arm64) |
-| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.4-linux-x64) |
-| Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.4-cli-novera) |
-| Windows x64 పోర్టబుల్ | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.4-windows-portable) |
-| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.4-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.4-macos-arm64) |
+| Windows x64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/download/v1.0.4/Novera_1.0.4_x64-setup.exe) · [MSI](https://github.com/TRON-ABS/Novera/releases/download/v1.0.4/Novera_1.0.4_x64_en-US.msi) |
+| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/download/v1.0.4-windows-arm64/Novera_1.0.4_arm64-setup.exe) |
+| Linux x64 | [AppImage](https://github.com/TRON-ABS/Novera/releases/download/v1.0.4-linux-x64/Novera_1.0.4_amd64.AppImage) · [Debian](https://github.com/TRON-ABS/Novera/releases/download/v1.0.4-linux-x64/Novera_1.0.4_amd64.deb) |
+| Novera CLI | [Windows x64](https://github.com/TRON-ABS/Novera/releases/download/v1.0.4-cli-novera/Novera_CLI_1.0.4_windows-x86_64.zip) · [Linux x64](https://github.com/TRON-ABS/Novera/releases/download/v1.0.4-cli-novera/Novera_CLI_1.0.4_linux-x86_64.zip) · [macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/download/v1.0.4-cli-novera/Novera_CLI_1.0.4_darwin-aarch64.zip) |
+| Windows x64 పోర్టబుల్ | [ZIP](https://github.com/TRON-ABS/Novera/releases/download/v1.0.4-windows-portable/Novera_1.0.4_x64-portable.zip) |
+| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/download/v1.0.4-macos/Novera_1.0.4_x64.dmg) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/download/v1.0.4-macos-arm64/Novera_1.0.4_aarch64.dmg) |
 | Android ARM64 | [APK 1.0.4 · build 1000029](https://github.com/TRON-ABS/Novera/releases/download/v1.0.4-android-1000029/Novera_1.0.4_android-arm64.apk) · Android 7+ |
 | Web | [Novera Web 1.0.4](https://tron-abs.github.io/Novera/web/) |
 | iOS | అంతర్గత సిమ్యులేటర్ బిల్డ్; ఐఫోన్ ఇన్‌స్టాలేషన్‌కు ముందు Apple సంతకం/ప్రొవిజనింగ్ అవసరం. [ఫాలో-అప్](docs/REPRISE_MACOS_IOS.md). |
