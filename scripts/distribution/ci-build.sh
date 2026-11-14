@@ -147,7 +147,7 @@ case "$kind" in
     yarn tauri ios build --ci --debug --target aarch64-sim --features mobile --config .build/candidate-config.json -- --no-default-features
     node scripts/distribution/ci-candidates.mjs ios
     ;;
-  ios-device)
+  ios-device|ios-testflight)
     export IS_TAURI=true IS_IOS=true TAURI_ENV_PLATFORM=ios
     node scripts/distribution/ci-candidates.mjs config-ios
     # Set the identity explicitly so the generated Xcode project matches App Store Connect.
@@ -159,8 +159,12 @@ case "$kind" in
       fs.writeFileSync(path, JSON.stringify(config, null, 2));
     '
     yarn tauri ios init --ci --skip-targets-install --config .build/candidate-config.json
-    yarn tauri ios build --ci --target aarch64 --features mobile --no-sign --archive-only --config .build/candidate-config.json -- --no-default-features
-    python3 scripts/distribution/ios-device-evidence.py
+    if [[ "$kind" == ios-testflight ]]; then
+      yarn tauri ios build --ci --target aarch64 --features mobile --export-method app-store-connect --config .build/candidate-config.json -- --no-default-features
+    else
+      yarn tauri ios build --ci --target aarch64 --features mobile --no-sign --archive-only --config .build/candidate-config.json -- --no-default-features
+      python3 scripts/distribution/ios-device-evidence.py
+    fi
     exit 0
     ;;
   *) echo 'Unknown candidate kind' >&2; exit 2 ;;

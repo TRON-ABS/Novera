@@ -36,6 +36,15 @@ Après avoir actualisé la version et le numéro de build dans `src-tauri/tauri.
 3. Envoyer le build à App Store Connect, attendre son traitement, compléter les informations de bêta et l’attribuer à un groupe TestFlight interne. Soumettre le build à la revue bêta Apple avant d’ouvrir les essais aux testeurs externes. [Guide TestFlight](https://developer.apple.com/testflight/)
 4. Installer la bêta sur un iPhone physique. Vérifier le démarrage, le clavier, les réglages, le stockage des clés API, les pièces jointes, les coupures réseau, l’inférence locale Metal et la conservation des données lors d’une mise à jour. Consigner les résultats avant d’annoncer la disponibilité.
 
+### Workflow de signature et d’envoi à TestFlight
+
+Dans l’environnement GitHub Actions `ios-testflight`, renseigner la variable `NOVERA_IOS_APPLE_TEAM_ID` et les secrets suivants.
+
+- `NOVERA_IOS_CERTIFICATE_BASE64` et `NOVERA_IOS_CERTIFICATE_PASSWORD` pour le certificat **Apple Distribution** exporté en PKCS#12 avec sa clé privée.
+- `NOVERA_IOS_ASC_KEY_ID`, `NOVERA_IOS_ASC_ISSUER_ID` et `NOVERA_IOS_ASC_PRIVATE_KEY` pour une clé d’équipe App Store Connect. Enregistrer le contenu du fichier `.p8` dans le dernier secret. La clé doit autoriser le provisionnement automatique par Xcode et l’envoi des builds. Créer la fiche de l’app avec l’identifiant `io.github.tronabs.novera.ios` avant le premier envoi.
+
+Lancer manuellement **Novera iPhone TestFlight** depuis une référence approuvée. Le réglage par défaut produit un IPA signé et vérifie sa signature, son identifiant, sa version et ses droits. Activer `upload` pour transmettre l’IPA vérifié à App Store Connect. Incrémenter le numéro de build dans `src-tauri/tauri.ios.conf.json` avant chaque nouvel envoi de la même version. Une fois le build traité par Apple, compléter les informations requises et l’affecter à un groupe TestFlight. [Signature iOS avec Tauri](https://tauri.app/distribute/sign/ios/) · [Envoi des builds avec Apple](https://developer.apple.com/help/app-store-connect/manage-builds/upload-builds/)
+
 ### Validation sur simulateur pour les prochaines versions
 
 - Mettre à jour la version et le numéro de build dans `src-tauri/tauri.ios.conf.json`, puis lancer le workflow « Novera iOS simulator validation » sur le commit à publier.

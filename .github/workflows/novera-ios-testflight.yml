@@ -1,0 +1,66 @@
+name: Novera iPhone TestFlight
+on:
+  workflow_dispatch:
+    inputs:
+      upload:
+        description: Send the signed build to App Store Connect
+        type: boolean
+        default: false
+permissions:
+  contents: read
+concurrency:
+  group: novera-ios-testflight
+  cancel-in-progress: false
+jobs:
+  testflight:
+    runs-on: xcode-27
+    timeout-minutes: 90
+    environment: ios-testflight
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - name: Check Apple configuration
+        env:
+          APPLE_DEVELOPMENT_TEAM: ${{ vars.NOVERA_IOS_APPLE_TEAM_ID }}
+          APPLE_API_KEY: ${{ secrets.NOVERA_IOS_ASC_KEY_ID }}
+          APPLE_API_ISSUER: ${{ secrets.NOVERA_IOS_ASC_ISSUER_ID }}
+          IOS_CERTIFICATE_BASE64: ${{ secrets.NOVERA_IOS_CERTIFICATE_BASE64 }}
+          IOS_CERTIFICATE_PASSWORD: ${{ secrets.NOVERA_IOS_CERTIFICATE_PASSWORD }}
+          ASC_PRIVATE_KEY: ${{ secrets.NOVERA_IOS_ASC_PRIVATE_KEY }}
+        run: |
+          : "${APPLE_DEVELOPMENT_TEAM:?Set NOVERA_IOS_APPLE_TEAM_ID}"
+          : "${APPLE_API_KEY:?Set NOVERA_IOS_ASC_KEY_ID}"
+          : "${APPLE_API_ISSUER:?Set NOVERA_IOS_ASC_ISSUER_ID}"
+          : "${ASC_PRIVATE_KEY:?Set NOVERA_IOS_ASC_PRIVATE_KEY}"
+          : "${IOS_CERTIFICATE_BASE64:?Set NOVERA_IOS_CERTIFICATE_BASE64}"
+          : "${IOS_CERTIFICATE_PASSWORD:?Set NOVERA_IOS_CERTIFICATE_PASSWORD}"
+          [[ "$APPLE_DEVELOPMENT_TEAM" =~ ^[A-Z0-9]{10}$ ]]
+          [[ "$APPLE_API_KEY" =~ ^[A-Z0-9]{10}$ ]]
+      - run: bash .github/scripts/select-xcode-27.2.sh
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 24
+      - name: Prepare iPhone build dependencies
+        run: |
+          sudo xcode-select --switch "$DEVELOPER_DIR"
+          test "$(xcrun --sdk iphoneos --show-sdk-version)" = 27.2
+          xcrun --find metal || xcodebuild -downloadComponent MetalToolchain
+          bash scripts/distribution/ci-prerequisites.sh ios
+          rustup target add aarch64-apple-ios
+          bash src-tauri/build-utils/fetch-engine-source.sh
+      - name: Sign, verify and optionally upload the iPhone build
+        env:
+          APPLE_DEVELOPMENT_TEAM: ${{ vars.NOVERA_IOS_APPLE_TEAM_ID }}
+          APPLE_API_KEY: ${{ secrets.NOVERA_IOS_ASC_KEY_ID }}
+          APPLE_API_ISSUER: ${{ secrets.NOVERA_IOS_ASC_ISSUER_ID }}
+          IOS_CERTIFICATE_BASE64: ${{ secrets.NOVERA_IOS_CERTIFICATE_BASE64 }}
+          IOS_CERTIFICATE_PASSWORD: ${{ secrets.NOVERA_IOS_CERTIFICATE_PASSWORD }}
+          ASC_PRIVATE_KEY: ${{ secrets.NOVERA_IOS_ASC_PRIVATE_KEY }}
+          UPLOAD_TO_TESTFLIGHT: ${{ inputs.upload }}
+        run: bash scripts/distribution/ios-testflight.sh
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: novera-ios-testflight-ipa
+          path: src-tauri/gen/apple/build/arm64/*.ipa
+          if-no-files-found: error
