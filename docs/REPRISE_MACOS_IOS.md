@@ -1,6 +1,6 @@
 # Reprendre les sorties macOS et iOS après Android
 
-**Préparation interne du 13 novembre 2026.** La configuration iOS annonce Novera **1.0.4**, crée explicitement la fenêtre principale et reprend le moteur embarqué **llama.cpp v1.0.0** avec Metal. Le build de validation est à lancer sur Apple Silicon avec **Xcode 27.2** et un simulateur iOS 27.2. Les vérifications de démarrage, du clavier et de la navigation dans Configurations restent à exécuter sur simulateur. La signature iPhone et la distribution restent en attente.
+**Situation au 14 novembre 2026.** Novera iOS **1.0.4** (build **104**) a passé la validation sur simulateur depuis `main`. L’archive iPhone ARM64 a été compilée et contrôlée sur la branche TestFlight. L’activation du compte Apple Developer, la signature et l’essai sur iPhone physique restent à faire.
 
 **Situation au 7 novembre 2026 :** macOS Intel et Apple Silicon sont publiés en [1.0.1](RELEASE_1.0.1_2026-11-07.md). iOS reste inclus dans la mise à jour 1.0.1 des sources communes ; le mainteneur confirme ne pas encore disposer du compte et de la signature Apple nécessaires à une distribution sur iPhone. Les remarques ci-dessous sur la 1.0.0 sont historiques.
 
@@ -20,15 +20,17 @@ La future signature Apple reste à préparer ; elle ne conditionne plus cette so
 
 ## iOS
 
-Le candidat existant est pour simulateur. Le certificat Developer ID macOS ne remplace pas la signature iOS.
+### Résultats de la 1.0.4
 
-- [ ] Définir l'identifiant applicatif iOS définitif, l'équipe, les capacités et le canal initial (TestFlight conseillé pour les essais).
-- [ ] Préparer les certificats iOS, profils de provisioning et accès App Store Connect adaptés ; vérifier les exigences actuelles Apple.
-- [ ] Auditer les dépendances, permissions et stockage iOS indépendamment d'Android. Un moteur Android lancé comme processus ne prouve pas un moteur autorisé et fonctionnel sur iOS.
-- [ ] Construire pour appareil ARM64, inspecter la signature, les entitlements, les notices et le minimum système.
-- [ ] Déclarer et vérifier la fenêtre mobile principale avant les essais : l'absence de `app.windows` a causé l'écran noir Android ; la configuration iOS actuelle doit être contrôlée sur ce même point.
-- [ ] Tester sur iPhone/iPad réel : discussions, clés fournisseur, pièces jointes, réseau interrompu, redémarrage, fonctions locales réellement prises en charge et mise à jour avec conservation des données.
-- [ ] Distribuer par le canal Apple retenu, puis mettre à jour la disponibilité seulement avec les preuves correspondantes.
+- **Archive iPhone.** Xcode 27.2 a produit une `.xcarchive` non signée pour iPhoneOS ARM64 sur `codex/prepare-ios-testflight`. Le rapport confirme l’identifiant `io.github.tronabs.novera.ios`, la version **1.0.4**, le build **104** et le minimum déclaré **iOS 15.0**. GitHub Actions conserve le rapport. L’archive a été produite sur le runner. [Exécution et rapport de vérification](https://github.com/TRON-ABS/Novera/actions/runs/43592964507#artifacts)
+- **Simulateur.** Après l’intégration des corrections Swift et de l’identifiant dans `main` (`db60493d`), la compilation ARM64, les sept tests frontend et les démarrages avant et après réinstallation ont réussi sur iPhone Duo (iOS 27.1) et iPhone 18 Pro Max (iOS 27.2). Le fichier de test a été conservé sur les deux simulateurs. Les essais visuels et matériels restent à faire. [Exécution et rapport simulateur](https://github.com/TRON-ABS/Novera/actions/runs/43600194331#artifacts)
+
+### Étapes restantes pour TestFlight
+
+1. Le titulaire active l’abonnement Apple Developer. Enregistrer l’App ID `io.github.tronabs.novera.ios` dans l’équipe Apple, créer la fiche Novera dans App Store Connect et configurer la signature de distribution, les profils de provisioning et les droits iOS.
+2. Générer une archive iPhone signée à partir du code retenu. Vérifier l’identifiant, le numéro de build, l’équipe de signature, les droits, les permissions, les notices et la version minimale déclarée. [Procédure d’archivage et d’export sur la branche TestFlight](https://github.com/TRON-ABS/Novera/blob/codex/prepare-ios-testflight/docs/REPRISE_MACOS_IOS.md#pr%C3%A9parer-une-b%C3%AAta-testflight)
+3. Envoyer le build à App Store Connect, attendre son traitement, compléter les informations de bêta et l’attribuer à un groupe TestFlight interne. Soumettre le build à la revue bêta Apple avant d’ouvrir les essais aux testeurs externes. [Guide TestFlight](https://developer.apple.com/testflight/)
+4. Installer la bêta sur un iPhone physique. Vérifier le démarrage, le clavier, les réglages, le stockage des clés API, les pièces jointes, les coupures réseau, l’inférence locale Metal et la conservation des données lors d’une mise à jour. Consigner les résultats avant d’annoncer la disponibilité.
 
 ### Validation sur simulateur pour les prochaines versions
 
