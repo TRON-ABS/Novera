@@ -21,11 +21,11 @@ Data le sephiri: [phetho ya selegae, telemetry ya boikgethelo, dipego tša dipho
 
 <!-- novera-current-downloads:start -->
 
-## Go hwetšagala — Novera 1.0.3
+## Go hwetšagala — Novera 1.0.4
 
 | Sefala sa | Go hwetšagala |
 | --- | --- |
-| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3) |
+| Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.4) |
 | Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.4-windows-arm64) |
 | Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.4-linux-x64) |
 | Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.4-cli-novera) |
