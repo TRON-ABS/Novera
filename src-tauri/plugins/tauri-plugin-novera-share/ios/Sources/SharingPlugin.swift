@@ -51,4 +51,4 @@ class SharingPlugin: Plugin {
 }
 
 @_cdecl("init_plugin_novera_share")
-func initPlugin() -> Plugin { SharingPlugin() }
+public func initPlugin() -> Plugin { SharingPlugin() }

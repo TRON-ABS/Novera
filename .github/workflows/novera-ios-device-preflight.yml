@@ -19,7 +19,8 @@ jobs:
           node-version: 24
       - name: Build and inspect the unsigned iPhone archive
         run: |
-          xcrun --sdk iphoneos --show-sdk-version
+          sudo xcode-select --switch "$DEVELOPER_DIR"
+          test "$(xcrun --sdk iphoneos --show-sdk-version)" = 27.2
           xcrun --find metal || xcodebuild -downloadComponent MetalToolchain
           bash scripts/distribution/ci-prerequisites.sh ios
           rustup target add aarch64-apple-ios
