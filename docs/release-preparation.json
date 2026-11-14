@@ -38,10 +38,10 @@
   "webExperimentalPublished": true,
   "publicDistributions": {
     "windows": "1.0.3",
-    "windowsArm": "1.0.3",
-    "linux": "1.0.3",
-    "macArm": "1.0.3",
-    "macIntel": "1.0.3",
+    "windowsArm": "1.0.4",
+    "linux": "1.0.4",
+    "macArm": "1.0.4",
+    "macIntel": "1.0.4",
     "cli": "1.0.4",
     "portable": "1.0.4"
   }

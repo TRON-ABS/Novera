@@ -24,11 +24,11 @@
 | 平台 | 可用性 |
 | --- | --- |
 | Windows x64 | [NSIS EXE / MSI](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3) |
-| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-windows-arm64) |
-| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-linux-x64) |
+| Windows ARM64 | [NSIS EXE](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.4-windows-arm64) |
+| Linux x64 | [AppImage / Debian](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.4-linux-x64) |
 | Novera CLI | [Windows x64 / Linux x64 / macOS Apple Silicon](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.4-cli-novera) |
 | Windows x64 便携版 | [ZIP](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.4-windows-portable) |
-| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.3-macos-arm64) |
+| macOS Intel / Apple Silicon | [Intel DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.4-macos) · [Apple Silicon DMG](https://github.com/TRON-ABS/Novera/releases/tag/v1.0.4-macos-arm64) |
 | Android ARM64 | [APK 1.0.4 · build 1000029](https://github.com/TRON-ABS/Novera/releases/download/v1.0.4-android-1000029/Novera_1.0.4_android-arm64.apk) · Android 7+ |
 | Web | [Novera Web 1.0.4](https://tron-abs.github.io/Novera/web/) |
 | iOS | 内部模拟器构建；在 iPhone 安装前需要 Apple 签名/配置。 [后续](docs/REPRISE_MACOS_IOS.md). |
