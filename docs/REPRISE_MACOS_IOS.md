@@ -30,6 +30,24 @@ Le candidat existant est pour simulateur. Le certificat Developer ID macOS ne re
 - [ ] Tester sur iPhone/iPad réel : discussions, clés fournisseur, pièces jointes, réseau interrompu, redémarrage, fonctions locales réellement prises en charge et mise à jour avec conservation des données.
 - [ ] Distribuer par le canal Apple retenu, puis mettre à jour la disponibilité seulement avec les preuves correspondantes.
 
+### Préparer une bêta TestFlight
+
+Le workflow [Novera iPhone archive preflight](../.github/workflows/novera-ios-device-preflight.yml) compile une archive ARM64 avec le SDK iPhoneOS et contrôle l’identifiant, les versions et la cible. Son rapport `IOS-DEVICE.json` indique aussi la version minimale d’iOS. Ce contrôle peut s’exécuter avant l’activation du compte Apple. L’export TestFlight doit partir d’un build signé.
+
+1. Dans le compte Apple Developer, enregistrer l’App ID `io.github.tronabs.novera.ios` et créer la fiche Novera dans App Store Connect avec cet identifiant. Vérifier les droits déclarés et l’accès de l’équipe à la signature de distribution.
+2. Sur un Mac Apple Silicon avec Xcode 27.2, préparer les dépendances et les ressources comme dans le workflow de prévalidation. Avec l’équipe connectée à Xcode et son identifiant dans la variable d’environnement `APPLE_DEVELOPMENT_TEAM`, lancer l’initialisation et l’export depuis la racine du dépôt. Le fichier de configuration temporaire est généré par `node scripts/distribution/ci-candidates.mjs config-ios` dans le workflow. Pour reprendre sur un Mac de développement, créer un fichier temporaire équivalent en définissant explicitement l’identifiant.
+
+   ```bash
+   export IS_TAURI=true IS_IOS=true TAURI_ENV_PLATFORM=ios
+   config='{"identifier":"io.github.tronabs.novera.ios","bundle":{"iOS":{"developmentTeam":null}}}'
+   yarn tauri ios init --ci --skip-targets-install --config "$config"
+   yarn tauri ios build --ci --target aarch64 --features mobile \
+     --export-method app-store-connect --config "$config" -- --no-default-features
+   ```
+
+3. Contrôler l’identifiant, la signature et les droits de l’archive, puis envoyer l’export iOS dans App Store Connect via Xcode ou Transporter. Renseigner les informations TestFlight et partager le build avec le groupe de test interne après traitement par Apple. [Distribution Tauri](https://tauri.app/distribute/app-store/) · [TestFlight](https://developer.apple.com/testflight/)
+4. Sur iPhone, vérifier le démarrage, le clavier, les réglages, le stockage des clés, les pièces jointes, l’inférence locale et la conservation des discussions après mise à jour.
+
 ### Validation sur simulateur pour les prochaines versions
 
 - Mettre à jour la version et le numéro de build dans `src-tauri/tauri.ios.conf.json`, puis lancer le workflow « Novera iOS simulator validation » sur le commit à publier.
