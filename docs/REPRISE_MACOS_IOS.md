@@ -1,6 +1,6 @@
 # Reprendre les sorties macOS et iOS après Android
 
-**Situation au 14 novembre 2026.** Novera iOS **1.0.4** (build **104**) a passé la validation sur simulateur depuis `main`. L’archive iPhone ARM64 a été compilée et contrôlée sur la branche TestFlight. L’activation du compte Apple Developer, la signature et l’essai sur iPhone physique restent à faire.
+**Situation au 14 novembre 2026.** Novera iOS **1.0.4** (build **104**) a passé la validation sur simulateur depuis `main`. L’archive iPhone ARM64 a été compilée et contrôlée depuis `main`. L’activation du compte Apple Developer, la signature et l’essai sur iPhone physique restent à faire.
 
 **Situation au 7 novembre 2026 :** macOS Intel et Apple Silicon sont publiés en [1.0.1](RELEASE_1.0.1_2026-11-07.md). iOS reste inclus dans la mise à jour 1.0.1 des sources communes ; le mainteneur confirme ne pas encore disposer du compte et de la signature Apple nécessaires à une distribution sur iPhone. Les remarques ci-dessous sur la 1.0.0 sont historiques.
 
@@ -22,7 +22,7 @@ La future signature Apple reste à préparer ; elle ne conditionne plus cette so
 
 ### Résultats de la 1.0.4
 
-- **Archive iPhone.** Xcode 27.2 a produit une `.xcarchive` non signée pour iPhoneOS ARM64 sur `codex/prepare-ios-testflight`. Le rapport confirme l’identifiant `io.github.tronabs.novera.ios`, la version **1.0.4**, le build **104** et le minimum déclaré **iOS 15.0**. Le ZIP GitHub Actions contient `Novera-iPhone-unsigned.xcarchive.tar.gz`. L’artefact expire le 12 février 2027. [Télécharger l’archive iPhone non signée](https://github.com/TRON-ABS/Novera/actions/runs/43604052200/artifacts/14117603381) · [Exécution et rapport de vérification](https://github.com/TRON-ABS/Novera/actions/runs/43604052200#artifacts)
+- **Archive iPhone.** Xcode 27.2 a produit une `.xcarchive` non signée pour iPhoneOS ARM64 depuis `main`. Le rapport confirme l’identifiant `io.github.tronabs.novera.ios`, la version **1.0.4**, le build **104** et le minimum déclaré **iOS 15.0**. Le ZIP GitHub Actions contient `Novera-iPhone-unsigned.xcarchive.tar.gz`. L’artefact expire le 12 février 2027. [Télécharger l’archive iPhone non signée](https://github.com/TRON-ABS/Novera/actions/runs/43607760724/artifacts/14119995861) · [Exécution et rapport de vérification](https://github.com/TRON-ABS/Novera/actions/runs/43607760724#artifacts)
 - **Simulateur.** Après l’intégration des corrections Swift et de l’identifiant dans `main` (`db60493d`), la compilation ARM64, les sept tests frontend et les démarrages avant et après réinstallation ont réussi sur iPhone Duo (iOS 27.1) et iPhone 18 Pro Max (iOS 27.2). Le fichier de test a été conservé sur les deux simulateurs. Les essais visuels et matériels restent à faire. [Exécution et rapport simulateur](https://github.com/TRON-ABS/Novera/actions/runs/43600194331#artifacts)
 
 ### Générer l’archive iPhone pour les prochaines versions
