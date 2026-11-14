@@ -577,6 +577,8 @@ mod engine {
                 "-DGGML_METAL_EMBED_LIBRARY=ON", "-DGGML_SSE42=OFF",
                 "-DGGML_AVX=OFF", "-DGGML_AVX2=OFF", "-DGGML_BMI2=OFF",
                 "-DGGML_FMA=OFF", "-DGGML_F16C=OFF"]);
+            // Tauri links the iOS static archive in Xcode without Cargo framework flags.
+            cfg.arg("-DGGML_ACCELERATE=OFF");
             if !feature_enabled("engine-metal") { cfg.arg("-DGGML_METAL=OFF"); }
         }
         // Every ggml library is staged into one directory, so each can find
@@ -788,6 +790,9 @@ mod engine {
         cfg.arg(format!("-DLLAMA_BUILD_COMMIT={LLAMA_CPP_COMMIT}"));
         match env::var("CARGO_CFG_TARGET_OS").unwrap_or_default().as_str() {
             "macos" => { cfg.args(["-DCMAKE_BUILD_WITH_INSTALL_RPATH=ON", "-DCMAKE_INSTALL_RPATH=@loader_path"]); }
+            // iOS defaults executables to app bundles. We only build the static
+            // server-context target, and upstream tool install rules expect executables.
+            "ios" => { cfg.arg("-DCMAKE_MACOSX_BUNDLE=OFF"); }
             "linux" => { cfg.args(["-DCMAKE_BUILD_WITH_INSTALL_RPATH=ON", "-DCMAKE_INSTALL_RPATH=$ORIGIN"]); }
             _ => {}
         }
