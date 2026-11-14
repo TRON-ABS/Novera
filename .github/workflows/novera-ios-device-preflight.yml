@@ -26,6 +26,18 @@ jobs:
           rustup target add aarch64-apple-ios
           bash src-tauri/build-utils/fetch-engine-source.sh
           bash scripts/distribution/ci-build.sh ios-device
+      - name: Package the verified unsigned iPhone archive
+        run: |
+          archive=$(python3 -c 'import json; print(json.load(open(".build/candidates/IOS-DEVICE.json"))["archive"])')
+          test -d "$archive"
+          tar -czf .build/candidates/Novera-iPhone-unsigned.xcarchive.tar.gz -C "$(dirname "$archive")" "$(basename "$archive")"
+          tar -tzf .build/candidates/Novera-iPhone-unsigned.xcarchive.tar.gz > /dev/null
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: novera-iphone-unsigned-xcarchive
+          path: .build/candidates/Novera-iPhone-unsigned.xcarchive.tar.gz
+          compression-level: 0
+          if-no-files-found: error
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: novera-iphone-archive-evidence
