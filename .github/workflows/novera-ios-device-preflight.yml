@@ -35,6 +35,7 @@ jobs:
       - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
         with:
           name: novera-iphone-unsigned-xcarchive
+          include-hidden-files: true
           path: .build/candidates/Novera-iPhone-unsigned.xcarchive.tar.gz
           compression-level: 0
           if-no-files-found: error
