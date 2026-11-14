@@ -30,4 +30,11 @@ Le candidat existant est pour simulateur. Le certificat Developer ID macOS ne re
 - [ ] Tester sur iPhone/iPad réel : discussions, clés fournisseur, pièces jointes, réseau interrompu, redémarrage, fonctions locales réellement prises en charge et mise à jour avec conservation des données.
 - [ ] Distribuer par le canal Apple retenu, puis mettre à jour la disponibilité seulement avec les preuves correspondantes.
 
+### Validation sur simulateur pour les prochaines versions
+
+- Mettre à jour la version et le numéro de build dans `src-tauri/tauri.ios.conf.json`, puis lancer le workflow « Novera iOS simulator validation » sur le commit à publier.
+- Utiliser les couples explicites iPhone Duo / iOS 27.1 et iPhone 18 Pro Max / iOS 27.2 avec Xcode 27.2. Ces couples ont réussi sur la branche iOS lors du [run 43534689668](https://github.com/TRON-ABS/Novera/actions/runs/43534689668). Lors d’un changement de Xcode ou de runtime, valider les nouveaux couples avant de les remplacer dans le script. L’ordre de la liste renvoyée par `simctl` varie d’un runner à l’autre.
+- En cas de blocage, relever dans le journal le modèle, le runtime, l’étape et le délai dépassé. Sur `main`, les deux premières tentatives de la 1.0.4 ont compilé puis dépassé le délai de `simctl launch` au premier démarrage. Le run du correctif utilise la matrice explicite. [Échec initial et relance](https://github.com/TRON-ABS/Novera/actions/runs/43582110101) · [Validation de la matrice sur main](https://github.com/TRON-ABS/Novera/actions/runs/43587102715)
+- Joindre au suivi de version le résultat GitHub Actions et le rapport `IOS-HEADLESS.json`. Le rapport couvre le démarrage et la réinstallation avec conservation d’un fichier de test. Les essais visuels et la validation sur iPhone physique font l’objet de contrôles distincts.
+
 Points de reprise : [LAUNCH_STATUS.md](LAUNCH_STATUS.md), [RETOUR_EXPERIENCE_RELEASES.md](RETOUR_EXPERIENCE_RELEASES.md). Ne pas confondre compilation, signature, essai sur appareil et publication.
