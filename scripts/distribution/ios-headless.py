@@ -71,15 +71,19 @@ def main():
     listing = json.loads(run('xcrun', 'simctl', 'list', 'devices', 'available', '--json'))['devices']
     types = {item['name']: item['identifier'] for item in
              json.loads(run('xcrun', 'simctl', 'list', 'devicetypes', '--json'))['devicetypes']}
-    phones = [(runtime, phone) for runtime, devices in listing.items() if '.iOS-' in runtime
-              for phone in devices if phone.get('isAvailable') and phone['name'].startswith('iPhone')]
-    if not phones:
-        raise RuntimeError('No available iPhone simulator')
-    large = next((item for item in reversed(phones) if 'Max' in item[1]['name'] or 'Plus' in item[1]['name']), None)
-    compact = next((item for item in reversed(phones) if 'Max' not in item[1]['name'] and 'Plus' not in item[1]['name']), None)
-    selected = [item for item in (compact, large) if item is not None]
+    # Use the device/runtime pairs validated together. CoreSimulator does not
+    # guarantee the order of runtimes or devices in its JSON response.
+    matrix = (
+        ('com.apple.CoreSimulator.SimRuntime.iOS-27-1', 'iPhone Duo'),
+        ('com.apple.CoreSimulator.SimRuntime.iOS-27-2', 'iPhone 18 Pro Max'),
+    )
     results = []
-    for runtime, phone in selected:
+    for runtime, name in matrix:
+        phone = next((item for item in listing.get(runtime, ())
+                      if item.get('isAvailable') and item['name'] == name), None)
+        if phone is None:
+            raise RuntimeError(f'Required simulator unavailable: {name} on {runtime}')
+        print(f'Testing {name} on {runtime}', flush=True)
         kind = phone.get('deviceTypeIdentifier') or types.get(phone['name'])
         if not kind:
             raise RuntimeError(f"Unknown simulator type: {phone['name']}")
@@ -120,8 +124,14 @@ def main():
                             'launchAfterReinstall': second > 0, 'syntheticContainerPreserved': True,
                             'processAliveAfterSeconds': 12, 'interfaceInteractionValidated': False})
         finally:
-            subprocess.run(['xcrun', 'simctl', 'shutdown', device], capture_output=True, timeout=60)
-            subprocess.run(['xcrun', 'simctl', 'delete', device], check=True, capture_output=True, timeout=60)
+            startup_failed = sys.exc_info()[0] is not None
+            for action in ('shutdown', 'delete'):
+                try:
+                    run('xcrun', 'simctl', action, device, timeout=60)
+                except (subprocess.CalledProcessError, subprocess.TimeoutExpired) as exc:
+                    if not startup_failed and action == 'delete':
+                        raise
+                    print(f'Simulator cleanup {action} failed: {exc}', file=sys.stderr, flush=True)
     frontend = json.loads((REPO / '.build/ios-headless/frontend.json').read_text())
     if frontend.get('numFailedTests') != 0 or not frontend.get('numPassedTests', 0):
         raise RuntimeError('Frontend contracts failed')
