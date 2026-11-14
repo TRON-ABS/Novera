@@ -1,0 +1,45 @@
+name: Novera iPhone archive preflight
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  archive:
+    runs-on: xcode-27
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+        with:
+          persist-credentials: false
+      - run: bash .github/scripts/select-xcode-27.2.sh
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: 24
+      - name: Build and inspect the unsigned iPhone archive
+        run: |
+          sudo xcode-select --switch "$DEVELOPER_DIR"
+          test "$(xcrun --sdk iphoneos --show-sdk-version)" = 27.2
+          xcrun --find metal || xcodebuild -downloadComponent MetalToolchain
+          bash scripts/distribution/ci-prerequisites.sh ios
+          rustup target add aarch64-apple-ios
+          bash src-tauri/build-utils/fetch-engine-source.sh
+          bash scripts/distribution/ci-build.sh ios-device
+      - name: Package the verified unsigned iPhone archive
+        run: |
+          archive=$(python3 -c 'import json; print(json.load(open(".build/candidates/IOS-DEVICE.json"))["archive"])')
+          test -d "$archive"
+          tar -czf .build/candidates/Novera-iPhone-unsigned.xcarchive.tar.gz -C "$(dirname "$archive")" "$(basename "$archive")"
+          tar -tzf .build/candidates/Novera-iPhone-unsigned.xcarchive.tar.gz > /dev/null
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: novera-iphone-unsigned-xcarchive
+          include-hidden-files: true
+          path: .build/candidates/Novera-iPhone-unsigned.xcarchive.tar.gz
+          compression-level: 0
+          if-no-files-found: error
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: novera-iphone-archive-evidence
+          include-hidden-files: true
+          path: .build/candidates/IOS-DEVICE.json
+          if-no-files-found: error

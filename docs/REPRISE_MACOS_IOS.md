@@ -25,6 +25,10 @@ La future signature Apple reste à préparer ; elle ne conditionne plus cette so
 - **Archive iPhone.** Xcode 27.2 a produit une `.xcarchive` non signée pour iPhoneOS ARM64 sur `codex/prepare-ios-testflight`. Le rapport confirme l’identifiant `io.github.tronabs.novera.ios`, la version **1.0.4**, le build **104** et le minimum déclaré **iOS 15.0**. Le ZIP GitHub Actions contient `Novera-iPhone-unsigned.xcarchive.tar.gz`. L’artefact expire le 12 février 2027. [Télécharger l’archive iPhone non signée](https://github.com/TRON-ABS/Novera/actions/runs/43604052200/artifacts/14117603381) · [Exécution et rapport de vérification](https://github.com/TRON-ABS/Novera/actions/runs/43604052200#artifacts)
 - **Simulateur.** Après l’intégration des corrections Swift et de l’identifiant dans `main` (`db60493d`), la compilation ARM64, les sept tests frontend et les démarrages avant et après réinstallation ont réussi sur iPhone Duo (iOS 27.1) et iPhone 18 Pro Max (iOS 27.2). Le fichier de test a été conservé sur les deux simulateurs. Les essais visuels et matériels restent à faire. [Exécution et rapport simulateur](https://github.com/TRON-ABS/Novera/actions/runs/43600194331#artifacts)
 
+### Générer l’archive iPhone pour les prochaines versions
+
+Après avoir actualisé la version et le numéro de build dans `src-tauri/tauri.ios.conf.json`, lancer manuellement **Novera iPhone archive preflight** dans GitHub Actions en sélectionnant `main` ou la référence à valider. Une fois le job réussi, télécharger l’artefact `novera-iphone-unsigned-xcarchive`. Son ZIP contient `Novera-iPhone-unsigned.xcarchive.tar.gz`. Le rapport `IOS-DEVICE.json` est disponible dans l’artefact `novera-iphone-archive-evidence`.
+
 ### Étapes restantes pour TestFlight
 
 1. Le titulaire active l’abonnement Apple Developer. Enregistrer l’App ID `io.github.tronabs.novera.ios` dans l’équipe Apple, créer la fiche Novera dans App Store Connect et configurer la signature de distribution, les profils de provisioning et les droits iOS.
