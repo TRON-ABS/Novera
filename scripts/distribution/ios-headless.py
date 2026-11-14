@@ -68,28 +68,25 @@ def main():
     bundle = info['CFBundleIdentifier']
     if not bundle.startswith('io.github.tronabs.novera'):
         raise ValueError('Unexpected app identity')
-    listing = json.loads(run('xcrun', 'simctl', 'list', 'runtimes', 'available', '--json'))['runtimes']
-    runtimes = [item for item in listing if item.get('isAvailable') and '.iOS-' in item['identifier']
-                and re.fullmatch(r'\d+(?:\.\d+){0,2}', item['version'])]
-    if not runtimes:
-        raise RuntimeError('No installed iOS simulator runtime')
-    selected = max(runtimes, key=lambda item: tuple(map(int, item['version'].split('.'))))
-    runtime = selected['identifier']
-    device_types = json.loads(run('xcrun', 'simctl', 'list', 'devicetypes', '--json'))['devicetypes']
-    runtime_version = [int(value) for value in selected['version'].split('.')]
-    runtime_version += [0] * (3 - len(runtime_version))
-    version_code = (runtime_version[0] << 16) + (runtime_version[1] << 8) + runtime_version[2]
-    phones = [device for device in device_types if device['name'].startswith('iPhone')
-              and device.get('minRuntimeVersion', 0) <= version_code <= device.get('maxRuntimeVersion', 0xffffffff)]
-    large = next((device for device in reversed(phones) if 'Max' in device['name'] or 'Plus' in device['name']), None)
-    compact = next((device for device in reversed(phones) if 'SE' in device['name'] or 'mini' in device['name']), None)
-    if compact is None:
-        compact = next((device for device in reversed(phones) if 'Max' not in device['name'] and 'Plus' not in device['name']), None)
-    if compact is None or large is None:
-        raise RuntimeError(f'Two distinct iPhone form factors are required for {runtime}')
+    listing = json.loads(run('xcrun', 'simctl', 'list', 'devices', 'available', '--json'))['devices']
+    types = {item['name']: item['identifier'] for item in
+             json.loads(run('xcrun', 'simctl', 'list', 'devicetypes', '--json'))['devicetypes']}
+    phones = [(runtime, phone) for runtime, devices in listing.items() if '.iOS-' in runtime
+              for phone in devices if phone.get('isAvailable') and phone['name'].startswith('iPhone')]
+    if not phones:
+        raise RuntimeError('No available iPhone simulator')
+    large = next((item for item in reversed(phones) if 'Max' in item[1]['name'] or 'Plus' in item[1]['name']), None)
+    compact = next((item for item in reversed(phones) if 'Max' not in item[1]['name'] and 'Plus' not in item[1]['name']), None)
+    selected = [item for item in (compact, large) if item is not None]
     results = []
-    for phone in [compact, large]:
-        device = owned_uuid(run('xcrun', 'simctl', 'create', 'Novera-CI-' + uuid.uuid4().hex[:8], phone['identifier'], runtime))
+    for runtime, phone in selected:
+        kind = phone.get('deviceTypeIdentifier') or types.get(phone['name'])
+        if not kind:
+            raise RuntimeError(f"Unknown simulator type: {phone['name']}")
+        try:
+            device = owned_uuid(run('xcrun', 'simctl', 'create', 'Novera-CI-' + uuid.uuid4().hex[:8], kind, runtime))
+        except subprocess.CalledProcessError as exc:
+            raise RuntimeError(f'Could not create {kind} on {runtime}: {exc.output}') from exc
         try:
             run('xcrun', 'simctl', 'boot', device)
             run('xcrun', 'simctl', 'bootstatus', device, '-b', timeout=240)
