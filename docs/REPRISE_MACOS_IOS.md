@@ -32,16 +32,25 @@ Après avoir actualisé la version et le numéro de build dans `src-tauri/tauri.
 ### Étapes restantes pour TestFlight
 
 1. Le titulaire active l’abonnement Apple Developer. Enregistrer l’App ID `io.github.tronabs.novera.ios` dans l’équipe Apple, créer la fiche Novera dans App Store Connect et configurer la signature de distribution, les profils de provisioning et les droits iOS.
-2. Générer une archive iPhone signée à partir du code retenu. Vérifier l’identifiant, le numéro de build, l’équipe de signature, les droits, les permissions, les notices et la version minimale déclarée. [Procédure d’archivage et d’export sur la branche TestFlight](https://github.com/TRON-ABS/Novera/blob/codex/prepare-ios-testflight/docs/REPRISE_MACOS_IOS.md#pr%C3%A9parer-une-b%C3%AAta-testflight)
+2. Générer une archive iPhone signée à partir du code retenu. Vérifier l’identifiant, le numéro de build, l’équipe de signature, les droits, les permissions, les notices et la version minimale déclarée. [Workflow de signature et d’envoi](#workflow-de-signature-et-denvoi-à-testflight)
 3. Envoyer le build à App Store Connect, attendre son traitement, compléter les informations de bêta et l’attribuer à un groupe TestFlight interne. Soumettre le build à la revue bêta Apple avant d’ouvrir les essais aux testeurs externes. [Guide TestFlight](https://developer.apple.com/testflight/)
 4. Installer la bêta sur un iPhone physique. Vérifier le démarrage, le clavier, les réglages, le stockage des clés API, les pièces jointes, les coupures réseau, l’inférence locale Metal et la conservation des données lors d’une mise à jour. Consigner les résultats avant d’annoncer la disponibilité.
 
 ### Workflow de signature et d’envoi à TestFlight
 
-Dans l’environnement GitHub Actions `ios-testflight`, renseigner la variable `NOVERA_IOS_APPLE_TEAM_ID` et les secrets suivants.
+Le [workflow Novera iPhone TestFlight](../.github/workflows/novera-ios-testflight.yml) est intégré à `main` depuis le commit `1fe3f2ea`. Son déclenchement est manuel et l’envoi est désactivé par défaut. La signature et l’envoi restent à valider avec le compte Apple Developer actif.
 
-- `NOVERA_IOS_CERTIFICATE_BASE64` et `NOVERA_IOS_CERTIFICATE_PASSWORD` pour le certificat **Apple Distribution** exporté en PKCS#12 avec sa clé privée.
-- `NOVERA_IOS_ASC_KEY_ID`, `NOVERA_IOS_ASC_ISSUER_ID` et `NOVERA_IOS_ASC_PRIVATE_KEY` pour une clé d’équipe App Store Connect. Enregistrer le contenu du fichier `.p8` dans le dernier secret. La clé doit autoriser le provisionnement automatique par Xcode et l’envoi des builds. Créer la fiche de l’app avec l’identifiant `io.github.tronabs.novera.ios` avant le premier envoi.
+Après activation de l’abonnement, créer la fiche de l’app dans App Store Connect avec l’identifiant `io.github.tronabs.novera.ios`. Dans l’environnement GitHub Actions `ios-testflight`, définir la variable `NOVERA_IOS_APPLE_TEAM_ID` avec l’identifiant de l’équipe Apple et ajouter les cinq secrets suivants.
+
+| Secret | Valeur |
+| --- | --- |
+| `NOVERA_IOS_CERTIFICATE_BASE64` | Fichier `.p12` du certificat Apple Distribution avec sa clé privée, encodé en Base64. |
+| `NOVERA_IOS_CERTIFICATE_PASSWORD` | Mot de passe de l’export `.p12`. |
+| `NOVERA_IOS_ASC_KEY_ID` | Identifiant de la clé d’équipe App Store Connect. |
+| `NOVERA_IOS_ASC_ISSUER_ID` | Identifiant de l’émetteur App Store Connect. |
+| `NOVERA_IOS_ASC_PRIVATE_KEY` | Contenu du fichier privé `.p8` de la clé App Store Connect. |
+
+La clé d’équipe doit autoriser le provisionnement automatique par Xcode et l’envoi des builds.
 
 Lancer manuellement **Novera iPhone TestFlight** depuis une référence approuvée. Le réglage par défaut produit un IPA signé et vérifie sa signature, son identifiant, sa version et ses droits. Activer `upload` pour transmettre l’IPA vérifié à App Store Connect. Incrémenter le numéro de build dans `src-tauri/tauri.ios.conf.json` avant chaque nouvel envoi de la même version. Une fois le build traité par Apple, compléter les informations requises et l’affecter à un groupe TestFlight. [Signature iOS avec Tauri](https://tauri.app/distribute/sign/ios/) · [Envoi des builds avec Apple](https://developer.apple.com/help/app-store-connect/manage-builds/upload-builds/)
 
