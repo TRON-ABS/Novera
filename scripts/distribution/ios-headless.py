@@ -90,7 +90,7 @@ def main():
         try:
             run('xcrun', 'simctl', 'boot', device)
             run('xcrun', 'simctl', 'bootstatus', device, '-b', timeout=240)
-            run('xcrun', 'simctl', 'install', device, str(app))
+            run('xcrun', 'simctl', 'install', device, str(app), timeout=600)
             def launch():
                 response = run('xcrun', 'simctl', 'launch', '--terminate-running-process', device, bundle)
                 match = re.search(r': (\d+)$', response)
@@ -111,7 +111,7 @@ def main():
             sentinel.write_text('Synthetic iOS reinstall preservation fixture.\n')
             expected = sentinel.read_bytes()
             run('xcrun', 'simctl', 'terminate', device, bundle)
-            run('xcrun', 'simctl', 'install', device, str(app))
+            run('xcrun', 'simctl', 'install', device, str(app), timeout=600)
             second = launch()
             after = Path(run('xcrun', 'simctl', 'get_app_container', device, bundle, 'data')) / 'Documents/novera-ci-preservation.txt'
             if after.read_bytes() != expected:
